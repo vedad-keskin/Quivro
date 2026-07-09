@@ -1,0 +1,6 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400">
+  <rect width="640" height="400" fill="#0f172a"/>
+  <circle cx="320" cy="200" r="90" fill="#2f7cf6"/>
+  <circle cx="320" cy="200" r="40" fill="#22d3ee"/>
+  <text x="320" y="360" text-anchor="middle" fill="#e2e8f0" font-family="Nunito,sans-serif" font-size="28">Cell</text>
+</svg>

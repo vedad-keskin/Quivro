@@ -1,59 +1,65 @@
-# Web
+# Quivro Web
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.6.
+Kahoot-style host app for TV: create rounds, show questions, track a live leaderboard. Mobile (Flutter) comes later; use **Test Mode** to play without phones.
 
-## Development server
-
-To start a local development server, run:
+## Run
 
 ```bash
-ng serve
+cd web
+npm install
+npm start
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open http://localhost:4200
 
-## Code scaffolding
+## Features (v1)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Create round: pick categories (Geography, Biology, Gaming, History), length (10/15/20/30 or custom), EN/BS
+- Lobby with join code + test players
+- Play screen with timer, 4-color answers, side leaderboard
+- Question types: classic MCQ + image MCQ
+- Questions live in `src/data/questions/{category}/{easy|medium|hard}.ts`
+- Add Questions UI stores extras in `localStorage` (export JSON to merge into repo later)
+- Firebase Realtime Database for live rooms when configured; otherwise local in-memory rooms for testing
 
-```bash
-ng generate component component-name
+## Firebase setup (fill placeholders)
+
+Edit [`src/environments/environment.ts`](src/environments/environment.ts):
+
+1. Create a project at https://console.firebase.google.com (Spark / free)
+2. Add a **Web** app and copy the config object
+3. Enable **Realtime Database** (start in test mode for local parties)
+4. Paste values into `environment.firebase` (especially `databaseURL` with region)
+5. Suggested rules for party-mode v1 (insecure — tighten when you add auth):
+
+```json
+{
+  "rules": {
+    "rooms": {
+      ".read": true,
+      ".write": true
+    }
+  }
+}
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Until real keys are set, the app still works in **local room** mode (banner on lobby).
 
-```bash
-ng generate --help
+## Test without mobile
+
+1. Home → **Test Mode** (or Create Round → Add test players)
+2. Start game
+3. On the play screen, use **Answer as** + the dashed answer pad to submit for each test player
+4. Optional: enable **Auto-answer bots**
+
+## Project layout
+
 ```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
+web/src/
+  app/core/           # Firebase, room, language, question bank, round generator
+  app/features/       # home, create, lobby, play, admin, test
+  app/shared/         # leaderboard, answers, timer, lang toggle
+  data/questions/     # seeded bilingual question banks
+  i18n/               # EN / BS UI strings
+  environments/       # Firebase config placeholders
 ```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
