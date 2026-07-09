@@ -1,0 +1,106 @@
+Quivro Design Style Description
+
+Modern playful SaaS design with a clean futuristic education-tech aesthetic.
+
+The interface should feel:
+
+Friendly and approachable like a learning platform.
+Energetic and engaging like a game.
+Professional and trustworthy like a business SaaS product.
+Simple and intuitive with minimal visual noise.
+Visual Style
+Minimalistic flat design
+Rounded corners and soft geometric shapes
+Smooth curves instead of sharp edges
+Clean spacing with plenty of whitespace
+Modern card-based layouts
+Simple icons with consistent stroke widths
+Clear visual hierarchy
+Color Palette
+
+Primary colors:
+
+Vibrant electric blue
+Purple gradients
+Cyan accents
+
+Supporting colors:
+
+Clean white backgrounds
+Soft gray surfaces
+Dark navy text
+
+The colors should feel:
+
+Modern
+Digital
+Optimistic
+Interactive
+
+Avoid:
+
+Dark corporate themes
+Overly serious colors
+Excessive gradients
+Too many colors at once
+Typography
+
+Use:
+
+Rounded modern sans-serif fonts
+Medium to bold weights
+Friendly but professional appearance
+
+Typography should feel similar to:
+
+Inter
+SF Pro Display
+Nunito Sans
+Circular
+Poppins
+
+Text should be:
+
+Large and readable
+High contrast
+Comfortable on mobile screens
+Components
+
+UI components should have:
+
+Cards
+
+Rounded corners (16–24px radius)
+Soft borders
+Minimal shadows or no shadows
+Large icons
+Clear information grouping
+
+Buttons
+
+Pill-shaped or softly rounded
+Bold text
+Bright primary colors
+Small playful animations
+
+Icons
+
+Simple geometric icons
+Rounded line style
+Consistent thickness
+Friendly appearance
+Overall Brand Feeling
+
+Think:
+
+Kahoot + Duolingo + Notion + Linear
+
+A platform where learning feels like a game.
+
+The user should feel:
+
+"This is easy, fun, modern, and exciting."
+
+Not:
+
+"This is another boring school system."
