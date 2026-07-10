@@ -34,6 +34,7 @@ export const en = {
   biology: 'Biology',
   gaming: 'Gaming',
   history: 'History',
+  sports: 'Sports',
   selectAtLeastOne: 'Select at least one category',
   selectAtLeastOneType: 'Select at least one question type',
   prompt: 'Question',

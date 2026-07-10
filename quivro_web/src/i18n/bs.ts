@@ -36,6 +36,7 @@ export const bs: UiStrings = {
   biology: 'Biologija',
   gaming: 'Gaming',
   history: 'Historija',
+  sports: 'Sport',
   selectAtLeastOne: 'Odaberi barem jednu kategoriju',
   selectAtLeastOneType: 'Odaberi barem jedan tip pitanja',
   prompt: 'Pitanje',

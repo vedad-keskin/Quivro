@@ -10,6 +10,9 @@ import { geographyMedium } from './mcq/geography/medium';
 import { historyEasy } from './mcq/history/easy';
 import { historyHard } from './mcq/history/hard';
 import { historyMedium } from './mcq/history/medium';
+import { sportsEasy } from './mcq/sports/easy';
+import { sportsHard } from './mcq/sports/hard';
+import { sportsMedium } from './mcq/sports/medium';
 import { biologyEasyImage } from './image_mcq/biology/easy';
 import { biologyHardImage } from './image_mcq/biology/hard';
 import { biologyMediumImage } from './image_mcq/biology/medium';
@@ -22,6 +25,9 @@ import { geographyMediumImage } from './image_mcq/geography/medium';
 import { historyEasyImage } from './image_mcq/history/easy';
 import { historyHardImage } from './image_mcq/history/hard';
 import { historyMediumImage } from './image_mcq/history/medium';
+import { sportsEasyImage } from './image_mcq/sports/easy';
+import { sportsHardImage } from './image_mcq/sports/hard';
+import { sportsMediumImage } from './image_mcq/sports/medium';
 import type { CategoryId, Difficulty, Question } from './types';
 import { CATEGORIES, DIFFICULTIES } from './types';
 
@@ -30,6 +36,7 @@ const MCQ_BANK: Record<CategoryId, Record<Difficulty, Question[]>> = {
   biology: { easy: biologyEasy, medium: biologyMedium, hard: biologyHard },
   gaming: { easy: gamingEasy, medium: gamingMedium, hard: gamingHard },
   history: { easy: historyEasy, medium: historyMedium, hard: historyHard },
+  sports: { easy: sportsEasy, medium: sportsMedium, hard: sportsHard },
 };
 
 const IMAGE_MCQ_BANK: Record<CategoryId, Record<Difficulty, Question[]>> = {
@@ -53,6 +60,11 @@ const IMAGE_MCQ_BANK: Record<CategoryId, Record<Difficulty, Question[]>> = {
     medium: historyMediumImage,
     hard: historyHardImage,
   },
+  sports: {
+    easy: sportsEasyImage,
+    medium: sportsMediumImage,
+    hard: sportsHardImage,
+  },
 };
 
 const BANK: Record<CategoryId, Record<Difficulty, Question[]>> = {
@@ -75,6 +87,11 @@ const BANK: Record<CategoryId, Record<Difficulty, Question[]>> = {
     easy: [...MCQ_BANK.history.easy, ...IMAGE_MCQ_BANK.history.easy],
     medium: [...MCQ_BANK.history.medium, ...IMAGE_MCQ_BANK.history.medium],
     hard: [...MCQ_BANK.history.hard, ...IMAGE_MCQ_BANK.history.hard],
+  },
+  sports: {
+    easy: [...MCQ_BANK.sports.easy, ...IMAGE_MCQ_BANK.sports.easy],
+    medium: [...MCQ_BANK.sports.medium, ...IMAGE_MCQ_BANK.sports.medium],
+    hard: [...MCQ_BANK.sports.hard, ...IMAGE_MCQ_BANK.sports.hard],
   },
 };
 

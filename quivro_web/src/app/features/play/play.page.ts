@@ -651,7 +651,7 @@ export class PlayPage implements OnInit, OnDestroy {
   }
 
   categoryLabel(cat: string): string {
-    const key = cat as 'geography' | 'biology' | 'gaming' | 'history';
+    const key = cat as CategoryId;
     return this.lang.t()[key] ?? cat;
   }
 
