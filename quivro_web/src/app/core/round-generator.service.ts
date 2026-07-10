@@ -65,39 +65,52 @@ export function allocateDifficultyCounts(
 }
 
 /**
- * Soft progression: trends easy → medium → hard with light interleave
- * so the round does not feel like three rigid blocks.
+ * Order questions by cycling categories so consecutive items avoid the same
+ * category when another category still has questions available.
  */
-export function softOrderByDifficulty(questions: Question[]): Question[] {
-  const pools: Record<Difficulty, Question[]> = {
-    easy: shuffle(questions.filter((q) => q.difficulty === 'easy')),
-    medium: shuffle(questions.filter((q) => q.difficulty === 'medium')),
-    hard: shuffle(questions.filter((q) => q.difficulty === 'hard')),
-  };
+export function orderByCategoryCycle(
+  questions: Question[],
+  preferNotCategory?: CategoryId,
+): Question[] {
+  if (questions.length <= 1) return [...questions];
 
-  const total = questions.length;
+  const byCategory = new Map<CategoryId, Question[]>();
+  for (const q of questions) {
+    const list = byCategory.get(q.category) ?? [];
+    list.push(q);
+    byCategory.set(q.category, list);
+  }
+  for (const [cat, list] of byCategory) {
+    byCategory.set(cat, shuffle(list));
+  }
+
   const result: Question[] = [];
+  let prev: CategoryId | undefined = preferNotCategory;
+  const total = questions.length;
 
-  for (let i = 0; i < total; i++) {
-    const t = total === 1 ? 0 : i / (total - 1);
-    // Weights ramp: easy early, hard late, medium peaks in the middle.
-    const weights: Record<Difficulty, number> = {
-      easy: Math.max(0.05, 1 - t),
-      medium: Math.max(0.05, 1 - Math.abs(t - 0.5) * 1.6),
-      hard: Math.max(0.05, t),
-    };
-
-    const available = DIFFICULTIES.filter((d) => pools[d].length > 0);
+  while (result.length < total) {
+    const available = [...byCategory.entries()].filter(([, list]) => list.length > 0);
     if (available.length === 0) break;
 
-    let sum = 0;
-    const weighted = available.map((d) => {
-      sum += weights[d];
-      return { d, cum: sum };
+    // Prefer a different category than the previous question.
+    const candidates =
+      prev == null
+        ? available
+        : available.filter(([cat]) => cat !== prev);
+    const pool = candidates.length > 0 ? candidates : available;
+
+    // Among candidates, pick the category with the most remaining (spreads runs),
+    // with a light shuffle among ties.
+    pool.sort((a, b) => {
+      if (b[1].length !== a[1].length) return b[1].length - a[1].length;
+      return Math.random() - 0.5;
     });
-    const r = Math.random() * sum;
-    const pick = weighted.find((w) => r <= w.cum)?.d ?? available[0];
-    result.push(pools[pick].shift()!);
+
+    const [cat, list] = pool[0];
+    const next = list.shift()!;
+    byCategory.set(cat, list);
+    result.push(next);
+    prev = cat;
   }
 
   return result;
@@ -126,21 +139,33 @@ export class RoundGeneratorService {
       categoryUsage.set(c, 0);
     }
 
-    const picked: Question[] = [];
+    const byDiff: Record<Difficulty, Question[]> = {
+      easy: [],
+      medium: [],
+      hard: [],
+    };
     for (const difficulty of DIFFICULTIES) {
-      picked.push(
-        ...this.pickForDifficulty(
-          all,
-          categories,
-          difficulty,
-          counts[difficulty],
-          usedIds,
-          categoryUsage,
-        ),
+      byDiff[difficulty] = this.pickForDifficulty(
+        all,
+        categories,
+        difficulty,
+        counts[difficulty],
+        usedIds,
+        categoryUsage,
       );
     }
 
-    return softOrderByDifficulty(picked);
+    const easy = orderByCategoryCycle(byDiff.easy);
+    const medium = orderByCategoryCycle(
+      byDiff.medium,
+      easy.at(-1)?.category,
+    );
+    const hard = orderByCategoryCycle(
+      byDiff.hard,
+      medium.at(-1)?.category ?? easy.at(-1)?.category,
+    );
+
+    return [...easy, ...medium, ...hard];
   }
 
   private pickForDifficulty(
@@ -175,10 +200,16 @@ export class RoundGeneratorService {
       guard++;
 
       // Prefer underused categories globally, then take one from that category.
+      // Also avoid repeating the last picked category when another is available.
+      const lastCat = picked.at(-1)?.category;
       const ranked = [...categories].sort((a, b) => {
         const ua = categoryUsage.get(a) ?? 0;
         const ub = categoryUsage.get(b) ?? 0;
         if (ua !== ub) return ua - ub;
+        if (lastCat) {
+          if (a === lastCat && b !== lastCat) return 1;
+          if (b === lastCat && a !== lastCat) return -1;
+        }
         return Math.random() - 0.5;
       });
 
