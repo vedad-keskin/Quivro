@@ -43,11 +43,21 @@ export interface PlayerAnswer {
   answeredAt: number;
 }
 
+export type ScoringMode = 'timed' | 'standard';
+
 export interface RoomConfig {
   categories: CategoryId[];
   questionTypes: QuestionType[];
   roundLength: number;
   language: Lang;
+  /** timed = speed bonus; standard = +1 per correct */
+  scoringMode: ScoringMode;
+  /** Seconds allowed for each question in the round */
+  questionSeconds: number;
+}
+
+export function clampQuestionSeconds(value: number): number {
+  return Math.min(60, Math.max(5, Math.round(value) || 15));
 }
 
 export interface RoomState {

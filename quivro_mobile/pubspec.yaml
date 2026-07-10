@@ -56,9 +56,9 @@ dev_dependencies:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: assets/branding/logo_only.png
-  adaptive_icon_background: "#000000"
-  adaptive_icon_foreground: assets/branding/logo_only.png
+  image_path: assets/branding/logo_mobile.png
+  adaptive_icon_background: "#E8F4FC"
+  adaptive_icon_foreground: assets/branding/logo_mobile.png
   remove_alpha_ios: true
 
 # For information on the generic Dart part of this file, see the
@@ -76,6 +76,7 @@ flutter:
     - assets/sounds/guess_answer.mp3
     - assets/branding/logo.png
     - assets/branding/logo_only.png
+    - assets/branding/logo_only_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

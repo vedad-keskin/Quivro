@@ -9,10 +9,7 @@ import {
   type Unsubscribe,
 } from 'firebase/database';
 import type { Question } from '../../data/questions/types';
-import {
-  DIFFICULTY_POINTS,
-  QUESTION_TIMER_MS,
-} from '../../data/questions/types';
+import { DIFFICULTY_POINTS } from '../../data/questions/types';
 import { FirebaseService } from './firebase.service';
 import { QuestionBankService } from './question-bank.service';
 import { RoundGeneratorService } from './round-generator.service';
@@ -20,12 +17,14 @@ import {
   shuffleInPlace,
   stripUndefined,
   AVATAR_COUNT,
+  clampQuestionSeconds,
   type LastWinner,
   type PlayerAnswer,
   type PublicQuestion,
   type RoomConfig,
   type RoomPlayer,
   type RoomState,
+  type ScoringMode,
 } from './room.models';
 
 const CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -138,7 +137,10 @@ export class GameRoomService {
 
     const qKey = String(room.currentIndex);
     const answers = room.answers[qKey] ?? {};
-    const duration = room.currentQuestion?.durationMs ?? QUESTION_TIMER_MS[question.type];
+    const scoringMode = room.config.scoringMode ?? 'timed';
+    const duration =
+      room.currentQuestion?.durationMs ??
+      clampQuestionSeconds(room.config.questionSeconds ?? 15) * 1000;
     const endsAt = room.currentQuestion?.endsAt ?? Date.now();
     const base = DIFFICULTY_POINTS[question.difficulty];
     const deltas: Record<string, number> = {};
@@ -148,10 +150,14 @@ export class GameRoomService {
       const ans = answers[playerId];
       let delta = 0;
       if (ans && ans.choice === correctIndex) {
-        const answeredAt = Math.min(ans.answeredAt, endsAt);
-        const timeLeft = Math.max(0, endsAt - answeredAt);
-        const speed = timeLeft / duration;
-        delta = Math.round(base * (0.4 + 0.6 * speed));
+        if (scoringMode === 'standard') {
+          delta = 1;
+        } else {
+          const answeredAt = Math.min(ans.answeredAt, endsAt);
+          const timeLeft = Math.max(0, endsAt - answeredAt);
+          const speed = timeLeft / duration;
+          delta = Math.round(base * (0.4 + 0.6 * speed));
+        }
       }
       deltas[playerId] = delta;
       playerUpdates[`players/${playerId}/score`] = player.score + delta;
@@ -178,6 +184,10 @@ export class GameRoomService {
           questionTypes: nextConfig.questionTypes,
           roundLength: nextConfig.roundLength,
           language: nextConfig.language ?? room.config.language,
+          scoringMode: nextConfig.scoringMode ?? room.config.scoringMode ?? 'timed',
+          questionSeconds: clampQuestionSeconds(
+            nextConfig.questionSeconds ?? room.config.questionSeconds ?? 15,
+          ),
         }
       : room.config;
 
@@ -203,7 +213,6 @@ export class GameRoomService {
     await remove(ref(db, `rooms/${code}/rematchReady`));
 
     await this.patch(code, {
-      phase: 'lobby',
       config,
       currentIndex: -1,
       totalQuestions: questions.length,
@@ -215,6 +224,9 @@ export class GameRoomService {
       lastWinner: room.lastWinner,
       ...playerUpdates,
     });
+
+    // Jump straight into the next round (skip lobby).
+    await this.showQuestion(code, 0);
   }
 
   async deleteRoom(code: string): Promise<void> {
@@ -266,7 +278,7 @@ export class GameRoomService {
     }
 
     const lang = room.config.language;
-    const durationMs = QUESTION_TIMER_MS[question.type];
+    const durationMs = clampQuestionSeconds(room.config.questionSeconds ?? 15) * 1000;
 
     const optionPairs = [0, 1, 2, 3].map((i) => ({
       text: question.options[i][lang],
@@ -407,6 +419,9 @@ export class GameRoomService {
     const questionTypes = Array.isArray(configRaw['questionTypes'])
       ? (configRaw['questionTypes'] as RoomConfig['questionTypes'])
       : (['mcq', 'image_mcq'] as RoomConfig['questionTypes']);
+    const scoringRaw = String(configRaw['scoringMode'] ?? 'timed');
+    const scoringMode: ScoringMode =
+      scoringRaw === 'standard' ? 'standard' : 'timed';
 
     const lw = raw['lastWinner'];
     let lastWinner: LastWinner | null = null;
@@ -427,6 +442,8 @@ export class GameRoomService {
         questionTypes,
         roundLength: Number(configRaw['roundLength'] ?? 12),
         language: (configRaw['language'] as RoomConfig['language']) ?? 'en',
+        scoringMode,
+        questionSeconds: clampQuestionSeconds(Number(configRaw['questionSeconds'] ?? 15)),
       },
       createdAt: Number(raw['createdAt'] ?? Date.now()),
       currentIndex: Number(raw['currentIndex'] ?? -1),

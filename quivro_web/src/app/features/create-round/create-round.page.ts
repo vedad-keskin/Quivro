@@ -1,8 +1,9 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, effect, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import {
   CATEGORIES,
+  QUESTION_SECONDS_PRESETS,
   QUESTION_TYPES,
   ROUND_LENGTH_PRESETS,
   type CategoryId,
@@ -11,8 +12,51 @@ import {
 import { GameRoomService } from '../../core/game-room.service';
 import { LanguageService } from '../../core/language.service';
 import { normalizeRoundLength } from '../../core/round-generator.service';
+import {
+  clampQuestionSeconds,
+  type ScoringMode,
+} from '../../core/room.models';
 import { SnackbarService } from '../../core/snackbar.service';
 import { LangToggle } from '../../shared/lang-toggle';
+
+const ROUND_PREFS_KEY = 'quivro.roundPrefs';
+
+interface RoundPrefs {
+  categories: CategoryId[];
+  questionTypes: QuestionType[];
+  length: number;
+  customMode: boolean;
+  customLength: number;
+  scoringMode: ScoringMode;
+  questionSeconds: number;
+}
+
+function loadRoundPrefs(): RoundPrefs | null {
+  try {
+    const raw = localStorage.getItem(ROUND_PREFS_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as Partial<RoundPrefs>;
+    const categories = (parsed.categories ?? []).filter((c): c is CategoryId =>
+      (CATEGORIES as readonly string[]).includes(c),
+    );
+    const questionTypes = (parsed.questionTypes ?? []).filter((t): t is QuestionType =>
+      (QUESTION_TYPES as readonly string[]).includes(t),
+    );
+    const scoringMode: ScoringMode =
+      parsed.scoringMode === 'standard' ? 'standard' : 'timed';
+    return {
+      categories: categories.length > 0 ? categories : [...CATEGORIES],
+      questionTypes: questionTypes.length > 0 ? questionTypes : [...QUESTION_TYPES],
+      length: Number(parsed.length) || 12,
+      customMode: Boolean(parsed.customMode),
+      customLength: Number(parsed.customLength) || 12,
+      scoringMode,
+      questionSeconds: clampQuestionSeconds(Number(parsed.questionSeconds) || 15),
+    };
+  } catch {
+    return null;
+  }
+}
 
 @Component({
   selector: 'app-create-round',
@@ -66,6 +110,44 @@ import { LangToggle } from '../../shared/lang-toggle';
           @if (types().length === 0) {
             <p class="hint warn">{{ lang.t().selectAtLeastOneType }}</p>
           }
+        </section>
+
+        <section>
+          <label class="q-label">{{ lang.t().scoringMode }}</label>
+          <div class="chips">
+            <button
+              type="button"
+              class="q-chip"
+              [class.active]="scoringMode() === 'timed'"
+              (click)="scoringMode.set('timed')"
+            >
+              {{ lang.t().scoringTimed }}
+            </button>
+            <button
+              type="button"
+              class="q-chip"
+              [class.active]="scoringMode() === 'standard'"
+              (click)="scoringMode.set('standard')"
+            >
+              {{ lang.t().scoringStandard }}
+            </button>
+          </div>
+        </section>
+
+        <section>
+          <label class="q-label">{{ lang.t().questionTime }}</label>
+          <div class="chips">
+            @for (n of timerPresets; track n) {
+              <button
+                type="button"
+                class="q-chip"
+                [class.active]="questionSeconds() === n"
+                (click)="questionSeconds.set(n)"
+              >
+                {{ n }}{{ lang.t().seconds }}
+              </button>
+            }
+          </div>
         </section>
 
         <section>
@@ -169,11 +251,16 @@ export class CreateRoundPage {
   readonly categories = CATEGORIES;
   readonly questionTypes = QUESTION_TYPES;
   readonly presets = ROUND_LENGTH_PRESETS;
-  readonly selected = signal<CategoryId[]>([...CATEGORIES]);
-  readonly types = signal<QuestionType[]>([...QUESTION_TYPES]);
-  readonly length = signal(12);
-  readonly customMode = signal(false);
-  readonly customLength = signal(12);
+  readonly timerPresets = QUESTION_SECONDS_PRESETS;
+
+  private readonly saved = loadRoundPrefs();
+  readonly selected = signal<CategoryId[]>(this.saved?.categories ?? [...CATEGORIES]);
+  readonly types = signal<QuestionType[]>(this.saved?.questionTypes ?? [...QUESTION_TYPES]);
+  readonly length = signal(this.saved?.length ?? 12);
+  readonly customMode = signal(this.saved?.customMode ?? false);
+  readonly customLength = signal(this.saved?.customLength ?? 12);
+  readonly scoringMode = signal<ScoringMode>(this.saved?.scoringMode ?? 'timed');
+  readonly questionSeconds = signal(this.saved?.questionSeconds ?? 15);
   readonly creating = signal(false);
 
   readonly effectiveLength = computed(() =>
@@ -186,6 +273,21 @@ export class CreateRoundPage {
       this.types().length > 0 &&
       this.rooms.isLive,
   );
+
+  constructor() {
+    effect(() => {
+      const prefs: RoundPrefs = {
+        categories: this.selected(),
+        questionTypes: this.types(),
+        length: this.length(),
+        customMode: this.customMode(),
+        customLength: this.customLength(),
+        scoringMode: this.scoringMode(),
+        questionSeconds: this.questionSeconds(),
+      };
+      localStorage.setItem(ROUND_PREFS_KEY, JSON.stringify(prefs));
+    });
+  }
 
   categoryLabel(cat: CategoryId): string {
     return this.lang.t()[cat];
@@ -213,6 +315,7 @@ export class CreateRoundPage {
   }
 
   onCustom(value: number | string): void {
+    this.customMode.set(true);
     this.customLength.set(Number(value) || 3);
   }
 
@@ -225,6 +328,8 @@ export class CreateRoundPage {
         questionTypes: this.types(),
         roundLength: this.effectiveLength(),
         language: this.lang.lang(),
+        scoringMode: this.scoringMode(),
+        questionSeconds: clampQuestionSeconds(this.questionSeconds()),
       });
       await this.router.navigate(['/lobby', code]);
     } catch (e) {

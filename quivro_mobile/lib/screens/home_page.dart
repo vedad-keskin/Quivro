@@ -95,13 +95,42 @@ class _HomePageState extends State<HomePage> {
               Row(
                 children: [
                   Expanded(
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Image.asset(
-                        'assets/branding/logo.png',
-                        height: 40,
-                        fit: BoxFit.contain,
-                      ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            // ClipRRect(
+                            //   borderRadius: BorderRadius.circular(8),
+                            //   child: Image.asset(
+                            //     'assets/branding/logo_only.png',
+                            //     width: 36,
+                            //     height: 36,
+                            //     fit: BoxFit.cover,
+                            //   ),
+                            // ),
+                            // const SizedBox(width: 1),
+                            Text(
+                              'Quivro',
+                              style: GoogleFonts.nunito(
+                                fontSize: 36,
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(top: 6),
+                          height: 4,
+                          width: 64,
+                          decoration: BoxDecoration(
+                            gradient: const LinearGradient(
+                              colors: [QuivroColors.blue, QuivroColors.purple],
+                            ),
+                            borderRadius: BorderRadius.circular(99),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   GestureDetector(

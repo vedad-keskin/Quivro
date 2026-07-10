@@ -11,10 +11,11 @@ import {
   viewChild,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { interval } from 'rxjs';
 import {
   CATEGORIES,
+  QUESTION_SECONDS_PRESETS,
   QUESTION_TYPES,
   REVEAL_MS,
   ROUND_LENGTH_PRESETS,
@@ -27,8 +28,10 @@ import { normalizeRoundLength } from '../../core/round-generator.service';
 import {
   avatarColor,
   avatarEmoji,
+  clampQuestionSeconds,
   type RoomConfig,
   type RoomPlayer,
+  type ScoringMode,
 } from '../../core/room.models';
 import { SnackbarService } from '../../core/snackbar.service';
 import { AnswerGrid } from '../../shared/answer-grid';
@@ -116,6 +119,44 @@ import { TimerRing } from '../../shared/timer-ring';
               </section>
 
               <section>
+                <label class="q-label">{{ lang.t().scoringMode }}</label>
+                <div class="setting-chips">
+                  <button
+                    type="button"
+                    class="q-chip"
+                    [class.active]="scoringMode() === 'timed'"
+                    (click)="scoringMode.set('timed')"
+                  >
+                    {{ lang.t().scoringTimed }}
+                  </button>
+                  <button
+                    type="button"
+                    class="q-chip"
+                    [class.active]="scoringMode() === 'standard'"
+                    (click)="scoringMode.set('standard')"
+                  >
+                    {{ lang.t().scoringStandard }}
+                  </button>
+                </div>
+              </section>
+
+              <section>
+                <label class="q-label">{{ lang.t().questionTime }}</label>
+                <div class="setting-chips">
+                  @for (n of timerPresets; track n) {
+                    <button
+                      type="button"
+                      class="q-chip"
+                      [class.active]="questionSeconds() === n"
+                      (click)="questionSeconds.set(n)"
+                    >
+                      {{ n }}{{ lang.t().seconds }}
+                    </button>
+                  }
+                </div>
+              </section>
+
+              <section>
                 <label class="q-label">{{ lang.t().roundLength }}</label>
                 <div class="setting-chips">
                   @for (n of presets; track n) {
@@ -135,7 +176,7 @@ import { TimerRing } from '../../shared/timer-ring';
                 <a routerLink="/" class="q-btn q-btn-outline">{{ lang.t().home }}</a>
                 <button
                   type="button"
-                  class="q-btn q-btn-outline"
+                  class="q-btn q-btn-outline start-rematch"
                   [disabled]="!canRematch() || rematching()"
                   (click)="rematch()"
                 >
@@ -406,6 +447,12 @@ import { TimerRing } from '../../shared/timer-ring';
       gap: 0.75rem;
       flex-wrap: wrap;
     }
+    .start-rematch {
+      border-color: var(--q-lime);
+    }
+    .start-rematch:disabled {
+      opacity: 0.55;
+    }
     .waiting {
       font-weight: 800;
       color: var(--q-muted);
@@ -422,7 +469,6 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly lang = inject(LanguageService);
   readonly rooms = inject(GameRoomService);
   private readonly route = inject(ActivatedRoute);
-  private readonly router = inject(Router);
   private readonly snack = inject(SnackbarService);
   private readonly destroyRef = inject(DestroyRef);
 
@@ -435,9 +481,12 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly categories = CATEGORIES;
   readonly questionTypes = QUESTION_TYPES;
   readonly presets = ROUND_LENGTH_PRESETS;
+  readonly timerPresets = QUESTION_SECONDS_PRESETS;
   readonly selectedCats = signal<CategoryId[]>([...CATEGORIES]);
   readonly selectedTypes = signal<QuestionType[]>([...QUESTION_TYPES]);
   readonly roundLength = signal(12);
+  readonly scoringMode = signal<ScoringMode>('timed');
+  readonly questionSeconds = signal(15);
   readonly rematching = signal(false);
   private configSynced = false;
 
@@ -445,6 +494,7 @@ export class PlayPage implements OnInit, OnDestroy {
   private revealing = false;
   private lastHandledReveal = -1;
   private lastFlyReveal = -1;
+  private knownRematchReady = new Set<string>();
 
   readonly players = computed<RoomPlayer[]>(() =>
     Object.values(this.room()?.players ?? {}),
@@ -498,9 +548,26 @@ export class PlayPage implements OnInit, OnDestroy {
         this.selectedCats.set([...r.config.categories]);
         this.selectedTypes.set([...r.config.questionTypes]);
         this.roundLength.set(normalizeRoundLength(r.config.roundLength));
+        this.scoringMode.set(r.config.scoringMode === 'standard' ? 'standard' : 'timed');
+        this.questionSeconds.set(clampQuestionSeconds(r.config.questionSeconds ?? 15));
+        this.knownRematchReady = new Set(
+          Object.keys(r.rematchReady ?? {}).filter((id) => r.rematchReady[id]),
+        );
+      }
+      if (r.phase === 'finished') {
+        const readyIds = Object.keys(r.rematchReady ?? {}).filter(
+          (id) => r.rematchReady[id],
+        );
+        for (const id of readyIds) {
+          if (!this.knownRematchReady.has(id)) {
+            this.knownRematchReady.add(id);
+            this.playRevengeOptInSfx();
+          }
+        }
       }
       if (r.phase !== 'finished') {
         this.configSynced = false;
+        this.knownRematchReady.clear();
       }
 
       if (r.phase === 'reveal' && this.lastHandledReveal !== r.currentIndex) {
@@ -598,9 +665,15 @@ export class PlayPage implements OnInit, OnDestroy {
         questionTypes: this.selectedTypes(),
         roundLength: normalizeRoundLength(this.roundLength()),
         language: room?.config.language ?? this.lang.lang(),
+        scoringMode: this.scoringMode(),
+        questionSeconds: clampQuestionSeconds(this.questionSeconds()),
       };
+      // Reset local reveal/fly guards for the new round.
+      this.lastHandledReveal = -1;
+      this.lastFlyReveal = -1;
+      this.revealing = false;
+      this.configSynced = false;
       await this.rooms.rematch(this.code, nextConfig);
-      await this.router.navigate(['/lobby', this.code]);
     } catch (e) {
       console.error(e);
       const msg =
@@ -616,6 +689,17 @@ export class PlayPage implements OnInit, OnDestroy {
   private playCorrectSfx(): void {
     try {
       const audio = new Audio('/sounds/correct_answer.mp3');
+      void audio.play().catch(() => {
+        /* Autoplay may be blocked until a host gesture. */
+      });
+    } catch {
+      /* Ignore audio failures. */
+    }
+  }
+
+  private playRevengeOptInSfx(): void {
+    try {
+      const audio = new Audio('/sounds/revenge_opt_in.mp3');
       void audio.play().catch(() => {
         /* Autoplay may be blocked until a host gesture. */
       });
