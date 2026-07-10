@@ -20,13 +20,6 @@ class AvatarBadge extends StatelessWidget {
       decoration: BoxDecoration(
         color: avatarColor(index),
         shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(
-            color: avatarColor(index).withValues(alpha: 0.35),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
       ),
       child: Text(
         avatarEmoji(index),
@@ -48,11 +41,16 @@ class AvatarPicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      spacing: 12,
-      runSpacing: 12,
-      alignment: WrapAlignment.center,
-      children: List.generate(avatarCount, (i) {
+    return GridView.builder(
+      padding: const EdgeInsets.only(bottom: 8),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 4,
+        mainAxisSpacing: 12,
+        crossAxisSpacing: 12,
+        childAspectRatio: 1,
+      ),
+      itemCount: avatarCount,
+      itemBuilder: (context, i) {
         final isSelected = i == selected;
         return GestureDetector(
           onTap: () => onSelected(i),
@@ -66,10 +64,10 @@ class AvatarPicker extends StatelessWidget {
                 width: 3,
               ),
             ),
-            child: AvatarBadge(index: i, size: 52),
+            child: Center(child: AvatarBadge(index: i, size: 52)),
           ),
         );
-      }),
+      },
     );
   }
 }

@@ -94,11 +94,13 @@ class _SetupPageState extends State<SetupPage> {
                 ),
               ),
               const SizedBox(height: 20),
-              AvatarPicker(
-                selected: _avatar,
-                onSelected: (i) => setState(() => _avatar = i),
+              Expanded(
+                child: AvatarPicker(
+                  selected: _avatar,
+                  onSelected: (i) => setState(() => _avatar = i),
+                ),
               ),
-              const Spacer(),
+              const SizedBox(height: 12),
               SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(
