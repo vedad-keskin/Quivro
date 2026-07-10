@@ -9,6 +9,7 @@ import '../core/room_models.dart';
 import '../core/room_repository.dart';
 import '../core/sfx.dart';
 import '../widgets/avatar_widgets.dart';
+import '../widgets/quivro_snackbar.dart';
 
 class RoomPage extends StatefulWidget {
   const RoomPage({
@@ -54,9 +55,7 @@ class _RoomPageState extends State<RoomPage> {
     await _repo.clearActiveSession();
     if (!mounted) return;
     if (showClosed) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Room closed')),
-      );
+      showQuivroSnack(context, 'Room closed');
     }
     context.go('/', extra: widget.profile);
   }
@@ -85,9 +84,7 @@ class _RoomPageState extends State<RoomPage> {
       );
     } catch (_) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Could not send answer')),
-        );
+        showQuivroSnack(context, 'Could not send answer', kind: QuivroSnackKind.error);
       }
     } finally {
       if (mounted) setState(() => _submitting = false);
@@ -104,9 +101,7 @@ class _RoomPageState extends State<RoomPage> {
       );
     } catch (_) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Could not join rematch')),
-        );
+        showQuivroSnack(context, 'Could not join rematch', kind: QuivroSnackKind.error);
       }
     } finally {
       if (mounted) setState(() => _optingIn = false);

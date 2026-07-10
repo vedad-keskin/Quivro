@@ -6,6 +6,7 @@ import '../core/avatars.dart';
 import '../core/profile_store.dart';
 import '../core/room_repository.dart';
 import '../widgets/avatar_widgets.dart';
+import '../widgets/quivro_snackbar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.profile});
@@ -54,9 +55,7 @@ class _HomePageState extends State<HomePage> {
   Future<void> _join() async {
     final code = _code.text.trim().toUpperCase();
     if (code.length < 4) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Enter the room code')),
-      );
+      showQuivroSnack(context, 'Enter the room code');
       return;
     }
 
@@ -77,7 +76,7 @@ class _HomePageState extends State<HomePage> {
       final message = e.toString().contains('ROOM_NOT_FOUND')
           ? 'Room not found. Check the code on the TV.'
           : 'Could not join. Check your connection.';
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+      showQuivroSnack(context, message, kind: QuivroSnackKind.error);
     } finally {
       if (mounted) setState(() => _joining = false);
     }

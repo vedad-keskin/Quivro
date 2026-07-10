@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../core/avatars.dart';
 import '../core/profile_store.dart';
 import '../widgets/avatar_widgets.dart';
+import '../widgets/quivro_snackbar.dart';
 
 class SetupPage extends StatefulWidget {
   const SetupPage({super.key, this.existing});
@@ -35,9 +36,7 @@ class _SetupPageState extends State<SetupPage> {
   Future<void> _save() async {
     final name = _nick.text.trim();
     if (name.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Enter a nickname')),
-      );
+      showQuivroSnack(context, 'Enter a nickname');
       return;
     }
     setState(() => _saving = true);

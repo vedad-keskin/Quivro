@@ -63,5 +63,19 @@ ThemeData buildQuivroTheme() {
         textStyle: GoogleFonts.nunito(fontWeight: FontWeight.w800, fontSize: 16),
       ),
     ),
+    snackBarTheme: SnackBarThemeData(
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Colors.white,
+      contentTextStyle: GoogleFonts.nunito(
+        fontWeight: FontWeight.w700,
+        fontSize: 15,
+        color: QuivroColors.navy,
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(18),
+        side: const BorderSide(color: QuivroColors.border, width: 2),
+      ),
+      elevation: 8,
+    ),
   );
 }
