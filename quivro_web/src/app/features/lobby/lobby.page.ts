@@ -1,4 +1,12 @@
-import { Component, computed, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  inject,
+  OnDestroy,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GameRoomService } from '../../core/game-room.service';
 import { LanguageService } from '../../core/language.service';
@@ -194,9 +202,33 @@ export class LobbyPage implements OnInit, OnDestroy {
   private code = '';
   /** Skip room teardown when navigating lobby → play. */
   private keepRoomAlive = false;
+  private knownPlayerIds = new Set<string>();
+  private playersSeeded = false;
   private readonly onPageHide = () => {
     void this.rooms.leaveHostedRoom(this.code);
   };
+
+  constructor() {
+    effect(() => {
+      const r = this.room();
+      if (!r || (this.code && r.code !== this.code)) return;
+      const ids = Object.keys(r.players ?? {});
+      if (!this.playersSeeded) {
+        this.knownPlayerIds = new Set(ids);
+        this.playersSeeded = true;
+        return;
+      }
+      for (const id of ids) {
+        if (!this.knownPlayerIds.has(id)) {
+          this.knownPlayerIds.add(id);
+          this.playJoinSfx();
+        }
+      }
+      for (const id of [...this.knownPlayerIds]) {
+        if (!ids.includes(id)) this.knownPlayerIds.delete(id);
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.code = this.route.snapshot.paramMap.get('code') ?? '';
@@ -253,6 +285,17 @@ export class LobbyPage implements OnInit, OnDestroy {
       }
     } finally {
       this.starting.set(false);
+    }
+  }
+
+  private playJoinSfx(): void {
+    try {
+      const audio = new Audio('/sounds/revenge_opt_in.mp3');
+      void audio.play().catch(() => {
+        /* Autoplay may be blocked until a host gesture. */
+      });
+    } catch {
+      /* Ignore audio failures. */
     }
   }
 }

@@ -30,6 +30,7 @@ import {
 } from './room.models';
 
 const CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+const LAST_HOSTED_CODE_KEY = 'quivro.lastHostedCode';
 
 @Injectable({ providedIn: 'root' })
 export class GameRoomService {
@@ -60,6 +61,7 @@ export class GameRoomService {
 
   async createRoom(config: RoomConfig): Promise<string> {
     const db = this.requireDb();
+    await this.deletePreviousHostedRoom();
     const questions = this.generator.generate(
       config.categories,
       config.roundLength,
@@ -89,6 +91,7 @@ export class GameRoomService {
     this.displayCorrect.set(code, []);
     await set(ref(db, `rooms/${code}`), stripUndefined(this.toFirebase(state)));
     await this.armHostDisconnect(code);
+    this.persistLastHostedCode(code);
     await this.watchRoom(code);
     return code;
   }
@@ -178,7 +181,8 @@ export class GameRoomService {
   }
 
   async endGame(code: string): Promise<void> {
-    await this.finishRound(code);
+    // Host quit mid-round — show finished screen without awarding a win.
+    await this.finishRound(code, false);
   }
 
   async rematch(code: string, nextConfig?: RoomConfig): Promise<void> {
@@ -241,6 +245,7 @@ export class GameRoomService {
     this.roundQuestions.delete(code);
     this.displayCorrect.delete(code);
     this.hostedCode = null;
+    this.clearLastHostedCode(code);
     const db = this.requireDb();
     await remove(ref(db, `rooms/${code}`));
     this.room.set(null);
@@ -263,12 +268,63 @@ export class GameRoomService {
       console.error(e);
       this.stopWatching();
       this.hostedCode = null;
+      this.clearLastHostedCode(c);
       this.room.set(null);
     }
   }
 
   get isHosting(): boolean {
     return this.hostedCode != null;
+  }
+
+  /** Drop the previous room this browser hosted so Firebase does not accumulate orphans. */
+  private async deletePreviousHostedRoom(): Promise<void> {
+    const previous = this.hostedCode ?? this.readLastHostedCode();
+    if (!previous) return;
+    try {
+      if (this.hostedCode === previous) {
+        await this.deleteRoom(previous);
+      } else {
+        const db = this.requireDb();
+        await remove(ref(db, `rooms/${previous}`));
+        this.clearLastHostedCode(previous);
+      }
+    } catch (e) {
+      console.error(e);
+      this.clearLastHostedCode(previous);
+    }
+  }
+
+  private readLastHostedCode(): string | null {
+    try {
+      const code = localStorage.getItem(LAST_HOSTED_CODE_KEY)?.trim().toUpperCase();
+      return code || null;
+    } catch {
+      return null;
+    }
+  }
+
+  private persistLastHostedCode(code: string): void {
+    try {
+      localStorage.setItem(LAST_HOSTED_CODE_KEY, code);
+    } catch {
+      /* ignore quota / private mode */
+    }
+  }
+
+  private clearLastHostedCode(code?: string): void {
+    try {
+      if (!code) {
+        localStorage.removeItem(LAST_HOSTED_CODE_KEY);
+        return;
+      }
+      const stored = localStorage.getItem(LAST_HOSTED_CODE_KEY)?.trim().toUpperCase();
+      if (!stored || stored === code.toUpperCase()) {
+        localStorage.removeItem(LAST_HOSTED_CODE_KEY);
+      }
+    } catch {
+      /* ignore */
+    }
   }
 
   private async armHostDisconnect(code: string): Promise<void> {
@@ -290,11 +346,11 @@ export class GameRoomService {
     this.disconnectOp = null;
   }
 
-  private async finishRound(code: string): Promise<void> {
+  private async finishRound(code: string, awardWin = true): Promise<void> {
     const room = await this.requireRoom(code);
     if (room.phase === 'finished') return;
 
-    const winner = this.pickWinner(room.players);
+    const winner = awardWin ? this.pickWinner(room.players) : null;
     const updates: Record<string, unknown> = {
       phase: 'finished',
       currentQuestion: null,
@@ -302,7 +358,7 @@ export class GameRoomService {
       lastWinner: winner,
       rematchReady: null,
     };
-    if (winner) {
+    if (awardWin && winner) {
       const current = room.players[winner.playerId];
       if (current) {
         updates[`players/${winner.playerId}/wins`] = (current.wins ?? 0) + 1;
