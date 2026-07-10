@@ -3,10 +3,12 @@ import 'package:quivro_mobile/core/avatars.dart';
 import 'package:quivro_mobile/core/room_models.dart';
 
 void main() {
-  test('avatar indices clamp to 0..7', () {
+  test('avatar indices clamp to 0..19', () {
     expect(avatarColor(0), avatarColors[0]);
-    expect(avatarEmoji(7), avatarEmojis[7]);
-    expect(avatarEmoji(8), avatarEmojis[7]);
+    expect(avatarEmoji(0), '🦉');
+    expect(avatarEmoji(19), avatarEmojis[19]);
+    expect(avatarEmoji(20), avatarEmojis[19]);
+    expect(avatarCount, 20);
   });
 
   test('RoomState parses player avatar', () {
@@ -19,13 +21,13 @@ void main() {
           'id': 'p1',
           'name': 'Ana',
           'score': 0,
-          'avatar': 3,
+          'avatar': 12,
           'joinedAt': 1,
         },
       },
       'answers': {},
     });
-    expect(room.players['p1']!.avatar, 3);
+    expect(room.players['p1']!.avatar, 12);
     expect(room.players['p1']!.name, 'Ana');
   });
 }

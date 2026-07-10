@@ -21,8 +21,7 @@ export const CATEGORIES: CategoryId[] = ['geography', 'biology', 'gaming', 'hist
 export const DIFFICULTIES: Difficulty[] = ['easy', 'medium', 'hard'];
 export const ROUND_LENGTH_PRESETS = [12, 15, 20, 30] as const;
 export const QUESTION_TYPES: QuestionType[] = ['mcq', 'image_mcq'];
-export const PREPARE_MS = 5_000;
-export const REVEAL_MS = 3_000;
+export const REVEAL_MS = 3_500;
 
 export const DIFFICULTY_POINTS: Record<Difficulty, number> = {
   easy: 500,

@@ -13,11 +13,7 @@ import { LangToggle } from '../../shared/lang-toggle';
       </header>
 
       <section class="hero">
-        <div class="brand">
-          <h1>Quivro</h1>
-          <div class="q-brand-line"></div>
-        </div>
-        <img class="logo" src="/logo/quivro.png" alt="" />
+        <img class="logo" src="/logo/logo.png" alt="Quivro" />
         <p class="tagline">{{ lang.t().tagline }}</p>
 
         <div class="actions">
@@ -47,19 +43,9 @@ import { LangToggle } from '../../shared/lang-toggle';
       text-align: center;
       gap: 1.1rem;
     }
-    .brand h1 {
-      margin: 0;
-      font-size: clamp(2.6rem, 6vw, 3.6rem);
-      font-weight: 900;
-    }
-    .brand {
-      display: grid;
-      justify-items: center;
-      gap: 0.15rem;
-    }
     .logo {
-      width: min(280px, 55vw);
-      margin-top: 0.5rem;
+      width: min(420px, 78vw);
+      margin-top: 0.25rem;
     }
     .tagline {
       margin: 0;

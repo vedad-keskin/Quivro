@@ -1,4 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
+import 'avatars.dart';
 
 class PlayerProfile {
   const PlayerProfile({required this.nickname, required this.avatar});
@@ -28,12 +29,15 @@ class ProfileStore {
     final nickname = prefs.getString(_nickKey);
     if (nickname == null || nickname.trim().isEmpty) return null;
     final avatar = prefs.getInt(_avatarKey) ?? 0;
-    return PlayerProfile(nickname: nickname.trim(), avatar: avatar.clamp(0, 7));
+    return PlayerProfile(
+      nickname: nickname.trim(),
+      avatar: avatar.clamp(0, avatarCount - 1),
+    );
   }
 
   Future<void> save(PlayerProfile profile) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_nickKey, profile.nickname.trim());
-    await prefs.setInt(_avatarKey, profile.avatar.clamp(0, 7));
+    await prefs.setInt(_avatarKey, profile.avatar.clamp(0, avatarCount - 1));
   }
 }

@@ -7,6 +7,7 @@ import '../core/avatars.dart';
 import '../core/profile_store.dart';
 import '../core/room_models.dart';
 import '../core/room_repository.dart';
+import '../core/sfx.dart';
 import '../widgets/avatar_widgets.dart';
 
 class RoomPage extends StatefulWidget {
@@ -27,25 +28,33 @@ class RoomPage extends StatefulWidget {
 
 class _RoomPageState extends State<RoomPage> {
   final _repo = RoomRepository();
+  final _sfx = Sfx();
   late final Stream<RoomState?> _stream;
   bool _submitting = false;
   int? _picked;
   int _trackedQuestion = -1;
+  bool _optingIn = false;
 
   @override
   void initState() {
     super.initState();
     _stream = _repo.watchRoom(widget.code);
+    unawaited(_sfx.preload());
+  }
+
+  @override
+  void dispose() {
+    unawaited(_sfx.dispose());
+    super.dispose();
   }
 
   Future<void> _answer(RoomState room, int choice) async {
-    if (room.phase != 'question' || room.hasAnswered(widget.playerId) || _submitting) {
-      return;
-    }
+    if (room.phase != 'question' || _submitting) return;
     setState(() {
       _submitting = true;
       _picked = choice;
     });
+    unawaited(_sfx.playGuess());
     try {
       await _repo.submitAnswer(
         code: widget.code,
@@ -58,10 +67,28 @@ class _RoomPageState extends State<RoomPage> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Could not send answer')),
         );
-        setState(() => _picked = null);
       }
     } finally {
       if (mounted) setState(() => _submitting = false);
+    }
+  }
+
+  Future<void> _optInRematch() async {
+    if (_optingIn) return;
+    setState(() => _optingIn = true);
+    try {
+      await _repo.setRematchReady(
+        code: widget.code,
+        playerId: widget.playerId,
+      );
+    } catch (_) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Could not join rematch')),
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _optingIn = false);
     }
   }
 
@@ -104,17 +131,9 @@ class _RoomPageState extends State<RoomPage> {
             if (!mounted) return;
             setState(() {
               _trackedQuestion = room.currentIndex;
-              _picked = null;
+              _picked = room.choiceOf(widget.playerId);
             });
           });
-        }
-        final answered = room.hasAnswered(widget.playerId);
-
-        if (room.phase == 'finished') {
-          return _FinishedView(
-            score: room.player(widget.playerId)?.score ?? 0,
-            profile: widget.profile,
-          );
         }
 
         if (room.phase == 'lobby') {
@@ -124,13 +143,14 @@ class _RoomPageState extends State<RoomPage> {
           );
         }
 
-        if (room.phase == 'prepare') {
-          return _PrepareView(
+        if (room.phase == 'finished') {
+          return _FinishedView(
+            room: room,
+            playerId: widget.playerId,
             profile: widget.profile,
-            questionNumber: room.currentIndex < 0 ? 1 : room.currentIndex + 1,
-            total: room.totalQuestions,
-            endsAt: room.prepareEndsAt ??
-                DateTime.now().millisecondsSinceEpoch + 5000,
+            optedIn: room.isRematchReady(widget.playerId),
+            optingIn: _optingIn,
+            onPlayAgain: _optInRematch,
           );
         }
 
@@ -141,16 +161,14 @@ class _RoomPageState extends State<RoomPage> {
           );
         }
 
+        final picked = _picked ?? room.choiceOf(widget.playerId);
+        final canChange = room.phase == 'question';
+
         return _PlayView(
           room: room,
           profile: widget.profile,
-          locked: answered || room.phase != 'question' || _picked != null,
-          picked: _picked ??
-              (answered
-                  ? (room.answers['${room.currentIndex}']?[widget.playerId]?['choice']
-                          as num?)
-                      ?.toInt()
-                  : null),
+          locked: !canChange,
+          picked: picked,
           onPick: (i) => _answer(room, i),
         );
       },
@@ -219,68 +237,6 @@ class _LobbyView extends StatelessWidget {
                   color: QuivroColors.muted,
                 ),
               ),
-              const Spacer(),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _PrepareView extends StatelessWidget {
-  const _PrepareView({
-    required this.profile,
-    required this.questionNumber,
-    required this.total,
-    required this.endsAt,
-  });
-
-  final PlayerProfile profile;
-  final int questionNumber;
-  final int total;
-  final int endsAt;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(28),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  AvatarBadge(index: profile.avatar, size: 44),
-                  const SizedBox(width: 10),
-                  Text(
-                    'Q $questionNumber / $total',
-                    style: GoogleFonts.nunito(
-                      fontWeight: FontWeight.w800,
-                      fontSize: 18,
-                    ),
-                  ),
-                ],
-              ),
-              const Spacer(),
-              Text(
-                'Get ready!',
-                style: GoogleFonts.nunito(
-                  fontSize: 36,
-                  fontWeight: FontWeight.w900,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'Next question coming up…',
-                style: GoogleFonts.nunito(
-                  fontWeight: FontWeight.w700,
-                  color: QuivroColors.muted,
-                  fontSize: 16,
-                ),
-              ),
-              const SizedBox(height: 28),
-              _Countdown(endsAt: endsAt),
               const Spacer(),
             ],
           ),
@@ -366,11 +322,11 @@ class _PlayView extends StatelessWidget {
                 ],
               ),
             ),
-            if (locked && room.phase == 'question')
+            if (picked != null && room.phase == 'question')
               Padding(
                 padding: const EdgeInsets.only(bottom: 6),
                 child: Text(
-                  'Answer sent!',
+                  'Tap another answer to change',
                   style: GoogleFonts.nunito(
                     fontWeight: FontWeight.w800,
                     color: QuivroColors.blue,
@@ -556,45 +512,177 @@ class _CountdownState extends State<_Countdown> {
 }
 
 class _FinishedView extends StatelessWidget {
-  const _FinishedView({required this.score, required this.profile});
+  const _FinishedView({
+    required this.room,
+    required this.playerId,
+    required this.profile,
+    required this.optedIn,
+    required this.optingIn,
+    required this.onPlayAgain,
+  });
 
-  final int score;
+  final RoomState room;
+  final String playerId;
   final PlayerProfile profile;
+  final bool optedIn;
+  final bool optingIn;
+  final VoidCallback onPlayAgain;
 
   @override
   Widget build(BuildContext context) {
+    final ranked = room.ranked();
+    final winnerId = room.lastWinner?.playerId;
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(28),
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 24),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Spacer(),
-              AvatarBadge(index: profile.avatar, size: 80),
-              const SizedBox(height: 16),
               Text(
-                'Nice game, ${profile.nickname}!',
-                textAlign: TextAlign.center,
+                'Final leaderboard',
                 style: GoogleFonts.nunito(
                   fontSize: 28,
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                '$score pts',
-                style: GoogleFonts.nunito(
-                  fontSize: 40,
                   fontWeight: FontWeight.w900,
-                  color: QuivroColors.blue,
                 ),
               ),
-              const Spacer(),
+              if (room.lastWinner != null) ...[
+                const SizedBox(height: 8),
+                Row(
+                  children: [
+                    Text(
+                      'Winner: ',
+                      style: GoogleFonts.nunito(
+                        fontWeight: FontWeight.w700,
+                        color: QuivroColors.muted,
+                      ),
+                    ),
+                    AvatarBadge(index: room.lastWinner!.avatar, size: 28),
+                    const SizedBox(width: 8),
+                    Text(
+                      room.lastWinner!.name,
+                      style: GoogleFonts.nunito(
+                        fontWeight: FontWeight.w800,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+              const SizedBox(height: 16),
+              Expanded(
+                child: ListView.separated(
+                  itemCount: ranked.length,
+                  separatorBuilder: (_, _) => const SizedBox(height: 10),
+                  itemBuilder: (context, i) {
+                    final p = ranked[i];
+                    final isSelf = p.id == playerId;
+                    final isWinner = p.id == winnerId;
+                    return Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 14,
+                        vertical: 12,
+                      ),
+                      decoration: BoxDecoration(
+                        color: isSelf
+                            ? const Color(0xFFE0F2FE)
+                            : isWinner
+                                ? const Color(0xFFF5F3FF)
+                                : const Color(0xFFF8FAFC),
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(
+                          color: isSelf
+                              ? QuivroColors.blue
+                              : isWinner
+                                  ? QuivroColors.purple
+                                  : const Color(0xFFE2E8F0),
+                          width: isSelf || isWinner ? 2 : 1,
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 28,
+                            child: Text(
+                              '${i + 1}',
+                              style: GoogleFonts.nunito(
+                                fontWeight: FontWeight.w900,
+                                fontSize: 18,
+                                color: QuivroColors.muted,
+                              ),
+                            ),
+                          ),
+                          AvatarBadge(index: p.avatar, size: 40),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  p.name,
+                                  style: GoogleFonts.nunito(
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                if (p.wins > 0)
+                                  Text(
+                                    '${p.wins}W',
+                                    style: GoogleFonts.nunito(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 12,
+                                      color: QuivroColors.purple,
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                          Text(
+                            '${p.score}',
+                            style: GoogleFonts.nunito(
+                              fontWeight: FontWeight.w900,
+                              fontSize: 20,
+                              color: QuivroColors.blue,
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+              if (optedIn) ...[
+                const SizedBox(height: 8),
+                Text(
+                  "You're in for another round — waiting for the host…",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.nunito(
+                    fontWeight: FontWeight.w800,
+                    color: QuivroColors.blue,
+                  ),
+                ),
+              ],
+              const SizedBox(height: 16),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: optedIn || optingIn ? null : onPlayAgain,
+                  child: Text(
+                    optedIn
+                        ? 'Ready!'
+                        : optingIn
+                            ? 'Joining…'
+                            : 'Play again',
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
               SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(
                   onPressed: () => context.go('/', extra: profile),
-                  child: const Text('Back home'),
+                  child: const Text('Home'),
                 ),
               ),
             ],

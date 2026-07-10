@@ -52,7 +52,7 @@ class AvatarPicker extends StatelessWidget {
       spacing: 12,
       runSpacing: 12,
       alignment: WrapAlignment.center,
-      children: List.generate(8, (i) {
+      children: List.generate(avatarCount, (i) {
         final isSelected = i == selected;
         return GestureDetector(
           onTap: () => onSelected(i),

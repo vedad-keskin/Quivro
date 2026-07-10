@@ -58,6 +58,13 @@ export const bs: UiStrings = {
   points: 'bod.',
   getReady: 'Spremite se!',
   preparing: 'Slijedi sljedeće pitanje…',
+  answered: 'Odgovorili',
+  wins: 'pobjede',
+  lastWinner: 'Pobjednik prošle runde',
+  rematchLobby: 'Čeka se sljedeća runda…',
+  readyForRematch: 'Spremni za revanš',
+  startRematch: 'Pokreni revanš',
+  rematchSettings: 'Sljedeća runda',
   firebaseMissing:
     'Firebase je obavezan. Provjeri environment.ts i Realtime Database pravila.',
   createFailed: 'Nije moguće kreirati sobu',

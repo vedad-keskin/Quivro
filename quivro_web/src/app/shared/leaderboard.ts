@@ -9,12 +9,17 @@ import { avatarColor, avatarEmoji, type RoomPlayer } from '../core/room.models';
       <div class="q-brand-line"></div>
       <ol>
         @for (player of ranked(); track player.id; let i = $index) {
-          <li>
+          <li [attr.data-player-id]="player.id">
             <span class="rank">{{ i + 1 }}</span>
             <span class="avatar" [style.background]="avatarColor(player.avatar)">{{
               avatarEmoji(player.avatar)
             }}</span>
-            <span class="name">{{ player.name }}</span>
+            <span class="name">
+              {{ player.name }}
+              @if (player.wins > 0) {
+                <span class="wins">{{ player.wins }}W</span>
+              }
+            </span>
             <span class="score">{{ player.score }}</span>
             @if (deltas()?.[player.id]; as d) {
               @if (d > 0) {
@@ -78,6 +83,17 @@ import { avatarColor, avatarEmoji, type RoomPlayer } from '../core/room.models';
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .wins {
+      font-size: 0.7rem;
+      font-weight: 900;
+      color: var(--q-purple);
+      background: #f5f3ff;
+      padding: 0.1rem 0.35rem;
+      border-radius: 999px;
     }
     .score {
       font-weight: 900;

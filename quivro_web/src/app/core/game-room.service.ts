@@ -11,14 +11,16 @@ import {
 import type { Question } from '../../data/questions/types';
 import {
   DIFFICULTY_POINTS,
-  PREPARE_MS,
   QUESTION_TIMER_MS,
 } from '../../data/questions/types';
 import { FirebaseService } from './firebase.service';
 import { QuestionBankService } from './question-bank.service';
 import { RoundGeneratorService } from './round-generator.service';
 import {
+  shuffleInPlace,
   stripUndefined,
+  AVATAR_COUNT,
+  type LastWinner,
   type PlayerAnswer,
   type PublicQuestion,
   type RoomConfig,
@@ -38,6 +40,8 @@ export class GameRoomService {
 
   private unsubscribe: Unsubscribe | null = null;
   private roundQuestions = new Map<string, Question[]>();
+  /** Shuffled correct index per question for each room */
+  private displayCorrect = new Map<string, number[]>();
 
   get isLive(): boolean {
     return this.firebase.configured;
@@ -70,13 +74,15 @@ export class GameRoomService {
       totalQuestions: questions.length,
       currentQuestion: null,
       correctIndex: null,
-      prepareEndsAt: null,
       players: {},
       answers: {},
       questionIds: questions.map((q) => q.id),
+      lastWinner: null,
+      rematchReady: {},
     };
 
     this.roundQuestions.set(code, questions);
+    this.displayCorrect.set(code, []);
     await set(ref(db, `rooms/${code}`), stripUndefined(this.toFirebase(state)));
     await this.watchRoom(code);
     return code;
@@ -106,51 +112,17 @@ export class GameRoomService {
     if (Object.keys(room.players).length === 0) {
       throw new Error('NO_PLAYERS');
     }
-    await this.beginPrepare(code, 0);
-  }
-
-  async beginPrepare(code: string, index: number): Promise<void> {
-    const room = await this.requireRoom(code);
-    if (index >= room.totalQuestions) {
-      await this.patch(code, {
-        phase: 'finished',
-        currentQuestion: null,
-        correctIndex: null,
-        prepareEndsAt: null,
-      });
-      return;
-    }
-
-    await this.patch(code, {
-      phase: 'prepare',
-      currentIndex: index,
-      prepareEndsAt: Date.now() + PREPARE_MS,
-      currentQuestion: null,
-      correctIndex: null,
-      lastScoreDeltas: null,
-    });
-  }
-
-  async startPreparedQuestion(code: string): Promise<void> {
-    const room = await this.requireRoom(code);
-    if (room.phase !== 'prepare') return;
-    const index = room.currentIndex < 0 ? 0 : room.currentIndex;
-    await this.showQuestion(code, index);
+    await this.showQuestion(code, 0);
   }
 
   async nextAfterReveal(code: string): Promise<void> {
     const room = await this.requireRoom(code);
     const next = room.currentIndex + 1;
     if (next >= room.totalQuestions) {
-      await this.patch(code, {
-        phase: 'finished',
-        currentQuestion: null,
-        correctIndex: null,
-        prepareEndsAt: null,
-      });
+      await this.finishRound(code);
       return;
     }
-    await this.beginPrepare(code, next);
+    await this.showQuestion(code, next);
   }
 
   async reveal(code: string): Promise<void> {
@@ -161,9 +133,12 @@ export class GameRoomService {
     const question = questions[room.currentIndex];
     if (!question) return;
 
+    const correctIndex =
+      this.displayCorrect.get(code)?.[room.currentIndex] ?? question.correctIndex;
+
     const qKey = String(room.currentIndex);
     const answers = room.answers[qKey] ?? {};
-    const duration = QUESTION_TIMER_MS[question.type];
+    const duration = room.currentQuestion?.durationMs ?? QUESTION_TIMER_MS[question.type];
     const endsAt = room.currentQuestion?.endsAt ?? Date.now();
     const base = DIFFICULTY_POINTS[question.difficulty];
     const deltas: Record<string, number> = {};
@@ -172,7 +147,7 @@ export class GameRoomService {
     for (const [playerId, player] of Object.entries(room.players)) {
       const ans = answers[playerId];
       let delta = 0;
-      if (ans && ans.choice === question.correctIndex) {
+      if (ans && ans.choice === correctIndex) {
         const answeredAt = Math.min(ans.answeredAt, endsAt);
         const timeLeft = Math.max(0, endsAt - answeredAt);
         const speed = timeLeft / duration;
@@ -184,28 +159,102 @@ export class GameRoomService {
 
     await this.patch(code, {
       phase: 'reveal',
-      correctIndex: question.correctIndex,
-      prepareEndsAt: null,
+      correctIndex,
       lastScoreDeltas: deltas,
       ...playerUpdates,
     });
   }
 
   async endGame(code: string): Promise<void> {
+    await this.finishRound(code);
+  }
+
+  async rematch(code: string, nextConfig?: RoomConfig): Promise<void> {
+    const room = await this.fetchFreshRoom(code);
+    // Wins already applied in finishRound; keep lastWinner and reset round state.
+    const config: RoomConfig = nextConfig
+      ? {
+          categories: nextConfig.categories,
+          questionTypes: nextConfig.questionTypes,
+          roundLength: nextConfig.roundLength,
+          language: nextConfig.language ?? room.config.language,
+        }
+      : room.config;
+
+    const playerUpdates: Record<string, unknown> = {};
+    for (const id of Object.keys(room.players)) {
+      playerUpdates[`players/${id}/score`] = 0;
+    }
+
+    const questions = this.generator.generate(
+      config.categories,
+      config.roundLength,
+      config.questionTypes,
+    );
+    if (questions.length === 0) {
+      throw new Error('NO_QUESTIONS');
+    }
+
+    this.roundQuestions.set(code, questions);
+    this.displayCorrect.set(code, []);
+
+    const db = this.requireDb();
+    await remove(ref(db, `rooms/${code}/answers`));
+    await remove(ref(db, `rooms/${code}/rematchReady`));
+
     await this.patch(code, {
-      phase: 'finished',
+      phase: 'lobby',
+      config,
+      currentIndex: -1,
+      totalQuestions: questions.length,
       currentQuestion: null,
       correctIndex: null,
-      prepareEndsAt: null,
+      lastScoreDeltas: null,
+      rematchReady: null,
+      questionIds: questions.map((q) => q.id),
+      lastWinner: room.lastWinner,
+      ...playerUpdates,
     });
   }
 
   async deleteRoom(code: string): Promise<void> {
     this.stopWatching();
     this.roundQuestions.delete(code);
+    this.displayCorrect.delete(code);
     const db = this.requireDb();
     await remove(ref(db, `rooms/${code}`));
     this.room.set(null);
+  }
+
+  private async finishRound(code: string): Promise<void> {
+    const room = await this.requireRoom(code);
+    if (room.phase === 'finished') return;
+
+    const winner = this.pickWinner(room.players);
+    const updates: Record<string, unknown> = {
+      phase: 'finished',
+      currentQuestion: null,
+      correctIndex: null,
+      lastWinner: winner,
+      rematchReady: null,
+    };
+    if (winner) {
+      const current = room.players[winner.playerId];
+      if (current) {
+        updates[`players/${winner.playerId}/wins`] = (current.wins ?? 0) + 1;
+      }
+    }
+    await this.patch(code, updates);
+  }
+
+  private pickWinner(players: Record<string, RoomPlayer>): LastWinner | null {
+    const list = Object.values(players);
+    if (list.length === 0) return null;
+    const sorted = [...list].sort(
+      (a, b) => b.score - a.score || a.name.localeCompare(b.name),
+    );
+    const top = sorted[0];
+    return { playerId: top.id, name: top.name, avatar: top.avatar };
   }
 
   private async showQuestion(code: string, index: number): Promise<void> {
@@ -218,6 +267,20 @@ export class GameRoomService {
 
     const lang = room.config.language;
     const durationMs = QUESTION_TIMER_MS[question.type];
+
+    const optionPairs = [0, 1, 2, 3].map((i) => ({
+      text: question.options[i][lang],
+      originalIndex: i,
+    }));
+    shuffleInPlace(optionPairs);
+    const displayCorrect = optionPairs.findIndex(
+      (o) => o.originalIndex === question.correctIndex,
+    );
+
+    const corrects = this.displayCorrect.get(code) ?? [];
+    corrects[index] = displayCorrect;
+    this.displayCorrect.set(code, corrects);
+
     const publicQ: PublicQuestion = {
       id: question.id,
       type: question.type,
@@ -225,10 +288,10 @@ export class GameRoomService {
       difficulty: question.difficulty,
       prompt: question.prompt[lang],
       options: [
-        question.options[0][lang],
-        question.options[1][lang],
-        question.options[2][lang],
-        question.options[3][lang],
+        optionPairs[0].text,
+        optionPairs[1].text,
+        optionPairs[2].text,
+        optionPairs[3].text,
       ],
       endsAt: Date.now() + durationMs,
       durationMs,
@@ -247,7 +310,6 @@ export class GameRoomService {
       currentIndex: index,
       currentQuestion: publicQ,
       correctIndex: null,
-      prepareEndsAt: null,
       lastScoreDeltas: null,
     });
   }
@@ -311,11 +373,12 @@ export class GameRoomService {
       totalQuestions: state.totalQuestions,
       currentQuestion: state.currentQuestion,
       correctIndex: state.correctIndex,
-      prepareEndsAt: state.prepareEndsAt,
       players: state.players,
       answers: state.answers,
       questionIds: state.questionIds,
       lastScoreDeltas: state.lastScoreDeltas ?? null,
+      lastWinner: state.lastWinner,
+      rematchReady: state.rematchReady,
     };
   }
 
@@ -325,8 +388,11 @@ export class GameRoomService {
       id: String(raw['id'] ?? id),
       name: String(raw['name'] ?? 'Player'),
       score: Number(raw['score'] ?? 0),
-      avatar: Number.isFinite(avatarRaw) ? ((avatarRaw % 8) + 8) % 8 : 0,
+      avatar: Number.isFinite(avatarRaw)
+        ? ((avatarRaw % AVATAR_COUNT) + AVATAR_COUNT) % AVATAR_COUNT
+        : 0,
       joinedAt: Number(raw['joinedAt'] ?? Date.now()),
+      wins: Number(raw['wins'] ?? 0),
     };
   }
 
@@ -341,6 +407,17 @@ export class GameRoomService {
     const questionTypes = Array.isArray(configRaw['questionTypes'])
       ? (configRaw['questionTypes'] as RoomConfig['questionTypes'])
       : (['mcq', 'image_mcq'] as RoomConfig['questionTypes']);
+
+    const lw = raw['lastWinner'];
+    let lastWinner: LastWinner | null = null;
+    if (lw && typeof lw === 'object') {
+      const o = lw as Record<string, unknown>;
+      lastWinner = {
+        playerId: String(o['playerId'] ?? ''),
+        name: String(o['name'] ?? ''),
+        avatar: Number(o['avatar'] ?? 0),
+      };
+    }
 
     return {
       code,
@@ -359,14 +436,12 @@ export class GameRoomService {
         raw['correctIndex'] === undefined || raw['correctIndex'] === null
           ? null
           : Number(raw['correctIndex']),
-      prepareEndsAt:
-        raw['prepareEndsAt'] === undefined || raw['prepareEndsAt'] === null
-          ? null
-          : Number(raw['prepareEndsAt']),
       players,
       answers: (raw['answers'] as Record<string, Record<string, PlayerAnswer>>) ?? {},
       questionIds: (raw['questionIds'] as string[]) ?? [],
       lastScoreDeltas: (raw['lastScoreDeltas'] as Record<string, number>) ?? undefined,
+      lastWinner,
+      rematchReady: (raw['rematchReady'] as Record<string, boolean>) ?? {},
     };
   }
 }

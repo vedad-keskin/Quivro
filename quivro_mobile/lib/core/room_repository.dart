@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:firebase_database/firebase_database.dart';
+import 'avatars.dart';
 import 'room_models.dart';
 
 class RoomRepository {
@@ -40,12 +41,27 @@ class RoomRepository {
     final roomSnap = await roomRef(upper).get();
     final raw = roomSnap.value;
     final usedNames = <String>{};
+    String? existingId;
     if (raw is Map && raw['players'] is Map) {
-      for (final entry in (raw['players'] as Map).values) {
-        if (entry is Map && entry['name'] != null) {
-          usedNames.add('${entry['name']}'.toLowerCase());
+      for (final entry in (raw['players'] as Map).entries) {
+        final value = entry.value;
+        if (value is Map && value['name'] != null) {
+          final n = '${value['name']}';
+          usedNames.add(n.toLowerCase());
+          if (n.toLowerCase() == name.trim().toLowerCase()) {
+            existingId = '${entry.key}';
+          }
         }
       }
+    }
+
+    // Rejoin same nickname in rematch lobby — keep wins.
+    if (existingId != null) {
+      await roomRef(upper).child('players').child(existingId).update({
+        'avatar': avatar.clamp(0, avatarCount - 1),
+        'name': name.trim().isEmpty ? 'Player' : name.trim(),
+      });
+      return existingId;
     }
 
     var unique = name.trim().isEmpty ? 'Player' : name.trim();
@@ -64,8 +80,9 @@ class RoomRepository {
       'id': id,
       'name': unique,
       'score': 0,
-      'avatar': avatar.clamp(0, 7),
+      'avatar': avatar.clamp(0, avatarCount - 1),
       'joinedAt': DateTime.now().millisecondsSinceEpoch,
+      'wins': 0,
     });
 
     return id;
@@ -77,13 +94,19 @@ class RoomRepository {
     required String playerId,
     required int choice,
   }) async {
-    final path = roomRef(code).child('answers').child('$questionIndex').child(playerId);
-    final existing = await path.get();
-    if (existing.exists) return;
-
+    final path =
+        roomRef(code).child('answers').child('$questionIndex').child(playerId);
+    // Allow reselect — always overwrite choice + timestamp.
     await path.set({
       'choice': choice,
       'answeredAt': DateTime.now().millisecondsSinceEpoch,
     });
+  }
+
+  Future<void> setRematchReady({
+    required String code,
+    required String playerId,
+  }) async {
+    await roomRef(code).child('rematchReady').child(playerId).set(true);
   }
 }

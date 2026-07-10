@@ -1,4 +1,5 @@
 import { Component, input, output } from '@angular/core';
+import { avatarColor, avatarEmoji, type RoomPlayer } from '../core/room.models';
 
 const COLORS = ['var(--answer-a)', 'var(--answer-b)', 'var(--answer-c)', 'var(--answer-d)'];
 const LABELS = ['A', 'B', 'C', 'D'];
@@ -19,6 +20,22 @@ const LABELS = ['A', 'B', 'C', 'D'];
         >
           <span class="letter">{{ LABELS[i] }}</span>
           <span class="text">{{ option }}</span>
+          @if (revealed()) {
+            @let choosers = (choicesByIndex()[i] ?? []);
+            @if (choosers.length > 0) {
+              <span class="pickers">
+                @for (p of choosers; track p.id) {
+                  <span
+                    class="picker"
+                    [style.background]="avatarColor(p.avatar)"
+                    [title]="p.name"
+                  >
+                    {{ avatarEmoji(p.avatar) }}
+                  </span>
+                }
+              </span>
+            }
+          }
         </button>
       }
     </div>
@@ -30,6 +47,7 @@ const LABELS = ['A', 'B', 'C', 'D'];
       gap: 1rem;
     }
     .answer {
+      position: relative;
       display: flex;
       align-items: center;
       gap: 0.85rem;
@@ -58,6 +76,28 @@ const LABELS = ['A', 'B', 'C', 'D'];
       background: rgba(255, 255, 255, 0.55);
       flex-shrink: 0;
     }
+    .text {
+      flex: 1;
+      min-width: 0;
+    }
+    .pickers {
+      position: absolute;
+      right: 0.65rem;
+      bottom: 0.55rem;
+      display: flex;
+      flex-direction: row-reverse;
+    }
+    .picker {
+      width: 1.85rem;
+      height: 1.85rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 0.85rem;
+      border: 2px solid #fff;
+      margin-left: -0.45rem;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.18);
+    }
     .reveal .answer.wrong {
       filter: grayscale(0.7) brightness(0.85);
       opacity: 0.7;
@@ -76,9 +116,12 @@ const LABELS = ['A', 'B', 'C', 'D'];
 export class AnswerGrid {
   readonly COLORS = COLORS;
   readonly LABELS = LABELS;
+  readonly avatarColor = avatarColor;
+  readonly avatarEmoji = avatarEmoji;
   readonly options = input<[string, string, string, string] | string[]>([]);
   readonly revealed = input(false);
   readonly correctIndex = input<number | null>(null);
   readonly disabled = input(false);
+  readonly choicesByIndex = input<Record<number, RoomPlayer[]>>({});
   readonly pick = output<number>();
 }

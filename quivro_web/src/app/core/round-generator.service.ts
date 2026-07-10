@@ -41,8 +41,11 @@ export class RoundGeneratorService {
       .filter((q) => categories.includes(q.category) && types.includes(q.type));
 
     const result: Question[] = [];
+    const usedIds = new Set<string>();
     for (const difficulty of DIFFICULTIES) {
-      result.push(...this.pickForDifficulty(all, categories, difficulty, perBand));
+      result.push(
+        ...this.pickForDifficulty(all, categories, difficulty, perBand, usedIds),
+      );
     }
     return result;
   }
@@ -52,8 +55,11 @@ export class RoundGeneratorService {
     categories: CategoryId[],
     difficulty: Difficulty,
     count: number,
+    usedIds: Set<string>,
   ): Question[] {
-    const pool = shuffle(all.filter((q) => q.difficulty === difficulty));
+    const pool = shuffle(
+      all.filter((q) => q.difficulty === difficulty && !usedIds.has(q.id)),
+    );
     if (pool.length === 0) {
       console.warn(`No questions for difficulty ${difficulty}`);
       return [];
@@ -71,19 +77,33 @@ export class RoundGeneratorService {
     let guard = 0;
     while (picked.length < count && guard < count * 20) {
       guard++;
+      let tookAny = false;
       for (const category of categories) {
         if (picked.length >= count) break;
         const list = byCategory.get(category) ?? [];
-        const next = list.shift();
-        if (next) {
+        while (list.length > 0) {
+          const next = list.shift()!;
+          if (usedIds.has(next.id)) continue;
           picked.push(next);
-          list.push(next);
-          byCategory.set(category, list);
+          usedIds.add(next.id);
+          tookAny = true;
+          break;
         }
+        byCategory.set(category, list);
       }
-      if (categories.every((c) => (byCategory.get(c)?.length ?? 0) === 0)) {
-        const fallback = pool[picked.length % pool.length];
-        if (fallback) picked.push(fallback);
+
+      if (picked.length >= count) break;
+
+      if (!tookAny) {
+        const fallback = pool.find((q) => !usedIds.has(q.id));
+        if (!fallback) {
+          console.warn(
+            `Exhausted unique questions for difficulty ${difficulty} (need ${count}, got ${picked.length})`,
+          );
+          break;
+        }
+        picked.push(fallback);
+        usedIds.add(fallback.id);
       }
     }
 

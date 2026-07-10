@@ -95,28 +95,13 @@ class _HomePageState extends State<HomePage> {
               Row(
                 children: [
                   Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Quivro',
-                          style: GoogleFonts.nunito(
-                            fontSize: 36,
-                            fontWeight: FontWeight.w800,
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.only(top: 6),
-                          height: 4,
-                          width: 64,
-                          decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [QuivroColors.blue, QuivroColors.purple],
-                            ),
-                            borderRadius: BorderRadius.circular(99),
-                          ),
-                        ),
-                      ],
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Image.asset(
+                        'assets/branding/logo.png',
+                        height: 40,
+                        fit: BoxFit.contain,
+                      ),
                     ),
                   ),
                   GestureDetector(

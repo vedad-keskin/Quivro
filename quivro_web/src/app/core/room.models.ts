@@ -3,7 +3,6 @@ import type { Lang } from '../../i18n/types';
 
 export type RoomPhase =
   | 'lobby'
-  | 'prepare'
   | 'question'
   | 'reveal'
   | 'leaderboard'
@@ -13,9 +12,16 @@ export interface RoomPlayer {
   id: string;
   name: string;
   score: number;
-  /** Avatar index 0..7 — shared with mobile */
+  /** Avatar index 0..19 — shared with mobile */
   avatar: number;
   joinedAt: number;
+  wins: number;
+}
+
+export interface LastWinner {
+  playerId: string;
+  name: string;
+  avatar: number;
 }
 
 export interface PublicQuestion {
@@ -53,16 +59,15 @@ export interface RoomState {
   totalQuestions: number;
   currentQuestion: PublicQuestion | null;
   correctIndex: number | null;
-  prepareEndsAt: number | null;
   players: Record<string, RoomPlayer>;
-  /** answers[questionIndex][playerId] */
   answers: Record<string, Record<string, PlayerAnswer>>;
-  /** Host-only full question ids for the round */
   questionIds: string[];
   lastScoreDeltas?: Record<string, number>;
+  lastWinner: LastWinner | null;
+  /** Players who tapped Play again on mobile */
+  rematchReady: Record<string, boolean>;
 }
 
-/** Shared avatar accents (index 0..7) — keep in sync with Flutter */
 export const AVATAR_COLORS = [
   '#22d3ee',
   '#f97316',
@@ -72,19 +77,56 @@ export const AVATAR_COLORS = [
   '#7b3ff2',
   '#eab308',
   '#14b8a6',
+  '#ef4444',
+  '#0ea5e9',
+  '#a855f7',
+  '#10b981',
+  '#f59e0b',
+  '#6366f1',
+  '#d946ef',
+  '#06b6d4',
+  '#f43f5e',
+  '#8b5cf6',
+  '#22c55e',
+  '#3b82f6',
 ] as const;
 
-export const AVATAR_EMOJIS = ['😎', '🦊', '🐯', '🐸', '🤖', '🦄', '🦁', '🐼'] as const;
+/** Creature / object icons only — no face smileys. */
+export const AVATAR_EMOJIS = [
+  '🦉',
+  '🦊',
+  '🐯',
+  '🐸',
+  '🤖',
+  '🦄',
+  '🦁',
+  '🐼',
+  '🐙',
+  '🐺',
+  '🐨',
+  '🐲',
+  '🐧',
+  '🐝',
+  '🦋',
+  '🐢',
+  '🦈',
+  '🦅',
+  '🦕',
+  '🦔',
+] as const;
+
+export const AVATAR_COUNT = AVATAR_EMOJIS.length;
 
 export function avatarColor(index: number): string {
-  return AVATAR_COLORS[((index % 8) + 8) % 8];
+  const n = AVATAR_COUNT;
+  return AVATAR_COLORS[((index % n) + n) % n];
 }
 
 export function avatarEmoji(index: number): string {
-  return AVATAR_EMOJIS[((index % 8) + 8) % 8];
+  const n = AVATAR_COUNT;
+  return AVATAR_EMOJIS[((index % n) + n) % n];
 }
 
-/** Firebase RTDB rejects undefined — strip recursively */
 export function stripUndefined<T>(value: T): T {
   if (value === undefined) {
     return null as T;
@@ -102,4 +144,12 @@ export function stripUndefined<T>(value: T): T {
     }
   }
   return out as T;
+}
+
+export function shuffleInPlace<T>(items: T[]): T[] {
+  for (let i = items.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [items[i], items[j]] = [items[j], items[i]];
+  }
+  return items;
 }

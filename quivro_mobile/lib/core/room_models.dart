@@ -1,3 +1,5 @@
+import 'avatars.dart';
+
 class PublicQuestion {
   PublicQuestion({
     required this.id,
@@ -57,6 +59,7 @@ class RoomPlayer {
     required this.score,
     required this.avatar,
     required this.joinedAt,
+    this.wins = 0,
   });
 
   final String id;
@@ -64,14 +67,36 @@ class RoomPlayer {
   final int score;
   final int avatar;
   final int joinedAt;
+  final int wins;
 
   factory RoomPlayer.fromMap(String id, Map<dynamic, dynamic> map) {
     return RoomPlayer(
       id: '${map['id'] ?? id}',
       name: '${map['name'] ?? 'Player'}',
       score: (map['score'] as num?)?.toInt() ?? 0,
-      avatar: ((map['avatar'] as num?)?.toInt() ?? 0).clamp(0, 7),
+      avatar: ((map['avatar'] as num?)?.toInt() ?? 0).clamp(0, avatarCount - 1),
       joinedAt: (map['joinedAt'] as num?)?.toInt() ?? 0,
+      wins: (map['wins'] as num?)?.toInt() ?? 0,
+    );
+  }
+}
+
+class LastWinner {
+  LastWinner({
+    required this.playerId,
+    required this.name,
+    required this.avatar,
+  });
+
+  final String playerId;
+  final String name;
+  final int avatar;
+
+  factory LastWinner.fromMap(Map<dynamic, dynamic> map) {
+    return LastWinner(
+      playerId: '${map['playerId'] ?? ''}',
+      name: '${map['name'] ?? ''}',
+      avatar: ((map['avatar'] as num?)?.toInt() ?? 0).clamp(0, avatarCount - 1),
     );
   }
 }
@@ -86,7 +111,8 @@ class RoomState {
     required this.answers,
     this.currentQuestion,
     this.correctIndex,
-    this.prepareEndsAt,
+    this.lastWinner,
+    this.rematchReady = const {},
   });
 
   final String code;
@@ -95,9 +121,10 @@ class RoomState {
   final int totalQuestions;
   final PublicQuestion? currentQuestion;
   final int? correctIndex;
-  final int? prepareEndsAt;
+  final LastWinner? lastWinner;
   final Map<String, RoomPlayer> players;
   final Map<String, Map<String, Map<dynamic, dynamic>>> answers;
+  final Map<String, bool> rematchReady;
 
   factory RoomState.fromSnapshot(String code, Map<dynamic, dynamic> map) {
     final playersRaw = map['players'];
@@ -131,7 +158,19 @@ class RoomState {
     }
 
     final correct = map['correctIndex'];
-    final prepare = map['prepareEndsAt'];
+    LastWinner? lastWinner;
+    final lw = map['lastWinner'];
+    if (lw is Map) {
+      lastWinner = LastWinner.fromMap(lw);
+    }
+
+    final rematchReady = <String, bool>{};
+    final rr = map['rematchReady'];
+    if (rr is Map) {
+      rr.forEach((key, value) {
+        if (value == true) rematchReady['$key'] = true;
+      });
+    }
 
     return RoomState(
       code: code,
@@ -140,11 +179,14 @@ class RoomState {
       totalQuestions: (map['totalQuestions'] as num?)?.toInt() ?? 0,
       currentQuestion: question,
       correctIndex: correct == null ? null : (correct as num).toInt(),
-      prepareEndsAt: prepare == null ? null : (prepare as num).toInt(),
+      lastWinner: lastWinner,
       players: players,
       answers: answers,
+      rematchReady: rematchReady,
     );
   }
+
+  bool isRematchReady(String playerId) => rematchReady[playerId] == true;
 
   bool hasAnswered(String playerId) {
     if (currentIndex < 0) return false;
@@ -152,5 +194,22 @@ class RoomState {
     return bucket != null && bucket.containsKey(playerId);
   }
 
+  int? choiceOf(String playerId) {
+    if (currentIndex < 0) return null;
+    final ans = answers['$currentIndex']?[playerId];
+    if (ans == null) return null;
+    return (ans['choice'] as num?)?.toInt();
+  }
+
   RoomPlayer? player(String id) => players[id];
+
+  List<RoomPlayer> ranked() {
+    final list = players.values.toList()
+      ..sort((a, b) {
+        final byScore = b.score.compareTo(a.score);
+        if (byScore != 0) return byScore;
+        return a.name.compareTo(b.name);
+      });
+    return list;
+  }
 }

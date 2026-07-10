@@ -74,6 +74,13 @@ import { LangToggle } from '../../shared/lang-toggle';
       max-width: 1100px;
       margin: 0 auto;
     }
+    .mark {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      margin-bottom: 0.75rem;
+      box-shadow: 0 8px 20px rgba(47, 124, 246, 0.2);
+    }
     .main,
     .side {
       border: 2px solid var(--q-border);

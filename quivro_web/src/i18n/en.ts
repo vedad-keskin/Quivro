@@ -56,6 +56,13 @@ export const en = {
   points: 'pts',
   getReady: 'Get ready!',
   preparing: 'Next question coming up…',
+  answered: 'Answered',
+  wins: 'wins',
+  lastWinner: 'Last round winner',
+  rematchLobby: 'Waiting for next round…',
+  readyForRematch: 'Ready for rematch',
+  startRematch: 'Start rematch',
+  rematchSettings: 'Next round',
   firebaseMissing:
     'Firebase is required. Check environment.ts and Realtime Database rules.',
   createFailed: 'Could not create room',
