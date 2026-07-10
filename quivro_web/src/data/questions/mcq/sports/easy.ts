@@ -748,7 +748,7 @@ export const sportsEasy: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'easy',
-    prompt: { en: 'Which sport is played with a shuttlecock?', bs: 'Koji sport se igra s perjanicom (shuttlecock)?' },
+    prompt: { en: 'Which sport is played with a shuttlecock?', bs: 'Koji sport se igra s perjanicom?' },
     options: [
       { en: 'Tennis', bs: 'Tenis' },
       { en: 'Badminton', bs: 'Badminton' },

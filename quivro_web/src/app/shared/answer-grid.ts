@@ -1,8 +1,18 @@
-import { Component, input, output } from '@angular/core';
+import {
+  afterNextRender,
+  afterRenderEffect,
+  Component,
+  DestroyRef,
+  ElementRef,
+  inject,
+  input,
+  output,
+} from '@angular/core';
 import { avatarColor, avatarEmoji, type RoomPlayer } from '../core/room.models';
 
 const COLORS = ['var(--answer-a)', 'var(--answer-b)', 'var(--answer-c)', 'var(--answer-d)'];
 const LABELS = ['A', 'B', 'C', 'D'];
+const MIN_FONT_PX = 14;
 
 @Component({
   selector: 'app-answer-grid',
@@ -19,7 +29,9 @@ const LABELS = ['A', 'B', 'C', 'D'];
           (click)="pick.emit(i)"
         >
           <span class="letter">{{ LABELS[i] }}</span>
-          <span class="text">{{ option }}</span>
+          <span class="text">
+            <span class="fit">{{ option }}</span>
+          </span>
           @if (revealed()) {
             @let choosers = (choicesByIndex()[i] ?? []);
             @if (choosers.length > 0) {
@@ -100,7 +112,7 @@ const LABELS = ['A', 'B', 'C', 'D'];
       min-width: 0;
       min-height: 0;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
       padding: 0 0.35rem;
       text-align: center;
@@ -108,6 +120,9 @@ const LABELS = ['A', 'B', 'C', 'D'];
       font-size: clamp(1.85rem, 4.5vw, 3.25rem);
       font-weight: 800;
       overflow: hidden;
+    }
+    .fit {
+      max-width: 100%;
       overflow-wrap: break-word;
     }
     .pickers {
@@ -172,6 +187,9 @@ const LABELS = ['A', 'B', 'C', 'D'];
   `,
 })
 export class AnswerGrid {
+  private readonly host = inject(ElementRef<HTMLElement>);
+  private readonly destroyRef = inject(DestroyRef);
+
   readonly COLORS = COLORS;
   readonly LABELS = LABELS;
   readonly avatarColor = avatarColor;
@@ -182,4 +200,77 @@ export class AnswerGrid {
   readonly disabled = input(false);
   readonly choicesByIndex = input<Record<number, RoomPlayer[]>>({});
   readonly pick = output<number>();
+
+  private resizeObserver: ResizeObserver | null = null;
+  private fitScheduled = false;
+
+  constructor() {
+    afterNextRender(() => {
+      const grid = this.host.nativeElement.querySelector('.answers');
+      if (!grid) return;
+      this.resizeObserver = new ResizeObserver(() => this.scheduleFit());
+      this.resizeObserver.observe(grid);
+      this.scheduleFit();
+    });
+
+    afterRenderEffect(() => {
+      this.options();
+      this.scheduleFit();
+    });
+
+    this.destroyRef.onDestroy(() => {
+      this.resizeObserver?.disconnect();
+      this.resizeObserver = null;
+    });
+  }
+
+  private scheduleFit(): void {
+    if (this.fitScheduled) return;
+    this.fitScheduled = true;
+    requestAnimationFrame(() => {
+      this.fitScheduled = false;
+      this.fitAllTexts();
+    });
+  }
+
+  private fitAllTexts(): void {
+    const texts = this.host.nativeElement.querySelectorAll('.text');
+    for (const node of texts) {
+      this.fitText(node as HTMLElement);
+    }
+  }
+
+  private fitText(el: HTMLElement): void {
+    const inner = el.querySelector('.fit') as HTMLElement | null;
+    if (!inner) return;
+
+    el.style.fontSize = '';
+    const preferred = parseFloat(getComputedStyle(el).fontSize);
+    if (!Number.isFinite(preferred) || preferred <= 0) return;
+
+    const maxPx = preferred;
+    const minPx = Math.min(MIN_FONT_PX, maxPx);
+    const fits = () =>
+      inner.offsetHeight <= el.clientHeight + 1 &&
+      inner.offsetWidth <= el.clientWidth + 1;
+
+    if (fits()) return;
+
+    let lo = minPx;
+    let hi = maxPx;
+    let best = minPx;
+
+    while (hi - lo > 0.5) {
+      const mid = (lo + hi) / 2;
+      el.style.fontSize = `${mid}px`;
+      if (fits()) {
+        best = mid;
+        lo = mid;
+      } else {
+        hi = mid;
+      }
+    }
+
+    el.style.fontSize = `${best}px`;
+  }
 }
