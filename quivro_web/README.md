@@ -12,6 +12,25 @@ npm start
 
 Open http://localhost:4200
 
+## Deploy (Vercel)
+
+This app is configured for Vercel via [`vercel.json`](vercel.json) (SPA rewrites + `dist/web/browser` output).
+
+1. Push the repo to GitHub / GitLab / Bitbucket.
+2. In [Vercel](https://vercel.com/new), **Import** the repo.
+3. Set **Root Directory** to `quivro_web` (required — this is a monorepo).
+4. Leave Build Command / Output Directory as detected from `vercel.json`.
+5. Deploy.
+
+Or from this folder with the CLI:
+
+```bash
+cd quivro_web
+npx vercel
+```
+
+After deploy, add your Vercel domain (e.g. `your-app.vercel.app`) under Firebase Console → Authentication → Settings → Authorized domains if you use Firebase Auth later. Realtime Database already works from any origin with your current open rules.
+
 ## Features
 
 - Create round: categories (Geography, Biology, Gaming, History), length (10/15/20/30 or custom), EN/BS
