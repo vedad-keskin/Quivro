@@ -1,4 +1,4 @@
-import type { Question } from '../types';
+import type { Question } from '../../types';
 
 export const historyMedium: Question[] = [
   {
@@ -73,18 +73,17 @@ export const historyMedium: Question[] = [
   },
   {
     id: 'hist-med-006',
-    type: 'image_mcq',
+    type: 'mcq',
     category: 'history',
     difficulty: 'medium',
-    prompt: { en: 'This crown icon is linked to which idea?', bs: 'Ova ikona krune je povezana sa kojom idejom?' },
+    prompt: { en: "In which year did World War II end in Europe (VE Day)?", bs: "Koje godine je Drugi svjetski rat završio u Evropi (Dan pobjede)?" },
     options: [
-      { en: 'Monarchy / royalty', bs: 'Monarhija / kraljevstvo' },
-      { en: 'Democracy only', bs: 'Samo demokratija' },
-      { en: 'Trade unions', bs: 'Sindikati' },
-      { en: 'Space travel', bs: 'Svemirska putovanja' },
+      { en: "1943", bs: "1943" },
+      { en: "1944", bs: "1944" },
+      { en: "1945", bs: "1945" },
+      { en: "1946", bs: "1946" },
     ],
-    correctIndex: 0,
-    image: 'questions/placeholders/crown.svg',
+    correctIndex: 2,
   },
   {
     id: 'hist-med-007',

@@ -1,4 +1,4 @@
-import type { Question } from '../types';
+import type { Question } from '../../types';
 
 export const geographyHard: Question[] = [
   {
@@ -73,18 +73,17 @@ export const geographyHard: Question[] = [
   },
   {
     id: 'geo-hard-006',
-    type: 'image_mcq',
+    type: 'mcq',
     category: 'geography',
     difficulty: 'hard',
-    prompt: { en: 'Which mountain range does this silhouette suggest?', bs: 'Koji planinski lanac podsjeća na ovu siluetu?' },
+    prompt: { en: "Which strait separates Europe from Africa at Gibraltar?", bs: "Koji moreuz razdvaja Evropu od Afrike kod Gibraltara?" },
     options: [
-      { en: 'Alps', bs: 'Alpi' },
-      { en: 'Andes', bs: 'Andi' },
-      { en: 'Himalayas', bs: 'Himalaji' },
-      { en: 'Rockies', bs: 'Stjenovite planine' },
+      { en: "Bering Strait", bs: "Beringov moreuz" },
+      { en: "Strait of Gibraltar", bs: "Gibraltarski moreuz" },
+      { en: "Strait of Magellan", bs: "Magelanov moreuz" },
+      { en: "Bosporus", bs: "Bosfor" },
     ],
-    correctIndex: 2,
-    image: 'questions/placeholders/mountains.svg',
+    correctIndex: 1,
   },
   {
     id: 'geo-hard-007',

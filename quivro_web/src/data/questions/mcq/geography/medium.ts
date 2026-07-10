@@ -1,4 +1,4 @@
-import type { Question } from '../types';
+import type { Question } from '../../types';
 
 export const geographyMedium: Question[] = [
   {
@@ -73,18 +73,17 @@ export const geographyMedium: Question[] = [
   },
   {
     id: 'geo-med-006',
-    type: 'image_mcq',
+    type: 'mcq',
     category: 'geography',
     difficulty: 'medium',
-    prompt: { en: 'Which city is famous for this skyline shape?', bs: 'Koji grad je poznat po ovom obliku horizonta?' },
+    prompt: { en: "Which desert is the largest hot desert in the world?", bs: "Koja je najveća vruća pustinja na svijetu?" },
     options: [
-      { en: 'Dubai', bs: 'Dubai' },
-      { en: 'New York', bs: 'New York' },
-      { en: 'Tokyo', bs: 'Tokio' },
-      { en: 'Sydney', bs: 'Sidnej' },
+      { en: "Gobi", bs: "Gobi" },
+      { en: "Sahara", bs: "Sahara" },
+      { en: "Kalahari", bs: "Kalahari" },
+      { en: "Mojave", bs: "Mojave" },
     ],
-    correctIndex: 0,
-    image: 'questions/placeholders/skyline.svg',
+    correctIndex: 1,
   },
   {
     id: 'geo-med-007',

@@ -1,4 +1,4 @@
-import type { Question } from '../types';
+import type { Question } from '../../types';
 
 export const biologyEasy: Question[] = [
   {
@@ -73,18 +73,17 @@ export const biologyEasy: Question[] = [
   },
   {
     id: 'bio-easy-006',
-    type: 'image_mcq',
+    type: 'mcq',
     category: 'biology',
     difficulty: 'easy',
-    prompt: { en: 'Which animal is this silhouette?', bs: 'Koja je ovo životinja?' },
+    prompt: { en: "What gas do humans breathe in to survive?", bs: "Koji gas ljudi udišu da bi preživjeli?" },
     options: [
-      { en: 'Cat', bs: 'Mačka' },
-      { en: 'Dog', bs: 'Pas' },
-      { en: 'Bird', bs: 'Ptica' },
-      { en: 'Fish', bs: 'Riba' },
+      { en: "Oxygen", bs: "Kiseonik" },
+      { en: "Nitrogen only", bs: "Samo azot" },
+      { en: "Helium", bs: "Helijum" },
+      { en: "Carbon monoxide", bs: "Ugljen-monoksid" },
     ],
-    correctIndex: 2,
-    image: 'questions/placeholders/bird.svg',
+    correctIndex: 0,
   },
   {
     id: 'bio-easy-007',

@@ -1,4 +1,4 @@
-import type { Question } from '../types';
+import type { Question } from '../../types';
 
 export const historyEasy: Question[] = [
   {
@@ -73,18 +73,17 @@ export const historyEasy: Question[] = [
   },
   {
     id: 'hist-easy-006',
-    type: 'image_mcq',
+    type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Which ancient structure does this suggest?', bs: 'Koju drevnu građevinu ovo podsjeća?' },
+    prompt: { en: "Which ancient civilization built the Great Wall of China?", bs: "Koja drevna civilizacija je gradila Kineski zid?" },
     options: [
-      { en: 'Pyramid', bs: 'Piramida' },
-      { en: 'Castle', bs: 'Dvorac' },
-      { en: 'Bridge', bs: 'Most' },
-      { en: 'Lighthouse', bs: 'Svjetionik' },
+      { en: "Chinese", bs: "Kineska" },
+      { en: "Roman", bs: "Rimska" },
+      { en: "Aztec", bs: "Asteci" },
+      { en: "Greek", bs: "Grčka" },
     ],
     correctIndex: 0,
-    image: 'questions/placeholders/pyramid.svg',
   },
   {
     id: 'hist-easy-007',

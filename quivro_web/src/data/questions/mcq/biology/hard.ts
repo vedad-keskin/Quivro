@@ -1,4 +1,4 @@
-import type { Question } from '../types';
+import type { Question } from '../../types';
 
 export const biologyHard: Question[] = [
   {
@@ -73,18 +73,17 @@ export const biologyHard: Question[] = [
   },
   {
     id: 'bio-hard-006',
-    type: 'image_mcq',
+    type: 'mcq',
     category: 'biology',
     difficulty: 'hard',
-    prompt: { en: 'Which organ system does this icon represent?', bs: 'Koji organski sistem predstavlja ova ikona?' },
+    prompt: { en: "What is the primary function of ribosomes?", bs: "Koja je primarna funkcija ribosoma?" },
     options: [
-      { en: 'Nervous system', bs: 'Nervni sistem' },
-      { en: 'Digestive system', bs: 'Digestivni sistem' },
-      { en: 'Skeletal system', bs: 'Skeletni sistem' },
-      { en: 'Respiratory system', bs: 'Respiratorni sistem' },
+      { en: "Protein synthesis", bs: "Sinteza proteina" },
+      { en: "DNA replication", bs: "Replikacija DNK" },
+      { en: "Lipid storage", bs: "Skladištenje lipida" },
+      { en: "Cell motility", bs: "Pokretljivost ćelije" },
     ],
     correctIndex: 0,
-    image: 'questions/placeholders/brain.svg',
   },
   {
     id: 'bio-hard-007',

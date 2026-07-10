@@ -1,4 +1,4 @@
-import type { Question } from '../types';
+import type { Question } from '../../types';
 
 export const biologyMedium: Question[] = [
   {
@@ -73,18 +73,17 @@ export const biologyMedium: Question[] = [
   },
   {
     id: 'bio-med-006',
-    type: 'image_mcq',
+    type: 'mcq',
     category: 'biology',
     difficulty: 'medium',
-    prompt: { en: 'Which cell structure is suggested here?', bs: 'Koja ćelijska struktura je prikazana?' },
+    prompt: { en: "Which blood cells help fight infection?", bs: "Koje krvne ćelije pomažu u borbi protiv infekcije?" },
     options: [
-      { en: 'Nucleus', bs: 'Jezgro' },
-      { en: 'Cell wall', bs: 'Ćelijski zid' },
-      { en: 'Mitochondria', bs: 'Mitohondrije' },
-      { en: 'Vacuole', bs: 'Vakuola' },
+      { en: "Red blood cells", bs: "Crvena krvna zrnca" },
+      { en: "White blood cells", bs: "Bijela krvna zrnca" },
+      { en: "Platelets only", bs: "Samo trombociti" },
+      { en: "Plasma proteins", bs: "Proteini plazme" },
     ],
-    correctIndex: 0,
-    image: 'questions/placeholders/cell.svg',
+    correctIndex: 1,
   },
   {
     id: 'bio-med-007',

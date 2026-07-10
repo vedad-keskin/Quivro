@@ -1,4 +1,4 @@
-import type { Question } from '../types';
+import type { Question } from '../../types';
 
 export const historyHard: Question[] = [
   {
@@ -73,18 +73,17 @@ export const historyHard: Question[] = [
   },
   {
     id: 'hist-hard-006',
-    type: 'image_mcq',
+    type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'This scroll icon best fits which historical theme?', bs: 'Ova ikona svitka najbolje odgovara kojoj historijskoj temi?' },
+    prompt: { en: "The Magna Carta was sealed in which country?", bs: "U kojoj zemlji je pečatirana Magna Carta?" },
     options: [
-      { en: 'Laws / documents', bs: 'Zakoni / dokumenti' },
-      { en: 'Naval battles', bs: 'Pomorske bitke' },
-      { en: 'Agriculture only', bs: 'Samo poljoprivreda' },
-      { en: 'Fashion', bs: 'Moda' },
+      { en: "France", bs: "Francuska" },
+      { en: "England", bs: "Engleska" },
+      { en: "Spain", bs: "Španija" },
+      { en: "Italy", bs: "Italija" },
     ],
-    correctIndex: 0,
-    image: 'questions/placeholders/scroll.svg',
+    correctIndex: 1,
   },
   {
     id: 'hist-hard-007',

@@ -1,4 +1,4 @@
-import type { Question } from '../types';
+import type { Question } from '../../types';
 
 export const gamingHard: Question[] = [
   {
@@ -73,18 +73,17 @@ export const gamingHard: Question[] = [
   },
   {
     id: 'game-hard-006',
-    type: 'image_mcq',
+    type: 'mcq',
     category: 'gaming',
     difficulty: 'hard',
-    prompt: { en: 'This icon best represents which gaming concept?', bs: 'Ova ikona najbolje predstavlja koji gejmerski koncept?' },
+    prompt: { en: "What does \"hitbox\" refer to in game design?", bs: "Na šta se odnosi \"hitbox\" u dizajnu igara?" },
     options: [
-      { en: 'Achievement / trophy', bs: 'Achievement / trofej' },
-      { en: 'Lag', bs: 'Lag' },
-      { en: 'Chat mute', bs: 'Mute chata' },
-      { en: 'Server crash', bs: 'Pad servera' },
+      { en: "The invisible area used for collision/hit detection", bs: "Nevidljivo područje za detekciju sudara/pogodaka" },
+      { en: "A UI inventory slot", bs: "Slot inventara u UI-ju" },
+      { en: "A save file checksum", bs: "Kontrolni zbir save fajla" },
+      { en: "The game soundtrack BPM", bs: "BPM soundtracka igre" },
     ],
     correctIndex: 0,
-    image: 'questions/placeholders/trophy.svg',
   },
   {
     id: 'game-hard-007',

@@ -1,4 +1,4 @@
-import type { Question } from '../types';
+import type { Question } from '../../types';
 
 export const gamingEasy: Question[] = [
   {
@@ -73,18 +73,17 @@ export const gamingEasy: Question[] = [
   },
   {
     id: 'game-easy-006',
-    type: 'image_mcq',
+    type: 'mcq',
     category: 'gaming',
     difficulty: 'easy',
-    prompt: { en: 'Which classic controller shape is this?', bs: 'Koji klasični kontroler je ovo?' },
+    prompt: { en: "What does \"NPC\" usually mean in games?", bs: "Šta \"NPC\" obično znači u igrama?" },
     options: [
-      { en: 'Game controller', bs: 'Gejmerski kontroler' },
-      { en: 'Keyboard', bs: 'Tastatura' },
-      { en: 'Mouse', bs: 'Miš' },
-      { en: 'Headset', bs: 'Slušalice' },
+      { en: "Non-player character", bs: "Lik kojim ne upravlja igrač" },
+      { en: "New player code", bs: "Kod novog igrača" },
+      { en: "Network ping check", bs: "Provjera pinga" },
+      { en: "Next power crystal", bs: "Sljedeći kristal moći" },
     ],
     correctIndex: 0,
-    image: 'questions/placeholders/controller.svg',
   },
   {
     id: 'game-easy-007',

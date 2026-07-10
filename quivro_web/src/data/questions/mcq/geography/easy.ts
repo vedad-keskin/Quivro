@@ -1,4 +1,4 @@
-import type { Question } from '../types';
+import type { Question } from '../../types';
 
 export const geographyEasy: Question[] = [
   {
@@ -73,18 +73,17 @@ export const geographyEasy: Question[] = [
   },
   {
     id: 'geo-easy-006',
-    type: 'image_mcq',
+    type: 'mcq',
     category: 'geography',
     difficulty: 'easy',
-    prompt: { en: 'Which landmark is this?', bs: 'Koji je ovo spomenik?' },
+    prompt: { en: "Which ocean is the largest?", bs: "Koji je okean najveći?" },
     options: [
-      { en: 'Eiffel Tower', bs: 'Ajfelov toranj' },
-      { en: 'Big Ben', bs: 'Big Ben' },
-      { en: 'Statue of Liberty', bs: 'Kip slobode' },
-      { en: 'Colosseum', bs: 'Koloseum' },
+      { en: "Atlantic", bs: "Atlantski" },
+      { en: "Indian", bs: "Indijski" },
+      { en: "Pacific", bs: "Tihi" },
+      { en: "Arctic", bs: "Arktički" },
     ],
-    correctIndex: 0,
-    image: 'questions/placeholders/tower.svg',
+    correctIndex: 2,
   },
   {
     id: 'geo-easy-007',

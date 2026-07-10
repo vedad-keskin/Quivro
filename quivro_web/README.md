@@ -14,15 +14,14 @@ Open http://localhost:4200
 
 ## Deploy (Vercel)
 
-This app is configured for Vercel via [`vercel.json`](vercel.json) (SPA rewrites + `dist/web/browser` output).
+This is a monorepo. Deploy from the **repo root** (uses root [`vercel.json`](../vercel.json)) or set Vercel **Root Directory** to `quivro_web`.
 
 1. Push the repo to GitHub / GitLab / Bitbucket.
-2. In [Vercel](https://vercel.com/new), **Import** the repo.
-3. Set **Root Directory** to `quivro_web` (required — this is a monorepo).
-4. Leave Build Command / Output Directory as detected from `vercel.json`.
-5. Deploy.
+2. In [Vercel](https://vercel.com/new), **Import** the Quivro repo.
+3. Leave Root Directory empty (root `vercel.json` handles `quivro_web`), **or** set Root Directory to `quivro_web`.
+4. Deploy.
 
-Or from this folder with the CLI:
+Or from the web app folder with the CLI:
 
 ```bash
 cd quivro_web
@@ -37,7 +36,8 @@ After deploy, add your Vercel domain (e.g. `your-app.vercel.app`) under Firebase
 - Lobby with join code; players join from mobile
 - Play screen with timer, 4-color answers, side leaderboard with avatars
 - Question types: classic MCQ + image MCQ
-- Questions in `src/data/questions/{category}/{easy|medium|hard}.ts`
+- Text MCQs in `src/data/questions/mcq/{category}/{easy|medium|hard}.ts`
+- Image MCQs in `src/data/questions/image_mcq/{category}/{easy|medium|hard}.ts` (1 per category × difficulty; placeholder SVGs for now)
 - Add Questions UI → `localStorage` overlay + JSON export
 - Firebase Realtime Database required for live rooms
 
@@ -65,7 +65,9 @@ quivro_web/src/
   app/core/           # Firebase, room, language, question bank, round generator
   app/features/       # home, create, lobby, play, admin
   app/shared/         # leaderboard, answers, timer, lang toggle
-  data/questions/     # seeded bilingual question banks
+  data/questions/
+    mcq/              # text questions by category × difficulty
+    image_mcq/        # picture questions (1 per category × difficulty)
   i18n/               # EN / BS UI strings
   environments/       # Firebase config
 ```

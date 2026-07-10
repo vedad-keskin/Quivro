@@ -1,4 +1,4 @@
-import type { Question } from '../types';
+import type { Question } from '../../types';
 
 export const gamingMedium: Question[] = [
   {
@@ -73,18 +73,17 @@ export const gamingMedium: Question[] = [
   },
   {
     id: 'game-med-006',
-    type: 'image_mcq',
+    type: 'mcq',
     category: 'gaming',
     difficulty: 'medium',
-    prompt: { en: 'This pixel heart is iconic in which genre?', bs: 'Ovo piksel srce je ikonično u kojem žanru?' },
+    prompt: { en: "What is a \"speedrun\"?", bs: "Šta je \"speedrun\"?" },
     options: [
-      { en: 'Racing', bs: 'Trke' },
-      { en: 'Platformers / retro', bs: 'Platformeri / retro' },
-      { en: 'Sports', bs: 'Sport' },
-      { en: 'Puzzle only', bs: 'Samo slagalice' },
+      { en: "Completing a game as fast as possible", bs: "Završiti igru što brže moguće" },
+      { en: "Playing only on easy mode", bs: "Igrati samo na lakom modu" },
+      { en: "Buying all DLC early", bs: "Kupiti sav DLC unaprijed" },
+      { en: "Streaming without chat", bs: "Strimovati bez chata" },
     ],
-    correctIndex: 1,
-    image: 'questions/placeholders/pixel-heart.svg',
+    correctIndex: 0,
   },
   {
     id: 'game-med-007',
