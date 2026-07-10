@@ -1238,7 +1238,7 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who was the famous Russian ruler known as “the Great” who modernized Russia in the early 1700s?', bs: 'Koji je bio poznati ruski vladar poznat kao „Veliki“ koji je modernizovao Rusiju početkom 1700-ih?' },
+    prompt: { en: 'Which Russian tsar modernized Russia in the early 1700s?', bs: 'Koji ruski car je modernizovao Rusiju početkom 1700-ih?' },
     options: [
       { en: 'Peter the Great', bs: 'Petar Veliki' },
       { en: 'Ivan the Terrible', bs: 'Ivan Grozni' },

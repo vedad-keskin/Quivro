@@ -1311,7 +1311,7 @@ export const sportsHard: Question[] = [
     prompt: { en: 'Which Yugoslav basketball club from Split won the European Champions Cup in 1989 and 1990?', bs: 'Koji jugoslovenski košarkaški klub iz Splita je osvojio Kup evropskih šampiona 1989. i 1990.?' },
     options: [
       { en: 'Partizan', bs: 'Partizan' },
-      { en: 'Jugoplastika (Split)', bs: 'Jugoplastika (Split)' },
+      { en: 'Jugoplastika', bs: 'Jugoplastika' },
       { en: 'Cibona', bs: 'Cibona' },
       { en: 'Crvena zvezda', bs: 'Crvena zvezda' },
     ],

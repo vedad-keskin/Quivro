@@ -892,7 +892,7 @@ export const sportsEasy: Question[] = [
     options: [
       { en: 'Grass', bs: 'Trava' },
       { en: 'Clay', bs: 'Šljaka' },
-      { en: 'Carpet', bs: 'Tepih' },
+      { en: 'Hard court', bs: 'Tvrda podloga' },
       { en: 'Ice', bs: 'Led' },
     ],
     correctIndex: 1,
