@@ -160,7 +160,7 @@ export const sportsEasy: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'easy',
-    prompt: { en: 'Which Spanish club wears all-white home kits and plays at the Santiago Bernabéu?', bs: 'Koji španski klub nosi potpuno bijele dresove i igra na Santiago Bernabéu?' },
+    prompt: { en: 'Which Spanish club wears all-white home kits and plays at the Santiago Bernabéu?', bs: 'Koji španski klub nosi bijele dresove i igra na Santiago Bernabéu?' },
     options: [
       { en: 'Barcelona', bs: 'Barselona' },
       { en: 'Real Madrid', bs: 'Real Madrid' },
