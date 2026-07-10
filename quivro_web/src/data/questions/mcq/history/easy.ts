@@ -280,7 +280,7 @@ export const historyEasy: Question[] = [
       { en: 'The Amazon', bs: 'Amazon' },
     ],
     correctIndex: 0,
-  }
+  },
   {
     id: 'hist-easy-021',
     type: 'mcq',
@@ -504,7 +504,7 @@ export const historyEasy: Question[] = [
       { en: 'Norway', bs: 'Norveška' },
     ],
     correctIndex: 0,
-  }
+  },
   {
     id: 'hist-easy-037',
     type: 'mcq',
@@ -546,7 +546,7 @@ export const historyEasy: Question[] = [
       { en: 'The Last Supper', bs: 'Posljednja večera' },
     ],
     correctIndex: 0,
-  }
+  },
   {
     id: 'hist-easy-040',
     type: 'mcq',
@@ -602,7 +602,7 @@ export const historyEasy: Question[] = [
       { en: 'Kangaroos', bs: 'Kengurima' },
     ],
     correctIndex: 0,
-  }
+  },
   {
     id: 'hist-easy-044',
     type: 'mcq',
@@ -672,7 +672,7 @@ export const historyEasy: Question[] = [
       { en: 'Mongolia', bs: 'Mongolija' },
     ],
     correctIndex: 0,
-  }
+  },
   {
     id: 'hist-easy-049',
     type: 'mcq',
@@ -700,7 +700,7 @@ export const historyEasy: Question[] = [
       { en: 'Spain', bs: 'Španija' },
     ],
     correctIndex: 0,
-  }
+  },
   {
     id: 'hist-easy-051',
     type: 'mcq',
@@ -756,7 +756,7 @@ export const historyEasy: Question[] = [
       { en: 'The Industrial Revolution', bs: 'Industrijske revolucije' },
     ],
     correctIndex: 0,
-  }
+  },
   {
     id: 'hist-easy-055',
     type: 'mcq',
@@ -770,7 +770,7 @@ export const historyEasy: Question[] = [
       { en: 'Iceland', bs: 'Island' },
     ],
     correctIndex: 0,
-  }
+  },
   {
     id: 'hist-easy-056',
     type: 'mcq',
@@ -924,7 +924,7 @@ export const historyEasy: Question[] = [
       { en: 'Wikipedia', bs: 'Wikipedia' },
     ],
     correctIndex: 0,
-  }
+  },
   {
     id: 'hist-easy-067',
     type: 'mcq',
@@ -1022,7 +1022,7 @@ export const historyEasy: Question[] = [
       { en: 'The Space Race only', bs: 'Samo svemirske utrke' },
     ],
     correctIndex: 0,
-  }
+  },
   {
     id: 'hist-easy-074',
     type: 'mcq',
@@ -1078,7 +1078,7 @@ export const historyEasy: Question[] = [
       { en: 'Oslo', bs: 'Oslo' },
     ],
     correctIndex: 0,
-  }
+  },
   {
     id: 'hist-easy-078',
     type: 'mcq',
@@ -1274,7 +1274,7 @@ export const historyEasy: Question[] = [
       { en: 'Hot-air balloon', bs: 'Balonu na vrući zrak' },
     ],
     correctIndex: 0,
-  }
+  },
   {
     id: 'hist-easy-092',
     type: 'mcq',
@@ -1358,7 +1358,7 @@ export const historyEasy: Question[] = [
       { en: 'Seattle', bs: 'Seattle' },
     ],
     correctIndex: 0,
-  }
+  },
   {
     id: 'hist-easy-098',
     type: 'mcq',
@@ -1386,7 +1386,7 @@ export const historyEasy: Question[] = [
       { en: 'Viking captains', bs: 'Vikinških kapetana' },
     ],
     correctIndex: 0,
-  }
+  },
   {
     id: 'hist-easy-100',
     type: 'mcq',
