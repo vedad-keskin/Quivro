@@ -187,6 +187,7 @@ class _RoomPageState extends State<RoomPage> {
           locked: !canChange,
           picked: picked,
           onPick: (i) => _answer(room, i),
+          sfx: _sfx,
         );
       },
     );
@@ -285,6 +286,7 @@ class _PlayView extends StatelessWidget {
     required this.locked,
     required this.picked,
     required this.onPick,
+    required this.sfx,
   });
 
   final RoomState room;
@@ -292,6 +294,7 @@ class _PlayView extends StatelessWidget {
   final bool locked;
   final int? picked;
   final ValueChanged<int> onPick;
+  final Sfx sfx;
 
   @override
   Widget build(BuildContext context) {
@@ -332,7 +335,7 @@ class _PlayView extends StatelessWidget {
                     ),
                   ),
                   if (room.phase == 'question')
-                    _Countdown(endsAt: q.endsAt)
+                    _Countdown(endsAt: q.endsAt, sfx: sfx)
                   else
                     Container(
                       width: 56,
@@ -580,9 +583,10 @@ class _AnswerTileState extends State<_AnswerTile> {
 }
 
 class _Countdown extends StatefulWidget {
-  const _Countdown({required this.endsAt});
+  const _Countdown({required this.endsAt, required this.sfx});
 
   final int endsAt;
+  final Sfx sfx;
 
   @override
   State<_Countdown> createState() => _CountdownState();
@@ -591,6 +595,7 @@ class _Countdown extends StatefulWidget {
 class _CountdownState extends State<_Countdown> {
   Timer? _timer;
   int _left = 0;
+  bool _ticking = false;
 
   @override
   void initState() {
@@ -602,7 +607,11 @@ class _CountdownState extends State<_Countdown> {
   @override
   void didUpdateWidget(covariant _Countdown oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.endsAt != widget.endsAt) _tick();
+    if (oldWidget.endsAt != widget.endsAt) {
+      unawaited(widget.sfx.stopTick());
+      _ticking = false;
+      _tick();
+    }
   }
 
   void _tick() {
@@ -611,11 +620,22 @@ class _CountdownState extends State<_Countdown> {
             .ceil()
             .clamp(0, 999);
     if (secs != _left && mounted) setState(() => _left = secs);
+
+    if (secs > 0 && secs <= 5) {
+      if (!_ticking) {
+        _ticking = true;
+        unawaited(widget.sfx.startTick());
+      }
+    } else if (_ticking) {
+      _ticking = false;
+      unawaited(widget.sfx.stopTick());
+    }
   }
 
   @override
   void dispose() {
     _timer?.cancel();
+    unawaited(widget.sfx.stopTick());
     super.dispose();
   }
 

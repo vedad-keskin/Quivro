@@ -74,18 +74,24 @@ export class TimerRing {
 
   private emitted = false;
   private intervalId = 0;
+  private tickAudio: HTMLAudioElement | null = null;
+  private tickPlaying = false;
 
   constructor() {
     effect(() => {
       this.endsAt();
       this.durationMs();
       this.emitted = false;
+      this.stopTickSound();
       this.tick();
       window.clearInterval(this.intervalId);
       this.intervalId = window.setInterval(() => this.tick(), 200);
     });
 
-    this.destroyRef.onDestroy(() => window.clearInterval(this.intervalId));
+    this.destroyRef.onDestroy(() => {
+      window.clearInterval(this.intervalId);
+      this.stopTickSound();
+    });
   }
 
   private tick(): void {
@@ -94,9 +100,44 @@ export class TimerRing {
     this.remaining.set(secs);
     const pct = Math.max(0, (leftMs / this.durationMs()) * 100);
     this.percent.set(pct);
+
+    if (secs > 0 && secs <= 5) {
+      this.startTickSound();
+    } else {
+      this.stopTickSound();
+    }
+
     if (leftMs <= 0 && !this.emitted) {
       this.emitted = true;
+      this.stopTickSound();
       this.expired.emit();
+    }
+  }
+
+  private startTickSound(): void {
+    if (this.tickPlaying) return;
+    try {
+      if (!this.tickAudio) {
+        this.tickAudio = new Audio('/sounds/tick_tick.mp3');
+      }
+      this.tickAudio.currentTime = 0;
+      this.tickPlaying = true;
+      void this.tickAudio.play().catch(() => {
+        this.tickPlaying = false;
+      });
+    } catch {
+      this.tickPlaying = false;
+    }
+  }
+
+  private stopTickSound(): void {
+    this.tickPlaying = false;
+    if (!this.tickAudio) return;
+    try {
+      this.tickAudio.pause();
+      this.tickAudio.currentTime = 0;
+    } catch {
+      /* Ignore audio failures. */
     }
   }
 }
