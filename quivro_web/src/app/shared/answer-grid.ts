@@ -98,14 +98,17 @@ const LABELS = ['A', 'B', 'C', 'D'];
     .text {
       flex: 1;
       min-width: 0;
+      min-height: 0;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       padding: 0 0.35rem;
       text-align: center;
       line-height: 1.15;
       font-size: clamp(1.85rem, 4.5vw, 3.25rem);
       font-weight: 800;
+      overflow: hidden;
+      overflow-wrap: break-word;
     }
     .pickers {
       position: absolute;

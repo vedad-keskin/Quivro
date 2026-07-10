@@ -188,6 +188,7 @@ class _RoomPageState extends State<RoomPage> {
           picked: picked,
           onPick: (i) => _answer(room, i),
           sfx: _sfx,
+          nowMs: _repo.nowMs,
         );
       },
     );
@@ -287,6 +288,7 @@ class _PlayView extends StatelessWidget {
     required this.picked,
     required this.onPick,
     required this.sfx,
+    required this.nowMs,
   });
 
   final RoomState room;
@@ -295,6 +297,7 @@ class _PlayView extends StatelessWidget {
   final int? picked;
   final ValueChanged<int> onPick;
   final Sfx sfx;
+  final int Function() nowMs;
 
   @override
   Widget build(BuildContext context) {
@@ -335,7 +338,12 @@ class _PlayView extends StatelessWidget {
                     ),
                   ),
                   if (room.phase == 'question')
-                    _Countdown(endsAt: q.endsAt, sfx: sfx)
+                    _Countdown(
+                      endsAt: q.endsAt,
+                      durationMs: q.durationMs,
+                      nowMs: nowMs,
+                      sfx: sfx,
+                    )
                   else
                     Container(
                       width: 56,
@@ -583,9 +591,16 @@ class _AnswerTileState extends State<_AnswerTile> {
 }
 
 class _Countdown extends StatefulWidget {
-  const _Countdown({required this.endsAt, required this.sfx});
+  const _Countdown({
+    required this.endsAt,
+    required this.durationMs,
+    required this.nowMs,
+    required this.sfx,
+  });
 
   final int endsAt;
+  final int durationMs;
+  final int Function() nowMs;
   final Sfx sfx;
 
   @override
@@ -615,10 +630,9 @@ class _CountdownState extends State<_Countdown> {
   }
 
   void _tick() {
-    final secs =
-        ((widget.endsAt - DateTime.now().millisecondsSinceEpoch) / 1000)
-            .ceil()
-            .clamp(0, 999);
+    final leftMs = widget.endsAt - widget.nowMs();
+    final maxSecs = (widget.durationMs / 1000).ceil();
+    final secs = (leftMs / 1000).ceil().clamp(0, maxSecs);
     if (secs != _left && mounted) setState(() => _left = secs);
 
     if (secs > 0 && secs <= 5) {

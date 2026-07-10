@@ -4,15 +4,24 @@ import 'package:firebase_database/firebase_database.dart';
 import 'avatars.dart';
 import 'profile_store.dart';
 import 'room_models.dart';
+import 'server_time.dart';
 
 class RoomRepository {
-  RoomRepository({FirebaseDatabase? database, ProfileStore? profileStore})
-      : _db = database ?? FirebaseDatabase.instance,
-        _store = profileStore ?? ProfileStore();
+  RoomRepository({
+    FirebaseDatabase? database,
+    ProfileStore? profileStore,
+    ServerTime? serverTime,
+  }) : _db = database ?? FirebaseDatabase.instance,
+       _store = profileStore ?? ProfileStore(),
+       _serverTime = serverTime ?? ServerTime(database: database);
 
   final FirebaseDatabase _db;
   final ProfileStore _store;
+  final ServerTime _serverTime;
   final _random = Random();
+
+  /// Approximate Firebase server epoch ms (shared clock with web host).
+  int nowMs() => _serverTime.nowMs();
 
   DatabaseReference roomRef(String code) => _db.ref('rooms/${code.toUpperCase()}');
 
@@ -126,7 +135,7 @@ class RoomRepository {
     // Allow reselect — always overwrite choice + timestamp.
     await path.set({
       'choice': choice,
-      'answeredAt': DateTime.now().millisecondsSinceEpoch,
+      'answeredAt': _serverTime.nowMs(),
     });
   }
 

@@ -7,6 +7,7 @@ import {
   output,
   signal,
 } from '@angular/core';
+import { ServerTimeService } from '../core/server-time.service';
 
 @Component({
   selector: 'app-timer-ring',
@@ -64,6 +65,7 @@ import {
 })
 export class TimerRing {
   private readonly destroyRef = inject(DestroyRef);
+  private readonly serverTime = inject(ServerTimeService);
 
   readonly endsAt = input.required<number>();
   readonly durationMs = input.required<number>();
@@ -95,10 +97,11 @@ export class TimerRing {
   }
 
   private tick(): void {
-    const leftMs = Math.max(0, this.endsAt() - Date.now());
-    const secs = Math.ceil(leftMs / 1000);
+    const leftMs = Math.max(0, this.endsAt() - this.serverTime.nowMs());
+    const maxSecs = Math.ceil(this.durationMs() / 1000);
+    const secs = Math.min(maxSecs, Math.ceil(leftMs / 1000));
     this.remaining.set(secs);
-    const pct = Math.max(0, (leftMs / this.durationMs()) * 100);
+    const pct = Math.max(0, Math.min(100, (leftMs / this.durationMs()) * 100));
     this.percent.set(pct);
 
     if (secs > 0 && secs <= 5) {

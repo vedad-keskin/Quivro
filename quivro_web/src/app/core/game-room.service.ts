@@ -15,6 +15,7 @@ import { DIFFICULTY_POINTS } from '../../data/questions/types';
 import { FirebaseService } from './firebase.service';
 import { QuestionBankService } from './question-bank.service';
 import { RoundGeneratorService } from './round-generator.service';
+import { ServerTimeService } from './server-time.service';
 import {
   shuffleInPlace,
   stripUndefined,
@@ -37,6 +38,7 @@ export class GameRoomService {
   private readonly firebase = inject(FirebaseService);
   private readonly generator = inject(RoundGeneratorService);
   private readonly bank = inject(QuestionBankService);
+  private readonly serverTime = inject(ServerTimeService);
 
   readonly room = signal<RoomState | null>(null);
 
@@ -413,7 +415,7 @@ export class GameRoomService {
         optionPairs[2].text,
         optionPairs[3].text,
       ],
-      endsAt: Date.now() + durationMs,
+      endsAt: this.serverTime.nowMs() + durationMs,
       durationMs,
       index,
       total: questions.length,
