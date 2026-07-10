@@ -1,11 +1,13 @@
 import { Injectable, inject, signal } from '@angular/core';
 import {
   get,
+  onDisconnect,
   onValue,
   ref,
   remove,
   set,
   update,
+  type OnDisconnect,
   type Unsubscribe,
 } from 'firebase/database';
 import type { Question } from '../../data/questions/types';
@@ -41,6 +43,9 @@ export class GameRoomService {
   private roundQuestions = new Map<string, Question[]>();
   /** Shuffled correct index per question for each room */
   private displayCorrect = new Map<string, number[]>();
+  /** Room code this browser is hosting (for leave / onDisconnect cleanup). */
+  private hostedCode: string | null = null;
+  private disconnectOp: OnDisconnect | null = null;
 
   get isLive(): boolean {
     return this.firebase.configured;
@@ -83,6 +88,7 @@ export class GameRoomService {
     this.roundQuestions.set(code, questions);
     this.displayCorrect.set(code, []);
     await set(ref(db, `rooms/${code}`), stripUndefined(this.toFirebase(state)));
+    await this.armHostDisconnect(code);
     await this.watchRoom(code);
     return code;
   }
@@ -230,12 +236,58 @@ export class GameRoomService {
   }
 
   async deleteRoom(code: string): Promise<void> {
+    await this.cancelHostDisconnect();
     this.stopWatching();
     this.roundQuestions.delete(code);
     this.displayCorrect.delete(code);
+    this.hostedCode = null;
     const db = this.requireDb();
     await remove(ref(db, `rooms/${code}`));
     this.room.set(null);
+  }
+
+  /** Host leaves lobby/play or closes the tab — tear down the room for all players. */
+  async leaveHostedRoom(code?: string): Promise<void> {
+    const c = (code ?? this.hostedCode)?.toUpperCase();
+    if (!c || !this.hostedCode) {
+      this.stopWatching();
+      return;
+    }
+    if (this.hostedCode !== c) {
+      this.stopWatching();
+      return;
+    }
+    try {
+      await this.deleteRoom(c);
+    } catch (e) {
+      console.error(e);
+      this.stopWatching();
+      this.hostedCode = null;
+      this.room.set(null);
+    }
+  }
+
+  get isHosting(): boolean {
+    return this.hostedCode != null;
+  }
+
+  private async armHostDisconnect(code: string): Promise<void> {
+    await this.cancelHostDisconnect();
+    const db = this.requireDb();
+    const roomRef = ref(db, `rooms/${code}`);
+    this.disconnectOp = onDisconnect(roomRef);
+    await this.disconnectOp.remove();
+    this.hostedCode = code;
+  }
+
+  private async cancelHostDisconnect(): Promise<void> {
+    if (!this.disconnectOp) return;
+    try {
+      await this.disconnectOp.cancel();
+    } catch {
+      /* ignore — connection may already be gone */
+    }
+    this.disconnectOp = null;
   }
 
   private async finishRound(code: string): Promise<void> {

@@ -34,6 +34,8 @@ class _RoomPageState extends State<RoomPage> {
   int? _picked;
   int _trackedQuestion = -1;
   bool _optingIn = false;
+  bool _exitingClosedRoom = false;
+  bool _sawRoom = false;
 
   @override
   void initState() {
@@ -46,6 +48,25 @@ class _RoomPageState extends State<RoomPage> {
   void dispose() {
     unawaited(_sfx.dispose());
     super.dispose();
+  }
+
+  Future<void> _leaveToHome({bool showClosed = false}) async {
+    await _repo.clearActiveSession();
+    if (!mounted) return;
+    if (showClosed) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Room closed')),
+      );
+    }
+    context.go('/', extra: widget.profile);
+  }
+
+  void _handleRoomClosed() {
+    if (_exitingClosedRoom) return;
+    _exitingClosedRoom = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      unawaited(_leaveToHome(showClosed: true));
+    });
   }
 
   Future<void> _answer(RoomState room, int choice) async {
@@ -104,6 +125,10 @@ class _RoomPageState extends State<RoomPage> {
         }
         final room = snap.data;
         if (room == null) {
+          final waiting = snap.connectionState == ConnectionState.waiting && !_sawRoom;
+          if (!waiting) {
+            _handleRoomClosed();
+          }
           return Scaffold(
             body: Center(
               child: Column(
@@ -111,20 +136,14 @@ class _RoomPageState extends State<RoomPage> {
                 children: [
                   const CircularProgressIndicator(),
                   const SizedBox(height: 16),
-                  Text(
-                    snap.connectionState == ConnectionState.waiting
-                        ? 'Connecting…'
-                        : 'Room closed',
-                  ),
-                  TextButton(
-                    onPressed: () => context.go('/', extra: widget.profile),
-                    child: const Text('Back home'),
-                  ),
+                  Text(waiting ? 'Connecting…' : 'Room closed'),
                 ],
               ),
             ),
           );
         }
+
+        _sawRoom = true;
 
         if (room.currentIndex != _trackedQuestion) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -140,6 +159,7 @@ class _RoomPageState extends State<RoomPage> {
           return _LobbyView(
             code: widget.code,
             profile: widget.profile,
+            onLeave: () => unawaited(_leaveToHome()),
           );
         }
 
@@ -151,6 +171,7 @@ class _RoomPageState extends State<RoomPage> {
             optedIn: room.isRematchReady(widget.playerId),
             optingIn: _optingIn,
             onPlayAgain: _optInRematch,
+            onHome: () => unawaited(_leaveToHome()),
           );
         }
 
@@ -158,6 +179,7 @@ class _RoomPageState extends State<RoomPage> {
           return _LobbyView(
             code: widget.code,
             profile: widget.profile,
+            onLeave: () => unawaited(_leaveToHome()),
           );
         }
 
@@ -177,10 +199,15 @@ class _RoomPageState extends State<RoomPage> {
 }
 
 class _LobbyView extends StatelessWidget {
-  const _LobbyView({required this.code, required this.profile});
+  const _LobbyView({
+    required this.code,
+    required this.profile,
+    required this.onLeave,
+  });
 
   final String code;
   final PlayerProfile profile;
+  final VoidCallback onLeave;
 
   @override
   Widget build(BuildContext context) {
@@ -238,6 +265,16 @@ class _LobbyView extends StatelessWidget {
                 ),
               ),
               const Spacer(),
+              TextButton(
+                onPressed: onLeave,
+                child: Text(
+                  'Leave',
+                  style: GoogleFonts.nunito(
+                    fontWeight: FontWeight.w700,
+                    color: QuivroColors.muted,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -519,6 +556,7 @@ class _FinishedView extends StatelessWidget {
     required this.optedIn,
     required this.optingIn,
     required this.onPlayAgain,
+    required this.onHome,
   });
 
   final RoomState room;
@@ -527,6 +565,7 @@ class _FinishedView extends StatelessWidget {
   final bool optedIn;
   final bool optingIn;
   final VoidCallback onPlayAgain;
+  final VoidCallback onHome;
 
   @override
   Widget build(BuildContext context) {
@@ -681,7 +720,7 @@ class _FinishedView extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(
-                  onPressed: () => context.go('/', extra: profile),
+                  onPressed: onHome,
                   child: const Text('Home'),
                 ),
               ),

@@ -2,13 +2,16 @@ import 'dart:math';
 
 import 'package:firebase_database/firebase_database.dart';
 import 'avatars.dart';
+import 'profile_store.dart';
 import 'room_models.dart';
 
 class RoomRepository {
-  RoomRepository({FirebaseDatabase? database})
-      : _db = database ?? FirebaseDatabase.instance;
+  RoomRepository({FirebaseDatabase? database, ProfileStore? profileStore})
+      : _db = database ?? FirebaseDatabase.instance,
+        _store = profileStore ?? ProfileStore();
 
   final FirebaseDatabase _db;
+  final ProfileStore _store;
   final _random = Random();
 
   DatabaseReference roomRef(String code) => _db.ref('rooms/${code.toUpperCase()}');
@@ -25,6 +28,26 @@ class RoomRepository {
   Future<bool> roomExists(String code) async {
     final snap = await roomRef(code).get();
     return snap.exists;
+  }
+
+  Future<bool> playerInRoom({
+    required String code,
+    required String playerId,
+  }) async {
+    final snap = await roomRef(code).child('players').child(playerId).get();
+    return snap.exists;
+  }
+
+  /// Returns a valid session to resume, or null (and clears stale prefs).
+  Future<ActiveRoomSession?> resolveActiveSession() async {
+    final session = await _store.loadActiveSession();
+    if (session == null) return null;
+    final ok = await playerInRoom(code: session.code, playerId: session.playerId);
+    if (!ok) {
+      await _store.clearActiveSession();
+      return null;
+    }
+    return session;
   }
 
   Future<String> joinRoom({
@@ -61,6 +84,7 @@ class RoomRepository {
         'avatar': avatar.clamp(0, avatarCount - 1),
         'name': name.trim().isEmpty ? 'Player' : name.trim(),
       });
+      await _store.saveActiveSession(code: upper, playerId: existingId);
       return existingId;
     }
 
@@ -85,8 +109,11 @@ class RoomRepository {
       'wins': 0,
     });
 
+    await _store.saveActiveSession(code: upper, playerId: id);
     return id;
   }
+
+  Future<void> clearActiveSession() => _store.clearActiveSession();
 
   Future<void> submitAnswer({
     required String code,

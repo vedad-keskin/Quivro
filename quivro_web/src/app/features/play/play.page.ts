@@ -11,7 +11,7 @@ import {
   viewChild,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { interval } from 'rxjs';
 import {
   CATEGORIES,
@@ -40,7 +40,7 @@ import { TimerRing } from '../../shared/timer-ring';
 
 @Component({
   selector: 'app-play',
-  imports: [RouterLink, AnswerGrid, Leaderboard, TimerRing],
+  imports: [AnswerGrid, Leaderboard, TimerRing],
   template: `
     <div class="tv" #tvRoot>
       @if (room(); as r) {
@@ -173,7 +173,9 @@ import { TimerRing } from '../../shared/timer-ring';
               </section>
 
               <div class="final-actions">
-                <a routerLink="/" class="q-btn q-btn-outline">{{ lang.t().home }}</a>
+                <button type="button" class="q-btn q-btn-outline" (click)="goHome()">
+                  {{ lang.t().home }}
+                </button>
                 <button
                   type="button"
                   class="q-btn q-btn-outline start-rematch"
@@ -469,6 +471,7 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly lang = inject(LanguageService);
   readonly rooms = inject(GameRoomService);
   private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
   private readonly snack = inject(SnackbarService);
   private readonly destroyRef = inject(DestroyRef);
 
@@ -495,6 +498,9 @@ export class PlayPage implements OnInit, OnDestroy {
   private lastHandledReveal = -1;
   private lastFlyReveal = -1;
   private knownRematchReady = new Set<string>();
+  private readonly onPageHide = () => {
+    void this.rooms.leaveHostedRoom(this.code);
+  };
 
   readonly players = computed<RoomPlayer[]>(() =>
     Object.values(this.room()?.players ?? {}),
@@ -602,10 +608,17 @@ export class PlayPage implements OnInit, OnDestroy {
     void this.rooms.watchRoom(this.code).catch(() => {
       this.rooms.room.set(null);
     });
+    window.addEventListener('pagehide', this.onPageHide);
   }
 
   ngOnDestroy(): void {
-    this.rooms.stopWatching();
+    window.removeEventListener('pagehide', this.onPageHide);
+    void this.rooms.leaveHostedRoom(this.code);
+  }
+
+  async goHome(): Promise<void> {
+    await this.rooms.leaveHostedRoom(this.code);
+    await this.router.navigateByUrl('/');
   }
 
   categoryLabel(cat: string): string {

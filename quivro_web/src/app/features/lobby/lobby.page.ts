@@ -1,5 +1,5 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Component, computed, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GameRoomService } from '../../core/game-room.service';
 import { LanguageService } from '../../core/language.service';
 import { avatarColor, avatarEmoji } from '../../core/room.models';
@@ -8,11 +8,13 @@ import { LangToggle } from '../../shared/lang-toggle';
 
 @Component({
   selector: 'app-lobby',
-  imports: [RouterLink, LangToggle],
+  imports: [LangToggle],
   template: `
     <div class="q-page lobby">
       <header class="top">
-        <a routerLink="/" class="q-btn q-btn-ghost">← {{ lang.t().home }}</a>
+        <button type="button" class="q-btn q-btn-ghost" (click)="goHome()">
+          ← {{ lang.t().home }}
+        </button>
         <app-lang-toggle />
       </header>
 
@@ -172,7 +174,7 @@ import { LangToggle } from '../../shared/lang-toggle';
     }
   `,
 })
-export class LobbyPage implements OnInit {
+export class LobbyPage implements OnInit, OnDestroy {
   readonly lang = inject(LanguageService);
   readonly rooms = inject(GameRoomService);
   private readonly route = inject(ActivatedRoute);
@@ -190,12 +192,30 @@ export class LobbyPage implements OnInit {
   );
 
   private code = '';
+  /** Skip room teardown when navigating lobby → play. */
+  private keepRoomAlive = false;
+  private readonly onPageHide = () => {
+    void this.rooms.leaveHostedRoom(this.code);
+  };
 
   ngOnInit(): void {
     this.code = this.route.snapshot.paramMap.get('code') ?? '';
     void this.rooms.watchRoom(this.code).catch(() => {
       this.rooms.room.set(null);
     });
+    window.addEventListener('pagehide', this.onPageHide);
+  }
+
+  ngOnDestroy(): void {
+    window.removeEventListener('pagehide', this.onPageHide);
+    if (!this.keepRoomAlive) {
+      void this.rooms.leaveHostedRoom(this.code);
+    }
+  }
+
+  async goHome(): Promise<void> {
+    await this.rooms.leaveHostedRoom(this.code);
+    await this.router.navigateByUrl('/');
   }
 
   async copy(): Promise<void> {
@@ -217,9 +237,11 @@ export class LobbyPage implements OnInit {
     this.starting.set(true);
     try {
       await this.rooms.startGame(this.code);
+      this.keepRoomAlive = true;
       await this.router.navigate(['/play', this.code]);
     } catch (e) {
       console.error(e);
+      this.keepRoomAlive = false;
       if (e instanceof Error && e.message === 'NO_PLAYERS') {
         this.snack.error(this.lang.t().minPlayers);
       } else if (e instanceof Error && e.message === 'FIREBASE_REQUIRED') {
