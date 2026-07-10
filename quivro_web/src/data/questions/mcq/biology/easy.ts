@@ -24,7 +24,7 @@ export const biologyEasy: Question[] = [
     options: [
       { en: 'Sunlight', bs: 'Sunčeva svjetlost' },
       { en: 'Moonlight', bs: 'Mjesečina' },
-      { en: 'Wind only', bs: 'Samo vjetar' },
+      { en: 'Wind', bs: 'Vjetar' },
       { en: 'Salt', bs: 'So' },
     ],
     correctIndex: 0,
@@ -79,7 +79,7 @@ export const biologyEasy: Question[] = [
     prompt: { en: 'What gas do humans breathe in to survive?', bs: 'Koji gas ljudi udišu da bi preživjeli?' },
     options: [
       { en: 'Oxygen', bs: 'Kiseonik' },
-      { en: 'Nitrogen only', bs: 'Samo azot' },
+      { en: 'Nitrogen', bs: 'Azot' },
       { en: 'Helium', bs: 'Helijum' },
       { en: 'Carbon monoxide', bs: 'Ugljen-monoksid' },
     ],
@@ -107,7 +107,7 @@ export const biologyEasy: Question[] = [
     prompt: { en: 'What do bees collect from flowers?', bs: 'Šta pčele sakupljaju sa cvjetova?' },
     options: [
       { en: 'Nectar', bs: 'Nektar' },
-      { en: 'Water only', bs: 'Samo vodu' },
+      { en: 'Water', bs: 'Vodu' },
       { en: 'Sand', bs: 'Pijesak' },
       { en: 'Leaves', bs: 'Listove' },
     ],
@@ -205,7 +205,7 @@ export const biologyEasy: Question[] = [
     prompt: { en: 'What do fish use to breathe underwater?', bs: 'Šta ribe koriste za disanje pod vodom?' },
     options: [
       { en: 'Lungs', bs: 'Pluća' },
-      { en: 'Skin only', bs: 'Samo kožu' },
+      { en: 'Skin', bs: 'Kožu' },
       { en: 'Gills', bs: 'Škrge' },
       { en: 'Fins', bs: 'Peraja' },
     ],
@@ -262,7 +262,7 @@ export const biologyEasy: Question[] = [
     options: [
       { en: 'In trees', bs: 'Na drveću' },
       { en: 'Underwater', bs: 'Pod vodom' },
-      { en: 'In caves only', bs: 'Samo u pećinama' },
+      { en: 'In caves', bs: 'U pećinama' },
       { en: 'In the desert sand', bs: 'U pustinjskom pijesku' },
     ],
     correctIndex: 0,
@@ -515,7 +515,7 @@ export const biologyEasy: Question[] = [
       { en: 'Flashlights', bs: 'Lampe' },
       { en: 'Echolocation', bs: 'Eholokaciju' },
       { en: 'Maps', bs: 'Mape' },
-      { en: 'Smell only', bs: 'Samo njuh' },
+      { en: 'Smell', bs: 'Njuh' },
     ],
     correctIndex: 1,
   },
@@ -612,7 +612,7 @@ export const biologyEasy: Question[] = [
     options: [
       { en: 'Oxygen', bs: 'Kiseonik' },
       { en: 'Smoke', bs: 'Dim' },
-      { en: 'Nitrogen only', bs: 'Samo azot' },
+      { en: 'Nitrogen', bs: 'Azot' },
       { en: 'Helium', bs: 'Helijum' },
     ],
     correctIndex: 0,
@@ -765,7 +765,7 @@ export const biologyEasy: Question[] = [
     prompt: { en: 'What do most green leaves contain that helps capture sunlight?', bs: 'Šta većina zelenih listova sadrži što pomaže hvatanju sunčeve svjetlosti?' },
     options: [
       { en: 'Chlorophyll', bs: 'Hlorofil' },
-      { en: 'Sugar only', bs: 'Samo šećer' },
+      { en: 'Sugar', bs: 'Šećer' },
       { en: 'Salt', bs: 'So' },
       { en: 'Sand', bs: 'Pijesak' },
     ],
@@ -946,7 +946,7 @@ export const biologyEasy: Question[] = [
     difficulty: 'easy',
     prompt: { en: 'What do most adult frogs eat?', bs: 'Šta većina odraslih žaba jede?' },
     options: [
-      { en: 'Grass only', bs: 'Samo travu' },
+      { en: 'Grass', bs: 'Travu' },
       { en: 'Insects', bs: 'Insekte' },
       { en: 'Wood', bs: 'Drvo' },
       { en: 'Rocks', bs: 'Kamenje' },
@@ -1017,7 +1017,7 @@ export const biologyEasy: Question[] = [
     prompt: { en: 'What do plants mainly take in from the soil through their roots?', bs: 'Šta biljke uglavnom uzimaju iz tla preko korijena?' },
     options: [
       { en: 'Water and nutrients', bs: 'Vodu i hranjive materije' },
-      { en: 'Sunlight only', bs: 'Samo sunčevu svjetlost' },
+      { en: 'Sunlight', bs: 'Sunčevu svjetlost' },
       { en: 'Airplanes', bs: 'Avione' },
       { en: 'Fire', bs: 'Vatru' },
     ],
@@ -1341,7 +1341,7 @@ export const biologyEasy: Question[] = [
       { en: 'Milk', bs: 'Mlijeko' },
       { en: 'Oil', bs: 'Ulje' },
       { en: 'Sand', bs: 'Pijesak' },
-      { en: 'Juice only', bs: 'Samo sok' },
+      { en: 'Juice', bs: 'Sok' },
     ],
     correctIndex: 0,
   },

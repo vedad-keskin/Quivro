@@ -11,7 +11,7 @@ export const gamingMediumImage: Question[] = [
       { en: 'Racing', bs: 'Trke' },
       { en: 'Platformers / retro', bs: 'Platformeri / retro' },
       { en: 'Sports', bs: 'Sport' },
-      { en: 'Puzzle only', bs: 'Samo slagalice' },
+      { en: 'Puzzle', bs: 'Slagalice' },
     ],
     correctIndex: 1,
     image: 'questions/placeholders/pixel-heart.svg',

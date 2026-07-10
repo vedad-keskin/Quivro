@@ -164,7 +164,7 @@ export const biologyHard: Question[] = [
     options: [
       { en: 'Cytoplasm', bs: 'Citoplazma' },
       { en: 'Nucleus', bs: 'Jezgro' },
-      { en: 'Mitochondrial matrix only', bs: 'Samo mitohondrijalni matriks' },
+      { en: 'Mitochondrial matrix', bs: 'Mitohondrijalni matriks' },
       { en: 'Golgi lumen', bs: 'Lumen Goldžijevog aparata' },
     ],
     correctIndex: 1,
@@ -177,7 +177,7 @@ export const biologyHard: Question[] = [
     prompt: { en: 'Which pump maintains the Na+/K+ gradient across animal cell membranes?', bs: 'Koja pumpa održava Na+/K+ gradijent preko membrana životinjskih ćelija?' },
     options: [
       { en: 'Na+/K+ ATPase', bs: 'Na+/K+ ATPaza' },
-      { en: 'Proton pump only', bs: 'Samo protonske pumpe' },
+      { en: 'Proton pump', bs: 'Protonske pumpe' },
       { en: 'Calcium channel', bs: 'Kalcijumski kanal' },
       { en: 'Aquaporin', bs: 'Akvaporin' },
     ],
@@ -190,10 +190,10 @@ export const biologyHard: Question[] = [
     difficulty: 'hard',
     prompt: { en: 'Which process produces ATP using a proton gradient across the inner mitochondrial membrane?', bs: 'Koji proces proizvodi ATP koristeći protonske gradijente preko unutrašnje mitohondrijske membrane?' },
     options: [
-      { en: 'Substrate-level phosphorylation only', bs: 'Samo fosforilacija na nivou substrata' },
+      { en: 'Substrate-level phosphorylation', bs: 'Fosforilacija na nivou substrata' },
       { en: 'Chemiosmosis / oxidative phosphorylation', bs: 'Hemiosmoza / oksidativna fosforilacija' },
-      { en: 'Glycolysis alone', bs: 'Samo glikoliza' },
-      { en: 'Beta-oxidation alone', bs: 'Samo beta-oksidacija' },
+      { en: 'Glycolysis', bs: 'Glikoliza' },
+      { en: 'Beta-oxidation', bs: 'Beta-oksidacija' },
     ],
     correctIndex: 1,
   },
@@ -220,8 +220,8 @@ export const biologyHard: Question[] = [
     options: [
       { en: 'AV node', bs: 'AV čvor' },
       { en: 'SA node', bs: 'SA čvor' },
-      { en: 'Purkinje fibers only', bs: 'Samo Purkinjeova vlakna' },
-      { en: 'Bundle of His alone', bs: 'Samo Hisov snop' },
+      { en: 'Purkinje fibers', bs: 'Purkinjeova vlakna' },
+      { en: 'Bundle of His', bs: 'Hisov snop' },
     ],
     correctIndex: 1,
   },
@@ -232,10 +232,10 @@ export const biologyHard: Question[] = [
     difficulty: 'hard',
     prompt: { en: 'Which kidney structure creates a countercurrent multiplier that concentrates urine?', bs: 'Koja struktura bubrega stvara kontracurentni multiplikator koji koncentrira mokraću?' },
     options: [
-      { en: 'Bowman’s capsule alone', bs: 'Samo Bowmanova kapsula' },
+      { en: 'Bowman’s capsule', bs: 'Bowmanova kapsula' },
       { en: 'Loop of Henle', bs: 'Henleova petlja' },
       { en: 'Ureter', bs: 'Ureter' },
-      { en: 'Renal pelvis only', bs: 'Samo bubrežna karlica' },
+      { en: 'Renal pelvis', bs: 'Bubrežna karlica' },
     ],
     correctIndex: 1,
   },
@@ -248,7 +248,7 @@ export const biologyHard: Question[] = [
     options: [
       { en: 'Continuous conduction', bs: 'Kontinuirano provođenje' },
       { en: 'Saltatory conduction', bs: 'Saltatorno provođenje' },
-      { en: 'Electrotonic only', bs: 'Samo elektrotonično' },
+      { en: 'Electrotonic', bs: 'Elektrotonično' },
       { en: 'Retrograde axonal transport', bs: 'Retrogradni aksonski transport' },
     ],
     correctIndex: 1,
@@ -277,7 +277,7 @@ export const biologyHard: Question[] = [
       { en: 'Aerobic bacteria', bs: 'Aerobnih bakterija' },
       { en: 'Fungi', bs: 'Gljiva' },
       { en: 'Viruses', bs: 'Virusa' },
-      { en: 'Archaeal viruses only', bs: 'Samo arhejskih virusa' },
+      { en: 'Archaeal viruses', bs: 'Arhejskih virusa' },
     ],
     correctIndex: 0,
   },
@@ -316,7 +316,7 @@ export const biologyHard: Question[] = [
     difficulty: 'hard',
     prompt: { en: 'Which plant adaptation opens stomata mainly at night to reduce water loss?', bs: 'Koja biljna adaptacija otvara stome uglavnom noću da smanji gubitak vode?' },
     options: [
-      { en: 'C3 photosynthesis only', bs: 'Samo C3 fotosinteza' },
+      { en: 'C3 photosynthesis', bs: 'C3 fotosinteza' },
       { en: 'CAM photosynthesis', bs: 'CAM fotosinteza' },
       { en: 'Photorespiration', bs: 'Fotorespiracija' },
       { en: 'Nitrogen fixation', bs: 'Fiksacija azota' },
@@ -346,8 +346,8 @@ export const biologyHard: Question[] = [
     options: [
       { en: 'Müllerian mimicry', bs: 'Müllerova mimikrija' },
       { en: 'Batesian mimicry', bs: 'Batesova mimikrija' },
-      { en: 'Camouflage only', bs: 'Samo kamuflaža' },
-      { en: 'Aposematism alone', bs: 'Samo aposematizam' },
+      { en: 'Camouflage', bs: 'Kamuflaža' },
+      { en: 'Aposematism', bs: 'Aposematizam' },
     ],
     correctIndex: 1,
   },
@@ -401,7 +401,7 @@ export const biologyHard: Question[] = [
     prompt: { en: 'The platypus detects prey partly using which unusual sense?', bs: 'Kljunar djelimično otkriva plijen koristeći koje neobično čulo?' },
     options: [
       { en: 'Electroreception', bs: 'Elektrorecepciju' },
-      { en: 'Echolocation only', bs: 'Samo eholokaciju' },
+      { en: 'Echolocation', bs: 'Eholokaciju' },
       { en: 'Infrared pit organs', bs: 'Infracrvene jamice' },
       { en: 'Magnetite teeth', bs: 'Magnetitne zube' },
     ],
@@ -445,7 +445,7 @@ export const biologyHard: Question[] = [
       { en: 'Lay eggs in coral', bs: 'Polažu jaja u koral' },
       { en: 'Carry and brood developing young in a pouch', bs: 'Nose i inkubiraju mladunce u torbici' },
       { en: 'Have no fins', bs: 'Nemaju peraja' },
-      { en: 'Breathe only through lungs', bs: 'Dišu samo plućima' },
+      { en: 'Breathe through lungs', bs: 'Dišu plućima' },
     ],
     correctIndex: 1,
   },
@@ -486,7 +486,7 @@ export const biologyHard: Question[] = [
     options: [
       { en: 'Cryptobiosis (tun state)', bs: 'Kriptobioza (tun stanje)' },
       { en: 'Photosynthesis', bs: 'Fotosinteza' },
-      { en: 'Molting only', bs: 'Samo presvlačenje' },
+      { en: 'Molting', bs: 'Presvlačenje' },
       { en: 'Budding', bs: 'Pupljenje' },
     ],
     correctIndex: 0,
@@ -512,7 +512,7 @@ export const biologyHard: Question[] = [
     difficulty: 'hard',
     prompt: { en: 'A narwhal’s long tusk is actually a modified:', bs: 'Dugi kljov narvala zapravo je modificirani:' },
     options: [
-      { en: 'Horn of keratin only', bs: 'Samo keratinasti rog' },
+      { en: 'Horn of keratin', bs: 'Keratinasti rog' },
       { en: 'Tooth', bs: 'Zub' },
       { en: 'Baleen plate', bs: 'Usatični pločasti filter' },
       { en: 'Fin ray', bs: 'Zrak peraja' },
@@ -541,7 +541,7 @@ export const biologyHard: Question[] = [
     prompt: { en: 'Honeybees communicate the direction and distance of food using the:', bs: 'Pčele komuniciraju smjer i udaljenost hrane pomoću:' },
     options: [
       { en: 'Waggle dance', bs: 'Vijugavog plesa' },
-      { en: 'Ultrasonic sonar only', bs: 'Samo ultrazvučnog sonara' },
+      { en: 'Ultrasonic sonar', bs: 'Ultrazvučnog sonara' },
       { en: 'Electric fields', bs: 'Električnih polja' },
       { en: 'Pheromone maps on paper', bs: 'Feromonskih mapa na papiru' },
     ],
@@ -554,7 +554,7 @@ export const biologyHard: Question[] = [
     difficulty: 'hard',
     prompt: { en: 'Leafcutter ants farm which organisms as their main food source?', bs: 'Mravi sjekači listova uzgajaju koje organizme kao glavni izvor hrane?' },
     options: [
-      { en: 'Aphids only', bs: 'Samo biljne vaši' },
+      { en: 'Aphids', bs: 'Biljne vaši' },
       { en: 'Fungi', bs: 'Gljive' },
       { en: 'Algae in nests', bs: 'Alge u gnijezdima' },
       { en: 'Termites', bs: 'Termite' },
@@ -570,7 +570,7 @@ export const biologyHard: Question[] = [
     options: [
       { en: 'Raptorial appendages (clubs or spears)', bs: 'Grabežljivim dodacima (batovima ili kopljima)' },
       { en: 'Beaks', bs: 'Kljunovima' },
-      { en: 'Tails only', bs: 'Samo repovima' },
+      { en: 'Tails', bs: 'Repovima' },
       { en: 'Electric organs', bs: 'Električnim organima' },
     ],
     correctIndex: 0,
@@ -584,7 +584,7 @@ export const biologyHard: Question[] = [
     options: [
       { en: 'Cavitation bubbles that collapse loudly', bs: 'Kavitacijske mjehuriće koji se glasno urušavaju' },
       { en: 'Venomous spit', bs: 'Otrovnu pljuvačku' },
-      { en: 'Electric shocks only', bs: 'Samo električne udare' },
+      { en: 'Electric shocks', bs: 'Električne udare' },
       { en: 'Magnetic fields', bs: 'Magnetna polja' },
     ],
     correctIndex: 0,
@@ -626,7 +626,7 @@ export const biologyHard: Question[] = [
     options: [
       { en: 'Catadromous', bs: 'Katadromni' },
       { en: 'Anadromous', bs: 'Anadromni' },
-      { en: 'Sedentary only', bs: 'Samo sjedilački' },
+      { en: 'Sedentary', bs: 'Sjedilački' },
       { en: 'Pelagic forever', bs: 'Zauvijek pelagični' },
     ],
     correctIndex: 1,
@@ -653,7 +653,7 @@ export const biologyHard: Question[] = [
     prompt: { en: 'Birds are most closely related evolutionarily to which extinct group?', bs: 'Ptice su evolucijski najbliže srodne kojoj izumrloj grupi?' },
     options: [
       { en: 'Theropod dinosaurs', bs: 'Teropodnim dinosaurima' },
-      { en: 'Pterosaurs only', bs: 'Samo pterosaurima' },
+      { en: 'Pterosaurs', bs: 'Pterosaurima' },
       { en: 'Ichthyosaurs', bs: 'Ihtiosaurima' },
       { en: 'Trilobites', bs: 'Trilobitima' },
     ],
@@ -668,7 +668,7 @@ export const biologyHard: Question[] = [
     options: [
       { en: 'Water vascular system', bs: 'Vodeni vaskularni sistem' },
       { en: 'Closed circulatory system with hemoglobin', bs: 'Zatvoreni cirkulatorni sistem s hemoglobinom' },
-      { en: 'Exoskeleton of chitin only', bs: 'Samo egzoskelet od hitina' },
+      { en: 'Exoskeleton of chitin', bs: 'Egzoskelet od hitina' },
       { en: 'Notochord', bs: 'Hordu' },
     ],
     correctIndex: 0,
@@ -737,7 +737,7 @@ export const biologyHard: Question[] = [
     prompt: { en: 'Coral reefs depend heavily on symbiotic algae called:', bs: 'Koralni grebeni jako zavise od simbiotskih algi zvanih:' },
     options: [
       { en: 'Zooxanthellae', bs: 'Zooksantele' },
-      { en: 'Diatoms only in soil', bs: 'Samo dijatomeje u tlu' },
+      { en: 'Diatoms in soil', bs: 'Dijatomeje u tlu' },
       { en: 'Kelp forests inside polyps', bs: 'Šume kelpa unutar polipa' },
       { en: 'Lichens', bs: 'Lišajevi' },
     ],
@@ -751,7 +751,7 @@ export const biologyHard: Question[] = [
     prompt: { en: 'Which jellyfish is nicknamed the “immortal jellyfish” for its ability to revert to a polyp stage?', bs: 'Koja meduza je nadimkom „besmrtna meduza“ zbog sposobnosti da se vrati u stadij polipa?' },
     options: [
       { en: 'Turritopsis dohrnii', bs: 'Turritopsis dohrnii' },
-      { en: 'Aurelia aurita only', bs: 'Samo Aurelia aurita' },
+      { en: 'Aurelia aurita', bs: 'Aurelia aurita' },
       { en: 'Box jellyfish Chironex', bs: 'Kutijasta meduza Chironex' },
       { en: 'Portuguese man o’ war', bs: 'Portugalska galija' },
     ],
@@ -876,7 +876,7 @@ export const biologyHard: Question[] = [
     difficulty: 'hard',
     prompt: { en: 'Cheetahs differ from most other cats in having claws that are:', bs: 'Gepardi se razlikuju od većine drugih mačaka po kandžama koje su:' },
     options: [
-      { en: 'Only partially retractable', bs: 'Samo djelimično uvlačive' },
+      { en: 'Partially retractable', bs: 'Djelimično uvlačive' },
       { en: 'Made of bone', bs: 'Od kosti' },
       { en: 'Absent', bs: 'Odsutne' },
       { en: 'Venomous', bs: 'Otrovne' },
@@ -905,7 +905,7 @@ export const biologyHard: Question[] = [
     prompt: { en: 'Pangolin armor is made of overlapping scales of:', bs: 'Oklop pangolina čine preklapajuće ljuske od:' },
     options: [
       { en: 'Keratin', bs: 'Keratina' },
-      { en: 'Bone plates only', bs: 'Samo koštanih ploča' },
+      { en: 'Bone plates', bs: 'Koštanih ploča' },
       { en: 'Chitin like insects', bs: 'Hitina kao kod insekata' },
       { en: 'Calcium carbonate shells', bs: 'Ljuštura od kalcijum-karbonata' },
     ],
@@ -934,7 +934,7 @@ export const biologyHard: Question[] = [
     options: [
       { en: 'Dynamic soaring', bs: 'Dinamičko jedrenje' },
       { en: 'Jet propulsion', bs: 'Mlazni pogon' },
-      { en: 'Helicopter hover only', bs: 'Samo lebdenje kao helikopter' },
+      { en: 'Helicopter hover', bs: 'Lebdenje kao helikopter' },
       { en: 'Underground tunnels', bs: 'Podzemne tunele' },
     ],
     correctIndex: 0,
@@ -948,7 +948,7 @@ export const biologyHard: Question[] = [
     options: [
       { en: 'Brood parasitism', bs: 'Parazitizam legla' },
       { en: 'Mutualism', bs: 'Mutualizam' },
-      { en: 'Commensal nesting only', bs: 'Samo komenzalno gniježđenje' },
+      { en: 'Commensal nesting', bs: 'Komenzalno gniježđenje' },
       { en: 'Pollination', bs: 'Oprašivanje' },
     ],
     correctIndex: 0,
@@ -976,7 +976,7 @@ export const biologyHard: Question[] = [
     options: [
       { en: 'Lateral line system', bs: 'Bočne linije' },
       { en: 'Cochlea', bs: 'Puževe' },
-      { en: 'Retina only', bs: 'Samo mrežnjače' },
+      { en: 'Retina', bs: 'Mrežnjače' },
       { en: 'Lungs', bs: 'Pluća' },
     ],
     correctIndex: 0,
@@ -1018,7 +1018,7 @@ export const biologyHard: Question[] = [
     options: [
       { en: 'Crop milk', bs: 'Voljno mlijeko' },
       { en: 'Honeydew', bs: 'Medna rosa' },
-      { en: 'Royal jelly only from bees', bs: 'Samo matična mliječ od pčela' },
+      { en: 'Royal jelly from bees', bs: 'Matična mliječ od pčela' },
       { en: 'Venom', bs: 'Otrov' },
     ],
     correctIndex: 0,
@@ -1046,7 +1046,7 @@ export const biologyHard: Question[] = [
     options: [
       { en: 'High blood pressure and specialized vascular networks', bs: 'Visokog krvnog pritiska i specijalizovanih vaskularnih mreža' },
       { en: 'Gills on the neck', bs: 'Škrga na vratu' },
-      { en: 'Two hearts only', bs: 'Samo dva srca' },
+      { en: 'Two hearts', bs: 'Dva srca' },
       { en: 'No carotid arteries', bs: 'Bez karotidnih arterija' },
     ],
     correctIndex: 0,
@@ -1056,7 +1056,7 @@ export const biologyHard: Question[] = [
     type: 'mcq',
     category: 'biology',
     difficulty: 'hard',
-    prompt: { en: 'Camels have unusually oval red blood cells that help them:', bs: 'Kamele imaju neobično ovalna crvena krvna zrnca koja im pomažu da:' },
+    prompt: { en: 'Camels have unusually oval red blood cells that help them:', bs: 'Kamile imaju neobično ovalna crvena krvna zrnca koja im pomažu da:' },
     options: [
       { en: 'Continue circulating blood when dehydrated', bs: 'Nastave cirkulaciju krvi kad su dehidrirane' },
       { en: 'Fly', bs: 'Lete' },
@@ -1131,7 +1131,7 @@ export const biologyHard: Question[] = [
       { en: 'Type II alveolar cells', bs: 'Alveolarne ćelije tipa II' },
       { en: 'Red blood cells', bs: 'Crvena krvna zrnca' },
       { en: 'Osteoblasts', bs: 'Osteoblasti' },
-      { en: 'Hepatocytes only', bs: 'Samo hepatociti' },
+      { en: 'Hepatocytes', bs: 'Hepatociti' },
     ],
     correctIndex: 0,
   },
@@ -1172,7 +1172,7 @@ export const biologyHard: Question[] = [
     options: [
       { en: 'Misfolded proteins that induce misfolding of normal proteins', bs: 'Pogrešno savijeni proteini koji induciraju pogrešno savijanje normalnih proteina' },
       { en: 'DNA viruses', bs: 'DNK virusi' },
-      { en: 'Bacterial toxins only', bs: 'Samo bakterijski toksini' },
+      { en: 'Bacterial toxins', bs: 'Bakterijski toksini' },
       { en: 'RNA plasmids', bs: 'RNA plazmidi' },
     ],
     correctIndex: 0,
@@ -1199,7 +1199,7 @@ export const biologyHard: Question[] = [
     prompt: { en: 'X-chromosome inactivation in female mammals produces a condensed structure called a:', bs: 'Inaktivacija X-hromosoma kod ženki sisara proizvodi kondenzovanu strukturu zvanu:' },
     options: [
       { en: 'Barr body', bs: 'Barovo tijelo' },
-      { en: 'Nucleolus only', bs: 'Samo jedarcе' },
+      { en: 'Nucleolus', bs: 'Jedarcе' },
       { en: 'Centriole', bs: 'Centriola' },
       { en: 'Plasmid', bs: 'Plazmid' },
     ],
@@ -1214,7 +1214,7 @@ export const biologyHard: Question[] = [
     options: [
       { en: '21', bs: '21' },
       { en: '1', bs: '1' },
-      { en: 'Y only', bs: 'Samo Y' },
+      { en: 'Y', bs: 'Y' },
       { en: '13 always exclusively', bs: 'Uvijek isključivo 13' },
     ],
     correctIndex: 0,
@@ -1228,7 +1228,7 @@ export const biologyHard: Question[] = [
     options: [
       { en: 'Ectoderm', bs: 'Ektoderm' },
       { en: 'Endoderm', bs: 'Endoderm' },
-      { en: 'Mesoderm only for brain', bs: 'Samo mezoderm za mozak' },
+      { en: 'Mesoderm for brain', bs: 'Mezoderm za mozak' },
       { en: 'None of these', bs: 'Nijedan od navedenih' },
     ],
     correctIndex: 0,
@@ -1241,7 +1241,7 @@ export const biologyHard: Question[] = [
     prompt: { en: 'Hox genes are especially important for:', bs: 'Hox geni su posebno važni za:' },
     options: [
       { en: 'Body patterning along the anterior–posterior axis', bs: 'Obrasce tijela duž prednje–zadnje ose' },
-      { en: 'Digesting cellulose only', bs: 'Samo varenje celuloze' },
+      { en: 'Digesting cellulose', bs: 'Varenje celuloze' },
       { en: 'Producing bile', bs: 'Proizvodnju žuči' },
       { en: 'Forming tooth enamel exclusively', bs: 'Isključivo formiranje zubne cakline' },
     ],
@@ -1298,7 +1298,7 @@ export const biologyHard: Question[] = [
     options: [
       { en: 'Convergent evolution', bs: 'Konvergentne evolucije' },
       { en: 'Identical DNA sequences always', bs: 'Uvijek identičnih DNK sekvenci' },
-      { en: 'Shared recent ancestry only', bs: 'Samo zajedničkog nedavnog porijekla' },
+      { en: 'Shared recent ancestry', bs: 'Zajedničkog nedavnog porijekla' },
       { en: 'Horizontal gene transfer from plants', bs: 'Horizontalnog transfera gena od biljaka' },
     ],
     correctIndex: 0,
@@ -1313,7 +1313,7 @@ export const biologyHard: Question[] = [
       { en: 'Tiktaalik', bs: 'Tiktaalik' },
       { en: 'Trilobite', bs: 'Trilobit' },
       { en: 'Ammonite', bs: 'Amonit' },
-      { en: 'Tyrannosaurus only', bs: 'Samo Tyrannosaurus' },
+      { en: 'Tyrannosaurus', bs: 'Tyrannosaurus' },
     ],
     correctIndex: 0,
   },
@@ -1325,7 +1325,7 @@ export const biologyHard: Question[] = [
     prompt: { en: 'Rubisco is the enzyme that:', bs: 'Rubisco je enzim koji:' },
     options: [
       { en: 'Fixes CO2 in the Calvin cycle', bs: 'Fiksira CO2 u Calvinovom ciklusu' },
-      { en: 'Digests starch in saliva only', bs: 'Samo digestrira škrob u pljuvački' },
+      { en: 'Digests starch in saliva', bs: 'Digestrira škrob u pljuvački' },
       { en: 'Unwinds DNA', bs: 'Odvija DNK' },
       { en: 'Clots blood', bs: 'Zgrušava krv' },
     ],
@@ -1353,7 +1353,7 @@ export const biologyHard: Question[] = [
     prompt: { en: 'Apoptosis is best defined as:', bs: 'Apoptoza se najbolje definiše kao:' },
     options: [
       { en: 'Programmed cell death', bs: 'Programirana ćelijska smrt' },
-      { en: 'Uncontrolled cell division only', bs: 'Samo nekontrolisana ćelijska dioba' },
+      { en: 'Uncontrolled cell division', bs: 'Nekontrolisana ćelijska dioba' },
       { en: 'Photosynthesis at night', bs: 'Fotosinteza noću' },
       { en: 'Muscle contraction', bs: 'Mišićna kontrakcija' },
     ],

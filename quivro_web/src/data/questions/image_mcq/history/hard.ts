@@ -10,7 +10,7 @@ export const historyHardImage: Question[] = [
     options: [
       { en: 'Laws / documents', bs: 'Zakoni / dokumenti' },
       { en: 'Naval battles', bs: 'Pomorske bitke' },
-      { en: 'Agriculture only', bs: 'Samo poljoprivreda' },
+      { en: 'Agriculture', bs: 'Poljoprivreda' },
       { en: 'Fashion', bs: 'Moda' },
     ],
     correctIndex: 0,

@@ -51,11 +51,13 @@ class _RoomPageState extends State<RoomPage> {
     super.dispose();
   }
 
-  Future<void> _leaveToHome({bool showClosed = false}) async {
+  Future<void> _leaveToHome({bool showClosed = false, String? message}) async {
     await _repo.clearActiveSession();
     if (!mounted) return;
     if (showClosed) {
       showQuivroSnack(context, 'Room closed');
+    } else if (message != null) {
+      showQuivroSnack(context, message);
     }
     context.go('/', extra: widget.profile);
   }
@@ -139,6 +141,20 @@ class _RoomPageState extends State<RoomPage> {
         }
 
         _sawRoom = true;
+
+        // Removed from the room (e.g. rematch started without opting in).
+        if (room.player(widget.playerId) == null) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (!mounted || _exitingClosedRoom) return;
+            _exitingClosedRoom = true;
+            unawaited(
+              _leaveToHome(message: 'Round started without you'),
+            );
+          });
+          return const Scaffold(
+            body: Center(child: CircularProgressIndicator()),
+          );
+        }
 
         if (room.currentIndex != _trackedQuestion) {
           WidgetsBinding.instance.addPostFrameCallback((_) {

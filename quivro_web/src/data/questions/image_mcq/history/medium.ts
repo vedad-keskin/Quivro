@@ -9,7 +9,7 @@ export const historyMediumImage: Question[] = [
     prompt: { en: 'This crown icon is linked to which idea?', bs: 'Ova ikona krune je povezana sa kojom idejom?' },
     options: [
       { en: 'Monarchy / royalty', bs: 'Monarhija / kraljevstvo' },
-      { en: 'Democracy only', bs: 'Samo demokratija' },
+      { en: 'Democracy', bs: 'Demokratija' },
       { en: 'Trade unions', bs: 'Sindikati' },
       { en: 'Space travel', bs: 'Svemirska putovanja' },
     ],

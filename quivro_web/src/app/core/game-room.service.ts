@@ -203,9 +203,23 @@ export class GameRoomService {
         }
       : room.config;
 
+    const readyIds = new Set(
+      Object.keys(room.rematchReady ?? {}).filter(
+        (id) => room.rematchReady[id] && room.players[id],
+      ),
+    );
+    if (readyIds.size === 0) {
+      throw new Error('NO_PLAYERS');
+    }
+
+    // Keep only opted-in players; remove everyone else from the next round.
     const playerUpdates: Record<string, unknown> = {};
     for (const id of Object.keys(room.players)) {
-      playerUpdates[`players/${id}/score`] = 0;
+      if (readyIds.has(id)) {
+        playerUpdates[`players/${id}/score`] = 0;
+      } else {
+        playerUpdates[`players/${id}`] = null;
+      }
     }
 
     const questions = this.generator.generate(

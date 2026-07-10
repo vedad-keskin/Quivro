@@ -606,7 +606,10 @@ export class PlayPage implements OnInit, OnDestroy {
   });
 
   readonly canRematch = computed(
-    () => this.selectedCats().length > 0 && this.selectedTypes().length > 0,
+    () =>
+      this.selectedCats().length > 0 &&
+      this.selectedTypes().length > 0 &&
+      this.rematchReadyPlayers().length > 0,
   );
 
   constructor() {
@@ -765,10 +768,11 @@ export class PlayPage implements OnInit, OnDestroy {
       await this.rooms.rematch(this.code, nextConfig);
     } catch (e) {
       console.error(e);
-      const msg =
-        e instanceof Error && e.message === 'NO_QUESTIONS'
-          ? this.lang.t().noQuestions
-          : this.lang.t().startFailed;
+      let msg = this.lang.t().startFailed;
+      if (e instanceof Error) {
+        if (e.message === 'NO_QUESTIONS') msg = this.lang.t().noQuestions;
+        else if (e.message === 'NO_PLAYERS') msg = this.lang.t().minPlayers;
+      }
       this.snack.error(msg);
     } finally {
       this.rematching.set(false);
