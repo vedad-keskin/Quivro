@@ -362,27 +362,33 @@ import { TimerRing } from '../../shared/timer-ring';
       place-items: center;
       font-size: 1rem;
       box-shadow: 0 4px 10px rgba(15, 23, 42, 0.12);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      outline: 3px solid transparent;
+      transition: outline-color 0.2s ease, box-shadow 0.2s ease;
     }
     .chip.correct {
-      outline: 3px solid #84cc16;
-      transform: scale(1.08);
+      outline-color: #84cc16;
     }
     .reveal-badge {
+      box-sizing: border-box;
+      width: 4.5rem;
+      height: 4.5rem;
+      display: grid;
+      place-items: center;
+      text-align: center;
       font-weight: 900;
+      font-size: 0.9rem;
+      line-height: 1.1;
       color: var(--q-purple);
       background: #f5f3ff;
-      padding: 0.55rem 0.9rem;
-      border-radius: 999px;
-      animation: pulse 0.8s ease;
+      border: 3px solid var(--q-purple);
+      border-radius: 50%;
+      animation: fade-in 0.35s ease;
     }
-    @keyframes pulse {
+    @keyframes fade-in {
       from {
-        transform: scale(0.9);
         opacity: 0.5;
       }
       to {
-        transform: scale(1);
         opacity: 1;
       }
     }

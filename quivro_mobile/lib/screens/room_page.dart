@@ -335,18 +335,24 @@ class _PlayView extends StatelessWidget {
                     _Countdown(endsAt: q.endsAt)
                   else
                     Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 8,
-                      ),
+                      width: 56,
+                      height: 56,
+                      alignment: Alignment.center,
                       decoration: BoxDecoration(
                         color: const Color(0xFFF5F3FF),
                         borderRadius: BorderRadius.circular(99),
+                        border: Border.all(
+                          color: QuivroColors.purple,
+                          width: 3,
+                        ),
                       ),
                       child: Text(
                         isReveal ? 'Locked' : room.phase,
+                        textAlign: TextAlign.center,
                         style: GoogleFonts.nunito(
                           fontWeight: FontWeight.w800,
+                          fontSize: 12,
+                          height: 1.1,
                           color: QuivroColors.purple,
                         ),
                       ),
@@ -354,17 +360,20 @@ class _PlayView extends StatelessWidget {
                 ],
               ),
             ),
-            if (picked != null && room.phase == 'question')
-              Padding(
-                padding: const EdgeInsets.only(bottom: 6),
-                child: Text(
-                  'Tap another answer to change',
-                  style: GoogleFonts.nunito(
-                    fontWeight: FontWeight.w800,
-                    color: QuivroColors.blue,
-                  ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 6),
+              child: Text(
+                room.phase == 'question'
+                    ? 'Tap another answer to change'
+                    : 'Answers locked',
+                style: GoogleFonts.nunito(
+                  fontWeight: FontWeight.w800,
+                  color: room.phase == 'question'
+                      ? QuivroColors.blue
+                      : QuivroColors.purple,
                 ),
               ),
+            ),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
@@ -428,7 +437,7 @@ class _PlayView extends StatelessWidget {
   }
 }
 
-class _AnswerTile extends StatelessWidget {
+class _AnswerTile extends StatefulWidget {
   const _AnswerTile({
     required this.index,
     required this.selected,
@@ -442,31 +451,125 @@ class _AnswerTile extends StatelessWidget {
   final VoidCallback onTap;
 
   @override
+  State<_AnswerTile> createState() => _AnswerTileState();
+}
+
+class _AnswerTileState extends State<_AnswerTile> {
+  bool _pressed = false;
+
+  void _setPressed(bool value) {
+    if (!widget.enabled || _pressed == value) return;
+    setState(() => _pressed = value);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final color = answerColors[index];
-    return Material(
-      color: color,
-      borderRadius: BorderRadius.circular(24),
-      elevation: selected ? 8 : 2,
-      child: InkWell(
-        onTap: enabled ? onTap : null,
-        borderRadius: BorderRadius.circular(24),
-        child: Opacity(
-          opacity: enabled || selected ? 1 : 0.55,
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(24),
-              border: selected
-                  ? Border.all(color: Colors.white, width: 5)
-                  : null,
-            ),
-            alignment: Alignment.center,
-            child: Text(
-              answerLabels[index],
-              style: GoogleFonts.nunito(
-                fontSize: 64,
-                fontWeight: FontWeight.w900,
-                color: QuivroColors.navy,
+    final base = answerColors[widget.index];
+    final fill = widget.selected
+        ? Color.lerp(base, Colors.white, 0.08)!
+        : base;
+    final dimmed = !widget.enabled && !widget.selected;
+
+    return SizedBox.expand(
+      child: AnimatedScale(
+        scale: _pressed ? 0.97 : 1.0,
+        duration: const Duration(milliseconds: 120),
+        curve: Curves.easeOutCubic,
+        child: GestureDetector(
+          onTapDown: widget.enabled ? (_) => _setPressed(true) : null,
+          onTapUp: widget.enabled
+              ? (_) {
+                  _setPressed(false);
+                  widget.onTap();
+                }
+              : null,
+          onTapCancel: widget.enabled ? () => _setPressed(false) : null,
+          child: AnimatedOpacity(
+            duration: const Duration(milliseconds: 180),
+            opacity: dimmed ? 0.55 : 1,
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              curve: Curves.easeOutCubic,
+              decoration: BoxDecoration(
+                color: fill,
+                borderRadius: BorderRadius.circular(24),
+                border: Border.all(
+                  width: 3,
+                  color: widget.selected
+                      ? Colors.white
+                      : Colors.transparent,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: QuivroColors.navy.withValues(alpha: 0.12),
+                    blurRadius: 16,
+                    offset: const Offset(0, 6),
+                  ),
+                ],
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(21),
+                child: Stack(
+                  children: [
+                    Positioned(
+                      top: 12,
+                      left: 12,
+                      child: Container(
+                        width: 36,
+                        height: 36,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: Colors.white.withValues(alpha: 0.55),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Text(
+                          answerLabels[widget.index],
+                          style: GoogleFonts.nunito(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w900,
+                            color: QuivroColors.navy,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Center(
+                      child: Text(
+                        answerLabels[widget.index],
+                        style: GoogleFonts.nunito(
+                          fontSize: 64,
+                          fontWeight: FontWeight.w900,
+                          color: QuivroColors.navy,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      right: 12,
+                      bottom: 12,
+                      child: AnimatedScale(
+                        scale: widget.selected ? 1.0 : 0.8,
+                        duration: const Duration(milliseconds: 200),
+                        curve: Curves.easeOutBack,
+                        child: AnimatedOpacity(
+                          opacity: widget.selected ? 1 : 0,
+                          duration: const Duration(milliseconds: 180),
+                          child: Container(
+                            width: 28,
+                            height: 28,
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Icon(
+                              Icons.check_rounded,
+                              size: 18,
+                              color: QuivroColors.navy,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

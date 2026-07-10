@@ -67,7 +67,7 @@ const LABELS = ['A', 'B', 'C', 'D'];
       min-height: 4.5rem;
       height: 100%;
       padding: 1.1rem 1.35rem 1.5rem;
-      border: none;
+      border: 3px solid transparent;
       border-radius: 20px;
       background: var(--c);
       color: #0f172a;
@@ -75,10 +75,13 @@ const LABELS = ['A', 'B', 'C', 'D'];
       text-align: left;
       cursor: pointer;
       box-shadow: 0 8px 18px color-mix(in srgb, var(--c) 35%, transparent);
-      transition: transform 0.15s ease, filter 0.2s ease, opacity 0.2s ease;
+      transition: transform 0.15s ease, filter 0.2s ease, opacity 0.2s ease,
+        border-color 0.2s ease, box-shadow 0.2s ease;
     }
     .answer:hover:not(:disabled) {
-      transform: translateY(-2px) scale(1.01);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px color-mix(in srgb, var(--c) 45%, transparent);
+      filter: brightness(1.03);
     }
     .letter {
       align-self: flex-start;
@@ -100,7 +103,7 @@ const LABELS = ['A', 'B', 'C', 'D'];
       justify-content: center;
       padding: 0 0.35rem;
       text-align: center;
-      line-height: 3.5;
+      line-height: 1.15;
       font-size: clamp(1.85rem, 4.5vw, 3.25rem);
       font-weight: 800;
     }
@@ -127,8 +130,9 @@ const LABELS = ['A', 'B', 'C', 'D'];
       opacity: 0.7;
     }
     .reveal .answer.correct {
-      outline: 4px solid #fff;
-      transform: scale(1.03);
+      border-color: #fff;
+      filter: brightness(1.06);
+      box-shadow: 0 10px 24px color-mix(in srgb, var(--c) 45%, transparent);
     }
     @media (max-width: 720px) {
       .answers {
