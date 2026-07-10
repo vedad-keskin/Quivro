@@ -10,6 +10,7 @@ export const bs: UiStrings = {
   questionTypes: 'Tipovi pitanja',
   roundLength: 'Dužina runde',
   questions: 'pitanja',
+  difficultyMix: 'mješavina lakih, srednjih i teških',
   custom: 'Prilagođeno',
   generateCode: 'Nastavi',
   back: 'Nazad',

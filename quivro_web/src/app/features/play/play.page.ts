@@ -67,6 +67,16 @@ import { TimerRing } from '../../shared/timer-ring';
             <div class="rematch-hub">
               <h2>{{ lang.t().rematchSettings }}</h2>
 
+              <div class="join-code-block">
+                <p class="label">{{ lang.t().joinCode }}</p>
+                <div class="code-row">
+                  <h3 class="code">{{ r.code }}</h3>
+                  <button type="button" class="q-btn q-btn-outline" (click)="copy()">
+                    {{ copied() ? lang.t().copied : lang.t().copyCode }}
+                  </button>
+                </div>
+              </div>
+
               <div class="ready-block">
                 <p class="ready-label">
                   {{ lang.t().readyForRematch }} ({{ rematchReadyPlayers().length }})
@@ -436,6 +446,31 @@ import { TimerRing } from '../../shared/timer-ring';
       font-size: 1.15rem;
       font-weight: 900;
     }
+    .join-code-block .label {
+      margin: 0;
+      color: var(--q-muted);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.85rem;
+    }
+    .code-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .code {
+      margin: 0.25rem 0 0;
+      font-size: clamp(2rem, 6vw, 3.25rem);
+      letter-spacing: 0.18em;
+      background: var(--q-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.1;
+      font-weight: 900;
+    }
     .ready-block {
       display: grid;
       gap: 0.45rem;
@@ -516,10 +551,11 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly timerPresets = QUESTION_SECONDS_PRESETS;
   readonly selectedCats = signal<CategoryId[]>([...CATEGORIES]);
   readonly selectedTypes = signal<QuestionType[]>([...QUESTION_TYPES]);
-  readonly roundLength = signal(12);
+  readonly roundLength = signal(10);
   readonly scoringMode = signal<ScoringMode>('timed');
   readonly questionSeconds = signal(15);
   readonly rematching = signal(false);
+  readonly copied = signal(false);
   private configSynced = false;
 
   private code = '';
@@ -648,6 +684,17 @@ export class PlayPage implements OnInit, OnDestroy {
   async goHome(): Promise<void> {
     await this.rooms.leaveHostedRoom(this.code);
     await this.router.navigateByUrl('/');
+  }
+
+  async copy(): Promise<void> {
+    try {
+      await navigator.clipboard.writeText(this.code);
+      this.copied.set(true);
+      this.snack.success(this.lang.t().copied);
+      window.setTimeout(() => this.copied.set(false), 1500);
+    } catch {
+      /* ignore */
+    }
   }
 
   categoryLabel(cat: string): string {

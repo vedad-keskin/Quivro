@@ -19,7 +19,7 @@ export interface Question {
 
 export const CATEGORIES: CategoryId[] = ['geography', 'biology', 'gaming', 'history', 'sports'];
 export const DIFFICULTIES: Difficulty[] = ['easy', 'medium', 'hard'];
-export const ROUND_LENGTH_PRESETS = [12, 15, 20, 30] as const;
+export const ROUND_LENGTH_PRESETS = [10, 20, 30, 50] as const;
 export const QUESTION_TYPES: QuestionType[] = ['mcq', 'image_mcq'];
 export const QUESTION_SECONDS_PRESETS = [10, 15, 20, 30] as const;
 export const REVEAL_MS = 3_500;

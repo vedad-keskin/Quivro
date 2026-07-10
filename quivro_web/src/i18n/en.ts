@@ -8,6 +8,7 @@ export const en = {
   questionTypes: 'Question types',
   roundLength: 'Round length',
   questions: 'questions',
+  difficultyMix: 'mix of easy, medium, and hard',
   custom: 'Custom',
   generateCode: 'Continue',
   back: 'Back',

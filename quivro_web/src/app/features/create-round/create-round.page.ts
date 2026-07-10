@@ -44,12 +44,16 @@ function loadRoundPrefs(): RoundPrefs | null {
     );
     const scoringMode: ScoringMode =
       parsed.scoringMode === 'standard' ? 'standard' : 'timed';
+    const rawLength = Number(parsed.length) || 10;
+    const lengthIsPreset = (ROUND_LENGTH_PRESETS as readonly number[]).includes(
+      rawLength,
+    );
     return {
       categories: categories.length > 0 ? categories : [...CATEGORIES],
       questionTypes: questionTypes.length > 0 ? questionTypes : [...QUESTION_TYPES],
-      length: Number(parsed.length) || 12,
+      length: lengthIsPreset ? rawLength : 10,
       customMode: Boolean(parsed.customMode),
-      customLength: Number(parsed.customLength) || 12,
+      customLength: normalizeRoundLength(Number(parsed.customLength) || 10),
       scoringMode,
       questionSeconds: clampQuestionSeconds(Number(parsed.questionSeconds) || 15),
     };
@@ -184,9 +188,7 @@ function loadRoundPrefs(): RoundPrefs | null {
           }
           <p class="hint">
             {{ effectiveLength() }} {{ lang.t().questions }}
-            · {{ bandSize() }} {{ lang.t().easy }} /
-            {{ bandSize() }} {{ lang.t().medium }} /
-            {{ bandSize() }} {{ lang.t().hard }}
+            · {{ lang.t().difficultyMix }}
           </p>
         </section>
 
@@ -256,9 +258,9 @@ export class CreateRoundPage {
   private readonly saved = loadRoundPrefs();
   readonly selected = signal<CategoryId[]>(this.saved?.categories ?? [...CATEGORIES]);
   readonly types = signal<QuestionType[]>(this.saved?.questionTypes ?? [...QUESTION_TYPES]);
-  readonly length = signal(this.saved?.length ?? 12);
+  readonly length = signal(this.saved?.length ?? 10);
   readonly customMode = signal(this.saved?.customMode ?? false);
-  readonly customLength = signal(this.saved?.customLength ?? 12);
+  readonly customLength = signal(this.saved?.customLength ?? 10);
   readonly scoringMode = signal<ScoringMode>(this.saved?.scoringMode ?? 'timed');
   readonly questionSeconds = signal(this.saved?.questionSeconds ?? 15);
   readonly creating = signal(false);
@@ -266,7 +268,6 @@ export class CreateRoundPage {
   readonly effectiveLength = computed(() =>
     normalizeRoundLength(this.customMode() ? this.customLength() : this.length()),
   );
-  readonly bandSize = computed(() => this.effectiveLength() / 3);
   readonly canCreate = computed(
     () =>
       this.selected().length > 0 &&
