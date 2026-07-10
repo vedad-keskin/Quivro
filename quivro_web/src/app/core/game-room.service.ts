@@ -100,15 +100,24 @@ export class GameRoomService {
 
   async watchRoom(code: string): Promise<void> {
     this.stopWatching();
+    const upper = code.toUpperCase();
     const db = this.requireDb();
-    const roomRef = ref(db, `rooms/${code}`);
+    const roomRef = ref(db, `rooms/${upper}`);
+
+    // Restore host ownership after refresh/direct route so teardown still works.
+    const lastHosted = this.readLastHostedCode();
+    if (lastHosted === upper && this.hostedCode !== upper) {
+      await this.armHostDisconnect(upper);
+      this.persistLastHostedCode(upper);
+    }
+
     this.unsubscribe = onValue(roomRef, (snap) => {
       const raw = snap.val();
       if (!raw) {
         this.room.set(null);
         return;
       }
-      this.room.set(this.fromFirebase(code, raw));
+      this.room.set(this.fromFirebase(upper, raw));
     });
   }
 
@@ -270,15 +279,22 @@ export class GameRoomService {
   /** Host leaves lobby/play or closes the tab — tear down the room for all players. */
   async leaveHostedRoom(code?: string): Promise<void> {
     const c = (code ?? this.hostedCode)?.toUpperCase();
-    if (!c || !this.hostedCode) {
+    if (!c) {
       this.stopWatching();
       return;
     }
-    if (this.hostedCode !== c) {
+
+    const canTeardown =
+      this.hostedCode === c || this.readLastHostedCode() === c;
+    if (!canTeardown) {
       this.stopWatching();
       return;
     }
+
     try {
+      if (!this.hostedCode) {
+        this.hostedCode = c;
+      }
       await this.deleteRoom(c);
     } catch (e) {
       console.error(e);

@@ -101,10 +101,43 @@ class LastWinner {
   }
 }
 
+/// Rules for whether a persisted mobile session should resume.
+class RoomSessionPolicy {
+  RoomSessionPolicy._();
+
+  /// Orphan rooms should not trap phones after long idle periods.
+  static const roomMaxAgeMs = 4 * 60 * 60 * 1000;
+
+  /// Allow brief reconnects after the timer hits zero while the host reveals.
+  static const questionStaleGraceMs = 60 * 1000;
+
+  /// Reveal should advance quickly; long hangs mean the host is gone.
+  static const revealStaleGraceMs = 30 * 1000;
+
+  static bool canResume(RoomState room, String playerId, int nowMs) {
+    if (room.player(playerId) == null) return false;
+    if (nowMs - room.createdAt > roomMaxAgeMs) return false;
+    return !isStalePlayState(room, nowMs);
+  }
+
+  static bool isStalePlayState(RoomState room, int nowMs) {
+    if (room.phase != 'question' && room.phase != 'reveal') return false;
+
+    final question = room.currentQuestion;
+    if (question == null) return true;
+
+    final graceMs = room.phase == 'reveal'
+        ? revealStaleGraceMs
+        : questionStaleGraceMs;
+    return nowMs > question.endsAt + graceMs;
+  }
+}
+
 class RoomState {
   RoomState({
     required this.code,
     required this.phase,
+    required this.createdAt,
     required this.currentIndex,
     required this.totalQuestions,
     required this.players,
@@ -117,6 +150,7 @@ class RoomState {
 
   final String code;
   final String phase;
+  final int createdAt;
   final int currentIndex;
   final int totalQuestions;
   final PublicQuestion? currentQuestion;
@@ -175,6 +209,7 @@ class RoomState {
     return RoomState(
       code: code,
       phase: '${map['phase'] ?? 'lobby'}',
+      createdAt: (map['createdAt'] as num?)?.toInt() ?? 0,
       currentIndex: (map['currentIndex'] as num?)?.toInt() ?? -1,
       totalQuestions: (map['totalQuestions'] as num?)?.toInt() ?? 0,
       currentQuestion: question,

@@ -47,16 +47,39 @@ class RoomRepository {
     return snap.exists;
   }
 
+  Future<RoomState?> fetchRoom(String code) async {
+    final upper = code.toUpperCase();
+    final snap = await roomRef(upper).get();
+    if (!snap.exists) return null;
+    final value = snap.value;
+    if (value is! Map) return null;
+    return RoomState.fromSnapshot(upper, Map<dynamic, dynamic>.from(value));
+  }
+
+  bool isSessionResumable(RoomState room, String playerId) {
+    return RoomSessionPolicy.canResume(room, playerId, nowMs());
+  }
+
   /// Returns a valid session to resume, or null (and clears stale prefs).
   Future<ActiveRoomSession?> resolveActiveSession() async {
     final session = await _store.loadActiveSession();
     if (session == null) return null;
-    final ok = await playerInRoom(code: session.code, playerId: session.playerId);
-    if (!ok) {
+
+    final room = await fetchRoom(session.code);
+    if (room == null || !isSessionResumable(room, session.playerId)) {
       await _store.clearActiveSession();
       return null;
     }
     return session;
+  }
+
+  Future<bool> validateActiveSession({
+    required String code,
+    required String playerId,
+  }) async {
+    final room = await fetchRoom(code);
+    if (room == null) return false;
+    return isSessionResumable(room, playerId);
   }
 
   Future<String> joinRoom({

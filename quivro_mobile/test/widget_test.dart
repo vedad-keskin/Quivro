@@ -14,6 +14,7 @@ void main() {
   test('RoomState parses player avatar', () {
     final room = RoomState.fromSnapshot('ABC123', {
       'phase': 'lobby',
+      'createdAt': 1,
       'currentIndex': -1,
       'totalQuestions': 15,
       'players': {

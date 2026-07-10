@@ -27,7 +27,7 @@ class RoomPage extends StatefulWidget {
   State<RoomPage> createState() => _RoomPageState();
 }
 
-class _RoomPageState extends State<RoomPage> {
+class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
   final _repo = RoomRepository();
   final _sfx = Sfx();
   late final Stream<RoomState?> _stream;
@@ -41,14 +41,34 @@ class _RoomPageState extends State<RoomPage> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _stream = _repo.watchRoom(widget.code);
     unawaited(_sfx.preload());
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     unawaited(_sfx.dispose());
     super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      unawaited(_revalidateSession());
+    }
+  }
+
+  Future<void> _revalidateSession() async {
+    if (_exitingClosedRoom || !mounted) return;
+    final ok = await _repo.validateActiveSession(
+      code: widget.code,
+      playerId: widget.playerId,
+    );
+    if (!ok && mounted && !_exitingClosedRoom) {
+      _handleRoomEnded(message: 'This room has ended');
+    }
   }
 
   Future<void> _leaveToHome({bool showClosed = false, String? message}) async {
@@ -63,10 +83,26 @@ class _RoomPageState extends State<RoomPage> {
   }
 
   void _handleRoomClosed() {
+    _handleRoomEnded(showClosed: true);
+  }
+
+  void _handleRoomEnded({bool showClosed = false, String? message}) {
     if (_exitingClosedRoom) return;
     _exitingClosedRoom = true;
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      unawaited(_leaveToHome(showClosed: true));
+      unawaited(_leaveToHome(showClosed: showClosed, message: message));
+    });
+  }
+
+  void _handleStaleRoom() {
+    _handleRoomEnded(message: 'This room has ended');
+  }
+
+  void _handleConnectionError() {
+    if (_exitingClosedRoom) return;
+    _exitingClosedRoom = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      unawaited(_leaveToHome(message: 'Connection lost'));
     });
   }
 
@@ -116,6 +152,7 @@ class _RoomPageState extends State<RoomPage> {
       stream: _stream,
       builder: (context, snap) {
         if (snap.hasError) {
+          _handleConnectionError();
           return Scaffold(
             body: Center(child: Text('Connection error: ${snap.error}')),
           );
@@ -146,13 +183,26 @@ class _RoomPageState extends State<RoomPage> {
         if (room.player(widget.playerId) == null) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             if (!mounted || _exitingClosedRoom) return;
-            _exitingClosedRoom = true;
-            unawaited(
-              _leaveToHome(message: 'Round started without you'),
-            );
+            _handleRoomEnded(message: 'Round started without you');
           });
           return const Scaffold(
             body: Center(child: CircularProgressIndicator()),
+          );
+        }
+
+        if (RoomSessionPolicy.isStalePlayState(room, _repo.nowMs())) {
+          _handleStaleRoom();
+          return const Scaffold(
+            body: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CircularProgressIndicator(),
+                  SizedBox(height: 16),
+                  Text('This room has ended'),
+                ],
+              ),
+            ),
           );
         }
 

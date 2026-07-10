@@ -1,7 +1,13 @@
 import type { LocalizedString } from '../../i18n/types';
 
 export type Lang = 'en' | 'bs';
-export type CategoryId = 'geography' | 'biology' | 'gaming' | 'history' | 'sports';
+export type CategoryId =
+  | 'geography'
+  | 'biology'
+  | 'gaming'
+  | 'history'
+  | 'sports'
+  | 'movies';
 export type Difficulty = 'easy' | 'medium' | 'hard';
 export type QuestionType = 'mcq' | 'image_mcq';
 
@@ -17,7 +23,14 @@ export interface Question {
   image?: string;
 }
 
-export const CATEGORIES: CategoryId[] = ['geography', 'biology', 'gaming', 'history', 'sports'];
+export const CATEGORIES: CategoryId[] = [
+  'geography',
+  'biology',
+  'gaming',
+  'history',
+  'sports',
+  'movies',
+];
 export const DIFFICULTIES: Difficulty[] = ['easy', 'medium', 'hard'];
 export const ROUND_LENGTH_PRESETS = [10, 20, 30, 50] as const;
 export const QUESTION_TYPES: QuestionType[] = ['mcq', 'image_mcq'];

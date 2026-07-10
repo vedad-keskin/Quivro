@@ -36,6 +36,7 @@ export const en = {
   gaming: 'Gaming',
   history: 'History',
   sports: 'Sports',
+  movies: 'Movies & TV',
   selectAtLeastOne: 'Select at least one category',
   selectAtLeastOneType: 'Select at least one question type',
   prompt: 'Question',

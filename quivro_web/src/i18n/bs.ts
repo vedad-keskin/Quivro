@@ -38,6 +38,7 @@ export const bs: UiStrings = {
   gaming: 'Gaming',
   history: 'Historija',
   sports: 'Sport',
+  movies: 'Film & TV',
   selectAtLeastOne: 'Odaberi barem jednu kategoriju',
   selectAtLeastOneType: 'Odaberi barem jedan tip pitanja',
   prompt: 'Pitanje',
