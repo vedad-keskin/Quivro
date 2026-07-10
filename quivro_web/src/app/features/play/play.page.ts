@@ -218,11 +218,12 @@ import { TimerRing } from '../../shared/timer-ring';
                   }
                 </header>
 
-                <h1 class="prompt">{{ q.prompt }}</h1>
-
-                @if (q.imageUrl) {
-                  <img class="q-image" [src]="q.imageUrl" alt="" />
-                }
+                <div class="prompt-block">
+                  <h1 class="prompt">{{ q.prompt }}</h1>
+                  @if (q.imageUrl) {
+                    <img class="q-image" [src]="q.imageUrl" alt="" />
+                  }
+                </div>
 
                 <div class="answered-row">
                   <span class="answered-label">{{ lang.t().answered }}</span>
@@ -277,6 +278,7 @@ import { TimerRing } from '../../shared/timer-ring';
       display: grid;
       grid-template-columns: minmax(240px, 28%) 1fr;
       gap: 1rem;
+      height: calc(100dvh - 1.5rem);
       min-height: calc(100dvh - 1.5rem);
       align-items: stretch;
     }
@@ -285,12 +287,14 @@ import { TimerRing } from '../../shared/timer-ring';
     }
     .stage {
       position: relative;
-      display: grid;
-      align-content: start;
+      display: flex;
+      flex-direction: column;
       gap: 1rem;
       border: 2px solid var(--q-border);
       border-radius: 28px;
       padding: clamp(1rem, 2vw, 1.75rem);
+      padding-bottom: 3rem;
+      height: 100%;
       min-height: 100%;
     }
     .meta {
@@ -298,6 +302,7 @@ import { TimerRing } from '../../shared/timer-ring';
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
+      flex-shrink: 0;
     }
     .progress {
       margin: 0;
@@ -310,15 +315,22 @@ import { TimerRing } from '../../shared/timer-ring';
       font-weight: 700;
       text-transform: capitalize;
     }
+    .prompt-block {
+      flex-shrink: 0;
+      display: grid;
+      gap: 0.85rem;
+      padding: 0.15rem 0 0.25rem;
+    }
     .prompt {
       margin: 0;
-      font-size: clamp(1.7rem, 3.8vw, 2.8rem);
+      max-width: 42ch;
+      font-size: clamp(1.9rem, 4.2vw, 3.1rem);
       line-height: 1.15;
       font-weight: 900;
     }
     .q-image {
       width: min(100%, 560px);
-      max-height: 240px;
+      max-height: 220px;
       object-fit: contain;
       border-radius: 20px;
       background: #0f172a;
@@ -328,6 +340,8 @@ import { TimerRing } from '../../shared/timer-ring';
       flex-wrap: wrap;
       align-items: center;
       gap: 0.65rem;
+      flex-shrink: 0;
+      min-height: 2.2rem;
     }
     .answered-label {
       font-weight: 800;
@@ -463,6 +477,15 @@ import { TimerRing } from '../../shared/timer-ring';
     @media (max-width: 960px) {
       .layout {
         grid-template-columns: 1fr;
+        height: auto;
+        min-height: calc(100dvh - 1.5rem);
+      }
+      .board {
+        height: auto;
+      }
+      .stage {
+        height: auto;
+        min-height: min(72dvh, 720px);
       }
     }
   `,
