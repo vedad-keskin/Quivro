@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "880273668503",
+    "firebase_url": "https://quivro-ca38a-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "quivro-ca38a",
+    "storage_bucket": "quivro-ca38a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:880273668503:android:af8a1333d267232240ecd2",
+        "android_client_info": {
+          "package_name": "com.quivro.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAd_0oH9shwJnzj566_hutd_-vAS7UbUDY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
