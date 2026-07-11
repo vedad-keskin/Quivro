@@ -1719,4 +1719,72 @@ export const gamingEasy: Question[] = [
     ],
     correctIndex: 2,
   },
+  {
+    id: 'game-easy-107',
+    type: 'mcq',
+    category: 'gaming',
+    difficulty: 'easy',
+    prompt: {
+      en: 'Most esports tournaments are contested by…',
+      bs: 'Većina esports turnira se igra između…',
+    },
+    options: [
+      { en: 'Solo chefs', bs: 'Solo kuvara' },
+      { en: 'Pro teams', bs: 'Profesionalnih timova' },
+      { en: 'Movie studios', bs: 'Filmskih studija' },
+      { en: 'Book clubs', bs: 'Književnih klubova' },
+    ],
+    correctIndex: 1,
+  },
+  {
+    id: 'game-easy-108',
+    type: 'mcq',
+    category: 'gaming',
+    difficulty: 'easy',
+    prompt: {
+      en: 'Twitch is best known as a platform for…',
+      bs: 'Twitch je najpoznatiji kao platforma za…',
+    },
+    options: [
+      { en: 'Live-streaming games', bs: 'Live-streaming igara' },
+      { en: 'Printing photos', bs: 'Štampanje fotografija' },
+      { en: 'Cooking recipes', bs: 'Kulinarske recepte' },
+      { en: 'Weather forecasts', bs: 'Vremenske prognoze' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'game-easy-109',
+    type: 'mcq',
+    category: 'gaming',
+    difficulty: 'easy',
+    prompt: {
+      en: 'In esports, a LAN event means players compete…',
+      bs: 'U esportsu, LAN event znači da igrači nastupaju…',
+    },
+    options: [
+      { en: 'Only by mail', bs: 'Samo poštom' },
+      { en: 'At a live venue', bs: 'Na live lokaciji' },
+      { en: 'Without computers', bs: 'Bez računara' },
+      { en: 'In silent rooms', bs: 'U tišim sobama' },
+    ],
+    correctIndex: 1,
+  },
+  {
+    id: 'game-easy-110',
+    type: 'mcq',
+    category: 'gaming',
+    difficulty: 'easy',
+    prompt: {
+      en: 'In esports, a team’s backup player is often called a…',
+      bs: 'U esportsu, rezervni igrač tima se često zove…',
+    },
+    options: [
+      { en: 'Caster', bs: 'Caster' },
+      { en: 'Sub', bs: 'Sub' },
+      { en: 'Referee', bs: 'Referee' },
+      { en: 'Coach', bs: 'Coach' },
+    ],
+    correctIndex: 1,
+  },
 ];
