@@ -16,6 +16,9 @@ import { sportsMedium } from './mcq/sports/medium';
 import { moviesEasy } from './mcq/movies/easy';
 import { moviesHard } from './mcq/movies/hard';
 import { moviesMedium } from './mcq/movies/medium';
+import { famousEasy } from './mcq/famous/easy';
+import { famousHard } from './mcq/famous/hard';
+import { famousMedium } from './mcq/famous/medium';
 import { biologyEasyImage } from './image_mcq/biology/easy';
 import { biologyHardImage } from './image_mcq/biology/hard';
 import { biologyMediumImage } from './image_mcq/biology/medium';
@@ -34,6 +37,9 @@ import { sportsMediumImage } from './image_mcq/sports/medium';
 import { moviesEasyImage } from './image_mcq/movies/easy';
 import { moviesHardImage } from './image_mcq/movies/hard';
 import { moviesMediumImage } from './image_mcq/movies/medium';
+import { famousEasyImage } from './image_mcq/famous/easy';
+import { famousHardImage } from './image_mcq/famous/hard';
+import { famousMediumImage } from './image_mcq/famous/medium';
 import type { CategoryId, Difficulty, Question } from './types';
 import { CATEGORIES, DIFFICULTIES } from './types';
 
@@ -44,6 +50,7 @@ const MCQ_BANK: Record<CategoryId, Record<Difficulty, Question[]>> = {
   history: { easy: historyEasy, medium: historyMedium, hard: historyHard },
   sports: { easy: sportsEasy, medium: sportsMedium, hard: sportsHard },
   movies: { easy: moviesEasy, medium: moviesMedium, hard: moviesHard },
+  famous: { easy: famousEasy, medium: famousMedium, hard: famousHard },
 };
 
 const IMAGE_MCQ_BANK: Record<CategoryId, Record<Difficulty, Question[]>> = {
@@ -77,6 +84,11 @@ const IMAGE_MCQ_BANK: Record<CategoryId, Record<Difficulty, Question[]>> = {
     medium: moviesMediumImage,
     hard: moviesHardImage,
   },
+  famous: {
+    easy: famousEasyImage,
+    medium: famousMediumImage,
+    hard: famousHardImage,
+  },
 };
 
 const BANK: Record<CategoryId, Record<Difficulty, Question[]>> = {
@@ -109,6 +121,11 @@ const BANK: Record<CategoryId, Record<Difficulty, Question[]>> = {
     easy: [...MCQ_BANK.movies.easy, ...IMAGE_MCQ_BANK.movies.easy],
     medium: [...MCQ_BANK.movies.medium, ...IMAGE_MCQ_BANK.movies.medium],
     hard: [...MCQ_BANK.movies.hard, ...IMAGE_MCQ_BANK.movies.hard],
+  },
+  famous: {
+    easy: [...MCQ_BANK.famous.easy, ...IMAGE_MCQ_BANK.famous.easy],
+    medium: [...MCQ_BANK.famous.medium, ...IMAGE_MCQ_BANK.famous.medium],
+    hard: [...MCQ_BANK.famous.hard, ...IMAGE_MCQ_BANK.famous.hard],
   },
 };
 

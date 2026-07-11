@@ -37,6 +37,7 @@ export const en = {
   history: 'History',
   sports: 'Sports',
   movies: 'Movies & TV',
+  famous: 'Famous People',
   selectAtLeastOne: 'Select at least one category',
   selectAtLeastOneType: 'Select at least one question type',
   prompt: 'Question',

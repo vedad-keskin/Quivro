@@ -39,6 +39,7 @@ export const bs: UiStrings = {
   history: 'Historija',
   sports: 'Sport',
   movies: 'Film & TV',
+  famous: 'Poznati',
   selectAtLeastOne: 'Odaberi barem jednu kategoriju',
   selectAtLeastOneType: 'Odaberi barem jedan tip pitanja',
   prompt: 'Pitanje',
