@@ -58,6 +58,8 @@ import { TimerRing } from '../../shared/timer-ring';
                 }}</span>
                 <strong>{{ w.name }}</strong>
               </p>
+            } @else if (r.roundTied) {
+              <p class="tie-banner">{{ lang.t().roundTie }}</p>
             }
             <app-leaderboard
               [title]="lang.t().leaderboard"
@@ -432,6 +434,11 @@ import { TimerRing } from '../../shared/timer-ring';
       border-radius: 50%;
       display: grid;
       place-items: center;
+    }
+    .tie-banner {
+      margin: 0;
+      font-weight: 800;
+      color: var(--q-purple);
     }
     .rematch-hub {
       display: grid;

@@ -21,6 +21,7 @@ import {
   stripUndefined,
   AVATAR_COUNT,
   clampQuestionSeconds,
+  rankPlayers,
   type LastWinner,
   type PlayerAnswer,
   type PublicQuestion,
@@ -181,6 +182,9 @@ export class GameRoomService {
       }
       deltas[playerId] = delta;
       playerUpdates[`players/${playerId}/score`] = player.score + delta;
+      if (delta > 0 && ans) {
+        playerUpdates[`players/${playerId}/lastScoredAt`] = ans.answeredAt;
+      }
     }
 
     await this.patch(code, {
@@ -226,6 +230,7 @@ export class GameRoomService {
     for (const id of Object.keys(room.players)) {
       if (readyIds.has(id)) {
         playerUpdates[`players/${id}/score`] = 0;
+        playerUpdates[`players/${id}/lastScoredAt`] = 0;
       } else {
         playerUpdates[`players/${id}`] = null;
       }
@@ -255,6 +260,7 @@ export class GameRoomService {
       correctIndex: null,
       lastScoreDeltas: null,
       rematchReady: null,
+      roundTied: null,
       questionIds: questions.map((q) => q.id),
       lastWinner: room.lastWinner,
       ...playerUpdates,
@@ -382,31 +388,35 @@ export class GameRoomService {
     const room = await this.requireRoom(code);
     if (room.phase === 'finished') return;
 
-    const winner = awardWin ? this.pickWinner(room.players) : null;
+    const ranked = rankPlayers(Object.values(room.players));
+    const topScore = ranked.length > 0 ? ranked[0].score : null;
+    const leaders =
+      topScore === null ? [] : ranked.filter((p) => p.score === topScore);
+    const isTie = awardWin && leaders.length > 1;
+    const winner =
+      awardWin && leaders.length === 1
+        ? {
+            playerId: leaders[0].id,
+            name: leaders[0].name,
+            avatar: leaders[0].avatar,
+          }
+        : null;
+
     const updates: Record<string, unknown> = {
       phase: 'finished',
       currentQuestion: null,
       correctIndex: null,
       lastWinner: winner,
+      roundTied: awardWin ? isTie : false,
       rematchReady: null,
     };
-    if (awardWin && winner) {
+    if (winner) {
       const current = room.players[winner.playerId];
       if (current) {
         updates[`players/${winner.playerId}/wins`] = (current.wins ?? 0) + 1;
       }
     }
     await this.patch(code, updates);
-  }
-
-  private pickWinner(players: Record<string, RoomPlayer>): LastWinner | null {
-    const list = Object.values(players);
-    if (list.length === 0) return null;
-    const sorted = [...list].sort(
-      (a, b) => b.score - a.score || a.name.localeCompare(b.name),
-    );
-    const top = sorted[0];
-    return { playerId: top.id, name: top.name, avatar: top.avatar };
   }
 
   private async showQuestion(code: string, index: number): Promise<void> {
@@ -530,6 +540,7 @@ export class GameRoomService {
       questionIds: state.questionIds,
       lastScoreDeltas: state.lastScoreDeltas ?? null,
       lastWinner: state.lastWinner,
+      roundTied: state.roundTied ?? null,
       rematchReady: state.rematchReady,
     };
   }
@@ -545,6 +556,7 @@ export class GameRoomService {
         : 0,
       joinedAt: Number(raw['joinedAt'] ?? Date.now()),
       wins: Number(raw['wins'] ?? 0),
+      lastScoredAt: Number(raw['lastScoredAt'] ?? 0),
     };
   }
 
@@ -598,6 +610,7 @@ export class GameRoomService {
       questionIds: (raw['questionIds'] as string[]) ?? [],
       lastScoreDeltas: (raw['lastScoreDeltas'] as Record<string, number>) ?? undefined,
       lastWinner,
+      roundTied: raw['roundTied'] === true,
       rematchReady: (raw['rematchReady'] as Record<string, boolean>) ?? {},
     };
   }

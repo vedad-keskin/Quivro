@@ -786,6 +786,16 @@ class _FinishedView extends StatelessWidget {
                     ),
                   ],
                 ),
+              ] else if (room.roundTied) ...[
+                const SizedBox(height: 8),
+                Text(
+                  "It's a tie!",
+                  style: GoogleFonts.nunito(
+                    fontWeight: FontWeight.w800,
+                    fontSize: 16,
+                    color: QuivroColors.purple,
+                  ),
+                ),
               ],
               const SizedBox(height: 16),
               Expanded(

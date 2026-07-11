@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { avatarColor, avatarEmoji, type RoomPlayer } from '../core/room.models';
+import { avatarColor, avatarEmoji, rankPlayers, type RoomPlayer } from '../core/room.models';
 
 @Component({
   selector: 'app-leaderboard',
@@ -118,6 +118,6 @@ export class Leaderboard {
   readonly avatarEmoji = avatarEmoji;
 
   ranked(): RoomPlayer[] {
-    return [...this.players()].sort((a, b) => b.score - a.score || a.name.localeCompare(b.name));
+    return rankPlayers(this.players());
   }
 }

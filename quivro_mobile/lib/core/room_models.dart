@@ -60,6 +60,7 @@ class RoomPlayer {
     required this.avatar,
     required this.joinedAt,
     this.wins = 0,
+    this.lastScoredAt = 0,
   });
 
   final String id;
@@ -68,6 +69,7 @@ class RoomPlayer {
   final int avatar;
   final int joinedAt;
   final int wins;
+  final int lastScoredAt;
 
   factory RoomPlayer.fromMap(String id, Map<dynamic, dynamic> map) {
     return RoomPlayer(
@@ -77,6 +79,7 @@ class RoomPlayer {
       avatar: ((map['avatar'] as num?)?.toInt() ?? 0).clamp(0, avatarCount - 1),
       joinedAt: (map['joinedAt'] as num?)?.toInt() ?? 0,
       wins: (map['wins'] as num?)?.toInt() ?? 0,
+      lastScoredAt: (map['lastScoredAt'] as num?)?.toInt() ?? 0,
     );
   }
 }
@@ -145,6 +148,7 @@ class RoomState {
     this.currentQuestion,
     this.correctIndex,
     this.lastWinner,
+    this.roundTied = false,
     this.rematchReady = const {},
   });
 
@@ -156,6 +160,7 @@ class RoomState {
   final PublicQuestion? currentQuestion;
   final int? correctIndex;
   final LastWinner? lastWinner;
+  final bool roundTied;
   final Map<String, RoomPlayer> players;
   final Map<String, Map<String, Map<dynamic, dynamic>>> answers;
   final Map<String, bool> rematchReady;
@@ -215,6 +220,7 @@ class RoomState {
       currentQuestion: question,
       correctIndex: correct == null ? null : (correct as num).toInt(),
       lastWinner: lastWinner,
+      roundTied: map['roundTied'] == true,
       players: players,
       answers: answers,
       rematchReady: rematchReady,
@@ -243,7 +249,9 @@ class RoomState {
       ..sort((a, b) {
         final byScore = b.score.compareTo(a.score);
         if (byScore != 0) return byScore;
-        return a.name.compareTo(b.name);
+        final byLastPoint = b.lastScoredAt.compareTo(a.lastScoredAt);
+        if (byLastPoint != 0) return byLastPoint;
+        return a.joinedAt.compareTo(b.joinedAt);
       });
     return list;
   }

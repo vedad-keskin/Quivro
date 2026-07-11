@@ -1238,7 +1238,7 @@ export const sportsEasy: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'easy',
-    prompt: { en: 'Which winter Olympic sport slides stones on ice toward a target?', bs: 'Koji zimski olimpijski sport gura kamene na ledu prema meti?' },
+    prompt: { en: 'Which winter Olympic sport slides stones on ice toward a target?', bs: 'Koji zimski olimpijski sport gura kamenje na ledu prema meti?' },
     options: [
       { en: 'Ice hockey', bs: 'Hokej na ledu' },
       { en: 'Curling', bs: 'Curling' },

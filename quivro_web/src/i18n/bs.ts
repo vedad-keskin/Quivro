@@ -65,6 +65,7 @@ export const bs: UiStrings = {
   answered: 'Odgovorili',
   wins: 'pobjede',
   lastWinner: 'Pobjednik prošle runde',
+  roundTie: 'Neriješeno!',
   rematchLobby: 'Čeka se sljedeća runda…',
   readyForRematch: 'Spremni za još jednu rundu',
   startRematch: 'Igraj ponovo',

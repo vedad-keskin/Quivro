@@ -16,6 +16,8 @@ export interface RoomPlayer {
   avatar: number;
   joinedAt: number;
   wins: number;
+  /** Timestamp when this player last earned points (for tie ordering). */
+  lastScoredAt?: number;
 }
 
 export interface LastWinner {
@@ -74,8 +76,23 @@ export interface RoomState {
   questionIds: string[];
   lastScoreDeltas?: Record<string, number>;
   lastWinner: LastWinner | null;
+  /** True when the round ended with multiple players tied for first. */
+  roundTied?: boolean;
   /** Players who tapped Play again on mobile */
   rematchReady: Record<string, boolean>;
+}
+
+/** Sort: score desc, last point desc, join order asc. Keep in sync with mobile ranked(). */
+export function comparePlayers(a: RoomPlayer, b: RoomPlayer): number {
+  const byScore = b.score - a.score;
+  if (byScore !== 0) return byScore;
+  const byLastPoint = (b.lastScoredAt ?? 0) - (a.lastScoredAt ?? 0);
+  if (byLastPoint !== 0) return byLastPoint;
+  return a.joinedAt - b.joinedAt;
+}
+
+export function rankPlayers(players: RoomPlayer[]): RoomPlayer[] {
+  return [...players].sort(comparePlayers);
 }
 
 export const AVATAR_COLORS = [

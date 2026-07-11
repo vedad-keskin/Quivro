@@ -63,6 +63,7 @@ export const en = {
   answered: 'Answered',
   wins: 'wins',
   lastWinner: 'Last round winner',
+  roundTie: "It's a tie!",
   rematchLobby: 'Waiting for the next round…',
   readyForRematch: 'Ready for another round',
   startRematch: 'Play again',
