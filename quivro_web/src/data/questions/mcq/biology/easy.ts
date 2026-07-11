@@ -669,7 +669,7 @@ export const biologyEasy: Question[] = [
       { en: 'Puppy', bs: 'Štene' },
       { en: 'Kitten', bs: 'Mače' },
       { en: 'Calf', bs: 'Tele' },
-      { en: 'Cub', bs: 'Mladunče' },
+      { en: 'Chick', bs: 'Pile' },
     ],
     correctIndex: 1,
   },
@@ -888,7 +888,7 @@ export const biologyEasy: Question[] = [
     type: 'mcq',
     category: 'biology',
     difficulty: 'easy',
-    prompt: { en: 'Which animal has antlers?', bs: 'Koja životinja ima rogove (antlers)?' },
+    prompt: { en: 'Which animal has antlers?', bs: 'Koja životinja ima rogove?' },
     options: [
       { en: 'Deer', bs: 'Jelen' },
       { en: 'Cat', bs: 'Mačka' },
@@ -1196,7 +1196,7 @@ export const biologyEasy: Question[] = [
     type: 'mcq',
     category: 'biology',
     difficulty: 'easy',
-    prompt: { en: 'Which farm animal is known for “oinking” and rolling in mud?', bs: 'Koja domaća životinja je poznata po „rokćanju“ i valjanju u blatu?' },
+    prompt: { en: 'Which farm animal is known for rolling in the mud?', bs: 'Koja domaća životinja je poznata valjanju u blatu?' },
     options: [
       { en: 'Pig', bs: 'Svinja' },
       { en: 'Horse', bs: 'Konj' },
@@ -1240,7 +1240,7 @@ export const biologyEasy: Question[] = [
     difficulty: 'easy',
     prompt: { en: 'Which animal is known for its black body and white stripe, and living in the ocean?', bs: 'Koja životinja je poznata po crnom tijelu i bijeloj pruzi, i živi u okeanu?' },
     options: [
-      { en: 'Orca (killer whale)', bs: 'Orka (kit ubica)' },
+      { en: 'Orca', bs: 'Orka' },
       { en: 'Giraffe', bs: 'Žirafa' },
       { en: 'Rabbit', bs: 'Zec' },
       { en: 'Chicken', bs: 'Kokoš' },
@@ -1252,7 +1252,7 @@ export const biologyEasy: Question[] = [
     type: 'mcq',
     category: 'biology',
     difficulty: 'easy',
-    prompt: { en: 'Which animal is known for its loud “quack” and swimming in ponds?', bs: 'Koja životinja je poznata po glasnog „kva-kva“ i plivanju u jezercima?' },
+    prompt: { en: 'Which animal is known for its loud “quack” and swimming in ponds?', bs: 'Koja životinja je poznata po glasnom „kva-kva“ i plivanju u jezercima?' },
     options: [
       { en: 'Duck', bs: 'Patka' },
       { en: 'Lion', bs: 'Lav' },
@@ -1270,7 +1270,7 @@ export const biologyEasy: Question[] = [
     options: [
       { en: 'Leaves', bs: 'Listove' },
       { en: 'Roots', bs: 'Korijenje' },
-      { en: 'Bark completely', bs: 'Potpuno koru' },
+      { en: 'Bark', bs: 'Koru' },
       { en: 'Trunk', bs: 'Stablo' },
     ],
     correctIndex: 0,
@@ -1336,7 +1336,7 @@ export const biologyEasy: Question[] = [
     type: 'mcq',
     category: 'biology',
     difficulty: 'easy',
-    prompt: { en: 'What do most baby mammals drink from their mothers?', bs: 'Šta većina mladunaca sisara pije od majki?' },
+    prompt: { en: 'What do most baby mammals drink from their mothers?', bs: 'Šta većina mladunaca sisara pije od majke?' },
     options: [
       { en: 'Milk', bs: 'Mlijeko' },
       { en: 'Oil', bs: 'Ulje' },
@@ -1350,7 +1350,7 @@ export const biologyEasy: Question[] = [
     type: 'mcq',
     category: 'biology',
     difficulty: 'easy',
-    prompt: { en: 'Which animal is known for its loud “moo” sound on farms?', bs: 'Koja životinja je poznata po glasnog „muuu“ zvuku na farmama?' },
+    prompt: { en: 'Which animal is known for its loud “moo” sound on farms?', bs: 'Koja životinja je poznata po glasnom „muuu“ zvuku na farmama?' },
     options: [
       { en: 'Cow', bs: 'Krava' },
       { en: 'Shark', bs: 'Ajkula' },
@@ -1366,7 +1366,7 @@ export const biologyEasy: Question[] = [
     difficulty: 'easy',
     prompt: { en: 'Which animal is known for its black body, yellow stripes, and painful sting?', bs: 'Koja životinja je poznata po crnom tijelu, žutim prugama i bolnom ubodu?' },
     options: [
-      { en: 'Wasp / bee', bs: 'Osa / pčela' },
+      { en: 'Wasp', bs: 'Osa' },
       { en: 'Dove', bs: 'Golub' },
       { en: 'Rabbit', bs: 'Zec' },
       { en: 'Deer', bs: 'Jelen' },
