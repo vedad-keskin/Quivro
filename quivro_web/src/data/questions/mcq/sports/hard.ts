@@ -204,10 +204,10 @@ export const sportsHard: Question[] = [
     difficulty: 'hard',
     prompt: { en: 'Which country won UEFA Euro 2004 as a major underdog?', bs: 'Koja zemlja je kao veliki autsajder osvojila UEFA Euro 2004.?' },
     options: [
-      { en: 'Portugal', bs: 'Portugal' },
+      { en: 'Belgium', bs: 'Belgija' },
       { en: 'Greece', bs: 'Grčka' },
       { en: 'Czech Republic', bs: 'Češka' },
-      { en: 'France', bs: 'Francuska' },
+      { en: 'Hungary', bs: 'Mađarska' },
     ],
     correctIndex: 1,
   },
@@ -514,7 +514,7 @@ export const sportsHard: Question[] = [
     options: [
       { en: 'India', bs: 'Indija' },
       { en: 'Australia', bs: 'Australija' },
-      { en: 'West Indies', bs: 'Zapadne Indije' },
+      { en: 'New Zealand', bs: 'Novi Zeland' },
       { en: 'England', bs: 'Engleska' },
     ],
     correctIndex: 1,

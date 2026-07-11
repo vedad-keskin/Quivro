@@ -1210,14 +1210,14 @@ export const sportsEasy: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'easy',
-    prompt: { en: 'In which sport do athletes jump over a high bar with a long pole?', bs: 'U kojem sportu sportisti skaču preko visoke letvice dugom motkom?' },
+    prompt: { en: 'In athletics, which event measures the longest single leap forward from a takeoff board?', bs: 'U atletici, koja disciplina mjeri najduži jednostruki skok naprijed s odskočne daske?' },
     options: [
       { en: 'High jump', bs: 'Skok u vis' },
       { en: 'Pole vault', bs: 'Skok s motkom' },
       { en: 'Long jump', bs: 'Skok u dalj' },
       { en: 'Triple jump', bs: 'Troskok' },
     ],
-    correctIndex: 1,
+    correctIndex: 2,
   },
   {
     id: 'sport-easy-088',

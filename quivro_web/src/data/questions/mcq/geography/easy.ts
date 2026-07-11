@@ -904,7 +904,7 @@ export const geographyEasy: Question[] = [
     difficulty: 'easy',
     prompt: { en: 'Which landmark is found in Rio de Janeiro?', bs: 'Koji znameniti objekat se nalazi u Rio de Janeiru?' },
     options: [
-      { en: 'Christ the Redeemer', bs: 'Krist Iskupitelj' },
+      { en: 'Christ the Redeemer', bs: 'Krist Spasitelj' },
       { en: 'Colosseum', bs: 'Koloseum' },
       { en: 'Big Ben', bs: 'Big Ben' },
       { en: 'Taj Mahal', bs: 'Taj Mahal' },

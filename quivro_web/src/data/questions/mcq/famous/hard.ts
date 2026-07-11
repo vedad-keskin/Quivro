@@ -433,7 +433,7 @@ export const famousHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'George Washington Carver promoted crop rotation centered on…',
-      bs: 'George Washington Carver je promovisao rotaciju useva sa fokusom na…',
+      bs: 'George Washington Carver je promovisao rotaciju usjeva sa fokusom na…',
     },
     options: [
       { en: 'Sugarcane', bs: 'Šećernoj trsci' },
@@ -1401,16 +1401,16 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Archimedes explained buoyancy in his treatise on floating…',
-      bs: 'Archimedes je objasnio uzgona u svom traktatu o plutajućim…',
+      en: 'Archimedes is best known for formulating which principle about fluids and submerged objects?',
+      bs: 'Archimedes je najpoznatiji po formulisanju kojeg principa o fluidima i uronjenim objektima?',
     },
     options: [
-      { en: 'Continents', bs: 'Kontinentima' },
-      { en: 'Clouds', bs: 'Oblacima' },
-      { en: 'Bodies', bs: 'Tijelima' },
-      { en: 'Stars', bs: 'Zvijezdama' },
+      { en: 'Buoyancy', bs: 'Uzgona' },
+      { en: 'Gravity', bs: 'Gravitacije' },
+      { en: 'Inertia', bs: 'Inercije' },
+      { en: 'Refraction', bs: 'Refrakcije' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-084',

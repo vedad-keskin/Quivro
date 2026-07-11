@@ -42,7 +42,7 @@ export const gamingMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Los Santos is a major city in which Rockstar open-world series?',
-      bs: 'Los Santos je glavni grad u kojoj Rockstar open-world seriji?',
+      bs: 'Los Santos je glavni grad u kojem Rockstar open-world serijalu?',
     },
     options: [
       { en: 'Grand Theft Auto', bs: 'Grand Theft Auto' },
@@ -598,12 +598,12 @@ export const gamingMedium: Question[] = [
     type: 'mcq',
     category: 'gaming',
     difficulty: 'medium',
-    prompt: { en: 'The Doom Slayer appears in…', bs: 'Doom Slayer se pojavljuje u…' },
+    prompt: { en: 'The Monster Hunter series is developed by…', bs: 'Serijal Monster Hunter razvija…' },
     options: [
-      { en: 'Call of Duty', bs: 'Call of Duty' },
-      { en: 'DOOM', bs: 'DOOM' },
-      { en: 'Halo', bs: 'Halo' },
-      { en: 'Battlefield', bs: 'Battlefield' },
+      { en: 'Bandai Namco', bs: 'Bandai Namco' },
+      { en: 'Capcom', bs: 'Capcom' },
+      { en: 'Konami', bs: 'Konami' },
+      { en: 'Sega', bs: 'Sega' },
     ],
     correctIndex: 1,
   },
@@ -1261,8 +1261,8 @@ export const gamingMedium: Question[] = [
     category: 'gaming',
     difficulty: 'medium',
     prompt: {
-      en: 'Which Nintendo series stars a space-faring fox pilot?',
-      bs: 'Koji Nintendo serijal ima lisicu pilota u svemiru?',
+      en: 'Which Nintendo series is set in the Lylat star system?',
+      bs: 'Koji Nintendo serijal se odvija u zvjezdanom sistemu Lylat?',
     },
     options: [
       { en: 'Metroid', bs: 'Metroid' },
