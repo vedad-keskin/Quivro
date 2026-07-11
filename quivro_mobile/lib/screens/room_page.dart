@@ -748,7 +748,7 @@ class _FinishedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ranked = room.ranked();
-    final winnerId = room.lastWinner?.playerId;
+    final winnerIds = room.lastWinners.map((w) => w.playerId).toSet();
 
     return Scaffold(
       body: SafeArea(
@@ -764,7 +764,7 @@ class _FinishedView extends StatelessWidget {
                   fontWeight: FontWeight.w900,
                 ),
               ),
-              if (room.lastWinner != null) ...[
+              if (room.lastWinners.length == 1) ...[
                 const SizedBox(height: 8),
                 Row(
                   children: [
@@ -775,10 +775,10 @@ class _FinishedView extends StatelessWidget {
                         color: QuivroColors.muted,
                       ),
                     ),
-                    AvatarBadge(index: room.lastWinner!.avatar, size: 28),
+                    AvatarBadge(index: room.lastWinners.first.avatar, size: 28),
                     const SizedBox(width: 8),
                     Text(
-                      room.lastWinner!.name,
+                      room.lastWinners.first.name,
                       style: GoogleFonts.nunito(
                         fontWeight: FontWeight.w800,
                         fontSize: 16,
@@ -786,15 +786,31 @@ class _FinishedView extends StatelessWidget {
                     ),
                   ],
                 ),
-              ] else if (room.roundTied) ...[
+              ] else if (room.lastWinners.length > 1) ...[
                 const SizedBox(height: 8),
                 Text(
-                  "It's a tie!",
+                  'Tied winners:',
                   style: GoogleFonts.nunito(
-                    fontWeight: FontWeight.w800,
-                    fontSize: 16,
-                    color: QuivroColors.purple,
+                    fontWeight: FontWeight.w700,
+                    color: QuivroColors.muted,
                   ),
+                ),
+                const SizedBox(height: 6),
+                Wrap(
+                  spacing: 12,
+                  runSpacing: 8,
+                  children: [
+                    for (final w in room.lastWinners) ...[
+                      AvatarBadge(index: w.avatar, size: 28),
+                      Text(
+                        w.name,
+                        style: GoogleFonts.nunito(
+                          fontWeight: FontWeight.w800,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
+                  ],
                 ),
               ],
               const SizedBox(height: 16),
@@ -805,7 +821,7 @@ class _FinishedView extends StatelessWidget {
                   itemBuilder: (context, i) {
                     final p = ranked[i];
                     final isSelf = p.id == playerId;
-                    final isWinner = p.id == winnerId;
+                    final isWinner = winnerIds.contains(p.id);
                     return Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 14,

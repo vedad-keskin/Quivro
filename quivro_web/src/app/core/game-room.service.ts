@@ -86,7 +86,7 @@ export class GameRoomService {
       players: {},
       answers: {},
       questionIds: questions.map((q) => q.id),
-      lastWinner: null,
+      lastWinners: [],
       rematchReady: {},
     };
 
@@ -202,7 +202,7 @@ export class GameRoomService {
 
   async rematch(code: string, nextConfig?: RoomConfig): Promise<void> {
     const room = await this.fetchFreshRoom(code);
-    // Wins already applied in finishRound; keep lastWinner and reset round state.
+    // Wins already applied in finishRound; keep lastWinners and reset round state.
     const config: RoomConfig = nextConfig
       ? {
           categories: nextConfig.categories,
@@ -262,7 +262,7 @@ export class GameRoomService {
       rematchReady: null,
       roundTied: null,
       questionIds: questions.map((q) => q.id),
-      lastWinner: room.lastWinner,
+      lastWinners: room.lastWinners,
       ...playerUpdates,
     });
 
@@ -392,28 +392,26 @@ export class GameRoomService {
     const topScore = ranked.length > 0 ? ranked[0].score : null;
     const leaders =
       topScore === null ? [] : ranked.filter((p) => p.score === topScore);
-    const isTie = awardWin && leaders.length > 1;
-    const winner =
-      awardWin && leaders.length === 1
-        ? {
-            playerId: leaders[0].id,
-            name: leaders[0].name,
-            avatar: leaders[0].avatar,
-          }
-        : null;
+    const coWinners = awardWin
+      ? leaders.map((p) => ({
+          playerId: p.id,
+          name: p.name,
+          avatar: p.avatar,
+        }))
+      : [];
 
     const updates: Record<string, unknown> = {
       phase: 'finished',
       currentQuestion: null,
       correctIndex: null,
-      lastWinner: winner,
-      roundTied: awardWin ? isTie : false,
+      lastWinners: coWinners,
+      roundTied: awardWin && coWinners.length > 1,
       rematchReady: null,
     };
-    if (winner) {
-      const current = room.players[winner.playerId];
+    for (const w of coWinners) {
+      const current = room.players[w.playerId];
       if (current) {
-        updates[`players/${winner.playerId}/wins`] = (current.wins ?? 0) + 1;
+        updates[`players/${w.playerId}/wins`] = (current.wins ?? 0) + 1;
       }
     }
     await this.patch(code, updates);
@@ -539,7 +537,7 @@ export class GameRoomService {
       answers: state.answers,
       questionIds: state.questionIds,
       lastScoreDeltas: state.lastScoreDeltas ?? null,
-      lastWinner: state.lastWinner,
+      lastWinners: state.lastWinners,
       roundTied: state.roundTied ?? null,
       rematchReady: state.rematchReady,
     };
@@ -575,16 +573,7 @@ export class GameRoomService {
     const scoringMode: ScoringMode =
       scoringRaw === 'standard' ? 'standard' : 'timed';
 
-    const lw = raw['lastWinner'];
-    let lastWinner: LastWinner | null = null;
-    if (lw && typeof lw === 'object') {
-      const o = lw as Record<string, unknown>;
-      lastWinner = {
-        playerId: String(o['playerId'] ?? ''),
-        name: String(o['name'] ?? ''),
-        avatar: Number(o['avatar'] ?? 0),
-      };
-    }
+    const lastWinners = this.parseLastWinners(raw);
 
     return {
       code,
@@ -609,9 +598,34 @@ export class GameRoomService {
       answers: (raw['answers'] as Record<string, Record<string, PlayerAnswer>>) ?? {},
       questionIds: (raw['questionIds'] as string[]) ?? [],
       lastScoreDeltas: (raw['lastScoreDeltas'] as Record<string, number>) ?? undefined,
-      lastWinner,
+      lastWinners,
       roundTied: raw['roundTied'] === true,
       rematchReady: (raw['rematchReady'] as Record<string, boolean>) ?? {},
     };
+  }
+
+  private parseLastWinners(raw: Record<string, unknown>): LastWinner[] {
+    const list = raw['lastWinners'];
+    if (Array.isArray(list)) {
+      return list
+        .filter((item): item is Record<string, unknown> => !!item && typeof item === 'object')
+        .map((o) => ({
+          playerId: String(o['playerId'] ?? ''),
+          name: String(o['name'] ?? ''),
+          avatar: Number(o['avatar'] ?? 0),
+        }));
+    }
+    const lw = raw['lastWinner'];
+    if (lw && typeof lw === 'object') {
+      const o = lw as Record<string, unknown>;
+      return [
+        {
+          playerId: String(o['playerId'] ?? ''),
+          name: String(o['name'] ?? ''),
+          avatar: Number(o['avatar'] ?? 0),
+        },
+      ];
+    }
+    return [];
   }
 }

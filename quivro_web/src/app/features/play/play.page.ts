@@ -50,16 +50,28 @@ import { TimerRing } from '../../shared/timer-ring';
               <h1>{{ lang.t().finalLeaderboard }}</h1>
               <div class="q-brand-line"></div>
             </div>
-            @if (r.lastWinner; as w) {
+            @if (r.lastWinners.length === 1) {
               <p class="winner-banner">
                 {{ lang.t().lastWinner }}:
-                <span class="avatar" [style.background]="avatarColor(w.avatar)">{{
-                  avatarEmoji(w.avatar)
-                }}</span>
-                <strong>{{ w.name }}</strong>
+                <span
+                  class="avatar"
+                  [style.background]="avatarColor(r.lastWinners[0].avatar)"
+                  >{{ avatarEmoji(r.lastWinners[0].avatar) }}</span
+                >
+                <strong>{{ r.lastWinners[0].name }}</strong>
               </p>
-            } @else if (r.roundTied) {
-              <p class="tie-banner">{{ lang.t().roundTie }}</p>
+            } @else if (r.lastWinners.length > 1) {
+              <p class="winner-banner co-winners">
+                {{ lang.t().roundTieWinners }}:
+                @for (w of r.lastWinners; track w.playerId) {
+                  <span class="co-winner">
+                    <span class="avatar" [style.background]="avatarColor(w.avatar)">{{
+                      avatarEmoji(w.avatar)
+                    }}</span>
+                    <strong>{{ w.name }}</strong>
+                  </span>
+                }
+              </p>
             }
             <app-leaderboard
               [title]="lang.t().leaderboard"
@@ -439,6 +451,14 @@ import { TimerRing } from '../../shared/timer-ring';
       margin: 0;
       font-weight: 800;
       color: var(--q-purple);
+    }
+    .co-winners {
+      flex-wrap: wrap;
+    }
+    .co-winner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
     }
     .rematch-hub {
       display: grid;

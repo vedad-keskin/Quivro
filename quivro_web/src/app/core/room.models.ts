@@ -75,7 +75,7 @@ export interface RoomState {
   answers: Record<string, Record<string, PlayerAnswer>>;
   questionIds: string[];
   lastScoreDeltas?: Record<string, number>;
-  lastWinner: LastWinner | null;
+  lastWinners: LastWinner[];
   /** True when the round ended with multiple players tied for first. */
   roundTied?: boolean;
   /** Players who tapped Play again on mobile */

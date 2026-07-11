@@ -147,7 +147,7 @@ class RoomState {
     required this.answers,
     this.currentQuestion,
     this.correctIndex,
-    this.lastWinner,
+    this.lastWinners = const [],
     this.roundTied = false,
     this.rematchReady = const {},
   });
@@ -159,7 +159,7 @@ class RoomState {
   final int totalQuestions;
   final PublicQuestion? currentQuestion;
   final int? correctIndex;
-  final LastWinner? lastWinner;
+  final List<LastWinner> lastWinners;
   final bool roundTied;
   final Map<String, RoomPlayer> players;
   final Map<String, Map<String, Map<dynamic, dynamic>>> answers;
@@ -197,11 +197,7 @@ class RoomState {
     }
 
     final correct = map['correctIndex'];
-    LastWinner? lastWinner;
-    final lw = map['lastWinner'];
-    if (lw is Map) {
-      lastWinner = LastWinner.fromMap(lw);
-    }
+    final lastWinners = _parseLastWinners(map);
 
     final rematchReady = <String, bool>{};
     final rr = map['rematchReady'];
@@ -219,7 +215,7 @@ class RoomState {
       totalQuestions: (map['totalQuestions'] as num?)?.toInt() ?? 0,
       currentQuestion: question,
       correctIndex: correct == null ? null : (correct as num).toInt(),
-      lastWinner: lastWinner,
+      lastWinners: lastWinners,
       roundTied: map['roundTied'] == true,
       players: players,
       answers: answers,
@@ -255,4 +251,19 @@ class RoomState {
       });
     return list;
   }
+}
+
+List<LastWinner> _parseLastWinners(Map<dynamic, dynamic> map) {
+  final list = map['lastWinners'];
+  if (list is List) {
+    return list
+        .whereType<Map>()
+        .map((item) => LastWinner.fromMap(item))
+        .toList();
+  }
+  final lw = map['lastWinner'];
+  if (lw is Map) {
+    return [LastWinner.fromMap(lw)];
+  }
+  return [];
 }
