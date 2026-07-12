@@ -112,4 +112,29 @@ void main() {
       isFalse,
     );
   });
+
+  test('canSubmit still allows another choice before the timer ends', () {
+    final room = _room(phase: 'question', endsAt: 2_000_000);
+
+    expect(
+      AnswerSubmissionPolicy.canSubmit(
+        room: room,
+        playerId: 'p1',
+        questionIndex: 0,
+        choice: 1,
+        nowMs: 1_999_000,
+      ),
+      isTrue,
+    );
+    expect(
+      AnswerSubmissionPolicy.canSubmit(
+        room: room,
+        playerId: 'p1',
+        questionIndex: 0,
+        choice: 3,
+        nowMs: 1_999_500,
+      ),
+      isTrue,
+    );
+  });
 }

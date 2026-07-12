@@ -37,7 +37,6 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
   bool _optingIn = false;
   bool _exitingClosedRoom = false;
   bool _sawRoom = false;
-  int? _submittedForIndex;
 
   @override
   void initState() {
@@ -109,9 +108,6 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
 
   Future<void> _answer(RoomState room, int choice) async {
     if (room.phase != 'question' || _submitting) return;
-    if (_submittedForIndex == room.currentIndex || room.hasAnswered(widget.playerId)) {
-      return;
-    }
     if (!AnswerSubmissionPolicy.canSubmit(
       room: room,
       playerId: widget.playerId,
@@ -122,10 +118,11 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
       return;
     }
 
-    setState(() {
-      _submitting = true;
-      _picked = choice;
-    });
+    final currentChoice = _picked ?? room.choiceOf(widget.playerId);
+    setState(() => _picked = choice);
+    if (currentChoice == choice) return;
+
+    setState(() => _submitting = true);
     unawaited(_sfx.playGuess());
     try {
       await _repo.submitAnswer(
@@ -134,9 +131,6 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
         playerId: widget.playerId,
         choice: choice,
       );
-      if (mounted) {
-        setState(() => _submittedForIndex = room.currentIndex);
-      }
     } catch (_) {
       if (mounted) {
         showQuivroSnack(context, 'Could not send answer', kind: QuivroSnackKind.error);
@@ -229,11 +223,6 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
             setState(() {
               _trackedQuestion = room.currentIndex;
               _picked = room.choiceOf(widget.playerId);
-              if (room.hasAnswered(widget.playerId)) {
-                _submittedForIndex = room.currentIndex;
-              } else if (_submittedForIndex != room.currentIndex) {
-                _submittedForIndex = null;
-              }
             });
           });
         }
@@ -270,8 +259,6 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
 
         final picked = _picked ?? room.choiceOf(widget.playerId);
         final canChange = room.phase == 'question' &&
-            _submittedForIndex != room.currentIndex &&
-            !room.hasAnswered(widget.playerId) &&
             _repo.nowMs() <= room.currentQuestion!.endsAt;
 
         return _PlayView(

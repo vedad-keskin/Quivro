@@ -1,13 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { get, remove, ref, update } from 'firebase/database';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { DIFFICULTY_POINTS } from '../../data/questions/types';
 import type { Question } from '../../data/questions/types';
 import { FirebaseService } from './firebase.service';
 import { GameRoomService } from './game-room.service';
 import { QuestionBankService } from './question-bank.service';
 import { RoundGeneratorService } from './round-generator.service';
 import { ServerTimeService } from './server-time.service';
-import type { RoomState } from './room.models';
+import { shuffledOptionsForQuestion, type RoomState } from './room.models';
 
 const LAST_HOSTED_CODE_KEY = 'quivro.lastHostedCode';
 
@@ -45,6 +46,15 @@ const sampleQuestion: Question = {
 };
 
 function questionRoom(overrides: Partial<RoomState> = {}): RoomState {
+  const endsAt = 1_015_000;
+  const { displayCorrect } = shuffledOptionsForQuestion(
+    ['A', 'B', 'C', 'D'],
+    sampleQuestion.correctIndex,
+    'ROOM01',
+    sampleQuestion.id,
+    0,
+  );
+
   return {
     code: 'ROOM01',
     phase: 'question',
@@ -53,7 +63,7 @@ function questionRoom(overrides: Partial<RoomState> = {}): RoomState {
       questionTypes: ['mcq'],
       roundLength: 1,
       language: 'en',
-      scoringMode: 'standard',
+      scoringMode: 'timed',
       questionSeconds: 15,
     },
     createdAt: 1_000_000,
@@ -66,7 +76,7 @@ function questionRoom(overrides: Partial<RoomState> = {}): RoomState {
       difficulty: 'hard',
       prompt: 'Prompt?',
       options: ['A', 'B', 'C', 'D'],
-      endsAt: 2_000_000,
+      endsAt,
       durationMs: 15_000,
       index: 0,
       total: 1,
@@ -84,7 +94,7 @@ function questionRoom(overrides: Partial<RoomState> = {}): RoomState {
     },
     answers: {
       '0': {
-        p1: { choice: 2, answeredAt: 1_500_000 },
+        p1: { choice: displayCorrect, answeredAt: 1_014_000 },
       },
     },
     questionIds: [sampleQuestion.id],
@@ -92,6 +102,31 @@ function questionRoom(overrides: Partial<RoomState> = {}): RoomState {
     rematchReady: {},
     ...overrides,
   };
+}
+
+function roomSnapshot(room: RoomState): Record<string, unknown> {
+  return {
+    phase: room.phase,
+    config: room.config,
+    createdAt: room.createdAt,
+    currentIndex: room.currentIndex,
+    totalQuestions: room.totalQuestions,
+    currentQuestion: room.currentQuestion,
+    correctIndex: room.correctIndex,
+    players: room.players,
+    answers: room.answers,
+    questionIds: room.questionIds,
+    lastWinners: room.lastWinners,
+    rematchReady: room.rematchReady,
+  };
+}
+
+function timedDelta(answeredAt: number, endsAt: number, durationMs: number): number {
+  const base = DIFFICULTY_POINTS.hard;
+  const clamped = Math.min(answeredAt, endsAt);
+  const timeLeft = Math.max(0, endsAt - clamped);
+  const speed = timeLeft / durationMs;
+  return Math.round(base * (0.4 + 0.6 * speed));
 }
 
 vi.mock('firebase/database', () => ({
@@ -164,20 +199,7 @@ describe('GameRoomService', () => {
     const room = questionRoom();
     vi.mocked(get).mockResolvedValue({
       exists: () => true,
-      val: () => ({
-        phase: room.phase,
-        config: room.config,
-        createdAt: room.createdAt,
-        currentIndex: room.currentIndex,
-        totalQuestions: room.totalQuestions,
-        currentQuestion: room.currentQuestion,
-        correctIndex: room.correctIndex,
-        players: room.players,
-        answers: room.answers,
-        questionIds: room.questionIds,
-        lastWinners: room.lastWinners,
-        rematchReady: room.rematchReady,
-      }),
+      val: () => roomSnapshot(room),
     } as never);
 
     await service.reveal('ROOM01');
@@ -186,24 +208,50 @@ describe('GameRoomService', () => {
     expect(update).toHaveBeenCalledTimes(1);
   });
 
+  it('timed reveal awards lower speed bonus for a late final answer', async () => {
+    const room = questionRoom();
+    vi.mocked(get).mockResolvedValue({
+      exists: () => true,
+      val: () => roomSnapshot(room),
+    } as never);
+
+    await service.reveal('ROOM01');
+
+    const patch = vi.mocked(update).mock.calls.at(-1)?.[1] as Record<string, unknown>;
+    const delta = (patch['lastScoreDeltas'] as Record<string, number>)['p1'];
+    expect(delta).toBe(timedDelta(1_014_000, 1_015_000, 15_000));
+  });
+
+  it('timed reveal awards higher speed bonus for an early kept answer', async () => {
+    const room = questionRoom({
+      answers: {
+        '0': {
+          p1: {
+            choice: questionRoom().answers['0']['p1'].choice,
+            answeredAt: 1_001_000,
+          },
+        },
+      },
+    });
+    vi.mocked(get).mockResolvedValue({
+      exists: () => true,
+      val: () => roomSnapshot(room),
+    } as never);
+
+    await service.reveal('ROOM01');
+
+    const patch = vi.mocked(update).mock.calls.at(-1)?.[1] as Record<string, unknown>;
+    const delta = (patch['lastScoreDeltas'] as Record<string, number>)['p1'];
+    const lateDelta = timedDelta(1_014_000, 1_015_000, 15_000);
+    expect(delta).toBe(timedDelta(1_001_000, 1_015_000, 15_000));
+    expect(delta).toBeGreaterThan(lateDelta);
+  });
+
   it('startGame skips rewriting an already-live question', async () => {
     const room = questionRoom();
     vi.mocked(get).mockResolvedValue({
       exists: () => true,
-      val: () => ({
-        phase: room.phase,
-        config: room.config,
-        createdAt: room.createdAt,
-        currentIndex: room.currentIndex,
-        totalQuestions: room.totalQuestions,
-        currentQuestion: room.currentQuestion,
-        correctIndex: room.correctIndex,
-        players: room.players,
-        answers: room.answers,
-        questionIds: room.questionIds,
-        lastWinners: room.lastWinners,
-        rematchReady: room.rematchReady,
-      }),
+      val: () => roomSnapshot(room),
     } as never);
 
     await service.startGame('ROOM01');

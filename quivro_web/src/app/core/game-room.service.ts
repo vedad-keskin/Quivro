@@ -193,6 +193,7 @@ export class GameRoomService {
         if (scoringMode === 'standard') {
           delta = 1;
         } else {
+          // Timed mode uses the final stored answer timestamp (last reselect wins).
           const answeredAt = Math.min(ans.answeredAt, endsAt);
           const timeLeft = Math.max(0, endsAt - answeredAt);
           const speed = timeLeft / duration;

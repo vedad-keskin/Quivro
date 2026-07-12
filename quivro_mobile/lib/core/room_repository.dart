@@ -170,8 +170,14 @@ class RoomRepository {
       throw StateError('ANSWER_REJECTED');
     }
 
+    final existing = room.answers['$questionIndex']?[playerId];
+    if (existing != null && (existing['choice'] as num?)?.toInt() == choice) {
+      return;
+    }
+
     final path =
         roomRef(upper).child('answers').child('$questionIndex').child(playerId);
+    // Reselect overwrites choice + answeredAt so timed scoring uses the final pick.
     await path.set({
       'choice': choice,
       'answeredAt': now,
