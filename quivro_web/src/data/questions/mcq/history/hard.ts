@@ -1369,7 +1369,7 @@ export const historyHard: Question[] = [
       { en: 'Kublai Khan', bs: 'Kublaj-kan' },
       { en: 'Genghis Khan', bs: 'Džingis-kan' },
       { en: 'Ögedei', bs: 'Ögedei' },
-      { en: 'Timur (Tamerlane)', bs: 'Timur (Tamerlan)' },
+      { en: 'Timur', bs: 'Timur' },
     ],
     correctIndex: 0,
   },

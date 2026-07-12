@@ -153,12 +153,28 @@ class RoomRepository {
     required String playerId,
     required int choice,
   }) async {
+    final upper = code.toUpperCase();
+    final room = await fetchRoom(upper);
+    if (room == null) {
+      throw StateError('ROOM_NOT_FOUND');
+    }
+
+    final now = _serverTime.nowMs();
+    if (!AnswerSubmissionPolicy.canSubmit(
+      room: room,
+      playerId: playerId,
+      questionIndex: questionIndex,
+      choice: choice,
+      nowMs: now,
+    )) {
+      throw StateError('ANSWER_REJECTED');
+    }
+
     final path =
-        roomRef(code).child('answers').child('$questionIndex').child(playerId);
-    // Allow reselect — always overwrite choice + timestamp.
+        roomRef(upper).child('answers').child('$questionIndex').child(playerId);
     await path.set({
       'choice': choice,
-      'answeredAt': _serverTime.nowMs(),
+      'answeredAt': now,
     });
   }
 

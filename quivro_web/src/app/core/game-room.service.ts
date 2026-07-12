@@ -17,7 +17,7 @@ import { QuestionBankService } from './question-bank.service';
 import { RoundGeneratorService } from './round-generator.service';
 import { ServerTimeService } from './server-time.service';
 import {
-  shuffleInPlace,
+  shuffledOptionsForQuestion,
   stripUndefined,
   AVATAR_COUNT,
   clampQuestionSeconds,
@@ -45,8 +45,6 @@ export class GameRoomService {
 
   private unsubscribe: Unsubscribe | null = null;
   private roundQuestions = new Map<string, Question[]>();
-  /** Shuffled correct index per question for each room */
-  private displayCorrect = new Map<string, number[]>();
   /** Room code this browser is hosting (for leave / onDisconnect cleanup). */
   private hostedCode: string | null = null;
   private disconnectOp: OnDisconnect | null = null;
@@ -95,7 +93,6 @@ export class GameRoomService {
     };
 
     this.roundQuestions.set(code, questions);
-    this.displayCorrect.set(code, []);
     await set(ref(db, `rooms/${code}`), stripUndefined(this.toFirebase(state)));
     await this.armHostDisconnect(code);
     this.persistLastHostedCode(code);
@@ -153,9 +150,9 @@ export class GameRoomService {
   }
 
   async reveal(code: string): Promise<void> {
-    const room = await this.requireRoom(code);
+    const room = await this.fetchFreshRoom(code);
     if (room.phase !== 'question') return;
-    // Prevent double-reveal for the same question index.
+    // Prevent double-reveal for the same question index (per tab).
     if (this.revealedIndex === room.currentIndex) return;
     this.revealedIndex = room.currentIndex;
 
@@ -163,8 +160,20 @@ export class GameRoomService {
     const question = questions[room.currentIndex];
     if (!question) return;
 
-    const correctIndex =
-      this.displayCorrect.get(code)?.[room.currentIndex] ?? question.correctIndex;
+    const lang = room.config.language;
+    const { displayCorrect } = shuffledOptionsForQuestion(
+      [
+        question.options[0][lang],
+        question.options[1][lang],
+        question.options[2][lang],
+        question.options[3][lang],
+      ],
+      question.correctIndex,
+      code,
+      question.id,
+      room.currentIndex,
+    );
+    const correctIndex = displayCorrect;
 
     const qKey = String(room.currentIndex);
     const answers = room.answers[qKey] ?? {};
@@ -256,7 +265,6 @@ export class GameRoomService {
     }
 
     this.roundQuestions.set(code, questions);
-    this.displayCorrect.set(code, []);
 
     const db = this.requireDb();
     await remove(ref(db, `rooms/${code}/answers`));
@@ -285,7 +293,6 @@ export class GameRoomService {
     await this.cancelHostDisconnect();
     this.stopWatching();
     this.roundQuestions.delete(code);
-    this.displayCorrect.delete(code);
     this.hostedCode = null;
     this.clearLastHostedCode(code);
     const db = this.requireDb();
@@ -396,7 +403,7 @@ export class GameRoomService {
   }
 
   private async finishRound(code: string, awardWin = true): Promise<void> {
-    const room = await this.requireRoom(code);
+    const room = await this.fetchFreshRoom(code);
     if (room.phase === 'finished') return;
 
     const ranked = rankPlayers(Object.values(room.players));
@@ -429,35 +436,46 @@ export class GameRoomService {
   }
 
   private async showQuestion(code: string, index: number): Promise<void> {
-    // Guard against re-entry for the same question index.
+    // Guard against re-entry for the same question index (per tab).
     if (this.showingIndex === index) return;
+
+    const room = await this.fetchFreshRoom(code);
+    const questions = await this.getRoundQuestions(code, room);
+    const question = questions[index];
+    if (!question) {
+      throw new Error('NO_QUESTIONS');
+    }
+
+    // Another host tab or a refresh may have already published this question.
+    if (
+      room.phase === 'question' &&
+      room.currentIndex === index &&
+      room.currentQuestion?.id === question.id
+    ) {
+      this.showingIndex = index;
+      this.revealedIndex = -1;
+      return;
+    }
+
     this.showingIndex = index;
     // Reset the reveal guard so the new question is eligible for reveal.
     this.revealedIndex = -1;
 
-    const room = await this.requireRoom(code);
-    const questions = await this.getRoundQuestions(code, room);
-    const question = questions[index];
-    if (!question) {
-      this.showingIndex = -1;
-      throw new Error('NO_QUESTIONS');
-    }
-
     const lang = room.config.language;
     const durationMs = clampQuestionSeconds(room.config.questionSeconds ?? 15) * 1000;
 
-    const optionPairs = [0, 1, 2, 3].map((i) => ({
-      text: question.options[i][lang],
-      originalIndex: i,
-    }));
-    shuffleInPlace(optionPairs);
-    const displayCorrect = optionPairs.findIndex(
-      (o) => o.originalIndex === question.correctIndex,
+    const { options: shuffledOptions } = shuffledOptionsForQuestion(
+      [
+        question.options[0][lang],
+        question.options[1][lang],
+        question.options[2][lang],
+        question.options[3][lang],
+      ],
+      question.correctIndex,
+      code,
+      question.id,
+      index,
     );
-
-    const corrects = this.displayCorrect.get(code) ?? [];
-    corrects[index] = displayCorrect;
-    this.displayCorrect.set(code, corrects);
 
     const publicQ: PublicQuestion = {
       id: question.id,
@@ -465,12 +483,7 @@ export class GameRoomService {
       category: question.category,
       difficulty: question.difficulty,
       prompt: question.prompt[lang],
-      options: [
-        optionPairs[0].text,
-        optionPairs[1].text,
-        optionPairs[2].text,
-        optionPairs[3].text,
-      ],
+      options: shuffledOptions,
       endsAt: this.serverTime.nowMs() + durationMs,
       durationMs,
       index,

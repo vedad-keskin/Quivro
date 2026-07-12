@@ -1,0 +1,28 @@
+{
+  "rules": {
+    "rooms": {
+      "$code": {
+        ".read": true,
+        "answers": {
+          "$qIndex": {
+            "$playerId": {
+              ".write": "root.child('rooms').child($code).child('phase').val() === 'question' && root.child('rooms').child($code).child('currentIndex').val() == $qIndex && newData.hasChildren(['choice', 'answeredAt']) && newData.child('choice').isNumber() && newData.child('choice').val() >= 0 && newData.child('choice').val() <= 3 && newData.child('answeredAt').isNumber() && newData.child('answeredAt').val() <= root.child('rooms').child($code).child('currentQuestion').child('endsAt').val() && root.child('rooms').child($code).child('players').child($playerId).exists()",
+              ".validate": "newData.child('choice').isNumber() && newData.child('answeredAt').isNumber()"
+            }
+          }
+        },
+        "players": {
+          "$playerId": {
+            ".write": "!data.exists() || (data.child('id').val() === $playerId && newData.child('id').val() === $playerId)"
+          }
+        },
+        "rematchReady": {
+          "$playerId": {
+            ".write": "newData.val() === true && root.child('rooms').child($code).child('players').child($playerId).exists()"
+          }
+        },
+        ".write": "(!data.exists() && newData.hasChildren(['phase', 'config', 'createdAt'])) || (data.exists() && newData.child('phase').exists())"
+      }
+    }
+  }
+}

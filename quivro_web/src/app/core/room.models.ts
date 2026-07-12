@@ -228,3 +228,68 @@ export function shuffleInPlace<T>(items: T[]): T[] {
   }
   return items;
 }
+
+/** Stable FNV-1a hash for deterministic shuffle seeds. */
+export function hashSeed(input: string): number {
+  let hash = 2166136261;
+  for (let i = 0; i < input.length; i++) {
+    hash ^= input.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+/** Seed shared by all clients for the same room question. */
+export function questionShuffleSeed(
+  roomCode: string,
+  questionId: string,
+  index: number,
+): number {
+  return hashSeed(`${roomCode.toUpperCase()}:${questionId}:${index}`);
+}
+
+function mulberry32(seed: number): () => number {
+  let state = seed >>> 0;
+  return () => {
+    state = (state + 0x6d2b79f5) | 0;
+    let t = Math.imul(state ^ (state >>> 15), 1 | state);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/** Deterministic Fisher–Yates shuffle — same seed always yields same order. */
+export function shuffleWithSeed<T>(items: readonly T[], seed: number): T[] {
+  const out = [...items];
+  const rand = mulberry32(seed >>> 0);
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
+
+/** Shuffle four localized options and return display order + correct display index. */
+export function shuffledOptionsForQuestion(
+  options: readonly [string, string, string, string],
+  correctIndex: number,
+  roomCode: string,
+  questionId: string,
+  index: number,
+): { options: [string, string, string, string]; displayCorrect: number } {
+  const pairs = options.map((text, originalIndex) => ({ text, originalIndex }));
+  const shuffled = shuffleWithSeed(
+    pairs,
+    questionShuffleSeed(roomCode, questionId, index),
+  );
+  const displayCorrect = shuffled.findIndex((o) => o.originalIndex === correctIndex);
+  return {
+    options: [
+      shuffled[0].text,
+      shuffled[1].text,
+      shuffled[2].text,
+      shuffled[3].text,
+    ],
+    displayCorrect,
+  };
+}

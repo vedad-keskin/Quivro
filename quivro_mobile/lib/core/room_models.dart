@@ -104,6 +104,30 @@ class LastWinner {
   }
 }
 
+/// Rules for whether a mobile client may submit an answer to Firebase.
+class AnswerSubmissionPolicy {
+  AnswerSubmissionPolicy._();
+
+  static bool canSubmit({
+    required RoomState room,
+    required String playerId,
+    required int questionIndex,
+    required int choice,
+    required int nowMs,
+  }) {
+    if (room.phase != 'question') return false;
+    if (room.currentIndex != questionIndex) return false;
+    if (room.player(playerId) == null) return false;
+    if (choice < 0 || choice > 3) return false;
+
+    final question = room.currentQuestion;
+    if (question == null || question.index != questionIndex) return false;
+    if (nowMs > question.endsAt) return false;
+
+    return true;
+  }
+}
+
 /// Rules for whether a persisted mobile session should resume.
 class RoomSessionPolicy {
   RoomSessionPolicy._();

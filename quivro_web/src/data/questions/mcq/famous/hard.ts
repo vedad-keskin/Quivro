@@ -1486,16 +1486,16 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Ibn al-Haytham explained vision using experiments on…',
-      bs: 'Ibn al-Haytham je objasnio vid eksperimentima o…',
+      en: 'Ibn al-Haytham challenged ancient theories of vision by proving that sight occurs when…',
+      bs: 'Ibn al-Haytham je osporio drevne teorije vida dokazujući da vid nastaje kada…',
     },
     options: [
-      { en: 'Magnetic poles', bs: 'Magnetnim polovima' },
-      { en: 'Plant pollination', bs: 'Oprašivanju biljaka' },
-      { en: 'Fossil strata', bs: 'Fosilnim slojevima' },
-      { en: 'Light and optics', bs: 'Svjetlosti i optici' },
+      { en: 'The eyes emit rays that touch objects', bs: 'Oči emituju zrake koje dodiruju predmete' },
+      { en: 'Light enters the eyes from external sources', bs: 'Svjetlost ulazi u oči iz vanjskih izvora' },
+      { en: 'The brain creates images without light', bs: 'Mozak stvara slike bez svjetlosti' },
+      { en: 'Objects produce invisible sounds that create images', bs: 'Predmeti proizvode nevidljive zvukove koji stvaraju slike' },
     ],
-    correctIndex: 3,
+    correctIndex: 1,
   },
   {
     id: 'fam-hard-089',

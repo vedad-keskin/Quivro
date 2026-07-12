@@ -47,6 +47,8 @@ Config lives in [`src/environments/environment.ts`](src/environments/environment
 
 Realtime Database rules (party-mode v1):
 
+Deploy [`database.rules.json`](../database.rules.json) from the repo root. It validates answer shape/timing and limits rematch/player writes, but **cannot fully prove host or player identity without Firebase Auth**.
+
 ```json
 {
   "rules": {
@@ -57,6 +59,8 @@ Realtime Database rules (party-mode v1):
   }
 }
 ```
+
+For stricter production rules, use the root `database.rules.json` and add Firebase Auth so host-only fields (`phase`, `currentQuestion`, scores) are not writable by players.
 
 ## Project layout
 
