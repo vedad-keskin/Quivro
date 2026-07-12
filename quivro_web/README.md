@@ -47,7 +47,7 @@ Config lives in [`src/environments/environment.ts`](src/environments/environment
 
 Realtime Database rules (party-mode v1):
 
-Deploy [`database.rules.json`](../database.rules.json) from the repo root. It validates answer shape/timing and limits rematch/player writes, but **cannot fully prove host or player identity without Firebase Auth**.
+Deploy [`database.rules.json`](../database.rules.json) from the repo root. Answer writes are strictly validated; the room root stays writable so the web host can create/update/delete rooms. **Without Firebase Auth, host vs player identity cannot be fully enforced at the rules layer.**
 
 ```json
 {

@@ -13,7 +13,7 @@
         },
         "players": {
           "$playerId": {
-            ".write": "!data.exists() || (data.child('id').val() === $playerId && newData.child('id').val() === $playerId)"
+            ".write": "!data.exists() || data.child('id').val() === $playerId"
           }
         },
         "rematchReady": {
@@ -21,7 +21,7 @@
             ".write": "newData.val() === true && root.child('rooms').child($code).child('players').child($playerId).exists()"
           }
         },
-        ".write": "(!data.exists() && newData.hasChildren(['phase', 'config', 'createdAt'])) || (data.exists() && newData.child('phase').exists())"
+        ".write": true
       }
     }
   }
