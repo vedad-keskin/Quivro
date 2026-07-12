@@ -328,14 +328,17 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Pixar’s first feature-length film was…', bs: 'Pixarov prvi celovečernji film bio je…' },
+    prompt: {
+      en: 'Which film was the first fully computer-animated feature released by Pixar?',
+      bs: 'Koji je film bio prvi potpuno računalno animirani dugometražni film koji je objavio Pixar?',
+    },
     options: [
-      { en: 'A Bug’s Life', bs: 'A Bug’s Life' },
       { en: 'Toy Story', bs: 'Toy Story' },
-      { en: 'Monsters, Inc.', bs: 'Monsters, Inc.' },
-      { en: 'Finding Nemo', bs: 'Finding Nemo' },
+      { en: 'The Brave Little Toaster', bs: 'The Brave Little Toaster' },
+      { en: 'Antz', bs: 'Antz' },
+      { en: 'Shrek', bs: 'Shrek' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-hard-025',
