@@ -237,10 +237,12 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
         }
 
         if (room.currentQuestion == null) {
-          return _LobbyView(
-            code: widget.code,
-            profile: widget.profile,
-            onLeave: () => unawaited(_leaveToHome()),
+          // Transient state during host transitions — Firebase may deliver
+          // the phase change before the currentQuestion payload arrives.
+          // Show a brief loading indicator; the next snapshot will carry
+          // the real question data.
+          return const Scaffold(
+            body: Center(child: CircularProgressIndicator()),
           );
         }
 

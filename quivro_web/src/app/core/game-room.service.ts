@@ -50,6 +50,10 @@ export class GameRoomService {
   /** Room code this browser is hosting (for leave / onDisconnect cleanup). */
   private hostedCode: string | null = null;
   private disconnectOp: OnDisconnect | null = null;
+  /** The question index for which reveal() has already fired (prevents double-reveal). */
+  private revealedIndex = -1;
+  /** The question index currently being shown (prevents re-entry in showQuestion). */
+  private showingIndex = -1;
 
   get isLive(): boolean {
     return this.firebase.configured;
@@ -132,11 +136,14 @@ export class GameRoomService {
     if (Object.keys(room.players).length === 0) {
       throw new Error('NO_PLAYERS');
     }
+    this.showingIndex = -1;
     await this.showQuestion(code, 0);
   }
 
   async nextAfterReveal(code: string): Promise<void> {
-    const room = await this.requireRoom(code);
+    // Always fetch fresh state from Firebase to avoid acting on stale signal data.
+    const room = await this.fetchFreshRoom(code);
+    if (room.phase !== 'reveal') return; // Already advanced or finished.
     const next = room.currentIndex + 1;
     if (next >= room.totalQuestions) {
       await this.finishRound(code);
@@ -148,6 +155,9 @@ export class GameRoomService {
   async reveal(code: string): Promise<void> {
     const room = await this.requireRoom(code);
     if (room.phase !== 'question') return;
+    // Prevent double-reveal for the same question index.
+    if (this.revealedIndex === room.currentIndex) return;
+    this.revealedIndex = room.currentIndex;
 
     const questions = await this.getRoundQuestions(code, room);
     const question = questions[room.currentIndex];
@@ -267,6 +277,7 @@ export class GameRoomService {
     });
 
     // Jump straight into the next round (skip lobby).
+    this.showingIndex = -1;
     await this.showQuestion(code, 0);
   }
 
@@ -418,10 +429,17 @@ export class GameRoomService {
   }
 
   private async showQuestion(code: string, index: number): Promise<void> {
+    // Guard against re-entry for the same question index.
+    if (this.showingIndex === index) return;
+    this.showingIndex = index;
+    // Reset the reveal guard so the new question is eligible for reveal.
+    this.revealedIndex = -1;
+
     const room = await this.requireRoom(code);
     const questions = await this.getRoundQuestions(code, room);
     const question = questions[index];
     if (!question) {
+      this.showingIndex = -1;
       throw new Error('NO_QUESTIONS');
     }
 

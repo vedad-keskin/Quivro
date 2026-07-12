@@ -586,9 +586,12 @@ export class PlayPage implements OnInit, OnDestroy {
   private configSynced = false;
 
   private code = '';
-  private revealing = false;
+  /** Tracks which question index has already been sent to reveal (prevents double-fire). */
+  private revealedForIndex = -1;
   private lastHandledReveal = -1;
   private lastFlyReveal = -1;
+  /** Handle returned by setTimeout so we can cancel stale reveal-advance callbacks. */
+  private revealTimeoutId: ReturnType<typeof setTimeout> | null = null;
   private knownRematchReady = new Set<string>();
   private readonly onPageHide = () => {
     void this.rooms.leaveHostedRoom(this.code);
@@ -678,8 +681,14 @@ export class PlayPage implements OnInit, OnDestroy {
           this.playCorrectSfx();
           queueMicrotask(() => this.flyScores(r.lastScoreDeltas ?? {}));
         }
-        window.setTimeout(() => {
-          void this.advanceFromReveal();
+        // Cancel any stale timeout from a previous question before scheduling.
+        if (this.revealTimeoutId != null) {
+          clearTimeout(this.revealTimeoutId);
+        }
+        const advanceForIndex = r.currentIndex;
+        this.revealTimeoutId = setTimeout(() => {
+          this.revealTimeoutId = null;
+          void this.advanceFromReveal(advanceForIndex);
         }, REVEAL_MS);
       }
     });
@@ -688,7 +697,9 @@ export class PlayPage implements OnInit, OnDestroy {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
         const r = this.room();
-        if (r?.phase !== 'question' || this.revealing) return;
+        if (r?.phase !== 'question') return;
+        // Already sent reveal for this question — don't fire again.
+        if (this.revealedForIndex === r.currentIndex) return;
         const playerCount = Object.keys(r.players).length;
         if (playerCount === 0) return;
         const answered = Object.keys(r.answers[String(r.currentIndex)] ?? {}).length;
@@ -756,17 +767,23 @@ export class PlayPage implements OnInit, OnDestroy {
   }
 
   async onQuestionExpired(): Promise<void> {
-    if (this.revealing || this.room()?.phase !== 'question') return;
-    this.revealing = true;
+    const r = this.room();
+    if (r?.phase !== 'question') return;
+    // Prevent double-reveal: only fire once per question index.
+    if (this.revealedForIndex === r.currentIndex) return;
+    this.revealedForIndex = r.currentIndex;
     try {
       await this.rooms.reveal(this.code);
-    } finally {
-      this.revealing = false;
+    } catch {
+      // If reveal failed, allow retry.
+      this.revealedForIndex = -1;
     }
   }
 
-  private async advanceFromReveal(): Promise<void> {
-    if (this.room()?.phase !== 'reveal') return;
+  private async advanceFromReveal(forIndex: number): Promise<void> {
+    const r = this.room();
+    // Only advance if still in reveal phase for the expected question index.
+    if (r?.phase !== 'reveal' || r.currentIndex !== forIndex) return;
     await this.rooms.nextAfterReveal(this.code);
   }
 
@@ -790,7 +807,11 @@ export class PlayPage implements OnInit, OnDestroy {
       // Reset local reveal/fly guards for the new round.
       this.lastHandledReveal = -1;
       this.lastFlyReveal = -1;
-      this.revealing = false;
+      this.revealedForIndex = -1;
+      if (this.revealTimeoutId != null) {
+        clearTimeout(this.revealTimeoutId);
+        this.revealTimeoutId = null;
+      }
       this.configSynced = false;
       await this.rooms.rematch(this.code, nextConfig);
     } catch (e) {

@@ -115,7 +115,7 @@ class RoomSessionPolicy {
   static const questionStaleGraceMs = 60 * 1000;
 
   /// Reveal should advance quickly; long hangs mean the host is gone.
-  static const revealStaleGraceMs = 30 * 1000;
+  static const revealStaleGraceMs = 60 * 1000;
 
   static bool canResume(RoomState room, String playerId, int nowMs) {
     if (room.player(playerId) == null) return false;
@@ -127,7 +127,11 @@ class RoomSessionPolicy {
     if (room.phase != 'question' && room.phase != 'reveal') return false;
 
     final question = room.currentQuestion;
-    if (question == null) return true;
+    // During host transitions the currentQuestion may be null for a brief
+    // moment (Firebase delivers multi-field updates non-atomically).  Treat
+    // this as a transient state — NOT stale.  The next snapshot will carry
+    // the real question data.
+    if (question == null) return false;
 
     final graceMs = room.phase == 'reveal'
         ? revealStaleGraceMs
