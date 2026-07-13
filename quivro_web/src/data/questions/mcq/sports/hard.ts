@@ -737,12 +737,15 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Dutch philosophy of fluid positional interchange is linked to Ajax and Cruyff?', bs: 'Koja holandska filozofija fluidne razmjene pozicija je povezana s Ajaxom i Cruyffom?' },
+    prompt: {
+      en: 'Which Dutch football philosophy of fluid positional interchange is associated with Ajax and Johan Cruyff?',
+      bs: 'Koja holandska fudbalska filozofija fluidne razmjene pozicija je povezana s Ajaxom i Johanom Cruyffom?',
+    },
     options: [
       { en: 'Catenaccio', bs: 'Catenaccio' },
       { en: 'Total Football', bs: 'Totalni fudbal' },
+      { en: 'Gegenpressing', bs: 'Gegenpressing' },
       { en: 'Tiki-taka', bs: 'Tiki-taka' },
-      { en: 'Park the bus', bs: 'Park the bus' },
     ],
     correctIndex: 1,
   },
