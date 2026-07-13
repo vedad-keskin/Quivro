@@ -342,12 +342,15 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which American won a record 23 Grand Slam women’s singles titles in the Open Era?', bs: 'Koja Amerikanka je osvojila rekordnih 23 Grand Slam titule u ženskom singlu u Open eri?' },
+    prompt: {
+      en: 'Which tennis player holds the Open Era record with 23 Grand Slam women’s singles titles?',
+      bs: 'Koja teniserka drži rekord Open ere sa 23 osvojene Grand Slam titule u ženskom singlu?',
+    },
     options: [
       { en: 'Serena Williams', bs: 'Serena Williams' },
       { en: 'Venus Williams', bs: 'Venus Williams' },
       { en: 'Chris Evert', bs: 'Chris Evert' },
-      { en: 'Billie Jean King', bs: 'Billie Jean King' },
+      { en: 'Steffi Graf', bs: 'Steffi Graf' },
     ],
     correctIndex: 0,
   },
@@ -1182,7 +1185,10 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Summer Olympics were boycotted by the United States after the Soviet invasion of Afghanistan?', bs: 'Koje Ljetne olimpijske igre su bojkotovale Sjedinjene Američke Države nakon sovjetske invazije Afganistana?' },
+    prompt: {
+      en: 'Which Summer Olympics were boycotted by the United States in response to the invasion of Afghanistan?',
+      bs: 'Koje Ljetne olimpijske igre su Sjedinjene Američke Države bojkotovale kao odgovor na invaziju Afganistana?',
+    },
     options: [
       { en: 'Montreal 1976', bs: 'Montreal 1976.' },
       { en: 'Moscow 1980', bs: 'Moskva 1980.' },
@@ -1196,7 +1202,10 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Summer Olympics did the Soviet Union boycott in retaliation for the Western-led boycott four years earlier?', bs: 'Koje Ljetne olimpijske igre je Sovjetski Savez bojkotovao u odgovoru na zapadni bojkot četiri godine ranije?' },
+    prompt: {
+      en: 'Which Summer Olympics did the Soviet Union boycott in retaliation for the 1980 Western-led boycott?',
+      bs: 'Koje Ljetne olimpijske igre je Sovjetski Savez bojkotovao kao odgovor na zapadni bojkot iz 1980. godine?',
+    },
     options: [
       { en: 'Moscow 1980', bs: 'Moskva 1980.' },
       { en: 'Los Angeles 1984', bs: 'Los Anđeles 1984.' },

@@ -442,7 +442,7 @@ export const moviesEasy: Question[] = [
     difficulty: 'easy',
     prompt: { en: 'What is the name of the blue fish in Finding Nemo?', bs: 'Kako se zove plava riba u Potrazi za Nemom?' },
     options: [
-      { en: 'Dory', bs: 'Dory' },
+      { en: 'Dory', bs: 'Dora' },
       { en: 'Nemo', bs: 'Nemo' },
       { en: 'Marlin', bs: 'Marlin' },
       { en: 'Bruce', bs: 'Bruce' },
@@ -1280,9 +1280,12 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is the name of the fairy in Peter Pan?', bs: 'Kako se zove vila u Peter Panu?' },
+    prompt: {
+      en: 'What is the name of Peter Pan’s fairy companion?',
+      bs: 'Kako se zove vilinska prijateljica Petra Pana?',
+    },
     options: [
-      { en: 'Tinker Bell', bs: 'Tinker Bell' },
+      { en: 'Tinker Bell', bs: 'Zvončica' },
       { en: 'Fairy Godmother', bs: 'Vila kuma' },
       { en: 'Elsa', bs: 'Elsa' },
       { en: 'Wendy', bs: 'Wendy' },

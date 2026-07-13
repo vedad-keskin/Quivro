@@ -1266,14 +1266,17 @@ export const geographyHard: Question[] = [
     type: 'mcq',
     category: 'geography',
     difficulty: 'hard',
-    prompt: { en: 'Which country is the world’s largest producer of coffee?', bs: 'Koja je zemlja najveći svjetski proizvođač kafe?' },
+    prompt: { 
+      en: 'Which country is the world’s largest producer of coffee?',
+      bs: 'Koja je zemlja najveći svjetski proizvođač kafe?'
+    },
     options: [
-      { en: 'Colombia', bs: 'Kolumbija' },
-      { en: 'Vietnam', bs: 'Vijetnam' },
+      { en: 'Indonesia', bs: 'Indonezija' },
       { en: 'Brazil', bs: 'Brazil' },
-      { en: 'Ethiopia', bs: 'Etiopija' },
+      { en: 'Honduras', bs: 'Honduras' },
+      { en: 'Uganda', bs: 'Uganda' },
     ],
-    correctIndex: 2,
+    correctIndex: 1,
   },
   {
     id: 'geo-hard-092',
