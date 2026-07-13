@@ -40,6 +40,7 @@ export const bs: UiStrings = {
   sports: 'Sport',
   movies: 'Film & TV',
   famous: 'Poznati',
+  islam: 'Islam',
   selectAtLeastOne: 'Odaberi barem jednu kategoriju',
   selectAtLeastOneType: 'Odaberi barem jedan tip pitanja',
   prompt: 'Pitanje',

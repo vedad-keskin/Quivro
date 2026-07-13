@@ -19,6 +19,9 @@ import { moviesMedium } from './mcq/movies/medium';
 import { famousEasy } from './mcq/famous/easy';
 import { famousHard } from './mcq/famous/hard';
 import { famousMedium } from './mcq/famous/medium';
+import { islamEasy } from './mcq/islam/easy';
+import { islamHard } from './mcq/islam/hard';
+import { islamMedium } from './mcq/islam/medium';
 import { biologyEasyImage } from './image_mcq/biology/easy';
 import { biologyHardImage } from './image_mcq/biology/hard';
 import { biologyMediumImage } from './image_mcq/biology/medium';
@@ -40,6 +43,9 @@ import { moviesMediumImage } from './image_mcq/movies/medium';
 import { famousEasyImage } from './image_mcq/famous/easy';
 import { famousHardImage } from './image_mcq/famous/hard';
 import { famousMediumImage } from './image_mcq/famous/medium';
+import { islamEasyImage } from './image_mcq/islam/easy';
+import { islamHardImage } from './image_mcq/islam/hard';
+import { islamMediumImage } from './image_mcq/islam/medium';
 import type { CategoryId, Difficulty, Question } from './types';
 import { CATEGORIES, DIFFICULTIES } from './types';
 
@@ -51,6 +57,7 @@ const MCQ_BANK: Record<CategoryId, Record<Difficulty, Question[]>> = {
   sports: { easy: sportsEasy, medium: sportsMedium, hard: sportsHard },
   movies: { easy: moviesEasy, medium: moviesMedium, hard: moviesHard },
   famous: { easy: famousEasy, medium: famousMedium, hard: famousHard },
+  islam: { easy: islamEasy, medium: islamMedium, hard: islamHard },
 };
 
 const IMAGE_MCQ_BANK: Record<CategoryId, Record<Difficulty, Question[]>> = {
@@ -89,6 +96,11 @@ const IMAGE_MCQ_BANK: Record<CategoryId, Record<Difficulty, Question[]>> = {
     medium: famousMediumImage,
     hard: famousHardImage,
   },
+  islam: {
+    easy: islamEasyImage,
+    medium: islamMediumImage,
+    hard: islamHardImage,
+  },
 };
 
 const BANK: Record<CategoryId, Record<Difficulty, Question[]>> = {
@@ -126,6 +138,11 @@ const BANK: Record<CategoryId, Record<Difficulty, Question[]>> = {
     easy: [...MCQ_BANK.famous.easy, ...IMAGE_MCQ_BANK.famous.easy],
     medium: [...MCQ_BANK.famous.medium, ...IMAGE_MCQ_BANK.famous.medium],
     hard: [...MCQ_BANK.famous.hard, ...IMAGE_MCQ_BANK.famous.hard],
+  },
+  islam: {
+    easy: [...MCQ_BANK.islam.easy, ...IMAGE_MCQ_BANK.islam.easy],
+    medium: [...MCQ_BANK.islam.medium, ...IMAGE_MCQ_BANK.islam.medium],
+    hard: [...MCQ_BANK.islam.hard, ...IMAGE_MCQ_BANK.islam.hard],
   },
 };
 

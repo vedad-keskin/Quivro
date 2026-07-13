@@ -38,6 +38,7 @@ export const en = {
   sports: 'Sports',
   movies: 'Movies & TV',
   famous: 'Famous People',
+  islam: 'Islam',
   selectAtLeastOne: 'Select at least one category',
   selectAtLeastOneType: 'Select at least one question type',
   prompt: 'Question',
