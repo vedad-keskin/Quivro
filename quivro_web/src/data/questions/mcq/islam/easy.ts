@@ -275,9 +275,9 @@ export const islamEasy: Question[] = [
     prompt: { en: 'To which land did Muslims first migrate to escape Meccan persecution?', bs: 'U koju zemlju su muslimani prvi put emigrirali zbog mekanskog progona?' },
     options: [
       { en: 'Syria', bs: 'Šam' },
-      { en: 'Persia', bs: 'Perzija' },
-      { en: 'Yemen as a permanent state', bs: 'Jemen kao trajna država' },
-      { en: 'Abyssinia (Habasha)', bs: 'Abesinija (Habeš)' },
+      { en: 'Persia', bs: 'Perziju' },
+      { en: 'Yemen', bs: 'Jemen' },
+      { en: 'Abyssinia', bs: 'Abesiniju' },
     ],
     correctIndex: 3,
   },
@@ -286,7 +286,7 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Who spoke before the Negus defending the Muslim migrants?', bs: 'Ko je govorio pred Negusom u odbranu muslimanskih migranata?' },
+    prompt: { en: 'Who spoke before the Negus defending the Muslim migrants?', bs: 'Ko je govorio pred Nedžašijem u odbranu muslimanskih izbjeglica?' },
     options: [
       { en: 'Ja\'far ibn Abi Talib', bs: 'Džafer b. Ebi Talib' },
       { en: 'Umar ibn al-Khattab', bs: 'Omer b. Hattab' },
