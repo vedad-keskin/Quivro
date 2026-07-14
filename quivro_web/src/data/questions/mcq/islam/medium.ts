@@ -49,8 +49,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'Which Ansari companion expressed full support for the Prophet ﷺ before the Battle of Badr, saying the Ansar would follow him even if he entered the sea?',
-      bs: 'Koji ensarijski ashab je izrazio punu podršku Poslaniku ﷺ prije Bitke na Bedru, rekavši da bi ga ensarije slijedile čak i kada bi ušao u more?',
+      en: 'Which Ansari companion expressed full support for the Prophet peace be upon him before the Battle of Badr, saying the Ansar would follow him even if he entered the sea?',
+      bs: 'Koji ensarijski ashab je izrazio punu podršku Poslaniku sallallahu alejhi ve sellem prije Bitke na Bedru, rekavši da bi ga ensarije slijedile čak i kada bi ušao u more?',
     },
     options: [
       { en: 'Sa’d ibn Abi Waqqas', bs: 'Sa’d b. Ebi Vakkas' },
