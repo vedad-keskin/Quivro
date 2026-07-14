@@ -1,9 +1,9 @@
 import { biologyEasy } from './mcq/biology/easy';
 import { biologyHard } from './mcq/biology/hard';
 import { biologyMedium } from './mcq/biology/medium';
-import { gamingEasy } from './mcq/gaming/easy';
-import { gamingHard } from './mcq/gaming/hard';
-import { gamingMedium } from './mcq/gaming/medium';
+import { technologyEasy } from './mcq/technology/easy';
+import { technologyHard } from './mcq/technology/hard';
+import { technologyMedium } from './mcq/technology/medium';
 import { geographyEasy } from './mcq/geography/easy';
 import { geographyHard } from './mcq/geography/hard';
 import { geographyMedium } from './mcq/geography/medium';
@@ -25,9 +25,9 @@ import { islamMedium } from './mcq/islam/medium';
 import { biologyEasyImage } from './image_mcq/biology/easy';
 import { biologyHardImage } from './image_mcq/biology/hard';
 import { biologyMediumImage } from './image_mcq/biology/medium';
-import { gamingEasyImage } from './image_mcq/gaming/easy';
-import { gamingHardImage } from './image_mcq/gaming/hard';
-import { gamingMediumImage } from './image_mcq/gaming/medium';
+import { technologyEasyImage } from './image_mcq/technology/easy';
+import { technologyHardImage } from './image_mcq/technology/hard';
+import { technologyMediumImage } from './image_mcq/technology/medium';
 import { geographyEasyImage } from './image_mcq/geography/easy';
 import { geographyHardImage } from './image_mcq/geography/hard';
 import { geographyMediumImage } from './image_mcq/geography/medium';
@@ -52,7 +52,7 @@ import { CATEGORIES, DIFFICULTIES } from './types';
 const MCQ_BANK: Record<CategoryId, Record<Difficulty, Question[]>> = {
   geography: { easy: geographyEasy, medium: geographyMedium, hard: geographyHard },
   biology: { easy: biologyEasy, medium: biologyMedium, hard: biologyHard },
-  gaming: { easy: gamingEasy, medium: gamingMedium, hard: gamingHard },
+  technology: { easy: technologyEasy, medium: technologyMedium, hard: technologyHard },
   history: { easy: historyEasy, medium: historyMedium, hard: historyHard },
   sports: { easy: sportsEasy, medium: sportsMedium, hard: sportsHard },
   movies: { easy: moviesEasy, medium: moviesMedium, hard: moviesHard },
@@ -71,10 +71,10 @@ const IMAGE_MCQ_BANK: Record<CategoryId, Record<Difficulty, Question[]>> = {
     medium: biologyMediumImage,
     hard: biologyHardImage,
   },
-  gaming: {
-    easy: gamingEasyImage,
-    medium: gamingMediumImage,
-    hard: gamingHardImage,
+  technology: {
+    easy: technologyEasyImage,
+    medium: technologyMediumImage,
+    hard: technologyHardImage,
   },
   history: {
     easy: historyEasyImage,
@@ -114,10 +114,10 @@ const BANK: Record<CategoryId, Record<Difficulty, Question[]>> = {
     medium: [...MCQ_BANK.biology.medium, ...IMAGE_MCQ_BANK.biology.medium],
     hard: [...MCQ_BANK.biology.hard, ...IMAGE_MCQ_BANK.biology.hard],
   },
-  gaming: {
-    easy: [...MCQ_BANK.gaming.easy, ...IMAGE_MCQ_BANK.gaming.easy],
-    medium: [...MCQ_BANK.gaming.medium, ...IMAGE_MCQ_BANK.gaming.medium],
-    hard: [...MCQ_BANK.gaming.hard, ...IMAGE_MCQ_BANK.gaming.hard],
+  technology: {
+    easy: [...MCQ_BANK.technology.easy, ...IMAGE_MCQ_BANK.technology.easy],
+    medium: [...MCQ_BANK.technology.medium, ...IMAGE_MCQ_BANK.technology.medium],
+    hard: [...MCQ_BANK.technology.hard, ...IMAGE_MCQ_BANK.technology.hard],
   },
   history: {
     easy: [...MCQ_BANK.history.easy, ...IMAGE_MCQ_BANK.history.easy],

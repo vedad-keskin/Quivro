@@ -33,7 +33,7 @@ export const en = {
   hard: 'Hard',
   geography: 'Geography',
   biology: 'Biology',
-  gaming: 'Gaming',
+  technology: 'Technology',
   history: 'History',
   sports: 'Sports',
   movies: 'Movies & TV',

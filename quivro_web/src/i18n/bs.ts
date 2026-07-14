@@ -35,7 +35,7 @@ export const bs: UiStrings = {
   hard: 'Teško',
   geography: 'Geografija',
   biology: 'Biologija',
-  gaming: 'Gaming',
+  technology: 'Tehnologija',
   history: 'Historija',
   sports: 'Sport',
   movies: 'Film & TV',

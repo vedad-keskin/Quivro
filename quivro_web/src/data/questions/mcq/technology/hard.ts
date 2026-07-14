@@ -1,10 +1,10 @@
 import type { Question } from '../../types';
 
-export const gamingHard: Question[] = [
+export const technologyHard: Question[] = [
   {
-    id: 'game-hard-001',
+    id: 'tech-hard-001',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which year was the original Super Mario Bros. released (NES)?',
@@ -19,9 +19,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-002',
+    id: 'tech-hard-002',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: { en: 'Valve is best known for creating…', bs: 'Valve je najpoznatiji po kreiranju platrofme…' },
     options: [
@@ -33,9 +33,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-003',
+    id: 'tech-hard-003',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In chess terms used in gaming, “GG” usually means…',
@@ -50,9 +50,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-004',
+    id: 'tech-hard-004',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which game engine does Epic Games develop?',
@@ -67,9 +67,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-005',
+    id: 'tech-hard-005',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'The famous Konami Code, a classic cheat sequence used in many games, starts with which inputs?',
@@ -84,26 +84,26 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-006',
+    id: 'tech-hard-006',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
-      en: 'What does "hitbox" refer to in game design?',
-      bs: 'Na šta se odnosi "hitbox" u dizajnu igara?',
+      en: 'In programming, what does "recursion" mean?',
+      bs: 'U programiranju, šta znači "rekurzija"?',
     },
     options: [
-      { en: 'Inventory UI slot', bs: 'Slot inventara UI' },
-      { en: 'Save file checksum', bs: 'Kontrolni zbir fajla' },
-      { en: 'Collision detection zone', bs: 'Zona detekcije sudara' },
-      { en: 'Soundtrack tempo marker', bs: 'Marker tempa soundtracka' },
+      { en: 'A function calling itself to solve a problem', bs: 'Funkcija koja poziva samu sebe radi rješavanja problema' },
+      { en: 'A program running only once without loops', bs: 'Program koji se izvršava samo jednom bez petlji' },
+      { en: 'A method of storing data permanently', bs: 'Metoda trajnog čuvanja podataka' },
+      { en: 'A way to convert code into machine language', bs: 'Način pretvaranja koda u mašinski jezik' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
-    id: 'game-hard-007',
+    id: 'tech-hard-007',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In which year was the original Doom released?',
@@ -118,9 +118,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-008',
+    id: 'tech-hard-008',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Hideo Kojima is best known as the creator of…',
@@ -135,26 +135,23 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-009',
+    id: 'tech-hard-009',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In Half-Life lore, the Black Mesa incident involves a…',
-      bs: 'U priči Half-Lifea, incident u Black Mesi uključuje…',
-    },
+    prompt: { en: 'What does a SQL JOIN primarily combine?', bs: 'Šta SQL JOIN primarno kombinuje?' },
     options: [
-      { en: 'Corporate merger', bs: 'Korporativno spajanje' },
-      { en: 'Resonance cascade', bs: 'Rezonantnu kaskada' },
-      { en: 'Lab equipment theft', bs: 'Krađa lab opreme' },
-      { en: 'Power grid failure', bs: 'Kvar električne mreže' },
+      { en: 'Separate power cables into one plug', bs: 'Odvojene kablove napajanja u jedan utikač' },
+      { en: 'Rows from related database tables', bs: 'Redove iz povezanih tabela baze podataka' },
+      { en: 'Unused keyboard shortcuts', bs: 'Neiskorištene prečice na tastaturi' },
+      { en: 'Offline fax machines', bs: 'Offline faks uređaje' },
     ],
     correctIndex: 1,
   },
   {
-    id: 'game-hard-010',
+    id: 'tech-hard-010',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which year did the original PlayStation launch in Japan?',
@@ -169,9 +166,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-011',
+    id: 'tech-hard-011',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In Dark Souls, what is the primary purpose of bonfires?',
@@ -186,9 +183,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-012',
+    id: 'tech-hard-012',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which indie studio created Hollow Knight?',
@@ -203,9 +200,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-013',
+    id: 'tech-hard-013',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which year was the original Pokémon Red/Green released in Japan?',
@@ -220,9 +217,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-014',
+    id: 'tech-hard-014',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: { en: 'Which studio developed Elden Ring?', bs: 'Koji studio je razvio Elden Ring?' },
     options: [
@@ -234,26 +231,23 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-015',
+    id: 'tech-hard-015',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In esports slang, “FPS” most often means…',
-      bs: 'U esports žargonu, “FPS” najčešće znači…',
-    },
+    prompt: { en: 'What does OAuth commonly enable between applications?', bs: 'Šta OAuth obično omogućava između aplikacija?' },
     options: [
-      { en: 'Fast Puzzle Solver', bs: 'Fast Puzzle Solver' },
-      { en: 'Final Player Score', bs: 'Final Player Score' },
-      { en: 'Free Premium Skin', bs: 'Free Premium Skin' },
-      { en: 'First-Person Shooter', bs: 'First-Person Shooter' },
+      { en: 'Faster CPU clock multipliers', bs: 'Brže CPU clock multiplikatore' },
+      { en: 'Automatic soldering of chips', bs: 'Automatsko lemljenje čipova' },
+      { en: 'Satellite dish alignment', bs: 'Poravnanje satelitskih antena' },
+      { en: 'Delegated authorization without sharing passwords', bs: 'Delegiranu autorizaciju bez dijeljenja lozinki' },
     ],
     correctIndex: 3,
   },
   {
-    id: 'game-hard-016',
+    id: 'tech-hard-016',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which year did the original World of Warcraft launch?',
@@ -268,9 +262,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-017',
+    id: 'tech-hard-017',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Shigeru Miyamoto is famously associated with creating…',
@@ -285,9 +279,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-018',
+    id: 'tech-hard-018',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which company developed the original Portal?',
@@ -302,9 +296,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-019',
+    id: 'tech-hard-019',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which year was Tetris first released?',
@@ -319,9 +313,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-020',
+    id: 'tech-hard-020',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which year did the original Game Boy launch?',
@@ -336,9 +330,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-021',
+    id: 'tech-hard-021',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which year was the original NES Zelda released?',
@@ -353,9 +347,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-022',
+    id: 'tech-hard-022',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which year was Street Fighter II released?',
@@ -370,9 +364,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-023',
+    id: 'tech-hard-023',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: { en: 'Which year did Quake release?', bs: 'Koje godine je izašao Quake?' },
     options: [
@@ -384,9 +378,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-024',
+    id: 'tech-hard-024',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which year did GoldenEye 007 release on N64?',
@@ -401,9 +395,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-025',
+    id: 'tech-hard-025',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: { en: 'Which year did Half-Life release?', bs: 'Koje godine je izašao Half-Life?' },
     options: [
@@ -415,9 +409,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-026',
+    id: 'tech-hard-026',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which year did the PlayStation 2 launch in Japan?',
@@ -432,9 +426,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-027',
+    id: 'tech-hard-027',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which year did the original Xbox launch in North America?',
@@ -449,9 +443,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-028',
+    id: 'tech-hard-028',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which year did the Nintendo Wii launch?',
@@ -466,9 +460,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-029',
+    id: 'tech-hard-029',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: { en: 'Which year did Dark Souls release?', bs: 'Koje godine je izašao Dark Souls?' },
     options: [
@@ -480,9 +474,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-030',
+    id: 'tech-hard-030',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: { en: 'Which year did Overwatch release?', bs: 'Koje godine je izašao Overwatch?' },
     options: [
@@ -494,9 +488,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-031',
+    id: 'tech-hard-031',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which year did the Nintendo Switch launch?',
@@ -511,9 +505,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-032',
+    id: 'tech-hard-032',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: "Which year was Pac-Man's arcade debut?",
@@ -528,26 +522,26 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-033',
+    id: 'tech-hard-033',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
-      en: 'Which year did Chrono Trigger release in Japan?',
-      bs: 'Koje godine je Chrono Trigger izašao u Japanu?',
+      en: 'In programming, what is a memory leak?',
+      bs: 'U programiranju, šta je curenje memorije (memory leak)?',
     },
     options: [
-      { en: '1993', bs: '1993' },
-      { en: '1995', bs: '1995' },
-      { en: '1994', bs: '1994' },
-      { en: '1996', bs: '1996' },
+      { en: 'When a program keeps using memory it no longer needs', bs: 'Kada program nastavlja koristiti memoriju koja mu više nije potrebna' },
+      { en: 'When a computer loses internet connection', bs: 'Kada računar izgubi internet konekciju' },
+      { en: 'When a file is deleted accidentally', bs: 'Kada se fajl slučajno obriše' },
+      { en: 'When a processor overheats during execution', bs: 'Kada se procesor pregrije tokom izvršavanja' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
-    id: 'game-hard-034',
+    id: 'tech-hard-034',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which year did League of Legends officially launch?',
@@ -562,9 +556,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-035',
+    id: 'tech-hard-035',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which engine powers most modern Battlefield titles?',
@@ -579,9 +573,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-036',
+    id: 'tech-hard-036',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which engine family powered both Doom and Quake?',
@@ -596,9 +590,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-037',
+    id: 'tech-hard-037',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which game engine was used by CD Projekt Red for both The Witcher 3 and Cyberpunk 2077?',
@@ -613,9 +607,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-038',
+    id: 'tech-hard-038',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Bethesda used which engine for Skyrim?',
@@ -630,9 +624,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-039',
+    id: 'tech-hard-039',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Capcom debuted RE Engine prominently in which title?',
@@ -647,9 +641,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-040',
+    id: 'tech-hard-040',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which company developed the Source engine?',
@@ -664,9 +658,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-041',
+    id: 'tech-hard-041',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Will Wright is best known for creating…',
@@ -681,9 +675,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-042',
+    id: 'tech-hard-042',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'John Carmack co-founded which legendary studio?',
@@ -698,9 +692,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-043',
+    id: 'tech-hard-043',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: { en: 'Toby Fox is the solo developer behind…', bs: 'Toby Fox je solo developer iza…' },
     options: [
@@ -712,9 +706,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-044',
+    id: 'tech-hard-044',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Yoko Taro directed which philosophical RPG series?',
@@ -729,9 +723,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-045',
+    id: 'tech-hard-045',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Yu Suzuki created which ambitious Sega adventure series?',
@@ -746,9 +740,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-046',
+    id: 'tech-hard-046',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Hidetaka Miyazaki directed which 2019 FromSoftware title?',
@@ -763,9 +757,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-047',
+    id: 'tech-hard-047',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Tim Schafer founded which adventure-game studio?',
@@ -780,9 +774,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-048',
+    id: 'tech-hard-048',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Markus Persson created Minecraft under which username?',
@@ -797,9 +791,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-049',
+    id: 'tech-hard-049',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Ken Kutaragi is known as the architect of…',
@@ -814,26 +808,23 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-050',
+    id: 'tech-hard-050',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In Mass Effect lore, the Reapers harvest…',
-      bs: 'U Mass Effect loreu, Reaperi beru…',
-    },
+    prompt: { en: 'What is the main role of a compiler?', bs: 'Koja je glavna uloga kompajlera?' },
     options: [
-      { en: 'Player save files', bs: 'Save fajlove igrača' },
-      { en: 'Multiplayer ranks', bs: 'Multiplayer rangove' },
-      { en: 'Advanced civilizations', bs: 'Napredne civilizacije' },
-      { en: 'Texture memory', bs: 'Memoriju tekstura' },
+      { en: 'Charge wireless headphones', bs: 'Punti bežične slušalice' },
+      { en: 'Display desktop wallpaper', bs: 'Prikazivati desktop wallpaper' },
+      { en: 'Translate source code into machine-readable code', bs: 'Prevesti izvorni kod u mašinski čitljiv kod' },
+      { en: 'Measure network cable length', bs: 'Mjeriti dužinu mrežnog kabla' },
     ],
     correctIndex: 2,
   },
   {
-    id: 'game-hard-051',
+    id: 'tech-hard-051',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In BioShock lore, Andrew Ryan built an underwater city named…',
@@ -848,9 +839,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-052',
+    id: 'tech-hard-052',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In Halo lore, humanity fights an alien alliance called the…',
@@ -865,9 +856,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-053',
+    id: 'tech-hard-053',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In Destiny lore, the Last City protects the…',
@@ -882,9 +873,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-054',
+    id: 'tech-hard-054',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In Silent Hill lore, the town is often shrouded in…',
@@ -899,9 +890,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-055',
+    id: 'tech-hard-055',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In Half-Life lore, the mysterious suited character is…',
@@ -916,9 +907,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-056',
+    id: 'tech-hard-056',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In Dark Souls lore, the First Flame began the…',
@@ -933,9 +924,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-057',
+    id: 'tech-hard-057',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In Fallout lore, underground shelters are called…',
@@ -950,9 +941,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-058',
+    id: 'tech-hard-058',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In Chrono Trigger, the Epoch time machine is built from…',
@@ -967,9 +958,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-059',
+    id: 'tech-hard-059',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In The Elder Scrolls lore, which province features the city of Whiterun?',
@@ -984,9 +975,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-060',
+    id: 'tech-hard-060',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In Persona lore, the Velvet Room attendant is often…',
@@ -1001,77 +992,74 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-061',
+    id: 'tech-hard-061',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
-      en: 'In fighting games, "frame data" describes…',
-      bs: 'U fighting igrama, "frame data" opisuje…',
+      en: 'In object-oriented programming, what does "polymorphism" allow?',
+      bs: 'U objektno-orijentisanom programiranju, šta omogućava "polimorfizam"?',
     },
     options: [
-      { en: 'UI theme colors', bs: 'Boje UI teme' },
-      { en: 'Move timing properties', bs: 'Svojstva tajminga pokreta' },
-      { en: 'Story chapter order', bs: 'Redoslijed poglavlja' },
-      { en: 'Map texture size', bs: 'Veličinu tekstura mape' },
-    ],
-    correctIndex: 1,
-  },
-  {
-    id: 'game-hard-062',
-    type: 'mcq',
-    category: 'gaming',
-    difficulty: 'hard',
-    prompt: {
-      en: 'In online shooters, "tick rate" measures…',
-      bs: 'U online shooterima, "tick rate" mjeri…',
-    },
-    options: [
-      { en: 'Graphics preset level', bs: 'Nivo grafike' },
-      { en: 'Disk read speed', bs: 'Brzinu čitanja diska' },
-      { en: 'Server update frequency', bs: 'Frekvenciju server updatea' },
-      { en: 'Mouse DPI setting', bs: 'Mouse DPI postavku' },
-    ],
-    correctIndex: 2,
-  },
-  {
-    id: 'game-hard-063',
-    type: 'mcq',
-    category: 'gaming',
-    difficulty: 'hard',
-    prompt: {
-      en: 'In netplay, "rollback" compensates for…',
-      bs: 'U netplayu, "rollback" kompenzuje…',
-    },
-    options: [
-      { en: 'Texture streaming', bs: 'Texture streaming' },
-      { en: 'Audio loop errors', bs: 'Audio loop greške' },
-      { en: 'Shader compilation', bs: 'Shader compilation' },
-      { en: 'Network latency', bs: 'Mrežnu latenciju' },
-    ],
-    correctIndex: 3,
-  },
-  {
-    id: 'game-hard-064',
-    type: 'mcq',
-    category: 'gaming',
-    difficulty: 'hard',
-    prompt: {
-      en: 'In competitive CS, "ADR" measures average…',
-      bs: 'U competitive CS-u, "ADR" mjeri prosječnu…',
-    },
-    options: [
-      { en: 'Damage per round', bs: 'Štetu po rundi' },
-      { en: 'Deaths per round', bs: 'Smrti po rundi' },
-      { en: 'Downloads per match', bs: 'Download po meču' },
-      { en: 'Assists per day', bs: 'Asistencije po danu' },
+      { en: 'Objects of different types to be treated through a common interface', bs: 'Objektima različitih tipova da se koriste kroz zajednički interfejs' },
+      { en: 'A program to run without using memory', bs: 'Programu da radi bez korištenja memorije' },
+      { en: 'A database to store unlimited records', bs: 'Bazi podataka da čuva neograničen broj zapisa' },
+      { en: 'A computer to automatically repair hardware', bs: 'Računaru da automatski popravi hardver' },
     ],
     correctIndex: 0,
   },
   {
-    id: 'game-hard-065',
+    id: 'tech-hard-062',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Who is known as the creator of the C programming language?',
+      bs: 'Ko je poznat kao tvorac programskog jezika C?',
+    },
+    options: [
+      { en: 'Dennis Ritchie', bs: 'Dennis Ritchie' },
+      { en: 'James Gosling', bs: 'James Gosling' },
+      { en: 'Guido van Rossum', bs: 'Guido van Rossum' },
+      { en: 'Bjarne Stroustrup', bs: 'Bjarne Stroustrup' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-hard-063',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'hard',
+    prompt: { en: 'What is containerization mainly used for in modern software deployment?', bs: 'Čemu se kontejnerizacija uglavnom koristi u modernom softverskom deploymentu?' },
+    options: [
+      { en: 'Shipping physical hardware crates', bs: 'Slanje fizičkih sanduka hardvera' },
+      { en: 'Printing QR codes on paper', bs: 'Štampanje QR kodova na papir' },
+      { en: 'Deleting unused wallpaper images', bs: 'Brisanje neiskorištenih wallpaper slika' },
+      { en: 'Packaging an app with its dependencies for consistent runs', bs: 'Pakovanje aplikacije s njenim zavisnostima zbog konzistentnog pokretanja' },
+    ],
+    correctIndex: 3,
+  },
+  {
+    id: 'tech-hard-064',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which programming language was created by Guido van Rossum and first released in 1991?',
+      bs: 'Koji programski jezik je kreirao Guido van Rossum i prvi put objavljen 1991. godine?',
+    },
+    options: [
+      { en: 'Python', bs: 'Python' },
+      { en: 'Ruby', bs: 'Ruby' },
+      { en: 'Java', bs: 'Java' },
+      { en: 'Swift', bs: 'Swift' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-hard-065',
+    type: 'mcq',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In MOBAs, what does the "A" in KDA stand for?',
@@ -1086,9 +1074,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-066',
+    id: 'tech-hard-066',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In game balance updates, what does it mean to "nerf" something?',
@@ -1103,23 +1091,26 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-067',
+    id: 'tech-hard-067',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
-    prompt: { en: 'In RPG mechanics, a "proc" is a…', bs: 'U RPG mehanici, "proc" je…' },
-    options: [
-      { en: 'Map region name', bs: 'Naziv regije mape' },
-      { en: 'Guild rank title', bs: 'Titula guild ranka' },
-      { en: 'Chat emote pack', bs: 'Chat emote paket' },
-      { en: 'Triggered effect chance', bs: 'Šansa okidanja efekta' },
-    ],
-    correctIndex: 3,
+      prompt: {
+        en: 'Which language was created by Bjarne Stroustrup as an extension of C?',
+        bs: 'Koji jezik je kreirao Bjarne Stroustrup kao proširenje jezika C?',
+      },
+      options: [
+        { en: 'C++', bs: 'C++' },
+        { en: 'C#', bs: 'C#' },
+        { en: 'Objective-C', bs: 'Objective-C' },
+        { en: 'Go', bs: 'Go' },
+      ],
+      correctIndex: 0,
   },
   {
-    id: 'game-hard-068',
+    id: 'tech-hard-068',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In graphics settings, what is the main purpose of V-Sync?',
@@ -1134,9 +1125,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-069',
+    id: 'tech-hard-069',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In computer graphics, what does ray tracing simulate?',
@@ -1151,26 +1142,23 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-070',
+    id: 'tech-hard-070',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In competitive play, "Elo rating" estimates…',
-      bs: 'U competitive igri, "Elo rating" procjenjuje…',
-    },
+    prompt: { en: 'What is a deadlock in concurrent programming?', bs: 'Šta je deadlock u konkurentnom programiranju?' },
     options: [
-      { en: 'Ping stability', bs: 'Stabilnost pinga' },
-      { en: 'FPS cap value', bs: 'Vrijednost FPS capa' },
-      { en: 'Player skill level', bs: 'Nivo vještine igrača' },
-      { en: 'Loot drop quality', bs: 'Kvalitet loot dropa' },
+      { en: 'A locked office door at night', bs: 'Zaključana kancelarijska vrata noću' },
+      { en: 'A fully charged battery', bs: 'Potpuno napunjena baterija' },
+      { en: 'Processes waiting on each other so none can proceed', bs: 'Procesi koji čekaju jedni na druge pa niko ne može nastaviti' },
+      { en: 'A successful software update', bs: 'Uspješan softverski update' },
     ],
     correctIndex: 2,
   },
   {
-    id: 'game-hard-071',
+    id: 'tech-hard-071',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In competitive shooters, "peeker\'s advantage" refers to the benefit of the player who…',
@@ -1185,9 +1173,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-072',
+    id: 'tech-hard-072',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In tactical shooters, what is an "eco round"?',
@@ -1202,26 +1190,26 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-073',
+    id: 'tech-hard-073',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
-      en: 'In MMO combat, "aggro" refers to enemy…',
-      bs: 'U MMO borbi, "aggro" se odnosi na neprijateljsko…',
+      en: 'What does ABS in cars help prevent?',
+      bs: 'Šta ABS sistem u automobilima pomaže spriječiti?',
     },
     options: [
-      { en: 'Texture loading', bs: 'Učitavanje tekstura' },
-      { en: 'Threat targeting', bs: 'Targetiranje prijetnje' },
-      { en: 'Guild invitations', bs: 'Guild pozivnice' },
-      { en: 'Menu input lag', bs: 'Menu input lag' },
+      { en: 'Wheel locking during braking', bs: 'Blokiranje točkova pri kočenju' },
+      { en: 'Engine overheating', bs: 'Pregrijavanje motora' },
+      { en: 'Battery discharge', bs: 'Pražnjenje baterije' },
+      { en: 'Fuel contamination', bs: 'Zagađenje goriva' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
-    id: 'game-hard-074',
+    id: 'tech-hard-074',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In game design, what does "RNG" control?',
@@ -1236,77 +1224,77 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-075',
+    id: 'tech-hard-075',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
-      en: 'In computer graphics, "anti-aliasing" is mainly used to reduce…',
-      bs: 'U računalnoj grafici, "anti-aliasing" se uglavnom koristi za smanjenje…',
+      en: 'What technology allows modern cars to automatically maintain distance from the vehicle ahead?',
+      bs: 'Koja tehnologija omogućava modernim automobilima automatsko održavanje udaljenosti od vozila ispred?',
     },
     options: [
-      { en: 'Texture loading times', bs: 'Vremena učitavanja tekstura' },
-      { en: 'Jagged edges on objects', bs: 'Nazubljenih rubova objekata' },
-      { en: 'Frame rate drops', bs: 'Pada broja sličica u sekundi' },
-      { en: 'Screen resolution limits', bs: 'Ograničenja rezolucije ekrana' },
-    ],
-    correctIndex: 1,
-  },
-  {
-    id: 'game-hard-076',
-    type: 'mcq',
-    category: 'gaming',
-    difficulty: 'hard',
-    prompt: {
-      en: 'In level design, a "nav mesh" is primarily used to help…',
-      bs: 'U level dizajnu, "nav mesh" se prvenstveno koristi za pomoć…',
-    },
-    options: [
-      { en: 'AI characters navigate environments', bs: 'AI likovima da se kreću kroz okruženje' },
-      { en: 'Lighting systems calculate shadows', bs: 'Sistemima osvjetljenja da računaju sjene' },
-      { en: 'Textures load faster', bs: 'Teksturama da se brže učitavaju' },
-      { en: 'Players customize character models', bs: 'Igračima da prilagode modele likova' },
+      { en: 'Adaptive cruise control', bs: 'Adaptivni tempomat' },
+      { en: 'Traction control', bs: 'Kontrola proklizavanja' },
+      { en: 'Electronic stability control (ESP)', bs: 'Elektronska kontrola stabilnosti (ESP)' },
+      { en: 'Lane markings', bs: 'Oznake na cesti' },
     ],
     correctIndex: 0,
   },
   {
-    id: 'game-hard-077',
+    id: 'tech-hard-076',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
-      en: 'In fighting games, "hitstun" refers to…',
-      bs: 'U fighting igrama, "hitstun" označava…',
+      en: 'What is the main purpose of a turbocharger in a car engine?',
+      bs: 'Koja je glavna svrha turbo punjača u motoru automobila?',
     },
     options: [
-      { en: 'The time a character is unable to act after being hit', bs: 'Vrijeme tokom kojeg lik ne može djelovati nakon što je pogođen' },
-      { en: 'The amount of damage added to a combo', bs: 'Količinu dodatne štete u kombo napadu' },
-      { en: 'The distance a character is pushed back after a hit', bs: 'Udaljenost odbacivanja lika nakon udarca' },
-      { en: 'The number of attacks possible before a combo ends', bs: 'Broj napada mogućih prije završetka komboa' },
+      { en: 'Increase power by forcing more air into the engine', bs: 'Povećati snagu ubacivanjem više zraka u motor' },
+      { en: 'Reduce the size of the fuel tank', bs: 'Smanjiti veličinu rezervoara goriva' },
+      { en: 'Replace the transmission system', bs: 'Zamijeniti sistem mjenjača' },
+      { en: 'Cool the car interior', bs: 'Ohladiti unutrašnjost automobila' },
     ],
     correctIndex: 0,
   },
   {
-    id: 'game-hard-078',
+    id: 'tech-hard-077',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
-      en: 'In competitive shooters, poor "hit registration" can cause players to experience…',
-      bs: 'U kompetitivnim shooterima, loš "hit registration" može uzrokovati da igrači dožive…',
+      en: 'Which company developed the first widely known mass-produced hybrid car, the Prius?',
+      bs: 'Koja kompanija je razvila prvi široko poznati masovno proizvedeni hibridni automobil Prius?',
     },
     options: [
-      { en: 'Shots appearing to miss despite accurate aim', bs: 'Pucnjevi izgledaju kao da promašuju iako je nišan tačan' },
-      { en: 'Slower character movement', bs: 'Sporije kretanje lika' },
-      { en: 'Longer loading screens', bs: 'Duže vrijeme učitavanja' },
-      { en: 'Lower graphics quality', bs: 'Lošiji kvalitet grafike' },
+      { en: 'Toyota', bs: 'Toyota' },
+      { en: 'Tesla', bs: 'Tesla' },
+      { en: 'BMW', bs: 'BMW' },
+      { en: 'Ford', bs: 'Ford' },
     ],
     correctIndex: 0,
   },
   {
-    id: 'game-hard-079',
+    id: 'tech-hard-078',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
+    difficulty: 'hard',
+    prompt: {
+      en: 'What is the main purpose of virtual memory in an operating system?',
+      bs: 'Koja je glavna svrha virtuelne memorije u operativnom sistemu?',
+    },
+    options: [
+      { en: 'Allowing programs to use more memory than the available physical RAM', bs: 'Omogućavanje programima da koriste više memorije nego što je dostupno fizičkog RAM-a' },
+      { en: 'Increasing the physical speed of the CPU', bs: 'Povećavanje fizičke brzine procesora' },
+      { en: 'Encrypting files stored on the hard drive', bs: 'Šifrovanje fajlova sačuvanih na disku' },
+      { en: 'Improving the resolution of the monitor display', bs: 'Poboljšavanje rezolucije monitora' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-hard-079',
+    type: 'mcq',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which home video game console is the best-selling of all time?',
@@ -1321,9 +1309,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-080',
+    id: 'tech-hard-080',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Sega exited console hardware after which home console?',
@@ -1338,9 +1326,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-081',
+    id: 'tech-hard-081',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: "Nintendo's failed stereoscopic handheld was the…",
@@ -1355,9 +1343,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-082',
+    id: 'tech-hard-082',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Often cited as the first home video game console, the…',
@@ -1372,9 +1360,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-083',
+    id: 'tech-hard-083',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'The Nintendo 64 primarily used which storage format?',
@@ -1389,9 +1377,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-084',
+    id: 'tech-hard-084',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'The Sega Saturn launched in Japan in which year?',
@@ -1406,9 +1394,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-085',
+    id: 'tech-hard-085',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'The PlayStation Portable launched in Japan in which year?',
@@ -1423,9 +1411,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-086',
+    id: 'tech-hard-086',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'The Xbox Series X and PlayStation 5 both launched in which year?',
@@ -1440,9 +1428,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-087',
+    id: 'tech-hard-087',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: "Valve's handheld PC gaming platform is called…",
@@ -1457,9 +1445,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-088',
+    id: 'tech-hard-088',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'The Neo Geo AES was known for having unusually large…',
@@ -1474,9 +1462,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-089',
+    id: 'tech-hard-089',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'MSX computers were especially influential in gaming during the 1980s in…',
@@ -1491,9 +1479,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-090',
+    id: 'tech-hard-090',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In League of Legends, Baron Nashor is a…',
@@ -1508,23 +1496,23 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-091',
+    id: 'tech-hard-091',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
-    prompt: { en: 'In StarCraft, "APM" stands for…', bs: 'U StarCraftu, "APM" znači…' },
+    prompt: { en: 'In HTTP, what does a 503 status code typically indicate?', bs: 'U HTTP-u, šta status kod 503 tipično označava?' },
     options: [
-      { en: 'Audio per match', bs: 'Audio per match' },
-      { en: 'Accounts per map', bs: 'Accounts per map' },
-      { en: 'Armor per marine', bs: 'Armor per marine' },
-      { en: 'Actions per minute', bs: 'Actions per minute' },
+      { en: 'OK and completed', bs: 'OK i završeno' },
+      { en: 'Permanent redirect', bs: 'Permanentni redirect' },
+      { en: 'Successful file upload', bs: 'Uspješan upload fajla' },
+      { en: 'Service Unavailable', bs: 'Service Unavailable' },
     ],
     correctIndex: 3,
   },
   {
-    id: 'game-hard-092',
+    id: 'tech-hard-092',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In Dota 2, Roshan drops which prized item?',
@@ -1539,60 +1527,60 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-093',
+    id: 'tech-hard-093',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
-      en: 'In fighting games, a "whiff punish" punishes…',
-      bs: 'U fighting igrama, "whiff punish" kažnjava…',
+      en: 'What does ABS stand for in automotive technology?',
+      bs: 'Šta znači ABS u automobilskoj tehnologiji?',
     },
     options: [
-      { en: 'Perfect blocks', bs: 'Savršene blokove' },
-      { en: 'Missed attacks', bs: 'Promašene napade' },
-      { en: 'Menu exits', bs: 'Izlaze iz menija' },
-      { en: 'Idle taunts', bs: 'Idle tauntove' },
+      { en: 'Anti-lock Braking System', bs: 'Sistem protiv blokiranja kočnica' },
+      { en: 'Automatic Battery System', bs: 'Automatski sistem baterije' },
+      { en: 'Advanced Balance Sensor', bs: 'Napredni senzor balansa' },
+      { en: 'Automatic Brake Speed', bs: 'Automatska brzina kočenja' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
-    id: 'game-hard-094',
+    id: 'tech-hard-094',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
-      en: 'In game audio, FMOD is widely used for…',
-      bs: 'U game audiju, FMOD se široko koristi za…',
+      en: 'Which company developed the Autopilot driver assistance system?',
+      bs: 'Koja kompanija je razvila Autopilot sistem pomoći vozaču?',
     },
     options: [
-      { en: 'Texture baking', bs: 'Texture baking' },
-      { en: 'AI routing logic', bs: 'AI routing logiku' },
-      { en: 'Interactive sound design', bs: 'Interaktivni sound design' },
-      { en: 'Cloud save sync', bs: 'Cloud save sync' },
+      { en: 'Tesla', bs: 'Tesla' },
+      { en: 'Toyota', bs: 'Toyota' },
+      { en: 'Volkswagen', bs: 'Volkswagen' },
+      { en: 'Ferrari', bs: 'Ferrari' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
-    id: 'game-hard-095',
+    id: 'tech-hard-095',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
-      en: 'In engines, shader compilation happens mainly on the…',
-      bs: 'U engineima, shader compilation se uglavnom dešava na…',
+      en: 'Which car is famous for being one of the first mass-produced hybrid vehicles?',
+      bs: 'Koji automobil je poznat kao jedno od prvih masovno proizvedenih hibridnih vozila?',
     },
     options: [
-      { en: 'Printer', bs: 'Printeru' },
-      { en: 'Router', bs: 'Routeru' },
-      { en: 'Keyboard', bs: 'Tastaturi' },
-      { en: 'GPU', bs: 'GPU' },
+      { en: 'Toyota Prius', bs: 'Toyota Prius' },
+      { en: 'Tesla Model S', bs: 'Tesla Model S' },
+      { en: 'BMW M3', bs: 'BMW M3' },
+      { en: 'Ford Mustang', bs: 'Ford Mustang' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
-    id: 'game-hard-096',
+    id: 'tech-hard-096',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In PC gaming, what does NVIDIA DLSS use AI to upscale?',
@@ -1607,26 +1595,26 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-097',
+    id: 'tech-hard-097',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
-      en: 'In competitive Smash, "DI" stands for…',
-      bs: 'U competitive Smashu, "DI" znači…',
+      en: 'The McLaren F1 was famous for having a unique…',
+      bs: 'McLaren F1 je bio poznat po jedinstvenom…',
     },
     options: [
-      { en: 'Damage input', bs: 'Damage input' },
-      { en: 'Directional influence', bs: 'Directional influence' },
-      { en: 'Download item', bs: 'Download item' },
-      { en: 'Duel invite', bs: 'Duel invite' },
+      { en: 'Three-seat layout with a central driver position', bs: 'Rasporedu sa tri sjedišta i vozačem u sredini' },
+      { en: 'Fully electric drivetrain', bs: 'Potpuno električnom pogonu' },
+      { en: 'Self-driving system', bs: 'Sistemu autonomne vožnje' },
+      { en: 'Hydrogen fuel engine', bs: 'Vodonikovom motoru' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
-    id: 'game-hard-098',
+    id: 'tech-hard-098',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'In roguelike games, "permadeath" means that…',
@@ -1641,26 +1629,26 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-099',
+    id: 'tech-hard-099',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
-      en: 'In rhythm games, offset calibration adjusts…',
-      bs: 'U rhythm igrama, offset calibration podešava…',
+      en: 'Which car is nicknamed "Godzilla" in the automotive world?',
+      bs: 'Koji automobil nosi nadimak "Godzilla" u svijetu automobila?',
     },
     options: [
-      { en: 'Controller color', bs: 'Boju kontrolera' },
-      { en: 'Server region', bs: 'Server region' },
-      { en: 'Chat font size', bs: 'Veličinu chat fonta' },
-      { en: 'Audio-visual timing', bs: 'Audio-vizuelni timing' },
+      { en: 'Nissan GT-R', bs: 'Nissan GT-R' },
+      { en: 'Lamborghini Huracán', bs: 'Lamborghini Huracán' },
+      { en: 'Chevrolet Corvette', bs: 'Chevrolet Corvette' },
+      { en: 'BMW M5', bs: 'BMW M5' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
-    id: 'game-hard-100',
+    id: 'tech-hard-100',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Guerrilla Games developed which engine for Horizon Zero Dawn?',
@@ -1675,9 +1663,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-101',
+    id: 'tech-hard-101',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Olofmeister’s famous “Olofboost” play took place on which map?',
@@ -1692,9 +1680,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-102',
+    id: 'tech-hard-102',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Lee “Faker” Sang-hyeok built his legacy primarily in…',
@@ -1709,9 +1697,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-103',
+    id: 'tech-hard-103',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'The International is the flagship annual championship for…',
@@ -1726,9 +1714,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-104',
+    id: 'tech-hard-104',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which team won the first Counter-Strike: Global Offensive Major?',
@@ -1743,9 +1731,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-105',
+    id: 'tech-hard-105',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Oleksandr “s1mple” Kostyliev is most iconic in…',
@@ -1760,9 +1748,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-106',
+    id: 'tech-hard-106',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'League of Legends’ annual world championship is widely known as…',
@@ -1777,9 +1765,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-107',
+    id: 'tech-hard-107',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Faker won most of his World Championships with which organization?',
@@ -1794,9 +1782,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-108',
+    id: 'tech-hard-108',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'EVO is best known as a premier tournament for…',
@@ -1811,9 +1799,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-109',
+    id: 'tech-hard-109',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'The Olofboost controversy occurred at which CS:GO Major?',
@@ -1828,9 +1816,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-110',
+    id: 'tech-hard-110',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which region operates the LCK professional League of Legends league?',
@@ -1845,9 +1833,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-111',
+    id: 'tech-hard-111',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Daigo Umehara’s legendary “Moment 37” comeback occurred in…',
@@ -1862,9 +1850,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-112',
+    id: 'tech-hard-112',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'BLAST Premier is primarily associated with which esport?',
@@ -1879,9 +1867,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-113',
+    id: 'tech-hard-113',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which year did the Super Nintendo launch in Japan?',
@@ -1896,9 +1884,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-114',
+    id: 'tech-hard-114',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which year did the Sega Genesis launch in North America?',
@@ -1913,9 +1901,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-115',
+    id: 'tech-hard-115',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which infamous NES accessory used glove-based motion input?',
@@ -1930,9 +1918,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-116',
+    id: 'tech-hard-116',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'The TurboGrafx-16 was marketed as the PC Engine in…',
@@ -1947,9 +1935,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-117',
+    id: 'tech-hard-117',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which early handheld was among the first widely sold with a color LCD?',
@@ -1964,9 +1952,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-118',
+    id: 'tech-hard-118',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'The original PlayStation controller famously lacked…',
@@ -1981,9 +1969,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-119',
+    id: 'tech-hard-119',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'The Sega CD add-on primarily ran games from…',
@@ -1998,9 +1986,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-120',
+    id: 'tech-hard-120',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which year did the ColecoVision launch in North America?',
@@ -2015,9 +2003,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-121',
+    id: 'tech-hard-121',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Nintendo’s Game & Watch line were early…',
@@ -2032,9 +2020,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-122',
+    id: 'tech-hard-122',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'The Xbox 360 primarily used which optical disc format?',
@@ -2049,9 +2037,9 @@ export const gamingHard: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-hard-123',
+    id: 'tech-hard-123',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which year did the Atari 2600 launch in North America?',
@@ -2066,9 +2054,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-124',
+    id: 'tech-hard-124',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'The Vectrex home console was distinctive for its…',
@@ -2083,9 +2071,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-125',
+    id: 'tech-hard-125',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Astralis famously won three consecutive CS:GO Majors from 2018 to 2019 under…',
@@ -2100,9 +2088,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-126',
+    id: 'tech-hard-126',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Marcelo “coldzera” David’s jumping AWP clutch is legendary in…',
@@ -2117,9 +2105,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-127',
+    id: 'tech-hard-127',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which team won the inaugural League of Legends World Championship?',
@@ -2134,9 +2122,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-128',
+    id: 'tech-hard-128',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Johan “N0tail” Sundstein won multiple TI titles in…',
@@ -2151,9 +2139,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-129',
+    id: 'tech-hard-129',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Dota 2’s The International prize pool is largely boosted by…',
@@ -2168,9 +2156,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-130',
+    id: 'tech-hard-130',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'IEM Katowice became one of esports’ most prestigious events through its long history with which competitive game?',
@@ -2185,9 +2173,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-131',
+    id: 'tech-hard-131',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'China’s top League of Legends league is the…',
@@ -2202,9 +2190,9 @@ export const gamingHard: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-hard-132',
+    id: 'tech-hard-132',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Kenny “kennyS” Schrub became famous for elite AWP play in…',
@@ -2219,9 +2207,9 @@ export const gamingHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-hard-133',
+    id: 'tech-hard-133',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Joseph “Mang0” Marino is a legendary competitor in…',
@@ -2236,9 +2224,9 @@ export const gamingHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-hard-134',
+    id: 'tech-hard-134',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'hard',
     prompt: {
       en: 'Which organization won back-to-back League of Legends Worlds in 2015 and 2016?',
@@ -2251,5 +2239,175 @@ export const gamingHard: Question[] = [
       { en: 'Royal Never Give Up', bs: 'Royal Never Give Up' },
     ],
     correctIndex: 2,
+  },
+  {
+    id: 'tech-hard-135',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which car was the first production vehicle to use a carbon fiber monocoque chassis?',
+      bs: 'Koji automobil je prvi serijski koristio karbonsku monokok šasiju?',
+    },
+    options: [
+      { en: 'McLaren F1', bs: 'McLaren F1' },
+      { en: 'Ferrari F40', bs: 'Ferrari F40' },
+      { en: 'Porsche 911 Turbo', bs: 'Porsche 911 Turbo' },
+      { en: 'Nissan Skyline GT-R R32', bs: 'Nissan Skyline GT-R R32' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-hard-136',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which engine is famously associated with the Toyota Supra MK4?',
+      bs: 'Koji motor je najpoznatiji u vezi sa Toyotom Supra MK4?',
+    },
+    options: [
+      { en: '2JZ-GTE', bs: '2JZ-GTE' },
+      { en: 'RB26DETT', bs: 'RB26DETT' },
+      { en: 'SR20DET', bs: 'SR20DET' },
+      { en: '4G63T', bs: '4G63T' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-hard-137',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'hard',
+    prompt: {
+      en: 'The Nissan Skyline GT-R R32 became famous partly because of which advanced system?',
+      bs: 'Nissan Skyline GT-R R32 je postao poznat dijelom zbog kojeg naprednog sistema?',
+    },
+    options: [
+      { en: 'ATTESA E-TS all-wheel drive system', bs: 'ATTESA E-TS sistem pogona na sva četiri točka' },
+      { en: 'Hybrid electric drivetrain', bs: 'Hibridni električni pogon' },
+      { en: 'Active air suspension', bs: 'Aktivni zračni ovjes' },
+      { en: 'Hydrogen fuel system', bs: 'Vodikov sistem goriva' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-hard-138',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which vehicle introduced Tesla\'s first mass-market electric platform?',
+      bs: 'Koje vozilo je predstavilo Teslinu prvu masovno prihvaćenu električnu platformu?',
+    },
+    options: [
+      { en: 'Tesla Model 3', bs: 'Tesla Model 3' },
+      { en: 'Tesla Roadster', bs: 'Tesla Roadster' },
+      { en: 'Tesla Cybertruck', bs: 'Tesla Cybertruck' },
+      { en: 'Tesla Semi', bs: 'Tesla Semi' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-hard-139',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which Porsche model is known for using a rear-mounted flat-six engine?',
+      bs: 'Koji Porsche model je poznat po stražnje postavljenom bokser šestocilindričnom motoru?',
+    },
+    options: [
+      { en: 'Porsche 911', bs: 'Porsche 911' },
+      { en: 'Porsche Cayenne', bs: 'Porsche Cayenne' },
+      { en: 'Porsche Panamera', bs: 'Porsche Panamera' },
+      { en: 'Porsche Taycan', bs: 'Porsche Taycan' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-hard-140',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which Ferrari was the first production car to use the HY-KERS hybrid system?',
+      bs: 'Koji Ferrari je prvi serijski koristio HY-KERS hibridni sistem?',
+    },
+    options: [
+      { en: 'Ferrari LaFerrari', bs: 'Ferrari LaFerrari' },
+      { en: 'Ferrari F40', bs: 'Ferrari F40' },
+      { en: 'Ferrari Enzo', bs: 'Ferrari Enzo' },
+      { en: 'Ferrari 458 Italia', bs: 'Ferrari 458 Italia' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-hard-141',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which car is famous for using Mazda\'s rotary Wankel engine?',
+      bs: 'Koji automobil je poznat po korištenju Mazdinog rotacionog Wankel motora?',
+    },
+    options: [
+      { en: 'Mazda RX-7', bs: 'Mazda RX-7' },
+      { en: 'Mazda MX-5 Miata', bs: 'Mazda MX-5 Miata' },
+      { en: 'Mazda CX-5', bs: 'Mazda CX-5' },
+      { en: 'Mazda 6', bs: 'Mazda 6' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-hard-142',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which Lamborghini model was one of the first production cars to use a carbon fiber monocoque?',
+      bs: 'Koji Lamborghini model je među prvim serijskim automobilima koristio karbonski monokok?',
+    },
+    options: [
+      { en: 'Lamborghini Aventador', bs: 'Lamborghini Aventador' },
+      { en: 'Lamborghini Gallardo', bs: 'Lamborghini Gallardo' },
+      { en: 'Lamborghini Diablo', bs: 'Lamborghini Diablo' },
+      { en: 'Lamborghini Huracán', bs: 'Lamborghini Huracán' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-hard-143',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which Volkswagen model became famous for introducing the MQB modular platform?',
+      bs: 'Koji Volkswagen model je poznat po korištenju MQB modularne platforme?',
+    },
+    options: [
+      { en: 'Volkswagen Golf Mk7', bs: 'Volkswagen Golf Mk7' },
+      { en: 'Volkswagen Beetle 1970', bs: 'Volkswagen Buba 1970' },
+      { en: 'Volkswagen Touareg 2002', bs: 'Volkswagen Touareg 2002' },
+      { en: 'Volkswagen Phaeton', bs: 'Volkswagen Phaeton' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-hard-144',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which hypercar uses a Mercedes-AMG developed hybrid powertrain with a Formula 1 derived engine?',
+      bs: 'Koji hiperautomobil koristi hibridni pogon razvijen od Mercedes-AMG-a sa motorom izvedenim iz Formule 1?',
+    },
+    options: [
+      { en: 'Mercedes-AMG One', bs: 'Mercedes-AMG One' },
+      { en: 'McLaren P1', bs: 'McLaren P1' },
+      { en: 'Bugatti Chiron', bs: 'Bugatti Chiron' },
+      { en: 'Koenigsegg Jesko', bs: 'Koenigsegg Jesko' },
+    ],
+    correctIndex: 0,
   },
 ];

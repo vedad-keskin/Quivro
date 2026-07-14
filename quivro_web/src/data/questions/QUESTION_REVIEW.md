@@ -175,4 +175,4 @@ You will get:
 | MCQ banks | `quivro_web/src/data/questions/mcq/{category}/{easy\|medium\|hard}.ts` |
 | Image MCQ | `quivro_web/src/data/questions/image_mcq/{category}/...` |
 | Types | `quivro_web/src/data/questions/types.ts` |
-| Categories | `geography`, `biology`, `gaming`, `history`, `sports`, `movies`, `famous` |
+| Categories | `geography`, `biology`, `technology`, `history`, `sports`, `movies`, `famous`, `islam` |

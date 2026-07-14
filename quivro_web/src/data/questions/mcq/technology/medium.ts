@@ -1,10 +1,10 @@
 import type { Question } from '../../types';
 
-export const gamingMedium: Question[] = [
+export const technologyMedium: Question[] = [
   {
-    id: 'game-med-001',
+    id: 'tech-med-001',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Which studio developed The Legend of Zelda?',
@@ -19,9 +19,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-002',
+    id: 'tech-med-002',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'In League of Legends, how many players are on each team?',
@@ -36,9 +36,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-003',
+    id: 'tech-med-003',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Los Santos is a major city in which Rockstar open-world series?',
@@ -53,9 +53,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-004',
+    id: 'tech-med-004',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Which game features the character Master Chief?',
@@ -70,26 +70,23 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-005',
+    id: 'tech-med-005',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
-    prompt: {
-      en: 'Among Us is mainly about finding the…',
-      bs: 'Among Us je uglavnom o pronalasku…',
-    },
+    prompt: { en: 'What does DNS primarily do on the internet?', bs: 'Šta DNS primarno radi na internetu?' },
     options: [
-      { en: 'Treasure', bs: 'Blaga' },
-      { en: 'Impostor', bs: 'Impostora' },
-      { en: 'Dragon', bs: 'Zmaja' },
-      { en: 'Portal', bs: 'Portala' },
+      { en: 'Compresses images for email attachments', bs: 'Kompresuje slike za email priloge' },
+      { en: 'Translates domain names into IP addresses', bs: 'Pretvara imena domena u IP adrese' },
+      { en: 'Charges batteries wirelessly', bs: 'Bežično puni baterije' },
+      { en: 'Prints boarding passes', bs: 'Štampa boarding kartice' },
     ],
     correctIndex: 1,
   },
   {
-    id: 'game-med-006',
+    id: 'tech-med-006',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'What does the term "speedrun" mean in gaming?',
@@ -104,9 +101,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-007',
+    id: 'tech-med-007',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Which company makes the Xbox console?',
@@ -121,9 +118,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-008',
+    id: 'tech-med-008',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'What genre is Dark Souls most commonly classified as?',
@@ -138,9 +135,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-009',
+    id: 'tech-med-009',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Which studio developed God of War?', bs: 'Koji studio je razvio God of War?' },
     options: [
@@ -152,9 +149,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-010',
+    id: 'tech-med-010',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Astro Bot was developed by which studio?',
@@ -169,9 +166,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-011',
+    id: 'tech-med-011',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'In The Legend of Zelda series, what is the name of the main hero?',
@@ -186,9 +183,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-012',
+    id: 'tech-med-012',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Solid Snake is the protagonist of which series?',
@@ -203,9 +200,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-013',
+    id: 'tech-med-013',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Geralt of Rivia is the protagonist of…',
@@ -220,9 +217,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-014',
+    id: 'tech-med-014',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Which studio developed Minecraft?', bs: 'Koji studio je razvio Minecraft?' },
     options: [
@@ -234,23 +231,26 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-015',
+    id: 'tech-med-015',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
-    prompt: { en: 'Apex Legends is best known as a…', bs: 'Apex Legends je najpoznatiji kao…' },
+    prompt: {
+      en: 'What is cloud computing mainly about?',
+      bs: 'O čemu se uglavnom radi kod cloud computinga?',
+    },
     options: [
-      { en: 'Farming simulator', bs: 'Farming simulator' },
-      { en: 'Battle royale shooter', bs: 'Battle royale pucačina' },
-      { en: 'Chess app', bs: 'Šah aplikacija' },
-      { en: 'Racing game', bs: 'Trkačka igra' },
+      { en: 'Using remote servers over the internet for storage and services', bs: 'Korištenju udaljenih servera preko interneta za pohranu i usluge' },
+      { en: 'Storing files only on your local computer', bs: 'Čuvanju fajlova samo na vlastitom računaru' },
+      { en: 'Creating physical computer hardware components', bs: 'Pravljenju fizičkih komponenti računara' },
+      { en: 'Improving internet speed through software updates', bs: 'Poboljšavanju brzine interneta kroz softverska ažuriranja' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
-    id: 'game-med-016',
+    id: 'tech-med-016',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Which series features the character Lara Croft?',
@@ -265,9 +265,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-017',
+    id: 'tech-med-017',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'In Overwatch, which role is designed to absorb damage and protect the team?',
@@ -282,9 +282,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-018',
+    id: 'tech-med-018',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Which company publishes the Call of Duty series?',
@@ -299,9 +299,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-019',
+    id: 'tech-med-019',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Stardew Valley is best described as a…',
@@ -316,9 +316,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-020',
+    id: 'tech-med-020',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Which character is the main hero of the Uncharted series?',
@@ -333,9 +333,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-021',
+    id: 'tech-med-021',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Which company developed Fortnite?', bs: 'Koja kompanija je razvila Fortnite?' },
     options: [
@@ -347,9 +347,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-022',
+    id: 'tech-med-022',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Kratos is the protagonist of which series?',
@@ -364,9 +364,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-023',
+    id: 'tech-med-023',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Civilization is best known as a…', bs: 'Civilization je najpoznatiji kao…' },
     options: [
@@ -378,23 +378,23 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-024',
+    id: 'tech-med-024',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
-    prompt: { en: 'What does "RPG" stand for?', bs: 'Šta znači skraćenica "RPG"?' },
+    prompt: { en: 'What does API stand for in software?', bs: 'Šta u softveru znači skraćenica API?' },
     options: [
-      { en: 'Role-playing game', bs: 'Role-playing game' },
-      { en: 'Random player guild', bs: 'Random player guild' },
-      { en: 'Rapid progress goal', bs: 'Rapid progress goal' },
-      { en: 'Real power gauge', bs: 'Real power gauge' },
+      { en: 'Application Programming Interface', bs: 'Application Programming Interface' },
+      { en: 'Advanced Power Integration', bs: 'Advanced Power Integration' },
+      { en: 'Automatic Pixel Index', bs: 'Automatic Pixel Index' },
+      { en: 'Applied Portable Installer', bs: 'Applied Portable Installer' },
     ],
     correctIndex: 0,
   },
   {
-    id: 'game-med-025',
+    id: 'tech-med-025',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Which studio developed The Last of Us?',
@@ -409,9 +409,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-026',
+    id: 'tech-med-026',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Which gameplay element is strongly associated with classic Resident Evil games?',
@@ -426,9 +426,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-027',
+    id: 'tech-med-027',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'What does the gaming abbreviation "DLC" stand for?',
@@ -443,9 +443,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-028',
+    id: 'tech-med-028',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Which studio originally created Halo?',
@@ -460,9 +460,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-029',
+    id: 'tech-med-029',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Aloy is the hero of which series?', bs: 'Aloy je heroj kojeg serijala?' },
     options: [
@@ -474,23 +474,23 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-030',
+    id: 'tech-med-030',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
-    prompt: { en: 'What does "MMO" stand for?', bs: 'Šta znači skraćenica "MMO"?' },
+    prompt: { en: 'In networking, what does IP in IPv4 stand for?', bs: 'U umrežavanju, šta IP u IPv4 označava?' },
     options: [
-      { en: 'Multi map option', bs: 'Multi map option' },
-      { en: 'Mobile mode only', bs: 'Mobile mode only' },
-      { en: 'Massively multiplayer online', bs: 'Massively multiplayer online' },
-      { en: 'Main mission order', bs: 'Main mission order' },
+      { en: 'Internal Printer', bs: 'Internal Printer' },
+      { en: 'Instant Packet', bs: 'Instant Packet' },
+      { en: 'Internet Protocol', bs: 'Internet Protocol' },
+      { en: 'Indexed Port', bs: 'Indexed Port' },
     ],
     correctIndex: 2,
   },
   {
-    id: 'game-med-031',
+    id: 'tech-med-031',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'The Elder Scrolls V: Skyrim was developed by…',
@@ -505,9 +505,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-032',
+    id: 'tech-med-032',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Tekken belongs to which genre?', bs: 'Tekken pripada kojem žanru?' },
     options: [
@@ -519,9 +519,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-033',
+    id: 'tech-med-033',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'In gaming, what does a "cooldown" refer to?',
@@ -536,9 +536,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-034',
+    id: 'tech-med-034',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Which company developed Overwatch?',
@@ -553,9 +553,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-035',
+    id: 'tech-med-035',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Mario Kart is primarily a…', bs: 'Mario Kart je primarno…' },
     options: [
@@ -567,9 +567,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-036',
+    id: 'tech-med-036',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Valorant was developed by…', bs: 'Valorant je razvio…' },
     options: [
@@ -581,9 +581,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-      id: 'game-med-037',
+      id: 'tech-med-037',
       type: 'mcq',
-      category: 'gaming',
+      category: 'technology',
       difficulty: 'medium',
       prompt: {
         en: 'In gaming, what does "grinding" usually mean?',
@@ -598,9 +598,9 @@ export const gamingMedium: Question[] = [
       correctIndex: 3,
     },
   {
-    id: 'game-med-038',
+    id: 'tech-med-038',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Final Fantasy is published by…', bs: 'Final Fantasy izdaje…' },
     options: [
@@ -612,9 +612,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-039',
+    id: 'tech-med-039',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'The Monster Hunter series is developed by…', bs: 'Serijal Monster Hunter razvija…' },
     options: [
@@ -626,9 +626,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-040',
+    id: 'tech-med-040',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'A game patch usually delivers…', bs: 'Game patch obično donosi…' },
     options: [
@@ -640,9 +640,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-041',
+    id: 'tech-med-041',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Street Fighter was created by…', bs: 'Street Fighter je kreirao…' },
     options: [
@@ -654,9 +654,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-042',
+    id: 'tech-med-042',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Splatoon is exclusive to…', bs: 'Splatoon je ekskluzivan za…' },
     options: [
@@ -668,9 +668,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-043',
+    id: 'tech-med-043',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'In games, what does "friendly fire" mean?',
@@ -685,9 +685,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-044',
+    id: 'tech-med-044',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Bloodborne was developed by…', bs: 'Bloodborne je razvio…' },
     options: [
@@ -699,9 +699,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-045',
+    id: 'tech-med-045',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Hades is best known as a…', bs: 'Hades je najpoznatiji kao…' },
     options: [
@@ -713,9 +713,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-046',
+    id: 'tech-med-046',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'In online gaming, what does network lag refer to?',
@@ -730,9 +730,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-047',
+    id: 'tech-med-047',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'In Red Dead Redemption 2, what is the name of the main protagonist?',
@@ -747,9 +747,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-048',
+    id: 'tech-med-048',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'In The Last of Us, what is the name of the girl Joel is tasked with protecting?',
@@ -764,26 +764,23 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-049',
+    id: 'tech-med-049',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
-    prompt: {
-      en: 'In battle royale matches, the safe playable area usually…',
-      bs: 'U battle royale mečevima, sigurna igriva zona obično…',
-    },
+    prompt: { en: 'What is the main difference between HTTP and HTTPS?', bs: 'Koja je glavna razlika između HTTP-a i HTTPS-a?' },
     options: [
-      { en: 'Shrinks over time', bs: 'Smanjuje se tokom vremena' },
-      { en: 'Expands endlessly', bs: 'Širi se beskonačno' },
-      { en: 'Stays identical', bs: 'Ostaje identična' },
-      { en: 'Rotates randomly', bs: 'Rotira nasumično' },
+      { en: 'HTTPS encrypts the connection', bs: 'HTTPS šifrira vezu' },
+      { en: 'HTTPS disables all websites', bs: 'HTTPS onemogućava sve web stranice' },
+      { en: 'HTTP requires a physical SIM card', bs: 'HTTP zahtijeva fizičku SIM karticu' },
+      { en: 'HTTPS works offline without power', bs: 'HTTPS radi offline bez struje' },
     ],
     correctIndex: 0,
   },
   {
-    id: 'game-med-050',
+    id: 'tech-med-050',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: "Assassin's Creed is mainly…", bs: "Assassin's Creed je uglavnom…" },
     options: [
@@ -795,9 +792,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-051',
+    id: 'tech-med-051',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'The Witcher 3 was made by…', bs: 'The Witcher 3 je napravio…' },
     options: [
@@ -809,9 +806,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-052',
+    id: 'tech-med-052',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'What is a respawn point in a game?',
@@ -826,9 +823,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-053',
+    id: 'tech-med-053',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Crash Bandicoot was created by…', bs: 'Crash Bandicoot je kreirao…' },
     options: [
@@ -840,9 +837,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-054',
+    id: 'tech-med-054',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Cyberpunk 2077 is set in…', bs: 'Cyberpunk 2077 se odvija u…' },
     options: [
@@ -854,9 +851,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-055',
+    id: 'tech-med-055',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'The original Gears of War was developed by…',
@@ -871,9 +868,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-056',
+    id: 'tech-med-056',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Pac-Man was created by…', bs: 'Pac-Mana je kreirao…' },
     options: [
@@ -885,23 +882,23 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-057',
+    id: 'tech-med-057',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
-    prompt: { en: 'What does "RTS" stand for?', bs: 'Šta znači skraćenica "RTS"?' },
+    prompt: { en: 'What does SSD offer compared with a traditional hard disk drive?', bs: 'Šta SSD nudi u odnosu na tradicionalni hard disk?' },
     options: [
-      { en: 'Random team skirmish', bs: 'Random team skirmish' },
-      { en: 'Role test sequence', bs: 'Role test sequence' },
-      { en: 'Rapid turn system', bs: 'Rapid turn system' },
-      { en: 'Real-time strategy', bs: 'Real-time strategija' },
+      { en: 'Larger spinning platters', bs: 'Veće rotirajuće pločice' },
+      { en: 'Mandatory floppy disks', bs: 'Obavezne floppy diskete' },
+      { en: 'Higher capacity', bs: 'Veći kapacitet' },
+      { en: 'Faster access with no moving parts', bs: 'Brži pristup bez pokretnih dijelova' },
     ],
     correctIndex: 3,
   },
   {
-    id: 'game-med-058',
+    id: 'tech-med-058',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'The original God of War draws heavily on…',
@@ -916,9 +913,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-059',
+    id: 'tech-med-059',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Which Overwatch hero throws bombs?', bs: 'Koji Overwatch heroj baca bombe?' },
     options: [
@@ -930,9 +927,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-060',
+    id: 'tech-med-060',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'What is a sandbox game mainly focused on?',
@@ -947,9 +944,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-061',
+    id: 'tech-med-061',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Insomniac Games is best known for developing which franchise?',
@@ -964,9 +961,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-062',
+    id: 'tech-med-062',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Madden NFL is published by…', bs: 'Madden NFL izdaje…' },
     options: [
@@ -978,9 +975,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-063',
+    id: 'tech-med-063',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'In online games, what does "griefing" mean?',
@@ -995,9 +992,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-064',
+    id: 'tech-med-064',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Marcus Fenix is from…', bs: 'Marcus Fenix je iz serijala…' },
     options: [
@@ -1009,23 +1006,23 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-065',
+    id: 'tech-med-065',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
-    prompt: { en: 'What does "PvP" stand for?', bs: 'Šta znači skraćenica "PvP"?' },
+    prompt: { en: 'What is two-factor authentication designed to add?', bs: 'Šta je dvofaktorska autentifikacija namijenjena da doda?' },
     options: [
-      { en: 'Party voice protocol', bs: 'Party voice protocol' },
-      { en: 'Premium VIP pass', bs: 'Premium VIP pass' },
-      { en: 'Public vs private', bs: 'Public vs private' },
-      { en: 'Player versus player', bs: 'Player vs player' },
+      { en: 'A second monitor by default', bs: 'Drugi monitor po defaultu' },
+      { en: 'A free printer subscription', bs: 'Besplatnu pretplatu na printer' },
+      { en: 'A permanent airplane mode lock', bs: 'Trajno zaključavanje airplane moda' },
+      { en: 'An extra verification step beyond a password', bs: 'Dodatni korak verifikacije pored lozinke' },
     ],
     correctIndex: 3,
   },
   {
-    id: 'game-med-066',
+    id: 'tech-med-066',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Pokémon games are mainly…', bs: 'Pokémon igre su uglavnom…' },
     options: [
@@ -1037,9 +1034,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-067',
+    id: 'tech-med-067',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Which studio developed the modern DOOM reboot?',
@@ -1054,9 +1051,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-068',
+    id: 'tech-med-068',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'A loading screen appears while…', bs: 'Loading screen se pojavljuje dok…' },
     options: [
@@ -1068,9 +1065,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-069',
+    id: 'tech-med-069',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Super Mario Odyssey was made by…', bs: 'Super Mario Odyssey je napravio…' },
     options: [
@@ -1082,9 +1079,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-070',
+    id: 'tech-med-070',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Hollow Knight belongs to which genre?',
@@ -1099,9 +1096,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-071',
+    id: 'tech-med-071',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Apex Legends is published by…', bs: 'Apex Legends izdaje…' },
     options: [
@@ -1113,9 +1110,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-072',
+    id: 'tech-med-072',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Cloud Strife is from…', bs: 'Cloud Strife je iz…' },
     options: [
@@ -1127,9 +1124,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-073',
+    id: 'tech-med-073',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'What is an open beta in gaming?',
@@ -1144,9 +1141,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-074',
+    id: 'tech-med-074',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Rocket League mixes cars with…', bs: 'Rocket League miješa automobile sa…' },
     options: [
@@ -1158,9 +1155,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-075',
+    id: 'tech-med-075',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Fallout is developed by…', bs: 'Fallout je razvio…' },
     options: [
@@ -1172,9 +1169,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-076',
+    id: 'tech-med-076',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'What does "smurfing" mean in ranked games?',
@@ -1189,9 +1186,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-077',
+    id: 'tech-med-077',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Agent 47 is from…', bs: 'Agent 47 je iz…' },
     options: [
@@ -1203,9 +1200,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-078',
+    id: 'tech-med-078',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'What does "co-op" mean?', bs: 'Šta znači "co-op"?' },
     options: [
@@ -1217,9 +1214,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-079',
+    id: 'tech-med-079',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Prince of Persia is known for…', bs: 'Prince of Persia je poznat po…' },
     options: [
@@ -1231,9 +1228,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-080',
+    id: 'tech-med-080',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'What do players usually unlock through a skill tree?',
@@ -1248,9 +1245,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-081',
+    id: 'tech-med-081',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Diablo is best known as an…', bs: 'Diablo je najpoznatiji kao…' },
     options: [
@@ -1262,9 +1259,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-082',
+    id: 'tech-med-082',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Which company owns the Pokémon franchise?',
@@ -1279,9 +1276,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-083',
+    id: 'tech-med-083',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'What is a quick-time event (QTE) in gaming?',
@@ -1296,9 +1293,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-084',
+    id: 'tech-med-084',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Counter-Strike is mainly a…', bs: 'Counter-Strike je uglavnom…' },
     options: [
@@ -1310,9 +1307,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-085',
+    id: 'tech-med-085',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Which Nintendo series is set in the Lylat star system?',
@@ -1327,9 +1324,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-086',
+    id: 'tech-med-086',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'What is a loot box in video games?',
@@ -1344,9 +1341,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-087',
+    id: 'tech-med-087',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'BioShock is primarily a…', bs: 'BioShock je primarno…' },
     options: [
@@ -1358,9 +1355,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-088',
+    id: 'tech-med-088',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Which studio created Journey?', bs: 'Koji studio je kreirao Journey?' },
     options: [
@@ -1372,9 +1369,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-089',
+    id: 'tech-med-089',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'What does "AFK" stand for?', bs: 'Šta znači skraćenica "AFK"?' },
     options: [
@@ -1386,9 +1383,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-090',
+    id: 'tech-med-090',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Mortal Kombat is best known as a…', bs: 'Mortal Kombat je najpoznatiji kao…' },
     options: [
@@ -1400,9 +1397,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-091',
+    id: 'tech-med-091',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Which hero wields a rocket hammer in Overwatch?',
@@ -1417,9 +1414,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-092',
+    id: 'tech-med-092',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'What is a checkpoint used for in games?',
@@ -1434,9 +1431,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-093',
+    id: 'tech-med-093',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Gran Turismo is mainly a…', bs: 'Gran Turismo je uglavnom…' },
     options: [
@@ -1448,9 +1445,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-094',
+    id: 'tech-med-094',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Which company publishes The Sims?', bs: 'Koja kompanija izdaje The Sims?' },
     options: [
@@ -1462,9 +1459,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-095',
+    id: 'tech-med-095',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'What is a cutscene in a video game?',
@@ -1479,9 +1476,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-096',
+    id: 'tech-med-096',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'What does "noob" usually mean in gaming slang?',
@@ -1496,9 +1493,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-097',
+    id: 'tech-med-097',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'What is a boss fight in a video game?',
@@ -1513,9 +1510,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-098',
+    id: 'tech-med-098',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Destiny was developed by…', bs: 'Destiny je razvio…' },
     options: [
@@ -1527,9 +1524,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-099',
+    id: 'tech-med-099',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'What does "HUD" stand for?', bs: 'Šta znači skraćenica "HUD"?' },
     options: [
@@ -1541,9 +1538,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-100',
+    id: 'tech-med-100',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Which studio created Celeste?', bs: 'Koji studio je kreirao Celeste?' },
     options: [
@@ -1555,9 +1552,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-101',
+    id: 'tech-med-101',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Which company developed League of Legends?',
@@ -1572,9 +1569,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-102',
+    id: 'tech-med-102',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'To win a standard League of Legends match, teams must destroy the enemy…',
@@ -1589,9 +1586,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-103',
+    id: 'tech-med-103',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: "On Summoner's Rift, how many lanes split the map?",
@@ -1606,9 +1603,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-104',
+    id: 'tech-med-104',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'In League of Legends, selectable playable characters are called…',
@@ -1623,9 +1620,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-105',
+    id: 'tech-med-105',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Defeating elemental dragons in League of Legends grants the team a…',
@@ -1640,9 +1637,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-106',
+    id: 'tech-med-106',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Computer-controlled allied soldiers in League of Legends are called…',
@@ -1657,9 +1654,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-107',
+    id: 'tech-med-107',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'In League of Legends, which lane is most often assigned to the front-line tank?',
@@ -1674,9 +1671,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-108',
+    id: 'tech-med-108',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Lee Sin is a League of Legends champion best known for the…',
@@ -1691,9 +1688,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-109',
+    id: 'tech-med-109',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'The ARAM mode in League of Legends is fought on…',
@@ -1708,9 +1705,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-110',
+    id: 'tech-med-110',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'In League of Legends, map vision is most commonly gained by placing…',
@@ -1725,9 +1722,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-111',
+    id: 'tech-med-111',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Blitzcrank is best known for which signature ability?',
@@ -1742,9 +1739,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-112',
+    id: 'tech-med-112',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Yasuo’s Wind Wall mainly blocks…',
@@ -1759,9 +1756,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-113',
+    id: 'tech-med-113',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Teemo’s iconic traps placed on the map are…',
@@ -1776,9 +1773,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-114',
+    id: 'tech-med-114',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Thresh can pull an ally to safety with his…',
@@ -1793,9 +1790,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-115',
+    id: 'tech-med-115',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Darius’s ultimate is famous for resetting after…',
@@ -1810,9 +1807,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-med-116',
+    id: 'tech-med-116',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'In League of Legends, Jinx’s ultimate rocket can travel across the…',
@@ -1827,9 +1824,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-117',
+    id: 'tech-med-117',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'The Nintendo 64 controller helped popularize the…',
@@ -1844,9 +1841,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-118',
+    id: 'tech-med-118',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'The original PlayStation primarily stored games on…',
@@ -1861,9 +1858,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-119',
+    id: 'tech-med-119',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'The Wii U’s built-in second screen was on the…',
@@ -1878,9 +1875,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-120',
+    id: 'tech-med-120',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Sega’s color handheld rival to the Game Boy was the…',
@@ -1895,9 +1892,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-121',
+    id: 'tech-med-121',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'The Rumble Pak add-on brought vibration feedback to the…',
@@ -1912,9 +1909,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-122',
+    id: 'tech-med-122',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Which Sony home console first shipped with a built-in DVD player?',
@@ -1929,9 +1926,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-123',
+    id: 'tech-med-123',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'The Dreamcast was notable for shipping with a built-in…',
@@ -1946,9 +1943,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-124',
+    id: 'tech-med-124',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'HDMI output became common on consoles during the…',
@@ -1963,9 +1960,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-125',
+    id: 'tech-med-125',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Europe’s top League of Legends league is the…',
@@ -1980,9 +1977,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-126',
+    id: 'tech-med-126',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Astralis became a dynasty in which esport?',
@@ -1997,9 +1994,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-127',
+    id: 'tech-med-127',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Mathieu “ZywOo” Herbaut is a star player in…',
@@ -2014,9 +2011,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-128',
+    id: 'tech-med-128',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Henrik “xPeke” Hansen’s backdoor play is iconic in…',
@@ -2031,9 +2028,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-med-129',
+    id: 'tech-med-129',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'North America’s League of Legends league is called the…',
@@ -2048,9 +2045,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-med-130',
+    id: 'tech-med-130',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'In pro Valorant, teams plant or defuse a…',
@@ -2065,9 +2062,9 @@ export const gamingMedium: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-med-131',
+    id: 'tech-med-131',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'medium',
     prompt: {
       en: 'Yiliang “Doublelift” Peng was a North American legend in…',
@@ -2080,5 +2077,175 @@ export const gamingMedium: Question[] = [
       { en: 'Hearthstone', bs: 'Hearthstone' },
     ],
     correctIndex: 1,
+  },
+  {
+    id: 'tech-med-132',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'medium',
+    prompt: {
+      en: 'What technology allows a car to automatically stay within its lane?',
+      bs: 'Koja tehnologija omogućava automobilu da automatski ostane u svojoj traci?',
+    },
+    options: [
+      { en: 'Lane keeping assist', bs: 'Pomoć za zadržavanje trake' },
+      { en: 'Parking sensor', bs: 'Senzor za parkiranje' },
+      { en: 'Turbocharger', bs: 'Turbo punjač' },
+      { en: 'Air suspension', bs: 'Zračni ovjes' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-med-133',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'medium',
+    prompt: {
+      en: 'What does ABS help prevent during braking?',
+      bs: 'Šta ABS pomaže spriječiti tokom kočenja?',
+    },
+    options: [
+      { en: 'Wheel locking', bs: 'Blokiranje točkova' },
+      { en: 'Engine overheating', bs: 'Pregrijavanje motora' },
+      { en: 'Fuel leakage', bs: 'Curenje goriva' },
+      { en: 'Battery damage', bs: 'Oštećenje baterije' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-med-134',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'medium',
+    prompt: {
+      en: 'In modern engines, what does variable valve timing optimize?',
+      bs: 'U modernim motorima, šta optimizuje promjenjivo upravljanje ventilima?',
+    },
+    options: [
+      { en: 'Valve opening and closing based on engine conditions', bs: 'Otvaranje i zatvaranje ventila prema uslovima rada motora' },
+      { en: 'The amount of fuel stored in the tank', bs: 'Količinu goriva u rezervoaru' },
+      { en: 'The pressure inside the tires', bs: 'Pritisak unutar guma' },
+      { en: 'The temperature of the exhaust system', bs: 'Temperaturu izduvnog sistema' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-med-135',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'medium',
+    prompt: {
+      en: 'In hybrid vehicles, what is the main role of an electric motor during regenerative braking?',
+      bs: 'U hibridnim vozilima, koja je glavna uloga električnog motora tokom regenerativnog kočenja?',
+    },
+    options: [
+      { en: 'It acts as a generator to convert kinetic energy into electrical energy', bs: 'Djeluje kao generator koji pretvara kinetičku energiju u električnu energiju' },
+      { en: 'It increases fuel pressure inside the combustion engine', bs: 'Povećava pritisak goriva unutar motora s unutrašnjim sagorijevanjem' },
+      { en: 'It reduces the temperature of the exhaust gases', bs: 'Smanjuje temperaturu izduvnih gasova' },
+      { en: 'It changes the vehicle suspension settings', bs: 'Mijenja postavke ovjesa vozila' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-med-136',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'medium',
+    prompt: {
+      en: 'What sensor technology is commonly used by self-driving cars to detect surroundings?',
+      bs: 'Koju senzorsku tehnologiju često koriste autonomni automobili za prepoznavanje okoline?',
+    },
+    options: [
+      { en: 'LiDAR', bs: 'LiDAR' },
+      { en: 'VGA', bs: 'VGA' },
+      { en: 'USB', bs: 'USB' },
+      { en: 'HDMI', bs: 'HDMI' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-med-137',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'medium',
+    prompt: {
+      en: 'Which car manufacturer developed the famous Skyactiv technology?',
+      bs: 'Koji proizvođač automobila je razvio poznatu Skyactiv tehnologiju?',
+    },
+    options: [
+      { en: 'Mazda', bs: 'Mazda' },
+      { en: 'Tesla', bs: 'Tesla' },
+      { en: 'Ferrari', bs: 'Ferrari' },
+      { en: 'Volvo', bs: 'Volvo' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-med-138',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'medium',
+    prompt: {
+      en: 'What is the purpose of adaptive cruise control in modern vehicles?',
+      bs: 'Koja je svrha adaptivnog tempomata u modernim vozilima?',
+    },
+    options: [
+      { en: 'Automatically adjusts speed to maintain distance from vehicles ahead', bs: 'Automatski prilagođava brzinu kako bi održao udaljenost od vozila ispred' },
+      { en: 'Changes gears based on road surface only', bs: 'Mijenja brzine samo prema površini ceste' },
+      { en: 'Controls engine oil temperature', bs: 'Kontroliše temperaturu motornog ulja' },
+      { en: 'Improves GPS navigation accuracy', bs: 'Poboljšava preciznost GPS navigacije' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-med-139',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'medium',
+    prompt: {
+      en: 'Which company is known for producing the electric vehicle Model 3?',
+      bs: 'Koja kompanija je poznata po proizvodnji električnog vozila Model 3?',
+    },
+    options: [
+      { en: 'Tesla', bs: 'Tesla' },
+      { en: 'BMW', bs: 'BMW' },
+      { en: 'Honda', bs: 'Honda' },
+      { en: 'Ford', bs: 'Ford' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-med-140',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'medium',
+    prompt: {
+      en: 'What is the main advantage of LED headlights compared to traditional bulbs?',
+      bs: 'Koja je glavna prednost LED farova u odnosu na tradicionalne sijalice?',
+    },
+    options: [
+      { en: 'Lower energy use and longer lifespan', bs: 'Manja potrošnja energije i duži vijek trajanja' },
+      { en: 'They require gasoline to work', bs: 'Za rad koriste benzin' },
+      { en: 'They increase engine size', bs: 'Povećavaju veličinu motora' },
+      { en: 'They remove the need for batteries', bs: 'Uklanjaju potrebu za baterijama' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-med-141',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'medium',
+    prompt: {
+      en: 'What technology do many modern cars use to detect objects around the vehicle for parking assistance?',
+      bs: 'Koju tehnologiju mnogi moderni automobili koriste za detekciju objekata pri pomoći za parkiranje?',
+    },
+    options: [
+      { en: 'Ultrasonic sensors', bs: 'Ultrazvučni senzori' },
+      { en: 'Fuel injectors', bs: 'Ubrizgivači goriva' },
+      { en: 'Alternators', bs: 'Alternatori' },
+      { en: 'Catalytic converters', bs: 'Katalizatori' },
+    ],
+    correctIndex: 0,
   },
 ];

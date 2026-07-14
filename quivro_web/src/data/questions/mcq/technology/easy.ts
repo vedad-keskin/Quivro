@@ -1,10 +1,10 @@
 import type { Question } from '../../types';
 
-export const gamingEasy: Question[] = [
+export const technologyEasy: Question[] = [
   {
-    id: 'game-easy-001',
+    id: 'tech-easy-001',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'Which company makes the PlayStation?', bs: 'Koja kompanija pravi PlayStation?' },
     options: [
@@ -16,9 +16,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-002',
+    id: 'tech-easy-002',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'In Minecraft, what do you get from breaking trees?',
@@ -33,9 +33,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-003',
+    id: 'tech-easy-003',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'Mario is usually a…', bs: 'Mario je obično…' },
     options: [
@@ -47,9 +47,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-004',
+    id: 'tech-easy-004',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'What color is Pac-Man traditionally?',
@@ -64,23 +64,23 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-005',
+    id: 'tech-easy-005',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
-    prompt: { en: 'Fortnite is best known as a…', bs: 'Fortnite je najpoznatiji kao…' },
+    prompt: { en: 'What does CPU stand for?', bs: 'Šta znači skraćenica CPU?' },
     options: [
-      { en: 'Battle royale', bs: 'Battle royale' },
-      { en: 'Horror game', bs: 'Horor igra' },
-      { en: 'Sports sim', bs: 'Sportska simulacija' },
-      { en: 'Puzzle game', bs: 'Slagalica' },
+      { en: 'Central Processing Unit', bs: 'Central Processing Unit' },
+      { en: 'Computer Power Utility', bs: 'Computer Power Utility' },
+      { en: 'Core Program Upload', bs: 'Core Program Upload' },
+      { en: 'Cached Peripheral Unit', bs: 'Cached Peripheral Unit' },
     ],
     correctIndex: 0,
   },
   {
-    id: 'game-easy-006',
+    id: 'tech-easy-006',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'What does "NPC" stand for in video games?',
@@ -95,9 +95,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-007',
+    id: 'tech-easy-007',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which small yellow Pokémon is the franchise mascot?',
@@ -112,9 +112,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-008',
+    id: 'tech-easy-008',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Sonic the Hedgehog is famous for his ability to…',
@@ -129,9 +129,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-009',
+    id: 'tech-easy-009',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'In a famous mobile catapult puzzle game, who hides behind structures?',
@@ -146,9 +146,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-010',
+    id: 'tech-easy-010',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'Tetris is mainly about stacking…', bs: 'Tetris je uglavnom o slaganju…' },
     options: [
@@ -160,9 +160,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-011',
+    id: 'tech-easy-011',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'In Among Us, what type of vehicle is the main setting?',
@@ -177,23 +177,23 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-012',
+    id: 'tech-easy-012',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
-    prompt: { en: 'Roblox is best described as a…', bs: 'Roblox se najbolje opisuje kao…' },
+    prompt: { en: 'What does Wi-Fi allow a device to do?', bs: 'Šta Wi-Fi omogućava uređaju?' },
     options: [
-      { en: 'User-made game hub', bs: 'Platforma korisničkih igara' },
-      { en: 'Single-player story', bs: 'Single-player priča' },
-      { en: 'Racing simulator', bs: 'Trkačka simulacija' },
-      { en: 'Movie streaming', bs: 'Strimovanje filmova' },
+      { en: 'Connect to a network without cables', bs: 'Povezati se na mrežu bez kablova' },
+      { en: 'Charge a battery faster', bs: 'Brže puniti bateriju' },
+      { en: 'Print documents automatically', bs: 'Automatski štampati dokumente' },
+      { en: 'Cool down the hardware', bs: 'Hladiti hardver' },
     ],
     correctIndex: 0,
   },
   {
-    id: 'game-easy-013',
+    id: 'tech-easy-013',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'In The Sims, what do you mainly control?',
@@ -208,9 +208,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-014',
+    id: 'tech-easy-014',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which company makes the Switch?',
@@ -225,9 +225,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-015',
+    id: 'tech-easy-015',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which Minecraft character is known as the original default player skin?',
@@ -242,9 +242,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-016',
+    id: 'tech-easy-016',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Who is Luigi in relation to Mario?',
@@ -259,9 +259,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-017',
+    id: 'tech-easy-017',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'What item gives Mario an extra life in most games?',
@@ -276,9 +276,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-018',
+    id: 'tech-easy-018',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which game series features characters and worlds made from bricks?',
@@ -293,9 +293,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-019',
+    id: 'tech-easy-019',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'In Fruit Ninja, what should you avoid slicing?',
@@ -310,9 +310,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-020',
+    id: 'tech-easy-020',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which character is known for saying “It’s-a me!”?',
@@ -327,9 +327,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-021',
+    id: 'tech-easy-021',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: "Who is usually Mario's main enemy?",
@@ -344,9 +344,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-022',
+    id: 'tech-easy-022',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'Who rules the Mushroom Kingdom?', bs: 'Ko vlada Kraljevstvom gljiva?' },
     options: [
@@ -358,9 +358,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-023',
+    id: 'tech-easy-023',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'Yoshi is usually shown as a…', bs: 'Yoshi se obično prikazuje kao…' },
     options: [
@@ -372,9 +372,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-024',
+    id: 'tech-easy-024',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'How does Kirby gain enemy abilities?',
@@ -389,9 +389,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-025',
+    id: 'tech-easy-025',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'In Mario Kart, who does the blue shell usually target?',
@@ -406,9 +406,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-026',
+    id: 'tech-easy-026',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Where do trainers usually heal injured Pokémon?',
@@ -423,9 +423,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-027',
+    id: 'tech-easy-027',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'Poké Balls are mainly used to…', bs: 'Poké lopte se uglavnom koriste da…' },
     options: [
@@ -437,9 +437,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-028',
+    id: 'tech-easy-028',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'Squirtle is best known as a…', bs: 'Squirtle je najpoznatiji kao…' },
     options: [
@@ -451,9 +451,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-029',
+    id: 'tech-easy-029',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'Charmander is best known as a…', bs: 'Charmander je najpoznatiji kao…' },
     options: [
@@ -465,9 +465,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-030',
+    id: 'tech-easy-030',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'Bulbasaur is best known as a…', bs: 'Bulbasaur je najpoznatiji kao…' },
     options: [
@@ -479,9 +479,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-031',
+    id: 'tech-easy-031',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which Minecraft enemy is known for burning in sunlight?',
@@ -496,9 +496,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-032',
+    id: 'tech-easy-032',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which Minecraft creature sneaks up and explodes near players?',
@@ -513,9 +513,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-033',
+    id: 'tech-easy-033',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'To craft tools in Minecraft, you use a…',
@@ -530,9 +530,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-034',
+    id: 'tech-easy-034',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'What block frames a Nether portal in Minecraft?',
@@ -547,26 +547,23 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-035',
+    id: 'tech-easy-035',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
-    prompt: {
-      en: 'At the start of a Fortnite match, players drop from the…',
-      bs: 'Na početku Fortnite meča, igrači iskaču iz…',
-    },
+    prompt: { en: 'Which device is primarily used to move a cursor on a computer screen?', bs: 'Koji uređaj se uglavnom koristi za pomjeranje kursora na ekranu računara?' },
     options: [
-      { en: 'Supply train', bs: 'Voza za zalihe' },
-      { en: 'Rescue boat', bs: 'Spasilačkog čamca' },
-      { en: 'Battle Bus', bs: 'Battle Busa' },
-      { en: 'Cargo plane', bs: 'Teretnog aviona' },
+      { en: 'Speaker', bs: 'Zvučnik' },
+      { en: 'Microphone', bs: 'Mikrofon' },
+      { en: 'Mouse', bs: 'Miš' },
+      { en: 'Scanner', bs: 'Skener' },
     ],
     correctIndex: 2,
   },
   {
-    id: 'game-easy-036',
+    id: 'tech-easy-036',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'FIFA is best known as a…', bs: 'FIFA je najpoznatija kao…' },
     options: [
@@ -578,9 +575,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-037',
+    id: 'tech-easy-037',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'In Rocket League, cars hit a…', bs: 'U Rocket Leagueu, automobili udaraju…' },
     options: [
@@ -592,9 +589,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-038',
+    id: 'tech-easy-038',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'In Grand Theft Auto, police attention is shown with…',
@@ -609,9 +606,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-039',
+    id: 'tech-easy-039',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'What chases the runner in Temple Run?',
@@ -626,9 +623,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-040',
+    id: 'tech-easy-040',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'Subway Surfers is mainly an…', bs: 'Subway Surfers je uglavnom…' },
     options: [
@@ -640,9 +637,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-041',
+    id: 'tech-easy-041',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Fall Guys contestants resemble colorful…',
@@ -657,26 +654,23 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-042',
+    id: 'tech-easy-042',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
-    prompt: {
-      en: 'In Mario Party, friends compete on a…',
-      bs: 'U Mario Partyju, prijatelji se takmiče na…',
-    },
+    prompt: { en: 'What does URL stand for?', bs: 'Šta znači skraćenica URL?' },
     options: [
-      { en: 'Race track', bs: 'Trkačkoj stazi' },
-      { en: 'Soccer field', bs: 'Fudbalskom terenu' },
-      { en: 'Battle arena', bs: 'Borbenoj areni' },
-      { en: 'Game board', bs: 'Igračkoj tabli' },
+      { en: 'Universal Router Link', bs: 'Universal Router Link' },
+      { en: 'User Remote Login', bs: 'User Remote Login' },
+      { en: 'Uploaded Reference List', bs: 'Uploaded Reference List' },
+      { en: 'Uniform Resource Locator', bs: 'Uniform Resource Locator' },
     ],
     correctIndex: 3,
   },
   {
-    id: 'game-easy-043',
+    id: 'tech-easy-043',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Space Invaders involves shooting descending…',
@@ -691,26 +685,23 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-044',
+    id: 'tech-easy-044',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
-    prompt: {
-      en: 'In Pong, players bounce a ball with…',
-      bs: 'U Pongu, igrači odbijaju loptu sa…',
-    },
+    prompt: { en: 'Which company developed the Android operating system?', bs: 'Koja kompanija je razvila Android operativni sistem?' },
     options: [
-      { en: 'Rackets', bs: 'Reketima' },
-      { en: 'Paddles', bs: 'Paletama' },
-      { en: 'Bats', bs: 'Palicama' },
-      { en: 'Gloves', bs: 'Rukavicama' },
+      { en: 'Apple', bs: 'Apple' },
+      { en: 'Google', bs: 'Google' },
+      { en: 'IBM', bs: 'IBM' },
+      { en: 'Oracle', bs: 'Oracle' },
     ],
     correctIndex: 1,
   },
   {
-    id: 'game-easy-045',
+    id: 'tech-easy-045',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'In the original Donkey Kong game, what does Donkey Kong throw?',
@@ -725,9 +716,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-046',
+    id: 'tech-easy-046',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: "Kirby's home planet is called…",
@@ -742,9 +733,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-047',
+    id: 'tech-easy-047',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'On which console did Crash Bandicoot first become famous?',
@@ -759,9 +750,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-048',
+    id: 'tech-easy-048',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'What does Sonic collect that protects him from losing a life when hit?',
@@ -776,9 +767,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-049',
+    id: 'tech-easy-049',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'What does Pac-Man eat while moving through mazes?',
@@ -793,9 +784,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-050',
+    id: 'tech-easy-050',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which controller is commonly found on classic arcade machines?',
@@ -810,9 +801,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-051',
+    id: 'tech-easy-051',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: "Ryu's famous fireball attack is called a…",
@@ -827,9 +818,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-052',
+    id: 'tech-easy-052',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'When you complete a row in Tetris, it…',
@@ -844,9 +835,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-053',
+    id: 'tech-easy-053',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'In Counter-Strike, what are Counter-Terrorists trying to prevent in most rounds?',
@@ -861,57 +852,51 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-054',
+    id: 'tech-easy-054',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
-    prompt: {
-      en: 'Guitar Hero is played with a controller shaped like a…',
-      bs: 'Guitar Hero se igra kontrolerom u obliku…',
-    },
+    prompt: { en: 'What is the main purpose of a web browser?', bs: 'Koja je glavna svrha web preglednika?' },
     options: [
-      { en: 'Guitar', bs: 'Gitare' },
-      { en: 'Drum kit', bs: 'Bubnjeva' },
-      { en: 'Steering wheel', bs: 'Volana' },
-      { en: 'Microphone', bs: 'Mikrofona' },
+      { en: 'Open and display web pages', bs: 'Otvarati i prikazivati web stranice' },
+      { en: 'Compile source code into apps', bs: 'Kompajlirati izvorni kod u aplikacije' },
+      { en: 'Store physical documents', bs: 'Čuvati fizičke dokumente' },
+      { en: 'Manufacture computer chips', bs: 'Proizvoditi računarske čipove' },
     ],
     correctIndex: 0,
   },
   {
-    id: 'game-easy-055',
+    id: 'tech-easy-055',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
-    prompt: { en: 'A health bar shows how much…', bs: 'Health bar pokazuje koliko…' },
+    prompt: { en: 'What does RAM temporarily store while a computer is running?', bs: 'Šta RAM privremeno čuva dok računar radi?' },
     options: [
-      { en: 'Life remains', bs: 'Života ostaje' },
-      { en: 'Money owned', bs: 'Novca imaš' },
-      { en: 'Time left', bs: 'Vremena preostaje' },
-      { en: 'Score earned', bs: 'Poena zaradiš' },
+      { en: 'Active programs and data in use', bs: 'Aktivne programe i podatke u upotrebi' },
+      { en: 'Printed paper backups', bs: 'Štampane papirne kopije' },
+      { en: 'Unused empty boxes', bs: 'Neiskorištene prazne kutije' },
+      { en: 'Offline mailing labels', bs: 'Offline adresne naljepnice' },
     ],
     correctIndex: 0,
   },
   {
-    id: 'game-easy-056',
+    id: 'tech-easy-056',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
-    prompt: {
-      en: 'Which enemies are most associated with DOOM?',
-      bs: 'Koji neprijatelji se najviše povezuju s DOOM-om?',
-    },
+    prompt: { en: 'Which cable type is commonly used to charge modern phones and transfer files?', bs: 'Koji tip kabla se često koristi za punjenje modernih telefona i prenos fajlova?' },
     options: [
-      { en: 'Pirates', bs: 'Gusari' },
-      { en: 'Robots', bs: 'Roboti' },
-      { en: 'Demons', bs: 'Demoni' },
-      { en: 'Ninjas', bs: 'Nindže' },
+      { en: 'VGA cable', bs: 'VGA kabel' },
+      { en: 'Coaxial TV cable', bs: 'Koaksijalni TV kabel' },
+      { en: 'USB cable', bs: 'USB kabel' },
+      { en: 'Ethernet-free ribbon', bs: 'Ethernet-free ribbon' },
     ],
     correctIndex: 2,
   },
   {
-    id: 'game-easy-057',
+    id: 'tech-easy-057',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Why do players save their games?',
@@ -926,9 +911,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-058',
+    id: 'tech-easy-058',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'The Triforce in Zelda is made of how many golden triangles?',
@@ -943,9 +928,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-059',
+    id: 'tech-easy-059',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which company is known for Sonic games?',
@@ -960,9 +945,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-060',
+    id: 'tech-easy-060',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which Nintendo system is a handheld console?',
@@ -977,9 +962,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-061',
+    id: 'tech-easy-061',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'In Clash of Clans, you build and…', bs: 'U Clash of Clansu gradiš i…' },
     options: [
@@ -991,9 +976,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-062',
+    id: 'tech-easy-062',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'What resource lets you place defenders in Plants vs. Zombies?',
@@ -1008,23 +993,23 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-063',
+    id: 'tech-easy-063',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
-    prompt: { en: 'Super Smash Bros. is mainly a…', bs: 'Super Smash Bros. je uglavnom…' },
+    prompt: { en: 'What does an email address typically contain between the username and the domain?', bs: 'Šta email adresa tipično sadrži između korisničkog imena i domene?' },
     options: [
-      { en: 'Farming sim', bs: 'Farming sim' },
-      { en: 'Racing game', bs: 'Trkačka igra' },
-      { en: 'Fighting game', bs: 'Borilačka igra' },
-      { en: 'Card game', bs: 'Kartaška igra' },
+      { en: 'A hashtag', bs: 'Simbol #' },
+      { en: 'A question mark', bs: 'Simbol ?' },
+      { en: 'The @ symbol', bs: 'Simbol @' },
+      { en: 'A semicolon', bs: 'Simbol ;' },
     ],
     correctIndex: 2,
   },
   {
-    id: 'game-easy-064',
+    id: 'tech-easy-064',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'Animal Crossing is mostly about…', bs: 'Animal Crossing je uglavnom o…' },
     options: [
@@ -1036,9 +1021,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-065',
+    id: 'tech-easy-065',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which trainer is famously partnered with Pikachu in the Pokémon anime?',
@@ -1053,9 +1038,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-066',
+    id: 'tech-easy-066',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which controller did Wii games use for motion controls?',
@@ -1070,9 +1055,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-067',
+    id: 'tech-easy-067',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which two colors mark the linked doorways in Portal?',
@@ -1087,9 +1072,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-068',
+    id: 'tech-easy-068',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'An active Nether portal in Minecraft glows mainly…',
@@ -1104,9 +1089,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-069',
+    id: 'tech-easy-069',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which Wii Sports activity is played on a lane with pins?',
@@ -1121,9 +1106,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-070',
+    id: 'tech-easy-070',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'Geometry Dash is mainly a…', bs: 'Geometry Dash je uglavnom…' },
     options: [
@@ -1135,9 +1120,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-071',
+    id: 'tech-easy-071',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'What color is Sonic the Hedgehog?', bs: 'Koje je boje Sonic the Hedgehog?' },
     options: [
@@ -1149,9 +1134,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-072',
+    id: 'tech-easy-072',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: "Mario's trademark cap is usually…",
@@ -1166,9 +1151,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-073',
+    id: 'tech-easy-073',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which item makes Mario grow bigger in many games?',
@@ -1183,43 +1168,40 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-074',
+    id: 'tech-easy-074',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
-      en: 'Sleeping in a bed in Minecraft sets your…',
-      bs: 'Spavanje u krevetu u Minecraftu postavlja tvoju…',
+      en: 'Which storage device is known for having no moving parts and being faster than a traditional hard drive?',
+      bs: 'Koji memorijski uređaj nema pokretne dijelove i brži je od klasičnog hard diska?',
     },
     options: [
-      { en: 'Inventory size', bs: 'Veličinu inventara' },
-      { en: 'Jump height', bs: 'Visinu skoka' },
-      { en: 'Spawn point', bs: 'Tačku pojavljivanja' },
-      { en: 'Sword damage', bs: 'Jačinu mača' },
+      { en: 'CRT', bs: 'CRT' },
+      { en: 'MIDI', bs: 'MIDI' },
+      { en: 'SSD', bs: 'SSD' },
+      { en: 'VGA', bs: 'VGA' },
     ],
     correctIndex: 2,
   },
   {
-    id: 'game-easy-075',
+    id: 'tech-easy-075',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
-    prompt: {
-      en: 'In most shooters, the crosshair helps you…',
-      bs: 'U većini pucačina, nišan ti pomaže da…',
-    },
+    prompt: { en: 'What is the primary function of a computer keyboard?', bs: 'Koja je primarna funkcija tastature?' },
     options: [
-      { en: 'Jump higher', bs: 'Više skačeš' },
-      { en: 'Save game', bs: 'Spasiš igru' },
-      { en: 'Aim shots', bs: 'Ciljaš' },
-      { en: 'Heal allies', bs: 'Liječiš saveznike' },
+      { en: 'Display high-resolution video', bs: 'Prikazivati video visoke rezolucije' },
+      { en: 'Cool the processor fans', bs: 'Hladiti ventilatore procesora' },
+      { en: 'Enter text and commands', bs: 'Unositi tekst i komande' },
+      { en: 'Scan paper documents', bs: 'Skenirati papirne dokumente' },
     ],
     correctIndex: 2,
   },
   {
-    id: 'game-easy-076',
+    id: 'tech-easy-076',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'What power-up lets Pac-Man eat ghosts temporarily?',
@@ -1234,9 +1216,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-077',
+    id: 'tech-easy-077',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which handheld has two screens stacked?',
@@ -1251,9 +1233,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-078',
+    id: 'tech-easy-078',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'In Mario Kart, a mushroom power-up makes you…',
@@ -1268,9 +1250,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-079',
+    id: 'tech-easy-079',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'Steam is best known as a…', bs: 'Steam je najpoznatiji kao…' },
     options: [
@@ -1282,9 +1264,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-080',
+    id: 'tech-easy-080',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'In The Sims, players often design…',
@@ -1299,9 +1281,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-081',
+    id: 'tech-easy-081',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'In which kingdom do many Zelda games take place?',
@@ -1316,9 +1298,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-082',
+    id: 'tech-easy-082',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Link is often seen wielding the…',
@@ -1333,43 +1315,37 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-083',
+    id: 'tech-easy-083',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
-    prompt: {
-      en: 'Minecraft pickaxes are mainly used to…',
-      bs: 'Minecraft krampovi se uglavnom koriste da…',
-    },
+    prompt: { en: 'Which popular messaging app is owned by Meta?', bs: 'Koju poznatu aplikaciju za poruke posjeduje Meta?' },
     options: [
-      { en: 'Chop trees', bs: 'Sijeku drveće' },
-      { en: 'Catch fish', bs: 'Love ribu' },
-      { en: 'Mine blocks', bs: 'Kopaju blokove' },
-      { en: 'Brew potions', bs: 'Kuvaju napitke' },
+      { en: 'Telegram', bs: 'Telegram' },
+      { en: 'Signal', bs: 'Signal' },
+      { en: 'WhatsApp', bs: 'WhatsApp' },
+      { en: 'Viber', bs: 'Viber' },
     ],
     correctIndex: 2,
   },
   {
-    id: 'game-easy-084',
+    id: 'tech-easy-084',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
-    prompt: {
-      en: 'Which symbol appears on Portal’s Companion Cube?',
-      bs: 'Koji simbol se nalazi na Companion Cubeu iz Portala?',
-    },
+    prompt: { en: 'What does PDF stand for?', bs: 'Šta znači skraćenica PDF?' },
     options: [
-      { en: 'Heart', bs: 'Srce' },
-      { en: 'Skull', bs: 'Lobanja' },
-      { en: 'Crown', bs: 'Kruna' },
-      { en: 'Lightning bolt', bs: 'Munja' },
+      { en: 'Portable Document Format', bs: 'Portable Document Format' },
+      { en: 'Public Data Folder', bs: 'Public Data Folder' },
+      { en: 'Personal Drive File', bs: 'Personal Drive File' },
+      { en: 'Printed Digital Form', bs: 'Printed Digital Form' },
     ],
     correctIndex: 0,
   },
   {
-    id: 'game-easy-085',
+    id: 'tech-easy-085',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: "Sonic's Spin Dash lets him…",
@@ -1384,9 +1360,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-086',
+    id: 'tech-easy-086',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which football game series was renamed EA Sports FC?',
@@ -1401,9 +1377,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-087',
+    id: 'tech-easy-087',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'Spyro is a…', bs: 'Spyro je…' },
     options: [
@@ -1415,9 +1391,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-088',
+    id: 'tech-easy-088',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'What type of animal is Banjo-Kazooie’s partner Kazooie?',
@@ -1432,26 +1408,23 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-089',
+    id: 'tech-easy-089',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
-    prompt: {
-      en: 'What kind of suit does Samus Aran wear?',
-      bs: 'Kakvo odijelo nosi Samus Aran?',
-    },
+    prompt: { en: 'Which company makes the iPhone?', bs: 'Koja kompanija proizvodi iPhone?' },
     options: [
-      { en: 'Racing suit', bs: 'Trkačko odijelo' },
-      { en: 'Diving suit', bs: 'Ronilačko odijelo' },
-      { en: 'Flight suit', bs: 'Letačko odijelo' },
-      { en: 'Power Suit', bs: 'Power Suit' },
+      { en: 'Samsung', bs: 'Samsung' },
+      { en: 'Sony', bs: 'Sony' },
+      { en: 'Huawei', bs: 'Huawei' },
+      { en: 'Apple', bs: 'Apple' },
     ],
     correctIndex: 3,
   },
   {
-    id: 'game-easy-090',
+    id: 'tech-easy-090',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'In Overcooked, players work together to prepare…',
@@ -1466,9 +1439,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-091',
+    id: 'tech-easy-091',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which close-range gun fires a wide spread?',
@@ -1483,9 +1456,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-092',
+    id: 'tech-easy-092',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which Nintendo game lets you catch bugs and fish?',
@@ -1500,9 +1473,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-093',
+    id: 'tech-easy-093',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which character uses a vacuum in haunted houses?',
@@ -1517,9 +1490,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-094',
+    id: 'tech-easy-094',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'A flashing Super Star in Mario usually grants…',
@@ -1534,9 +1507,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-095',
+    id: 'tech-easy-095',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Mega Man is known for copying enemy…',
@@ -1551,26 +1524,26 @@ export const gamingEasy: Question[] = [
     correctIndex: 3,
   },
   {
-    id: 'game-easy-096',
+    id: 'tech-easy-096',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
-      en: 'Which item restores health in many games?',
-      bs: 'Koji predmet obnavlja zdravlje u mnogim igrama?',
+      en: 'What is a strong password most likely to include?',
+      bs: 'Šta jaka lozinka najvjerovatnije uključuje?',
     },
     options: [
-      { en: 'Magic map', bs: 'Magična mapa' },
-      { en: 'Gold coin', bs: 'Zlatni novčić' },
-      { en: 'Key card', bs: 'Ključ' },
-      { en: 'Health potion', bs: 'Napitak' },
+      { en: 'A mix of letters, numbers, and special characters', bs: 'Kombinaciju slova, brojeva i posebnih znakova' },
+      { en: 'Only lowercase letters for easier typing', bs: 'Samo mala slova radi lakšeg unosa' },
+      { en: 'Common words that are easy to remember', bs: 'Česte riječi koje je lako zapamtiti' },
+      { en: 'Personal information like your name or birthday', bs: 'Lične podatke poput imena ili datuma rođenja' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
-    id: 'game-easy-097',
+    id: 'tech-easy-097',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which Street Fighter character is known for using the Hadouken fireball attack?',
@@ -1585,9 +1558,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-098',
+    id: 'tech-easy-098',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Chun-Li is a fighter from…',
@@ -1602,9 +1575,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-099',
+    id: 'tech-easy-099',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Who usually heals your team at a Pokémon Center?',
@@ -1619,9 +1592,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-100',
+    id: 'tech-easy-100',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which character is known for saying “Wah!” in Mario games?',
@@ -1636,9 +1609,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-101',
+    id: 'tech-easy-101',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Which Nintendo home console succeeded the NES?',
@@ -1653,9 +1626,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-102',
+    id: 'tech-easy-102',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Sega’s 16-bit home console in North America was the…',
@@ -1670,9 +1643,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-103',
+    id: 'tech-easy-103',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Before discs were common, most console games shipped on…',
@@ -1687,9 +1660,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-104',
+    id: 'tech-easy-104',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Pac-Man and Space Invaders were first played mainly in…',
@@ -1704,9 +1677,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-105',
+    id: 'tech-easy-105',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'The original Game Boy screen displayed games in…',
@@ -1721,9 +1694,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-106',
+    id: 'tech-easy-106',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Kinect motion tracking was introduced for the…',
@@ -1738,9 +1711,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 2,
   },
   {
-    id: 'game-easy-107',
+    id: 'tech-easy-107',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Most esports tournaments are contested by…',
@@ -1755,9 +1728,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'game-easy-108',
+    id: 'tech-easy-108',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'Twitch is best known as a platform for…',
@@ -1772,9 +1745,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-109',
+    id: 'tech-easy-109',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'In esports, a LAN event means players compete…',
@@ -1789,9 +1762,9 @@ export const gamingEasy: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'game-easy-110',
+    id: 'tech-easy-110',
     type: 'mcq',
-    category: 'gaming',
+    category: 'technology',
     difficulty: 'easy',
     prompt: {
       en: 'In esports, a team’s backup player is often called a…',
@@ -1804,5 +1777,175 @@ export const gamingEasy: Question[] = [
       { en: 'Coach', bs: 'Coach' },
     ],
     correctIndex: 1,
+  },
+  {
+    id: 'tech-easy-111',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'easy',
+    prompt: {
+      en: 'Which device is commonly used to control a smart home system?',
+      bs: 'Koji uređaj se često koristi za upravljanje pametnim domom?',
+    },
+    options: [
+      { en: 'Smart speaker', bs: 'Pametni zvučnik' },
+      { en: 'Printer', bs: 'Printer' },
+      { en: 'Scanner', bs: 'Skener' },
+      { en: 'Projector', bs: 'Projektor' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-easy-112',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'easy',
+    prompt: {
+      en: 'What does Wi-Fi allow devices to do?',
+      bs: 'Šta Wi-Fi omogućava uređajima?',
+    },
+    options: [
+      { en: 'Connect wirelessly to the internet', bs: 'Bežično povezivanje na internet' },
+      { en: 'Increase battery size', bs: 'Povećanje veličine baterije' },
+      { en: 'Make screens brighter', bs: 'Da ekrani budu svjetliji' },
+      { en: 'Print documents automatically', bs: 'Automatsko štampanje dokumenata' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-easy-113',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'easy',
+    prompt: {
+      en: 'What type of sensor is commonly used in digital cameras to capture images?',
+      bs: 'Koja vrsta senzora se koristi u digitalnim kamerama za snimanje fotografija?',
+    },
+    options: [
+      { en: 'CMOS sensor', bs: 'CMOS senzor' },
+      { en: 'GPS sensor', bs: 'GPS senzor' },
+      { en: 'Temperature sensor', bs: 'Senzor temperature' },
+      { en: 'Motion controller', bs: 'Kontroler pokreta' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-easy-114',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'easy',
+    prompt: {
+      en: 'What type of vehicle uses electricity instead of gasoline as its main power source?',
+      bs: 'Koja vrsta vozila koristi električnu energiju umjesto benzina kao glavni izvor pogona?',
+    },
+    options: [
+      { en: 'Electric vehicle (EV)', bs: 'Električno vozilo (EV)' },
+      { en: 'Diesel truck', bs: 'Dizelski kamion' },
+      { en: 'Steam train', bs: 'Parni voz' },
+      { en: 'Motorcycle', bs: 'Motocikl' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-easy-115',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'easy',
+    prompt: {
+      en: 'Which technology allows smartwatches to measure heart rate?',
+      bs: 'Koja tehnologija omogućava pametnim satovima mjerenje pulsa?',
+    },
+    options: [
+      { en: 'Optical heart rate sensors', bs: 'Optički senzori pulsa' },
+      { en: 'Keyboard sensors', bs: 'Senzori tastature' },
+      { en: 'Satellite antennas', bs: 'Satelitske antene' },
+      { en: 'Cooling fans', bs: 'Ventilatori za hlađenje' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-easy-116',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'easy',
+    prompt: {
+      en: 'What does GPS help you determine?',
+      bs: 'Šta GPS pomaže odrediti?',
+    },
+    options: [
+      { en: 'Your location', bs: 'Tvoju lokaciju' },
+      { en: 'Your screen size', bs: 'Veličinu ekrana' },
+      { en: 'Your battery temperature', bs: 'Temperaturu baterije' },
+      { en: 'Your internet speed', bs: 'Brzinu interneta' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-easy-117',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'easy',
+    prompt: {
+      en: 'Which operating system is mainly used on Apple iPhones?',
+      bs: 'Koji operativni sistem se uglavnom koristi na Apple iPhone uređajima?',
+    },
+    options: [
+      { en: 'iOS', bs: 'iOS' },
+      { en: 'Windows', bs: 'Windows' },
+      { en: 'Linux', bs: 'Linux' },
+      { en: 'ChromeOS', bs: 'ChromeOS' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-easy-118',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'easy',
+    prompt: {
+      en: 'How does a smartphone usually recognize a fingerprint?',
+      bs: 'Kako pametni telefon obično prepoznaje otisak prsta?',
+    },
+    options: [
+      { en: 'Using a fingerprint sensor', bs: 'Pomoću senzora za otisak prsta' },
+      { en: 'Using the phone speaker', bs: 'Pomoću zvučnika telefona' },
+      { en: 'Using the charging cable', bs: 'Pomoću kabla za punjenje' },
+      { en: 'Using the camera flash only', bs: 'Pomoću samo blica kamere' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-easy-119',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'easy',
+    prompt: {
+      en: 'What does NFC technology allow devices to do?',
+      bs: 'Šta NFC tehnologija omogućava uređajima?',
+    },
+    options: [
+      { en: 'Exchange data over very short distances', bs: 'Razmjenu podataka na veoma kratkim udaljenostima' },
+      { en: 'Increase battery capacity', bs: 'Povećanje kapaciteta baterije' },
+      { en: 'Improve camera resolution', bs: 'Poboljšanje rezolucije kamere' },
+      { en: 'Replace the operating system', bs: 'Zamjenu operativnog sistema' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-easy-120',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'easy',
+    prompt: {
+      en: 'What type of storage is commonly used in modern smartphones?',
+      bs: 'Koja vrsta memorije se često koristi u modernim pametnim telefonima?',
+    },
+    options: [
+      { en: 'Flash memory', bs: 'Flash memorija' },
+      { en: 'Magnetic tape', bs: 'Magnetna traka' },
+      { en: 'Floppy disk', bs: 'Disketa' },
+      { en: 'Punch card', bs: 'Bušena kartica' },
+    ],
+    correctIndex: 0,
   },
 ];
