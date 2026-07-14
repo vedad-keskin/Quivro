@@ -695,7 +695,7 @@ export const biologyEasy: Question[] = [
     type: 'mcq',
     category: 'biology',
     difficulty: 'easy',
-    prompt: { en: 'Which bird is known for its colorful tail feathers that it fans out?', bs: 'Koja ptica je poznata po šarenim perima na repu koja raširi?' },
+    prompt: { en: 'Which bird is known for its colorful tail feathers that it fans out?', bs: 'Koja ptica je poznata po šarenim perjem na repu koja raširi?' },
     options: [
       { en: 'Peacock', bs: 'Paun' },
       { en: 'Crow', bs: 'Vrana' },

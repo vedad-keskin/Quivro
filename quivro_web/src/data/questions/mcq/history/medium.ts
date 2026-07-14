@@ -75,18 +75,21 @@ export const historyMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'hist-med-006',
+    id: 'hist-easy-005',
     type: 'mcq',
     category: 'history',
-    difficulty: 'medium',
-    prompt: { en: 'In which year did World War II end in Europe (VE Day)?', bs: 'Koje godine je Drugi svjetski rat završio u Evropi (Dan pobjede u Evropi)?' },
+    difficulty: 'easy',
+    prompt: {
+      en: 'Which ancient civilization is credited with some of the earliest known uses of the wheel?',
+      bs: 'Koja drevna civilizacija se povezuje s nekim od najranijih poznatih upotreba točka?',
+    },
     options: [
-      { en: '1943', bs: '1943' },
-      { en: '1944', bs: '1944' },
-      { en: '1945', bs: '1945' },
-      { en: '1946', bs: '1946' },
+      { en: 'Sumerians', bs: 'Sumerani' },
+      { en: 'Romans', bs: 'Rimljani' },
+      { en: 'Vikings', bs: 'Vikinzi' },
+      { en: 'Aztecs', bs: 'Asteci' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'hist-med-007',
@@ -1239,7 +1242,7 @@ export const historyMedium: Question[] = [
     difficulty: 'medium',
     prompt: { en: 'Which ancient Chinese philosophy emphasizes harmony with nature?', bs: 'Koja drevna kineska filozofija naglašava sklad s prirodom?' },
     options: [
-      { en: 'Daoism (Taoism)', bs: 'Daoizam (taoizam)' },
+      { en: 'Daoism', bs: 'Daoizam' },
       { en: 'Stoicism', bs: 'Grčki stoicizam' },
       { en: 'Existentialism', bs: 'Egzistencijalizam' },
       { en: 'Utilitarianism', bs: 'Utilitarizam' },

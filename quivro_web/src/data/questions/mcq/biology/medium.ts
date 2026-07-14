@@ -431,7 +431,7 @@ export const biologyMedium: Question[] = [
       { en: 'Oxygen', bs: 'Kiseonik' },
       { en: 'Carbon dioxide', bs: 'Ugljen-dioksid' },
       { en: 'Nitrogen', bs: 'Azot' },
-      { en: 'Hydrogen', bs: 'Vodonik' },
+      { en: 'Hydrogen', bs: 'Vodik' },
     ],
     correctIndex: 1,
   },

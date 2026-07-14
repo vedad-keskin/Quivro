@@ -1261,7 +1261,7 @@ export const moviesEasy: Question[] = [
     prompt: { en: 'What animal is Timon in The Lion King?', bs: 'Kakva je životinja Timon u Kralju lavova?' },
     options: [
       { en: 'Warthog', bs: 'Bradavičasta svinja' },
-      { en: 'Meerkat', bs: 'Mungos' },
+      { en: 'Meerkat', bs: 'Merkat' },
       { en: 'Lion', bs: 'Lav' },
       { en: 'Hyena', bs: 'Hijena' },
     ],

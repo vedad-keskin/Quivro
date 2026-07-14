@@ -48,14 +48,17 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'World War II ended in which decade?', bs: 'Drugi svjetski rat je završio u kojoj deceniji?' },
+    prompt: {
+      en: 'In which year did World War II end?',
+      bs: 'Koje godine je završen Drugi svjetski rat?',
+    },
     options: [
-      { en: '1920s', bs: '1920-e' },
-      { en: '1930s', bs: '1930-e' },
-      { en: '1940s', bs: '1940-e' },
-      { en: '1950s', bs: '1950-e' },
+      { en: '1943', bs: '1943.' },
+      { en: '1945', bs: '1945.' },
+      { en: '1947', bs: '1947.' },
+      { en: '1950', bs: '1950.' },
     ],
-    correctIndex: 2,
+    correctIndex: 1,
   },
   {
     id: 'hist-easy-005',
