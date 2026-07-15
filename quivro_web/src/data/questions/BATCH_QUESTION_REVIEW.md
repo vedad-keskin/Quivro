@@ -104,11 +104,11 @@ Apply to **every** question in the file.
 | `Male seahorses are unusual because they:` | `What makes male seahorses unusual among fish?` |
 | `Axolotls retain larval traits, a condition called:` | `What is the biological term for retaining larval traits into adulthood, as seen in axolotls?` |
 
-### 4. No duplicate questions
+### 4. Duplicate or weak questions
 
-- Before finalizing, check for questions covering the **same fact** or **same topic with the same angle**.
-- If a duplicate is found, replace one with a new question at the same difficulty.
-- Cross-check with easy and medium files in the same category.
+- If a question is too similar to another in the database (duplicate topic, concept, or angle), or is generally bad (conceptually weak, boring trivia, flawed premise, or uncorrectable), it **must be replaced** with a new, high-quality question.
+- Ensure the replacement question maintains the original `id`, matches the difficulty bar, and adheres to the formatting rules.
+- Cross-check other difficulty files (e.g., easy, medium) in the same category to avoid overlaps.
 
 ---
 
