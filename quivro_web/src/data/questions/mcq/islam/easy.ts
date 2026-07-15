@@ -188,10 +188,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'Which angel brought the first revelation to Prophet Muhammad (ﷺ)?',
-      bs: 'Koji je melek donio prvu objavu poslaniku Muhammedu, ﷺ?',
-    },
+    prompt: { en: 'Which angel brought the first revelation to Prophet Muhammad (ﷺ)?',
+              bs: 'Koji je melek donio prvu objavu poslaniku Muhammedu, ﷺ?' },
     options: [
       { en: 'Jibril', bs: 'Džibril' },
       { en: 'Mikail', bs: 'Mikail' },
@@ -359,10 +357,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'What is aqidah in Islamic terminology?',
-      bs: 'Šta je akida u islamskoj terminologiji?',
-    },
+    prompt: { en: 'What is aqidah in Islamic terminology?',
+              bs: 'Šta je akida u islamskoj terminologiji?' },
     options: [
       { en: 'Islamic jurisprudence', bs: 'Islamsko pravo' },
       { en: 'Firm belief in Allah and the pillars of faith', bs: 'Čvrsto vjerovanje u Allaha i temelje imana' },
@@ -390,10 +386,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'What does the term "fitra" mean in Islam?',
-      bs: 'Šta znači pojam "fitra" u islamu?',
-    },
+    prompt: { en: 'What does the term "fitra" mean in Islam?',
+              bs: 'Šta znači pojam "fitra" u islamu?' },
     options: [
       { en: 'Natural inclination to believe in Allah', bs: 'Prirodna sklonost vjerovanju u Allaha' },
       { en: 'The call to prayer', bs: 'Poziv na namaz' },
@@ -421,10 +415,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'What is taghut in Islamic terminology?',
-      bs: 'Šta je tagut u islamskoj terminologiji?',
-    },
+    prompt: { en: 'What is taghut in Islamic terminology?',
+              bs: 'Šta je tagut u islamskoj terminologiji?' },
     options: [
       { en: 'Anything worshipped besides Allah willingly', bs: 'Ono što se obožava mimo Allaha i time je zadovoljno' },
       { en: 'A prophet mentioned in the Qur’an', bs: 'Vjerovjesnik spomenut u Kur\'anu' },
@@ -438,10 +430,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'The saved group (al-firqa an-najiya) is also known as:',
-      bs: 'Spašena skupina (el-firka en-nadžija) također se naziva:',
-    },
+    prompt: { en: 'What is another name for the saved group (al-firqa an-najiya)?',
+              bs: 'Koji je drugi naziv za spašenu skupinu (el-firka en-nadžija)?' },
     options: [
       { en: 'Ahl al-Sunna wa’l-Jama’a', bs: 'Ehlus-sunnet vel-džemaa' },
       { en: 'Ahl al-Bayt', bs: 'Ehli-bejt' },
@@ -455,10 +445,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'Tawhid ar-Rububiyyah means believing that Allah alone is:',
-      bs: 'Tevhidur-rububijjet znači vjerovanje da je samo Allah:',
-    },
+    prompt: { en: 'What does Tawhid ar-Rububiyyah mean?',
+              bs: 'Šta znači tevhidur-rububijjet?' },
     options: [
       { en: 'The only One worthy of worship', bs: 'Jedini koji zaslužuje da bude obožavan' },
       { en: 'Creator, Provider, and Controller of all things', bs: 'Stvoritelj, Opskrbitelj i Upravitelj svega' },
@@ -472,7 +460,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Linguistically, the root of akida (akd) means:', bs: 'Jezički, korijen akide (el-akd) znači:' },
+    prompt: { en: 'What does the linguistic root of aqidah (aqd) mean?',
+              bs: 'Šta znači jezički korijen akide (el-akd)?' },
     options: [
       { en: 'To tie firmly / bind', bs: 'Svezati, čvrsto zategnuti' },
       { en: 'To release or untie', bs: 'Odvezati, osloboditi' },
@@ -486,7 +475,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Angels in Islamic belief are created from:', bs: 'Meleki su u islamskom vjerovanju stvoreni od:' },
+    prompt: { en: 'What are angels created from in Islamic belief?',
+              bs: 'Od čega su meleki stvoreni u islamskom vjerovanju?' },
     options: [
       { en: 'Fire', bs: 'Vatre' },
       { en: 'Light', bs: 'Svjetlosti' },
@@ -500,10 +490,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'What was the first message of all prophets?',
-      bs: 'Koja je bila prva poruka svih poslanika?',
-    },
+    prompt: { en: 'What was the first message of all prophets?',
+              bs: 'Koja je bila prva poruka svih poslanika?' },
     options: [
       { en: 'Worship Allah alone', bs: 'Obožavajte samo Allaha' },
       { en: 'Give charity to the poor', bs: 'Dajte sadaku siromašnima' },
@@ -517,7 +505,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'In hadith science, what is isnad (sened)?', bs: 'U hadiskoj nauci, šta je sened?' },
+    prompt: { en: 'What is isnad (sened) in hadith science?',
+              bs: 'Šta je sened u hadiskoj nauci?' },
     options: [
       { en: 'The text of the Qur\'an', bs: 'Tekst Kur\'ana' },
       { en: 'A type of prayer', bs: 'Vrsta namaza' },
@@ -531,7 +520,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'In hadith science, what is matn?', bs: 'U hadiskoj nauci, šta je metn?' },
+    prompt: { en: 'What is matn in hadith science?',
+              bs: 'Šta je metn u hadiskoj nauci?' },
     options: [
       { en: 'The actual text/content of the hadith', bs: 'Tekst hadisa' },
       { en: 'Biography of a narrator', bs: 'Biografija prenosilaca' },
@@ -545,10 +535,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'What is the second primary source of Islam after the Qur’an?',
-      bs: 'Koji je drugi osnovni izvor islama nakon Kur’ana?',
-    },
+    prompt: { en: 'What is the second primary source of Islam after the Qur’an?',
+              bs: 'Koji je drugi osnovni izvor islama nakon Kur’ana?' },
     options: [
       { en: 'The Sunnah', bs: 'Sunnet' },
       { en: 'Personal opinion', bs: 'Lično mišljenje' },
@@ -562,10 +550,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'According to the Hadith of Jibril, what are the three levels of religion?',
-      bs: 'Prema hadisu Džibrila, koja su tri nivoa vjere?',
-    },
+    prompt: { en: 'According to the Hadith of Jibril, what are the three levels of religion?',
+              bs: 'Prema hadisu Džibrila, koja su tri nivoa vjere?' },
     options: [
       { en: 'Islam, iman, and ihsan', bs: 'Islam, iman i ihsan' },
       { en: 'Shahada, salah, and zakah', bs: 'Šehadet, namaz i zekat' },
@@ -579,10 +565,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'Ihsan is defined in the hadith of Jibril as:',
-      bs: 'Ihsan se u hadisu Džibrila definiše kao:',
-    },
+    prompt: { en: 'How is ihsan defined in the hadith of Jibril?',
+              bs: 'Kako se ihsan definiše u hadisu Džibrila?' },
     options: [
       { en: 'Worshipping Allah as if you see Him', bs: 'Da Allaha obožavaš kao da Ga vidiš' },
       { en: 'Believing in the six pillars of faith', bs: 'Vjerovanje u šest imanskih šartova' },
@@ -596,10 +580,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'The five pillars of Islam include shahada, prayer, zakat, Ramadan fasting, and:',
-      bs: 'Pet stubova islama uključuju šehadet, namaz, zekat, post u ramazanu i:',
-    },
+    prompt: { en: 'What is the fifth pillar of Islam alongside shahada, prayer, zakat, and Ramadan fasting?',
+              bs: 'Koji je peti stub islama uz šehadet, namaz, zekat i post u ramazanu?' },
     options: [
       { en: 'Hajj for those able', bs: 'Hadž za onoga ko je sposoban' },
       { en: 'Reciting the Qur’an every day', bs: 'Svakodnevno učenje Kur’ana' },
@@ -613,10 +595,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'According to the famous hadith, the Prophet left two things that, if followed, prevent people from going astray:',
-      bs: 'Prema poznatom hadisu, Poslanik je ostavio dvije stvari kojih, ako se držimo, nećemo zalutati:',
-    },
+    prompt: { en: 'According to the famous hadith, what two things did the Prophet leave that prevent people from going astray?',
+              bs: 'Prema poznatom hadisu, koje je dvije stvari Poslanik ostavio kojih, ako se držimo, nećemo zalutati?' },
     options: [
       { en: 'The Qur’an and his Sunnah', bs: 'Allahovu Knjigu i njegov sunnet' },
       { en: 'The Qur’an and scholarly opinions', bs: 'Kur’an i mišljenja učenjaka' },
@@ -644,10 +624,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'According to a famous hadith, every action is judged by what?',
-      bs: 'Prema poznatom hadisu, svako djelo se procjenjuje prema čemu?',
-    },
+    prompt: { en: 'According to a famous hadith, every action is judged by what?',
+              bs: 'Prema poznatom hadisu, svako djelo se vrednuje prema čemu?' },
     options: [
       { en: 'Intention', bs: 'Namjeri' },
       { en: 'The amount of the action', bs: 'Količini djela' },
@@ -661,10 +639,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'The four types of hadith include words, actions, tacit approval, and:',
-      bs: 'Četiri vrste hadisa uključuju riječi, djela, prešutno odobrenje i:',
-    },
+    prompt: { en: 'Besides words, actions, and tacit approval, what is the fourth type of hadith?',
+              bs: 'Osim riječi, djela i prešutnog odobrenja, koja je četvrta vrsta hadisa?' },
     options: [
       { en: 'Descriptions of his qualities', bs: 'Opis njegovih osobina' },
       { en: 'The opinions of later scholars', bs: 'Mišljenja kasnijih učenjaka' },
@@ -678,10 +654,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'The five main categories of actions in Islamic law include obligatory (farz), recommended (mustahabb), forbidden (haram), disliked (makruh), and:',
-      bs: 'Pet glavnih kategorija postupaka u islamskom pravu uključuju obavezno (farz), preporučeno (mustahabb), zabranjeno (haram), pokuđeno (makruh) i:',
-    },
+    prompt: { en: 'Besides obligatory, recommended, forbidden, and disliked, what is the fifth category of actions in Islamic law?',
+              bs: 'Osim obaveznog, preporučenog, zabranjenog i pokuđenog, koja je peta kategorija postupaka u islamskom pravu?' },
     options: [
       { en: 'Permissible (mubah)', bs: 'Dozvoljeno (mubah)' },
       { en: 'Doubtful (shubha)', bs: 'Sumnjivo (šubha)' },
@@ -695,10 +669,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'The four primary sources of Islamic law are Qur’an, hadith, ijma’, and:',
-      bs: 'Četiri glavna izvora islamskog prava su Kur’an, hadis, idžma i:',
-    },
+    prompt: { en: 'Besides Qur’an, hadith, and ijma’, what is the fourth primary source of Islamic law?',
+              bs: 'Osim Kur’ana, hadisa i idžme, koji je četvrti osnovni izvor islamskog prava?' },
     options: [
       { en: 'Qiyas (analogy)', bs: 'Kijas (analogija)' },
       { en: 'Istihsan (juristic preference)', bs: 'Istihsan (pravna preferencija)' },
@@ -712,10 +684,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'Linguistically, fiqh means:',
-      bs: 'Jezički, fikh znači:',
-    },
+    prompt: { en: 'What does the word fiqh linguistically mean?',
+              bs: 'Šta riječ fikh jezički znači?' },
     options: [
       { en: 'Understanding', bs: 'Razumijevanje' },
       { en: 'Memorization', bs: 'Pamćenje' },
@@ -729,10 +699,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'Tahara (purification) is a condition for the validity of:',
-      bs: 'Taharet (čistoća) je uvjet ispravnosti:',
-    },
+    prompt: { en: 'Tahara (purification) is a condition for the validity of which act of worship?',
+              bs: 'Taharet (čistoća) je uvjet ispravnosti kojeg ibadeta?' },
     options: [
       { en: 'Prayer', bs: 'Namaza' },
       { en: 'Fasting', bs: 'Posta' },
@@ -746,10 +714,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'What meal distinguishes Muslim fasting from the fasting of Ahl al-Kitab?',
-      bs: 'Koji obrok razlikuje naš post od posta ehli-kitaba?',
-    },
+    prompt: { en: 'What meal distinguishes Muslim fasting from the fasting of Ahl al-Kitab?',
+              bs: 'Koji obrok razlikuje naš post od posta ehli-kitaba?' },
     options: [
       { en: 'Suhur (pre-dawn meal)', bs: 'Sehur' },
       { en: 'Iftar', bs: 'Iftar' },
@@ -763,7 +729,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Imam Malik\'s famous book combining hadith and fiqh is:', bs: 'Poznato djelo imama Malika koje spaja hadis i fikh je:' },
+    prompt: { en: 'What is the name of Imam Malik\'s famous book combining hadith and fiqh?',
+              bs: 'Kako se zove poznato djelo imama Malika koje spaja hadis i fikh?' },
     options: [
       { en: 'Sahih al-Bukhari', bs: 'Sahihul-Buhari' },
       { en: 'Ihya Ulum al-Din', bs: 'Ihyau ulumid-din' },
@@ -777,7 +744,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Tafsir in shari\'ah terminology means:', bs: 'Tefsir u šerijatskoj terminologiji znači:' },
+    prompt: { en: 'What does tafsir mean in shari\'ah terminology?',
+              bs: 'Šta tefsir znači u šerijatskoj terminologiji?' },
     options: [
       { en: 'A hadith collection', bs: 'Zbirka hadisa' },
       { en: 'History of kings', bs: 'Historija vladara' },
@@ -791,7 +759,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Another name for tafsir is:', bs: 'Drugi naziv za tefsir je:' },
+    prompt: { en: 'What is another name for tafsir?',
+              bs: 'Koji je drugi naziv za tefsir?' },
     options: [
       { en: 'Ta\'wil', bs: 'Te\'vil' },
       { en: 'Balagha (rhetoric)', bs: 'Belaga' },
@@ -805,10 +774,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'What is another name for Surah Al-Fatiha?',
-      bs: 'Koji je drugi naziv za suru El-Fatiha?',
-    },
+    prompt: { en: 'What is another name for Surah Al-Fatiha?',
+              bs: 'Koji je drugi naziv za suru El-Fatiha?' },
     options: [
       { en: 'Umm al-Kitab', bs: 'Ummul-kitab' },
       { en: 'Al-Mu’awwidhat', bs: 'El-Mu’avvizat' },
@@ -836,10 +803,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'In Surah Al-Fatiha, "Maliki yawm ad-din" means:',
-      bs: 'U suri El-Fatiha, „Maliki jevmid-din“ znači:',
-    },
+    prompt: { en: 'What does "Maliki yawm ad-din" in Surah Al-Fatiha mean?',
+              bs: 'Šta znači "Maliki jevmid-din" u suri El-Fatiha?' },
     options: [
       { en: 'Lord of this world', bs: 'Gospodar ovoga svijeta' },
       { en: 'Angel of death', bs: 'Melek smrti' },
@@ -853,10 +818,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'Approximately what portion of Qur’anic verses contain detailed legal rulings?',
-      bs: 'Otprilike koji dio Kur’anskih ajeta sadrži detaljne pravne propise?',
-    },
+    prompt: { en: 'Approximately what portion of Qur\'anic verses contain detailed legal rulings?',
+              bs: 'Otprilike koji dio Kur\'anskih ajeta sadrži detaljne pravne propise?' },
     options: [
       { en: 'About 10%', bs: 'Oko 10%' },
       { en: 'About 25%', bs: 'Oko 25%' },
@@ -870,10 +833,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'The Prophet peace be upon him said: "I was sent to perfect..."',
-      bs: 'Poslanik, sallallahu alejhi ve sellem, rekao je: "Poslan sam da upotpunim..."',
-    },
+    prompt: { en: 'According to a famous hadith, the Prophet peace be upon him was sent to perfect what?',
+              bs: 'Prema poznatom hadisu, Poslanik, sallallahu alejhi ve sellem, je poslan da upotpuni šta?' },
     options: [
       { en: 'Noble character', bs: 'Plemeniti ahlak' },
       { en: 'The pillars of Islam', bs: 'Stubove islama' },
@@ -887,10 +848,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'Aisha رضي الله عنها described the Prophet’s character as:',
-      bs: 'Aiša, radijallahu anha, opisala je karakter Poslanika, sallallahu alejhi ve sellem, kao:',
-    },
+    prompt: { en: 'How did Aisha (رضي الله عنها) describe the Prophet’s character?',
+              bs: 'Kako je Aiša, radijallahu anha, opisala karakter Poslanika, sallallahu alejhi ve sellem?' },
     options: [
       { en: 'The Qur’an', bs: 'Kur’an' },
       { en: 'The Sunnah', bs: 'Sunnet' },
@@ -904,10 +863,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'The most honorable before Allah among people is the one who has:',
-      bs: 'Najplemenitiji kod Allaha među ljudima je onaj koji ima:',
-    },
+    prompt: { en: 'According to the Qur\'an, what makes a person most honorable before Allah?',
+              bs: 'Prema Kur\'anu, šta čovjeka čini najplemenitijim kod Allaha?' },
     options: [
       { en: 'The most taqwa', bs: 'Najviše bogobojaznosti' },
       { en: 'The most knowledge', bs: 'Najviše znanja' },
@@ -921,10 +878,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'According to a hadith, besides Allah and yourself, who also has rights over you?',
-      bs: 'Prema hadisu, ko osim Allaha i tebe samog također ima prava nad tobom?',
-    },
+    prompt: { en: 'According to a hadith, besides Allah and yourself, who also has rights over you?',
+              bs: 'Prema hadisu, ko osim Allaha i tebe samog također ima prava nad tobom?' },
     options: [
       { en: 'Your family', bs: 'Tvoja porodica' },
       { en: 'Ancient kings', bs: 'Drevni vladari' },
@@ -938,10 +893,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'According to a hadith, what is the heaviest thing placed on the believer’s scale on Judgment Day?',
-      bs: 'Prema hadisu, šta je najteže što će biti stavljeno na vagu vjernika na Sudnjem danu?',
-    },
+    prompt: { en: 'According to a hadith, what is the heaviest thing placed on the believer’s scale on Judgment Day?',
+              bs: 'Prema hadisu, šta je najteže što će biti stavljeno na vagu vjernika na Sudnjem danu?' },
     options: [
       { en: 'Good character', bs: 'Lijep ahlak' },
       { en: 'Amount of wealth given in charity', bs: 'Količina imetka datog u sadaku' },
@@ -955,7 +908,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'The Prophet was sent as mercy to:', bs: 'Poslanik, sallallahu alejhi ve sellem, poslan je kao milost:' },
+    prompt: { en: 'According to the Qur\'an, the Prophet was sent as a mercy to whom?',
+              bs: 'Prema Kur\'anu, Poslanik, sallallahu alejhi ve sellem, poslan je kao milost kome?' },
     options: [
       { en: 'The Arabs', bs: 'Arapima' },
       { en: 'The People', bs: 'Ljudima' },
@@ -969,10 +923,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'What is the relationship between worship (ibadah) and good character (akhlaq)?',
-      bs: 'Kakav je odnos između ibadeta i lijepog ahlaka?',
-    },
+    prompt: { en: 'What is the relationship between worship (ibadah) and good character (akhlaq)?',
+              bs: 'Kakav je odnos između ibadeta i lijepog ahlaka?' },
     options: [
       { en: 'They are closely connected', bs: 'Usko su povezani' },
       { en: 'They have nothing to do with each other', bs: 'Nemaju nikakve veze jedno s drugim' },
@@ -986,10 +938,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'Removing evil has three levels: by hand, by tongue, and:',
-      bs: 'Uklanjanje zla ima tri nivoa: rukom, jezikom i:',
-    },
+    prompt: { en: 'Besides by hand and by tongue, what is the third level of removing evil?',
+              bs: 'Osim rukom i jezikom, koji je treći nivo uklanjanja zla?' },
     options: [
       { en: 'By heart', bs: 'Srcem' },
       { en: 'By avoiding every person who does wrong', bs: 'Izbjegavanjem svake osobe koja čini zlo' },
@@ -1003,10 +953,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'Which city do Muslims face during prayer?',
-      bs: 'Prema kojem gradu se muslimani okreću tokom namaza?',
-    },
+    prompt: { en: 'Which city do Muslims face during prayer?',
+              bs: 'Prema kojem gradu se muslimani okreću tokom namaza?' },
     options: [
       { en: 'Makkah', bs: 'Meki' },
       { en: 'Madinah', bs: 'Medini' },
@@ -1020,10 +968,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'How many daily prayers are obligatory for Muslims?',
-      bs: 'Koliko je dnevnih namaza obavezno muslimanima?',
-    },
+    prompt: { en: 'How many daily prayers are obligatory for Muslims?',
+              bs: 'Koliko je dnevnih namaza obavezno muslimanima?' },
     options: [
       { en: 'Three', bs: 'Tri' },
       { en: 'Five', bs: 'Pet' },
@@ -1037,10 +983,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'Which month do Muslims fast during?',
-      bs: 'Tokom kojeg mjeseca muslimani poste?',
-    },
+    prompt: { en: 'Which month do Muslims fast during?',
+              bs: 'Tokom kojeg mjeseca muslimani poste?' },
     options: [
       { en: 'Ramadan', bs: 'Ramazana' },
       { en: 'Muharram', bs: 'Muharrema' },
@@ -1054,7 +998,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Synonyms for akida in Islamic terminology include:', bs: 'Sinonimi za akidu u islamskoj terminologiji uključuju:' },
+    prompt: { en: 'Which of the following are synonyms for aqidah in Islamic terminology?',
+              bs: 'Koji od navedenih su sinonimi za akidu u islamskoj terminologiji?' },
     options: [
       { en: 'At-tawhid, as-sunna, al-usul ad-din', bs: 'Et-tevhid, es-sunnet, el-usulud-din' },
       { en: 'At-tafsir, al-balagha, an-nahw', bs: 'Et-tefsir, el-belaga, en-nahv' },
@@ -1068,7 +1013,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Correct akida is described as all of the following except:', bs: 'Ispravna akida se opisuje kao sve navedeno osim:' },
+    prompt: { en: 'Which of the following does not describe correct aqidah?',
+              bs: 'Šta od navedenog ne opisuje ispravnu akidu?' },
     options: [
       { en: 'Clear and natural', bs: 'Jasna i prirodna' },
       { en: 'Constantly changing with each generation', bs: 'Stalno se mijenja sa svakom generacijom' },
@@ -1082,10 +1028,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'Leaving a mustahabb act without excuse brings:',
-      bs: 'Ostavljanje mustehaba bez opravdanja donosi:',
-    },
+    prompt: { en: 'What is the ruling on leaving a mustahabb act without excuse?',
+              bs: 'Kakav je propis ostavljanja mustehaba bez opravdanja?' },
     options: [
       { en: 'No sin or punishment, though doing it is rewarded', bs: 'Nema grijeha ni kazne, ali njegovo činjenje je nagrađeno' },
       { en: 'A small sin similar to leaving a wajib act', bs: 'Mali grijeh sličan ostavljanju vadžiba' },
@@ -1099,10 +1043,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'Which of the following is haram in Islam?',
-      bs: 'Šta je od navedenog haram u islamu?',
-    },
+    prompt: { en: 'Which of the following is haram in Islam?',
+              bs: 'Šta je od navedenog haram u islamu?' },
     options: [
       { en: 'Drinking alcohol', bs: 'Pijenje alkohola' },
       { en: 'Eating camel meat', bs: 'Jedenje devinog mesa' },
@@ -1116,10 +1058,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'The two main subjects of fiqh are ibadat and:',
-      bs: 'Dva glavna predmeta fikha su ibadeti i:',
-    },
+    prompt: { en: 'Besides ibadat (worship), what is the other main subject of fiqh?',
+              bs: 'Osim ibadeta, koji je drugi glavni predmet fikha?' },
     options: [
       { en: 'Mu’amalat', bs: 'Muamelati' },
       { en: 'Aqidah', bs: 'Akida' },
@@ -1133,10 +1073,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'When Prophet Muhammad ﷺ sent Mu’adh ibn Jabal as a judge to Yemen, he said he would first refer to:',
-      bs: 'Kada je Poslanik Muhammed ﷺ poslao Muaza ibn Džebela kao sudiju u Jemen, rekao mu je da će prvo suditi po:',
-    },
+    prompt: { en: 'When Prophet Muhammad ﷺ sent Mu’adh ibn Jabal as a judge to Yemen, what did Mu’adh say he would judge by first?',
+              bs: 'Kada je Poslanik Muhammed ﷺ poslao Muaza ibn Džebela kao sudiju u Jemen, po čemu je Muaz rekao da će prvo suditi?' },
     options: [
       { en: 'The Book of Allah', bs: 'Allahovoj Knjizi' },
       { en: 'The Sunnah of the Prophet', bs: 'Sunnetu Poslanika' },
@@ -1150,10 +1088,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'According to a famous hadith, how many rewards are given for each letter of the Qur’an recited?',
-      bs: 'Prema poznatom hadisu, koliko se nagrada daje za svako proučeno slovo Kur’ana?',
-    },
+    prompt: { en: 'According to a famous hadith, how many rewards are given for each letter of the Qur\'an recited?',
+              bs: 'Prema poznatom hadisu, koliko se nagrada daje za svako proučeno slovo Kur\'ana?' },
     options: [
       { en: 'Five', bs: 'Pet' },
       { en: 'Seven', bs: 'Sedam' },
@@ -1167,10 +1103,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'When does a person become accountable for their actions in Islamic teaching?',
-      bs: 'Kada osoba postaje odgovorna za svoja djela u islamskom učenju?',
-    },
+    prompt: { en: 'When does a person become accountable for their actions in Islamic teaching?',
+              bs: 'Kada osoba postaje odgovorna za svoja djela u islamskom učenju?' },
     options: [
       { en: 'When they start praying regularly', bs: 'Kada počne redovno klanjati' },
       { en: 'When they memorize the Qur’an', bs: 'Kada nauči Kur’an napamet' },
@@ -1184,10 +1118,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'Who is required to follow the obligations of Islamic law?',
-      bs: 'Ko je dužan izvršavati obaveze islamskog zakona?',
-    },
+    prompt: { en: 'Who is required to follow the obligations of Islamic law?',
+              bs: 'Ko je dužan izvršavati obaveze islamskog zakona?' },
     options: [
       { en: 'Every Muslim who has reached puberty and is of sound mind', bs: 'Svaki musliman koji je dostigao pubertet i pri zdravoj je pameti' },
       { en: 'Only Islamic scholars', bs: 'Samo islamski učenjaci' },
@@ -1215,10 +1147,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'When traveling, which prayers are shortened from four rakahs to two?',
-      bs: 'Na putovanju, koji se namazi skraćuju sa četiri na dva rekata?',
-    },
+    prompt: { en: 'When traveling, which prayers are shortened to two rakahs?',
+              bs: 'Na putovanju, koji se namazi skraćuju na dva rekata?' },
     options: [
       { en: 'Dhuhr, Asr, and Isha', bs: 'Podne, ikindija i jacija' },
       { en: 'Fajr, Maghrib, and Witr', bs: 'Sabah, akšam i vitr' },
@@ -1232,10 +1162,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'Besides travel, shortening the obligatory prayer (qasr) is permitted in which situation?',
-      bs: 'Osim putovanja, skraćivanje farz namaza (kasr) dozvoljeno je u kojoj situaciji?',
-    },
+    prompt: { en: 'Besides travel, is shortening the obligatory prayer (qasr) permitted in any other situation?',
+              bs: 'Osim putovanja, da li je skraćivanje farz namaza (kasr) dozvoljeno u nekoj drugoj situaciji?' },
     options: [
       { en: 'During illness at home', bs: 'Tokom bolesti kod kuće' },
       { en: 'During Ramadan', bs: 'Tokom ramazana' },
@@ -1249,10 +1177,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'What is commonly used to clean physical impurities in Islam?',
-      bs: 'Šta se najčešće koristi za uklanjanje stvarnih nečistoća u islamu?',
-    },
+    prompt: { en: 'What is commonly used to clean physical impurities in Islam?',
+              bs: 'Šta se najčešće koristi za uklanjanje stvarnih nečistoća u islamu?' },
     options: [
       { en: 'Water', bs: 'Voda' },
       { en: 'Perfume', bs: 'Parfem' },
@@ -1266,10 +1192,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'According to a hadith, how should a vessel be cleansed if a dog drinks from it?',
-      bs: 'Prema hadisu, kako se čisti posuda ako pas pije iz nje?',
-    },
+    prompt: { en: 'According to a hadith, how should a vessel be cleansed if a dog drinks from it?',
+              bs: 'Prema hadisu, kako se čisti posuda ako pas pije iz nje?' },
     options: [
       { en: 'Seven times, with the first using earth', bs: 'Sedam puta, od čega prvi put zemljom' },
       { en: 'Once with water only', bs: 'Jednom samo vodom' },
@@ -1283,7 +1207,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'According to a hadith, the best people are those most beneficial to:', bs: 'Prema hadisu, najbolji ljudi su oni koji su najkoristniji:' },
+    prompt: { en: 'According to a hadith, the best people are those most beneficial to whom?',
+              bs: 'Prema hadisu, najbolji ljudi su oni koji su najkorisniji kome?' },
     options: [
       { en: 'Their family and neighbors', bs: 'Svojoj porodici i komšijama' },
       { en: 'The scholars of their city', bs: 'Učenjacima svog grada' },
@@ -1297,7 +1222,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Which of the following is nije a condition for valid wudu (ablution)?', bs: 'Šta od navedenog nije uvjet za valjan abdest?' },
+    prompt: { en: 'Which of the following is not a condition for valid wudu (ablution)?',
+              bs: 'Šta od navedenog nije uvjet za valjan abdest?' },
     options: [
       { en: 'Intention', bs: 'Namjera' },
       { en: 'Using pure water', bs: 'Korištenje čiste vode' },
@@ -1311,10 +1237,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'According to the hadith of Jabir ibn Samurah, what should a person do after eating camel meat?',
-      bs: 'Prema hadisu Džabira b. Semure, šta bi osoba trebala uraditi nakon jedenja kamilinog mesa?',
-    },
+    prompt: { en: 'According to the hadith of Jabir ibn Samurah, what should a person do after eating camel meat?',
+              bs: 'Prema hadisu Džabira b. Semure, šta bi osoba trebala uraditi nakon jedenja kamilinog mesa?' },
     options: [
       { en: 'Perform wudu (ablution)', bs: 'Uzeti abdest' },
       { en: 'Perform ghusl (full bath)', bs: 'Uzeti gusul' },
@@ -1328,16 +1252,14 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'What is the Islamic belief regarding earlier revealed scriptures?',
-      bs: 'Kakvo je islamsko vjerovanje o ranijim objavljenim knjigama?',
-    },
+    prompt: { en: 'What is the Islamic belief regarding earlier revealed scriptures?',
+              bs: 'Kakvo je islamsko vjerovanje o ranijim objavljenim knjigama?' },
     options: [
       { en: 'They were originally revealed by Allah but were changed over time', bs: 'Izvorno su bile objavljene od Allaha, ali su vremenom izmijenjene' },
       { en: 'They were never revealed by Allah', bs: 'Nikada nisu bile objavljene od Allaha' },
       { en: 'They are identical to the Qur’an today', bs: 'Danas su potpuno iste kao Kur’an' },
       { en: 'They were replaced with no truth remaining', bs: 'Zamijenjene su bez preostale istine' },
-      ],
+    ],
     correctIndex: 0,
   },
   {
@@ -1373,10 +1295,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'Hadith as a source of Islamic law includes the Prophet’s peace be upon him:',
-      bs: 'Hadis kao izvor islamskog prava obuhvata Poslanikov sallallahu alejhi ve sellem:',
-    },
+    prompt: { en: 'What does hadith as a source of Islamic law include from the Prophet (ﷺ)?',
+              bs: 'Šta hadis kao izvor islamskog prava obuhvata od Poslanika, sallallahu alejhi ve sellem?' },
     options: [
       { en: 'Sayings, actions, and approvals', bs: 'Govor, djela i prešutna odobrenja' },
       { en: 'Personal opinions unrelated to revelation', bs: 'Lična mišljenja koja nisu povezana s objavom' },
@@ -1418,7 +1338,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Allah prescribed fasting in Surah al-Baqarah primarily so believers would develop:', bs: 'Allah je propisao post u suri El-Bekara prije svega da vjernici razviju:' },
+    prompt: { en: 'Why did Allah prescribe fasting in Surah al-Baqarah?',
+              bs: 'Zašto je Allah propisao post u suri El-Bekara?' },
     options: [
       { en: 'Physical strength for battle', bs: 'Tjelesnu snagu za borbu' },
       { en: 'Wealth through saving food costs', bs: 'Bogatstvo štednjom na hrani' },
@@ -1432,10 +1353,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'Which school of Islamic law was founded by Numan ibn Thabit?',
-      bs: 'Koji je mezheb osnovao imam Nu’man ibn Sabit?'
-        },
+    prompt: { en: 'Which school of Islamic law was founded by Numan ibn Thabit?',
+              bs: 'Koji je mezheb osnovao imam Nu’man ibn Sabit?' },
     options: [
       { en: 'Hanafi school (madhhab)', bs: 'Hanefijski mezheb' },
       { en: 'Shafi‘i school (madhhab)', bs: 'Šafijski mezheb' },
@@ -1449,10 +1368,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: {
-      en: 'Over approximately how many years was the Qur’an revealed?',
-      bs: 'Tokom otprilike koliko godina je objavljivan Kur’an?',
-    },
+    prompt: { en: 'Over approximately how many years was the Qur\'an revealed?',
+              bs: 'Tokom otprilike koliko godina je objavljivan Kur\'an?' },
     options: [
       { en: 'Ten years', bs: 'Deset godina' },
       { en: 'Twenty-three years', bs: 'Dvadeset tri godine' },
@@ -1508,12 +1425,13 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'The first mosque in Islam was built in:', bs: 'Prva džamija u islamu sagrađena je u:' },
+    prompt: { en: 'Where was the first mosque in Islam built?',
+              bs: 'Gdje je sagrađena prva džamija u islamu?' },
     options: [
-      { en: 'Jerusalem', bs: 'Jerusalemu' },
-      { en: 'Quba', bs: 'Kubi' },
-      { en: 'Medina', bs: 'Medini' },
-      { en: 'Taif', bs: 'Taifu' },
+      { en: 'Jerusalem', bs: 'Jerusalem' },
+      { en: 'Quba', bs: 'Kuba' },
+      { en: 'Medina', bs: 'Medina' },
+      { en: 'Taif', bs: 'Taif' },
     ],
     correctIndex: 1,
   },
