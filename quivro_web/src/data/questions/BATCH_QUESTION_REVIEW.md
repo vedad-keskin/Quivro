@@ -51,6 +51,9 @@ These fields must **never** change during a batch review:
 | JSON structure | No added/removed fields; same TypeScript shape |
 | Question count | Same number of questions in the file |
 
+> [!NOTE]
+> **Answer order does not need to be redistributed.** The app shuffles options at runtime, so it is fine if most questions have the same `correctIndex`. Focus only on ensuring `correctIndex` points to the factually correct option.
+
 ---
 
 ## Code formatting rules
