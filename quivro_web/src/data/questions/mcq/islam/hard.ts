@@ -1954,4 +1954,55 @@ export const islamHard: Question[] = [
     ],
     correctIndex: 2,
   },
+  {
+    id: 'islam-hard-116',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which surahs mark the beginning and end of the Long Mufassal section?',
+      bs: 'Kojim surama počinje i završava Dugi Mufessal?',
+    },
+    options: [
+      { en: 'From Surah Qaf to Surah An-Naziat', bs: 'Od sure Kaf do sure En-Nazijat' },
+      { en: 'From Surah Abasa to Surah Al-Layl', bs: 'Od sure Abese do sure El-Lejl' },
+      { en: 'From Surah Ad-Duha to Surah An-Nas', bs: 'Od sure Ed-Duha do sure En-Nas' },
+      { en: 'From Surah Al-Fatihah to Surah Al-Baqarah', bs: 'Od sure El-Fatiha do sure El-Bekare' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'islam-hard-117',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which surahs mark the beginning and end of the Middle Mufassal section?',
+      bs: 'Kojim surama počinje i završava Srednji Mufessal?',
+    },
+    options: [
+      { en: 'From Surah Abasa to Surah Al-Layl', bs: 'Od sure Abese do sure El-Lejl' },
+      { en: 'From Surah Qaf to Surah An-Naziat', bs: 'Od sure Kaf do sure En-Nazijat' },
+      { en: 'From Surah Ad-Duha to Surah An-Nas', bs: 'Od sure Ed-Duha do sure En-Nas' },
+      { en: 'From Surah Al-Falaq to Surah An-Nas', bs: 'Od sure El-Felek do sure En-Nas' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'islam-hard-118',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which surahs mark the beginning and end of the Short Mufassal section?',
+      bs: 'Kojim surama počinje i završava Kratki Mufessal?',
+    },
+    options: [
+      { en: 'From Surah Ad-Duha to Surah An-Nas', bs: 'Od sure Ed-Duha do sure En-Nas' },
+      { en: 'From Surah Abasa to Surah Al-Layl', bs: 'Od sure Abese do sure El-Lejl' },
+      { en: 'From Surah Qaf to Surah An-Naziat', bs: 'Od sure Kaf do sure En-Nazijat' },
+      { en: 'From Surah Al-Mulk to Surah An-Naba', bs: 'Od sure El-Mulk do sure En-Nebe' },
+    ],
+    correctIndex: 0,
+  },
 ];
