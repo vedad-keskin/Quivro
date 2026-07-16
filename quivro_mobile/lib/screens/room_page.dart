@@ -372,43 +372,53 @@ class _LobbyView extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(28),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'Quivro',
-                  style: GoogleFonts.nunito(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w800,
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Quivro',
+                          style: GoogleFonts.nunito(
+                            fontSize: 36,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(top: 6),
+                          height: 4,
+                          width: 64,
+                          decoration: BoxDecoration(
+                            gradient: const LinearGradient(
+                              colors: [QuivroColors.blue, QuivroColors.purple],
+                            ),
+                            borderRadius: BorderRadius.circular(99),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ),
-              const Spacer(),
-              GestureDetector(
-                onTap: onEditProfile,
-                child: AvatarBadge(index: profile.avatar, size: 72),
+                  GestureDetector(
+                    onTap: onEditProfile,
+                    child: AvatarBadge(index: profile.avatar, size: 52),
+                  ),
+                ],
               ),
               const SizedBox(height: 12),
               Text(
-                profile.nickname,
+                'Playing as ${profile.nickname}',
                 style: GoogleFonts.nunito(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w700,
+                  color: QuivroColors.muted,
                 ),
               ),
-              TextButton(
-                onPressed: onEditProfile,
-                child: Text(
-                  'Edit nickname & avatar',
-                  style: GoogleFonts.nunito(
-                    fontWeight: FontWeight.w700,
-                    color: QuivroColors.muted,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16),
+              const Spacer(),
               Text(
                 'Room',
+                textAlign: TextAlign.center,
                 style: GoogleFonts.nunito(
                   fontWeight: FontWeight.w700,
                   color: QuivroColors.muted,
@@ -416,6 +426,7 @@ class _LobbyView extends StatelessWidget {
               ),
               Text(
                 code,
+                textAlign: TextAlign.center,
                 style: GoogleFonts.nunito(
                   fontSize: 42,
                   fontWeight: FontWeight.w800,
@@ -900,20 +911,6 @@ class _FinishedView extends StatelessWidget {
                     child: AvatarBadge(index: profile.avatar, size: 44),
                   ),
                 ],
-              ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: onEditProfile,
-                  child: Text(
-                    'Edit nickname & avatar',
-                    style: GoogleFonts.nunito(
-                      fontWeight: FontWeight.w700,
-                      color: QuivroColors.muted,
-                      fontSize: 13,
-                    ),
-                  ),
-                ),
               ),
               if (room.lastWinners.length == 1) ...[
                 const SizedBox(height: 4),
