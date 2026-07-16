@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { avatarColor, avatarEmoji, rankPlayers, type RoomPlayer } from '../core/room.models';
 
 @Component({
@@ -7,30 +7,65 @@ import { avatarColor, avatarEmoji, rankPlayers, type RoomPlayer } from '../core/
     <aside class="board">
       <h2>{{ title() }}</h2>
       <div class="q-brand-line"></div>
-      <ol>
-        @for (player of ranked(); track player.id; let i = $index) {
-          <li [attr.data-player-id]="player.id">
-            <span class="rank">{{ i + 1 }}</span>
-            <span class="avatar" [style.background]="avatarColor(player.avatar)">{{
-              avatarEmoji(player.avatar)
-            }}</span>
-            <span class="name">
-              {{ player.name }}
-              @if (player.wins > 0) {
-                <span class="wins">{{ player.wins }}W</span>
-              }
-            </span>
-            <span class="score">{{ player.score }}</span>
-            @if (deltas()?.[player.id]; as d) {
-              @if (d > 0) {
-                <span class="delta">+{{ d }}</span>
-              }
+
+      @if (ranked().length === 0) {
+        <p class="empty">—</p>
+      } @else {
+        @if (showPodium() && podium().length > 0) {
+          <div class="podium" [attr.data-count]="podium().length">
+            @for (slot of podiumSlots(); track slot.place) {
+              <div
+                class="podium-card place-{{ slot.place }}"
+                [attr.data-player-id]="slot.player.id"
+              >
+                <span class="podium-rank">{{ slot.place }}</span>
+                <span
+                  class="avatar podium-avatar"
+                  [style.background]="avatarColor(slot.player.avatar)"
+                  >{{ avatarEmoji(slot.player.avatar) }}</span
+                >
+                <span class="podium-name">
+                  {{ slot.player.name }}
+                  @if (slot.player.wins > 0) {
+                    <span class="wins">{{ slot.player.wins }}W</span>
+                  }
+                </span>
+                <span class="podium-score">{{ slot.player.score }}</span>
+                @if (deltas()?.[slot.player.id]; as d) {
+                  @if (d > 0) {
+                    <span class="delta">+{{ d }}</span>
+                  }
+                }
+              </div>
             }
-          </li>
-        } @empty {
-          <li class="empty">—</li>
+          </div>
         }
-      </ol>
+
+        @if (listPlayers().length > 0) {
+          <ol>
+            @for (player of listPlayers(); track player.id; let i = $index) {
+              <li [attr.data-player-id]="player.id">
+                <span class="rank">{{ listRankOffset() + i + 1 }}</span>
+                <span class="avatar" [style.background]="avatarColor(player.avatar)">{{
+                  avatarEmoji(player.avatar)
+                }}</span>
+                <span class="name">
+                  {{ player.name }}
+                  @if (player.wins > 0) {
+                    <span class="wins">{{ player.wins }}W</span>
+                  }
+                </span>
+                <span class="score">{{ player.score }}</span>
+                @if (deltas()?.[player.id]; as d) {
+                  @if (d > 0) {
+                    <span class="delta">+{{ d }}</span>
+                  }
+                }
+              </li>
+            }
+          </ol>
+        }
+      }
     </aside>
   `,
   styles: `
@@ -39,73 +74,190 @@ import { avatarColor, avatarEmoji, rankPlayers, type RoomPlayer } from '../core/
       height: 100%;
       border: 2px solid var(--q-border);
       border-radius: 28px;
-      padding: 1.15rem;
+      padding: clamp(1.15rem, 1.8vw, 1.45rem);
       background: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
     }
     h2 {
       margin: 0;
-      font-size: 1.2rem;
+      font-size: clamp(1.25rem, 2vw, 1.55rem);
       font-weight: 900;
+      color: var(--q-navy);
     }
     .q-brand-line {
-      margin: 0.45rem 0 0.9rem;
+      margin: 0.45rem 0 0.95rem;
     }
+    .empty {
+      margin: 0;
+      color: var(--q-muted);
+      font-weight: 700;
+    }
+
+    .podium {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr 1fr;
+      align-items: end;
+      gap: 0.4rem;
+      margin-bottom: 0.85rem;
+    }
+    .podium[data-count='1'] {
+      grid-template-columns: 1fr;
+      max-width: 12rem;
+      margin-inline: auto;
+    }
+    .podium[data-count='2'] {
+      grid-template-columns: 1.15fr 1fr;
+    }
+
+    .podium-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      text-align: center;
+      padding: 0.65rem 0.35rem 0.7rem;
+      border-radius: 16px;
+      border: 3px solid transparent;
+      min-width: 0;
+      animation: podiumIn 0.45s ease both;
+    }
+    .place-1 {
+      background: #fffbeb;
+      border-color: #eab308;
+      padding-top: 0.95rem;
+      padding-bottom: 0.9rem;
+      z-index: 1;
+    }
+    .place-2 {
+      background: #f8fafc;
+      border-color: #94a3b8;
+      animation-delay: 0.06s;
+    }
+    .place-3 {
+      background: #fff7ed;
+      border-color: #d97706;
+      animation-delay: 0.12s;
+    }
+    .podium-rank {
+      font-weight: 900;
+      font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+      line-height: 1;
+      color: var(--q-navy);
+    }
+    .place-1 .podium-rank {
+      font-size: clamp(1.55rem, 2.8vw, 2.15rem);
+    }
+    .podium-avatar {
+      width: clamp(2.75rem, 4.5vw, 3.5rem);
+      height: clamp(2.75rem, 4.5vw, 3.5rem);
+      font-size: clamp(1.25rem, 2vw, 1.65rem);
+    }
+    .place-1 .podium-avatar {
+      width: clamp(3.1rem, 5vw, 3.9rem);
+      height: clamp(3.1rem, 5vw, 3.9rem);
+      font-size: clamp(1.4rem, 2.3vw, 1.85rem);
+    }
+    .podium-name {
+      font-weight: 800;
+      font-size: clamp(0.85rem, 1.35vw, 1.05rem);
+      color: var(--q-navy);
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      padding: 0 0.15rem;
+    }
+    .podium-score {
+      font-weight: 900;
+      font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+      color: var(--q-navy);
+      line-height: 1.1;
+    }
+    .place-1 .podium-score {
+      font-size: clamp(1.55rem, 2.9vw, 2.15rem);
+    }
+
+    @keyframes podiumIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     ol {
       list-style: none;
       margin: 0;
       padding: 0;
       display: grid;
-      gap: 0.55rem;
+      gap: 0.65rem;
+      flex: 1;
+      min-height: 0;
+      overflow: auto;
     }
     li {
       display: grid;
-      grid-template-columns: 1.4rem 2rem 1fr auto auto;
+      grid-template-columns: 1.75rem 2.5rem 1fr auto auto;
       align-items: center;
-      gap: 0.45rem;
-      padding: 0.55rem 0.4rem;
+      gap: 0.5rem;
+      padding: 0.7rem 0.55rem;
       border-radius: 14px;
       background: var(--q-surface);
     }
     .rank {
       font-weight: 900;
-      color: var(--q-muted);
+      font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+      color: var(--q-navy);
+      text-align: center;
     }
     .avatar {
-      width: 1.9rem;
-      height: 1.9rem;
+      width: 2.4rem;
+      height: 2.4rem;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      font-size: 0.95rem;
+      font-size: 1.15rem;
+      flex-shrink: 0;
     }
     .name {
       font-weight: 800;
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      color: var(--q-navy);
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
       display: flex;
       align-items: center;
       gap: 0.35rem;
+      min-width: 0;
     }
     .wins {
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       font-weight: 900;
       color: var(--q-purple);
       background: #f5f3ff;
-      padding: 0.1rem 0.35rem;
+      padding: 0.12rem 0.4rem;
       border-radius: 999px;
+      flex-shrink: 0;
     }
     .score {
       font-weight: 900;
+      font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+      color: var(--q-navy);
     }
     .delta {
       color: #65a30d;
       font-weight: 900;
-      font-size: 0.85rem;
-    }
-    .empty {
-      color: var(--q-muted);
-      background: transparent;
+      font-size: clamp(0.95rem, 1.4vw, 1.15rem);
     }
   `,
 })
@@ -113,11 +265,46 @@ export class Leaderboard {
   readonly title = input('Leaderboard');
   readonly players = input<RoomPlayer[]>([]);
   readonly deltas = input<Record<string, number> | undefined>(undefined);
+  readonly showPodium = input(true);
 
   readonly avatarColor = avatarColor;
   readonly avatarEmoji = avatarEmoji;
 
-  ranked(): RoomPlayer[] {
-    return rankPlayers(this.players());
-  }
+  readonly ranked = computed(() => rankPlayers(this.players()));
+
+  readonly podium = computed(() => {
+    if (!this.showPodium()) return [] as RoomPlayer[];
+    return this.ranked().slice(0, 3);
+  });
+
+  readonly listPlayers = computed(() => {
+    const all = this.ranked();
+    if (!this.showPodium() || this.podium().length === 0) return all;
+    return all.slice(3);
+  });
+
+  readonly listRankOffset = computed(() => {
+    if (!this.showPodium() || this.podium().length === 0) return 0;
+    return 3;
+  });
+
+  /** Classic order: 2nd | 1st | 3rd when 3 players; adapts for 1–2. */
+  readonly podiumSlots = computed(() => {
+    const top = this.podium();
+    if (top.length === 0) return [] as { place: 1 | 2 | 3; player: RoomPlayer }[];
+    if (top.length === 1) {
+      return [{ place: 1 as const, player: top[0] }];
+    }
+    if (top.length === 2) {
+      return [
+        { place: 1 as const, player: top[0] },
+        { place: 2 as const, player: top[1] },
+      ];
+    }
+    return [
+      { place: 2 as const, player: top[1] },
+      { place: 1 as const, player: top[0] },
+      { place: 3 as const, player: top[2] },
+    ];
+  });
 }

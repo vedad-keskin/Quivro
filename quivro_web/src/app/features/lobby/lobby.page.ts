@@ -54,13 +54,14 @@ import { LangToggle } from '../../shared/lang-toggle';
 
           <aside class="side">
             <h2>{{ lang.t().players }} ({{ playerList().length }})</h2>
+            <div class="q-brand-line"></div>
             <ul>
               @for (p of playerList(); track p.id) {
                 <li>
                   <span class="avatar" [style.background]="avatarColor(p.avatar)">{{
                     avatarEmoji(p.avatar)
                   }}</span>
-                  {{ p.name }}
+                  <span class="name">{{ p.name }}</span>
                 </li>
               } @empty {
                 <li class="empty">{{ lang.t().noPlayersYet }}</li>
@@ -147,33 +148,46 @@ import { LangToggle } from '../../shared/lang-toggle';
       min-width: 10rem;
     }
     .side h2 {
-      margin: 0 0 0.85rem;
+      margin: 0;
+      font-size: clamp(1.25rem, 2vw, 1.55rem);
       font-weight: 900;
+      color: var(--q-navy);
+    }
+    .side .q-brand-line {
+      margin: 0.45rem 0 0.95rem;
     }
     ul {
       list-style: none;
       margin: 0;
       padding: 0;
       display: grid;
-      gap: 0.55rem;
+      gap: 0.65rem;
     }
     li {
       display: flex;
       align-items: center;
       gap: 0.65rem;
-      font-weight: 800;
-      padding: 0.55rem 0.4rem;
+      padding: 0.7rem 0.55rem;
       border-radius: 14px;
       background: var(--q-surface);
     }
     .avatar {
-      width: 2rem;
-      height: 2rem;
+      width: 2.4rem;
+      height: 2.4rem;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      font-size: 1rem;
+      font-size: 1.15rem;
       flex-shrink: 0;
+    }
+    .name {
+      font-weight: 800;
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      color: var(--q-navy);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      min-width: 0;
     }
     .empty {
       color: var(--q-muted);

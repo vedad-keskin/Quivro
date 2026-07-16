@@ -122,18 +122,18 @@ function loadRoundPrefs(): RoundPrefs | null {
             <button
               type="button"
               class="q-chip"
-              [class.active]="scoringMode() === 'timed'"
-              (click)="scoringMode.set('timed')"
-            >
-              {{ lang.t().scoringTimed }}
-            </button>
-            <button
-              type="button"
-              class="q-chip"
               [class.active]="scoringMode() === 'standard'"
               (click)="scoringMode.set('standard')"
             >
               {{ lang.t().scoringStandard }}
+            </button>
+            <button
+              type="button"
+              class="q-chip"
+              [class.active]="scoringMode() === 'timed'"
+              (click)="scoringMode.set('timed')"
+            >
+              {{ lang.t().scoringTimed }}
             </button>
           </div>
         </section>

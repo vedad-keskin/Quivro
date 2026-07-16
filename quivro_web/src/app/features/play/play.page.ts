@@ -151,18 +151,18 @@ import { TimerRing } from '../../shared/timer-ring';
                   <button
                     type="button"
                     class="q-chip"
-                    [class.active]="scoringMode() === 'timed'"
-                    (click)="scoringMode.set('timed')"
-                  >
-                    {{ lang.t().scoringTimed }}
-                  </button>
-                  <button
-                    type="button"
-                    class="q-chip"
                     [class.active]="scoringMode() === 'standard'"
                     (click)="scoringMode.set('standard')"
                   >
                     {{ lang.t().scoringStandard }}
+                  </button>
+                  <button
+                    type="button"
+                    class="q-chip"
+                    [class.active]="scoringMode() === 'timed'"
+                    (click)="scoringMode.set('timed')"
+                  >
+                    {{ lang.t().scoringTimed }}
                   </button>
                 </div>
               </section>
@@ -320,7 +320,7 @@ import { TimerRing } from '../../shared/timer-ring';
     }
     .layout {
       display: grid;
-      grid-template-columns: minmax(240px, 28%) 1fr;
+      grid-template-columns: minmax(280px, 32%) 1fr;
       gap: 1rem;
       height: calc(100dvh - 1.5rem);
       min-height: calc(100dvh - 1.5rem);
