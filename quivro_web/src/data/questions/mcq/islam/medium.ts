@@ -525,7 +525,7 @@ export const islamMedium: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'medium',
-    prompt: { en: 'The first muezzin in Islam was:', bs: 'Prvi muezzin u islamu bio je:' },
+    prompt: { en: 'The first muezzin in Islam was:', bs: 'Prvi mujezin u islamu bio je:' },
     options: [
       { en: 'Bilal ibn Rabah', bs: 'Bilal b. Rabah' },
       { en: 'Abu Bakr', bs: 'Ebu Bekr' },

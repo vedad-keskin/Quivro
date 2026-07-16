@@ -231,7 +231,7 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Who was among the very first adult men to accept Islam?', bs: 'Ko je bio među prvima odraslih muškaraca koji su prihvatili islam?' },
+    prompt: { en: 'Who was among the very first adult men to accept Islam?', bs: 'Ko je bio među prvima karaca koji su prihvatili islam?' },
     options: [
       { en: 'Abu Bakr', bs: 'Ebu Bekr' },
       { en: 'Khalid ibn al-Walid', bs: 'Halid b. Velid' },

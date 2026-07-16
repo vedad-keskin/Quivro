@@ -1317,14 +1317,17 @@ export const moviesMedium: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'medium',
-    prompt: { en: 'In How I Met Your Mother, Future Ted tells the story to his…', bs: 'U How I Met Your Mother, Future Ted priču ispriča svojoj…' },
+    prompt: {
+      en: 'In How I Met Your Mother, who does Ted tell the story of how he met their mother to?',
+      bs: 'U seriji How I Met Your Mother, kome Ted priča priču o tome kako je upoznao njihovu majku?',
+    },
     options: [
-      { en: 'Boss', bs: 'Šefu' },
-      { en: 'Children', bs: 'Djeci' },
-      { en: 'Neighbor', bs: 'Komšiji' },
-      { en: 'Doctor', bs: 'Doktoru' },
+      { en: 'His children', bs: 'Svojoj djeci' },
+      { en: 'His future wife', bs: 'Svojoj budućoj supruzi' },
+      { en: 'His best friends', bs: 'Svojim najboljim prijateljima' },
+      { en: 'His younger self', bs: 'Mlađem sebi' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-095',

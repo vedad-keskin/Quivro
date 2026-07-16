@@ -860,14 +860,17 @@ export const geographyHard: Question[] = [
     type: 'mcq',
     category: 'geography',
     difficulty: 'hard',
-    prompt: { en: 'Which is the largest landlocked country by area?', bs: 'Koja je najveća zemlja bez izlaza na more po površini?' },
+    prompt: {
+      en: 'Which is the largest landlocked country in the world by area?',
+      bs: 'Koja je najveća država bez izlaza na more na svijetu po površini?',
+    },
     options: [
-      { en: 'Mongolia', bs: 'Mongolija' },
       { en: 'Kazakhstan', bs: 'Kazahstan' },
-      { en: 'Chad', bs: 'Čad' },
-      { en: 'Niger', bs: 'Niger' },
+      { en: 'Mongolia', bs: 'Mongolija' },
+      { en: 'Ethiopia', bs: 'Etiopija' },
+      { en: 'Afghanistan', bs: 'Afganistan' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'geo-hard-063',

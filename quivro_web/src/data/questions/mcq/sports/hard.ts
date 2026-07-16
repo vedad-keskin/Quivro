@@ -48,7 +48,10 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who is the all-time top scorer in FIFA World Cup history?', bs: 'Ko je najbolji strijelac svih vremena na FIFA Svjetskim prvenstvima?' },
+    prompt: { 
+      en: 'Who was the FIFA World Cup all-time top scorer before the 2026 World Cup?',
+      bs: 'Ko je bio najbolji strijelac svih vremena na FIFA Svjetskim prvenstvima prije Svjetskog prvenstva 2026.?'
+    },
     options: [
       { en: 'Pelé', bs: 'Pelé' },
       { en: 'Miroslav Klose', bs: 'Miroslav Klose' },
@@ -443,14 +446,17 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Ethiopian distance runner won Olympic gold in both the 5,000m and 10,000m in 2008?', bs: 'Koji etiopski trkač na duge staze je osvojio olimpijsko zlato na 5.000 m i 10.000 m 2008.?' },
+    prompt: {
+      en: 'Which Formula 1 circuit is famous for the Eau Rouge and Raidillon corners?',
+      bs: 'Koja Formula 1 staza je poznata po zavojima Eau Rouge i Raidillon?',
+    },
     options: [
-      { en: 'Haile Gebrselassie', bs: 'Haile Gebrselassie' },
-      { en: 'Kenenisa Bekele', bs: 'Kenenisa Bekele' },
-      { en: 'Tirunesh Dibaba', bs: 'Tirunesh Dibaba' },
-      { en: 'Derartu Tulu', bs: 'Derartu Tulu' },
+      { en: 'Circuit de Spa-Francorchamps', bs: 'Staza Spa-Francorchamps' },
+      { en: 'Nürburgring', bs: 'Nürburgring' },
+      { en: 'Circuit de Barcelona-Catalunya', bs: 'Staza Barcelona-Catalunya' },
+      { en: 'Yas Marina Circuit', bs: 'Staza Yas Marina' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'sport-hard-033',

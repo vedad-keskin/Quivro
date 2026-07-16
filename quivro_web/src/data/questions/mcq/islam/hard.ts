@@ -1354,7 +1354,7 @@ export const islamHard: Question[] = [
     options: [
       { en: 'Habr al-Ummah / Turjuman al-Qur\'an (interpreter of Qur\'an)', bs: 'Habrul-ummeti / Turgumanul-Kur\'an' },
       { en: 'Commander of Badr', bs: 'Komandant Bederа' },
-      { en: 'First muezzin', bs: 'Prvi muezzin' },
+      { en: 'First muezzin', bs: 'Prvi mujezin' },
       { en: 'King of Abyssinia', bs: 'Kralj Abesinije' },
     ],
     correctIndex: 0,
