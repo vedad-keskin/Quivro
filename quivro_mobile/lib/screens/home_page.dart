@@ -73,9 +73,12 @@ class _HomePageState extends State<HomePage> {
       });
     } catch (e) {
       if (!mounted) return;
-      final message = e.toString().contains('ROOM_NOT_FOUND')
+      final text = e.toString();
+      final message = text.contains('ROOM_NOT_FOUND')
           ? 'Room not found. Check the code on the TV.'
-          : 'Could not join. Check your connection.';
+          : text.contains('ROOM_IN_PROGRESS')
+              ? 'Game already in progress. Wait for the next round.'
+              : 'Could not join. Check your connection.';
       showQuivroSnack(context, message, kind: QuivroSnackKind.error);
     } finally {
       if (mounted) setState(() => _joining = false);

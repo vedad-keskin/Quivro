@@ -29,6 +29,9 @@ import { LangToggle } from '../../shared/lang-toggle';
       @if (room(); as r) {
         <div class="layout">
           <section class="main">
+            @if (!rooms.hosting()) {
+              <p class="spectator-banner">{{ lang.t().alreadyHostingOtherTab }}</p>
+            }
             <p class="label">{{ lang.t().joinCode }}</p>
             <div class="code-row">
               <h1 class="code">{{ r.code }}</h1>
@@ -42,7 +45,7 @@ import { LangToggle } from '../../shared/lang-toggle';
             <button
               type="button"
               class="q-btn q-btn-outline start"
-              [disabled]="playerList().length === 0 || starting()"
+              [disabled]="!rooms.hosting() || playerList().length === 0 || starting()"
               (click)="start()"
             >
               {{ lang.t().start }}
@@ -128,6 +131,16 @@ import { LangToggle } from '../../shared/lang-toggle';
       font-size: 1.15rem;
       font-weight: 700;
       color: var(--q-muted);
+    }
+    .spectator-banner {
+      margin: 0 0 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: 14px;
+      background: #fff7ed;
+      border: 2px solid #fdba74;
+      color: #9a3412;
+      font-weight: 800;
+      line-height: 1.35;
     }
     .start {
       margin-top: 1.25rem;
@@ -262,6 +275,10 @@ export class LobbyPage implements OnInit, OnDestroy {
   }
 
   async start(): Promise<void> {
+    if (!this.rooms.hosting()) {
+      this.snack.error(this.lang.t().alreadyHostingOtherTab);
+      return;
+    }
     if (this.playerList().length === 0) {
       this.snack.error(this.lang.t().minPlayers);
       return;
@@ -274,7 +291,9 @@ export class LobbyPage implements OnInit, OnDestroy {
     } catch (e) {
       console.error(e);
       this.keepRoomAlive = false;
-      if (e instanceof Error && e.message === 'NO_PLAYERS') {
+      if (e instanceof Error && e.message === 'NOT_HOST') {
+        this.snack.error(this.lang.t().alreadyHostingOtherTab);
+      } else if (e instanceof Error && e.message === 'NO_PLAYERS') {
         this.snack.error(this.lang.t().minPlayers);
       } else if (e instanceof Error && e.message === 'FIREBASE_REQUIRED') {
         this.snack.error(this.lang.t().firebaseMissing);

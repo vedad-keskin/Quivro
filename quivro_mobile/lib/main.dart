@@ -38,8 +38,23 @@ class _QuivroAppState extends State<QuivroApp> {
       GoRoute(
         path: '/setup',
         builder: (context, state) {
-          final existing = state.extra is PlayerProfile
-              ? state.extra as PlayerProfile
+          final extra = state.extra;
+          if (extra is Map) {
+            final existing = extra['existing'] is PlayerProfile
+                ? extra['existing'] as PlayerProfile
+                : widget.initialProfile;
+            return SetupPage(
+              existing: existing,
+              returnTo: extra['returnTo'] is String
+                  ? extra['returnTo'] as String
+                  : null,
+              returnPlayerId: extra['returnPlayerId'] is String
+                  ? extra['returnPlayerId'] as String
+                  : null,
+            );
+          }
+          final existing = extra is PlayerProfile
+              ? extra
               : widget.initialProfile;
           return SetupPage(existing: existing);
         },

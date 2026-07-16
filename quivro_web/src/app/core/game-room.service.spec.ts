@@ -11,8 +11,9 @@ import { ServerTimeService } from './server-time.service';
 import { shuffledOptionsForQuestion, type RoomState } from './room.models';
 
 const LAST_HOSTED_CODE_KEY = 'quivro.lastHostedCode';
+const HOST_SESSION_KEY = 'quivro.hostSessionId';
 
-const localStorageMock = (() => {
+const storageMock = () => {
   let store: Record<string, string> = {};
   return {
     getItem: (key: string) => store[key] ?? null,
@@ -26,9 +27,22 @@ const localStorageMock = (() => {
       store = {};
     },
   };
-})();
+};
+
+const localStorageMock = storageMock();
+const sessionStorageMock = storageMock();
 
 vi.stubGlobal('localStorage', localStorageMock);
+vi.stubGlobal('sessionStorage', sessionStorageMock);
+
+function claimHost(service: GameRoomService, code = 'ROOM01'): void {
+  const internal = service as unknown as {
+    hostedCode: string | null;
+    hosting: { set: (v: boolean) => void };
+  };
+  internal.hostedCode = code;
+  internal.hosting.set(true);
+}
 
 const sampleQuestion: Question = {
   id: 'bio-hard-1',
@@ -145,6 +159,7 @@ describe('GameRoomService', () => {
 
   beforeEach(async () => {
     localStorage.clear();
+    sessionStorage.clear();
     vi.clearAllMocks();
 
     await TestBed.configureTestingModule({
@@ -174,10 +189,21 @@ describe('GameRoomService', () => {
 
   afterEach(() => {
     localStorage.clear();
+    sessionStorage.clear();
   });
 
-  it('leaveHostedRoom deletes when only lastHostedCode is available', async () => {
+  it('leaveHostedRoom does not delete when only lastHostedCode is set (other tab)', async () => {
     localStorage.setItem(LAST_HOSTED_CODE_KEY, 'ROOM01');
+    sessionStorage.setItem(HOST_SESSION_KEY, 'other-tab');
+
+    await service.leaveHostedRoom('ROOM01');
+
+    expect(remove).not.toHaveBeenCalled();
+  });
+
+  it('leaveHostedRoom deletes when this tab is hosting', async () => {
+    localStorage.setItem(LAST_HOSTED_CODE_KEY, 'ROOM01');
+    claimHost(service, 'ROOM01');
 
     await service.leaveHostedRoom('ROOM01');
 
@@ -189,6 +215,7 @@ describe('GameRoomService', () => {
 
   it('leaveHostedRoom does not delete unrelated rooms', async () => {
     localStorage.setItem(LAST_HOSTED_CODE_KEY, 'ROOM01');
+    claimHost(service, 'ROOM01');
 
     await service.leaveHostedRoom('OTHER2');
 
@@ -197,6 +224,7 @@ describe('GameRoomService', () => {
 
   it('reveal is idempotent for the same question index', async () => {
     const room = questionRoom();
+    claimHost(service, 'ROOM01');
     vi.mocked(get).mockResolvedValue({
       exists: () => true,
       val: () => roomSnapshot(room),
@@ -210,6 +238,7 @@ describe('GameRoomService', () => {
 
   it('timed reveal awards lower speed bonus for a late final answer', async () => {
     const room = questionRoom();
+    claimHost(service, 'ROOM01');
     vi.mocked(get).mockResolvedValue({
       exists: () => true,
       val: () => roomSnapshot(room),
@@ -233,6 +262,7 @@ describe('GameRoomService', () => {
         },
       },
     });
+    claimHost(service, 'ROOM01');
     vi.mocked(get).mockResolvedValue({
       exists: () => true,
       val: () => roomSnapshot(room),
@@ -249,6 +279,7 @@ describe('GameRoomService', () => {
 
   it('startGame skips rewriting an already-live question', async () => {
     const room = questionRoom();
+    claimHost(service, 'ROOM01');
     vi.mocked(get).mockResolvedValue({
       exists: () => true,
       val: () => roomSnapshot(room),

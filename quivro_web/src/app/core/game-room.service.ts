@@ -33,6 +33,7 @@ import {
 
 const CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 const LAST_HOSTED_CODE_KEY = 'quivro.lastHostedCode';
+const HOST_SESSION_KEY = 'quivro.hostSessionId';
 
 @Injectable({ providedIn: 'root' })
 export class GameRoomService {
@@ -42,10 +43,12 @@ export class GameRoomService {
   private readonly serverTime = inject(ServerTimeService);
 
   readonly room = signal<RoomState | null>(null);
+  /** True when this browser tab owns host controls / teardown for the watched room. */
+  readonly hosting = signal(false);
 
   private unsubscribe: Unsubscribe | null = null;
   private roundQuestions = new Map<string, Question[]>();
-  /** Room code this browser is hosting (for leave / onDisconnect cleanup). */
+  /** Room code this browser tab is hosting (for leave / onDisconnect cleanup). */
   private hostedCode: string | null = null;
   private disconnectOp: OnDisconnect | null = null;
   /** The question index for which reveal() has already fired (prevents double-reveal). */
@@ -76,6 +79,7 @@ export class GameRoomService {
       throw new Error('NO_QUESTIONS');
     }
     const code = await this.allocateCode();
+    const hostSessionId = this.ensureTabHostSessionId();
     const state: RoomState = {
       code,
       phase: 'lobby',
@@ -90,12 +94,14 @@ export class GameRoomService {
       questionIds: questions.map((q) => q.id),
       lastWinners: [],
       rematchReady: {},
+      hostSessionId,
     };
 
     this.roundQuestions.set(code, questions);
     await set(ref(db, `rooms/${code}`), stripUndefined(this.toFirebase(state)));
     await this.armHostDisconnect(code);
     this.persistLastHostedCode(code);
+    this.hosting.set(true);
     await this.watchRoom(code);
     return code;
   }
@@ -106,11 +112,10 @@ export class GameRoomService {
     const db = this.requireDb();
     const roomRef = ref(db, `rooms/${upper}`);
 
-    // Restore host ownership after refresh/direct route so teardown still works.
-    const lastHosted = this.readLastHostedCode();
-    if (lastHosted === upper && this.hostedCode !== upper) {
-      await this.armHostDisconnect(upper);
-      this.persistLastHostedCode(upper);
+    if (this.hostedCode !== upper) {
+      await this.tryClaimHost(upper, roomRef);
+    } else {
+      this.hosting.set(true);
     }
 
     this.unsubscribe = onValue(roomRef, (snap) => {
@@ -128,7 +133,14 @@ export class GameRoomService {
     this.unsubscribe = null;
   }
 
+  private requireHost(code: string): void {
+    if (!this.isHosting || this.hostedCode !== code.toUpperCase()) {
+      throw new Error('NOT_HOST');
+    }
+  }
+
   async startGame(code: string): Promise<void> {
+    this.requireHost(code);
     const room = await this.fetchFreshRoom(code);
     if (Object.keys(room.players).length === 0) {
       throw new Error('NO_PLAYERS');
@@ -138,6 +150,7 @@ export class GameRoomService {
   }
 
   async nextAfterReveal(code: string): Promise<void> {
+    if (!this.isHosting || this.hostedCode !== code.toUpperCase()) return;
     // Always fetch fresh state from Firebase to avoid acting on stale signal data.
     const room = await this.fetchFreshRoom(code);
     if (room.phase !== 'reveal') return; // Already advanced or finished.
@@ -150,6 +163,7 @@ export class GameRoomService {
   }
 
   async reveal(code: string): Promise<void> {
+    if (!this.isHosting || this.hostedCode !== code.toUpperCase()) return;
     const room = await this.fetchFreshRoom(code);
     if (room.phase !== 'question') return;
     // Prevent double-reveal for the same question index (per tab).
@@ -216,11 +230,13 @@ export class GameRoomService {
   }
 
   async endGame(code: string): Promise<void> {
+    this.requireHost(code);
     // Host quit mid-round — show finished screen without awarding a win.
     await this.finishRound(code, false);
   }
 
   async rematch(code: string, nextConfig?: RoomConfig): Promise<void> {
+    this.requireHost(code);
     const room = await this.fetchFreshRoom(code);
     // Wins already applied in finishRound; keep lastWinners and reset round state.
     const config: RoomConfig = nextConfig
@@ -295,6 +311,7 @@ export class GameRoomService {
     this.stopWatching();
     this.roundQuestions.delete(code);
     this.hostedCode = null;
+    this.hosting.set(false);
     this.clearLastHostedCode(code);
     const db = this.requireDb();
     await remove(ref(db, `rooms/${code}`));
@@ -306,32 +323,32 @@ export class GameRoomService {
     const c = (code ?? this.hostedCode)?.toUpperCase();
     if (!c) {
       this.stopWatching();
+      this.hosting.set(false);
       return;
     }
 
-    const canTeardown =
-      this.hostedCode === c || this.readLastHostedCode() === c;
+    // Only the tab that successfully claimed host may delete the room.
+    // localStorage lastHostedCode alone is not enough (shared across tabs).
+    const canTeardown = this.hostedCode === c && this.hosting();
     if (!canTeardown) {
       this.stopWatching();
       return;
     }
 
     try {
-      if (!this.hostedCode) {
-        this.hostedCode = c;
-      }
       await this.deleteRoom(c);
     } catch (e) {
       console.error(e);
       this.stopWatching();
       this.hostedCode = null;
+      this.hosting.set(false);
       this.clearLastHostedCode(c);
       this.room.set(null);
     }
   }
 
   get isHosting(): boolean {
-    return this.hostedCode != null;
+    return this.hosting();
   }
 
   /** Drop the previous room this browser hosted so Firebase does not accumulate orphans. */
@@ -384,6 +401,96 @@ export class GameRoomService {
     }
   }
 
+  /**
+   * Claim host for this tab only when sessionStorage matches the room's
+   * hostSessionId (or when claiming a legacy room that has none yet).
+   */
+  private async tryClaimHost(
+    upper: string,
+    roomRef: ReturnType<typeof ref>,
+  ): Promise<void> {
+    const lastHosted = this.readLastHostedCode();
+    if (lastHosted !== upper) {
+      this.hosting.set(false);
+      return;
+    }
+
+    let snap;
+    try {
+      snap = await get(roomRef);
+    } catch {
+      this.hosting.set(false);
+      return;
+    }
+    if (!snap.exists()) {
+      this.hosting.set(false);
+      return;
+    }
+
+    const raw = snap.val() as Record<string, unknown>;
+    const remoteSession =
+      typeof raw['hostSessionId'] === 'string' && raw['hostSessionId']
+        ? String(raw['hostSessionId'])
+        : null;
+    const localSession = this.readTabHostSessionId();
+
+    if (localSession && remoteSession && localSession === remoteSession) {
+      await this.armHostDisconnect(upper);
+      this.persistLastHostedCode(upper);
+      this.hosting.set(true);
+      return;
+    }
+
+    // Legacy room (no hostSessionId yet): first matching tab claims it.
+    if (localSession && !remoteSession) {
+      await update(roomRef, { hostSessionId: localSession });
+      await this.armHostDisconnect(upper);
+      this.persistLastHostedCode(upper);
+      this.hosting.set(true);
+      return;
+    }
+
+    if (!localSession && !remoteSession) {
+      const sessionId = this.ensureTabHostSessionId();
+      await update(roomRef, { hostSessionId: sessionId });
+      await this.armHostDisconnect(upper);
+      this.persistLastHostedCode(upper);
+      this.hosting.set(true);
+      return;
+    }
+
+    // Another tab already owns this room — watch as spectator only.
+    this.hosting.set(false);
+  }
+
+  private ensureTabHostSessionId(): string {
+    const existing = this.readTabHostSessionId();
+    if (existing) return existing;
+    const id =
+      typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
+        ? crypto.randomUUID()
+        : `h_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 10)}`;
+    this.persistTabHostSessionId(id);
+    return id;
+  }
+
+  private readTabHostSessionId(): string | null {
+    try {
+      const id = sessionStorage.getItem(HOST_SESSION_KEY)?.trim();
+      return id || null;
+    } catch {
+      return null;
+    }
+  }
+
+  private persistTabHostSessionId(id: string): void {
+    try {
+      sessionStorage.setItem(HOST_SESSION_KEY, id);
+    } catch {
+      /* ignore quota / private mode */
+    }
+  }
+
   private async armHostDisconnect(code: string): Promise<void> {
     await this.cancelHostDisconnect();
     const db = this.requireDb();
@@ -391,6 +498,7 @@ export class GameRoomService {
     this.disconnectOp = onDisconnect(roomRef);
     await this.disconnectOp.remove();
     this.hostedCode = code;
+    this.hosting.set(true);
   }
 
   private async cancelHostDisconnect(): Promise<void> {
@@ -572,6 +680,7 @@ export class GameRoomService {
       lastWinners: state.lastWinners,
       roundTied: state.roundTied ?? null,
       rematchReady: state.rematchReady,
+      hostSessionId: state.hostSessionId ?? null,
     };
   }
 
@@ -633,6 +742,8 @@ export class GameRoomService {
       lastWinners,
       roundTied: raw['roundTied'] === true,
       rematchReady: (raw['rematchReady'] as Record<string, boolean>) ?? {},
+      hostSessionId:
+        typeof raw['hostSessionId'] === 'string' ? String(raw['hostSessionId']) : null,
     };
   }
 

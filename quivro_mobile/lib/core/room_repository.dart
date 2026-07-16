@@ -82,6 +82,10 @@ class RoomRepository {
     return isSessionResumable(room, playerId);
   }
 
+  bool _canJoinPhase(String? phase) {
+    return phase == 'lobby' || phase == 'finished';
+  }
+
   Future<String> joinRoom({
     required String code,
     required String name,
@@ -95,9 +99,18 @@ class RoomRepository {
 
     final roomSnap = await roomRef(upper).get();
     final raw = roomSnap.value;
+    if (raw is! Map) {
+      throw StateError('ROOM_NOT_FOUND');
+    }
+
+    final phase = '${raw['phase'] ?? 'lobby'}';
+    if (!_canJoinPhase(phase)) {
+      throw StateError('ROOM_IN_PROGRESS');
+    }
+
     final usedNames = <String>{};
     String? existingId;
-    if (raw is Map && raw['players'] is Map) {
+    if (raw['players'] is Map) {
       for (final entry in (raw['players'] as Map).entries) {
         final value = entry.value;
         if (value is Map && value['name'] != null) {
@@ -143,6 +156,44 @@ class RoomRepository {
 
     await _store.saveActiveSession(code: upper, playerId: id);
     return id;
+  }
+
+  Future<void> updatePlayerProfile({
+    required String code,
+    required String playerId,
+    required String name,
+    required int avatar,
+  }) async {
+    final upper = code.toUpperCase().trim();
+    final playerRef = roomRef(upper).child('players').child(playerId);
+    final snap = await playerRef.get();
+    if (!snap.exists) return;
+
+    final trimmed = name.trim().isEmpty ? 'Player' : name.trim();
+    await playerRef.update({
+      'name': trimmed,
+      'avatar': avatar.clamp(0, avatarCount - 1),
+    });
+  }
+
+  /// Manual leave/quit only — removes the player from Firebase.
+  /// Do not call on app kill / disconnect (resume must still work).
+  Future<void> leaveRoom({
+    required String code,
+    required String playerId,
+  }) async {
+    final upper = code.toUpperCase().trim();
+    try {
+      await roomRef(upper).child('rematchReady').child(playerId).remove();
+    } catch (_) {
+      /* room may already be gone */
+    }
+    try {
+      await roomRef(upper).child('players').child(playerId).remove();
+    } catch (_) {
+      /* room may already be gone */
+    }
+    await clearActiveSession();
   }
 
   Future<void> clearActiveSession() => _store.clearActiveSession();

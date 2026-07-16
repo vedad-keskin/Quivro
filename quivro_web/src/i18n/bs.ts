@@ -2,7 +2,7 @@ import type { UiStrings } from './en';
 
 export const bs: UiStrings = {
   appName: 'Quivro',
-  tagline: 'Kvizovi uživo koji pale atmosferu.',
+  tagline: 'Okupi ekipu. Pokaži znanje.',
   createRound: 'Pokreni igru',
   addQuestions: 'Dodaj pitanja',
   language: 'Jezik',
@@ -85,4 +85,6 @@ export const bs: UiStrings = {
   noQuestions: 'Nema pitanja za odabrane filtere. Dodaj više ili promijeni tipove.',
   startFailed: 'Nije uspjelo. Pokušaj ponovo.',
   fillAllFields: 'Popuni sva polja i odaberi tačan odgovor',
+  alreadyHostingOtherTab:
+    'Ova soba se već vodi u drugom tabu. Koristi taj tab ili ga prvo zatvori.',
 };

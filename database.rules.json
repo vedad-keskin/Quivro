@@ -3,25 +3,41 @@
     "rooms": {
       "$code": {
         ".read": true,
+        ".write": "!data.exists() || !newData.exists()",
+        "phase": { ".write": true },
+        "config": { ".write": true },
+        "createdAt": { ".write": true },
+        "currentIndex": { ".write": true },
+        "totalQuestions": { ".write": true },
+        "currentQuestion": { ".write": true },
+        "correctIndex": { ".write": true },
+        "questionIds": { ".write": true },
+        "lastScoreDeltas": { ".write": true },
+        "lastWinners": { ".write": true },
+        "lastWinner": { ".write": true },
+        "roundTied": { ".write": true },
+        "hostSessionId": { ".write": true },
         "answers": {
+          ".write": "!newData.exists()",
           "$qIndex": {
             "$playerId": {
-              ".write": "root.child('rooms').child($code).child('phase').val() === 'question' && root.child('rooms').child($code).child('currentIndex').val() == $qIndex && newData.hasChildren(['choice', 'answeredAt']) && newData.child('choice').isNumber() && newData.child('choice').val() >= 0 && newData.child('choice').val() <= 3 && newData.child('answeredAt').isNumber() && newData.child('answeredAt').val() <= root.child('rooms').child($code).child('currentQuestion').child('endsAt').val() && root.child('rooms').child($code).child('players').child($playerId).exists()",
-              ".validate": "newData.child('choice').isNumber() && newData.child('answeredAt').isNumber()"
+              ".write": "!newData.exists() || (root.child('rooms').child($code).child('phase').val() === 'question' && root.child('rooms').child($code).child('currentIndex').val() == $qIndex && newData.hasChildren(['choice', 'answeredAt']) && newData.child('choice').isNumber() && newData.child('choice').val() >= 0 && newData.child('choice').val() <= 3 && newData.child('answeredAt').isNumber() && newData.child('answeredAt').val() <= root.child('rooms').child($code).child('currentQuestion').child('endsAt').val() && root.child('rooms').child($code).child('players').child($playerId).exists())",
+              ".validate": "!newData.exists() || (newData.child('choice').isNumber() && newData.child('answeredAt').isNumber())"
             }
           }
         },
         "players": {
           "$playerId": {
-            ".write": "!data.exists() || data.child('id').val() === $playerId"
+            ".write": "(!data.exists() && newData.exists() && (root.child('rooms').child($code).child('phase').val() === 'lobby' || root.child('rooms').child($code).child('phase').val() === 'finished') && newData.hasChildren(['id', 'name', 'score', 'avatar', 'joinedAt', 'wins']) && newData.child('id').val() === $playerId) || (data.exists() && !newData.exists()) || (data.exists() && newData.exists() && data.child('id').val() === $playerId)",
+            ".validate": "!newData.exists() || (newData.hasChild('id') && newData.child('id').val() === $playerId && newData.hasChild('name') && newData.hasChild('avatar'))"
           }
         },
         "rematchReady": {
+          ".write": "!newData.exists()",
           "$playerId": {
-            ".write": "newData.val() === true && root.child('rooms').child($code).child('players').child($playerId).exists()"
+            ".write": "!newData.exists() || (newData.val() === true && root.child('rooms').child($code).child('players').child($playerId).exists())"
           }
-        },
-        ".write": true
+        }
       }
     }
   }

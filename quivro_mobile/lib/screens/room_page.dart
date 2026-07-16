@@ -31,16 +31,19 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
   final _repo = RoomRepository();
   final _sfx = Sfx();
   late final Stream<RoomState?> _stream;
+  late PlayerProfile _profile;
   bool _submitting = false;
   int? _picked;
   int _trackedQuestion = -1;
   bool _optingIn = false;
   bool _exitingClosedRoom = false;
   bool _sawRoom = false;
+  bool _manualLeave = false;
 
   @override
   void initState() {
     super.initState();
+    _profile = widget.profile;
     WidgetsBinding.instance.addObserver(this);
     _stream = _repo.watchRoom(widget.code);
     unawaited(_sfx.preload());
@@ -71,6 +74,8 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
     }
   }
 
+  /// Forced exit (room closed, kicked, connection lost) — keep Firebase player
+  /// so accidental kills can still resume when applicable.
   Future<void> _leaveToHome({bool showClosed = false, String? message}) async {
     await _repo.clearActiveSession();
     if (!mounted) return;
@@ -79,7 +84,60 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
     } else if (message != null) {
       showQuivroSnack(context, message);
     }
-    context.go('/', extra: widget.profile);
+    context.go('/', extra: _profile);
+  }
+
+  /// Intentional Leave / Quit / Home — remove player from Firebase.
+  Future<void> _leaveRoomManually() async {
+    if (_exitingClosedRoom) return;
+    _exitingClosedRoom = true;
+    _manualLeave = true;
+    await _repo.leaveRoom(code: widget.code, playerId: widget.playerId);
+    if (!mounted) return;
+    context.go('/', extra: _profile);
+  }
+
+  Future<void> _confirmQuitGame() async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(
+          'Leave this game?',
+          style: GoogleFonts.nunito(fontWeight: FontWeight.w800),
+        ),
+        content: Text(
+          'You will be removed from the room.',
+          style: GoogleFonts.nunito(fontWeight: FontWeight.w600),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: Text(
+              'Leave',
+              style: GoogleFonts.nunito(
+                fontWeight: FontWeight.w800,
+                color: const Color(0xFFEC4899),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+    if (confirmed == true && mounted) {
+      await _leaveRoomManually();
+    }
+  }
+
+  void _openSetup() {
+    context.go('/setup', extra: {
+      'existing': _profile,
+      'returnTo': '/room/${widget.code}',
+      'returnPlayerId': widget.playerId,
+    });
   }
 
   void _handleRoomClosed() {
@@ -190,8 +248,14 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
 
         _sawRoom = true;
 
+        final self = room.player(widget.playerId);
         // Removed from the room (e.g. rematch started without opting in).
-        if (room.player(widget.playerId) == null) {
+        if (self == null) {
+          if (_manualLeave) {
+            return const Scaffold(
+              body: Center(child: CircularProgressIndicator()),
+            );
+          }
           WidgetsBinding.instance.addPostFrameCallback((_) {
             if (!mounted || _exitingClosedRoom) return;
             _handleRoomEnded(message: 'Round started without you');
@@ -199,6 +263,17 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
           return const Scaffold(
             body: Center(child: CircularProgressIndicator()),
           );
+        }
+
+        // Prefer live Firebase name/avatar when present.
+        final liveProfile = PlayerProfile(
+          nickname: self.name,
+          avatar: self.avatar,
+        );
+        if (liveProfile != _profile) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (mounted) setState(() => _profile = liveProfile);
+          });
         }
 
         if (RoomSessionPolicy.isStalePlayState(room, _repo.nowMs())) {
@@ -230,8 +305,9 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
         if (room.phase == 'lobby') {
           return _LobbyView(
             code: widget.code,
-            profile: widget.profile,
-            onLeave: () => unawaited(_leaveToHome()),
+            profile: _profile,
+            onLeave: () => unawaited(_leaveRoomManually()),
+            onEditProfile: _openSetup,
           );
         }
 
@@ -239,11 +315,12 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
           return _FinishedView(
             room: room,
             playerId: widget.playerId,
-            profile: widget.profile,
+            profile: _profile,
             optedIn: room.isRematchReady(widget.playerId),
             optingIn: _optingIn,
             onPlayAgain: _optInRematch,
-            onHome: () => unawaited(_leaveToHome()),
+            onHome: () => unawaited(_leaveRoomManually()),
+            onEditProfile: _openSetup,
           );
         }
 
@@ -263,11 +340,12 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
 
         return _PlayView(
           room: room,
-          profile: widget.profile,
+          profile: _profile,
           locked: !canChange,
           picked: picked,
           onPick: (i) => _answer(room, i),
           nowMs: _repo.nowMs,
+          onQuit: () => unawaited(_confirmQuitGame()),
         );
       },
     );
@@ -279,11 +357,13 @@ class _LobbyView extends StatelessWidget {
     required this.code,
     required this.profile,
     required this.onLeave,
+    required this.onEditProfile,
   });
 
   final String code;
   final PlayerProfile profile;
   final VoidCallback onLeave;
+  final VoidCallback onEditProfile;
 
   @override
   Widget build(BuildContext context) {
@@ -304,7 +384,10 @@ class _LobbyView extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              AvatarBadge(index: profile.avatar, size: 72),
+              GestureDetector(
+                onTap: onEditProfile,
+                child: AvatarBadge(index: profile.avatar, size: 72),
+              ),
               const SizedBox(height: 12),
               Text(
                 profile.nickname,
@@ -313,7 +396,17 @@ class _LobbyView extends StatelessWidget {
                   fontWeight: FontWeight.w800,
                 ),
               ),
-              const SizedBox(height: 28),
+              TextButton(
+                onPressed: onEditProfile,
+                child: Text(
+                  'Edit nickname & avatar',
+                  style: GoogleFonts.nunito(
+                    fontWeight: FontWeight.w700,
+                    color: QuivroColors.muted,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
               Text(
                 'Room',
                 style: GoogleFonts.nunito(
@@ -367,6 +460,7 @@ class _PlayView extends StatelessWidget {
     required this.picked,
     required this.onPick,
     required this.nowMs,
+    required this.onQuit,
   });
 
   final RoomState room;
@@ -375,6 +469,7 @@ class _PlayView extends StatelessWidget {
   final int? picked;
   final ValueChanged<int> onPick;
   final int Function() nowMs;
+  final VoidCallback onQuit;
 
   @override
   Widget build(BuildContext context) {
@@ -414,6 +509,22 @@ class _PlayView extends StatelessWidget {
                       ],
                     ),
                   ),
+                  TextButton(
+                    onPressed: onQuit,
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      minimumSize: Size.zero,
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                    child: Text(
+                      'Quit',
+                      style: GoogleFonts.nunito(
+                        fontWeight: FontWeight.w800,
+                        color: QuivroColors.muted,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 4),
                   if (room.phase == 'question')
                     _Countdown(
                       endsAt: q.endsAt,
@@ -749,6 +860,7 @@ class _FinishedView extends StatelessWidget {
     required this.optingIn,
     required this.onPlayAgain,
     required this.onHome,
+    required this.onEditProfile,
   });
 
   final RoomState room;
@@ -758,6 +870,7 @@ class _FinishedView extends StatelessWidget {
   final bool optingIn;
   final VoidCallback onPlayAgain;
   final VoidCallback onHome;
+  final VoidCallback onEditProfile;
 
   @override
   Widget build(BuildContext context) {
@@ -771,15 +884,39 @@ class _FinishedView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                'Final leaderboard',
-                style: GoogleFonts.nunito(
-                  fontSize: 28,
-                  fontWeight: FontWeight.w900,
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      'Final leaderboard',
+                      style: GoogleFonts.nunito(
+                        fontSize: 28,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: onEditProfile,
+                    child: AvatarBadge(index: profile.avatar, size: 44),
+                  ),
+                ],
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: onEditProfile,
+                  child: Text(
+                    'Edit nickname & avatar',
+                    style: GoogleFonts.nunito(
+                      fontWeight: FontWeight.w700,
+                      color: QuivroColors.muted,
+                      fontSize: 13,
+                    ),
+                  ),
                 ),
               ),
               if (room.lastWinners.length == 1) ...[
-                const SizedBox(height: 8),
+                const SizedBox(height: 4),
                 Row(
                   children: [
                     Text(
@@ -801,7 +938,7 @@ class _FinishedView extends StatelessWidget {
                   ],
                 ),
               ] else if (room.lastWinners.length > 1) ...[
-                const SizedBox(height: 8),
+                const SizedBox(height: 4),
                 Text(
                   'Tied winners:',
                   style: GoogleFonts.nunito(

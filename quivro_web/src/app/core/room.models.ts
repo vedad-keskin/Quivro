@@ -80,6 +80,8 @@ export interface RoomState {
   roundTied?: boolean;
   /** Players who tapped Play again on mobile */
   rematchReady: Record<string, boolean>;
+  /** Tab-scoped host claim — only the matching sessionStorage tab may host. */
+  hostSessionId?: string | null;
 }
 
 /** Sort: score desc, last point desc, join order asc. Keep in sync with mobile ranked(). */

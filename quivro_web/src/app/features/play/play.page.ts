@@ -44,6 +44,9 @@ import { TimerRing } from '../../shared/timer-ring';
   template: `
     <div class="tv" #tvRoot>
       @if (room(); as r) {
+        @if (!rooms.hosting()) {
+          <p class="spectator-banner">{{ lang.t().alreadyHostingOtherTab }}</p>
+        }
         @if (r.phase === 'finished') {
           <section class="final">
             <div class="brand">
@@ -203,7 +206,7 @@ import { TimerRing } from '../../shared/timer-ring';
                 <button
                   type="button"
                   class="q-btn q-btn-outline start-rematch"
-                  [disabled]="!canRematch() || rematching()"
+                  [disabled]="!rooms.hosting() || !canRematch() || rematching()"
                   (click)="rematch()"
                 >
                   {{ lang.t().startRematch }}
@@ -279,7 +282,12 @@ import { TimerRing } from '../../shared/timer-ring';
                 <p class="waiting">{{ lang.t().waitingPlayers }}</p>
               }
 
-              <button type="button" class="end q-btn q-btn-ghost" (click)="end()">
+              <button
+                type="button"
+                class="end q-btn q-btn-ghost"
+                [disabled]="!rooms.hosting()"
+                (click)="end()"
+              >
                 {{ lang.t().endGame }}
               </button>
             </section>
@@ -297,6 +305,18 @@ import { TimerRing } from '../../shared/timer-ring';
       padding: clamp(0.75rem, 1.5vw, 1.25rem);
       position: relative;
       overflow: hidden;
+    }
+    .spectator-banner {
+      margin: 0 0 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: 14px;
+      background: #fff7ed;
+      border: 2px solid #fdba74;
+      color: #9a3412;
+      font-weight: 800;
+      line-height: 1.35;
+      position: relative;
+      z-index: 5;
     }
     .layout {
       display: grid;
@@ -674,7 +694,11 @@ export class PlayPage implements OnInit, OnDestroy {
         this.knownRematchReady.clear();
       }
 
-      if (r.phase === 'reveal' && this.lastHandledReveal !== r.currentIndex) {
+      if (
+        this.rooms.hosting() &&
+        r.phase === 'reveal' &&
+        this.lastHandledReveal !== r.currentIndex
+      ) {
         this.lastHandledReveal = r.currentIndex;
         if (this.lastFlyReveal !== r.currentIndex) {
           this.lastFlyReveal = r.currentIndex;
@@ -696,6 +720,7 @@ export class PlayPage implements OnInit, OnDestroy {
     interval(250)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
+        if (!this.rooms.hosting()) return;
         const r = this.room();
         if (r?.phase !== 'question') return;
         // Already sent reveal for this question — don't fire again.
@@ -767,6 +792,7 @@ export class PlayPage implements OnInit, OnDestroy {
   }
 
   async onQuestionExpired(): Promise<void> {
+    if (!this.rooms.hosting()) return;
     const r = this.room();
     if (r?.phase !== 'question') return;
     // Prevent double-reveal: only fire once per question index.
@@ -781,6 +807,7 @@ export class PlayPage implements OnInit, OnDestroy {
   }
 
   private async advanceFromReveal(forIndex: number): Promise<void> {
+    if (!this.rooms.hosting()) return;
     const r = this.room();
     // Only advance if still in reveal phase for the expected question index.
     if (r?.phase !== 'reveal' || r.currentIndex !== forIndex) return;
@@ -788,11 +815,12 @@ export class PlayPage implements OnInit, OnDestroy {
   }
 
   async end(): Promise<void> {
+    if (!this.rooms.hosting()) return;
     await this.rooms.endGame(this.code);
   }
 
   async rematch(): Promise<void> {
-    if (!this.canRematch() || this.rematching()) return;
+    if (!this.rooms.hosting() || !this.canRematch() || this.rematching()) return;
     this.rematching.set(true);
     try {
       const room = this.room();
@@ -818,7 +846,8 @@ export class PlayPage implements OnInit, OnDestroy {
       console.error(e);
       let msg = this.lang.t().startFailed;
       if (e instanceof Error) {
-        if (e.message === 'NO_QUESTIONS') msg = this.lang.t().noQuestions;
+        if (e.message === 'NOT_HOST') msg = this.lang.t().alreadyHostingOtherTab;
+        else if (e.message === 'NO_QUESTIONS') msg = this.lang.t().noQuestions;
         else if (e.message === 'NO_PLAYERS') msg = this.lang.t().minPlayers;
       }
       this.snack.error(msg);

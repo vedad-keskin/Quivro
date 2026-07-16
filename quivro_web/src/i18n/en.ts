@@ -1,6 +1,6 @@
 export const en = {
   appName: 'Quivro',
-  tagline: 'Live quizzes that light up the room.',
+  tagline: 'Gather your team. Show your knowledge.',
   createRound: 'Start the game',
   addQuestions: 'Add Questions',
   language: 'Language',
@@ -83,6 +83,8 @@ export const en = {
   noQuestions: 'No questions match your filters. Add more or change types.',
   startFailed: 'Could not start. Try again.',
   fillAllFields: 'Fill all fields and pick a correct answer',
+  alreadyHostingOtherTab:
+    'This room is already hosting in another tab. Use that tab, or close it first.',
 };
 
 export type UiStrings = Record<keyof typeof en, string>;

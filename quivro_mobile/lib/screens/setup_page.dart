@@ -3,13 +3,22 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../core/avatars.dart';
 import '../core/profile_store.dart';
+import '../core/room_repository.dart';
 import '../widgets/avatar_widgets.dart';
 import '../widgets/quivro_snackbar.dart';
 
 class SetupPage extends StatefulWidget {
-  const SetupPage({super.key, this.existing});
+  const SetupPage({
+    super.key,
+    this.existing,
+    this.returnTo,
+    this.returnPlayerId,
+  });
 
   final PlayerProfile? existing;
+  /// When set (e.g. `/room/ABC123`), navigate here after save instead of home.
+  final String? returnTo;
+  final String? returnPlayerId;
 
   @override
   State<SetupPage> createState() => _SetupPageState();
@@ -19,6 +28,8 @@ class _SetupPageState extends State<SetupPage> {
   late final TextEditingController _nick;
   late int _avatar;
   bool _saving = false;
+  final _store = ProfileStore();
+  final _repo = RoomRepository();
 
   @override
   void initState() {
@@ -41,13 +52,43 @@ class _SetupPageState extends State<SetupPage> {
     }
     setState(() => _saving = true);
     final profile = PlayerProfile(nickname: name, avatar: _avatar);
-    await ProfileStore().save(profile);
+    await _store.save(profile);
+
+    final session = await _store.loadActiveSession();
+    if (session != null) {
+      try {
+        await _repo.updatePlayerProfile(
+          code: session.code,
+          playerId: session.playerId,
+          name: profile.nickname,
+          avatar: profile.avatar,
+        );
+      } catch (_) {
+        /* room may be gone — local profile still saved */
+      }
+    }
+
     if (!mounted) return;
+
+    final returnTo = widget.returnTo;
+    final returnPlayerId = widget.returnPlayerId ?? session?.playerId;
+    if (returnTo != null &&
+        returnTo.startsWith('/room/') &&
+        returnPlayerId != null &&
+        returnPlayerId.isNotEmpty) {
+      context.go(returnTo, extra: {
+        'playerId': returnPlayerId,
+        'profile': profile,
+      });
+      return;
+    }
+
     context.go('/', extra: profile);
   }
 
   @override
   Widget build(BuildContext context) {
+    final fromRoom = widget.returnTo != null;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -55,13 +96,44 @@ class _SetupPageState extends State<SetupPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Quivro',
-                style: GoogleFonts.nunito(
-                  fontSize: 40,
-                  fontWeight: FontWeight.w800,
-                  color: QuivroColors.navy,
-                ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      'Quivro',
+                      style: GoogleFonts.nunito(
+                        fontSize: 40,
+                        fontWeight: FontWeight.w800,
+                        color: QuivroColors.navy,
+                      ),
+                    ),
+                  ),
+                  if (fromRoom)
+                    TextButton(
+                      onPressed: _saving
+                          ? null
+                          : () {
+                              final returnTo = widget.returnTo!;
+                              final playerId = widget.returnPlayerId;
+                              if (playerId != null &&
+                                  widget.existing != null) {
+                                context.go(returnTo, extra: {
+                                  'playerId': playerId,
+                                  'profile': widget.existing,
+                                });
+                              } else {
+                                context.go(returnTo);
+                              }
+                            },
+                      child: Text(
+                        'Cancel',
+                        style: GoogleFonts.nunito(
+                          fontWeight: FontWeight.w700,
+                          color: QuivroColors.muted,
+                        ),
+                      ),
+                    ),
+                ],
               ),
               Container(
                 margin: const EdgeInsets.only(top: 6, bottom: 28),
