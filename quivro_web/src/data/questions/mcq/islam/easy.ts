@@ -50,7 +50,7 @@ export const islamEasy: Question[] = [
     difficulty: 'easy',
     prompt: { en: 'Who was the Prophet\'s mother?', bs: 'Ko je bila majka Allahovog Poslanika, sallallahu alejhi ve sellem?' },
     options: [
-      { en: 'Khadija', bs: 'Hadidža' },
+      { en: 'Khadija', bs: 'Hatidža' },
       { en: 'Fatima', bs: 'Fatima' },
       { en: 'Halima', bs: 'Halima' },
       { en: 'Amina', bs: 'Amina' },
@@ -65,7 +65,7 @@ export const islamEasy: Question[] = [
     prompt: { en: 'Which wet-nurse raised the Prophet in the desert?', bs: 'Koja je dojilja odgajala Poslanika, sallallahu alejhi ve sellem, u pustinji?' },
     options: [
       { en: 'Halima', bs: 'Halima' },
-      { en: 'Khadija', bs: 'Hadidža' },
+      { en: 'Khadija', bs: 'Hatidža' },
       { en: 'Asma', bs: 'Asma' },
       { en: 'Sawda', bs: 'Sevda' },
     ],
@@ -108,7 +108,7 @@ export const islamEasy: Question[] = [
     options: [
       { en: 'Blacksmith', bs: 'Kovač' },
       { en: 'Sailor', bs: 'Mornar' },
-      { en: 'Royal scribe', bs: 'Kraljevski pisar' },
+      { en: 'Merchant', bs: 'Trgovac' },
       { en: 'Shepherd', bs: 'Pastir' },
     ],
     correctIndex: 3,
@@ -120,7 +120,7 @@ export const islamEasy: Question[] = [
     difficulty: 'easy',
     prompt: { en: 'What was Hilf al-Fudul?', bs: 'Šta je bio Hilful-fudul?' },
     options: [
-      { en: 'A pre-Islamic pact to defend the oppressed', bs: 'Predislamski savez za zaštitu ugnjetenih' },
+      { en: 'A pre-Islamic pact to defend the oppressed', bs: 'Predislamski savez za zaštitu ugnjetavanih' },
       { en: 'A battle against Persia', bs: 'Bitka protiv Perzije' },
       { en: 'A trade route to Yemen', bs: 'Trgovačka ruta u Jemen' },
       { en: 'A pagan festival at the Kaaba', bs: 'Poganski praznik kod Kabe' },
@@ -135,7 +135,7 @@ export const islamEasy: Question[] = [
     prompt: { en: 'Who was the Prophet\'s first wife?', bs: 'Ko je bila prva supruga Poslanika, sallallahu alejhi ve sellem?' },
     options: [
       { en: 'Aisha', bs: 'Aiša' },
-      { en: 'Khadija bint Khuwaylid', bs: 'Hadidža b. Huvejlid' },
+      { en: 'Khadija bint Khuwaylid', bs: 'Hatidža b. Huvejlid' },
       { en: 'Hafsa', bs: 'Hafsa' },
       { en: 'Zaynab bint Jahsh', bs: 'Zejneb b. Džahš' },
     ],
@@ -236,7 +236,7 @@ export const islamEasy: Question[] = [
       { en: 'Abu Bakr', bs: 'Ebu Bekr' },
       { en: 'Khalid ibn al-Walid', bs: 'Halid b. Velid' },
       { en: 'Amr ibn al-As', bs: 'Amr b. As' },
-      { en: 'Abu Jahl', bs: 'Ebu Jehl' },
+      { en: 'Abu Jahl', bs: 'Ebu Džehl' },
     ],
     correctIndex: 0,
   },
@@ -304,7 +304,7 @@ export const islamEasy: Question[] = [
     prompt: { en: 'The Year of Grief is linked to the deaths of whom?', bs: 'Godina tuge povezana je sa smrću koga?' },
     options: [
       { en: 'Abu Bakr and Umar', bs: 'Ebu Bekra i Omera' },
-      { en: 'Abu Talib and Khadija', bs: 'Ebu Taliba i Hadidže' },
+      { en: 'Abu Talib and Khadija', bs: 'Ebu Taliba i Hatidže' },
       { en: 'Hamza and Ja\'far', bs: 'Hamze i Džafera' },
       { en: 'Amina and Abdullah', bs: 'Amine i Abdullaha' },
     ],

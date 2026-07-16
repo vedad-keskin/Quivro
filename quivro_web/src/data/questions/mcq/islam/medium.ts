@@ -539,7 +539,7 @@ export const islamMedium: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'medium',
-    prompt: { en: 'Waraqah ibn Nawfal, Khadija\'s cousin, told the Prophet after first revelation:', bs: 'Vereka b. Nevfel, Hadidžin rođak, rekao je Poslaniku nakon prve objave:' },
+    prompt: { en: 'Waraqah ibn Nawfal, Khadija\'s cousin, told the Prophet after first revelation:', bs: 'Vereka b. Nevfel, Hatidžin rođak, rekao je Poslaniku nakon prve objave:' },
     options: [
       { en: 'You must leave Arabia immediately', bs: 'Moraš odmah napustiti Arabiju' },
       { en: 'This is the same revelation that came to Musa', bs: 'Ovo je ista objava koja je došla Musau' },
@@ -970,9 +970,9 @@ export const islamMedium: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'medium',
-    prompt: { 
-      en: 'The standardization of the Qur\'an into one official written copy was carried out during the leadership of a halife?',
-      bs: 'Ujednačavanje Kur\'ana u jedan službeni pisani primjerak izvršeno je za vrijeme hilafeta kojeg halife?'
+    prompt: {
+      en: 'During the caliphate of which caliph was the Qur\'an standardized into the official Mushaf?',
+      bs: 'Za vrijeme hilafeta kojeg halife Kur\'an je ujednačen u službeni mushaf?'
     },
     options: [
       { en: 'Abu Bakr', bs: 'Ebu Bekra' },

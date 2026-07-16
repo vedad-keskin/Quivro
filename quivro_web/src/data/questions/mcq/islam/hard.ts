@@ -1449,14 +1449,17 @@ export const islamHard: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'In inheritance (faraid), a son generally receives:', bs: 'U nasljeđivanju (feraizu), sin općenito dobija:' },
+    prompt: {
+      en: 'Which of the following is not a name of Surah Al-Fatiha?',
+      bs: 'Koji od navedenih nije naziv sure El-Fatiha?'
+    },
     options: [
-      { en: 'Half of a daughter\'s share', bs: 'Polovinu udjela kćeri' },
-      { en: 'Twice the share of a daughter', bs: 'Dvostruko udjela u odnosu na kćer' },
-      { en: 'Nothing if parents live', bs: 'Ništa ako roditelji žive' },
-      { en: 'Debts, not assets', bs: 'Dugove, ne imovinu' },
+      { en: 'Umm al-Kitab', bs: 'Ummul-Kitab' },
+      { en: 'As-Sab\' al-Mathani', bs: 'Es-Seb‘ul-mesani' },
+      { en: 'Qalb al-Qur\'an', bs: 'Kalbul-Kur\'an' },
+      { en: 'Al-Hamd', bs: 'El-Hamd' },
     ],
-    correctIndex: 1,
+    correctIndex: 2,
   },
   {
     id: 'islam-hard-087',
