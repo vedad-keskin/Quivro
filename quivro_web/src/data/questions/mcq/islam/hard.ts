@@ -1705,16 +1705,16 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What is recommended to do with the bed before sleeping?',
-      bs: 'Šta je preporučeno uraditi s posteljom prije spavanja?'
+      en: 'What did the Prophet Muhammad, peace be upon him, recommend doing with your bed before going to sleep?',
+      bs: 'Šta je Poslanik Muhammed, sallallahu alejhi ve sellem, preporučio uraditi s posteljom prije spavanja?'
     },
     options: [
-      { en: 'Shake it with the inside of the cover', bs: 'Otresti je unutrašnjošću prekrivača' },
-      { en: 'Leave it untouched', bs: 'Ostaviti je netaknutom' },
-      { en: 'Wash it every night', bs: 'Oprati je svaku noć' },
-      { en: 'Change it before every sleep', bs: 'Promijeniti je prije svakog spavanja' }
+      { en: 'Shake it with the inside of your garment or blanket', bs: 'Otresti je unutrašnjošću odjeće ili prekrivača' },
+      { en: 'Leave it as it is', bs: 'Ostaviti je onakvom kakva jeste' },
+      { en: 'Wash it every night', bs: 'Oprati je svake noći' },
+      { en: 'Change the bedding before every sleep', bs: 'Promijeniti posteljinu prije svakog spavanja' }
     ],
-    correctIndex: 0
+    correctIndex: 0,
   },
   {
     id: 'islam-hard-102',
