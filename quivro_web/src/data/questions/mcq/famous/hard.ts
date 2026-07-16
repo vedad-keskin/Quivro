@@ -126,8 +126,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Who directed the anime film "Your Name" (2016)?',
-      bs: 'Ko je režirao anime film "Your Name" (2016)?',
+      en: 'Who directed the anime film Your Name?',
+      bs: 'Ko je režirao anime film Your Name?',
     },
     options: [
       { en: 'Makoto Shinkai', bs: 'Makoto Shinkai' },
