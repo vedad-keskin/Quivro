@@ -6,124 +6,151 @@ export const islamHard: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'In Jewish tradition today, the Torah (Tevrat) is a collection of how many books?', bs: 'U današnjoj jevrejskoj tradiciji, Tevrat je zbirka od koliko knjiga?' },
+    prompt: { 
+      en: 'Who commanded the Quraysh army at the Battle of Badr?',
+      bs: 'Ko je predvodio vojsku Kurejšija u Bitci na Bedru?'
+    },
     options: [
-      { en: 'Five', bs: 'Pet' },
-      { en: 'Twelve', bs: 'Dvanaest' },
-      { en: 'Four', bs: 'Četiri' },
-      { en: 'One', bs: 'Jedne' },
+      { en: 'Abu Sufyan', bs: 'Ebu Sufjan' },
+      { en: 'Abu Jahl', bs: 'Ebu Džehl' },
+      { en: 'Utbah ibn Rabi’ah', bs: 'Utbe b. Rebia' },
+      { en: 'Walid ibn al-Mughirah', bs: 'Velid b. Mugira' },
     ],
-    correctIndex: 0,
+    correctIndex: 1,
   },
   {
     id: 'islam-hard-002',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The five books of the Torah in Jewish tradition include Genesis, Exodus, Leviticus, Numbers, and:', bs: 'Pet knjiga Tevrata u jevrejskoj tradiciji uključuju Postanak, Izlazak, Levitski zakonik, Brojeve i:' },
+    prompt: { 
+      en: 'How many Muslims participated in the Battle of Badr?',
+      bs: 'Koliko muslimana je učestvovalo u Bitci na Bedru?'
+    },
     options: [
-      { en: 'The Psalms', bs: 'Psalme' },
-      { en: 'Deuteronomy (Ponovljeni zakon)', bs: 'Ponovljeni zakon' },
-      { en: 'Gospel of Luke', bs: 'Evanđelje po Luki' },
-      { en: 'Al-Fatiha', bs: 'El-Fatiha' },
+      { en: '313', bs: '313' },
+      { en: '700', bs: '700' },
+      { en: '950', bs: '950' },
+      { en: '1000', bs: '1000' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'islam-hard-003',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'According to Katada, the Zabur given to Dawud contained mainly supplications and praise, but not:', bs: 'Prema Katadi, Zebur dat Davudu sadrži dove i hvalu, ali ne sadrži:' },
+    prompt: { 
+      en: 'Which companion gave a famous speech supporting the Prophet before the Battle of Badr?',
+      bs: 'Koji ashab je održao poznati govor podrške Poslaniku prije Bitke na Bedru?'
+    },
     options: [
-      { en: 'Any mention of Allah', bs: 'Bilo kakvo spominjanje Allaha' },
-      { en: 'Any Arabic language', bs: 'Arapski jezik' },
-      { en: 'Detailed halal/haram or penal law', bs: 'Detaljne propise halala/harama ili kaznenog prava' },
-      { en: 'Stories of prophets', bs: 'Priče o poslanicima' },
+      { en: 'Saad ibn Muadh', bs: 'Sa’d b. Muaz' },
+      { en: 'Miqdad ibn Aswad', bs: 'Mikdad b. Esved' },
+      { en: 'Abu Bakr', bs: 'Ebu Bekr' },
+      { en: 'Bilal ibn Rabah', bs: 'Bilal b. Rebbah' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'islam-hard-004',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The Greek-origin word Injil means:', bs: 'Riječ indžil grčkog porijekla znači:' },
+    prompt: { 
+      en: 'What title is given to the Battle of Badr in the Qur’an?',
+      bs: 'Koji naziv se daje Bitci na Bedru u Kur’anu?'
+    },
     options: [
-      { en: 'Ancient law code', bs: 'Drevni zakonik' },
-      { en: 'War chronicle', bs: 'Ratnu kroniku' },
-      { en: 'Mountain path', bs: 'Planinski put' },
-      { en: 'Glad tidings', bs: 'Radosnu vijest' },
+      { en: 'Day of Victory', bs: 'Dan pobjede' },
+      { en: 'Day of Furqan', bs: 'Jeumul-furkan' },
+      { en: 'Day of Migration', bs: 'Dan hidžre' },
+      { en: 'Day of Mercy', bs: 'Dan milosti' },
     ],
-    correctIndex: 3,
+    correctIndex: 1,
   },
   {
     id: 'islam-hard-005',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The four Gospels commonly grouped as today\'s Injil are Matthew, Mark, Luke, and:', bs: 'Četiri evanđelja koja se danas smatraju indžilom su po Mateju, Marku, Luki i:' },
+    prompt: { 
+      en: 'How many Quraysh fighters were killed at the Battle of Badr?',
+      bs: 'Koliko boraca Kurejšija je poginulo u Bitci na Bedru?'
+    },
     options: [
-      { en: 'John (Ivan)', bs: 'Ivanu' },
-      { en: 'Paul', bs: 'Pavlu' },
-      { en: 'Moses', bs: 'Musau' },
-      { en: 'David', bs: 'Davudu' },
+      { en: 'Twenty', bs: 'Dvadeset' },
+      { en: 'Forty', bs: 'Četrdeset' },
+      { en: 'Seventy', bs: 'Sedamdeset' },
+      { en: 'One hundred', bs: 'Sto' },
     ],
-    correctIndex: 0,
+    correctIndex: 2,
   },
   {
     id: 'islam-hard-006',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The third historical phase of tafsir science is tafsir by:', bs: 'Treća historijska faza tefsirske nauke je tefsir:' },
+    prompt: { 
+      en: 'What was one of the main reasons Quraysh wanted to fight the Muslims at Uhud?',
+      bs: 'Koji je bio jedan od glavnih razloga zbog kojeg su Kurejšije željele rat protiv muslimana na Uhudu?'
+    },
     options: [
-      { en: 'Greek philosophers', bs: 'Grčkih filozofa' },
-      { en: 'The Companions (sahaba)', bs: 'Ashaba' },
-      { en: 'Medieval European monks', bs: 'Srednjovjekovnih evropskih monaha' },
-      { en: 'Dream interpreters', bs: 'Tumače snova' },
+      { en: 'To avenge their leaders killed at Badr', bs: 'Da osvete svoje vođe poginule na Bedru' },
+      { en: 'To conquer Madinah for trade', bs: 'Da osvoje Medinu radi trgovine' },
+      { en: 'To build an alliance with Muslims', bs: 'Da sklope savez s muslimanima' },
+      { en: 'To protect the people of Taif', bs: 'Da zaštite stanovnike Taifa' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'islam-hard-007',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The fifth phase in the development of tafsir is tafsir by:', bs: 'Peta faza u razvoju tefsira je tefsir:' },
+    prompt: { 
+      en: 'Where did the Battle of Uhud take place?',
+      bs: 'Gdje se odigrala Bitka na Uhudu?'
+    },
     options: [
-      { en: 'Angels without humans', bs: 'Meleka bez ljudi' },
-      { en: 'Poets of Jahiliyya', bs: 'Pjesnika džahilijje' },
-      { en: 'The scholars (ulema) with established methodology', bs: 'Uleme sa utemeljenom metodologijom' },
-      { en: 'Roman senators', bs: 'Rimskih senatora' },
+      { en: 'Near Makkah', bs: 'U blizini Mekke' },
+      { en: 'Near Madinah', bs: 'U blizini Medine' },
+      { en: 'In Taif', bs: 'U Taifu' },
+      { en: 'In Jerusalem', bs: 'U Jerusalemu' },
     ],
-    correctIndex: 2,
+    correctIndex: 1,
   },
   {
     id: 'islam-hard-008',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Linguistically, yawm al-fasl shares a root with the Arabic term for a grammatical pause called:', bs: 'Jezički, jevmul-fasl dijeli korijen sa arapskim nazivom za gramatičku pauzu:' },
+    prompt: { 
+      en: 'How many fighters did Quraysh bring to the Battle of Uhud?',
+      bs: 'Koliko boraca su Kurejšije dovele u Bitku na Uhudu?'
+    },
     options: [
-      { en: 'Haraka', bs: 'Harakom' },
-      { en: 'Sukun', bs: 'Sukunom' },
-      { en: 'Shadda', bs: 'Šeddom' },
-      { en: 'Fasila', bs: 'Fasilom' },
+      { en: '1,000 fighters', bs: '1.000 boraca' },
+      { en: '2,000 fighters', bs: '2.000 boraca' },
+      { en: '3,000 fighters', bs: '3.000 boraca' },
+      { en: '5,000 fighters', bs: '5.000 boraca' },
     ],
-    correctIndex: 3,
+    correctIndex: 2,
   },
   {
     id: 'islam-hard-009',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'In Surah Al-Muddaththir, the arrogant denier is marked on Judgment Day with a sign on his:', bs: 'U suri El-Mudessir, oholi poricatelj na Sudnjem danu bit će obilježen znakom na:' },
+    prompt: { 
+      en: 'What advice did older companions give before the Battle of Uhud?',
+      bs: 'Kakav savjet su dali stariji ashabi prije Bitke na Uhudu?'
+    },
     options: [
-      { en: 'Nose', bs: 'Nosu' },
-      { en: 'The foot', bs: 'Stopalu' },
-      { en: 'The shoulder', bs: 'Ramenu' },
-      { en: 'The tongue', bs: 'Jeziku' },
+      { en: 'To remain in Madinah and defend it', bs: 'Da ostanu u Medini i brane je' },
+      { en: 'To attack Quraysh immediately', bs: 'Da odmah napadnu Kurejšije' },
+      { en: 'To leave Madinah completely', bs: 'Da potpuno napuste Medinu' },
+      { en: 'To seek help from other tribes', bs: 'Da traže pomoć drugih plemena' },
     ],
     correctIndex: 0,
   },
@@ -132,12 +159,15 @@ export const islamHard: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The Prophet attributed his graying partly to reflecting on Surah Hud and also:', bs: 'Poslanik je djelimično osijedanje pripisao razmišljanju o suri Hud i:' },
+    prompt: { 
+      en: 'How many archers did Prophet Muhammad, peace be upon him, place on the hill during Uhud?',
+      bs: 'Koliko strijelaca je Poslanik Muhammed, sallallahu alejhi ve sellem, postavio na brdo tokom Bitke na Uhudu?'
+    },
     options: [
-      { en: 'Surah Al-Fatiha', bs: 'Sura El-Fatiha' },
-      { en: 'Al-Waqi\'a, Al-Mursalat, An-Naba, and At-Takwir', bs: 'El-Vakiji, El-Murselat, En-Nebe i Et-Tekviru' },
-      { en: 'Surah Al-Kawthar', bs: 'Sura El-Kevser' },
-      { en: 'Surah Al-Ikhlas', bs: 'Sura El-Ihlas' },
+      { en: '30 archers', bs: '30 strijelaca' },
+      { en: '50 archers', bs: '50 strijelaca' },
+      { en: '70 archers', bs: '70 strijelaca' },
+      { en: '100 archers', bs: '100 strijelaca' },
     ],
     correctIndex: 1,
   },
@@ -146,68 +176,83 @@ export const islamHard: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The Prophet\'s gray hairs were notably at the temples, parting, and:', bs: 'Sijede vlasi Poslanika bile su posebno na sljepoočnicama, razdjeljku i:' },
+    prompt: { 
+      en: 'Who killed Hamza ibn Abdulmuttalib during the Battle of Uhud?',
+      bs: 'Ko je ubio Hamzu b. Abdulmuttaliba tokom Bitke na Uhudu?'
+    },
     options: [
-      { en: 'On both elbows', bs: 'Na oba lakta' },
-      { en: 'Across the entire back', bs: 'Preko cijelog leđa' },
-      { en: 'Under the lower lip on the beard', bs: 'Ispod donje usne na bradi' },
-      { en: 'On the fingernails', bs: 'Na noktima' },
+      { en: 'Wahshi ibn Harb', bs: 'Vahši b. Harb' },
+      { en: 'Khalid ibn al-Walid', bs: 'Halid b. Velid' },
+      { en: 'Abu Jahl', bs: 'Ebu Džehl' },
+      { en: 'Abu Sufyan', bs: 'Ebu Sufjan' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'islam-hard-012',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'When oiled, the Prophet\'s few gray hairs were:', bs: 'Kada bi namazao kosu uljem, rijetke sijede vlasi Poslanika bile su:' },
+    prompt: { 
+      en: 'Who was the Quraysh commander who attacked Muslims from behind with cavalry at Uhud?',
+      bs: 'Ko je bio vođa kurejšijske konjice koja je napala muslimane s leđa na Uhudu?'
+    },
     options: [
-      { en: 'Bright red', bs: 'Svijetlocrvene' },
-      { en: 'Completely shaved', bs: 'Potpuno obrijane' },
-      { en: 'Dyed black always', bs: 'Uvijek obojene u crno' },
-      { en: 'Hard to notice', bs: 'Teško uočljive' },
+      { en: 'Khalid ibn al-Walid', bs: 'Halid b. Velid' },
+      { en: 'Abu Bakr', bs: 'Ebu Bekr' },
+      { en: 'Ali ibn Abi Talib', bs: 'Alija b. Ebi Talib' },
+      { en: 'Saad ibn Muadh', bs: 'Sa’d b. Muaz' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
     id: 'islam-hard-013',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Behira recognized the Prophet at Busra partly because stones and trees did what before him?', bs: 'Behira je prepoznao Poslanika u Busri djelimično jer su kamenje i drveće pred njim:' },
+    prompt: { 
+      en: 'Who suggested digging a trench around Medina during the Battle of the Trench?',
+      bs: 'Ko je predložio kopanje rova oko Medine tokom Bitke na Hendeku?'
+    },
     options: [
-      { en: 'Prostrated (sajda)', bs: 'Činila sedždu' },
-      { en: 'Turned to gold', bs: 'Postajala zlatom' },
-      { en: 'Floated in air', bs: 'Lebdjela u zraku' },
-      { en: 'Spoke Arabic poetry', bs: 'Govorila arapsku poeziju' },
+      { en: 'Abu Bakr', bs: 'Ebu Bekr' },
+      { en: 'Salman al-Farisi', bs: 'Selman el-Farisi' },
+      { en: 'Ali ibn Abi Talib', bs: 'Alija b. Ebu Talib' },
+      { en: 'Umar ibn al-Khattab', bs: 'Omer b. Hattab' },
     ],
-    correctIndex: 0,
+    correctIndex: 1,
   },
   {
     id: 'islam-hard-014',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Behira described the seal of prophethood under the Prophet\'s shoulder blade as resembling:', bs: 'Behira je pečat vjerovjesništva ispod lopatice opisao kao nalik na:' },
+    prompt: { 
+      en: 'In which year after Hijrah did the Battle of the Trench take place?',
+      bs: 'Koje godine po Hidžri se desila Bitka na Hendeku?'
+    },
     options: [
-      { en: 'A sword', bs: 'Sablju' },
-      { en: 'An apple', bs: 'Jabuku' },
-      { en: 'A crescent moon tattoo', bs: 'Tetovažu polumjeseca' },
-      { en: 'A palm tree', bs: 'Palmu' },
+      { en: 'Second year after Hijrah', bs: 'Druge godine po Hidžri' },
+      { en: 'Third year after Hijrah', bs: 'Treće godine po Hidžri' },
+      { en: 'Fifth year after Hijrah', bs: 'Pete godine po Hidžri' },
+      { en: 'Tenth year after Hijrah', bs: 'Desete godine po Hidžri' },
     ],
-    correctIndex: 1,
+    correctIndex: 2,
   },
   {
     id: 'islam-hard-015',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Atika bint Abdul Muttalib dreamed of a herald bringing terrible news how many nights before Damdam\'s arrival?', bs: 'Atika b. Abdulmuttalib je sanjala glasnika sa strašnom vijesti koliko noći prije Dolaska Damdama?' },
+    prompt: { 
+      en: 'How many fighters did the allied army bring to Medina during the Battle of the Trench?',
+      bs: 'Koliko boraca je imala savezničko neprijateljska vojska tokom Bitke na Hendeku?'
+    },
     options: [
-      { en: 'Ten', bs: 'Deset' },
-      { en: 'One', bs: 'Jednu' },
-      { en: 'Three', bs: 'Tri' },
-      { en: 'Forty', bs: 'Četrdeset' },
+      { en: 'Three thousand', bs: 'Tri hiljade' },
+      { en: 'Five thousand', bs: 'Pet hiljada' },
+      { en: 'Ten thousand', bs: 'Deset hiljada' },
+      { en: 'Twenty thousand', bs: 'Dvadeset hiljada' },
     ],
     correctIndex: 2,
   },
@@ -216,96 +261,117 @@ export const islamHard: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Abu Sufyan sent Damdam ibn Amr al-Ghifari to Mecca to request an army of about:', bs: 'Ebu Sufjan je poslao Damdama b. Amra el-Gifarija u Meku tražeći vojsku od oko:' },
+    prompt: { 
+      en: 'What defensive strategy was used by Muslims during the Battle of the Trench?',
+      bs: 'Koju odbrambenu strategiju su muslimani koristili tokom Bitke na Hendeku?'
+    },
     options: [
-      { en: '50 fighters', bs: '50 boraca' },
-      { en: '10,000 Roman allies', bs: '10.000 rimskih saveznika' },
-      { en: 'No army—just poets', bs: 'Bez vojske—pjesnike' },
-      { en: '950 fighters with horses and camels', bs: '950 boraca sa konjima i devama' },
+      { en: 'Building high walls around Medina', bs: 'Gradnju visokih zidina oko Medine' },
+      { en: 'Digging a trench', bs: 'Kopanje rova' },
+      { en: 'Leaving Medina completely', bs: 'Napustiti Medinu' },
+      { en: 'Building ships', bs: 'Gradnju brodova' },
     ],
-    correctIndex: 3,
+    correctIndex: 1,
   },
   {
     id: 'islam-hard-017',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'At Badr, Mikdad ibn Amr compared Muslim refusal to fight with the Israelites telling Musa:', bs: 'Na Bederu, Mikdad b. Esved je odbijanje borbe usporedio sa Izraelcima koji su rekli Musau:' },
+    prompt: { 
+      en: 'What event helped the Muslims defeat the enemy during the Battle of the Trench?',
+      bs: 'Koji događaj je pomogao muslimanima u pobjedi tokom Bitke na Hendeku?'
+    },
     options: [
-      { en: '"Go you and your Lord and fight—we sit here"', bs: '„Ti i Gospodar tvoj idite i borite se—mi ovdje ostajemo“' },
-      { en: '"We will conquer Rome tomorrow"', bs: '„Sutra osvajamo Rim“' },
-      { en: '"Prayer is enough"', bs: '„Namaz je dovoljan“' },
-      { en: '"We need no prophet"', bs: '„Ne treba nam poslanik“' },
+      { en: 'Heavy rain', bs: 'Obilna kiša' },
+      { en: 'A strong wind', bs: 'Snažan vjetar' },
+      { en: 'An earthquake', bs: 'Zemljotres' },
+      { en: 'A sandstorm', bs: 'Pješčana oluja' },
     ],
-    correctIndex: 0,
+    correctIndex: 1,
   },
   {
     id: 'islam-hard-018',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'When news came that Abu Sufyan\'s caravan was safe, Abu Jahl insisted the army still march to:', bs: 'Kada je stigla vijest da je karavana Ebu Sufjana spašena, Ebu Jehl je inzistirao da vojska ipak krene prema:' },
+    prompt: { 
+      en: 'Which group broke their agreement with the Muslims during the Battle of the Trench?',
+      bs: 'Koje pleme je prekršilo ugovor s muslimanima tokom Bitke na Hendeku?'
+    },
     options: [
-      { en: 'Abyssinia', bs: 'Abesiniji' },
-      { en: 'Badr', bs: 'Bederu' },
-      { en: 'Yemen permanently', bs: 'Trajnom Jemenu' },
-      { en: 'Rome', bs: 'Rimu' },
+      { en: 'Banu Qurayza', bs: 'Benu Kurejza' },
+      { en: 'Banu Hashim', bs: 'Benu Hašim' },
+      { en: 'Banu Thaqif', bs: 'Benu Sekif' },
+      { en: 'Banu Tamim', bs: 'Benu Temim' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'islam-hard-019',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The Meccan army at Badr camped on _____ terrain while Muslims took the lower ground.', bs: 'Mekanska vojska na Bederu se utaborila na _____ terenu, dok su muslimani zauzeli niži položaj.' },
+    prompt: { 
+      en: 'What was the main reason for the expedition against Banu Qurayza?',
+      bs: 'Koji je bio glavni razlog pohoda protiv Benu Kurejze?'
+    },
     options: [
-      { en: 'Lower', bs: 'Nižem' },
-      { en: 'Underground', bs: 'Podzemnom' },
-      { en: 'Higher', bs: 'Višem' },
-      { en: 'Floating rafts', bs: 'Plutajućim splavovima' },
+      { en: 'They refused to pay taxes', bs: 'Odbili su plaćati porez' },
+      { en: 'They broke the agreement and supported the enemies of Muslims', bs: 'Prekršili su sporazum i pomogli neprijateljima muslimana' },
+      { en: 'They attacked Medina before Islam', bs: 'Napali su Medinu prije islama' },
+      { en: 'They left Medina', bs: 'Napustili su Medinu' },
     ],
-    correctIndex: 2,
+    correctIndex: 1,
   },
   {
     id: 'islam-hard-020',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The six conditions of a valid shahada include knowledge, certainty, acceptance, submission, sincerity, and:', bs: 'Šest šartova ispravnog šehadeta uključuje znanje, čvrsto uvjerenje, prihvatanje, pokornost, iskrenost i:' },
+    prompt: { 
+      en: 'Which companion later became the wife of the Prophet, peace be upon him, after the expedition of Banu Mustaliq?',
+      bs: 'Koja je ashabijka nakon pohoda na Benu Mustalik postala supruga Poslanika, sallallahu alejhi ve sellem?'
+    },
     options: [
-      { en: 'Memorizing 30 juz', bs: 'Pamćenje 30 džuza' },
-      { en: 'Owning a sword', bs: 'Posjedovanje mača' },
-      { en: 'Arabic poetry skill', bs: 'Vještinu poezije' },
-      { en: 'Sincerity that negates shirk', bs: 'Iskrenost koja negira širk' },
+      { en: 'Aisha bint Abu Bakr', bs: 'Aiša bint Ebu Bekr' },
+      { en: 'Hafsa bint Umar', bs: 'Hafsa bint Omer' },
+      { en: 'Juwayriyah bint al-Harith', bs: 'Džuvejrija bint Haris' },
+      { en: 'Fatimah bint Muhammad', bs: 'Fatima bint Muhammed' },
     ],
-    correctIndex: 3,
+    correctIndex: 2,
   },
   {
     id: 'islam-hard-021',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Wahb ibn Munabbih said the key to Paradise has "teeth" meaning:', bs: 'Vehb b. Munebbih je rekao da ključ dženneta ima „zupce“, što znači:' },
+    prompt: { 
+      en: 'In which year after Hijrah did the Treaty of Hudaybiyyah take place?',
+      bs: 'Koje godine po Hidžri se desio Sporazum na Hudejbiji?'
+    },
     options: [
-      { en: 'Conditions of the shahada must be fulfilled', bs: 'Da moraju biti ispunjeni šartovi šehadeta' },
-      { en: 'You need two witnesses', bs: 'Da trebaju dva svjedoka' },
-      { en: 'Gold keys are forbidden', bs: 'Da su zlatni ključevi zabranjeni' },
-      { en: 'Scholars may enter', bs: 'Da učenjaci ulaze' },
+      { en: 'Second year after Hijrah', bs: 'Druge godine po Hidžri' },
+      { en: 'Fourth year after Hijrah', bs: 'Četvrte godine po Hidžri' },
+      { en: 'Sixth year after Hijrah', bs: 'Šeste godine po Hidžri' },
+      { en: 'Eighth year after Hijrah', bs: 'Osme godine po Hidžri' },
     ],
-    correctIndex: 0,
+    correctIndex: 2,
   },
   {
     id: 'islam-hard-022',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Iblis and Pharaoh are cited as examples of knowing truth but failing in:', bs: 'Iblis i faraon citirani su kao primjeri znanja istine, ali neuspjeha u:' },
+    prompt: { 
+      en: 'Why did the Prophet, peace be upon him, travel to Makkah in the sixth year after Hijrah?',
+      bs: 'Zašto je Poslanik, sallallahu alejhi ve sellem, krenuo prema Meki šeste godine po Hidžri?'
+    },
     options: [
-      { en: 'Physical strength', bs: 'Fizičkoj snazi' },
-      { en: 'Acceptance and submission (inqiyad)', bs: 'Prihvatanju i pokornosti (inkijadu)' },
-      { en: 'Memorizing Qur\'an', bs: 'Pamćenju Kur\'ana' },
-      { en: 'Trade skill', bs: 'Trgovačkoj vještini' },
+      { en: 'To conquer Makkah', bs: 'Da osvoji Meku' },
+      { en: 'To perform Umrah', bs: 'Da obavi umru' },
+      { en: 'To fight the Quraysh', bs: 'Da se bori protiv Kurejšija' },
+      { en: 'To build a mosque in Makkah', bs: 'Da izgradi džamiju u Meki' },
     ],
     correctIndex: 1,
   },
@@ -314,12 +380,15 @@ export const islamHard: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'In fiqh, "nahy" as haram differs from "nahy" as makruh because makruh acts:', bs: 'U fikhu, „nehj“ kao haram razlikuje se od „nehj“ kao mekruh jer mekruh djela:' },
+    prompt: { 
+      en: 'Who did the Prophet, peace be upon him, send to Makkah to negotiate with Quraysh at Hudaybiyyah?',
+      bs: 'Koga je Poslanik, sallallahu alejhi ve sellem, poslao u Meku da pregovara s Kurejšijama na Hudejbiji?'
+    },
     options: [
-      { en: 'Are rewarded like farz', bs: 'Se nagrađuju kao farz' },
-      { en: 'Cancel wudu automatically', bs: 'Automatski poništavaju abdest' },
-      { en: 'Carry no prescribed punishment if done', bs: 'Nemaju propisanu kaznu ako se učine' },
-      { en: 'Require hajj expiation', bs: 'Zahtijevaju hadž kafaru' },
+      { en: 'Abu Bakr ibn Abi Quhafa', bs: 'Ebu Bekra b. Ebi Kuhafu' },
+      { en: 'Umar ibn al-Khattab', bs: 'Omera b. Hattaba' },
+      { en: 'Uthman ibn Affan', bs: 'Osmana b. Affana' },
+      { en: 'Ali ibn Abi Talib', bs: 'Alija b. Ebu Taliba' },
     ],
     correctIndex: 2,
   },
@@ -328,54 +397,66 @@ export const islamHard: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'For prohibitions (nahy), the Prophet said "leave it" without "as much as you can" because:', bs: 'Za zabrane Poslanik kaže „ostavite to“ bez „koliko možete“ jer:' },
+    prompt: { 
+      en: 'What was the name of the pledge made by the companions under the tree at Hudaybiyyah?',
+      bs: 'Kako se zvala prisega koju su ashabi dali ispod drveta na Hudejbiji?'
+    },
     options: [
-      { en: 'Scholars can avoid sin', bs: 'Učenjaci mogu izbjeći grijeh' },
-      { en: 'Small sins are halal', bs: 'Mali grijesi su halal' },
-      { en: 'Prohibitions are optional', bs: 'Zabrane su dobrovoljne' },
-      { en: 'Avoiding wrong is within everyone\'s ability', bs: 'Suzdržavanje od zla je u mogućnostima svakoga' },
+      { en: 'Pledge of Aqabah', bs: 'Prisega na Akabi' },
+      { en: 'Pledge of Ridwan', bs: 'Prisega Ridvan' },
+      { en: 'Pledge of Victory', bs: 'Prisega pobjede' },
+      { en: 'Pledge of Medina', bs: 'Prisega Medine' },
     ],
-    correctIndex: 3,
+    correctIndex: 1,
   },
   {
     id: 'islam-hard-025',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'For commands (amr), "as much as you can" applies because obligations may be fulfilled by:', bs: 'Za naredbe (emr) važi „koliko možete“ jer se obaveze mogu ispuniti:' },
+    prompt: { 
+      en: 'How long was the truce between Muslims and Quraysh according to the Treaty of Hudaybiyyah?',
+      bs: 'Koliko je trajalo primirje između muslimana i Kurejšija prema Sporazumu na Hudejbiji?'
+    },
     options: [
-      { en: 'Alternatives when unable (e.g., praying seated)', bs: 'Alternativama kad nije moguće (npr. namaz sjedeći)' },
-      { en: 'Ignoring them entirely', bs: 'Potpunim ignorisanjem' },
-      { en: 'Paying money', bs: 'Plaćanjem novca' },
-      { en: 'Delegating to non-Muslims', bs: 'Delegiranjem nemuslimanima' },
+      { en: 'Five years', bs: 'Pet godina' },
+      { en: 'Ten years', bs: 'Deset godina' },
+      { en: 'Twenty years', bs: 'Dvadeset godina' },
+      { en: 'One year', bs: 'Jednu godinu' },
     ],
-    correctIndex: 0,
+    correctIndex: 1,
   },
   {
     id: 'islam-hard-026',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The default rule in shari\'ah is that a command implies obligation and a prohibition implies:', bs: 'Osnovno pravilo u šerijatu je da naredba podrazumijeva obavezu, a zabrana:' },
+    prompt: { 
+      en: 'Which surah mentions Allah’s pleasure with those who pledged allegiance under the tree?',
+      bs: 'U kojoj suri se spominje Allahovo zadovoljstvo onima koji su dali prisegu ispod drveta?'
+    },
     options: [
-      { en: 'Mustahabb always', bs: 'Uvijek mustehab' },
-      { en: 'Haram unless evidence shows otherwise', bs: 'Haram, osim ako dokaz ne ukazuje drugačije' },
-      { en: 'Mubah always', bs: 'Uvijek mubah' },
-      { en: 'No meaning', bs: 'Nema značenja' },
+      { en: 'Surah Al-Fath', bs: 'Sura El-Feth' },
+      { en: 'Surah An-Nur', bs: 'Sura En-Nur' },
+      { en: 'Surah Al-Ahzab', bs: 'Sura El-Ahzab' },
+      { en: 'Surah Al-Anfal', bs: 'Sura El-Enfal' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'islam-hard-027',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Hidden shirk (riya) is described as more dangerous than Dajjal because:', bs: 'Skriveni širk (rija) opisan je kao opasniji od Dedžala jer:' },
+    prompt: { 
+      en: 'In which year after Hijrah did the expedition to Khaybar take place?',
+      bs: 'Koje godine po Hidžri se desio pohod na Hajber?'
+    },
     options: [
-      { en: 'It affects non-Muslims', bs: 'Pogađa nemuslimane' },
-      { en: 'It cancels zakat', bs: 'Poništava zekat' },
-      { en: 'It corrupts worship while seeming righteous', bs: 'Kvazi ibadet dok izgleda pravedno' },
-      { en: 'It is encouraged in hadith', bs: 'Potiče se u hadisu' },
+      { en: 'Fifth year after Hijrah', bs: 'Pete godine po Hidžri' },
+      { en: 'Sixth year after Hijrah', bs: 'Šeste godine po Hidžri' },
+      { en: 'Seventh year after Hijrah', bs: 'Sedme godine po Hidžri' },
+      { en: 'Eighth year after Hijrah', bs: 'Osme godine po Hidžri' },
     ],
     correctIndex: 2,
   },
@@ -384,12 +465,15 @@ export const islamHard: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Allah may reject a deed in which shirk is mixed, saying on Judgment Day:', bs: 'Allah može odbaciti djelo u kojem je širk, govoreći na Sudnjem danu:' },
+    prompt: { 
+      en: 'How many Muslims accompanied the Prophet, peace be upon him, during the expedition to Khaybar?',
+      bs: 'Koliko muslimana je pratilo Poslanika, sallallahu alejhi ve sellem, u pohodu na Hajber?'
+    },
     options: [
-      { en: '"Double your reward"', bs: '„Udvostručite nagradu“' },
-      { en: '"Enter without reckoning"', bs: '„Uđite bez računa“' },
-      { en: '"Lead the prophets"', bs: '„Predvodite poslanike“' },
-      { en: '"Go to those for whom you did it"', bs: '„Idite onima radi kojih ste to činili“' },
+      { en: '700 Muslims', bs: '700 muslimana' },
+      { en: '1,000 Muslims', bs: '1.000 muslimana' },
+      { en: '1,400 Muslims', bs: '1.400 muslimana' },
+      { en: '1,600 Muslims', bs: '1.600 muslimana' },
     ],
     correctIndex: 3,
   },
@@ -398,26 +482,32 @@ export const islamHard: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Zayn al-Abidin reportedly supported about how many families with night bread?', bs: 'Zein el-Abidin je navodno noćnim hljebom opskrbljivao oko koliko porodica?' },
+    prompt: { 
+      en: 'Who did the Prophet, peace be upon him, give the banner to during the final battle of Khaybar?',
+      bs: 'Kome je Poslanik, sallallahu alejhi ve sellem, dao zastavu tokom završne bitke na Hajberu?'
+    },
     options: [
-      { en: 'A hundred', bs: 'Stotinu' },
-      { en: 'Three', bs: 'Tri' },
-      { en: 'Five thousand', bs: 'Pet hiljada' },
-      { en: 'None—just his own family', bs: 'Nijednu—svoju porodicu' },
+      { en: 'Umar ibn al-Khattab', bs: 'Omeru b. Hattabu' },
+      { en: 'Ali ibn Abi Talib', bs: 'Aliju b. Ebu Talibu' },
+      { en: 'Abu Bakr', bs: 'Ebu Bekru' },
+      { en: 'Khalid ibn al-Walid', bs: 'Halidu b. Velidu' },
     ],
-    correctIndex: 0,
+    correctIndex: 1,
   },
   {
     id: 'islam-hard-030',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'After his death, people noticed marks on Zayn al-Abidin\'s back from:', bs: 'Nakon smrti Zein el-Abidina, ljudi su na njegovim leđima primijetili tragove od:' },
+    prompt: { 
+      en: 'What problem did Ali ibn Abi Talib have before receiving the banner at Khaybar?',
+      bs: 'Kakav problem je imao Alija b. Ebu Talib prije nego što je dobio zastavu na Hajberu?'
+    },
     options: [
-      { en: 'Battle armor at Badr', bs: 'Ratnog oklopa na Bederu' },
-      { en: 'Bags of bread carried at night', bs: 'Vreća hljeba nošenih noću' },
-      { en: 'Hajj stones', bs: 'Hadž kamenja' },
-      { en: 'Writing Qur\'an', bs: 'Pisanja Kur\'ana' },
+      { en: 'He was injured in battle', bs: 'Bio je povrijeđen u bici' },
+      { en: 'He had pain in his eyes', bs: 'Boljela su ga oči' },
+      { en: 'He was unable to walk', bs: 'Nije mogao hodati' },
+      { en: 'He had lost his weapon', bs: 'Izgubio je oružje' },
     ],
     correctIndex: 1,
   },
@@ -426,12 +516,15 @@ export const islamHard: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The Prophet passed by two graves punished for not guarding against urine and:', bs: 'Poslanik je prošao pored dva groba kažnjena jer nisu čuvali mokraću i:' },
+    prompt: { 
+      en: 'How many separate fortresses protected Khaybar?',
+      bs: 'Koliko odvojenih tvrđava je štitilo Hajber?'
+    },
     options: [
-      { en: 'Missing Fajr once', bs: 'Jednom propuštanja sabaha' },
-      { en: 'Eating before iftar', bs: 'Jedenja prije iftara' },
-      { en: 'Spreading slander (namimah)', bs: 'Širenja klevete (nemime)' },
-      { en: 'Traveling without mahram', bs: 'Putovanja bez mahrema' },
+      { en: 'Five fortresses', bs: 'Pet tvrđava' },
+      { en: 'Six fortresses', bs: 'Šest tvrđava' },
+      { en: 'Eight fortresses', bs: 'Osam tvrđava' },
+      { en: 'Ten fortresses', bs: 'Deset tvrđava' },
     ],
     correctIndex: 2,
   },
@@ -440,96 +533,117 @@ export const islamHard: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'A namimah (tale-bearing) is specifically someone who:', bs: 'Nemima (prenošenje riječi) specifično je osoba koja:' },
+    prompt: { 
+      en: 'What did the Prophet, peace be upon him, do with the Torah books found among the spoils of Khaybar?',
+      bs: 'Šta je Poslanik, sallallahu alejhi ve sellem, uradio s knjigama Tevrata pronađenim među plijenom Hajbera?'
+    },
     options: [
-      { en: 'Recites Qur\'an loudly', bs: 'Glasno recitira Kur\'an' },
-      { en: 'Gives zakat publicly', bs: 'Javno daje zekat' },
-      { en: 'Teaches children grammar', bs: 'Uči djecu gramatiku' },
-      { en: 'Carries words to cause discord between people', bs: 'Prenosi riječi da izazove razdor među ljudima' },
+      { en: 'He burned them', bs: 'Spalio ih je' },
+      { en: 'He destroyed them', bs: 'Uništio ih je' },
+      { en: 'He returned them to the Jews', bs: 'Vratio ih je Jevrejima' },
+      { en: 'He sold them', bs: 'Prodao ih je' },
     ],
-    correctIndex: 3,
+    correctIndex: 2,
   },
   {
     id: 'islam-hard-033',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'In tafsir of Surah Al-Humaza, "mutaffif" refers to one who:', bs: 'U tefsiru sure El-Humeze, „mutaffif“ označava onoga ko:' },
+    prompt: {
+      en: 'Which Persian ruler received a letter from the Prophet Muhammad, sallallahu alejhi ve sellem?',
+      bs: 'Koji perzijski vladar je primio pismo od Poslanika Muhammeda, sallallahu alejhi ve sellem?',
+    },
     options: [
-      { en: 'Cheats in weights and measures', bs: 'Vara u mjerama i vagama' },
-      { en: 'Prays too long', bs: 'Predugo klanja' },
-      { en: 'Fasts every Monday', bs: 'Posti svakog ponedjeljka' },
-      { en: 'Memorizes poetry', bs: 'Pamti poeziju' },
+      { en: 'Heraclius', bs: 'Heraklije' },
+      { en: 'Mukawqis', bs: 'Mukavkis' },
+      { en: 'Kisra', bs: 'Kisra' },
+      { en: 'Negus', bs: 'Nedžaši' },
     ],
-    correctIndex: 0,
+    correctIndex: 2,
   },
   {
     id: 'islam-hard-034',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The Prophet said inhabitants of Paradise include every weak, humble Muslim whose oath Allah:', bs: 'Poslanik je rekao da stanovnici Dženneta uključuju svakog nemoćnog, skromnog muslimana čiju Allah:' },
+    prompt: {
+      en: 'How did Kisra react after hearing the Prophet’s letter?',
+      bs: 'Kako je Kisra reagovao nakon što je čuo pismo Poslanika, sallallahu alejhi ve sellem?',
+    },
     options: [
-      { en: 'Never tests', bs: 'Nikada ne iskuša' },
-      { en: 'Fulfills when he swears by Him', bs: 'Zakletvu ispuni kada se Njime zakune' },
-      { en: 'Forces to be rich', bs: 'Prisiljava da bude bogat' },
-      { en: 'Excuses from prayer', bs: 'Oslobađa namaza' },
+      { en: 'He immediately accepted Islam', bs: 'Odmah je prihvatio islam' },
+      { en: 'He ignored the letter peacefully', bs: 'Mirno je ignorisao pismo' },
+      { en: 'He became angry and tore the letter', bs: 'Naljutio se i pocijepao pismo' },
+      { en: 'He sent gifts to Medina', bs: 'Poslao je poklone u Medinu' },
     ],
-    correctIndex: 1,
+    correctIndex: 2,
   },
   {
     id: 'islam-hard-035',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'In the same hadith, inhabitants of the Fire include every:', bs: 'U istom hadisu, stanovnici Vatre uključuju svakog:' },
+    prompt: {
+      en: 'Which ruler of Egypt received a letter from the Prophet Muhammad, sallallahu alejhi ve sellem?',
+      bs: 'Koji egipatski vladar je primio pismo od Poslanika Muhammeda, sallallahu alejhi ve sellem?',
+    },
     options: [
-      { en: 'Quiet memorizer of Qur\'an', bs: 'Tihog pamtila Kur\'ana' },
-      { en: 'Orphan raised in poverty', bs: 'Jetima odgajanog u siromaštvu' },
-      { en: 'Harsh, greedy, arrogant person', bs: 'Surovog, pohlepnog, oholog' },
-      { en: 'Night prayer worshipper', bs: 'Klanjača noćnog namaza' },
+      { en: 'Mukawqis', bs: 'Mukavkis' },
+      { en: 'Kisra', bs: 'Kisra' },
+      { en: 'Heraclius', bs: 'Heraklije' },
+      { en: 'Negus', bs: 'Nedžaši' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'islam-hard-036',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Tevhid of Allah\'s names and attributes requires affirming them:', bs: 'Tevhidul-esmai ve\'s-sifati zahtijeva potvrđivanje imena i svojstava:' },
+    prompt: {
+      en: 'Who was the last wife of the Prophet Muhammad, sallallahu alejhi ve sellem?',
+      bs: 'Koja je bila posljednja supruga Poslanika Muhammeda, sallallahu alejhi ve sellem?',
+    },
     options: [
-      { en: 'As identical to human bodies', bs: 'Kao identičnih ljudskim tijelima' },
-      { en: 'Metaphorically denying everything', bs: 'Metaforičkim poricanjem svega' },
-      { en: 'As shared with angels\' divinity', bs: 'Kao podijeljenih božanstvo sa melecima' },
-      { en: 'Without distortion, denial, or likening to creation', bs: 'Bez iskrivljenja, poricanja ili izjednačavanja sa stvorenjem' },
+      { en: 'Aisha bint Abi Bakr', bs: 'Aiša bint Ebu Bekr' },
+      { en: 'Umm Salamah', bs: 'Ummu Selema' },
+      { en: 'Maymunah bint Harith', bs: 'Mejmuna bint Haris' },
+      { en: 'Juwayriyah bint Harith', bs: 'Džuvejrija bint Haris' },
     ],
-    correctIndex: 3,
+    correctIndex: 2,
   },
   {
     id: 'islam-hard-037',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The negation-pair formula of tawhid combines denying false gods and:', bs: 'Formula tevhida spaja negaciju lažnih bogova i:' },
+    prompt: {
+      en: 'When did the Battle of Mu’tah take place?',
+      bs: 'Kada se odigrala Bitka na Muti?',
+    },
     options: [
-      { en: 'Affirming worship belongs to Allah', bs: 'Potvrđivanje da ibadet pripada Allahu' },
-      { en: 'Worshipping angels for intercession', bs: 'Obožavanje meleka za šefaat' },
-      { en: 'Rejecting all prophets', bs: 'Odbijanje svih poslanika' },
-      { en: 'Denying resurrection', bs: 'Poricanje uskrsnuća' },
+      { en: '5th year after Hijrah', bs: 'Pete godine po Hidžri' },
+      { en: '6th year after Hijrah', bs: 'Šeste godine po Hidžri' },
+      { en: '8th year after Hijrah', bs: 'Osme godine po Hidžri' },
+      { en: '10th year after Hijrah', bs: 'Desete godine po Hidžri' },
     ],
-    correctIndex: 0,
+    correctIndex: 2,
   },
   {
     id: 'islam-hard-038',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'A common error is thinking prophets were sent mainly to establish rububiyya; the Quraysh already accepted Allah as:', bs: 'Česta greška je misliti da su poslanici slani samo radi rububijjeta; Kurejši su već priznavali Allaha kao:' },
+    prompt: {
+      en: 'Why did the Prophet Muhammad, sallallahu alejhi ve sellem, send an army to Mu’tah?',
+      bs: 'Zašto je Poslanik Muhammed, sallallahu alejhi ve sellem, poslao vojsku na Mutu?',
+    },
     options: [
-      { en: 'A tribal spirit', bs: 'Plemenski duh' },
-      { en: 'Creator and Provider', bs: 'Stvoritelja i Opskrbitelja' },
-      { en: 'A human king', bs: 'Ljudskog kralja' },
-      { en: 'Nonexistent', bs: 'Nepostojećeg' },
+      { en: 'To conquer Byzantium immediately', bs: 'Da odmah osvoji Bizantiju' },
+      { en: 'To avenge the killing of Harith ibn Umayr al-Azdi', bs: 'Da osveti ubistvo Harisa b. Umejra el-Ezdija' },
+      { en: 'To protect Medina from attack', bs: 'Da zaštiti Medinu od napada' },
+      { en: 'To gain wealth from Syria', bs: 'Da osvoji bogatstvo Šama' },
     ],
     correctIndex: 1,
   },
@@ -538,12 +652,15 @@ export const islamHard: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Belief in qadar includes that Allah\'s decree as decree contains no inherent evil; evil exists in:', bs: 'Vjerovanje u kader uključuje da Allahova odredba kao odredba ne sadrži zlo po sebi; zlo postoji u:' },
+    prompt: {
+      en: 'Who was appointed as the first commander of the Muslim army at Mu’tah?',
+      bs: 'Ko je imenovan za prvog zapovjednika muslimanske vojske na Muti?',
+    },
     options: [
-      { en: 'Allah creating sin as good', bs: 'Allahovom stvaranju grijeha kao dobra' },
-      { en: 'Angels legislating', bs: 'Zakonodavstvu meleka' },
-      { en: 'What occurs, not in Allah attributing evil to Himself', bs: 'Onome što se dogodi, ne u pripisivanju zla Njemu' },
-      { en: 'Humans creating gods', bs: 'Ljudevom stvaranju bogova' },
+      { en: 'Khalid ibn al-Walid', bs: 'Halid b. Velid' },
+      { en: 'Ja‘far ibn Abi Talib', bs: 'Džafer b. Ebu Talib' },
+      { en: 'Zayd ibn Harithah', bs: 'Zejd b. Haris' },
+      { en: 'Abdullah ibn Rawahah', bs: 'Abdullah b. Revaha' },
     ],
     correctIndex: 2,
   },
@@ -552,644 +669,780 @@ export const islamHard: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The angel who records deeds is commonly named in tradition as:', bs: 'Melek koji zapisuje djela u tradiciji se često naziva:' },
+    prompt: {
+      en: 'How many Muslim fighters participated in the Battle of Mu’tah?',
+      bs: 'Koliko je muslimanskih boraca učestvovalo u Bitki na Muti?',
+    },
     options: [
-      { en: 'Jibril for all records', bs: 'Džibril za sve zapise' },
-      { en: 'Mikail', bs: 'Mikail' },
-      { en: 'Israfil', bs: 'Israfil' },
-      { en: 'Raqib and Atid (recording noble and base)', bs: 'Rakib i Atid' },
+      { en: '1,000 fighters', bs: '1.000 boraca' },
+      { en: '3,000 fighters', bs: '3.000 boraca' },
+      { en: '10,000 fighters', bs: '10.000 boraca' },
+      { en: '30,000 fighters', bs: '30.000 boraca' },
     ],
-    correctIndex: 3,
+    correctIndex: 1,
   },
   {
     id: 'islam-hard-041',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Munkar and Nakir are angels associated with:', bs: 'Munker i Nakir su meleki povezani sa:' },
+    prompt: {
+      en: 'Who received the title "The One with Two Wings"?',
+      bs: 'Ko je dobio nadimak "Vlasnik dva krila"?',
+    },
     options: [
-      { en: 'Questioning in the grave', bs: 'Pitanjem u grobu' },
-      { en: 'Bringing rain', bs: 'Donošenjem kiše' },
-      { en: 'Writing Qur\'an', bs: 'Pisanjem Kur\'ana' },
-      { en: 'Leading Hajj caravans', bs: 'Vođenjem hadž karavana' },
+      { en: 'Zayd ibn Harithah', bs: 'Zejd b. Haris' },
+      { en: 'Ja‘far ibn Abi Talib', bs: 'Džafer b. Ebu Talib' },
+      { en: 'Khalid ibn al-Walid', bs: 'Halid b. Velid' },
+      { en: 'Abdullah ibn Rawahah', bs: 'Abdullah b. Revaha' },
     ],
-    correctIndex: 0,
+    correctIndex: 1,
   },
   {
     id: 'islam-hard-042',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The compilation of the Qur\'an into one mushaf under the third caliph is linked to:', bs: 'Sakupljanje Kur\'ana u jedan mušaf pod trećim halifom povezuje se sa:' },
+    prompt: {
+      en: 'Where did the Prophet, sallallahu alejhi ve sellem, meet Abu Sufyan before entering Makkah?',
+      bs: 'Gdje je Poslanik, sallallahu alejhi ve sellem, susreo Ebu Sufjana prije ulaska u Meku?'
+    },
     options: [
-      { en: 'Abu Jahl', bs: 'Ebu Jehlom' },
-      { en: 'Uthman ibn Affan', bs: 'Osmanom b. Affan' },
-      { en: 'Heraclius', bs: 'Iraklijem' },
-      { en: 'Musaylimah', bs: 'Musajlimom' },
+      { en: 'Mar az-Zahran valley', bs: 'Dolina Merru Zahran' },
+      { en: 'Hudaybiyyah', bs: 'Hudejbija' },
+      { en: 'Arafat', bs: 'Arefat' },
+      { en: 'Ta’if', bs: 'Taif' }
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'islam-hard-043',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Zayd ibn Thabit played a central role in:', bs: 'Zeid b. Sabit je imao ključnu ulogu u:' },
-    options: [
-      { en: 'Leading the Meccan idolaters', bs: 'Vođenju mekanskih mušrika' },
-      { en: 'First adhan in Abyssinia', bs: 'Prvom ezanu u Abesiniji' },
-      { en: 'Compiling and verifying Qur\'anic text', bs: 'Sakupljanju i provjeri kur\'anskog teksta' },
-      { en: 'Roman diplomacy', bs: 'Rimskoj diplomatiji' },
+    prompt: { en: 'What did the Prophet, sallallahu alejhi ve sellem, do after entering the Ka‘bah area?', 
+              bs: 'Šta je Poslanik, sallallahu alejhi ve sellem, uradio nakon ulaska u prostor Kabe?' },   
+      options: [
+      { en: 'Ordered the destruction of idols and purified the Ka‘bah from them', bs: 'Naredio je rušenje kipova i očistio Kabu od njih' },
+      { en: 'Changed the direction of the Ka‘bah entrance', bs: 'Promijenio je pravac ulaza u Kabu' },
+      { en: 'Closed the Ka‘bah permanently to visitors', bs: 'Trajno je zatvorio Kabu za posjetioce' },
+      { en: 'Transferred the leadership of Makkah to another tribe', bs: 'Predao je upravljanje Mekom drugom plemenu' }
     ],
-    correctIndex: 2,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-044',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The scribe who wrote the Treaty of Hudaybiyyah and could not write "Bismillah" as Quraysh demanded was:', bs: 'Pisar Sporazuma u Hudejbiji koji nije mogao napisati Bismillah kako je Kurejš tražio bio je:' },
+    prompt: {
+      en: 'What unusual strategy did Malik ibn Awf use before the Battle of Hunayn?',
+      bs: 'Koju neobičnu strategiju je koristio Malik b. Avf prije Bitke na Hunejnu?'
+    },
     options: [
-      { en: 'Khalid ibn al-Walid', bs: 'Halid b. Velid' },
-      { en: 'Abu Lahab', bs: 'Ebu Leheb' },
-      { en: 'Waraqah', bs: 'Vereka' },
-      { en: 'Ali ibn Abi Talib', bs: 'Ali b. Ebi Talib' },
+      { en: 'He brought women, children, livestock and wealth with the army', bs: 'Poveo je žene, djecu, stoku i imetak sa vojskom' },
+      { en: 'He abandoned his army before the battle', bs: 'Napustio je vojsku prije bitke' },
+      { en: 'He built a fortress in the valley', bs: 'Izgradio je tvrđavu u dolini' },
+      { en: 'He made peace with the Muslims immediately', bs: 'Odmah je sklopio mir s muslimanima' }
     ],
-    correctIndex: 3,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-045',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The Treaty of Hudaybiyyah used the phrase "Muhammad, Messenger of Allah" but Quraysh insisted on removing:', bs: 'U Sporazumu u Hudejbiji Kurejši su inzistirali da se ukloni naslov:' },
+    prompt: {
+      en: 'In which year after Hijrah did the Battle of Hunayn take place?',
+      bs: 'Koje godine po Hidžri se dogodila Bitka na Hunejnu?'
+    },
     options: [
-      { en: '"Messenger of Allah" from the Prophet\'s name line', bs: '„Allahov poslanik“ iz reda s imenom Poslanika' },
-      { en: 'The year date', bs: 'Godina' },
-      { en: 'All Arabic text', bs: 'Sav arapski tekst' },
-      { en: 'Medinan witnesses', bs: 'Medinski svjedoci' },
+      { en: '8th year after Hijrah', bs: 'Osme godine po Hidžri' },
+      { en: '5th year after Hijrah', bs: 'Pete godine po Hidžri' },
+      { en: '6th year after Hijrah', bs: 'Šeste godine po Hidžri' },
+      { en: '10th year after Hijrah', bs: 'Desete godine po Hidžri' }
     ],
-    correctIndex: 0,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-046',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The conquest of Khaybar occurred in approximately:', bs: 'Osvajanje Hejbera dogodilo se otprilike:' },
+    prompt: {
+      en: 'How many Muslim fighters participated in the Battle of Hunayn?',
+      bs: 'Koliko muslimanskih boraca je učestvovalo u Bitki na Hunejnu?'
+    },
     options: [
-      { en: '2 AH', bs: '2. h.g.' },
-      { en: '7 AH', bs: '7. h.g.' },
-      { en: '1 AH', bs: '1. h.g.' },
-      { en: '11 AH', bs: '11. h.g.' },
+      { en: '12,000 fighters', bs: '12.000 boraca' },
+      { en: '3,000 fighters', bs: '3.000 boraca' },
+      { en: '10,000 fighters', bs: '10.000 boraca' },
+      { en: '20,000 fighters', bs: '20.000 boraca' }
     ],
-    correctIndex: 1,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-047',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The expedition of Tabuk took place in:', bs: 'Pohod na Tabuk odvijao se:' },
+    prompt: {
+      en: 'Why did some Muslims initially begin to retreat during the Battle of Hunayn?',
+      bs: 'Zašto su se neki muslimani na početku Bitke na Hunejnu počeli povlačiti?'
+    },
     options: [
-      { en: '3 AH', bs: '3. h.g.' },
-      { en: '12 AH', bs: '12. h.g.' },
-      { en: '9 AH', bs: '9. h.g.' },
-      { en: 'Before Hijra', bs: 'Prije hidžre' },
+      { en: 'They were surprised by an ambush and a rain of arrows', bs: 'Bili su iznenađeni zasjedom i kišom strijela' },
+      { en: 'They lacked weapons and armor', bs: 'Nisu imali dovoljno oružja i oklopa' },
+      { en: 'They received an order to retreat', bs: 'Dobili su naredbu za povlačenje' },
+      { en: 'They were defeated before reaching the battlefield', bs: 'Bili su poraženi prije dolaska na bojno polje' }
     ],
-    correctIndex: 2,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-048',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Ka\'b ibn Malik was among three companions boycotted until repentance was revealed regarding:', bs: 'Ka\'b b. Malik bio je među trojicom ashaba bojkotiranih dok se nije objavila tevba o:' },
+    prompt: {
+      en: 'Which Quranic verse was revealed regarding the Battle of Hunayn?',
+      bs: 'Koji ajet je objavljen povodom Bitke na Hunejnu?'
+    },
     options: [
-      { en: 'Missing one voluntary fast', bs: 'Jednom dobrovoljnom postu' },
-      { en: 'Trading in Medina', bs: 'Trgovini u Medini' },
-      { en: 'Teaching children', bs: 'Podučavanju djece' },
-      { en: 'Staying behind from Tabuk without excuse', bs: 'Ostajanju od Tabuka bez izgovora' },
+      { en: 'Surah At-Tawbah, verses 25-26', bs: 'Sura Et-Tevba, ajeti 25-26' },
+      { en: 'Surah Al-Fath, verse 1', bs: 'Sura El-Feth, ajet 1' },
+      { en: 'Surah Al-Baqarah, verse 255', bs: 'Sura El-Bekare, ajet 255' },
+      { en: 'Surah An-Nasr, verse 1', bs: 'Sura En-Nasr, ajet 1' }
     ],
-    correctIndex: 3,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-049',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The false prophet Musaylimah al-Kadhdhab was from the tribe of:', bs: 'Lažni prorok Musajlima el-Kazzab bio je iz plemena:' },
+    prompt: {
+      en: 'When did the expedition of Tabuk take place?',
+      bs: 'Kada se dogodio pohod na Tebuk?'
+    },
     options: [
-      { en: 'Banu Hanifa (Yamama)', bs: 'Banu Hanife (El-Jemame)' },
-      { en: 'Quraysh', bs: 'Kurejša' },
-      { en: 'Aws', bs: 'Evs' },
-      { en: 'Ghassan', bs: 'Gasana' },
+      { en: 'In Rajab of the 9th year after Hijrah', bs: 'U redžebu devete godine po Hidžri' },
+      { en: 'In Ramadan of the 8th year after Hijrah', bs: 'U ramazanu osme godine po Hidžri' },
+      { en: 'In Dhul-Qadah of the 6th year after Hijrah', bs: 'U zul-ka‘de šeste godine po Hidžri' },
+      { en: 'In Muharram of the 10th year after Hijrah', bs: 'U muharremu desete godine po Hidžri' }
     ],
-    correctIndex: 0,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-050',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The Battle of Yamama after the Prophet\'s death was critical for preserving:', bs: 'Bitka na El-Jemami nakon smrti Poslanika bila je ključna za očuvanje:' },
+    prompt: {
+      en: 'Why did the Prophet, sallallahu alejhi ve sellem, order the expedition to Tabuk?',
+      bs: 'Zašto je Poslanik, sallallahu alejhi ve sellem, naredio pohod na Tebuk?'
+    },
     options: [
-      { en: 'Roman trade routes', bs: 'Rimskih trgovačkih ruta' },
-      { en: 'Memorization and transmission of Qur\'an after many huffaz fell', bs: 'Pamćenja i prenošenja Kur\'ana nakon pogibije mnogih hafiza' },
-      { en: 'Idol worship in Mecca', bs: 'Idolopoklonstva u Meki' },
-      { en: 'Greek philosophy schools', bs: 'Grčkih filozofskih škola' },
+      { en: 'Because he received news that Byzantium was preparing an army against Muslims', bs: 'Jer je dobio vijest da Bizantija priprema vojsku protiv muslimana' },
+      { en: 'To conquer a wealthy city for its resources', bs: 'Da osvoji bogat grad zbog njegovog bogatstva' },
+      { en: 'To punish a tribe that broke the Hudaybiyyah treaty', bs: 'Da kazni pleme koje je prekršilo sporazum na Hudejbiji' },
+      { en: 'To perform Umrah with the companions', bs: 'Da obavi umru sa ashabima' }
     ],
-    correctIndex: 1,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-051',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The Negus (Ashama) who sheltered Muslims in Abyssinia was:', bs: 'Negus (Asheme) koji je zaštitio muslimane u Abesiniji bio je:' },
+    prompt: {
+      en: 'What was unique about the Prophet’s announcement before the expedition of Tabuk?',
+      bs: 'Šta je bilo posebno u vezi s Poslanikovim, sallallahu alejhi ve sellem, objavljivanjem priprema za pohod na Tebuk?'
+    },
     options: [
-      { en: 'A pagan fire worshipper', bs: 'Paganski vatropoklonik' },
-      { en: 'A Roman governor', bs: 'Rimski namjesnik' },
-      { en: 'A just Christian ruler who later accepted Islam', bs: 'Pravedan kršćanski vladar koji je kasnije prihvatio islam' },
-      { en: 'A Quraysh merchant', bs: 'Kurejški trgovac' },
+      { en: 'He openly announced the goal and direction of the expedition', bs: 'Javno je objavio cilj pohoda i pravac u kojem će krenuti' },
+      { en: 'He hid the expedition from everyone', bs: 'Sakrio je pohod od svih ljudi' },
+      { en: 'He sent the army without a commander', bs: 'Poslao je vojsku bez zapovjednika' },
+      { en: 'He cancelled the expedition before leaving', bs: 'Otkazao je pohod prije polaska' }
     ],
-    correctIndex: 2,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-052',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Ja\'far ibn Abi Talib recited to the Negus verses from Surah:', bs: 'Džafer b. Ebi Talib je Negusu recitirao ajete iz sure:' },
+    prompt: {
+      en: 'Who donated all of his wealth for the preparation of the expedition of Tabuk?',
+      bs: 'Ko je dao sav svoj imetak za pripremu pohoda na Tebuk?'
+    },
     options: [
-      { en: 'Surah Al-Baqarah', bs: 'Sura El-Bekara' },
-      { en: 'Surah Al-Ikhlas', bs: 'Sura El-Ihlas' },
-      { en: 'Surah At-Tawbah', bs: 'Sura Et-Tevbe' },
-      { en: 'Maryam', bs: 'Merjema' },
+      { en: 'Abu Bakr, radijallahu anhu', bs: 'Ebu Bekr, radijallahu anhu' },
+      { en: 'Umar ibn al-Khattab, radijallahu anhu', bs: 'Omer b. Hattab, radijallahu anhu' },
+      { en: 'Uthman ibn Affan, radijallahu anhu', bs: 'Osman b. Affan, radijallahu anhu' },
+      { en: 'Ali ibn Abi Talib, radijallahu anhu', bs: 'Alija b. Ebu Talib, radijallahu anhu' }
     ],
-    correctIndex: 3,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-053',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The first hijrah to Abyssinia included about how many Muslims in the first group?', bs: 'Prva hidžra u Abesiniju uključivala je oko koliko muslimana u prvoj grupi?' },
+    prompt: {
+      en: 'Approximately how many soldiers joined the Muslim army during the expedition of Tabuk?',
+      bs: 'Koliko je približno vojnika imala muslimanska vojska u pohodu na Tebuk?'
+    },
     options: [
-      { en: 'About 11–15', bs: 'Oko 11–15' },
-      { en: 'About 500', bs: 'Oko 500' },
-      { en: 'About 3,000', bs: 'Oko 3.000' },
-      { en: 'The Prophet', bs: 'Poslanika' },
+      { en: '30 000 soldiers', bs: '30 000 vojnika' },
+      { en: '10 000 soldiers', bs: '10 000 vojnika' },
+      { en: '20 000 soldiers', bs: '20 000 vojnika' },
+      { en: '3 000 soldiers', bs: '3 000 vojnika' }
     ],
-    correctIndex: 0,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-054',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Umar ibn al-Khattab accepted Islam after reading verses from Surah:', bs: 'Omer b. Hattab je prihvatio islam nakon čitanja ajeta iz sure:' },
+    prompt: {
+      en: 'Why was the expedition of Tabuk called the Battle of Hardship?',
+      bs: 'Zašto je pohod na Tebuk nazvan Bitka teške oskudice?'
+    },
     options: [
-      { en: 'Surah Al-Fatiha', bs: 'Sura El-Fatiha' },
-      { en: 'Ta-Ha (Ta Ha)', bs: 'Ta-Ha' },
-      { en: 'Surah An-Nas', bs: 'Sura En-Nas' },
-      { en: 'Surah Al-Kawthar', bs: 'Sura El-Kevser' },
+      { en: 'Because Muslims suffered from extreme shortage of water and food', bs: 'Jer su muslimani trpjeli veliku nestašicu vode i hrane' },
+      { en: 'Because they lost many battles before reaching Tabuk', bs: 'Jer su izgubili mnoge bitke prije dolaska na Tebuk' },
+      { en: 'Because they had no leader during the journey', bs: 'Jer nisu imali vođu tokom putovanja' },
+      { en: 'Because the enemy captured their supplies', bs: 'Jer je neprijatelj zarobio njihove zalihe' }
     ],
-    correctIndex: 1,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-055',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Hamza ibn Abdul Muttalib accepted Islam after witnessing abuse of the Prophet when returning from:', bs: 'Hamza b. Abdulmuttalib prihvatio je islam nakon zlostavljanja Poslanika po povratku sa:' },
+    prompt: {
+      en: 'What happened when the Muslims arrived at Tabuk?',
+      bs: 'Šta se dogodilo kada su muslimani stigli na Tebuk?'
+    },
     options: [
-      { en: 'Hajj in Rome', bs: 'Hadža u Rimu' },
-      { en: 'Trade in India', bs: 'Trgovine u Indiji' },
-      { en: 'Hunting', bs: 'Lova' },
-      { en: 'Battle of Badr', bs: 'Bitke na Bederu' },
+      { en: 'The Byzantine army withdrew and no battle took place', bs: 'Bizantijska vojska se povukla i nije došlo do bitke' },
+      { en: 'The Muslims were immediately defeated', bs: 'Muslimani su odmah poraženi' },
+      { en: 'The Muslims returned before reaching Tabuk', bs: 'Muslimani su se vratili prije dolaska na Tebuk' },
+      { en: 'The Muslims made peace before preparing the army', bs: 'Muslimani su sklopili mir prije pripreme vojske' }
     ],
-    correctIndex: 2,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-056',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The incident of Ta\'if involved the Prophet being stoned by youths and cared for by:', bs: 'Incident u Taifu uključivao je kamenovanje Poslanika od strane mladića i brigu o njemu od:' },
+    prompt: {
+      en: 'What condition did the delegation of Thaqif request that the Prophet, sallallahu alejhi ve sellem, rejected?',
+      bs: 'Koji uvjet delegacije Sekifa je Poslanik, sallallahu alejhi ve sellem, odbio?'
+    },
     options: [
-      { en: 'Abu Jahl personally nursing him', bs: 'Ebu Jehla koji ga liječi' },
-      { en: 'Roman physicians', bs: 'Rimskih ljekara' },
-      { en: 'No one—he was untouched', bs: 'Niko—nije bio povrijeđen' },
-      { en: 'Addas, a Christian slave of Utbah and Shaybah', bs: 'Adasa, kršćanskog roba Utbe i Šejbe' },
+      { en: 'To leave their idol Al-Lat standing for three years', bs: 'Da se njihov kip Lat ostavi tri godine' },
+      { en: 'To move to Medina', bs: 'Da se presele u Medinu' },
+      { en: 'To stop paying charity', bs: 'Da prestanu davati sadaku' },
+      { en: 'To lead the Muslim army', bs: 'Da predvode muslimansku vojsku' }
     ],
-    correctIndex: 3,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-057',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Isra began at Masjid al-Haram and the first stop was:', bs: 'Isra je počela u Mesdžidu el-Haram, a prva stanica bila je:' },
+    prompt: {
+      en: 'Who destroyed the idol Zul-Khalasah by order of the Prophet, sallallahu alejhi ve sellem?',
+      bs: 'Ko je po naredbi Poslanika, sallallahu alejhi ve sellem, uništio idola Zulhalesu?'
+    },
     options: [
-      { en: 'Masjid al-Aqsa in Jerusalem', bs: 'Mesdžid el-Aksa u Jerusalimu' },
-      { en: 'Cave Hira', bs: 'Pećina Hira' },
-      { en: 'Mount Uhud', bs: 'Planina Uhud' },
-      { en: 'Quba', bs: 'Kuba' },
+      { en: 'Jarir ibn Abdullah al-Bajali, radijallahu anhu', bs: 'Džerir b. Abdullah el-Bedželi, radijallahu anhu' },
+      { en: 'Ali ibn Abi Talib, radijallahu anhu', bs: 'Alija b. Ebu Talib, radijallahu anhu' },
+      { en: 'Abu Bakr, radijallahu anhu', bs: 'Ebu Bekr, radijallahu anhu' },
+      { en: 'Amr ibn al-As, radijallahu anhu', bs: 'Amr b. As, radijallahu anhu' }
     ],
-    correctIndex: 0,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-058',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'During Mi\'raj, the five daily prayers were initially ordained as:', bs: 'Tokom Miradža, pet dnevnih namaza je u početku propisano kao:' },
+    prompt: {
+      en: 'Which companion was given a funeral prayer in absentia after his death as ruler of Abyssinia?',
+      bs: 'Kojem vladaru je klanjana dženaza u odsustvu nakon njegove smrti?'
+    },
     options: [
-      { en: 'Ten, unchanged', bs: 'Deset, nepromijenjeno' },
-      { en: 'Fifty, then reduced to five with reward of fifty', bs: 'Pedeset, zatim smanjeno na pet s nagradom pedeset' },
-      { en: 'Two prayers', bs: 'Dva namaza' },
-      { en: 'None—added later by companions in Medina', bs: 'Nijedan—dodali ashabi kasnije' },
+      { en: 'Negus (Najashi) of Abyssinia', bs: 'Nedžaši, vladar Abesinije' },
+      { en: 'Heraclius of Byzantium', bs: 'Heraklije, vladar Bizantije' },
+      { en: 'Kisra of Persia', bs: 'Kisra, vladar Perzije' },
+      { en: 'Muqawqis of Egypt', bs: 'Mukavkis, vladar Egipta' }
     ],
-    correctIndex: 1,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-059',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The Prophet led other prophets in prayer during Mi\'raj at:', bs: 'Poslanik je tokom Miradža predvodio namaz drugim poslanicima u:' },
+    prompt: {
+      en: 'Which angel visited the Prophet, sallallahu alejhi ve sellem, and asked about iman, Islam and ihsan?',
+      bs: 'Koji melek je posjetio Poslanika, sallallahu alejhi ve sellem, i pitao o imanu, islamu i ihsanu?'
+    },
     options: [
-      { en: 'Kaaba interior during idol era publicly', bs: 'Unutrašnjosti Kabe javno u idolsko doba' },
-      { en: 'Mount Uhud', bs: 'Planini Uhud' },
-      { en: 'Masjid al-Aqsa', bs: 'Mesdžidu el-Aksa' },
-      { en: 'Cave Thawr', bs: 'Pećini Sevr' },
+      { en: 'Jibril, alayhis-salam', bs: 'Džibril, alejhis-selam' },
+      { en: 'Mikail, alayhis-salam', bs: 'Mikail, alejhis-selam' },
+      { en: 'Israfil, alayhis-salam', bs: 'Israfil, alejhis-selam' },
+      { en: 'Azrail, alayhis-salam', bs: 'Azrail, alejhis-selam' }
     ],
-    correctIndex: 2,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-060',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'During Hijra, the Prophet and Abu Bakr hid in Cave Thawr for about:', bs: 'Tokom hidžre, Poslanik i Ebu Bekr su se skrivali u pećini Sevr oko:' },
+    prompt: {
+      en: 'What did the Prophet, sallallahu alejhi ve sellem, emphasize in his Farewell Sermon?',
+      bs: 'Šta je Poslanik, sallallahu alejhi ve sellem, posebno naglasio u Oproštajnoj hutbi?'
+    },
     options: [
-      { en: 'Three years', bs: 'Tri godine' },
-      { en: 'Three hours', bs: 'Tri sata' },
-      { en: 'Thirty days', bs: 'Trideset dana' },
-      { en: 'Three nights', bs: 'Tri noći' },
+      { en: 'The sanctity of people’s lives, wealth, and honor', bs: 'Svetost ljudskih života, imetka i časti' },
+      { en: 'The importance of expanding Muslim territory', bs: 'Važnost širenja muslimanske teritorije' },
+      { en: 'The rules of trade between different nations', bs: 'Pravila trgovine između različitih naroda' },
+      { en: 'The history of previous prophets', bs: 'Historiju prijašnjih vjerovjesnika' }
     ],
-    correctIndex: 3,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-061',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The guide on Hijra route hired by Abu Bakr was:', bs: 'Vodič na putu hidžre koga je angažovao Ebu Bekr bio je:' },
+    prompt: {
+      en: 'How many umra did the Prophet, sallallahu alejhi ve sellem, perform after the Hijrah?',
+      bs: 'Koliko je umri Poslanik, sallallahu alejhi ve sellem, obavio nakon Hidžre?'
+    },
     options: [
-      { en: 'Abdullah ibn Urayqit', bs: 'Abdullah b. Urejkit' },
-      { en: 'Khalid ibn al-Walid', bs: 'Halid b. Velid' },
-      { en: 'Bilal ibn Rabah', bs: 'Bilal b. Rabah' },
-      { en: 'Abu Jahl', bs: 'Ebu Jehl' },
+      { en: 'Four', bs: 'Četiri' },
+      { en: 'Two', bs: 'Dvije' },
+      { en: 'Three', bs: 'Tri' },
+      { en: 'Five', bs: 'Pet' }
     ],
-    correctIndex: 0,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-062',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Suraqa ibn Malik pursued the Hijra party hoping for a Meccan reward but his horse:', bs: 'Sureyka b. Malik je jurio za grupom na hidžri radi nagrade, ali mu je konj:' },
+    prompt: {
+      en: 'Which place did the Prophet, sallallahu alejhi ve sellem, visit after leaving Mina during the Farewell Hajj?',
+      bs: 'Koje mjesto je Poslanik, sallallahu alejhi ve sellem, posjetio nakon napuštanja Mine tokom Oproštajnog hadža?'
+    },
     options: [
-      { en: 'Flew into the sky', bs: 'Letio u nebo' },
-      { en: 'Sank into the ground up to its belly', bs: 'Tone u zemlju do trbuha' },
-      { en: 'Turned into gold', bs: 'Postao zlatom' },
-      { en: 'Spoke Arabic', bs: 'Govorio arapski' },
+      { en: 'The valley of Muhassab', bs: 'Dolinu Mahassab' },
+      { en: 'The valley of Hunayn', bs: 'Dolinu Hunejn' },
+      { en: 'The valley of Badr', bs: 'Dolinu Bedra' },
+      { en: 'The valley of Ta’if', bs: 'Dolinu Taifa' }
     ],
-    correctIndex: 1,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-063',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The Prophet\'s camel on Hijra was famously guided by divine choice to stop at:', bs: 'Dev Poslanika na hidžri božanskim izborom je stao kod:' },
+    prompt: {
+      en: 'Where did the Prophet, sallallahu alejhi ve sellem, pass away?',
+      bs: 'Gdje je preselio Poslanik, sallallahu alejhi ve sellem?'
+    },
     options: [
-      { en: 'Mount Uhud', bs: 'Planine Uhud' },
-      { en: 'Taif market', bs: 'Tržnice u Taifu' },
-      { en: 'The site of his mosque in Medina', bs: 'Mjesta njegove džamije u Medini' },
-      { en: 'Red Sea port', bs: 'Luke na Crvenom moru' },
+      { en: 'In Madinah, in the house of Aisha, radijallahu anha', bs: 'U Medini, u kući Aiše, radijallahu anha' },
+      { en: 'In Makkah after the Farewell Hajj', bs: 'U Meki nakon Oproštajnog hadža' },
+      { en: 'During the journey to Tabuk', bs: 'Tokom pohoda na Tebuk' },
+      { en: 'In Jerusalem during a journey', bs: 'U Jerusalemu tokom putovanja' }
     ],
-    correctIndex: 2,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-064',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Abdullah ibn Ubayy, head of hypocrites in Medina, initially opposed the Prophet mainly through:', bs: 'Abdullah b. Ubej, vođa licemjera u Medini, u početku je protiv Poslanika djelovao kroz:' },
+    prompt: {
+      en: 'Who did the Prophet, sallallahu alejhi ve sellem, appoint to lead the prayer during his final illness?',
+      bs: 'Koga je Poslanik, sallallahu alejhi ve sellem, odredio da predvodi namaz tokom svoje posljednje bolesti?'
+    },
     options: [
-      { en: 'Leading all prayers openly as imam forever', bs: 'Trajno vođenje svih namaza' },
-      { en: 'Writing the Qur\'an unaided', bs: 'Pisanje Kur\'ana bez pomoći' },
-      { en: 'Conquering Mecca unaided', bs: 'Osvajanje Meke bez vojske' },
-      { en: 'Secret plots and public undermining', bs: 'Tajne zavjere i javno potkopavanje' },
+      { en: 'Abu Bakr, radijallahu anhu', bs: 'Ebu Bekra, radijallahu anhu' },
+      { en: 'Ali ibn Abi Talib, radijallahu anhu', bs: 'Aliju ibn Ebu Taliba, radijallahu anhu' },
+      { en: 'Umar ibn al-Khattab, radijallahu anhu', bs: 'Omera ibn Hattaba, radijallahu anhu' },
+      { en: 'Uthman ibn Affan, radijallahu anhu', bs: 'Osmana ibn Affana, radijallahu anhu' }
     ],
-    correctIndex: 3,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-065',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The incident of Banu Qurayza followed the Battle of:', bs: 'Incident Banu Kurejze slijedio je nakon bitke na:' },
+    prompt: {
+      en: 'Which companions supported the Prophet, sallallahu alejhi ve sellem, when he went to the mosque shortly before his death?',
+      bs: 'Koji ashabi su pomagali Poslaniku, sallallahu alejhi ve sellem, kada je izašao u mesdžid nekoliko dana prije smrti?'
+    },
     options: [
-      { en: 'The Trench (Khandaq)', bs: 'Rovu (Handaku)' },
-      { en: 'Badr', bs: 'Bederu' },
-      { en: 'Tabuk', bs: 'Tabuku' },
-      { en: 'Hunayn', bs: 'Hunajnu' },
+      { en: 'Ali ibn Abi Talib and Abbas, radijallahu anhuma', bs: 'Alija ibn Ebu Talib i Abbas, radijallahu anhuma' },
+      { en: 'Abu Bakr and Umar, radijallahu anhuma', bs: 'Ebu Bekr i Omer, radijallahu anhuma' },
+      { en: 'Bilal and Salman, radijallahu anhuma', bs: 'Bilal i Selman, radijallahu anhuma' },
+      { en: 'Hamza and Zayd, radijallahu anhuma', bs: 'Hamza i Zejd, radijallahu anhuma' }
     ],
-    correctIndex: 0,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-066',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The Jewish tribe Banu Nadir was expelled from Medina after attempting to:', bs: 'Jevrejsko pleme Banu Nadira protjerano je iz Medine nakon pokušaja da:' },
+    prompt: {
+      en: 'Which verse did Abu Bakr, radijallahu anhu, recite after the Prophet’s death?',
+      bs: 'Koji ajet je Ebu Bekr, radijallahu anhu, proučio nakon smrti Poslanika, sallallahu alejhi ve sellem?'
+    },
     options: [
-      { en: 'Build a church on Kaaba', bs: 'Izgrade crkvu na Kabi' },
-      { en: 'Assassinate the Prophet with a dropped rock', bs: 'Ubiju Poslanika padajućim kamenom' },
-      { en: 'Join Roman army openly', bs: 'Otvoreno priđu rimskoj vojsci' },
-      { en: 'Abolish prayer', bs: 'Ukinu namaz' },
+      { en: '“Muhammad is only a messenger, and messengers passed before him...” (Ali Imran, 144)', bs: '“Muhammed je samo poslanik, a i prije njega je bilo poslanika...” (Ali Imran, 144)' },
+      { en: '“Indeed, with hardship comes ease” (El-Inširah, 6)', bs: '“Zaista, s mukom je i olakšanje” (El-Inširah, 6)' },
+      { en: '“Indeed, Allah is with the patient” (El-Bekara, 153)', bs: '“Allah je zaista sa strpljivima” (El-Bekara, 153)' },
+      { en: '“The victory of Allah has come” (En-Nasr, 1)', bs: '“Kada Allahova pomoć i pobjeda dođu” (En-Nasr, 1)' }
     ],
-    correctIndex: 1,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-067',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Imam Ahmad ibn Hanbal is especially known for compiling:', bs: 'Imam Ahmed b. Hanbel posebno je poznat po sakupljanju:' },
+    prompt: {
+      en: 'On which day of the week did the Prophet, sallallahu alejhi ve sellem, pass away?',
+      bs: 'Kojeg dana u sedmici je preselio Poslanik, sallallahu alejhi ve sellem?'
+    },
     options: [
-      { en: 'The Al-Muwatta fiqh book', bs: 'Fikh djelo El-Muvatta' },
-      { en: 'Greek philosophy', bs: 'Grčke filozofije' },
-      { en: 'The Musnad hadith collection', bs: 'Hadiske zbirke Musnad' },
-      { en: 'The Qur\'an without hadith', bs: 'Kur\'ana bez hadisa' },
+      { en: 'Monday', bs: 'Ponedjeljak' },
+      { en: 'Friday', bs: 'Petak' },
+      { en: 'Sunday', bs: 'Nedjelja' },
+      { en: 'Thursday', bs: 'Četvrtak' }
     ],
-    correctIndex: 2,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-068',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Imam al-Bukhari\'s full name is Muhammad ibn Isma\'il al-Bukhari from:', bs: 'Puno ime imama Buharija je Muhammed b. Ismail el-Buhari iz:' },
+    prompt: {
+      en: 'What was among the last things the Prophet, sallallahu alejhi ve sellem, used from this world?',
+      bs: 'Šta je bilo među posljednjim stvarima koje je Poslanik, sallallahu alejhi ve sellem, koristio na ovom svijetu?'
+    },
     options: [
-      { en: 'Medina', bs: 'Medine' },
-      { en: 'Cairo', bs: 'Kaira' },
-      { en: 'Andalusia', bs: 'Andaluzije' },
-      { en: 'Bukhara (Transoxiana)', bs: 'Buhare (Transoksanije)' },
+      { en: 'The miswak of Aisha, radijallahu anha', bs: 'Misvak Aiše, radijallahu anha' },
+      { en: 'A sword from a Battle of Badr', bs: 'Mač bitke sa Bedra' },
+      { en: 'A gift from a delegation', bs: 'Poklon jedne delegacije' },
+      { en: 'A piece of cloth from the Ka‘bah', bs: 'Komad platna od Kabe' }
     ],
-    correctIndex: 3,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-069',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Sahih al-Bukhari and Sahih Muslim together are called:', bs: 'Sahihul-Buhari i Sahih Muslim zajedno se nazivaju:' },
+    prompt: {
+      en: 'How many salawat does Allah give to a person who sends one salawat upon the Prophet, sallallahu alejhi ve sellem?',
+      bs: 'Koliko salavata Allah daje osobi koja donese jedan salavat na Poslanika, sallallahu alejhi ve sellem?'
+    },
     options: [
-      { en: 'As-Sahihayn (the two authentic collections)', bs: 'Es-Sahihajn (dvije autentične zbirke)' },
-      { en: 'The four Sunan collections', bs: 'Četiri Sunen zbirke' },
-      { en: 'Muwatta pair', bs: 'Par Muvatta' },
-      { en: 'Kutub as-Sittah exclusively', bs: 'Isključivo Kutub es-Sitte' },
+      { en: 'Ten salawat', bs: 'Deset salavata' },
+      { en: 'One hundred salawat', bs: 'Sto salavata' },
+      { en: 'Five salawat', bs: 'Pet salavata' },
+      { en: 'One salawat', bs: 'Jedan salavat' }
     ],
-    correctIndex: 0,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-070',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The six major hadith books (Kutub as-Sittah) include Bukhari, Muslim, Abu Dawud, Tirmidhi, Nasa\'i, and:', bs: 'Šest glavnih hadiskih knjiga (Kutub es-Sitte) uključuje Buharija, Muslima, Ebu Davuda, Tirmizija, Nesaea i:' },
+    prompt: {
+      en: 'How long was the Prophet’s, sallallahu alejhi ve sellem, hair approximately?',
+      bs: 'Dokle je otprilike dosezala kosa Poslanika, sallallahu alejhi ve sellem?'
+    },
     options: [
-      { en: 'Malik as the sixth', bs: 'Malika kao šestog' },
-      { en: 'Ibn Majah', bs: 'Ibn Madžu' },
-      { en: 'Ahmad', bs: 'Ahmeda' },
-      { en: 'Tabari', bs: 'Taberija' },
+      { en: 'To his shoulders', bs: 'Do njegovih ramena' },
+      { en: 'To his waist', bs: 'Do njegovog struka' },
+      { en: 'To his knees', bs: 'Do njegovih koljena' },
+      { en: 'To his middle back', bs: 'Do polovine njegovih leđa' }
     ],
-    correctIndex: 1,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-071',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'In hadith terminology, a "marfu\'" hadith is one whose chain goes back to:', bs: 'U hadiskoj terminologiji, „merfu“ hadis je onaj čiji lanac ide do:' },
+    prompt: {
+      en: 'How many white hairs were approximately found on the Prophet’s, sallallahu alejhi ve sellem, head and beard?',
+      bs: 'Koliko je otprilike sijedih vlasi imao Poslanik, sallallahu alejhi ve sellem, na glavi i bradi?'
+    },
     options: [
-      { en: 'A tabi\'i narrator', bs: 'Tabina' },
-      { en: 'A poet', bs: 'Pjesnika' },
-      { en: 'The Prophet', bs: 'Poslanika' },
-      { en: 'A king', bs: 'Kralja' },
+      { en: 'Less than twenty', bs: 'Manje od dvadeset' },
+      { en: 'Around fifty', bs: 'Oko pedeset' },
+      { en: 'Around one hundred', bs: 'Oko stotinu' },
+      { en: 'More than two hundred', bs: 'Više od dvjesto' }
     ],
-    correctIndex: 2,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-072',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'A "mawquf" hadith stops at the saying of:', bs: '„Mevkuf“ hadis staje na izjavi:' },
+    prompt: {
+      en: 'Which hair dye color did the Prophet, sallallahu alejhi ve sellem, advise avoiding?',
+      bs: 'Koju boju farbe za kosu je Poslanik, sallallahu alejhi ve sellem, savjetovao izbjegavati?'
+    },
     options: [
-      { en: 'The Prophet always', bs: 'Uvijek Poslanika' },
-      { en: 'A Roman emperor', bs: 'Rimskog cara' },
-      { en: 'An angel directly quoting Allah\'s words as Qur\'an', bs: 'Meleka koji citira Kur\'an' },
-      { en: 'A companion', bs: 'Ashaba' },
+      { en: 'Black color', bs: 'Crnu boju' },
+      { en: 'Henna color', bs: 'Boju kane' },
+      { en: 'Brown color', bs: 'Smeđu boju' },
+      { en: 'Red color', bs: 'Crvenu boju' }
     ],
-    correctIndex: 3,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-073',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'A "maqtu\'" hadith is attributed to:', bs: '„Maktu“ hadis pripisuje se:' },
+    prompt: {
+      en: 'How was the beard of the Prophet, sallallahu alejhi ve sellem, described?',
+      bs: 'Kako je opisana brada Poslanika, sallallahu alejhi ve sellem?'
+    },
     options: [
-      { en: 'A tabi\'i (follower of companions)', bs: 'Tabinu (sljedbeniku ashaba)' },
-      { en: 'The Prophet', bs: 'Poslaniku' },
-      { en: 'Jibril in every case', bs: 'U svakom slučaju Džibrilu' },
-      { en: 'A non-Muslim historian', bs: 'Nemuslimanskom historičaru' },
+      { en: 'Thick and abundant', bs: 'Gusta i bujna' },
+      { en: 'Short and thin', bs: 'Kratka i rijetka' },
+      { en: 'Soft and almost invisible', bs: 'Mekana i skoro neprimjetna' },
+      { en: 'Without hair', bs: 'Bez dlaka' }
     ],
-    correctIndex: 0,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-074',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'A "sahih" hadith meets conditions of continuous chain, upright precise narrators, and:', bs: '„Sahih“ hadis ispunjava uvjete neprekinutog lanca, pouzdanih prenosilaca i:' },
+    prompt: {
+      en: 'Where was the seal of prophethood located on the body of the Prophet, sallallahu alejhi ve sellem?',
+      bs: 'Gdje se nalazio pečat poslanstva na tijelu Poslanika, sallallahu alejhi ve sellem?'
+    },
     options: [
-      { en: 'Being the longest text', bs: 'Najdužeg teksta' },
-      { en: 'Freedom from hidden defects and irregularity', bs: 'Odsustva skrivenih mana i šaznosti' },
-      { en: 'Being written in gold ink', bs: 'Pisanja zlatnim mastilom' },
-      { en: 'Having ten witnesses in court', bs: 'Deset sudskih svjedoka' },
+      { en: 'Between his shoulders', bs: 'Između njegovih plećki' },
+      { en: 'On his hand', bs: 'Na njegovoj ruci' },
+      { en: 'On his face', bs: 'Na njegovom licu' },
+      { en: 'On his chest', bs: 'Na prsima' }
     ],
-    correctIndex: 1,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-075',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'A "hasan" hadith is:', bs: '„Hasen“ hadis je:' },
+    prompt: {
+      en: 'What was the seal of prophethood on the body of the Prophet, sallallahu alejhi ve sellem, compared to in authentic narrations?',
+      bs: 'Sa čim je pečat poslanstva na tijelu Poslanika, sallallahu alejhi ve sellem, upoređen u vjerodostojnim predajama?'
+    },
     options: [
-      { en: 'Always fabricated', bs: 'Uvijek izmišljen' },
-      { en: 'Stronger than sahih', bs: 'Jači od sahih' },
-      { en: 'Acceptable with slightly lesser narrator precision than sahih', bs: 'Prihvatljiv sa nešto slabijom preciznošću prenosilaca od sahih' },
-      { en: 'From tabi\'in with no companions', bs: 'Od tabina bez ashaba' },
+      { en: 'A pigeon egg', bs: 'Golubijim jajetom' },
+      { en: 'A date fruit', bs: 'Hurminom košpicom' },
+      { en: 'A coin', bs: 'Novčićem' },
+      { en: 'A pearl', bs: 'Biserom' }
     ],
-    correctIndex: 2,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-076',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'A "da\'if" (weak) hadith is generally:', bs: '„Daif“ (slabi) hadis se općenito:' },
+    prompt: {
+      en: 'What type of clothing was the Prophet, sallallahu alejhi ve sellem, reported to love the most?',
+      bs: 'Koju vrstu odjeće je Poslanik, sallallahu alejhi ve sellem, najviše volio?'
+    },
     options: [
-      { en: 'Equal to Qur\'an', bs: 'Jednak Kur\'anu' },
-      { en: 'Mandatory for creed studies', bs: 'Obavezan za akidu' },
-      { en: 'Preferred over sahih', bs: 'Preferiran nad sahih' },
-      { en: 'Not used as proof in law unless supported or for virtues without belief', bs: 'Ne koristi kao dokaz u fikhu osim uz podršku ili za fadile bez vjerovanja' },
+      { en: 'The shirt', bs: 'Košulju' },
+      { en: 'The turban', bs: 'Turban' },
+      { en: 'The cloak', bs: 'Ogrtač' },
+      { en: 'The armor', bs: 'Oklop' }
     ],
-    correctIndex: 3,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-077',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'A "mursal" hadith is when a tabi\'i narrates from the Prophet:', bs: '„Mursel“ hadis je kada tabin prenosi od Poslanika:' },
+    prompt: {
+      en: 'What was among the Prophet’s, sallallahu alejhi ve sellem, favorite clothing according to Anas b. Malik?',
+      bs: 'Koja je bila među najdražom odjećom Poslanika, sallallahu alejhi ve sellem, prema Enesu b. Maliku?'
+    },
     options: [
-      { en: 'Without mentioning the companion in between', bs: 'Bez spominjanja ashaba između' },
-      { en: 'With ten companions listed', bs: 'Sa deset ashaba u lancu' },
-      { en: 'In dreams', bs: 'U snovima' },
-      { en: 'In Greek translation', bs: 'Na grčkom' },
+      { en: 'The Yemeni cloak', bs: 'Jemenski ogrtač' },
+      { en: 'The black robe', bs: 'Crni ogrtač' },
+      { en: 'The golden garment', bs: 'Zlatna odjeća' },
+      { en: 'The leather coat', bs: 'Kožni kaput' }
     ],
-    correctIndex: 0,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-078',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The "isnad" was emphasized because, as Abdullah ibn Mubarak said, without it:', bs: '„Isnad“ je naglašen jer, kako kaže Abdullah b. Mubarek, bez njega:' },
+    prompt: {
+      en: 'Which color of clothing did the Prophet, sallallahu alejhi ve sellem, commonly wear?',
+      bs: 'Koju boju odjeće je Poslanik, sallallahu alejhi ve sellem, često nosio?'
+    },
     options: [
-      { en: 'Arabs could narrate', bs: 'Arapi mogu prenositi' },
-      { en: 'Anyone could say anything', bs: 'Svako može reći bilo šta' },
-      { en: 'Qur\'an would be lost', bs: 'Kur\'an bi propao' },
-      { en: 'Prayer would be invalid', bs: 'Namaz bi bio nevažeći' },
+      { en: 'White clothing', bs: 'Bijelu odjeću' },
+      { en: 'Pure red clothing', bs: 'Potpuno crvenu odjeću' },
+      { en: 'Golden clothing', bs: 'Zlatnu odjeću' },
+      { en: 'Green clothing', bs: 'Zelenu odjeću' }
     ],
-    correctIndex: 1,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-079',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Water used for purification must generally be:', bs: 'Voda za čistoću općenito mora biti:' },
+    prompt: {
+      en: 'Which foot should be removed first when taking off shoes?',
+      bs: 'Koja noga se prva izuva prema sunnetu?'
+    },
     options: [
-      { en: 'Boiling always', bs: 'Uvijek kipuća' },
-      { en: 'Mixed with perfume', bs: 'Pomiješana s parfemom' },
-      { en: 'Pure (tahir) itself and purifying (mutlaq)', bs: 'Sama čista (tahara) i čisteći (mutlak)' },
-      { en: 'Sea water forbidden', bs: 'Zabranjena morska' },
+      { en: 'The left foot', bs: 'Lijeva noga' },
+      { en: 'The right foot', bs: 'Desna noga' },
+      { en: 'Both feet together', bs: 'Obje noge zajedno' },
+      { en: 'The stronger foot', bs: 'Jača noga' }
     ],
-    correctIndex: 2,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-080',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Sea water is considered by many scholars to be:', bs: 'Morska voda se kod mnogih učenjaka smatra:' },
+    prompt: {
+      en: 'Which of the following was mentioned as a miracle of the Prophet, sallallahu alejhi ve sellem?',
+      bs: 'Koja od navedenih stvari je spomenuta kao mudžiza Poslanika, sallallahu alejhi ve sellem?'
+    },
     options: [
-      { en: 'Always najis', bs: 'Uvijek nečistom (necdžis)' },
-      { en: 'For drinking', bs: 'Za piće' },
-      { en: 'Forbidden in wudu', bs: 'Zabranjenom u abdestu' },
-      { en: 'Pure and usable for purification', bs: 'Čistom i upotrebljivom za taharet' },
+      { en: 'Splitting of the Moon', bs: 'Rascjepljenje Mjeseca' },
+      { en: 'Building a large palace in Medina', bs: 'Izgradnja velike palače u Medini' },
+      { en: 'Changing the seasons', bs: 'Mijenjanje godišnjih doba' },
+      { en: 'Making mountains disappear', bs: 'Nestanak planina' }
     ],
-    correctIndex: 3,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-081',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Nullifiers of wudu include deep sleep, loss of consciousness, and:', bs: 'Poništavači abdesta uključuju dubok san, gubitak svijesti i:' },
+    prompt: {
+      en: 'Which miracle occurred when the companions needed water?',
+      bs: 'Koja mudžiza se dogodila kada su ashabi trebali vodu?'
+    },
     options: [
-      { en: 'Anything exiting from private parts', bs: 'Sve što izađe iz stidnih mjesta' },
-      { en: 'Speaking to a friend', bs: 'Razgovor s prijateljem' },
-      { en: 'Walking to mosque', bs: 'Hodanje u džamiju' },
-      { en: 'Reciting Qur\'an silently', bs: 'Tiho čitanje Kur\'ana' },
+      { en: 'Water flowed between the Prophet’s fingers', bs: 'Voda je potekla između Poslanikovih prstiju' },
+      { en: 'Rain fell immediately', bs: 'Kiša je odmah pala' },
+      { en: 'A river appeared in Medina', bs: 'Pojavila se rijeka u Medini' },
+      { en: 'Water came from a mountain', bs: 'Voda je došla iz planine' }
     ],
-    correctIndex: 0,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-082',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Wiping over leather socks (khuffayn) in wudu is allowed for a resident up to:', bs: 'Brisanje preko kožnih čarapa (hufejn) u abdestu dozvoljeno je stanovniku do:' },
+    prompt: {
+      en: 'What did the companions notice about the Prophet’s seal of prophethood?',
+      bs: 'Šta su ashabi primijetili kod poslaničkog pečata?'
+    },
     options: [
-      { en: 'One hour', bs: 'Jednog sata' },
-      { en: 'One day and night (24 hours)', bs: 'Jednog dana i noći (24 sata)' },
-      { en: 'One week always', bs: 'Uvijek jedne sedmice' },
-      { en: 'Never allowed', bs: 'Nikada nije dozvoljeno' },
+      { en: 'It had a few hairs on it', bs: 'Na njemu se nalazilo nekoliko dlačica' },
+      { en: 'It changed colors daily', bs: 'Mijenjao je boju svaki dan' },
+      { en: 'It had written letters on it', bs: 'Na njemu su bila ispisana slova' },
+      { en: 'It was larger than his shoulder', bs: 'Bio je veći od njegovog ramena' }
     ],
-    correctIndex: 1,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-083',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'For a traveler, wiping over khuffayn may extend to:', bs: 'Za putnika, brisanje preko hufejna može trajati do:' },
+    prompt: {
+      en: 'What was the purpose of the seal of prophethood?',
+      bs: 'Koja je bila svrha poslaničkog pečata?'
+    },
     options: [
-      { en: 'Three hours', bs: 'Tri sata' },
-      { en: 'Thirty days', bs: 'Trideset dana' },
-      { en: 'Three days and nights', bs: 'Tri dana i noći' },
-      { en: 'No extension', bs: 'Bez produženja' },
+      { en: 'A physical sign confirming his prophethood', bs: 'Fizički znak koji potvrđuje njegovo poslanstvo' },
+      { en: 'A mark showing his tribe', bs: 'Oznaka njegovog plemena' },
+      { en: 'A decoration on his body', bs: 'Ukras na njegovom tijelu' },
+      { en: 'A sign of his wealth', bs: 'Znak njegovog bogatstva' }
     ],
-    correctIndex: 2,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-084',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Sajdah al-tilawah is required when a reciter or hearer encounters:', bs: 'Sedždetut-tilave je potrebna kada čitalac ili slušalac naiđe na:' },
+    prompt: {
+      en: 'What material was the Prophet’s, sallallahu alejhi ve sellem, ring made from?',
+      bs: 'Od kojeg materijala je bio napravljen prsten Poslanika, sallallahu alejhi ve sellem?'
+    },
     options: [
-      { en: 'Any verse in Juz Amma', bs: 'Bilo koji ajet u Džuzu Amme' },
-      { en: 'Surah Al-Fatiha', bs: 'Suru El-Fatiha' },
-      { en: 'The word Allah', bs: 'Riječ Allah' },
-      { en: 'A verse of prostration in the Qur\'an', bs: 'Ajet sedžde u Kur\'anu' },
+      { en: 'Silver', bs: 'Srebro' },
+      { en: 'Gold', bs: 'Zlato' },
+      { en: 'Iron', bs: 'Željezo' },
+      { en: 'Copper', bs: 'Bakar' }
     ],
-    correctIndex: 3,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-085',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The funeral prayer (janazah) in Islam notably has:', bs: 'Dženaza namaz u islamu izrazito:' },
+    prompt: {
+      en: 'Where was the stone of the Prophet’s, sallallahu alejhi ve sellem, ring from?',
+      bs: 'Odakle je bio kamenčić na prstenu Poslanika, sallallahu alejhi ve sellem?'
+    },
     options: [
-      { en: 'No ruku\' or sujud—standing supplications', bs: 'Nema rukua ni sedžde—dova stojeći' },
-      { en: 'Four full rak\'ahs like Dhuhr', bs: 'Ima četiri punih rakata kao podne' },
-      { en: 'Prostration like Fajr', bs: 'Ima sedždu kao sabah' },
-      { en: 'Requires wudu but no intention', bs: 'Zahtijeva abdest bez nijeta' },
+      { en: 'Abyssinia', bs: 'Abesinija' },
+      { en: 'Yemen', bs: 'Jemen' },
+      { en: 'Persia', bs: 'Perzija' },
+      { en: 'Syria', bs: 'Šam' }
     ],
-    correctIndex: 0,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-086',
@@ -1210,195 +1463,492 @@ export const islamHard: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'A wasiyyah (bequest) in Islam is generally limited to:', bs: 'Vasijet (vasijjet) u islamu općenito je ograničena na:' },
+    prompt: {
+      en: 'Why did the Prophet, sallallahu alejhi ve sellem, have a ring made?',
+      bs: 'Zašto je Poslanik, sallallahu alejhi ve sellem, dao napraviti prsten?'
+    },
     options: [
-      { en: 'The entire estate always', bs: 'Uvijek cijelu imovinu' },
-      { en: 'Nothing—fully forbidden', bs: 'Ništa—potpuno zabranjeno' },
-      { en: 'One-third of the estate after debts and funeral costs', bs: 'Jednu trećinu imovine nakon dugova i troškova dženaze' },
-      { en: 'Non-Muslim heirs', bs: 'Nemuslimanske nasljednike' },
+      { en: 'To seal letters sent to rulers', bs: 'Da pečati pisma koja je slao vladarima' },
+      { en: 'As a symbol of wealth', bs: 'Kao simbol bogatstva' },
+      { en: 'For decoration during celebrations', bs: 'Radi ukrasa tokom proslava' },
+      { en: 'To identify his tribe', bs: 'Radi prepoznavanja njegovog plemena' }
     ],
-    correctIndex: 2,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-088',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The waiting period (iddah) for a widowed woman is generally:', bs: 'Čekanje (idet) za udovicu općenito je:' },
+    prompt: {
+      en: 'What was written on the Prophet’s, sallallahu alejhi ve sellem, ring?',
+      bs: 'Šta je bilo napisano na prstenu Poslanika, sallallahu alejhi ve sellem?'
+    },
     options: [
-      { en: 'One week', bs: 'Jedna sedmica' },
-      { en: 'One year exactly', bs: 'Tačno jedna godina' },
-      { en: 'No iddah required', bs: 'Bez ideta' },
-      { en: 'Four months and ten days', bs: 'Četiri mjeseca i deset dana' },
+      { en: 'Muhammad, Messenger of Allah', bs: 'Muhammed, Allahov poslanik' },
+      { en: 'There is no god but Allah', bs: 'Nema boga osim Allaha' },
+      { en: 'Bismillah', bs: 'Bismillah' },
+      { en: 'Allah is the Greatest', bs: 'Allah je najveći' }
     ],
-    correctIndex: 3,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-089',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The mahram relationship makes marriage permanently forbidden, including father, son, brother, and:', bs: 'Mahremski odnos trajno zabranjuje brak, uključujući oca, sina, brata i:' },
+    prompt: {
+      en: 'How was the inscription arranged on the Prophet’s, sallallahu alejhi ve sellem, ring?',
+      bs: 'Kako je bio raspoređen natpis na prstenu Poslanika, sallallahu alejhi ve sellem?'
+    },
     options: [
-      { en: 'Uncle (paternal or maternal)', bs: 'Amidžu ili ujaka' },
-      { en: 'A distant cousin', bs: 'Dalekog rođaka' },
-      { en: 'Neighbor', bs: 'Komšiju' },
-      { en: 'Teacher', bs: 'Učitelja' },
+      { en: 'Three lines: Muhammad, Messenger, Allah', bs: 'Tri reda: Muhammed, Poslanik, Allah' },
+      { en: 'One single line', bs: 'Jedan red' },
+      { en: 'Two lines with his name and tribe', bs: 'Dva reda s njegovim imenom i plemenom' },
+      { en: 'Four lines with a dua', bs: 'Četiri reda s dovom' }
     ],
-    correctIndex: 0,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-090',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The concept of "niyyah" (intention) distinguishes valid ibadah from:', bs: 'Pojam „nijet“ razlikuje valjani ibadet od:' },
+    prompt: {
+      en: 'Is wearing a silver ring considered a sunnah act of worship for men?',
+      bs: 'Da li je nošenje srebrenog prstena sunnet kao ibadet za muškarce?'
+    },
     options: [
-      { en: 'Any physical movement', bs: 'Bilo kakvog pokreta' },
-      { en: 'Mere habit or custom (adah)', bs: 'Pukog običaja (adeta)' },
-      { en: 'Speaking truth', bs: 'Istinite riječi' },
-      { en: 'Sleeping at night', bs: 'Noćnog spavanja' },
+      { en: 'It is allowed but not considered a sunnah act of worship', bs: 'Dozvoljeno je, ali nije sunnet kao ibadet' },
+      { en: 'It is obligatory', bs: 'Obavezno je' },
+      { en: 'It is forbidden', bs: 'Zabranjeno je' },
+      { en: 'It is only allowed for rulers', bs: 'Dozvoljeno je samo vladarima' }
     ],
-    correctIndex: 1,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-091',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'In the Farewell Sermon, the Prophet declared blood, property, and honor of Muslims:', bs: 'U posljednjoj hutbi Poslanik je proglasio krv, imovinu i čast muslimana:' },
+    prompt: {
+      en: 'What color of turban did the Prophet, sallallahu alejhi ve sellem, wear when he entered Makkah during the conquest?',
+      bs: 'Koje boje je bio turban Poslanika, sallallahu alejhi ve sellem, kada je ušao u Mekku prilikom osvajanja?'
+    },
     options: [
-      { en: 'Open to tribal raids', bs: 'Otvorenim plemenskim napadima' },
-      { en: 'Owned by rulers', bs: 'U vlasništvu vladara' },
-      { en: 'Sacred as the sanctity of this day and month', bs: 'Sveta kao svetost ovog dana i mjeseca' },
-      { en: 'Irrelevant after Hajj', bs: 'Nebitnim nakon hadža' },
+      { en: 'Black', bs: 'Crni' },
+      { en: 'White', bs: 'Bijeli' },
+      { en: 'Red', bs: 'Crveni' },
+      { en: 'Green', bs: 'Zeleni' }
     ],
-    correctIndex: 2,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-092',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The Prophet\'s final advice emphasized holding firmly to the Qur\'an and Sunnah to avoid:', bs: 'Poslanikova posljednja savjetovanja naglasila su držanje Kur\'ana i sunneta da bi se izbjeglo:' },
+    prompt: {
+      en: 'What did the Prophet, sallallahu alejhi ve sellem, do with the end of his turban?',
+      bs: 'Šta je Poslanik, sallallahu alejhi ve sellem, radio s krajem turbana?'
+    },
     options: [
-      { en: 'All trade forever', bs: 'Svaka trgovina zauvijek' },
-      { en: 'Marriage', bs: 'Brak' },
-      { en: 'Learning language', bs: 'Učenje jezika' },
-      { en: 'Division and misguidance', bs: 'Razdjelnica i zabluda' },
+      { en: 'He let it hang between his shoulders', bs: 'Puštao ga je između svojih pleća' },
+      { en: 'He wrapped it around his arm', bs: 'Omotavao ga je oko ruke' },
+      { en: 'He tied it around his waist', bs: 'Vezivao ga je oko struka' },
+      { en: 'He removed it before prayer', bs: 'Skidao ga je prije namaza' }
     ],
-    correctIndex: 3,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-093',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Ali ibn Abi Talib\'s caliphate faced the Battle of the Camel against:', bs: 'Halifat Alija b. Ebi Talib suočio se sa Bitkom na Kamili protiv:' },
+    prompt: {
+      en: 'What was one of the major miracles of the Prophet, sallallahu alejhi ve sellem, witnessed by the people of Makkah?',
+      bs: 'Koja je bila jedna od velikih mudžiza Allahovog Poslanika, sallallahu alejhi ve sellem, kojoj su svjedočili stanovnici Mekke?'
+    },
     options: [
-      { en: 'Aisha, Talha, and Zubayr', bs: 'Aiše, Talhe i Zubajra' },
-      { en: 'Roman legions', bs: 'Rimskih legija' },
-      { en: 'Abu Jahl\'s sons', bs: 'Sinova Ebu Jehla' },
-      { en: 'Negus of Abyssinia', bs: 'Negusa Abesinije' },
+      { en: 'The splitting of the Moon', bs: 'Rascjepljenje Mjeseca' },
+      { en: 'The stopping of the Sun', bs: 'Zaustavljanje Sunca' },
+      { en: 'The changing of mountains into gold', bs: 'Pretvaranje planina u zlato' },
+      { en: 'The creation of a new river', bs: 'Stvaranje nove rijeke' }
     ],
-    correctIndex: 0,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-094',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The Battle of Siffin was fought between Ali and:', bs: 'Bitka na Siffinu vođena je između Alija i:' },
+    prompt: {
+      en: 'How many times did the Prophet, sallallahu alejhi ve sellem, usually pause while drinking?',
+      bs: 'Koliko puta je Poslanik, sallallahu alejhi ve sellem, pravio predah prilikom pijenja?'
+    },
     options: [
-      { en: 'Abu Bakr', bs: 'Ebu Bekra' },
-      { en: 'Mu\'awiya ibn Abi Sufyan', bs: 'Muavije b. Ebi Sufjana' },
-      { en: 'Khalid before Islam', bs: 'Halida prije islama' },
-      { en: 'Musaylimah', bs: 'Musajlime' },
+      { en: 'Three times', bs: 'Tri puta' },
+      { en: 'Once', bs: 'Jednom' },
+      { en: 'Five times', bs: 'Pet puta' },
+      { en: 'He never paused', bs: 'Nikada nije pravio predah' }
     ],
-    correctIndex: 1,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-095',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The arbitration after Siffin led to the emergence of the:', bs: 'Arbitraža nakon Siffina dovela je do pojave:' },
+    prompt: {
+      en: 'Which of these foods did the Prophet, sallallahu alejhi ve sellem, eat with dates?',
+      bs: 'Koju od ovih namirnica je Poslanik, sallallahu alejhi ve sellem, jeo zajedno s datulama?'
+    },
     options: [
-      { en: 'Roman Catholic Church', bs: 'Rimske katoličke crkve' },
-      { en: 'Four madhabs simultaneously', bs: 'Četiri mezheba istovremeno' },
-      { en: 'Kharijites (Khawarij)', bs: 'Haridžija (Havarija)' },
-      { en: 'Abbasid dynasty immediately', bs: 'Odmah abasidske dinastije' },
+      { en: 'Cucumber', bs: 'Krastavac' },
+      { en: 'Rice', bs: 'Riža' },
+      { en: 'Fish', bs: 'Riba' },
+      { en: 'Cheese', bs: 'Sir' }
     ],
-    correctIndex: 2,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-096',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Hasan ibn Ali relinquished the caliphate to Mu\'awiya in an agreement aiming to:', bs: 'Hasan b. Ali predao je halifat Muaviji u dogovoru koji je imao za cilj:' },
+    prompt: {
+      en: 'How many times would the Prophet, sallallahu alejhi ve sellem, sometimes repeat a word so it would be understood?',
+      bs: 'Koliko puta bi Allahov Poslanik, sallallahu alejhi ve sellem, ponekad ponovio riječ da bi bila shvaćena?'
+    },
     options: [
-      { en: 'Abolish Islam', bs: 'Ukidanje islama' },
-      { en: 'Move capital to Rome', bs: 'Premještanje prijestolnice u Rim' },
-      { en: 'Destroy the Qur\'an', bs: 'Uništenje Kur\'ana' },
-      { en: 'Unite Muslims and end civil war', bs: 'Ujedinjenje muslimana i kraj građanskog rata' },
+      { en: 'Three times', bs: 'Tri puta' },
+      { en: 'Two times', bs: 'Dva puta' },
+      { en: 'Five times', bs: 'Pet puta' },
+      { en: 'Ten times', bs: 'Deset puta' }
     ],
-    correctIndex: 3,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-097',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'Ibn Abbas is famously known as:', bs: 'Ibn Abbas poznat je kao:' },
+    prompt: {
+      en: 'What position did the Prophet, sallallahu alejhi ve sellem, sleep in when he went to bed?',
+      bs: 'U kojem položaju je Allahov Poslanik, sallallahu alejhi ve sellem, spavao kada bi legao?'
+    },
     options: [
-      { en: 'Habr al-Ummah / Turjuman al-Qur\'an (interpreter of Qur\'an)', bs: 'Habrul-ummeti / Turgumanul-Kur\'an' },
-      { en: 'Commander of Badr', bs: 'Komandant Bederа' },
-      { en: 'First muezzin', bs: 'Prvi mujezin' },
-      { en: 'King of Abyssinia', bs: 'Kralj Abesinije' },
+      { en: 'On his right side', bs: 'Na desnom boku' },
+      { en: 'On his left side', bs: 'Na lijevom boku' },
+      { en: 'On his stomach', bs: 'Na stomaku' },
+      { en: 'On his back', bs: 'Na leđima' }
     ],
-    correctIndex: 0,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-098',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The dua taught for Ibn Abbas—"O Allah, grant him understanding of religion and teach him ta\'wil"—shows the link between:', bs: 'Dova za Ibn Abbasa—„Allahu moj, podari mu razumijevanje vjere i poduči ga te\'vilu“—pokazuje vezu između:' },
+    prompt: {
+      en: 'Where did the Prophet, sallallahu alejhi ve sellem, place his right hand when he slept?',
+      bs: 'Gdje je Allahov Poslanik, sallallahu alejhi ve sellem, stavljao desnu ruku kada bi spavao?'
+    },
     options: [
-      { en: 'Trade and poetry', bs: 'Trgovine i poezije' },
-      { en: 'Fiqh understanding and Qur\'anic interpretation', bs: 'Razumijevanja fikha i tumačenja Kur\'ana' },
-      { en: 'Military strategy and tax', bs: 'Vojne strategije i poreza' },
-      { en: 'Astrology and medicine', bs: 'Astrologije i medicine' },
+      { en: 'Under his right cheek', bs: 'Ispod desnog obraza' },
+      { en: 'Under his head', bs: 'Ispod glave' },
+      { en: 'On his chest', bs: 'Na prsa' },
+      { en: 'Under his left shoulder', bs: 'Ispod lijevog ramena' }
     ],
-    correctIndex: 1,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-099',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The Qur\'anic sciences include qira\'at (recitation variants), which are:', bs: 'Kur\'anske nauke uključuju kiraet (načine čitanja), koji su:' },
+    prompt: {
+      en: 'Which three surahs did the Prophet, sallallahu alejhi ve sellem, recite before sleeping?',
+      bs: 'Koje tri sure je Allahov Poslanik, sallallahu alejhi ve sellem, učio prije spavanja?'
+    },
     options: [
-      { en: 'Random personal accents', bs: 'Slučajni lični akcenti' },
-      { en: 'Translations into English', bs: 'Prijevodi na engleski' },
-      { en: 'Authentically transmitted modes of recitation', bs: 'Autentično preneseni načini recitacije' },
-      { en: 'Forbidden innovations always', bs: 'Uvijek zabranjene bid\'e' },
+      { en: 'Al-Ikhlas, Al-Falaq and An-Nas', bs: 'El-Ihlas, El-Felek i En-Nas' },
+      { en: 'Al-Fatiha, Al-Baqarah and Ya-Sin', bs: 'El-Fatiha, El-Bekara i Jasin' },
+      { en: 'Al-Kahf, Maryam and Taha', bs: 'El-Kehf, Merjem i Taha' },
+      { en: 'Al-Mulk, Al-Waqiah and Ar-Rahman', bs: 'El-Mulk, El-Vakia i Er-Rahman' }
     ],
-    correctIndex: 2,
+    correctIndex: 0
   },
   {
     id: 'islam-hard-100',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'The seven ahruf (modes) of Qur\'an recitation refer to:', bs: 'Sedam ahrufa (načina) kur\'anskog čitanja odnose se na:' },
+    prompt: {
+      en: 'What type of mattress did the Prophet, sallallahu alejhi ve sellem, use?',
+      bs: 'Kakav dušek je koristio Allahov Poslanik, sallallahu alejhi ve sellem?'
+    },
     options: [
-      { en: 'Seven different books', bs: 'Sedam različitih knjiga' },
-      { en: 'Seven translations', bs: 'Sedam prijevoda' },
-      { en: 'Seven copies by Uthman', bs: 'Sedam Osmanovih primjeraka' },
-      { en: 'Divinely permitted variations in dialect/recitation ease', bs: 'Dozvoljene božanske varijacije u dijalektu/lakšem čitanju' },
+      { en: 'A leather mattress filled with fibers', bs: 'Kožni dušek ispunjen vlaknima' },
+      { en: 'A silk mattress', bs: 'Svileni dušek' },
+      { en: 'A golden mattress', bs: 'Zlatni dušek' },
+      { en: 'A mattress filled with feathers', bs: 'Dušek ispunjen perjem' }
     ],
-    correctIndex: 3,
+    correctIndex: 0
+  },
+  {
+    id: 'islam-hard-101',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'What is recommended to do with the bed before sleeping?',
+      bs: 'Šta je preporučeno uraditi s posteljom prije spavanja?'
+    },
+    options: [
+      { en: 'Shake it with the inside of the cover', bs: 'Otresti je unutrašnjošću prekrivača' },
+      { en: 'Leave it untouched', bs: 'Ostaviti je netaknutom' },
+      { en: 'Wash it every night', bs: 'Oprati je svaku noć' },
+      { en: 'Change it before every sleep', bs: 'Promijeniti je prije svakog spavanja' }
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 'islam-hard-102',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'What did the Prophet, sallallahu alejhi ve sellem, use when waking up at night?',
+      bs: 'Šta je Allahov Poslanik, sallallahu alejhi ve sellem, koristio kada bi se probudio noću?'
+    },
+    options: [
+      { en: 'Miswak to clean his teeth', bs: 'Misvak za čišćenje zuba' },
+      { en: 'Perfume immediately', bs: 'Miris odmah nakon buđenja' },
+      { en: 'A new garment', bs: 'Novu odjeću' },
+      { en: 'A mirror', bs: 'Ogledalo' }
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 'islam-hard-103',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'What did the Prophet, sallallahu alejhi ve sellem, do if he missed his regular night worship due to sleep or tiredness?',
+      bs: 'Šta bi Poslanik, sallallahu alejhi ve sellem, uradio ako bi propustio svoj noćni ibadet zbog sna ili umora?'
+    },
+    options: [
+      { en: 'He would make it up during the day', bs: 'Nadoknadio bi ga tokom dana' },
+      { en: 'He would leave it permanently', bs: 'Ostavio bi ga zauvijek' },
+      { en: 'He would replace it with fasting', bs: 'Zamijenio bi ga postom' },
+      { en: 'He would ask someone else to do it', bs: 'Tražio bi od nekog drugog da ga obavi' }
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 'islam-hard-104',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'How many rakahs of night prayer did Aisha, radiallahu anha, mention that the Prophet usually prayed?',
+      bs: 'Koliko rekata noćnog namaza je Aiša, radijallahu anha, spomenula da je Poslanik obično klanjao?'
+    },
+    options: [
+      { en: 'Eleven rakahs', bs: 'Jedanaest rekata' },
+      { en: 'Eight rakahs', bs: 'Osam rekata' },
+      { en: 'Twenty rakahs', bs: 'Dvadeset rekata' },
+      { en: 'Three rakahs only', bs: 'Samo tri rekata' }
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 'islam-hard-105',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which month did the Prophet, sallallahu alejhi ve sellem, fast completely besides Ramadan?',
+      bs: 'Koji mjesec je Poslanik, sallallahu alejhi ve sellem, osim ramazana, postio cijeli?'
+    },
+    options: [
+      { en: 'No month completely', bs: 'Nijedan mjesec u potpunosti' },
+      { en: 'Sha’ban', bs: 'Ša’ban' },
+      { en: 'Muharram', bs: 'Muharrem' },
+      { en: 'Dhul-Hijjah', bs: 'Zul-hidždže' }
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 'islam-hard-106',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'How many days at the beginning of each month did the Prophet, sallallahu alejhi ve sellem, regularly fast?',
+      bs: 'Koliko dana na početku svakog mjeseca je Poslanik, sallallahu alejhi ve sellem, postio?'
+    },
+    options: [
+      { en: 'Three days', bs: 'Tri dana' },
+      { en: 'Seven days', bs: 'Sedam dana' },
+      { en: 'Ten days', bs: 'Deset dana' },
+      { en: 'The whole month', bs: 'Cijeli mjesec' }
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 'islam-hard-107',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which days did the Prophet, sallallahu alejhi ve sellem, especially take care to fast?',
+      bs: 'Koje dane je Poslanik, sallallahu alejhi ve sellem, posebno pazio da posti?'
+    },
+    options: [
+      { en: 'Monday and Thursday', bs: 'Ponedjeljak i četvrtak' },
+      { en: 'Friday and Saturday', bs: 'Petak i subota' },
+      { en: 'Tuesday and Wednesday', bs: 'Utorak i srijeda' },
+      { en: 'Sunday and Monday', bs: 'Nedjelja i ponedjeljak' }
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 'islam-hard-108',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Who did the Prophet, sallallahu alejhi ve sellem, ask to recite Quran to him?',
+      bs: 'Od koga je Poslanik, sallallahu alejhi ve sellem, tražio da mu uči Kur’an?'
+    },
+    options: [
+      { en: 'Abdullah ibn Masud', bs: 'Abdullah b. Mesud' },
+      { en: 'Abu Huraira', bs: 'Ebu Hurejra' },
+      { en: 'Bilal ibn Rabah', bs: 'Bilal b. Rebah' },
+      { en: 'Umar ibn Al-Khattab', bs: 'Omer b. Hattab' }
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 'islam-hard-109',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Who narrated that the Prophet peace be upon him cried during prayer and the sound in his chest resembled a boiling pot?',
+      bs: 'Ko je prenio da je Poslanik sallallahu alejhi ve sellem plakao u namazu tako da se u njegovim prsima čuo zvuk poput kotla?',
+    },
+    options: [
+      { en: 'Abdullah ibn Abbas', bs: 'Abdullah b. Abbas' },
+      { en: 'Abdullah ibn Shihhir', bs: 'Abdullah b. Šihhir' },
+      { en: 'Abu Huraira', bs: 'Ebu Hurejra' },
+      { en: 'Anas ibn Malik', bs: 'Enes b. Malik' },
+    ],
+    correctIndex: 1,
+  },
+  {
+    id: 'islam-hard-110',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which verse caused the Prophet peace be upon him to cry when Ibn Masud recited it?',
+      bs: 'Koji ajet je izazvao plač Poslanika sallallahu alejhi ve sellem kada ga je učio Ibn Mesud?',
+    },
+    options: [
+      { en: 'Al-Fatiha 1:5', bs: 'El-Fatiha 1:5' },
+      { en: 'An-Nisa 4:41', bs: 'En-Nisa 4:41' },
+      { en: 'Al-Baqara 2:255', bs: 'El-Bekara 2:255' },
+      { en: 'Al-Ikhlas 112:1', bs: 'El-Ihlas 112:1' },
+    ],
+    correctIndex: 1,
+  },
+  {
+    id: 'islam-hard-111',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Who did the Prophet, sallallahu alejhi ve sellem, ask to recite Quran to him?',
+      bs: 'Od koga je Poslanik, sallallahu alejhi ve sellem, tražio da mu uči Kur’an?'
+    },
+    options: [
+      { en: 'Abdullah ibn Masud', bs: 'Abdullah b. Mesud' },
+      { en: 'Abu Huraira', bs: 'Ebu Hurejra' },
+      { en: 'Bilal ibn Rabah', bs: 'Bilal b. Rebah' },
+      { en: 'Umar ibn Al-Khattab', bs: 'Omer b. Hattab' }
+    ],
+    correctIndex: 0
+  },
+  {
+    id: 'islam-hard-112',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Who was the companion whose death caused the Prophet peace be upon him to cry after kissing him?',
+      bs: 'Koji ashab je preselio, a Poslanik sallallahu alejhi ve sellem ga je poljubio i plakao?',
+    },
+    options: [
+      { en: 'Uthman ibn Mazun', bs: 'Osman b. Mazun' },
+      { en: 'Hamza ibn Abdulmuttalib', bs: 'Hamza b. Abdulmuttalib' },
+      { en: 'Saad ibn Muadh', bs: 'Sa’d b. Muaz' },
+      { en: 'Abu Bakr', bs: 'Ebu Bekr' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'islam-hard-113',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'What did the Prophet peace be upon him warn against during his final illness?',
+      bs: 'Na šta je Poslanik sallallahu alejhi ve sellem upozorio tokom svoje posljednje bolesti?',
+    },
+    options: [
+      { en: 'Taking the graves of prophets as places of worship', bs: 'Uzimanje kaburova vjerovjesnika kao mjesta ibadeta' },
+      { en: 'Abandoning the Sunnah after his death', bs: 'Napuštanje sunneta nakon njegove smrti' },
+      { en: 'Disputing over leadership among Muslims', bs: 'Svađanje oko vođstva među muslimanima' },
+      { en: 'Neglecting voluntary acts of worship', bs: 'Zanemarivanje dobrovoljnih ibadeta' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'islam-hard-114',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'What did Abu Bakr say regarding the burial place of the Prophet peace be upon him?',
+      bs: 'Šta je Ebu Bekr radijallahu anhu rekao u vezi mjesta ukopa Poslanika sallallahu alejhi ve sellem?',
+    },
+    options: [
+      { en: 'Prophets are buried only in their hometowns', bs: 'Vjerovjesnici se ukopavaju samo u svom rodnom mjestu' },
+      { en: 'Allah does not take the soul of a prophet except where he loves to be buried', bs: 'Allah ne usmrti vjerovjesnika osim na mjestu gdje voli da bude ukopan' },
+      { en: 'The companions should choose the place of burial', bs: 'Ashabi trebaju izabrati mjesto ukopa' },
+      { en: 'A prophet must be buried away from people', bs: 'Vjerovjesnik mora biti ukopan daleko od ljudi' },
+    ],
+    correctIndex: 1,
+  },
+  {
+    id: 'islam-hard-115',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'What did the Prophet peace be upon him leave as his inheritance according to his statement?',
+      bs: 'Šta je Poslanik sallallahu alejhi ve sellem ostavio kao nasljedstvo prema svom hadisu?',
+    },
+    options: [
+      { en: 'Gold and silver for his family', bs: 'Zlato i srebro svojoj porodici' },
+      { en: 'Land and properties for his children', bs: 'Zemlju i imetak svojoj djeci' },
+      { en: 'Knowledge and guidance, while worldly possessions became charity', bs: 'Znanje i uputu, dok je imetak koji ostavi sadaka' },
+      { en: 'A large amount of wealth for future generations', bs: 'Veliko finansijsko bogatstvo budućim generacijama' },
+    ],
+    correctIndex: 2,
   },
 ];
