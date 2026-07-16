@@ -21,7 +21,7 @@
           ".write": "!newData.exists()",
           "$qIndex": {
             "$playerId": {
-              ".write": "!newData.exists() || (root.child('rooms').child($code).child('phase').val() === 'question' && root.child('rooms').child($code).child('currentIndex').val() == $qIndex && newData.hasChildren(['choice', 'answeredAt']) && newData.child('choice').isNumber() && newData.child('choice').val() >= 0 && newData.child('choice').val() <= 3 && newData.child('answeredAt').isNumber() && newData.child('answeredAt').val() <= root.child('rooms').child($code).child('currentQuestion').child('endsAt').val() && root.child('rooms').child($code).child('players').child($playerId).exists())",
+              ".write": "!newData.exists() || (root.child('rooms').child($code).child('phase').val() === 'question' && root.child('rooms').child($code).child('currentIndex').val() + '' === $qIndex && newData.hasChildren(['choice', 'answeredAt']) && newData.child('choice').isNumber() && newData.child('choice').val() >= 0 && newData.child('choice').val() <= 3 && newData.child('answeredAt').isNumber() && newData.child('answeredAt').val() <= root.child('rooms').child($code).child('currentQuestion').child('endsAt').val() + 2000 && root.child('rooms').child($code).child('players').child($playerId).exists())",
               ".validate": "!newData.exists() || (newData.child('choice').isNumber() && newData.child('answeredAt').isNumber())"
             }
           }
