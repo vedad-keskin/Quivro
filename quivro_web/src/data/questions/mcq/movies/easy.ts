@@ -23,8 +23,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What shape is Harry Potter’s forehead scar?',
-              bs: 'Koji oblik ima ožiljak na Harry Potterovom čelu?' },
+    prompt: {
+      en: 'What shape is Harry Potter’s forehead scar?',
+      bs: 'Koji oblik ima ožiljak na Harry Potterovom čelu?'
+    },
     options: [
       { en: 'Star', bs: 'Zvijezda' },
       { en: 'Heart', bs: 'Srce' },
@@ -38,8 +40,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'In Friends, the gang often hangs out at which café?',
-              bs: 'U Friendsu, ekipa se često okuplja u kojem kafiću?' },
+    prompt: {
+      en: 'In Friends, the gang often hangs out at which café?',
+      bs: 'U Friendsu, ekipa se često okuplja u kojem kafiću?'
+    },
     options: [
       { en: 'Central Perk', bs: 'Central Perk' },
       { en: 'MacLaren’s', bs: 'MacLaren\'s' },
@@ -53,8 +57,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'Elsa is a main character in which Disney film?',
-              bs: 'Elsa je glavni lik u kojem Disney filmu?' },
+    prompt: {
+      en: 'Elsa is a main character in which Disney film?',
+      bs: 'Elsa je glavni lik u kojem Disney filmu?'
+    },
     options: [
       { en: 'Moana', bs: 'Moana' },
       { en: 'Tangled', bs: 'Tangled' },
@@ -68,8 +74,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'Batman usually protects which city?',
-              bs: 'Batman obično štiti koji grad?' },
+    prompt: {
+      en: 'Batman usually protects which city?',
+      bs: 'Batman obično štiti koji grad?'
+    },
     options: [
       { en: 'Metropolis', bs: 'Metropolis' },
       { en: 'Gotham', bs: 'Gotham' },
@@ -83,8 +91,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'The Simpsons live in which town?',
-              bs: 'Porodica Simpson živi u kojem gradu?' },
+    prompt: {
+      en: 'The Simpsons live in which town?',
+      bs: 'Porodica Simpson živi u kojem gradu?'
+    },
     options: [
       { en: 'Quahog', bs: 'Quahog' },
       { en: 'South Park', bs: 'South Park' },
@@ -98,8 +108,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What did the Titanic hit that caused it to sink?',
-              bs: 'U šta je Titanic udario zbog čega je potonuo?' },
+    prompt: {
+      en: 'What did the Titanic hit that caused it to sink?',
+      bs: 'U šta je Titanic udario zbog čega je potonuo?'
+    },
     options: [
       { en: 'Whale', bs: 'Kit' },
       { en: 'Iceberg', bs: 'Ledenjak' },
@@ -113,8 +125,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What weapon do Jedi use in Star Wars?',
-              bs: 'Koje oružje koriste Jedi u Ratovima zvijezda?' },
+    prompt: {
+      en: 'What weapon do Jedi use in Star Wars?',
+      bs: 'Koje oružje koriste Jedi u Ratovima zvijezda?'
+    },
     options: [
       { en: 'Lightsaber', bs: 'Svjetlosni mač' },
       { en: 'Bow', bs: 'Luk' },
@@ -128,8 +142,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'Shrek is what kind of creature?',
-              bs: 'Kakvo je stvorenje Shrek?' },
+    prompt: {
+      en: 'Shrek is what kind of creature?',
+      bs: 'Kakvo je stvorenje Shrek?'
+    },
     options: [
       { en: 'Dragon', bs: 'Zmaj' },
       { en: 'Giant', bs: 'Div' },
@@ -143,8 +159,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What does the name "Digimon" stand for?',
-              bs: 'Šta znači naziv "Digimon"?' },
+    prompt: {
+      en: 'What does the name "Digimon" stand for?',
+      bs: 'Šta znači naziv "Digimon"?'
+    },
     options: [
       { en: 'Digital Monsters', bs: 'Digitalna čudovišta' },
       { en: 'Digital Monkeys', bs: 'Digitalni majmuni' },
@@ -158,8 +176,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What color are SpongeBob’s pants?',
-              bs: 'Koje su boje SpongeBobove hlače?' },
+    prompt: {
+      en: 'What color are SpongeBob’s pants?',
+      bs: 'Koje su boje SpongeBobove hlače?'
+    },
     options: [
       { en: 'Blue', bs: 'Plave' },
       { en: 'Brown', bs: 'Smeđe' },
@@ -173,8 +193,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is Spider-Man\'s most well-known ability?',
-              bs: 'Koja je najpoznatija sposobnost Spider-Mana?' },
+    prompt: {
+      en: 'What is Spider-Man\'s most well-known ability?',
+      bs: 'Koja je najpoznatija sposobnost Spider-Mana?'
+    },
     options: [
       { en: 'Flying', bs: 'Letenje' },
       { en: 'Invisibility', bs: 'Nevidljivost' },
@@ -188,8 +210,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What type of fish is Nemo in Finding Nemo?',
-              bs: 'Koja vrsta ribe je Nemo u filmu Potraga za Nemom?' },
+    prompt: {
+      en: 'What type of fish is Nemo in Finding Nemo?',
+      bs: 'Koja vrsta ribe je Nemo u filmu Potraga za Nemom?'
+    },
     options: [
       { en: 'Shark', bs: 'Morski pas' },
       { en: 'Clownfish', bs: 'Riba klaun' },
@@ -203,8 +227,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'Who is the snowman in Frozen?',
-              bs: 'Kako se zove snjegović u Frozen-u?' },
+    prompt: {
+      en: 'Who is the snowman in Frozen?',
+      bs: 'Kako se zove snjegović u Frozen-u?'
+    },
     options: [
       { en: 'Olaf', bs: 'Olaf' },
       { en: 'Sven', bs: 'Sven' },
@@ -218,8 +244,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is Homer Simpson\'s favorite food?',
-              bs: 'Koja je Homerova omiljena hrana?' },
+    prompt: {
+      en: 'What is Homer Simpson\'s favorite food?',
+      bs: 'Koja je Homerova omiljena hrana?'
+    },
     options: [
       { en: 'Sandwiches', bs: 'Sendviči' },
       { en: 'Doughnuts', bs: 'Krofne' },
@@ -233,8 +261,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What type of toy is Woody in Toy Story?',
-              bs: 'Koja vrsta igračke je Woody u filmu Toy Story?' },
+    prompt: {
+      en: 'What type of toy is Woody in Toy Story?',
+      bs: 'Koja vrsta igračke je Woody u filmu Toy Story?'
+    },
     options: [
       { en: 'Cowboy', bs: 'Kauboj' },
       { en: 'Robot', bs: 'Robot' },
@@ -248,8 +278,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What role does Buzz Lightyear play in Toy Story?',
-              bs: 'Koju ulogu ima Buzz Lightyear u filmu Toy Story?' },
+    prompt: {
+      en: 'What role does Buzz Lightyear play in Toy Story?',
+      bs: 'Koju ulogu ima Buzz Lightyear u filmu Toy Story?'
+    },
     options: [
       { en: 'Pirate', bs: 'Gusar' },
       { en: 'Space ranger', bs: 'Svemirski rendžer' },
@@ -263,8 +295,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What animal is Simba in The Lion King?',
-              bs: 'Kakva je životinja Simba u Kralju lavova?' },
+    prompt: {
+      en: 'What animal is Simba in The Lion King?',
+      bs: 'Kakva je životinja Simba u Kralju lavova?'
+    },
     options: [
       { en: 'Tiger', bs: 'Tigar' },
       { en: 'Lion', bs: 'Lav' },
@@ -278,8 +312,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'In The Avengers, who can control the thunder?',
-              bs: 'U Osvetnicima, ko može upravljati gromom?' },
+    prompt: {
+      en: 'In The Avengers, who can control the thunder?',
+      bs: 'U Osvetnicima, ko može upravljati gromom?'
+    },
     options: [
       { en: 'Loki', bs: 'Loki' },
       { en: 'Thor', bs: 'Thor' },
@@ -293,8 +329,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is the name of Vin Diesel\'s character in the Fast & Furious franchise?',
-              bs: 'Kako se zove lik kojeg Vin Diesel glumi u filmovima Paklene ulice?' },
+    prompt: {
+      en: 'What is the name of Vin Diesel\'s character in the Fast & Furious franchise?',
+      bs: 'Kako se zove lik kojeg Vin Diesel glumi u filmovima Paklene ulice?'
+    },
     options: [
       { en: 'Dominic Toretto', bs: 'Dominic Toretto' },
       { en: 'Brian O\'Conner', bs: 'Brian O\'Conner' },
@@ -308,8 +346,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What fruit do the Minions love?',
-              bs: 'Koje voće Minioni vole?' },
+    prompt: {
+      en: 'What fruit do the Minions love?',
+      bs: 'Koje voće Minioni vole?'
+    },
     options: [
       { en: 'Bananas', bs: 'Banane' },
       { en: 'Broccoli', bs: 'Brokulu' },
@@ -323,8 +363,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'Who lives in a pineapple under the sea?',
-              bs: 'Ko živi u ananasu pod morem?' },
+    prompt: {
+      en: 'Who lives in a pineapple under the sea?',
+      bs: 'Ko živi u ananasu pod morem?'
+    },
     options: [
       { en: 'Patrick', bs: 'Patrick' },
       { en: 'SpongeBob', bs: 'SpongeBob' },
@@ -338,8 +380,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What type of students attend Hogwarts in Harry Potter?',
-              bs: 'Kakvi učenici pohađaju Hogwarts u Harry Potteru?' },
+    prompt: {
+      en: 'What type of students attend Hogwarts in Harry Potter?',
+      bs: 'Kakvi učenici pohađaju Hogwarts u Harry Potteru?'
+    },
     options: [
       { en: 'Wizards', bs: 'Čarobnjaci' },
       { en: 'Athletes', bs: 'Sportisti' },
@@ -353,8 +397,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is the name of Elsa\'s sister in Frozen?',
-              bs: 'Kako se zove Elsina sestra u Frozenu?' },
+    prompt: {
+      en: 'What is the name of Elsa\'s sister in Frozen?',
+      bs: 'Kako se zove Elsina sestra u Frozenu?'
+    },
     options: [
       { en: 'Moana', bs: 'Moana' },
       { en: 'Anna', bs: 'Anna' },
@@ -368,8 +414,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'In The Office (US), who is the boss at the start?',
-              bs: 'U The Officeu (SAD), ko je šef na početku?' },
+    prompt: {
+      en: 'In The Office (US), who is the boss at the start?',
+      bs: 'U The Officeu (SAD), ko je šef na početku?'
+    },
     options: [
       { en: 'Jim Halpert', bs: 'Jim Halpert' },
       { en: 'Dwight Schrute', bs: 'Dwight Schrute' },
@@ -383,8 +431,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'Which franchise is Pikachu the mascot of?',
-              bs: 'Koje franšize je Pikachu maskota?' },
+    prompt: {
+      en: 'Which franchise is Pikachu the mascot of?',
+      bs: 'Koje franšize je Pikachu maskota?'
+    },
     options: [
       { en: 'Pokémon', bs: 'Pokémon' },
       { en: 'Star Wars', bs: 'Ratovi zvijezda' },
@@ -398,8 +448,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'In Aladdin, what does Aladdin find in the cave?',
-              bs: 'U Aladdinu, šta Aladdin pronađe u pećini?' },
+    prompt: {
+      en: 'In Aladdin, what does Aladdin find in the cave?',
+      bs: 'U Aladdinu, šta Aladdin pronađe u pećini?'
+    },
     options: [
       { en: 'A magic lamp', bs: 'Čarobnu lampu' },
       { en: 'A car', bs: 'Automobil' },
@@ -413,8 +465,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What color is the Hulk when he transforms?',
-              bs: 'Koje je boje Hulk kad se pretvori?' },
+    prompt: {
+      en: 'What color is the Hulk when he transforms?',
+      bs: 'Koje je boje Hulk kad se pretvori?'
+    },
     options: [
       { en: 'Blue', bs: 'Plave' },
       { en: 'Red', bs: 'Crvene' },
@@ -428,8 +482,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'In Cinderella, what does she leave behind at the ball?',
-              bs: 'U Pepeljugi, šta Pepeljuga ostavi na balu?' },
+    prompt: {
+      en: 'In Cinderella, what does she leave behind at the ball?',
+      bs: 'U Pepeljugi, šta Pepeljuga ostavi na balu?'
+    },
     options: [
       { en: 'A glove', bs: 'Rukavicu' },
       { en: 'A glass slipper', bs: 'Staklenu cipelu' },
@@ -443,8 +499,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'Which actor played Brian O\'Conner in the Fast & Furious films?',
-              bs: 'Koji glumac je glumio Briana O\'Connera u filmovima Paklene ulice?' },
+    prompt: {
+      en: 'Which actor played Brian O\'Conner in the Fast & Furious films?',
+      bs: 'Koji glumac je glumio Briana O\'Connera u filmovima Paklene ulice?'
+    },
     options: [
       { en: 'Vin Diesel', bs: 'Vin Diesel' },
       { en: 'Dwayne Johnson', bs: 'Dwayne Johnson' },
@@ -458,8 +516,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What creatures fill the park in Jurassic Park?',
-              bs: 'Kakva stvorenja se nalaze u Jurskom Parku?' },
+    prompt: {
+      en: 'What creatures fill the park in Jurassic Park?',
+      bs: 'Kakva stvorenja se nalaze u Jurskom Parku?'
+    },
     options: [
       { en: 'Dinosaurs', bs: 'Dinosaurusi' },
       { en: 'Robots', bs: 'Roboti' },
@@ -473,8 +533,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is the name of the blue fish in Finding Nemo?',
-              bs: 'Kako se zove plava riba u Potrazi za Nemom?' },
+    prompt: {
+      en: 'What is the name of the blue fish in Finding Nemo?',
+      bs: 'Kako se zove plava riba u Potrazi za Nemom?'
+    },
     options: [
       { en: 'Dory', bs: 'Dora' },
       { en: 'Nemo', bs: 'Nemo' },
@@ -488,8 +550,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is Darth Vader most famous for wearing in Star Wars?',
-              bs: 'Po čemu je Darth Vader najprepoznatljiviji u Ratovima zvijezda?' },
+    prompt: {
+      en: 'What is Darth Vader most famous for wearing in Star Wars?',
+      bs: 'Po čemu je Darth Vader najprepoznatljiviji u Ratovima zvijezda?'
+    },
     options: [
       { en: 'Black helmet', bs: 'Crna kaciga' },
       { en: 'Yellow hat', bs: 'Žuti šešir' },
@@ -503,13 +567,15 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What do players use to battle in the Yu-Gi-Oh anime?',
-              bs: 'Čime se igrači bore u Yu-Gi-Oh serijalu?' },
+    prompt: {
+      en: 'What ancient item does Yugi Muto wear in Yu-Gi-Oh?',
+      bs: 'Koji drevni predmet Yugi Muto nosi u Yu-Gi-Oh-u?'
+    },
     options: [
-      { en: 'Cards', bs: 'Kartama' },
-      { en: 'Dice', bs: 'Kockama' },
-      { en: 'Spinning tops', bs: 'Čigrama' },
-      { en: 'Marbles', bs: 'Klikeri' },
+      { en: 'Millennium Puzzle', bs: 'Milenijska zagonetka' },
+      { en: 'Millennium Ring', bs: 'Milenijski prsten' },
+      { en: 'Millennium Rod', bs: 'Milenijski štap' },
+      { en: 'Millennium Eye', bs: 'Milenijsko oko' },
     ],
     correctIndex: 0,
   },
@@ -518,8 +584,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'In Moana, which demigod helps Moana on her journey?',
-              bs: 'U Moani, ko pomaže Moani na putovanju?' },
+    prompt: {
+      en: 'In Moana, which demigod helps Moana on her journey?',
+      bs: 'U Moani, ko pomaže Moani na putovanju?'
+    },
     options: [
       { en: 'Maui', bs: 'Maui' },
       { en: 'Hercules', bs: 'Hercules' },
@@ -533,8 +601,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What animal is Scooby-Doo?',
-              bs: 'Kakva je životinja Scooby-Doo?' },
+    prompt: {
+      en: 'What animal is Scooby-Doo?',
+      bs: 'Kakva je životinja Scooby-Doo?'
+    },
     options: [
       { en: 'Cat', bs: 'Mačka' },
       { en: 'Dog', bs: 'Pas' },
@@ -548,8 +618,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What mythical creature is Ariel in The Little Mermaid?',
-              bs: 'Kakvo mitsko stvorenje je Ariel u Maloj sireni?' },
+    prompt: {
+      en: 'What mythical creature is Ariel in The Little Mermaid?',
+      bs: 'Kakvo mitsko stvorenje je Ariel u Maloj sireni?'
+    },
     options: [
       { en: 'Mermaid', bs: 'Sirena' },
       { en: 'Fairy', bs: 'Vila' },
@@ -563,8 +635,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What does Captain America carry into battle?',
-              bs: 'Šta Captain America nosi u bitku?' },
+    prompt: {
+      en: 'What does Captain America carry into battle?',
+      bs: 'Šta Captain America nosi u bitku?'
+    },
     options: [
       { en: 'Shield', bs: 'Štit' },
       { en: 'Hammer', bs: 'Čekić' },
@@ -578,8 +652,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'Who helps Gru carry out his plans in Despicable Me?',
-              bs: 'Ko pomaže Gruu u izvršavanju planova u filmu Despicable Me?' },
+    prompt: {
+      en: 'Who helps Gru carry out his plans in Despicable Me?',
+      bs: 'Ko pomaže Gruu u izvršavanju planova u filmu Despicable Me?'
+    },
     options: [
       { en: 'Minions', bs: 'Minioni' },
       { en: 'Avengers', bs: 'Osvetnici' },
@@ -593,8 +669,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is the name of Bart Simpson\'s saxophone-playing sister?',
-              bs: 'Kako se zove Bartova sestra koja svira saksofon?' },
+    prompt: {
+      en: 'What is the name of Bart Simpson\'s saxophone-playing sister?',
+      bs: 'Kako se zove Bartova sestra koja svira saksofon?'
+    },
     options: [
       { en: 'Maggie', bs: 'Maggie' },
       { en: 'Lisa', bs: 'Lisa' },
@@ -608,8 +686,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What does Carl use to make his house fly in the movie Up?',
-              bs: 'Čime Carl podiže svoju kuću u filmu Nebesa?' },
+    prompt: {
+      en: 'What does Carl use to make his house fly in the movie Up?',
+      bs: 'Čime Carl podiže svoju kuću u filmu Nebesa?'
+    },
     options: [
       { en: 'Balloons', bs: 'Balonima' },
       { en: 'Rockets', bs: 'Raketama' },
@@ -623,42 +703,44 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-  prompt: { 
-    en: 'What element can Aang control in Avatar: The Last Airbender?',
-    bs: 'Kojim elementom Aang može upravljati u Avatar: The Last Airbender?'
+    prompt: {
+      en: 'What element can Aang control in Avatar: The Last Airbender?',
+      bs: 'Kojim elementom Aang može upravljati u Avatar: The Last Airbender?'
+    },
+    options: [
+      { en: 'All four elements', bs: 'Sva četiri elementa' },
+      { en: 'Fire', bs: 'Vatrom' },
+      { en: 'Water', bs: 'Vodom' },
+      { en: 'Earth', bs: 'Zemljom' },
+    ],
+    correctIndex: 0,
   },
-  options: [
-    { en: 'All four elements', bs: 'Sva četiri elementa' },
-    { en: 'Fire', bs: 'Vatrom' },
-    { en: 'Water', bs: 'Vodom' },
-    { en: 'Earth', bs: 'Zemljom' },
-  ],
-  correctIndex: 0,
+  {
+    id: 'movie-easy-043',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'easy',
+    prompt: {
+      en: 'Who is the cat that often chases Jerry?',
+      bs: 'Kako se zove mačak koji često lovi Jerryja?'
+    },
+    options: [
+      { en: 'Tom', bs: 'Tom' },
+      { en: 'Garfield', bs: 'Garfield' },
+      { en: 'Sylvester', bs: 'Sylvester' },
+      { en: 'Felix', bs: 'Felix' },
+    ],
+    correctIndex: 0,
   },
-{
-  id: 'movie-easy-043',
-  type: 'mcq',
-  category: 'movies',
-  difficulty: 'easy',
-  prompt: { 
-    en: 'Who is the cat that often chases Jerry?',
-    bs: 'Kako se zove mačak koji često lovi Jerryja?'
-  },
-  options: [
-    { en: 'Tom', bs: 'Tom' },
-    { en: 'Garfield', bs: 'Garfield' },
-    { en: 'Sylvester', bs: 'Sylvester' },
-    { en: 'Felix', bs: 'Felix' },
-  ],
-  correctIndex: 0,
-},
   {
     id: 'movie-easy-044',
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is the name of the green ogre\'s best friend?',
-              bs: 'Kako se zove najbolji prijatelj zelenog ogra?' },
+    prompt: {
+      en: 'What is the name of the green ogre\'s best friend?',
+      bs: 'Kako se zove najbolji prijatelj zelenog ogra?'
+    },
     options: [
       { en: 'Donkey', bs: 'Magare' },
       { en: 'Prince Charming', bs: 'Princ Šarmer' },
@@ -667,23 +749,23 @@ export const moviesEasy: Question[] = [
     ],
     correctIndex: 0,
   },
-{
-  id: 'movie-easy-045',
-  type: 'mcq',
-  category: 'movies',
-  difficulty: 'easy',
-  prompt: { 
-    en: 'What is the name of the Disney princess in Beauty and the Beast?',
-    bs: 'Kako se zove Disney princeza u filmu Ljepotica i Zvijer?'
+  {
+    id: 'movie-easy-045',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'easy',
+    prompt: {
+      en: 'What is the name of the Disney princess in Beauty and the Beast?',
+      bs: 'Kako se zove Disney princeza u filmu Ljepotica i Zvijer?'
+    },
+    options: [
+      { en: 'Belle', bs: 'Belle' },
+      { en: 'Ariel', bs: 'Ariel' },
+      { en: 'Jasmine', bs: 'Jasmine' },
+      { en: 'Cinderella', bs: 'Pepeljuga' },
+    ],
+    correctIndex: 0,
   },
-  options: [
-    { en: 'Belle', bs: 'Belle' },
-    { en: 'Ariel', bs: 'Ariel' },
-    { en: 'Jasmine', bs: 'Jasmine' },
-    { en: 'Cinderella', bs: 'Pepeljuga' },
-  ],
-  correctIndex: 0,
-},
   {
     id: 'movie-easy-046',
     type: 'mcq',
@@ -706,8 +788,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What was Walter White\'s profession before the events of Breaking Bad?',
-              bs: 'Koji je bio posao Waltera Whitea prije događaja u Breaking Badu?' },
+    prompt: {
+      en: 'What was Walter White\'s profession before the events of Breaking Bad?',
+      bs: 'Koji je bio posao Waltera Whitea prije događaja u Breaking Badu?'
+    },
     options: [
       { en: 'Chef', bs: 'Kuhar' },
       { en: 'Teacher', bs: 'Učitelj' },
@@ -721,8 +805,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'Who is the princess with long magical hair in Tangled?',
-              bs: 'Koja je princeza s dugom čarobnom kosom u Tangled?' },
+    prompt: {
+      en: 'Who is the princess with long magical hair in Tangled?',
+      bs: 'Koja je princeza s dugom čarobnom kosom u Tangled?'
+    },
     options: [
       { en: 'Rapunzel', bs: 'Rapunzel' },
       { en: 'Ariel', bs: 'Ariel' },
@@ -731,30 +817,32 @@ export const moviesEasy: Question[] = [
     ],
     correctIndex: 0,
   },
-{
-  id: 'movie-easy-049',
-  type: 'mcq',
-  category: 'movies',
-  difficulty: 'easy',
-  prompt: { 
-    en: 'Which member of the Parr family can become invisible?',
-    bs: 'Koji član porodice Parr može postati nevidljiv?'
+  {
+    id: 'movie-easy-049',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'easy',
+    prompt: {
+      en: 'Which member of the Parr family can become invisible?',
+      bs: 'Koji član porodice Parr može postati nevidljiv?'
+    },
+    options: [
+      { en: 'Violet', bs: 'Violet' },
+      { en: 'Dash', bs: 'Dash' },
+      { en: 'Jack-Jack', bs: 'Jack-Jack' },
+      { en: 'Mr. Incredible', bs: 'Gospodin Nevjerovatni' },
+    ],
+    correctIndex: 0,
   },
-  options: [
-    { en: 'Violet', bs: 'Violet' },
-    { en: 'Dash', bs: 'Dash' },
-    { en: 'Jack-Jack', bs: 'Jack-Jack' },
-    { en: 'Mr. Incredible', bs: 'Gospodin Nevjerovatni' },
-  ],
-  correctIndex: 0,
-},
   {
     id: 'movie-easy-050',
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is Baby Yoda\'s real name in The Mandalorian?',
-              bs: 'Kako se zove Baby Yoda u The Mandalorianu?' },
+    prompt: {
+      en: 'What is Baby Yoda\'s real name in The Mandalorian?',
+      bs: 'Kako se zove Baby Yoda u The Mandalorianu?'
+    },
     options: [
       { en: 'Grogu', bs: 'Grogu' },
       { en: 'Yoda', bs: 'Yoda' },
@@ -768,8 +856,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What type of animal is Judy Hopps in Zootopia?',
-              bs: 'Kakva je životinja Policajka Hoplić u Zootopiji?' },
+    prompt: {
+      en: 'What type of animal is Judy Hopps in Zootopia?',
+      bs: 'Kakva je životinja Policajka Hoplić u Zootopiji?'
+    },
     options: [
       { en: 'Fox', bs: 'Lisica' },
       { en: 'Rabbit', bs: 'Zec' },
@@ -783,8 +873,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What does Superman usually wear on his chest?',
-              bs: 'Šta Superman obično ima na prsima?' },
+    prompt: {
+      en: 'What does Superman usually wear on his chest?',
+      bs: 'Šta Superman obično ima na prsima?'
+    },
     options: [
       { en: 'An S logo', bs: 'Logo S' },
       { en: 'A star', bs: 'Zvijezdu' },
@@ -798,8 +890,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'Where does most of the story of Inside Out take place?',
-              bs: 'Gdje se najveći dio priče u filmu Inside Out odvija?' },
+    prompt: {
+      en: 'Where does most of the story of Inside Out take place?',
+      bs: 'Gdje se najveći dio priče u filmu Inside Out odvija?'
+    },
     options: [
       { en: 'Inside a mind', bs: 'Unutar uma' },
       { en: 'Inside a school', bs: 'Unutar škole' },
@@ -813,8 +907,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'Who is the villain with a red lightsaber in many Star Wars scenes?',
-              bs: 'Ko je negativac s crvenim svjetlosnim mačem u mnogim scenama Ratova zvijezda?' },
+    prompt: {
+      en: 'Who is the villain with a red lightsaber in many Star Wars scenes?',
+      bs: 'Ko je negativac s crvenim svjetlosnim mačem u mnogim scenama Ratova zvijezda?'
+    },
     options: [
       { en: 'Darth Vader', bs: 'Darth Vader' },
       { en: 'Yoda', bs: 'Yoda' },
@@ -823,30 +919,32 @@ export const moviesEasy: Question[] = [
     ],
     correctIndex: 0,
   },
-{
-  id: 'movie-easy-055',
-  type: 'mcq',
-  category: 'movies',
-  difficulty: 'easy',
-  prompt: { 
-    en: 'Who is the main protagonist of the original Beyblade anime?',
-    bs: 'Ko je glavni junak originalnog Beyblade serijala?'
+  {
+    id: 'movie-easy-055',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'easy',
+    prompt: {
+      en: 'Who is the main protagonist of the original Beyblade anime?',
+      bs: 'Ko je glavni junak originalnog Beyblade serijala?'
+    },
+    options: [
+      { en: 'Tyson Granger', bs: 'Tyson Granger' },
+      { en: 'Kai Hiwatari', bs: 'Kai Hiwatari' },
+      { en: 'Ray Kon', bs: 'Ray Kon' },
+      { en: 'Max Tate', bs: 'Max Tate' },
+    ],
+    correctIndex: 0,
   },
-  options: [
-    { en: 'Tyson Granger', bs: 'Tyson Granger' },
-    { en: 'Kai Hiwatari', bs: 'Kai Hiwatari' },
-    { en: 'Ray Kon', bs: 'Ray Kon' },
-    { en: 'Max Tate', bs: 'Max Tate' },
-  ],
-  correctIndex: 0,
-},
   {
     id: 'movie-easy-056',
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is the name of the boy wizard with glasses?',
-              bs: 'Kako se zove dječak čarobnjak s naočalama?' },
+    prompt: {
+      en: 'What is the name of the boy wizard with glasses?',
+      bs: 'Kako se zove dječak čarobnjak s naočalama?'
+    },
     options: [
       { en: 'Ron Weasley', bs: 'Ron Weasley' },
       { en: 'Harry Potter', bs: 'Harry Potter' },
@@ -855,30 +953,32 @@ export const moviesEasy: Question[] = [
     ],
     correctIndex: 1,
   },
-{
-  id: 'movie-easy-057',
-  type: 'mcq',
-  category: 'movies',
-  difficulty: 'easy',
-  prompt: { 
-    en: 'What is the name of the main character in Encanto?',
-    bs: 'Kako se zove glavni lik u filmu Encanto?'
+  {
+    id: 'movie-easy-057',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'easy',
+    prompt: {
+      en: 'What is the name of the main character in Encanto?',
+      bs: 'Kako se zove glavni lik u filmu Encanto?'
+    },
+    options: [
+      { en: 'Mirabel', bs: 'Mirabel' },
+      { en: 'Elsa', bs: 'Elsa' },
+      { en: 'Moana', bs: 'Moana' },
+      { en: 'Anna', bs: 'Anna' },
+    ],
+    correctIndex: 0,
   },
-  options: [
-    { en: 'Mirabel', bs: 'Mirabel' },
-    { en: 'Elsa', bs: 'Elsa' },
-    { en: 'Moana', bs: 'Moana' },
-    { en: 'Anna', bs: 'Anna' },
-  ],
-  correctIndex: 0,
-},
   {
     id: 'movie-easy-058',
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What fruit does Snow White eat that puts her to sleep?',
-              bs: 'Koje voće Snjeguljica pojede i zaspi?' },
+    prompt: {
+      en: 'What fruit does Snow White eat that puts her to sleep?',
+      bs: 'Koje voće Snjeguljica pojede i zaspi?'
+    },
     options: [
       { en: 'Banana', bs: 'Bananu' },
       { en: 'Apple', bs: 'Jabuku' },
@@ -892,8 +992,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'Who is Simba\'s father in The Lion King?',
-              bs: 'Ko je Simbin otac u Kralju lavova?' },
+    prompt: {
+      en: 'Who is Simba\'s father in The Lion King?',
+      bs: 'Ko je Simbin otac u Kralju lavova?'
+    },
     options: [
       { en: 'Scar', bs: 'Scar' },
       { en: 'Mufasa', bs: 'Mufasa' },
@@ -907,8 +1009,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is the name of the yellow sponge\'s best starfish friend?',
-              bs: 'Kako se zove najbolji prijatelj žute spužve, morska zvijezda?' },
+    prompt: {
+      en: 'What is the name of the yellow sponge\'s best starfish friend?',
+      bs: 'Kako se zove najbolji prijatelj žute spužve, morska zvijezda?'
+    },
     options: [
       { en: 'Patrick', bs: 'Patrick' },
       { en: 'Squidward', bs: 'Squidward' },
@@ -922,8 +1026,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What planet do the Na\'vi live on in Avatar?',
-              bs: 'Na kojoj planeti žive Na\'vi u Avataru?' },
+    prompt: {
+      en: 'What planet do the Na\'vi live on in Avatar?',
+      bs: 'Na kojoj planeti žive Na\'vi u Avataru?'
+    },
     options: [
       { en: 'Earth', bs: 'Zemlja' },
       { en: 'Pandora', bs: 'Pandora' },
@@ -937,8 +1043,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'Who is the red racing car in Cars?',
-              bs: 'Ko je crveni trkaći auto u Carsu?' },
+    prompt: {
+      en: 'Who is the red racing car in Cars?',
+      bs: 'Ko je crveni trkaći auto u Carsu?'
+    },
     options: [
       { en: 'Mater', bs: 'Šlep' },
       { en: 'Lightning McQueen', bs: 'Munjeviti Jurić' },
@@ -952,8 +1060,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is Ross Geller\'s profession in Friends?',
-              bs: 'Koji je Rossov posao u seriji Friends?' },
+    prompt: {
+      en: 'What is Ross Geller\'s profession in Friends?',
+      bs: 'Koji je Rossov posao u seriji Friends?'
+    },
     options: [
       { en: 'Chef', bs: 'Kuhar' },
       { en: 'Paleontologist', bs: 'Paleontolog' },
@@ -962,30 +1072,32 @@ export const moviesEasy: Question[] = [
     ],
     correctIndex: 1,
   },
-{
-  id: 'movie-easy-064',
-  type: 'mcq',
-  category: 'movies',
-  difficulty: 'easy',
-  prompt: { 
-    en: 'What famous phrase is associated with E.T. wanting to contact his planet?',
-    bs: 'Koja poznata rečenica je povezana s E.T.-ovom željom da kontaktira svoju planetu?'
+  {
+    id: 'movie-easy-064',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'easy',
+    prompt: {
+      en: 'What famous phrase is associated with E.T. wanting to contact his planet?',
+      bs: 'Koja poznata rečenica je povezana s E.T.-ovom željom da kontaktira svoju planetu?'
+    },
+    options: [
+      { en: 'Phone home', bs: 'Nazvati kući' },
+      { en: 'Go back home', bs: 'Vrati se kući' },
+      { en: 'Find my family', bs: 'Pronađi moju porodicu' },
+      { en: 'Take me away', bs: 'Odvedi me' },
+    ],
+    correctIndex: 0,
   },
-  options: [
-    { en: 'Phone home', bs: 'Nazvati kući' },
-    { en: 'Go back home', bs: 'Vrati se kući' },
-    { en: 'Find my family', bs: 'Pronađi moju porodicu' },
-    { en: 'Take me away', bs: 'Odvedi me' },
-  ],
-  correctIndex: 0,
-},
   {
     id: 'movie-easy-065',
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'In Home Alone, Kevin sets traps for two…',
-              bs: 'U Sam u kući, Kevin postavlja zamke dvojici…' },
+    prompt: {
+      en: 'In Home Alone, Kevin sets traps for two…',
+      bs: 'U Sam u kući, Kevin postavlja zamke dvojici…'
+    },
     options: [
       { en: 'Burglars', bs: 'Provalnika' },
       { en: 'Teachers', bs: 'Učitelja' },
@@ -999,8 +1111,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What animal is Pumbaa in The Lion King?',
-              bs: 'Kakva je životinja Pumbaa u Kralju lavova?' },
+    prompt: {
+      en: 'What animal is Pumbaa in The Lion King?',
+      bs: 'Kakva je životinja Pumbaa u Kralju lavova?'
+    },
     options: [
       { en: 'Meerkat', bs: 'Mungos' },
       { en: 'Warthog', bs: 'Bradavičasta svinja' },
@@ -1014,8 +1128,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What special ability does Barry Allen have in The Flash?',
-              bs: 'Koju posebnu sposobnost ima Barry Allen u seriji The Flash?' },
+    prompt: {
+      en: 'What special ability does Barry Allen have in The Flash?',
+      bs: 'Koju posebnu sposobnost ima Barry Allen u seriji The Flash?'
+    },
     options: [
       { en: 'Flight', bs: 'Letenje' },
       { en: 'Super speed', bs: 'Super brzina' },
@@ -1029,8 +1145,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is the name of the magical blue wish-granter in Aladdin?',
-              bs: 'Kako se zove čarobni plavi lik koji ispunjava želje u Aladdinu?' },
+    prompt: {
+      en: 'What is the name of the magical blue wish-granter in Aladdin?',
+      bs: 'Kako se zove čarobni plavi lik koji ispunjava želje u Aladdinu?'
+    },
     options: [
       { en: 'Genie', bs: 'Duh' },
       { en: 'Jafar', bs: 'Jafar' },
@@ -1039,30 +1157,32 @@ export const moviesEasy: Question[] = [
     ],
     correctIndex: 0,
   },
-{
-  id: 'movie-easy-069',
-  type: 'mcq',
-  category: 'movies',
-  difficulty: 'easy',
-  prompt: { 
-    en: 'What is the name of the famous Digimon partner of Tai?',
-    bs: 'Kako se zove poznati Digimon partner Taija?'
+  {
+    id: 'movie-easy-069',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'easy',
+    prompt: {
+      en: 'What is the name of the famous Digimon partner of Tai?',
+      bs: 'Kako se zove poznati Digimon partner Taija?'
+    },
+    options: [
+      { en: 'Agumon', bs: 'Agumon' },
+      { en: 'Gabumon', bs: 'Gabumon' },
+      { en: 'Patamon', bs: 'Patamon' },
+      { en: 'Gatomon', bs: 'Gatomon' },
+    ],
+    correctIndex: 0,
   },
-  options: [
-    { en: 'Agumon', bs: 'Agumon' },
-    { en: 'Gabumon', bs: 'Gabumon' },
-    { en: 'Patamon', bs: 'Patamon' },
-    { en: 'Gatomon', bs: 'Gatomon' },
-  ],
-  correctIndex: 0,
-},
   {
     id: 'movie-easy-070',
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'Who is Batman\'s main sidekick?',
-              bs: 'Ko je Batmanov glavni pomoćnik?' },
+    prompt: {
+      en: 'Who is Batman\'s main sidekick?',
+      bs: 'Ko je Batmanov glavni pomoćnik?'
+    },
     options: [
       { en: 'Robin', bs: 'Robin' },
       { en: 'Joker', bs: 'Joker' },
@@ -1076,8 +1196,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'Who do Mike and Sulley scare in Monsters, Inc.?',
-              bs: 'Koga Mike i Sulley plaše u filmu Monsters, Inc.?' },
+    prompt: {
+      en: 'Who do Mike and Sulley scare in Monsters, Inc.?',
+      bs: 'Koga Mike i Sulley plaše u filmu Monsters, Inc.?'
+    },
     options: [
       { en: 'Adults', bs: 'Odrasle' },
       { en: 'Children', bs: 'Djecu' },
@@ -1091,8 +1213,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is the name of the boy who never grows up?',
-              bs: 'Kako se zove dječak koji nikad ne odraste?' },
+    prompt: {
+      en: 'What is the name of the boy who never grows up?',
+      bs: 'Kako se zove dječak koji nikad ne odraste?'
+    },
     options: [
       { en: 'Peter Pan', bs: 'Peter Pan' },
       { en: 'Pinocchio', bs: 'Pinocchio' },
@@ -1106,8 +1230,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is the Iron Throne made of in Game of Thrones?',
-              bs: 'Od čega je napravljeno Željezno prijestolje u Igri prijestolja?' },
+    prompt: {
+      en: 'What is the Iron Throne made of in Game of Thrones?',
+      bs: 'Od čega je napravljeno Željezno prijestolje u Igri prijestolja?'
+    },
     options: [
       { en: 'Gold', bs: 'Zlato' },
       { en: 'Swords', bs: 'Mačevi' },
@@ -1121,8 +1247,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What color is Pikachu?',
-              bs: 'Koje je boje Pikachu?' },
+    prompt: {
+      en: 'What color is Pikachu?',
+      bs: 'Koje je boje Pikachu?'
+    },
     options: [
       { en: 'Blue', bs: 'Plave' },
       { en: 'Yellow', bs: 'Žute' },
@@ -1136,8 +1264,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'Where does Dorothy want to go in The Wizard of Oz?',
-              bs: 'Kuda Dorothy želi ići u Čarobnjaku iz Oza?' },
+    prompt: {
+      en: 'Where does Dorothy want to go in The Wizard of Oz?',
+      bs: 'Kuda Dorothy želi ići u Čarobnjaku iz Oza?'
+    },
     options: [
       { en: 'Home', bs: 'Kući' },
       { en: 'To space', bs: 'U svemir' },
@@ -1146,30 +1276,32 @@ export const moviesEasy: Question[] = [
     ],
     correctIndex: 0,
   },
-{
-  id: 'movie-easy-076',
-  type: 'mcq',
-  category: 'movies',
-  difficulty: 'easy',
-  prompt: { 
-    en: 'Which actor plays Dominic Toretto in Fast & Furious?',
-    bs: 'Koji glumac igra Dominica Toretta u Paklenim ulicama?'
+  {
+    id: 'movie-easy-076',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'easy',
+    prompt: {
+      en: 'Which actor plays Dominic Toretto in Fast & Furious?',
+      bs: 'Koji glumac igra Dominica Toretta u Paklenim ulicama?'
+    },
+    options: [
+      { en: 'Vin Diesel', bs: 'Vin Diesel' },
+      { en: 'Dwayne Johnson', bs: 'Dwayne Johnson' },
+      { en: 'Jason Statham', bs: 'Jason Statham' },
+      { en: 'Tom Cruise', bs: 'Tom Cruise' },
+    ],
+    correctIndex: 0,
   },
-  options: [
-    { en: 'Vin Diesel', bs: 'Vin Diesel' },
-    { en: 'Dwayne Johnson', bs: 'Dwayne Johnson' },
-    { en: 'Jason Statham', bs: 'Jason Statham' },
-    { en: 'Tom Cruise', bs: 'Tom Cruise' },
-  ],
-  correctIndex: 0,
-},
   {
     id: 'movie-easy-077',
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'Which fictional nation is T\'Challa king of in Black Panther?',
-              bs: 'Kojom državom vlada T\'Challa u Black Pantheru?' },
+    prompt: {
+      en: 'Which fictional nation is T\'Challa king of in Black Panther?',
+      bs: 'Kojom državom vlada T\'Challa u Black Pantheru?'
+    },
     options: [
       { en: 'Asgard', bs: 'Asgard' },
       { en: 'Wakanda', bs: 'Wakanda' },
@@ -1183,8 +1315,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is Donald Duck famous for wearing?',
-              bs: 'Po čemu je Donald Duck poznat što nosi?' },
+    prompt: {
+      en: 'What is Donald Duck famous for wearing?',
+      bs: 'Po čemu je Donald Duck poznat što nosi?'
+    },
     options: [
       { en: 'A sailor shirt', bs: 'Mornarsku majicu' },
       { en: 'A cowboy hat', bs: 'Kaubojski šešir' },
@@ -1198,8 +1332,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What kind of creature does Hiccup befriend in How to Train Your Dragon?',
-              bs: 'Kakvo stvorenje Štucko upozna u filmu Kako dresirati zmaja?' },
+    prompt: {
+      en: 'What kind of creature does Hiccup befriend in How to Train Your Dragon?',
+      bs: 'Kakvo stvorenje Štucko upozna u filmu Kako dresirati zmaja?'
+    },
     options: [
       { en: 'Dragon', bs: 'Zmaj' },
       { en: 'Lion', bs: 'Lav' },
@@ -1213,8 +1349,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What gives the Gauls their superhuman strength in the Astérix films?',
-              bs: 'Šta daje Galima nadljudsku snagu u filmovima o Asterixu?' },
+    prompt: {
+      en: 'What gives the Gauls their superhuman strength in the Astérix films?',
+      bs: 'Šta daje Galima nadljudsku snagu u filmovima o Asterixu?'
+    },
     options: [
       { en: 'A magic potion', bs: 'Čarobni napitak' },
       { en: 'A magic sword', bs: 'Čarobni mač' },
@@ -1228,8 +1366,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What weapon is Katniss Everdeen skilled with in The Hunger Games?',
-              bs: 'Kojim oružjem je Katniss Everdeen vješta u Igrama gladi?' },
+    prompt: {
+      en: 'What weapon is Katniss Everdeen skilled with in The Hunger Games?',
+      bs: 'Kojim oružjem je Katniss Everdeen vješta u Igrama gladi?'
+    },
     options: [
       { en: 'Bow', bs: 'Luk' },
       { en: 'Hammer', bs: 'Čekić' },
@@ -1243,8 +1383,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is the name of the blue alien family friend of Lilo?',
-              bs: 'Kako se zove plavi vanzemaljac koji je Lilin prijatelj?' },
+    prompt: {
+      en: 'What is the name of the blue alien family friend of Lilo?',
+      bs: 'Kako se zove plavi vanzemaljac koji je Lilin prijatelj?'
+    },
     options: [
       { en: 'Stitch', bs: 'Stitch' },
       { en: 'Yoda', bs: 'Yoda' },
@@ -1253,30 +1395,32 @@ export const moviesEasy: Question[] = [
     ],
     correctIndex: 0,
   },
-{
-  id: 'movie-easy-083',
-  type: 'mcq',
-  category: 'movies',
-  difficulty: 'easy',
-  prompt: { 
-    en: 'Who is the protagonist of the original Yu-Gi-Oh! anime?',
-    bs: 'Ko je glavni junak originalnog Yu-Gi-Oh! serijala?'
+  {
+    id: 'movie-easy-083',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'easy',
+    prompt: {
+      en: 'Who is the protagonist of the original Yu-Gi-Oh! anime?',
+      bs: 'Ko je glavni junak originalnog Yu-Gi-Oh! serijala?'
+    },
+    options: [
+      { en: 'Yugi Muto', bs: 'Yugi Muto' },
+      { en: 'Seto Kaiba', bs: 'Seto Kaiba' },
+      { en: 'Joey Wheeler', bs: 'Joey Wheeler' },
+      { en: 'Maximillion Pegasus', bs: 'Maximillion Pegasus' },
+    ],
+    correctIndex: 0,
   },
-  options: [
-    { en: 'Yugi Muto', bs: 'Yugi Muto' },
-    { en: 'Seto Kaiba', bs: 'Seto Kaiba' },
-    { en: 'Joey Wheeler', bs: 'Joey Wheeler' },
-    { en: 'Maximillion Pegasus', bs: 'Maximillion Pegasus' },
-  ],
-  correctIndex: 0,
-},
   {
     id: 'movie-easy-084',
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What does Pinocchio\'s nose do when he lies?',
-              bs: 'Šta se desi Pinocchiovom nosu kad laže?' },
+    prompt: {
+      en: 'What does Pinocchio\'s nose do when he lies?',
+      bs: 'Šta se desi Pinocchiovom nosu kad laže?'
+    },
     options: [
       { en: 'It grows', bs: 'Raste' },
       { en: 'It shrinks', bs: 'Smanjuje se' },
@@ -1290,8 +1434,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What does Miguel dream of doing in the movie Coco?',
-              bs: 'O čemu Miguel sanja u filmu Coco?' },
+    prompt: {
+      en: 'What does Miguel dream of doing in the movie Coco?',
+      bs: 'O čemu Miguel sanja u filmu Coco?'
+    },
     options: [
       { en: 'Playing music', bs: 'Sviranju muzike' },
       { en: 'Playing soccer', bs: 'Igranju fudbala' },
@@ -1305,8 +1451,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'Who is the villain with green hair and a purple suit in Batman stories?',
-              bs: 'Ko je negativac sa zelenom kosom i ljubičastim odijelom u Batman pričama?' },
+    prompt: {
+      en: 'Who is the villain with green hair and a purple suit in Batman stories?',
+      bs: 'Ko je negativac sa zelenom kosom i ljubičastim odijelom u Batman pričama?'
+    },
     options: [
       { en: 'Joker', bs: 'Joker' },
       { en: 'Bane', bs: 'Bane' },
@@ -1315,30 +1463,32 @@ export const moviesEasy: Question[] = [
     ],
     correctIndex: 0,
   },
-{
-  id: 'movie-easy-087',
-  type: 'mcq',
-  category: 'movies',
-  difficulty: 'easy',
-  prompt: { 
-    en: 'Who is Spider-Man’s aunt who raises him?',
-    bs: 'Kako se zove Spider-Manova tetka koja ga odgaja?'
+  {
+    id: 'movie-easy-087',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'easy',
+    prompt: {
+      en: 'Who is Spider-Man’s aunt who raises him?',
+      bs: 'Kako se zove Spider-Manova tetka koja ga odgaja?'
+    },
+    options: [
+      { en: 'Aunt May', bs: 'Tetka May' },
+      { en: 'Aunt Jane', bs: 'Tetka Jane' },
+      { en: 'Aunt Mary', bs: 'Tetka Mary' },
+      { en: 'Aunt Gwen', bs: 'Tetka Gwen' },
+    ],
+    correctIndex: 0,
   },
-  options: [
-    { en: 'Aunt May', bs: 'Tetka May' },
-    { en: 'Aunt Jane', bs: 'Tetka Jane' },
-    { en: 'Aunt Mary', bs: 'Tetka Mary' },
-    { en: 'Aunt Gwen', bs: 'Tetka Gwen' },
-  ],
-  correctIndex: 0,
-},
   {
     id: 'movie-easy-088',
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is the name of the princess who sleeps for a long time?',
-              bs: 'Kako se zove princeza koja dugo spava?' },
+    prompt: {
+      en: 'What is the name of the princess who sleeps for a long time?',
+      bs: 'Kako se zove princeza koja dugo spava?'
+    },
     options: [
       { en: 'Sleeping Beauty', bs: 'Trnoružica' },
       { en: 'Cinderella', bs: 'Pepeljuga' },
@@ -1352,8 +1502,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What choice is Neo offered in The Matrix?',
-              bs: 'Koji izbor je Neu ponuđen u filmu Matrix?' },
+    prompt: {
+      en: 'What choice is Neo offered in The Matrix?',
+      bs: 'Koji izbor je Neu ponuđen u filmu Matrix?'
+    },
     options: [
       { en: 'Red pill or blue pill', bs: 'Crvena ili plava pilula' },
       { en: 'Sword or shield', bs: 'Mač ili štit' },
@@ -1367,8 +1519,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What animal is Timon in The Lion King?',
-              bs: 'Kakva je životinja Timon u Kralju lavova?' },
+    prompt: {
+      en: 'What animal is Timon in The Lion King?',
+      bs: 'Kakva je životinja Timon u Kralju lavova?'
+    },
     options: [
       { en: 'Warthog', bs: 'Bradavičasta svinja' },
       { en: 'Meerkat', bs: 'Merkat' },
@@ -1382,8 +1536,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What type of competitions do players face in Squid Game?',
-              bs: 'U kakvim takmičenjima se igrači suočavaju u Igri lignje?' },
+    prompt: {
+      en: 'What type of competitions do players face in Squid Game?',
+      bs: 'U kakvim takmičenjima se igrači suočavaju u Igri lignje?'
+    },
     options: [
       { en: 'Deadly children\'s games', bs: 'Smrtonosne dječije igre' },
       { en: 'Cooking contests', bs: 'Kulinarska takmičenja' },
@@ -1414,8 +1570,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What type of animal is Remy in Ratatouille?',
-              bs: 'Kakva je životinja Remy u filmu Ratatouille?' },
+    prompt: {
+      en: 'What type of animal is Remy in Ratatouille?',
+      bs: 'Kakva je životinja Remy u filmu Ratatouille?'
+    },
     options: [
       { en: 'Cat', bs: 'Mačka' },
       { en: 'Rat', bs: 'Pacov' },
@@ -1429,25 +1587,27 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-  prompt: { 
-    en: 'What is Spider-Man’s real name?',
-    bs: 'Kako se Spider-Man stvarno zove?'
-  },
-  options: [
-    { en: 'Peter Parker', bs: 'Peter Parker' },
-    { en: 'Bruce Wayne', bs: 'Bruce Wayne' },
-    { en: 'Clark Kent', bs: 'Clark Kent' },
-    { en: 'Tony Stark', bs: 'Tony Stark' },
-  ],
-  correctIndex: 0,
+    prompt: {
+      en: 'What is Spider-Man’s real name?',
+      bs: 'Kako se Spider-Man stvarno zove?'
+    },
+    options: [
+      { en: 'Peter Parker', bs: 'Peter Parker' },
+      { en: 'Bruce Wayne', bs: 'Bruce Wayne' },
+      { en: 'Clark Kent', bs: 'Clark Kent' },
+      { en: 'Tony Stark', bs: 'Tony Stark' },
+    ],
+    correctIndex: 0,
   },
   {
     id: 'movie-easy-095',
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is the name of Astérix\'s large and strong best friend?',
-              bs: 'Kako se zove Asterixov veliki i snažni najbolji prijatelj?' },
+    prompt: {
+      en: 'What is the name of Astérix\'s large and strong best friend?',
+      bs: 'Kako se zove Asterixov veliki i snažni najbolji prijatelj?'
+    },
     options: [
       { en: 'Obelix', bs: 'Obelix' },
       { en: 'Getafix', bs: 'Getafix' },
@@ -1461,8 +1621,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What does Wall-E collect and clean?',
-              bs: 'Šta Wall-E sakuplja i čisti?' },
+    prompt: {
+      en: 'What does Wall-E collect and clean?',
+      bs: 'Šta Wall-E sakuplja i čisti?'
+    },
     options: [
       { en: 'Trash', bs: 'Smeće' },
       { en: 'Stars', bs: 'Zvijezde' },
@@ -1476,8 +1638,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'How do the children enter the magical world in The Chronicles of Narnia?',
-              bs: 'Kako djeca ulaze u čarobni svijet u Hronikama Narnije?' },
+    prompt: {
+      en: 'How do the children enter the magical world in The Chronicles of Narnia?',
+      bs: 'Kako djeca ulaze u čarobni svijet u Hronikama Narnije?'
+    },
     options: [
       { en: 'Through a wardrobe', bs: 'Kroz ormar' },
       { en: 'Through a window', bs: 'Kroz prozor' },
@@ -1491,8 +1655,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is the name of the green one-eyed monster in Monsters, Inc.?',
-              bs: 'Kako se zove zeleni čudovište s jednim okom u Monsters, Inc.?' },
+    prompt: {
+      en: 'What is the name of the green one-eyed monster in Monsters, Inc.?',
+      bs: 'Kako se zove zeleni čudovište s jednim okom u Monsters, Inc.?'
+    },
     options: [
       { en: 'Mike', bs: 'Mike' },
       { en: 'Sulley', bs: 'Sulley' },
@@ -1506,25 +1672,27 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-  prompt: { 
-    en: 'What is the real name of Wonder Woman?',
-    bs: 'Kako se Wonder Woman stvarno zove?'
-  },
-  options: [
-    { en: 'Diana Prince', bs: 'Diana Prince' },
-    { en: 'Lois Lane', bs: 'Lois Lane' },
-    { en: 'Selina Kyle', bs: 'Selina Kyle' },
-    { en: 'Natasha Romanoff', bs: 'Natasha Romanoff' },
-  ],
-  correctIndex: 0,
+    prompt: {
+      en: 'What is the real name of Wonder Woman?',
+      bs: 'Kako se Wonder Woman stvarno zove?'
+    },
+    options: [
+      { en: 'Diana Prince', bs: 'Diana Prince' },
+      { en: 'Lois Lane', bs: 'Lois Lane' },
+      { en: 'Selina Kyle', bs: 'Selina Kyle' },
+      { en: 'Natasha Romanoff', bs: 'Natasha Romanoff' },
+    ],
+    correctIndex: 0,
   },
   {
     id: 'movie-easy-100',
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'What is the name of the talking teapot in Beauty and the Beast?',
-              bs: 'Kako se zove čajnik koji priča u Ljepotici i zvijeri?' },
+    prompt: {
+      en: 'What is the name of the talking teapot in Beauty and the Beast?',
+      bs: 'Kako se zove čajnik koji priča u Ljepotici i zvijeri?'
+    },
     options: [
       { en: 'Mrs. Potts', bs: 'Mrs. Potts' },
       { en: 'Lumière', bs: 'Lumière' },
@@ -1538,8 +1706,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'In Arrow, which city does Oliver Queen protect?',
-              bs: 'U seriji Arrow, koji grad štiti Oliver Queen?' },
+    prompt: {
+      en: 'In Arrow, which city does Oliver Queen protect?',
+      bs: 'U seriji Arrow, koji grad štiti Oliver Queen?'
+    },
     options: [
       { en: 'Gotham', bs: 'Gotham' },
       { en: 'Star City', bs: 'Star City' },
@@ -1553,8 +1723,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'In The Flash, which city is Barry Allen from?',
-              bs: 'U seriji The Flash, iz kojeg grada je Barry Allen?' },
+    prompt: {
+      en: 'In The Flash, which city is Barry Allen from?',
+      bs: 'U seriji The Flash, iz kojeg grada je Barry Allen?'
+    },
     options: [
       { en: 'Star City', bs: 'Star City' },
       { en: 'Gotham', bs: 'Gotham' },
@@ -1568,8 +1740,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'The Lord of the Rings films are mainly set in which fictional world?',
-              bs: 'Filmovi Gospodar prstenova uglavnom su smješteni u koji izmišljeni svijet?' },
+    prompt: {
+      en: 'The Lord of the Rings films are mainly set in which fictional world?',
+      bs: 'Filmovi Gospodar prstenova uglavnom su smješteni u koji izmišljeni svijet?'
+    },
     options: [
       { en: 'Middle-earth', bs: 'Srednja zemlja' },
       { en: 'Westeros', bs: 'Westeros' },
@@ -1583,8 +1757,10 @@ export const moviesEasy: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'easy',
-    prompt: { en: 'In Ace Ventura: Pet Detective, who plays the title character?',
-              bs: 'U Ace Ventura: Pet Detective, ko glumi naslovnog lika?' },
+    prompt: {
+      en: 'In Ace Ventura: Pet Detective, who plays the title character?',
+      bs: 'U Ace Ventura: Pet Detective, ko glumi naslovnog lika?'
+    },
     options: [
       { en: 'Jim Carrey', bs: 'Jim Carrey' },
       { en: 'Eddie Murphy', bs: 'Eddie Murphy' },
@@ -1594,54 +1770,54 @@ export const moviesEasy: Question[] = [
     correctIndex: 0,
   },
   {
-  id: 'movie-easy-101',
-  type: 'mcq',
-  category: 'movies',
-  difficulty: 'easy',
-  prompt: { 
-    en: 'Who is the leader of the X-Men with powerful telepathic abilities?',
-    bs: 'Ko je vođa X-Men-a sa moćnim telepatskim sposobnostima?'
+    id: 'movie-easy-101',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'easy',
+    prompt: {
+      en: 'Who is the leader of the X-Men with powerful telepathic abilities?',
+      bs: 'Ko je vođa X-Men-a sa moćnim telepatskim sposobnostima?'
+    },
+    options: [
+      { en: 'Professor X', bs: 'Profesor X' },
+      { en: 'Wolverine', bs: 'Wolverine' },
+      { en: 'Magneto', bs: 'Magneto' },
+      { en: 'Cyclops', bs: 'Cyclops' },
+    ],
+    correctIndex: 0,
   },
-  options: [
-    { en: 'Professor X', bs: 'Profesor X' },
-    { en: 'Wolverine', bs: 'Wolverine' },
-    { en: 'Magneto', bs: 'Magneto' },
-    { en: 'Cyclops', bs: 'Cyclops' },
-  ],
-  correctIndex: 0,
-},
-{
-  id: 'movie-easy-102',
-  type: 'mcq',
-  category: 'movies',
-  difficulty: 'easy',
-  prompt: { 
-    en: 'Which X-Men character has metal claws?',
-    bs: 'Koji X-Men lik ima metalne kandže?'
+  {
+    id: 'movie-easy-102',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'easy',
+    prompt: {
+      en: 'Which X-Men character has metal claws?',
+      bs: 'Koji X-Men lik ima metalne kandže?'
+    },
+    options: [
+      { en: 'Wolverine', bs: 'Wolverine' },
+      { en: 'Cyclops', bs: 'Cyclops' },
+      { en: 'Storm', bs: 'Storm' },
+      { en: 'Beast', bs: 'Beast' },
+    ],
+    correctIndex: 0,
   },
-  options: [
-    { en: 'Wolverine', bs: 'Wolverine' },
-    { en: 'Cyclops', bs: 'Cyclops' },
-    { en: 'Storm', bs: 'Storm' },
-    { en: 'Beast', bs: 'Beast' },
-  ],
-  correctIndex: 0,
-},
-{
-  id: 'movie-easy-103',
-  type: 'mcq',
-  category: 'movies',
-  difficulty: 'easy',
-  prompt: { 
-    en: 'Which metal is connected to Wolverine’s skeleton in X-Men?',
-    bs: 'Koji metal je povezan sa Wolverineovim kosturom u X-Men-u?'
+  {
+    id: 'movie-easy-103',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'easy',
+    prompt: {
+      en: 'Which metal is connected to Wolverine’s skeleton in X-Men?',
+      bs: 'Koji metal je povezan sa Wolverineovim kosturom u X-Men-u?'
+    },
+    options: [
+      { en: 'Adamantium', bs: 'Adamantij' },
+      { en: 'Vibranium', bs: 'Vibranij' },
+      { en: 'Iron', bs: 'Željezo' },
+      { en: 'Titanium', bs: 'Titanij' },
+    ],
+    correctIndex: 0,
   },
-  options: [
-    { en: 'Adamantium', bs: 'Adamantij' },
-    { en: 'Vibranium', bs: 'Vibranij' },
-    { en: 'Iron', bs: 'Željezo' },
-    { en: 'Titanium', bs: 'Titanij' },
-  ],
-  correctIndex: 0,
-},
 ];
