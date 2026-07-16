@@ -474,16 +474,16 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'In which year AH did the Battle of the Trench take place?',
-      bs: 'Koje godine po hidžri se dogodila Bitka na Hendeku?',
+      en: 'In which year after Hijrah did the Battle of the Trench (Khandaq) take place?',
+      bs: 'Koje godine po Hidžri se dogodila Bitka na Hendeku?',
     },
     options: [
-      { en: '3 AH', bs: '3. h.g.' },
-      { en: '5 AH', bs: '5. h.g.' },
-      { en: '6 AH', bs: '6. h.g.' },
-      { en: '8 AH', bs: '8. h.g.' },
+      { en: '3 AH', bs: '3. godine po Hidžri' },
+      { en: '4 AH', bs: '4. godine po Hidžri' },
+      { en: '5 AH', bs: '5. godine po Hidžri' },
+      { en: '6 AH', bs: '6. godine po Hidžri' },
     ],
-    correctIndex: 1,
+    correctIndex: 2,
   },
   {
     id: 'islam-med-031',
@@ -508,7 +508,7 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { en: 'How many people from Yathrib took part in the first pledge at Aqabah?',
-              bs: 'Koliko je ljudi iz Jesriba dalo prvu zakletvu na Akabi?' },
+              bs: 'Koliko je ljudi iz Jesriba dalo prvu prisegu na Akabi?' },
     options: [
       { en: 'Twelve', bs: 'Dvanaest' },
       { en: 'Seventy-three', bs: 'Sedamdeset tri' },
@@ -539,14 +539,17 @@ export const islamMedium: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'medium',
-    prompt: { en: 'Waraqah ibn Nawfal, Khadija\'s cousin, told the Prophet after first revelation:', bs: 'Vereka b. Nevfel, Hatidžin rođak, rekao je Poslaniku nakon prve objave:' },
+    prompt: {
+      en: 'Whom did Waraqah ibn Nawfal say had brought the same revelation that came to Prophet Muhammad, peace be upon him?',
+      bs: 'Za koga je Vereka b. Nevfel rekao da je donio istu objavu koja je došla Poslaniku Muhammedu, sallallahu alejhi ve sellem?'
+    },
     options: [
-      { en: 'You must leave Arabia immediately', bs: 'Moraš odmah napustiti Arabiju' },
-      { en: 'This is the same revelation that came to Musa', bs: 'Ovo je ista objava koja je došla Musau' },
-      { en: 'Stop preaching forever', bs: 'Zauvijek prestani pozivati' },
-      { en: 'You are merely a poet', bs: 'Ti si pjesnik' },
+      { en: 'Musa (Moses)', bs: 'Musa, alejhis-selam' },
+      { en: 'Isa (Jesus)', bs: 'Isa, alejhis-selam' },
+      { en: 'Nuh (Noah)', bs: 'Nuh, alejhis-selam' },
+      { en: 'Ibrahim (Abraham)', bs: 'Ibrahim, alejhis-selam' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'islam-med-035',
@@ -1458,8 +1461,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'Which verse from which surah did the Prophet recite when leaving his house during Hijrah?',
-      bs: 'Iz koje sure je Poslanik učio ajet kada je izlazio iz svoje kuće tokom hidžre?'
+      en: 'During the night of Hijrah, when Prophet Muhammad, peace be upon him, left his house while the Quraysh were waiting outside, from which surah did he recite a verse?',
+      bs: 'Tokom noći hidžre, kada je Poslanik Muhammed, sallallahu alejhi ve sellem, izašao iz svoje kuće dok su Kurejšije čekale ispred nje, iz koje sure je proučio ajet?'
     },
     options: [
       { en: 'Surah Yasin', bs: 'Sura Jasin' },
@@ -1543,14 +1546,14 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'Who saw the dream that contained the words of the adhan?',
-      bs: 'Ko je usnio san u kojem je naučio riječi ezana?'
+      en: 'Who was the companion who first told Prophet Muhammad, peace be upon him, about the dream containing the words of the adhan?',
+      bs: 'Koji ashab je prvi obavijestio Poslanika Muhammeda, sallallahu alejhi ve sellem, o snu u kojem su bile riječi ezana?'
     },
     options: [
       { en: 'Abdullah ibn Zayd', bs: 'Abdullah b. Zejd' },
+      { en: 'Umar ibn al-Khattab', bs: 'Omer b. Hattab' },
       { en: 'Bilal ibn Rabah', bs: 'Bilal b. Rabah' },
-      { en: 'Ali ibn Abi Talib', bs: 'Alija b. Ebi Talib' },
-      { en: 'Uthman ibn Affan', bs: 'Osman b. Affan' },
+      { en: 'Abu Bakr', bs: 'Ebu Bekr' },
     ],
     correctIndex: 0,
   },
@@ -1644,15 +1647,15 @@ export const islamMedium: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'medium',
-    prompt: { 
+    prompt: {
       en: 'In which year after Hijrah did the Battle of Badr take place?',
-      bs: 'Koje godine po Hidžri se desila Bitka na Bedru?'
+      bs: 'Koje godine po Hidžri se dogodila Bitka na Bedru?',
     },
     options: [
-      { en: 'First year after Hijrah', bs: 'Prve godine po Hidžri' },
-      { en: 'Second year after Hijrah', bs: 'Druge godine po Hidžri' },
-      { en: 'Fifth year after Hijrah', bs: 'Pete godine po Hidžri' },
-      { en: 'Tenth year after Hijrah', bs: 'Desete godine po Hidžri' },
+      { en: '1 AH', bs: '1. godine po Hidžri' },
+      { en: '2 AH', bs: '2. godine po Hidžri' },
+      { en: '3 AH', bs: '3. godine po Hidžri' },
+      { en: '5 AH', bs: '5. godine po Hidžri' },
     ],
     correctIndex: 1,
   },
@@ -1774,5 +1777,90 @@ export const islamMedium: Question[] = [
       { en: 'Exhaustion caused by the difficulties of preaching Islam', bs: 'Umor zbog iskušenja u pozivanju u islam' },
     ],
     correctIndex: 0,
+  },
+  {
+    id: 'islam-med-108',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'medium',
+    prompt: {
+      en: 'In which year after Hijrah did the Battle of Uhud take place?',
+      bs: 'Koje godine po Hidžri se dogodila Bitka na Uhudu?',
+    },
+    options: [
+      { en: '2 AH', bs: '2. godine po Hidžri' },
+      { en: '3 AH', bs: '3. godine po Hidžri' },
+      { en: '4 AH', bs: '4. godine po Hidžri' },
+      { en: '5 AH', bs: '5. godine po Hidžri' },
+    ],
+    correctIndex: 1,
+  },
+  {
+    id: 'islam-med-109',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'medium',
+    prompt: {
+      en: 'In which year after Hijrah was the Battle of Khaybar fought?',
+      bs: 'Koje godine po Hidžri se dogodila Bitka za Hajber?',
+    },
+    options: [
+      { en: '5 AH', bs: '5. godine po Hidžri' },
+      { en: '6 AH', bs: '6. godine po Hidžri' },
+      { en: '7 AH', bs: '7. godine po Hidžri' },
+      { en: '8 AH', bs: '8. godine po Hidžri' },
+    ],
+    correctIndex: 2,
+  },
+  {
+    id: 'islam-med-110',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'medium',
+    prompt: {
+      en: 'In which year after Hijrah did the Conquest of Makkah take place?',
+      bs: 'Koje godine po Hidžri se dogodilo Oslobođenje Mekke?',
+    },
+    options: [
+      { en: '6 AH', bs: '6. godine po Hidžri' },
+      { en: '7 AH', bs: '7. godine po Hidžri' },
+      { en: '8 AH', bs: '8. godine po Hidžri' },
+      { en: '9 AH', bs: '9. godine po Hidžri' },
+    ],
+    correctIndex: 2,
+  },
+  {
+    id: 'islam-med-111',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'medium',
+    prompt: {
+      en: 'In which year after Hijrah did the Battle of Hunayn take place?',
+      bs: 'Koje godine po Hidžri se dogodila Bitka na Hunejnu?',
+    },
+    options: [
+      { en: '7 AH', bs: '7. godine po Hidžri' },
+      { en: '8 AH', bs: '8. godine po Hidžri' },
+      { en: '9 AH', bs: '9. godine po Hidžri' },
+      { en: '10 AH', bs: '10. godine po Hidžri' },
+    ],
+    correctIndex: 1,
+  },
+  {
+    id: 'islam-med-112',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'medium',
+    prompt: {
+      en: 'In which year after Hijrah did the Expedition of Tabuk take place?',
+      bs: 'Koje godine po Hidžri se dogodio pohod na Tebuk?',
+    },
+    options: [
+      { en: '7 AH', bs: '7. godine po Hidžri' },
+      { en: '8 AH', bs: '8. godine po Hidžri' },
+      { en: '9 AH', bs: '9. godine po Hidžri' },
+      { en: '10 AH', bs: '10. godine po Hidžri' },
+    ],
+    correctIndex: 2,
   },
 ];

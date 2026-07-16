@@ -194,14 +194,14 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: { 
-      en: 'Who was the Quraysh commander who attacked Muslims from behind with cavalry at Uhud?',
-      bs: 'Ko je bio vođa kurejšijske konjice koja je napala muslimane s leđa na Uhudu?'
+      en: 'Who was the Quraysh commander who attacked the Muslims from behind with cavalry during the Battle of Uhud?',
+      bs: 'Ko je bio vođa kurejšijske konjice koja je napala muslimane s leđa tokom Bitke na Uhudu?'
     },
     options: [
       { en: 'Khalid ibn al-Walid', bs: 'Halid b. Velid' },
-      { en: 'Abu Bakr', bs: 'Ebu Bekr' },
-      { en: 'Ali ibn Abi Talib', bs: 'Alija b. Ebi Talib' },
-      { en: 'Saad ibn Muadh', bs: 'Sa’d b. Muaz' },
+      { en: 'Ikrimah ibn Abi Jahl', bs: 'Ikrima b. Ebi Džehl' },
+      { en: 'Abu Sufyan ibn Harb', bs: 'Ebu Sufjan b. Harb' },
+      { en: 'Amr ibn al-As', bs: 'Amr b. As' },
     ],
     correctIndex: 0,
   },
@@ -221,23 +221,6 @@ export const islamHard: Question[] = [
       { en: 'Umar ibn al-Khattab', bs: 'Omer b. Hattab' },
     ],
     correctIndex: 1,
-  },
-  {
-    id: 'islam-hard-014',
-    type: 'mcq',
-    category: 'islam',
-    difficulty: 'hard',
-    prompt: { 
-      en: 'In which year after Hijrah did the Battle of the Trench take place?',
-      bs: 'Koje godine po Hidžri se desila Bitka na Hendeku?'
-    },
-    options: [
-      { en: 'Second year after Hijrah', bs: 'Druge godine po Hidžri' },
-      { en: 'Third year after Hijrah', bs: 'Treće godine po Hidžri' },
-      { en: 'Fifth year after Hijrah', bs: 'Pete godine po Hidžri' },
-      { en: 'Tenth year after Hijrah', bs: 'Desete godine po Hidžri' },
-    ],
-    correctIndex: 2,
   },
   {
     id: 'islam-hard-015',
@@ -278,17 +261,17 @@ export const islamHard: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { 
-      en: 'What event helped the Muslims defeat the enemy during the Battle of the Trench?',
-      bs: 'Koji događaj je pomogao muslimanima u pobjedi tokom Bitke na Hendeku?'
+    prompt: {
+      en: 'What natural event caused the enemies to leave during the Battle of the Trench?',
+      bs: 'Koji prirodni događaj je uzrokovao povlačenje neprijatelja tokom Bitke na Hendeku?'
     },
     options: [
-      { en: 'Heavy rain', bs: 'Obilna kiša' },
       { en: 'A strong wind', bs: 'Snažan vjetar' },
+      { en: 'Heavy rain and flooding', bs: 'Obilna kiša i poplave' },
       { en: 'An earthquake', bs: 'Zemljotres' },
-      { en: 'A sandstorm', bs: 'Pješčana oluja' },
+      { en: 'Birds carrying stones', bs: 'Ptice koje su nosile kamenčiće' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'islam-hard-018',
@@ -442,23 +425,6 @@ export const islamHard: Question[] = [
       { en: 'Surah Al-Anfal', bs: 'Sura El-Enfal' },
     ],
     correctIndex: 0,
-  },
-  {
-    id: 'islam-hard-027',
-    type: 'mcq',
-    category: 'islam',
-    difficulty: 'hard',
-    prompt: { 
-      en: 'In which year after Hijrah did the expedition to Khaybar take place?',
-      bs: 'Koje godine po Hidžri se desio pohod na Hajber?'
-    },
-    options: [
-      { en: 'Fifth year after Hijrah', bs: 'Pete godine po Hidžri' },
-      { en: 'Sixth year after Hijrah', bs: 'Šeste godine po Hidžri' },
-      { en: 'Seventh year after Hijrah', bs: 'Sedme godine po Hidžri' },
-      { en: 'Eighth year after Hijrah', bs: 'Osme godine po Hidžri' },
-    ],
-    correctIndex: 2,
   },
   {
     id: 'islam-hard-028',
@@ -744,23 +710,6 @@ export const islamHard: Question[] = [
       { en: 'He abandoned his army before the battle', bs: 'Napustio je vojsku prije bitke' },
       { en: 'He built a fortress in the valley', bs: 'Izgradio je tvrđavu u dolini' },
       { en: 'He made peace with the Muslims immediately', bs: 'Odmah je sklopio mir s muslimanima' }
-    ],
-    correctIndex: 0
-  },
-  {
-    id: 'islam-hard-045',
-    type: 'mcq',
-    category: 'islam',
-    difficulty: 'hard',
-    prompt: {
-      en: 'In which year after Hijrah did the Battle of Hunayn take place?',
-      bs: 'Koje godine po Hidžri se dogodila Bitka na Hunejnu?'
-    },
-    options: [
-      { en: '8th year after Hijrah', bs: 'Osme godine po Hidžri' },
-      { en: '5th year after Hijrah', bs: 'Pete godine po Hidžri' },
-      { en: '6th year after Hijrah', bs: 'Šeste godine po Hidžri' },
-      { en: '10th year after Hijrah', bs: 'Desete godine po Hidžri' }
     ],
     correctIndex: 0
   },
@@ -1727,11 +1676,11 @@ export const islamHard: Question[] = [
     },
     options: [
       { en: 'Miswak to clean his teeth', bs: 'Misvak za čišćenje zuba' },
-      { en: 'Perfume immediately', bs: 'Miris odmah nakon buđenja' },
-      { en: 'A new garment', bs: 'Novu odjeću' },
-      { en: 'A mirror', bs: 'Ogledalo' }
+      { en: 'Water for ablution', bs: 'Vodu za uzimanje abdesta' },
+      { en: 'Perfume before prayer', bs: 'Miris prije namaza' },
+      { en: 'A comb for his hair', bs: 'Češalj za kosu' },
     ],
-    correctIndex: 0
+    correctIndex: 0,
   },
   {
     id: 'islam-hard-103',

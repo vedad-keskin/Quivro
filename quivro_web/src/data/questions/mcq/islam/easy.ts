@@ -505,15 +505,17 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'What is isnad (sened) in hadith science?',
-              bs: 'Šta je sened u hadiskoj nauci?' },
+    prompt: { 
+      en: 'What is isnad (sened) in hadith science?',
+      bs: 'Šta je sened u hadiskoj nauci?'
+    },
     options: [
-      { en: 'The text of the Qur\'an', bs: 'Tekst Kur\'ana' },
-      { en: 'A type of prayer', bs: 'Vrsta namaza' },
-      { en: 'A legal analogy', bs: 'Pravna analogija' },
-      { en: 'The chain of transmitters of a hadith', bs: 'Lanac prenosilaca hadisa' },
+      { en: 'The explanation and meaning of a hadith', bs: 'Objašnjenje i značenje hadisa' },
+      { en: 'The chain of transmitters who narrated the hadith', bs: 'Lanac prenosilaca koji su prenijeli hadis' },
+      { en: 'The classification of hadith authenticity', bs: 'Klasifikacija vjerodostojnosti hadisa' },
+      { en: 'The collection of hadith in a written book', bs: 'Zbirka hadisa u pisanoj knjizi' },
     ],
-    correctIndex: 3,
+    correctIndex: 1,
   },
   {
     id: 'islam-easy-037',
@@ -1073,13 +1075,15 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'When Prophet Muhammad ﷺ sent Mu’adh ibn Jabal as a judge to Yemen, what did Mu’adh say he would judge by first?',
-              bs: 'Kada je Poslanik Muhammed ﷺ poslao Muaza ibn Džebela kao sudiju u Jemen, po čemu je Muaz rekao da će prvo suditi?' },
+    prompt: { 
+      en: 'Why did Prophet Muhammad, peace be upon him, send Mu’adh ibn Jabal to Yemen?',
+      bs: 'Zašto je Poslanik Muhammed, sallallahu alejhi ve sellem, poslao Muaza ibn Džebela u Jemen?'
+    },
     options: [
-      { en: 'The Book of Allah', bs: 'Allahovoj Knjizi' },
-      { en: 'The Sunnah of the Prophet', bs: 'Sunnetu Poslanika' },
-      { en: 'The opinions of scholars', bs: 'Mišljenjima učenjaka' },
-      { en: 'The customs of the people of Yemen', bs: 'Običajima ljudi Jemena' },
+      { en: 'To teach people Islam and judge between them', bs: 'Da podučava ljude islamu i sudi među njima' },
+      { en: 'To lead an army in a battle', bs: 'Da predvodi vojsku u bici' },
+      { en: 'To collect trade goods from Yemen', bs: 'Da prikupi trgovačku robu iz Jemena' },
+      { en: 'To build a new mosque in Yemen', bs: 'Da izgradi novu džamiju u Jemenu' },
     ],
     correctIndex: 0,
   },
