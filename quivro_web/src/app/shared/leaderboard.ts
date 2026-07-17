@@ -259,6 +259,29 @@ import { avatarColor, avatarEmoji, rankPlayers, type RoomPlayer } from '../core/
       font-weight: 900;
       font-size: clamp(0.95rem, 1.4vw, 1.15rem);
     }
+
+    /* Denser podium when play page docks an image beside/under the board. */
+    :host-context(.board-col.with-image) .board {
+      padding: clamp(0.75rem, 1.2vw, 1rem);
+    }
+    :host-context(.board-col.with-image) .q-brand-line {
+      margin: 0.3rem 0 0.55rem;
+    }
+    :host-context(.board-col.with-image) .podium {
+      margin-bottom: 0;
+      gap: 0.3rem;
+    }
+    :host-context(.board-col.with-image) .podium-avatar {
+      width: 2.35rem;
+      height: 2.35rem;
+      font-size: 1.15rem;
+    }
+    :host-context(.board-col.with-image) .podium-name {
+      font-size: 0.78rem;
+    }
+    :host-context(.board-col.with-image) .podium-score {
+      font-size: 1rem;
+    }
   `,
 })
 export class Leaderboard {
@@ -266,6 +289,8 @@ export class Leaderboard {
   readonly players = input<RoomPlayer[]>([]);
   readonly deltas = input<Record<string, number> | undefined>(undefined);
   readonly showPodium = input(true);
+  /** When true, show only the top-3 podium (no ranked list below). */
+  readonly podiumOnly = input(false);
 
   readonly avatarColor = avatarColor;
   readonly avatarEmoji = avatarEmoji;
@@ -278,6 +303,7 @@ export class Leaderboard {
   });
 
   readonly listPlayers = computed(() => {
+    if (this.podiumOnly()) return [] as RoomPlayer[];
     const all = this.ranked();
     if (!this.showPodium() || this.podium().length === 0) return all;
     return all.slice(3);

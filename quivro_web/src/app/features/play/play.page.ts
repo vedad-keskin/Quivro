@@ -221,12 +221,16 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
           </section>
         } @else {
           <div class="layout">
-            <div class="board-col">
+            <div
+              class="board-col"
+              [class.with-image]="imagePhase() === 'docked' && !!activeImageUrl()"
+            >
               <app-leaderboard
                 class="board"
                 [title]="lang.t().leaderboard"
                 [players]="players()"
                 [deltas]="r.lastScoreDeltas"
+                [podiumOnly]="imagePhase() === 'docked'"
               />
               <div
                 class="image-dock"
@@ -376,18 +380,18 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       min-height: 0;
       height: auto;
     }
-    .board-col:has(.image-dock.visible) .board {
-      flex: 1 1 50%;
+    .board-col.with-image .board {
+      flex: 0 1 auto;
       min-height: 0;
     }
     .image-dock {
       flex: 0 0 auto;
       display: none;
-      align-items: stretch;
-      justify-content: stretch;
+      align-items: center;
+      justify-content: center;
       border: 2px solid var(--q-border);
       border-radius: 28px;
-      padding: 0.4rem;
+      padding: 0.45rem;
       background: #f8fafc;
       min-height: 0;
       overflow: hidden;
@@ -395,14 +399,17 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
     .image-dock.visible {
       display: flex;
     }
-    .board-col:has(.image-dock.visible) .image-dock {
-      flex: 1 1 50%;
+    .board-col.with-image .image-dock {
+      flex: 1 1 auto;
       min-height: 0;
     }
     .dock-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: contain;
       object-position: center top;
       border-radius: 22px;
       display: block;
@@ -715,12 +722,12 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       .board {
         height: auto;
       }
-      .board-col:has(.image-dock.visible) .board {
+      .board-col.with-image .board {
         flex: 0 0 auto;
       }
-      .board-col:has(.image-dock.visible) .image-dock {
+      .board-col.with-image .image-dock {
         flex: 0 0 auto;
-        height: min(42vh, 360px);
+        min-height: min(50vh, 420px);
       }
       .preview-image {
         height: min(68vh, 560px);
