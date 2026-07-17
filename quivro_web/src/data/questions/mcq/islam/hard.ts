@@ -371,7 +371,7 @@ export const islamHard: Question[] = [
       { en: 'Abu Bakr ibn Abi Quhafa', bs: 'Ebu Bekra b. Ebi Kuhafu' },
       { en: 'Umar ibn al-Khattab', bs: 'Omera b. Hattaba' },
       { en: 'Uthman ibn Affan', bs: 'Osmana b. Affana' },
-      { en: 'Ali ibn Abi Talib', bs: 'Alija b. Ebu Taliba' },
+      { en: 'Ali ibn Abi Talib', bs: 'Aliju b. Ebu Taliba' },
     ],
     correctIndex: 2,
   },
@@ -804,14 +804,14 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What was unique about the Prophet’s announcement before the expedition of Tabuk?',
-      bs: 'Šta je bilo posebno u vezi s Poslanikovim, sallallahu alejhi ve sellem, objavljivanjem priprema za pohod na Tebuk?'
+      en: 'What was unusual about the Prophet’s, sallallahu alejhi ve sellem, preparation for the expedition of Tabuk?',
+      bs: 'Šta je bilo neobično u pripremama Poslanika, sallallahu alejhi ve sellem, za pohod na Tebuk?'
     },
     options: [
-      { en: 'He openly announced the goal and direction of the expedition', bs: 'Javno je objavio cilj pohoda i pravac u kojem će krenuti' },
-      { en: 'He hid the expedition from everyone', bs: 'Sakrio je pohod od svih ljudi' },
-      { en: 'He sent the army without a commander', bs: 'Poslao je vojsku bez zapovjednika' },
-      { en: 'He cancelled the expedition before leaving', bs: 'Otkazao je pohod prije polaska' }
+      { en: 'He openly announced the destination and prepared people for the long journey', bs: 'Javno je objavio odredište i pripremio ljude za daleki put' },
+      { en: 'He kept the destination completely secret until the army arrived', bs: 'Potpuno je sakrio odredište sve dok vojska nije stigla' },
+      { en: 'He did not organize an army for the expedition', bs: 'Nije organizovao vojsku za ovaj pohod' },
+      { en: 'He sent only a small group instead of an army', bs: 'Poslao je samo malu skupinu umjesto vojske' }
     ],
     correctIndex: 0
   },
@@ -1268,7 +1268,7 @@ export const islamHard: Question[] = [
     },
     options: [
       { en: 'White clothing', bs: 'Bijelu odjeću' },
-      { en: 'Pure red clothing', bs: 'Potpuno crvenu odjeću' },
+      { en: 'Pure red', bs: 'Crvenu odjeću' },
       { en: 'Golden clothing', bs: 'Zlatnu odjeću' },
       { en: 'Green clothing', bs: 'Zelenu odjeću' }
     ],
@@ -1824,14 +1824,14 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Who did the Prophet, sallallahu alejhi ve sellem, ask to recite Quran to him?',
-      bs: 'Od koga je Poslanik, sallallahu alejhi ve sellem, tražio da mu uči Kur’an?'
+      en: 'Who was the milk mother that the Prophet, sallallahu alejhi ve sellem, and Hamzah ibn Abdul-Muttalib shared?',
+      bs: 'Koja je bila majka po mlijeku koju su dijelili Poslanik, sallallahu alejhi ve sellem, i Hamza b. Abdul-Muttalib?'
     },
     options: [
-      { en: 'Abdullah ibn Masud', bs: 'Abdullah b. Mesud' },
-      { en: 'Abu Huraira', bs: 'Ebu Hurejra' },
-      { en: 'Bilal ibn Rabah', bs: 'Bilal b. Rebah' },
-      { en: 'Umar ibn Al-Khattab', bs: 'Omer b. Hattab' }
+      { en: 'Thuwaibah Al-Aslamiyyah', bs: 'Suvejba el-Eslemijja' },
+      { en: 'Halima As-Sadiyyah', bs: 'Halima es-Sa’dijja' },
+      { en: 'Aminah bint Wahb', bs: 'Amina bint Vehb' },
+      { en: 'Fatimah bint Asad', bs: 'Fatima bint Esed' }
     ],
     correctIndex: 0
   },
@@ -1909,8 +1909,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which surahs mark the beginning and end of the Long Mufassal section?',
-      bs: 'Kojim surama počinje i završava Dugi Mufessal?',
+      en: 'According to the classification of Al-Mufassal by surah length, which surahs mark the beginning and end of the Long Mufassal section?',
+      bs: 'Prema podjeli El-Mufessala po dužini sura, kojim surama počinje i završava Dugi Mufessal?',
     },
     options: [
       { en: 'From Surah Qaf to Surah An-Naziat', bs: 'Od sure Kaf do sure En-Nazijat' },
@@ -1926,8 +1926,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which surahs mark the beginning and end of the Middle Mufassal section?',
-      bs: 'Kojim surama počinje i završava Srednji Mufessal?',
+      en: 'According to the classification of Al-Mufassal by surah length, which surahs mark the beginning and end of the Middle Mufassal section?',
+      bs: 'Prema podjeli El-Mufessala po dužini sura, kojim surama počinje i završava Srednji Mufessal?',
     },
     options: [
       { en: 'From Surah Abasa to Surah Al-Layl', bs: 'Od sure Abese do sure El-Lejl' },
@@ -1943,14 +1943,31 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which surahs mark the beginning and end of the Short Mufassal section?',
-      bs: 'Kojim surama počinje i završava Kratki Mufessal?',
+      en: 'According to the classification of Al-Mufassal by surah length, which surahs mark the beginning and end of the Short Mufassal section?',
+      bs: 'Prema podjeli El-Mufessala po dužini sura, kojim surama počinje i završava Kratki Mufessal?',
     },
     options: [
       { en: 'From Surah Ad-Duha to Surah An-Nas', bs: 'Od sure Ed-Duha do sure En-Nas' },
       { en: 'From Surah Abasa to Surah Al-Layl', bs: 'Od sure Abese do sure El-Lejl' },
       { en: 'From Surah Qaf to Surah An-Naziat', bs: 'Od sure Kaf do sure En-Nazijat' },
       { en: 'From Surah Al-Mulk to Surah An-Naba', bs: 'Od sure El-Mulk do sure En-Nebe' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'islam-hard-119',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: { 
+      en: 'Which angels are known as the noble scribes who record people’s deeds?',
+      bs: 'Koji meleci su poznati kao plemeniti pisari koji zapisuju ljudska djela?'
+    },
+    options: [
+      { en: 'Kiraman Katibin', bs: 'Kiramen Katibin' },
+      { en: 'Munkar and Nakir', bs: 'Munkir i Nekir' },
+      { en: 'Harut and Marut', bs: 'Harut i Marut' },
+      { en: 'Jibril and Mikail', bs: 'Džibril i Mikail' },
     ],
     correctIndex: 0,
   },

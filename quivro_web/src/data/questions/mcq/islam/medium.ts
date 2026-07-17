@@ -874,8 +874,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'Which angel is the guardian of Hell according to Islamic tradition?',
-      bs: 'Koji melek je čuvar Džehennema prema islamskoj tradiciji?'
+      en: 'Which angel is mentioned as the keeper of Hell in the Quran?',
+      bs: 'Koji melek se u Kur’anu spominje kao čuvar Džehennema?'
     },
     options: [
       { en: 'Malik', bs: 'Malik' },
@@ -891,8 +891,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'Which angels question people in their graves according to Islamic tradition?',
-      bs: 'Koji meleci ispituju ljude u kaburu prema islamskoj tradiciji?'
+      en: 'Which angels are described in Islamic teachings as questioning people in their graves?',
+      bs: 'Koji meleci se u islamskom učenju spominju kao oni koji ispituju ljude u kaburu?'
     },
     options: [
       { en: 'Munkar and Nakir', bs: 'Munkir i Nekir' },
@@ -1862,5 +1862,22 @@ export const islamMedium: Question[] = [
       { en: '10 AH', bs: '10. godine po Hidžri' },
     ],
     correctIndex: 2,
+  },
+  {
+    id: 'islam-med-113',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'medium',
+    prompt: { 
+      en: 'Which two angels are mentioned in the Quran in connection with the trial at Babylon?',
+      bs: 'Koja dva meleka se spominju u Kur’anu u vezi s kušnjom u Babilonu?'
+    },
+    options: [
+      { en: 'Harut and Marut', bs: 'Harut i Marut' },
+      { en: 'Munkar and Nakir', bs: 'Munkir i Nekir' },
+      { en: 'Jibril and Mikail', bs: 'Džibril i Mikail' },
+      { en: 'Malik and Ridwan', bs: 'Malik i Ridvan' },
+    ],
+    correctIndex: 0,
   },
 ];

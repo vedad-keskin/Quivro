@@ -66,7 +66,7 @@ export const islamEasy: Question[] = [
     options: [
       { en: 'Halima', bs: 'Halima' },
       { en: 'Khadija', bs: 'Hatidža' },
-      { en: 'Asma', bs: 'Asma' },
+      { en: 'Asma', bs: 'Esma' },
       { en: 'Sawda', bs: 'Sevda' },
     ],
     correctIndex: 0,
@@ -76,12 +76,15 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'At about what age did the Prophet\'s mother Amina pass away?', bs: 'U kojoj je dobi (približno) preminula majka Poslanika, sallallahu alejhi ve sellem, Amina?' },
+    prompt: { 
+      en: 'At approximately what age was the Prophet, sallallahu alejhi ve sellem, when his mother Aminah bint Wahb passed away?',
+      bs: 'U kojoj je približno dobi bio Poslanik, sallallahu alejhi ve sellem, kada je preselila njegova majka Amina bint Vehb?'
+    },
     options: [
-      { en: 'At birth', bs: 'Pri rođenju' },
+      { en: 'About two years old', bs: 'Oko dvije godine' },
       { en: 'About six years old', bs: 'Oko šest godina' },
-      { en: 'About twenty', bs: 'Oko dvadeset godina' },
-      { en: 'After his marriage', bs: 'Nakon ženidbe' },
+      { en: 'About ten years old', bs: 'Oko deset godina' },
+      { en: 'About twelve years old', bs: 'Oko dvanaest godina' },
     ],
     correctIndex: 1,
   },
@@ -612,12 +615,15 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Who came in human form to ask the Prophet about Islam, iman, and ihsan?', bs: 'Ko je u ljudskom obliku pitao Poslanika o islamu, imanu i ihsanu?' },
+    prompt: { 
+      en: 'Who came in human form to ask the Prophet, sallallahu alejhi ve sellem, about Islam, iman, and ihsan?',
+      bs: 'Ko je u ljudskom obliku došao i pitao Poslanika, sallallahu alejhi ve sellem, o islamu, imanu i ihsanu?'
+    },
     options: [
       { en: 'Mikail', bs: 'Mikail' },
-      { en: 'Bedouin', bs: 'Beduin' },
+      { en: 'Israfil', bs: 'Israfil' },
       { en: 'Jibril', bs: 'Džibril' },
-      { en: 'Abu Bakr', bs: 'Ebu Bekr' },
+      { en: 'Malik', bs: 'Malik' },
     ],
     correctIndex: 2,
   },
@@ -736,7 +742,7 @@ export const islamEasy: Question[] = [
     options: [
       { en: 'Sahih al-Bukhari', bs: 'Sahihul-Buhari' },
       { en: 'Ihya Ulum al-Din', bs: 'Ihyau ulumid-din' },
-      { en: 'Al-Muwatta', bs: 'El-Muvatta' },
+      { en: 'Al-Muwatta', bs: 'El-Muvetta' },
       { en: 'Al-Kafi', bs: 'El-Kafi' },
     ],
     correctIndex: 2,

@@ -1271,14 +1271,17 @@ export const historyMedium: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'medium',
-    prompt: { en: 'Which holy book of Islam was revealed to the Prophet Muhammad?', bs: 'Koja sveta knjiga islama objavljena je Poslaniku Muhammedu?' },
+    prompt: { 
+      en: 'In which year was Albert Einstein awarded the Nobel Prize in Physics?',
+      bs: 'Koje godine je Albert Einstein dobio Nobelovu nagradu za fiziku?'
+    },
     options: [
-      { en: 'The Quran', bs: 'Kuran' },
-      { en: 'The Torah', bs: 'Tora' },
-      { en: 'The Vedas', bs: 'Vede' },
-      { en: 'The Iliad', bs: 'Ilijada' },
+      { en: '1905', bs: '1905.' },
+      { en: '1915', bs: '1915.' },
+      { en: '1921', bs: '1921.' },
+      { en: '1930', bs: '1930.' },
     ],
-    correctIndex: 0,
+    correctIndex: 2,
   },
   {
     id: 'hist-med-090',
@@ -1437,4 +1440,5 @@ export const historyMedium: Question[] = [
     ],
     correctIndex: 0,
   },
+  
 ];
