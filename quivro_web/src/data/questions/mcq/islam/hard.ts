@@ -1971,4 +1971,72 @@ export const islamHard: Question[] = [
     ],
     correctIndex: 0,
   },
+  {
+    id: 'islam-hard-120',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which of the Prophet’s ﷺ ancestors built and founded Dar al-Nadwa, the first council where the elder members of the tribe gathered to discuss matters of social importance?',
+      bs: 'Koji je od Poslanikovih ﷺ predaka sagradio i osnovao Daru-Nedve, prvi parlament gdje su stariji članovi plemena dolazili da rasprave stvari od društvenog značaja?',
+    },
+    options: [
+      { en: 'Hashim', bs: 'Hašim' },
+      { en: 'Qusayy', bs: 'Kusajj' },
+      { en: 'Abdulmuttalib', bs: 'Abdulmuttalib' },
+      { en: 'Abu Talib', bs: 'Ebu Talib' },
+    ],
+    correctIndex: 1,
+  },
+  {
+    id: 'islam-hard-121',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'When Qusayy ibn Kilab took leadership of Mecca, what did he provide for pilgrims visiting the Kaaba?',
+      bs: 'Kada je Kusajj b. Kilab preuzeo vođstvo u Meki, šta je obezbijedio hadžijama koji su posjećivali Kabu?'
+    },
+    options: [
+      { en: 'Food and water', bs: 'Hranu i vodu' },
+      { en: 'Entrance tickets to the Kaaba', bs: 'Ulaznice za Kabu' },
+      { en: 'Gifts and jewelry', bs: 'Poklone i nakit' },
+      { en: 'Clothing and bedding', bs: 'Odjeću i posteljinu' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'islam-hard-122',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'What was the real name of the Prophet’s ﷺ grandfather Abdulmuttalib?',
+      bs: 'Koje je pravo ime djeda našeg Poslanika ﷺ Abdulmuttaliba?',
+    },
+    options: [
+      { en: 'Abd Manaf', bs: 'Abdu Menaf' },
+      { en: 'Abu Talib', bs: 'Ebu Talib' },
+      { en: 'Abdullah', bs: 'Abdullah' },
+      { en: 'Shaybatul-Hamd', bs: 'Šejbetul-Hamd' },
+    ],
+    correctIndex: 3,
+  },
+  {
+    id: 'islam-hard-123',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'According to a hadith in Sahih al-Bukhari and Sahih Muslim, for whom was the sun held back as a miracle when he was traveling toward Bayt al-Maqdis?',
+      bs: 'Prema hadisu u Sahihu Buharije i Muslima, kome je sunce bilo zadržano kao mudžiza kada je išao prema Bejtul-Makdisu?'
+    },
+    options: [
+      { en: 'Yunus ibn Matta', bs: 'Junus ibn Metta' },
+      { en: 'Yusha‘ ibn Nun', bs: 'Juša‘ ibn Nun' },
+      { en: 'Uways al-Qarni', bs: 'Uvejs el-Karni' },
+      { en: 'Abdullah ibn Mas‘ud', bs: 'Abdullah ibn Mesud' },
+    ],
+    correctIndex: 1,
+  },
 ];
