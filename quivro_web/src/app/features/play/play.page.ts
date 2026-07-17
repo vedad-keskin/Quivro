@@ -373,8 +373,9 @@ import { TimerRing } from '../../shared/timer-ring';
       font-weight: 900;
     }
     .q-image {
-      width: min(100%, 560px);
-      max-height: 220px;
+      width: min(100%, 280px);
+      max-height: 400px;
+      aspect-ratio: 3 / 4;
       object-fit: contain;
       border-radius: 20px;
       background: #0f172a;
@@ -655,10 +656,13 @@ export class PlayPage implements OnInit, OnDestroy {
       .filter((p): p is RoomPlayer => !!p);
   });
 
+  readonly needsCategories = computed(() =>
+    this.selectedTypes().includes('mcq'),
+  );
   readonly canRematch = computed(
     () =>
-      this.selectedCats().length > 0 &&
       this.selectedTypes().length > 0 &&
+      (!this.needsCategories() || this.selectedCats().length > 0) &&
       this.rematchReadyPlayers().length > 0,
   );
 

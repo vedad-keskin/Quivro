@@ -1,6 +1,7 @@
 import type { LocalizedString } from '../../i18n/types';
 
 export type Lang = 'en' | 'bs';
+/** Content categories shown in the picker. Image MCQs use sentinel `'images'`. */
 export type CategoryId =
   | 'geography'
   | 'biology'
@@ -9,7 +10,8 @@ export type CategoryId =
   | 'sports'
   | 'movies'
   | 'famous'
-  | 'islam';
+  | 'islam'
+  | 'images';
 export type Difficulty = 'easy' | 'medium' | 'hard';
 export type QuestionType = 'mcq' | 'image_mcq';
 
@@ -25,6 +27,7 @@ export interface Question {
   image?: string;
 }
 
+/** Category chips only — excludes the image-pool sentinel. */
 export const CATEGORIES: CategoryId[] = [
   'geography',
   'biology',
@@ -46,6 +49,9 @@ export const DIFFICULTY_POINTS: Record<Difficulty, number> = {
   medium: 750,
   hard: 1000,
 };
+
+/** Flat points for every image MCQ (no difficulty banding). */
+export const IMAGE_MCQ_POINTS = 500;
 
 export const QUESTION_TIMER_MS: Record<QuestionType, number> = {
   mcq: 15_000,

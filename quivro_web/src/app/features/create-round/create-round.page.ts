@@ -92,7 +92,7 @@ function loadRoundPrefs(): RoundPrefs | null {
               </button>
             }
           </div>
-          @if (selected().length === 0) {
+          @if (needsCategories() && selected().length === 0) {
             <p class="hint warn">{{ lang.t().selectAtLeastOne }}</p>
           }
         </section>
@@ -268,10 +268,11 @@ export class CreateRoundPage {
   readonly effectiveLength = computed(() =>
     normalizeRoundLength(this.customMode() ? this.customLength() : this.length()),
   );
+  readonly needsCategories = computed(() => this.types().includes('mcq'));
   readonly canCreate = computed(
     () =>
-      this.selected().length > 0 &&
       this.types().length > 0 &&
+      (!this.needsCategories() || this.selected().length > 0) &&
       this.rooms.isLive,
   );
 

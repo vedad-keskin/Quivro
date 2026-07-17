@@ -11,7 +11,10 @@ import {
   type Unsubscribe,
 } from 'firebase/database';
 import type { Question } from '../../data/questions/types';
-import { DIFFICULTY_POINTS } from '../../data/questions/types';
+import {
+  DIFFICULTY_POINTS,
+  IMAGE_MCQ_POINTS,
+} from '../../data/questions/types';
 import { FirebaseService } from './firebase.service';
 import { QuestionBankService } from './question-bank.service';
 import { RoundGeneratorService } from './round-generator.service';
@@ -196,7 +199,10 @@ export class GameRoomService {
       room.currentQuestion?.durationMs ??
       clampQuestionSeconds(room.config.questionSeconds ?? 15) * 1000;
     const endsAt = room.currentQuestion?.endsAt ?? Date.now();
-    const base = DIFFICULTY_POINTS[question.difficulty];
+    const base =
+      question.type === 'image_mcq'
+        ? IMAGE_MCQ_POINTS
+        : DIFFICULTY_POINTS[question.difficulty];
     const deltas: Record<string, number> = {};
     const playerUpdates: Record<string, number> = {};
 

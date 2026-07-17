@@ -41,6 +41,7 @@ export const bs: UiStrings = {
   movies: 'Film & TV',
   famous: 'Poznati',
   islam: 'Islam',
+  images: 'Slike',
   selectAtLeastOne: 'Odaberi barem jednu kategoriju',
   selectAtLeastOneType: 'Odaberi barem jedan tip pitanja',
   prompt: 'Pitanje',

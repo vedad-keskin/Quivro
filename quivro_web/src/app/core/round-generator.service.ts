@@ -12,6 +12,11 @@ export function normalizeRoundLength(length: number): number {
   return Math.min(60, Math.max(3, Math.round(length)));
 }
 
+/** Target image count when both text and picture types are selected. */
+export function allocateImageCount(length: number): number {
+  return Math.max(1, Math.round(length * 0.1));
+}
+
 function shuffle<T>(items: T[]): T[] {
   const copy = [...items];
   for (let i = copy.length - 1; i > 0; i--) {
@@ -116,6 +121,37 @@ export function orderByCategoryCycle(
   return result;
 }
 
+/** Insert `inserts` evenly through `base` (not clustered at the end). */
+export function interleaveEvenly<T>(base: T[], inserts: T[]): T[] {
+  if (inserts.length === 0) return [...base];
+  if (base.length === 0) return [...inserts];
+
+  const total = base.length + inserts.length;
+  const imageSlots = new Set<number>();
+
+  for (let i = 0; i < inserts.length; i++) {
+    let slot = Math.floor(((i + 1) * total) / (inserts.length + 1));
+    slot = Math.min(Math.max(slot, 0), total - 1);
+    while (imageSlots.has(slot) && slot < total - 1) slot++;
+    while (imageSlots.has(slot) && slot > 0) slot--;
+    imageSlots.add(slot);
+  }
+
+  const result: T[] = [];
+  let bi = 0;
+  let ii = 0;
+  for (let i = 0; i < total; i++) {
+    if (imageSlots.has(i) && ii < inserts.length) {
+      result.push(inserts[ii++]);
+    } else if (bi < base.length) {
+      result.push(base[bi++]);
+    } else if (ii < inserts.length) {
+      result.push(inserts[ii++]);
+    }
+  }
+  return result;
+}
+
 @Injectable({ providedIn: 'root' })
 export class RoundGeneratorService {
   private readonly bank = inject(QuestionBankService);
@@ -128,14 +164,63 @@ export class RoundGeneratorService {
     const length = normalizeRoundLength(roundLength);
     const types =
       questionTypes.length > 0 ? questionTypes : (['mcq', 'image_mcq'] as QuestionType[]);
+    const wantsMcq = types.includes('mcq');
+    const wantsImage = types.includes('image_mcq');
+
+    if (wantsImage && !wantsMcq) {
+      return this.pickImages(length);
+    }
+
+    if (wantsMcq && !wantsImage) {
+      return this.generateTextRound(categories, length);
+    }
+
+    // Both: ~10% images from the global pool, rest text from selected categories.
+    const imagePoolSize = this.imagePool().length;
+    const imageCount = Math.min(allocateImageCount(length), imagePoolSize);
+    const textCount = Math.max(0, length - imageCount);
+    const text = this.generateTextRound(categories, textCount);
+    const images = this.pickImages(imageCount);
+    return interleaveEvenly(text, images);
+  }
+
+  private imagePool(): Question[] {
+    return this.bank.getAll().filter((q) => q.type === 'image_mcq');
+  }
+
+  private pickImages(count: number): Question[] {
+    if (count <= 0) return [];
+    const pool = shuffle(this.imagePool());
+    if (pool.length === 0) {
+      console.warn('No image_mcq questions in the bank');
+      return [];
+    }
+    if (pool.length < count) {
+      console.warn(
+        `Not enough image questions (need ${count}, have ${pool.length})`,
+      );
+    }
+    return pool.slice(0, count);
+  }
+
+  private generateTextRound(
+    categories: CategoryId[],
+    length: number,
+  ): Question[] {
+    if (length <= 0) return [];
+
+    const contentCategories = categories.filter(
+      (c): c is Exclude<CategoryId, 'images'> => c !== 'images',
+    );
+    const contentSet = new Set<CategoryId>(contentCategories);
     const all = this.bank
       .getAll()
-      .filter((q) => categories.includes(q.category) && types.includes(q.type));
+      .filter((q) => q.type === 'mcq' && contentSet.has(q.category));
 
     const counts = allocateDifficultyCounts(length);
     const usedIds = new Set<string>();
     const categoryUsage = new Map<CategoryId, number>();
-    for (const c of categories) {
+    for (const c of contentCategories) {
       categoryUsage.set(c, 0);
     }
 
@@ -147,7 +232,7 @@ export class RoundGeneratorService {
     for (const difficulty of DIFFICULTIES) {
       byDiff[difficulty] = this.pickForDifficulty(
         all,
-        categories,
+        contentCategories,
         difficulty,
         counts[difficulty],
         usedIds,

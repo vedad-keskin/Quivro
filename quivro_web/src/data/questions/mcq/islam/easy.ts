@@ -20,7 +20,7 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'The Prophet Muhammad was from which tribe?', bs: 'Od kojeg plemena je bio poslanik Muhammed, sallallahu alejhi ve sellem?' },
+    prompt: { en: 'The Prophet Muhammad was from which tribe?', bs: 'Od kojeg plemena je bio poslanik Muhammed ﷺ?' },
     options: [
       { en: 'Khazraj', bs: 'Hazredž' },
       { en: 'Quraysh', bs: 'Kurejš' },
@@ -34,7 +34,7 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Who was the Prophet\'s father?', bs: 'Ko je bio otac Allahovog Poslanika, sallallahu alejhi ve sellem?' },
+    prompt: { en: 'Who was the Prophet\'s father?', bs: 'Ko je bio otac Allahovog Poslanika ﷺ?' },
     options: [
       { en: 'Abu Talib', bs: 'Ebu Talib' },
       { en: 'Hamza', bs: 'Hamza' },
@@ -48,7 +48,7 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Who was the Prophet\'s mother?', bs: 'Ko je bila majka Allahovog Poslanika, sallallahu alejhi ve sellem?' },
+    prompt: { en: 'Who was the Prophet\'s mother?', bs: 'Ko je bila majka Allahovog Poslanika ﷺ?' },
     options: [
       { en: 'Khadija', bs: 'Hatidža' },
       { en: 'Fatima', bs: 'Fatima' },
@@ -62,7 +62,7 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Which wet-nurse raised the Prophet in the desert?', bs: 'Koja je dojilja odgajala Poslanika, sallallahu alejhi ve sellem, u pustinji?' },
+    prompt: { en: 'Which wet-nurse raised the Prophet in the desert?', bs: 'Koja je dojilja odgajala Poslanika ﷺ u pustinji?' },
     options: [
       { en: 'Halima', bs: 'Halima' },
       { en: 'Khadija', bs: 'Hatidža' },
@@ -77,8 +77,8 @@ export const islamEasy: Question[] = [
     category: 'islam',
     difficulty: 'easy',
     prompt: { 
-      en: 'At approximately what age was the Prophet, sallallahu alejhi ve sellem, when his mother Aminah bint Wahb passed away?',
-      bs: 'U kojoj je približno dobi bio Poslanik, sallallahu alejhi ve sellem, kada je preselila njegova majka Amina bint Vehb?'
+      en: 'At approximately what age was the Prophet ﷺ when his mother Aminah bint Wahb passed away?',
+      bs: 'U kojoj je približno dobi bio Poslanik ﷺ kada je preselila njegova majka Amina bint Vehb?'
     },
     options: [
       { en: 'About two years old', bs: 'Oko dvije godine' },
@@ -93,7 +93,7 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Who became the Prophet\'s guardian after his grandfather died?', bs: 'Ko je postao staratelj Poslanika, sallallahu alejhi ve sellem, nakon smrti djeda?' },
+    prompt: { en: 'Who became the Prophet\'s guardian after his grandfather died?', bs: 'Ko je postao staratelj Poslanika ﷺ nakon smrti djeda?' },
     options: [
       { en: 'Abu Bakr', bs: 'Ebu Bekr' },
       { en: 'Hamza', bs: 'Hamza' },
@@ -107,7 +107,7 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'What job did the Prophet have in youth, like other prophets before him?', bs: 'Koji je posao Poslanik, sallallahu alejhi ve sellem, obavljao u mladosti, poput drugih poslanika?' },
+    prompt: { en: 'What job did the Prophet have in youth, like other prophets before him?', bs: 'Koji je posao Poslanik ﷺ obavljao u mladosti, poput drugih poslanika?' },
     options: [
       { en: 'Blacksmith', bs: 'Kovač' },
       { en: 'Sailor', bs: 'Mornar' },
@@ -135,7 +135,7 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Who was the Prophet\'s first wife?', bs: 'Ko je bila prva supruga Poslanika, sallallahu alejhi ve sellem?' },
+    prompt: { en: 'Who was the Prophet\'s first wife?', bs: 'Ko je bila prva supruga Poslanika ﷺ?' },
     options: [
       { en: 'Aisha', bs: 'Aiša' },
       { en: 'Khadija bint Khuwaylid', bs: 'Hatidža b. Huvejlid' },
@@ -149,7 +149,7 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Which daughter of the Prophet outlived him?', bs: 'Koja kći Poslanika, sallallahu alejhi ve sellem, je nadživjela njegovu smrt?' },
+    prompt: { en: 'Which daughter of the Prophet outlived him?', bs: 'Koja kći Poslanika ﷺ je nadživjela njegovu smrt?' },
     options: [
       { en: 'Zaynab', bs: 'Zeinab' },
       { en: 'Ruqayya', bs: 'Rukajja' },
@@ -163,7 +163,7 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'At what age did revelation first come to the Prophet?', bs: 'U kojoj je dobi Poslaniku, sallallahu alejhi ve sellem, prvi put došla objava?' },
+    prompt: { en: 'At what age did revelation first come to the Prophet?', bs: 'U kojoj je dobi Poslaniku ﷺ prvi put došla objava?' },
     options: [
       { en: 'Twenty-five', bs: 'Dvadeset pet' },
       { en: 'Thirty-three', bs: 'Trideset tri' },
@@ -177,7 +177,7 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Where did the first revelation occur?', bs: 'Gdje se dogodila prva objava Poslaniku, sallallahu alejhi ve sellem?' },
+    prompt: { en: 'Where did the first revelation occur?', bs: 'Gdje se dogodila prva objava Poslaniku ﷺ?' },
     options: [
       { en: 'Cave of Hira', bs: 'U pećini Hira' },
       { en: 'Cave of Thawr', bs: 'U pećini Sevr' },
@@ -191,8 +191,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Which angel brought the first revelation to Prophet Muhammad (ﷺ)?',
-              bs: 'Koji je melek donio prvu objavu poslaniku Muhammedu, ﷺ?' },
+    prompt: { en: 'Which angel brought the first revelation to Prophet Muhammad ﷺ?',
+              bs: 'Koji je melek donio prvu objavu poslaniku Muhammedu ﷺ?' },
     options: [
       { en: 'Jibril', bs: 'Džibril' },
       { en: 'Mikail', bs: 'Mikail' },
@@ -248,7 +248,7 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Where did the Prophet first call people publicly in Mecca?', bs: 'Gdje je Poslanik, sallallahu alejhi ve sellem, prvi put javno pozivao ljude u Meki?' },
+    prompt: { en: 'Where did the Prophet first call people publicly in Mecca?', bs: 'Gdje je Poslanik ﷺ prvi put javno pozivao ljude u Meki?' },
     options: [
       { en: 'Mount Arafat', bs: 'Na planini Arafat' },
       { en: 'Mount Safa', bs: 'Na brdu Safa' },
@@ -616,8 +616,8 @@ export const islamEasy: Question[] = [
     category: 'islam',
     difficulty: 'easy',
     prompt: { 
-      en: 'Who came in human form to ask the Prophet, sallallahu alejhi ve sellem, about Islam, iman, and ihsan?',
-      bs: 'Ko je u ljudskom obliku došao i pitao Poslanika, sallallahu alejhi ve sellem, o islamu, imanu i ihsanu?'
+      en: 'Who came in human form to ask the Prophet ﷺ about Islam, iman, and ihsan?',
+      bs: 'Ko je u ljudskom obliku došao i pitao Poslanika ﷺ o islamu, imanu i ihsanu?'
     },
     options: [
       { en: 'Mikail', bs: 'Mikail' },
@@ -841,8 +841,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'According to a famous hadith, the Prophet peace be upon him was sent to perfect what?',
-              bs: 'Prema poznatom hadisu, Poslanik, sallallahu alejhi ve sellem, je poslan da upotpuni šta?' },
+    prompt: { en: 'According to a famous hadith, the Prophet ﷺ was sent to perfect what?',
+              bs: 'Prema poznatom hadisu, Poslanik ﷺ je poslan da upotpuni šta?' },
     options: [
       { en: 'Noble character', bs: 'Plemeniti ahlak' },
       { en: 'The pillars of Islam', bs: 'Stubove islama' },
@@ -857,7 +857,7 @@ export const islamEasy: Question[] = [
     category: 'islam',
     difficulty: 'easy',
     prompt: { en: 'How did Aisha (رضي الله عنها) describe the Prophet’s character?',
-              bs: 'Kako je Aiša, radijallahu anha, opisala karakter Poslanika, sallallahu alejhi ve sellem?' },
+              bs: 'Kako je Aiša, radijallahu anha, opisala karakter Poslanika ﷺ?' },
     options: [
       { en: 'The Qur’an', bs: 'Kur’an' },
       { en: 'The Sunnah', bs: 'Sunnet' },
@@ -917,7 +917,7 @@ export const islamEasy: Question[] = [
     category: 'islam',
     difficulty: 'easy',
     prompt: { en: 'According to the Qur\'an, the Prophet was sent as a mercy to whom?',
-              bs: 'Prema Kur\'anu, Poslanik, sallallahu alejhi ve sellem, poslan je kao milost kome?' },
+              bs: 'Prema Kur\'anu, Poslanik ﷺ poslan je kao milost kome?' },
     options: [
       { en: 'The Arabs', bs: 'Arapima' },
       { en: 'The People', bs: 'Ljudima' },
@@ -1082,8 +1082,8 @@ export const islamEasy: Question[] = [
     category: 'islam',
     difficulty: 'easy',
     prompt: { 
-      en: 'Why did Prophet Muhammad, peace be upon him, send Mu’adh ibn Jabal to Yemen?',
-      bs: 'Zašto je Poslanik Muhammed, sallallahu alejhi ve sellem, poslao Muaza ibn Džebela u Jemen?'
+      en: 'Why did Prophet Muhammad ﷺ send Mu’adh ibn Jabal to Yemen?',
+      bs: 'Zašto je Poslanik Muhammed ﷺ poslao Muaza ibn Džebela u Jemen?'
     },
     options: [
       { en: 'To teach people Islam and judge between them', bs: 'Da podučava ljude islamu i sudi među njima' },
@@ -1305,8 +1305,8 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'What does hadith as a source of Islamic law include from the Prophet (ﷺ)?',
-              bs: 'Šta hadis kao izvor islamskog prava obuhvata od Poslanika, sallallahu alejhi ve sellem?' },
+    prompt: { en: 'What does hadith as a source of Islamic law include from the Prophet ﷺ?',
+              bs: 'Šta hadis kao izvor islamskog prava obuhvata od Poslanika ﷺ?' },
     options: [
       { en: 'Sayings, actions, and approvals', bs: 'Govor, djela i prešutna odobrenja' },
       { en: 'Personal opinions unrelated to revelation', bs: 'Lična mišljenja koja nisu povezana s objavom' },
@@ -1421,7 +1421,7 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'How long before the first revelation did the Prophet begin seeing truthful dreams?', bs: 'Koliko je prije prve objave Poslanik, sallallahu alejhi ve sellem, počeo sanjati istinite snove?' },
+    prompt: { en: 'How long before the first revelation did the Prophet begin seeing truthful dreams?', bs: 'Koliko je prije prve objave Poslanik ﷺ počeo sanjati istinite snove?' },
     options: [
       { en: 'Six months', bs: 'Šest mjeseci' },
       { en: 'One year', bs: 'Jednu godinu' },
@@ -1450,7 +1450,7 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Which was the first phase of the Prophet\'s missionary work?', bs: 'Koja je bila prva faza Poslanikovog, sallallahu alejhi ve sellem, misionarskog djelovanja?' },
+    prompt: { en: 'Which was the first phase of the Prophet\'s missionary work?', bs: 'Koja je bila prva faza Poslanikovog ﷺ misionarskog djelovanja?' },
     options: [
       { en: 'Public calling in Mecca', bs: 'Javno pozivanje u Meki' },
       { en: 'Calling to Islam outside Mecca', bs: 'Pozivanje u islam izvan Meke' },
@@ -1496,8 +1496,8 @@ export const islamEasy: Question[] = [
     category: 'islam',
     difficulty: 'easy',
     prompt: {
-      en: 'Which surah did the Prophet peace be upon him describe as "the greatest surah in the Qur\'an"?',
-      bs: 'Koju suru je Poslanik sallallahu alejhi ve sellem opisao kao "najveću suru u Kur\'anu"?',
+      en: 'Which surah did the Prophet ﷺ describe as "the greatest surah in the Qur\'an"?',
+      bs: 'Koju suru je Poslanik ﷺ opisao kao "najveću suru u Kur\'anu"?',
     },
     options: [
       { en: 'Al-Baqarah', bs: 'El-Bekare' },
@@ -1513,8 +1513,8 @@ export const islamEasy: Question[] = [
     category: 'islam',
     difficulty: 'easy',
     prompt: {
-      en: 'Which verse did the Prophet peace be upon him describe as the greatest verse in the Qur\'an?',
-      bs: 'Koji ajet je Poslanik sallallahu alejhi ve sellem opisao kao najveličanstveniji ajet u Kur\'anu?',
+      en: 'Which verse did the Prophet ﷺ describe as the greatest verse in the Qur\'an?',
+      bs: 'Koji ajet je Poslanik ﷺ opisao kao najveličanstveniji ajet u Kur\'anu?',
     },
     options: [
       { en: 'The last verses of Surah Al-Baqarah', bs: 'Posljednji ajeti sure El-Bekare' },

@@ -160,8 +160,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: { 
-      en: 'How many archers did Prophet Muhammad, peace be upon him, place on the hill during Uhud?',
-      bs: 'Koliko strijelaca je Poslanik Muhammed, sallallahu alejhi ve sellem, postavio na brdo tokom Bitke na Uhudu?'
+      en: 'How many archers did Prophet Muhammad ﷺ place on the hill during Uhud?',
+      bs: 'Koliko strijelaca je Poslanik Muhammed ﷺ postavio na brdo tokom Bitke na Uhudu?'
     },
     options: [
       { en: '30 archers', bs: '30 strijelaca' },
@@ -313,8 +313,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: { 
-      en: 'Which companion later became the wife of the Prophet, peace be upon him, after the expedition of Banu Mustaliq?',
-      bs: 'Koja je ashabijka nakon pohoda na Benu Mustalik postala supruga Poslanika, sallallahu alejhi ve sellem?'
+      en: 'Which companion later became the wife of the Prophet ﷺ after the expedition of Banu Mustaliq?',
+      bs: 'Koja je ashabijka nakon pohoda na Benu Mustalik postala supruga Poslanika ﷺ?'
     },
     options: [
       { en: 'Aisha bint Abu Bakr', bs: 'Aiša bint Ebu Bekr' },
@@ -347,8 +347,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: { 
-      en: 'Why did the Prophet, peace be upon him, travel to Makkah in the sixth year after Hijrah?',
-      bs: 'Zašto je Poslanik, sallallahu alejhi ve sellem, krenuo prema Meki šeste godine po Hidžri?'
+      en: 'Why did the Prophet ﷺ travel to Makkah in the sixth year after Hijrah?',
+      bs: 'Zašto je Poslanik ﷺ krenuo prema Meki šeste godine po Hidžri?'
     },
     options: [
       { en: 'To conquer Makkah', bs: 'Da osvoji Meku' },
@@ -364,8 +364,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: { 
-      en: 'Who did the Prophet, peace be upon him, send to Makkah to negotiate with Quraysh at Hudaybiyyah?',
-      bs: 'Koga je Poslanik, sallallahu alejhi ve sellem, poslao u Meku da pregovara s Kurejšijama na Hudejbiji?'
+      en: 'Who did the Prophet ﷺ send to Makkah to negotiate with Quraysh at Hudaybiyyah?',
+      bs: 'Koga je Poslanik ﷺ poslao u Meku da pregovara s Kurejšijama na Hudejbiji?'
     },
     options: [
       { en: 'Abu Bakr ibn Abi Quhafa', bs: 'Ebu Bekra b. Ebi Kuhafu' },
@@ -432,8 +432,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: { 
-      en: 'How many Muslims accompanied the Prophet, peace be upon him, during the expedition to Khaybar?',
-      bs: 'Koliko muslimana je pratilo Poslanika, sallallahu alejhi ve sellem, u pohodu na Hajber?'
+      en: 'How many Muslims accompanied the Prophet ﷺ during the expedition to Khaybar?',
+      bs: 'Koliko muslimana je pratilo Poslanika ﷺ u pohodu na Hajber?'
     },
     options: [
       { en: '700 Muslims', bs: '700 muslimana' },
@@ -449,8 +449,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: { 
-      en: 'Who did the Prophet, peace be upon him, give the banner to during the final battle of Khaybar?',
-      bs: 'Kome je Poslanik, sallallahu alejhi ve sellem, dao zastavu tokom završne bitke na Hajberu?'
+      en: 'Who did the Prophet ﷺ give the banner to during the final battle of Khaybar?',
+      bs: 'Kome je Poslanik ﷺ dao zastavu tokom završne bitke na Hajberu?'
     },
     options: [
       { en: 'Umar ibn al-Khattab', bs: 'Omeru b. Hattabu' },
@@ -500,8 +500,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: { 
-      en: 'What did the Prophet, peace be upon him, do with the Torah books found among the spoils of Khaybar?',
-      bs: 'Šta je Poslanik, sallallahu alejhi ve sellem, uradio s knjigama Tevrata pronađenim među plijenom Hajbera?'
+      en: 'What did the Prophet ﷺ do with the Torah books found among the spoils of Khaybar?',
+      bs: 'Šta je Poslanik ﷺ uradio s knjigama Tevrata pronađenim među plijenom Hajbera?'
     },
     options: [
       { en: 'He burned them', bs: 'Spalio ih je' },
@@ -517,8 +517,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which Persian ruler received a letter from the Prophet Muhammad, sallallahu alejhi ve sellem?',
-      bs: 'Koji perzijski vladar je primio pismo od Poslanika Muhammeda, sallallahu alejhi ve sellem?',
+      en: 'Which Persian ruler received a letter from the Prophet Muhammad ﷺ?',
+      bs: 'Koji perzijski vladar je primio pismo od Poslanika Muhammeda ﷺ?',
     },
     options: [
       { en: 'Heraclius', bs: 'Heraklije' },
@@ -535,7 +535,7 @@ export const islamHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'How did Kisra react after hearing the Prophet’s letter?',
-      bs: 'Kako je Kisra reagovao nakon što je čuo pismo Poslanika, sallallahu alejhi ve sellem?',
+      bs: 'Kako je Kisra reagovao nakon što je čuo pismo Poslanika ﷺ?',
     },
     options: [
       { en: 'He immediately accepted Islam', bs: 'Odmah je prihvatio islam' },
@@ -551,8 +551,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which ruler of Egypt received a letter from the Prophet Muhammad, sallallahu alejhi ve sellem?',
-      bs: 'Koji egipatski vladar je primio pismo od Poslanika Muhammeda, sallallahu alejhi ve sellem?',
+      en: 'Which ruler of Egypt received a letter from the Prophet Muhammad ﷺ?',
+      bs: 'Koji egipatski vladar je primio pismo od Poslanika Muhammeda ﷺ?',
     },
     options: [
       { en: 'Mukawqis', bs: 'Mukavkis' },
@@ -568,8 +568,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Who was the last wife of the Prophet Muhammad, sallallahu alejhi ve sellem?',
-      bs: 'Koja je bila posljednja supruga Poslanika Muhammeda, sallallahu alejhi ve sellem?',
+      en: 'Who was the last wife of the Prophet Muhammad ﷺ?',
+      bs: 'Koja je bila posljednja supruga Poslanika Muhammeda ﷺ?',
     },
     options: [
       { en: 'Aisha bint Abi Bakr', bs: 'Aiša bint Ebu Bekr' },
@@ -602,8 +602,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Why did the Prophet Muhammad, sallallahu alejhi ve sellem, send an army to Mu’tah?',
-      bs: 'Zašto je Poslanik Muhammed, sallallahu alejhi ve sellem, poslao vojsku na Mutu?',
+      en: 'Why did the Prophet Muhammad ﷺ send an army to Mu’tah?',
+      bs: 'Zašto je Poslanik Muhammed ﷺ poslao vojsku na Mutu?',
     },
     options: [
       { en: 'To conquer Byzantium immediately', bs: 'Da odmah osvoji Bizantiju' },
@@ -670,8 +670,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Where did the Prophet, sallallahu alejhi ve sellem, meet Abu Sufyan before entering Makkah?',
-      bs: 'Gdje je Poslanik, sallallahu alejhi ve sellem, susreo Ebu Sufjana prije ulaska u Meku?'
+      en: 'Where did the Prophet ﷺ meet Abu Sufyan before entering Makkah?',
+      bs: 'Gdje je Poslanik ﷺ susreo Ebu Sufjana prije ulaska u Meku?'
     },
     options: [
       { en: 'Mar az-Zahran valley', bs: 'Dolina Merru Zahran' },
@@ -686,8 +686,8 @@ export const islamHard: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
-    prompt: { en: 'What did the Prophet, sallallahu alejhi ve sellem, do after entering the Ka‘bah area?', 
-              bs: 'Šta je Poslanik, sallallahu alejhi ve sellem, uradio nakon ulaska u prostor Kabe?' },   
+    prompt: { en: 'What did the Prophet ﷺ do after entering the Ka‘bah area?', 
+              bs: 'Šta je Poslanik ﷺ uradio nakon ulaska u prostor Kabe?' },   
       options: [
       { en: 'Ordered the destruction of idols and purified the Ka‘bah from them', bs: 'Naredio je rušenje kipova i očistio Kabu od njih' },
       { en: 'Changed the direction of the Ka‘bah entrance', bs: 'Promijenio je pravac ulaza u Kabu' },
@@ -787,8 +787,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Why did the Prophet, sallallahu alejhi ve sellem, order the expedition to Tabuk?',
-      bs: 'Zašto je Poslanik, sallallahu alejhi ve sellem, naredio pohod na Tebuk?'
+      en: 'Why did the Prophet ﷺ order the expedition to Tabuk?',
+      bs: 'Zašto je Poslanik ﷺ naredio pohod na Tebuk?'
     },
     options: [
       { en: 'Because he received news that Byzantium was preparing an army against Muslims', bs: 'Jer je dobio vijest da Bizantija priprema vojsku protiv muslimana' },
@@ -804,8 +804,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What was unusual about the Prophet’s, sallallahu alejhi ve sellem, preparation for the expedition of Tabuk?',
-      bs: 'Šta je bilo neobično u pripremama Poslanika, sallallahu alejhi ve sellem, za pohod na Tebuk?'
+      en: 'What was unusual about the Prophet’s ﷺ preparation for the expedition of Tabuk?',
+      bs: 'Šta je bilo neobično u pripremama Poslanika ﷺ za pohod na Tebuk?'
     },
     options: [
       { en: 'He openly announced the destination and prepared people for the long journey', bs: 'Javno je objavio odredište i pripremio ljude za daleki put' },
@@ -889,8 +889,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What condition did the delegation of Thaqif request that the Prophet, sallallahu alejhi ve sellem, rejected?',
-      bs: 'Koji uvjet delegacije Sekifa je Poslanik, sallallahu alejhi ve sellem, odbio?'
+      en: 'What condition did the delegation of Thaqif request that the Prophet ﷺ rejected?',
+      bs: 'Koji uvjet delegacije Sekifa je Poslanik ﷺ odbio?'
     },
     options: [
       { en: 'To leave their idol Al-Lat standing for three years', bs: 'Da se njihov kip Lat ostavi tri godine' },
@@ -906,8 +906,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Who destroyed the idol Zul-Khalasah by order of the Prophet, sallallahu alejhi ve sellem?',
-      bs: 'Ko je po naredbi Poslanika, sallallahu alejhi ve sellem, uništio idola Zulhalesu?'
+      en: 'Who destroyed the idol Zul-Khalasah by order of the Prophet ﷺ?',
+      bs: 'Ko je po naredbi Poslanika ﷺ uništio idola Zulhalesu?'
     },
     options: [
       { en: 'Jarir ibn Abdullah al-Bajali, radijallahu anhu', bs: 'Džerir b. Abdullah el-Bedželi, radijallahu anhu' },
@@ -940,8 +940,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which angel visited the Prophet, sallallahu alejhi ve sellem, and asked about iman, Islam and ihsan?',
-      bs: 'Koji melek je posjetio Poslanika, sallallahu alejhi ve sellem, i pitao o imanu, islamu i ihsanu?'
+      en: 'Which angel visited the Prophet ﷺ and asked about iman, Islam and ihsan?',
+      bs: 'Koji melek je posjetio Poslanika ﷺ i pitao o imanu, islamu i ihsanu?'
     },
     options: [
       { en: 'Jibril, alayhis-salam', bs: 'Džibril, alejhis-selam' },
@@ -957,8 +957,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What did the Prophet, sallallahu alejhi ve sellem, emphasize in his Farewell Sermon?',
-      bs: 'Šta je Poslanik, sallallahu alejhi ve sellem, posebno naglasio u Oproštajnoj hutbi?'
+      en: 'What did the Prophet ﷺ emphasize in his Farewell Sermon?',
+      bs: 'Šta je Poslanik ﷺ posebno naglasio u Oproštajnoj hutbi?'
     },
     options: [
       { en: 'The sanctity of people’s lives, wealth, and honor', bs: 'Svetost ljudskih života, imetka i časti' },
@@ -974,8 +974,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'How many umra did the Prophet, sallallahu alejhi ve sellem, perform after the Hijrah?',
-      bs: 'Koliko je umri Poslanik, sallallahu alejhi ve sellem, obavio nakon Hidžre?'
+      en: 'How many umra did the Prophet ﷺ perform after the Hijrah?',
+      bs: 'Koliko je umri Poslanik ﷺ obavio nakon Hidžre?'
     },
     options: [
       { en: 'Four', bs: 'Četiri' },
@@ -991,8 +991,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which place did the Prophet, sallallahu alejhi ve sellem, visit after leaving Mina during the Farewell Hajj?',
-      bs: 'Koje mjesto je Poslanik, sallallahu alejhi ve sellem, posjetio nakon napuštanja Mine tokom Oproštajnog hadža?'
+      en: 'Which place did the Prophet ﷺ visit after leaving Mina during the Farewell Hajj?',
+      bs: 'Koje mjesto je Poslanik ﷺ posjetio nakon napuštanja Mine tokom Oproštajnog hadža?'
     },
     options: [
       { en: 'The valley of Muhassab', bs: 'Dolinu Mahassab' },
@@ -1008,8 +1008,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Where did the Prophet, sallallahu alejhi ve sellem, pass away?',
-      bs: 'Gdje je preselio Poslanik, sallallahu alejhi ve sellem?'
+      en: 'Where did the Prophet ﷺ pass away?',
+      bs: 'Gdje je preselio Poslanik ﷺ?'
     },
     options: [
       { en: 'In Madinah, in the house of Aisha, radijallahu anha', bs: 'U Medini, u kući Aiše, radijallahu anha' },
@@ -1025,8 +1025,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Who did the Prophet, sallallahu alejhi ve sellem, appoint to lead the prayer during his final illness?',
-      bs: 'Koga je Poslanik, sallallahu alejhi ve sellem, odredio da predvodi namaz tokom svoje posljednje bolesti?'
+      en: 'Who did the Prophet ﷺ appoint to lead the prayer during his final illness?',
+      bs: 'Koga je Poslanik ﷺ odredio da predvodi namaz tokom svoje posljednje bolesti?'
     },
     options: [
       { en: 'Abu Bakr, radijallahu anhu', bs: 'Ebu Bekra, radijallahu anhu' },
@@ -1042,8 +1042,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which companions supported the Prophet, sallallahu alejhi ve sellem, when he went to the mosque shortly before his death?',
-      bs: 'Koji ashabi su pomagali Poslaniku, sallallahu alejhi ve sellem, kada je izašao u mesdžid nekoliko dana prije smrti?'
+      en: 'Which companions supported the Prophet ﷺ when he went to the mosque shortly before his death?',
+      bs: 'Koji ashabi su pomagali Poslaniku ﷺ kada je izašao u mesdžid nekoliko dana prije smrti?'
     },
     options: [
       { en: 'Ali ibn Abi Talib and Abbas, radijallahu anhuma', bs: 'Alija ibn Ebu Talib i Abbas, radijallahu anhuma' },
@@ -1060,7 +1060,7 @@ export const islamHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which verse did Abu Bakr, radijallahu anhu, recite after the Prophet’s death?',
-      bs: 'Koji ajet je Ebu Bekr, radijallahu anhu, proučio nakon smrti Poslanika, sallallahu alejhi ve sellem?'
+      bs: 'Koji ajet je Ebu Bekr, radijallahu anhu, proučio nakon smrti Poslanika ﷺ?'
     },
     options: [
       { en: '“Muhammad is only a messenger, and messengers passed before him...” (Ali Imran, 144)', bs: '“Muhammed je samo poslanik, a i prije njega je bilo poslanika...” (Ali Imran, 144)' },
@@ -1076,8 +1076,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'On which day of the week did the Prophet, sallallahu alejhi ve sellem, pass away?',
-      bs: 'Kojeg dana u sedmici je preselio Poslanik, sallallahu alejhi ve sellem?'
+      en: 'On which day of the week did the Prophet ﷺ pass away?',
+      bs: 'Kojeg dana u sedmici je preselio Poslanik ﷺ?'
     },
     options: [
       { en: 'Monday', bs: 'Ponedjeljak' },
@@ -1093,8 +1093,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What was among the last things the Prophet, sallallahu alejhi ve sellem, used from this world?',
-      bs: 'Šta je bilo među posljednjim stvarima koje je Poslanik, sallallahu alejhi ve sellem, koristio na ovom svijetu?'
+      en: 'What was among the last things the Prophet ﷺ used from this world?',
+      bs: 'Šta je bilo među posljednjim stvarima koje je Poslanik ﷺ koristio na ovom svijetu?'
     },
     options: [
       { en: 'The miswak of Aisha, radijallahu anha', bs: 'Misvak Aiše, radijallahu anha' },
@@ -1110,8 +1110,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'How many salawat does Allah give to a person who sends one salawat upon the Prophet, sallallahu alejhi ve sellem?',
-      bs: 'Koliko salavata Allah daje osobi koja donese jedan salavat na Poslanika, sallallahu alejhi ve sellem?'
+      en: 'How many salawat does Allah give to a person who sends one salawat upon the Prophet ﷺ?',
+      bs: 'Koliko salavata Allah daje osobi koja donese jedan salavat na Poslanika ﷺ?'
     },
     options: [
       { en: 'Ten salawat', bs: 'Deset salavata' },
@@ -1127,8 +1127,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'How long was the Prophet’s, sallallahu alejhi ve sellem, hair approximately?',
-      bs: 'Dokle je otprilike dosezala kosa Poslanika, sallallahu alejhi ve sellem?'
+      en: 'How long was the Prophet’s ﷺ hair approximately?',
+      bs: 'Dokle je otprilike dosezala kosa Poslanika ﷺ?'
     },
     options: [
       { en: 'To his shoulders', bs: 'Do njegovih ramena' },
@@ -1144,8 +1144,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'How many white hairs were approximately found on the Prophet’s, sallallahu alejhi ve sellem, head and beard?',
-      bs: 'Koliko je otprilike sijedih vlasi imao Poslanik, sallallahu alejhi ve sellem, na glavi i bradi?'
+      en: 'How many white hairs were approximately found on the Prophet’s ﷺ head and beard?',
+      bs: 'Koliko je otprilike sijedih vlasi imao Poslanik ﷺ na glavi i bradi?'
     },
     options: [
       { en: 'Less than twenty', bs: 'Manje od dvadeset' },
@@ -1161,8 +1161,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which hair dye color did the Prophet, sallallahu alejhi ve sellem, advise avoiding?',
-      bs: 'Koju boju farbe za kosu je Poslanik, sallallahu alejhi ve sellem, savjetovao izbjegavati?'
+      en: 'Which hair dye color did the Prophet ﷺ advise avoiding?',
+      bs: 'Koju boju farbe za kosu je Poslanik ﷺ savjetovao izbjegavati?'
     },
     options: [
       { en: 'Black color', bs: 'Crnu boju' },
@@ -1178,8 +1178,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'How was the beard of the Prophet, sallallahu alejhi ve sellem, described?',
-      bs: 'Kako je opisana brada Poslanika, sallallahu alejhi ve sellem?'
+      en: 'How was the beard of the Prophet ﷺ described?',
+      bs: 'Kako je opisana brada Poslanika ﷺ?'
     },
     options: [
       { en: 'Thick and abundant', bs: 'Gusta i bujna' },
@@ -1195,8 +1195,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Where was the seal of prophethood located on the body of the Prophet, sallallahu alejhi ve sellem?',
-      bs: 'Gdje se nalazio pečat poslanstva na tijelu Poslanika, sallallahu alejhi ve sellem?'
+      en: 'Where was the seal of prophethood located on the body of the Prophet ﷺ?',
+      bs: 'Gdje se nalazio pečat poslanstva na tijelu Poslanika ﷺ?'
     },
     options: [
       { en: 'Between his shoulders', bs: 'Između njegovih plećki' },
@@ -1212,8 +1212,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What was the seal of prophethood on the body of the Prophet, sallallahu alejhi ve sellem, compared to in authentic narrations?',
-      bs: 'Sa čim je pečat poslanstva na tijelu Poslanika, sallallahu alejhi ve sellem, upoređen u vjerodostojnim predajama?'
+      en: 'What was the seal of prophethood on the body of the Prophet ﷺ compared to in authentic narrations?',
+      bs: 'Sa čim je pečat poslanstva na tijelu Poslanika ﷺ upoređen u vjerodostojnim predajama?'
     },
     options: [
       { en: 'A pigeon egg', bs: 'Golubijim jajetom' },
@@ -1229,8 +1229,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What type of clothing was the Prophet, sallallahu alejhi ve sellem, reported to love the most?',
-      bs: 'Koju vrstu odjeće je Poslanik, sallallahu alejhi ve sellem, najviše volio?'
+      en: 'What type of clothing was the Prophet ﷺ reported to love the most?',
+      bs: 'Koju vrstu odjeće je Poslanik ﷺ najviše volio?'
     },
     options: [
       { en: 'The shirt', bs: 'Košulju' },
@@ -1246,8 +1246,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What was among the Prophet’s, sallallahu alejhi ve sellem, favorite clothing according to Anas b. Malik?',
-      bs: 'Koja je bila među najdražom odjećom Poslanika, sallallahu alejhi ve sellem, prema Enesu b. Maliku?'
+      en: 'What was among the Prophet’s ﷺ favorite clothing according to Anas b. Malik?',
+      bs: 'Koja je bila među najdražom odjećom Poslanika ﷺ prema Enesu b. Maliku?'
     },
     options: [
       { en: 'The Yemeni cloak', bs: 'Jemenski ogrtač' },
@@ -1263,8 +1263,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which color of clothing did the Prophet, sallallahu alejhi ve sellem, commonly wear?',
-      bs: 'Koju boju odjeće je Poslanik, sallallahu alejhi ve sellem, često nosio?'
+      en: 'Which color of clothing did the Prophet ﷺ commonly wear?',
+      bs: 'Koju boju odjeće je Poslanik ﷺ često nosio?'
     },
     options: [
       { en: 'White clothing', bs: 'Bijelu odjeću' },
@@ -1297,8 +1297,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which of the following was mentioned as a miracle of the Prophet, sallallahu alejhi ve sellem?',
-      bs: 'Koja od navedenih stvari je spomenuta kao mudžiza Poslanika, sallallahu alejhi ve sellem?'
+      en: 'Which of the following was mentioned as a miracle of the Prophet ﷺ?',
+      bs: 'Koja od navedenih stvari je spomenuta kao mudžiza Poslanika ﷺ?'
     },
     options: [
       { en: 'Splitting of the Moon', bs: 'Rascjepljenje Mjeseca' },
@@ -1365,8 +1365,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What material was the Prophet’s, sallallahu alejhi ve sellem, ring made from?',
-      bs: 'Od kojeg materijala je bio napravljen prsten Poslanika, sallallahu alejhi ve sellem?'
+      en: 'What material was the Prophet’s ﷺ ring made from?',
+      bs: 'Od kojeg materijala je bio napravljen prsten Poslanika ﷺ?'
     },
     options: [
       { en: 'Silver', bs: 'Srebro' },
@@ -1382,8 +1382,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Where was the stone of the Prophet’s, sallallahu alejhi ve sellem, ring from?',
-      bs: 'Odakle je bio kamenčić na prstenu Poslanika, sallallahu alejhi ve sellem?'
+      en: 'Where was the stone of the Prophet’s ﷺ ring from?',
+      bs: 'Odakle je bio kamenčić na prstenu Poslanika ﷺ?'
     },
     options: [
       { en: 'Abyssinia', bs: 'Abesinija' },
@@ -1416,8 +1416,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Why did the Prophet, sallallahu alejhi ve sellem, have a ring made?',
-      bs: 'Zašto je Poslanik, sallallahu alejhi ve sellem, dao napraviti prsten?'
+      en: 'Why did the Prophet ﷺ have a ring made?',
+      bs: 'Zašto je Poslanik ﷺ dao napraviti prsten?'
     },
     options: [
       { en: 'To seal letters sent to rulers', bs: 'Da pečati pisma koja je slao vladarima' },
@@ -1433,8 +1433,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What was written on the Prophet’s, sallallahu alejhi ve sellem, ring?',
-      bs: 'Šta je bilo napisano na prstenu Poslanika, sallallahu alejhi ve sellem?'
+      en: 'What was written on the Prophet’s ﷺ ring?',
+      bs: 'Šta je bilo napisano na prstenu Poslanika ﷺ?'
     },
     options: [
       { en: 'Muhammad, Messenger of Allah', bs: 'Muhammed, Allahov poslanik' },
@@ -1450,8 +1450,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'How was the inscription arranged on the Prophet’s, sallallahu alejhi ve sellem, ring?',
-      bs: 'Kako je bio raspoređen natpis na prstenu Poslanika, sallallahu alejhi ve sellem?'
+      en: 'How was the inscription arranged on the Prophet’s ﷺ ring?',
+      bs: 'Kako je bio raspoređen natpis na prstenu Poslanika ﷺ?'
     },
     options: [
       { en: 'Three lines: Muhammad, Messenger, Allah', bs: 'Tri reda: Muhammed, Poslanik, Allah' },
@@ -1484,8 +1484,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What color of turban did the Prophet, sallallahu alejhi ve sellem, wear when he entered Makkah during the conquest?',
-      bs: 'Koje boje je bio turban Poslanika, sallallahu alejhi ve sellem, kada je ušao u Mekku prilikom osvajanja?'
+      en: 'What color of turban did the Prophet ﷺ wear when he entered Makkah during the conquest?',
+      bs: 'Koje boje je bio turban Poslanika ﷺ kada je ušao u Mekku prilikom osvajanja?'
     },
     options: [
       { en: 'Black', bs: 'Crni' },
@@ -1501,8 +1501,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What did the Prophet, sallallahu alejhi ve sellem, do with the end of his turban?',
-      bs: 'Šta je Poslanik, sallallahu alejhi ve sellem, radio s krajem turbana?'
+      en: 'What did the Prophet ﷺ do with the end of his turban?',
+      bs: 'Šta je Poslanik ﷺ radio s krajem turbana?'
     },
     options: [
       { en: 'He let it hang between his shoulders', bs: 'Puštao ga je između svojih pleća' },
@@ -1518,8 +1518,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What was one of the major miracles of the Prophet, sallallahu alejhi ve sellem, witnessed by the people of Makkah?',
-      bs: 'Koja je bila jedna od velikih mudžiza Allahovog Poslanika, sallallahu alejhi ve sellem, kojoj su svjedočili stanovnici Mekke?'
+      en: 'What was one of the major miracles of the Prophet ﷺ witnessed by the people of Makkah?',
+      bs: 'Koja je bila jedna od velikih mudžiza Allahovog Poslanika ﷺ kojoj su svjedočili stanovnici Mekke?'
     },
     options: [
       { en: 'The splitting of the Moon', bs: 'Rascjepljenje Mjeseca' },
@@ -1535,8 +1535,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'How many times did the Prophet, sallallahu alejhi ve sellem, usually pause while drinking?',
-      bs: 'Koliko puta je Poslanik, sallallahu alejhi ve sellem, pravio predah prilikom pijenja?'
+      en: 'How many times did the Prophet ﷺ usually pause while drinking?',
+      bs: 'Koliko puta je Poslanik ﷺ pravio predah prilikom pijenja?'
     },
     options: [
       { en: 'Three times', bs: 'Tri puta' },
@@ -1552,8 +1552,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which of these foods did the Prophet, sallallahu alejhi ve sellem, eat with dates?',
-      bs: 'Koju od ovih namirnica je Poslanik, sallallahu alejhi ve sellem, jeo zajedno s datulama?'
+      en: 'Which of these foods did the Prophet ﷺ eat with dates?',
+      bs: 'Koju od ovih namirnica je Poslanik ﷺ jeo zajedno s datulama?'
     },
     options: [
       { en: 'Cucumber', bs: 'Krastavac' },
@@ -1569,8 +1569,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'How many times would the Prophet, sallallahu alejhi ve sellem, sometimes repeat a word so it would be understood?',
-      bs: 'Koliko puta bi Allahov Poslanik, sallallahu alejhi ve sellem, ponekad ponovio riječ da bi bila shvaćena?'
+      en: 'How many times would the Prophet ﷺ sometimes repeat a word so it would be understood?',
+      bs: 'Koliko puta bi Allahov Poslanik ﷺ ponekad ponovio riječ da bi bila shvaćena?'
     },
     options: [
       { en: 'Three times', bs: 'Tri puta' },
@@ -1586,8 +1586,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What position did the Prophet, sallallahu alejhi ve sellem, sleep in when he went to bed?',
-      bs: 'U kojem položaju je Allahov Poslanik, sallallahu alejhi ve sellem, spavao kada bi legao?'
+      en: 'What position did the Prophet ﷺ sleep in when he went to bed?',
+      bs: 'U kojem položaju je Allahov Poslanik ﷺ spavao kada bi legao?'
     },
     options: [
       { en: 'On his right side', bs: 'Na desnom boku' },
@@ -1603,8 +1603,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Where did the Prophet, sallallahu alejhi ve sellem, place his right hand when he slept?',
-      bs: 'Gdje je Allahov Poslanik, sallallahu alejhi ve sellem, stavljao desnu ruku kada bi spavao?'
+      en: 'Where did the Prophet ﷺ place his right hand when he slept?',
+      bs: 'Gdje je Allahov Poslanik ﷺ stavljao desnu ruku kada bi spavao?'
     },
     options: [
       { en: 'Under his right cheek', bs: 'Ispod desnog obraza' },
@@ -1620,8 +1620,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which three surahs did the Prophet, sallallahu alejhi ve sellem, recite before sleeping?',
-      bs: 'Koje tri sure je Allahov Poslanik, sallallahu alejhi ve sellem, učio prije spavanja?'
+      en: 'Which three surahs did the Prophet ﷺ recite before sleeping?',
+      bs: 'Koje tri sure je Allahov Poslanik ﷺ učio prije spavanja?'
     },
     options: [
       { en: 'Al-Ikhlas, Al-Falaq and An-Nas', bs: 'El-Ihlas, El-Felek i En-Nas' },
@@ -1637,8 +1637,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What type of mattress did the Prophet, sallallahu alejhi ve sellem, use?',
-      bs: 'Kakav dušek je koristio Allahov Poslanik, sallallahu alejhi ve sellem?'
+      en: 'What type of mattress did the Prophet ﷺ use?',
+      bs: 'Kakav dušek je koristio Allahov Poslanik ﷺ?'
     },
     options: [
       { en: 'A leather mattress filled with fibers', bs: 'Kožni dušek ispunjen vlaknima' },
@@ -1654,8 +1654,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What did the Prophet Muhammad, peace be upon him, recommend doing with your bed before going to sleep?',
-      bs: 'Šta je Poslanik Muhammed, sallallahu alejhi ve sellem, preporučio uraditi s posteljom prije spavanja?'
+      en: 'What did the Prophet Muhammad ﷺ recommend doing with your bed before going to sleep?',
+      bs: 'Šta je Poslanik Muhammed ﷺ preporučio uraditi s posteljom prije spavanja?'
     },
     options: [
       { en: 'Shake it with the inside of your garment or blanket', bs: 'Otresti je unutrašnjošću odjeće ili prekrivača' },
@@ -1671,8 +1671,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What did the Prophet, sallallahu alejhi ve sellem, use when waking up at night?',
-      bs: 'Šta je Allahov Poslanik, sallallahu alejhi ve sellem, koristio kada bi se probudio noću?'
+      en: 'What did the Prophet ﷺ use when waking up at night?',
+      bs: 'Šta je Allahov Poslanik ﷺ koristio kada bi se probudio noću?'
     },
     options: [
       { en: 'Miswak to clean his teeth', bs: 'Misvak za čišćenje zuba' },
@@ -1688,8 +1688,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What did the Prophet, sallallahu alejhi ve sellem, do if he missed his regular night worship due to sleep or tiredness?',
-      bs: 'Šta bi Poslanik, sallallahu alejhi ve sellem, uradio ako bi propustio svoj noćni ibadet zbog sna ili umora?'
+      en: 'What did the Prophet ﷺ do if he missed his regular night worship due to sleep or tiredness?',
+      bs: 'Šta bi Poslanik ﷺ uradio ako bi propustio svoj noćni ibadet zbog sna ili umora?'
     },
     options: [
       { en: 'He would make it up during the day', bs: 'Nadoknadio bi ga tokom dana' },
@@ -1722,8 +1722,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which month did the Prophet, sallallahu alejhi ve sellem, fast completely besides Ramadan?',
-      bs: 'Koji mjesec je Poslanik, sallallahu alejhi ve sellem, osim ramazana, postio cijeli?'
+      en: 'Which month did the Prophet ﷺ fast completely besides Ramadan?',
+      bs: 'Koji mjesec je Poslanik ﷺ osim ramazana, postio cijeli?'
     },
     options: [
       { en: 'No month completely', bs: 'Nijedan mjesec u potpunosti' },
@@ -1739,8 +1739,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'How many days at the beginning of each month did the Prophet, sallallahu alejhi ve sellem, regularly fast?',
-      bs: 'Koliko dana na početku svakog mjeseca je Poslanik, sallallahu alejhi ve sellem, postio?'
+      en: 'How many days at the beginning of each month did the Prophet ﷺ regularly fast?',
+      bs: 'Koliko dana na početku svakog mjeseca je Poslanik ﷺ postio?'
     },
     options: [
       { en: 'Three days', bs: 'Tri dana' },
@@ -1756,8 +1756,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which days did the Prophet, sallallahu alejhi ve sellem, especially take care to fast?',
-      bs: 'Koje dane je Poslanik, sallallahu alejhi ve sellem, posebno pazio da posti?'
+      en: 'Which days did the Prophet ﷺ especially take care to fast?',
+      bs: 'Koje dane je Poslanik ﷺ posebno pazio da posti?'
     },
     options: [
       { en: 'Monday and Thursday', bs: 'Ponedjeljak i četvrtak' },
@@ -1773,8 +1773,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Who did the Prophet, sallallahu alejhi ve sellem, ask to recite Quran to him?',
-      bs: 'Od koga je Poslanik, sallallahu alejhi ve sellem, tražio da mu uči Kur’an?'
+      en: 'Who did the Prophet ﷺ ask to recite Quran to him?',
+      bs: 'Od koga je Poslanik ﷺ tražio da mu uči Kur’an?'
     },
     options: [
       { en: 'Abdullah ibn Masud', bs: 'Abdullah b. Mesud' },
@@ -1790,8 +1790,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Who narrated that the Prophet peace be upon him cried during prayer and the sound in his chest resembled a boiling pot?',
-      bs: 'Ko je prenio da je Poslanik sallallahu alejhi ve sellem plakao u namazu tako da se u njegovim prsima čuo zvuk poput kotla?',
+      en: 'Who narrated that the Prophet ﷺ cried during prayer and the sound in his chest resembled a boiling pot?',
+      bs: 'Ko je prenio da je Poslanik ﷺ plakao u namazu tako da se u njegovim prsima čuo zvuk poput kotla?',
     },
     options: [
       { en: 'Abdullah ibn Abbas', bs: 'Abdullah b. Abbas' },
@@ -1807,8 +1807,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which verse caused the Prophet peace be upon him to cry when Ibn Masud recited it?',
-      bs: 'Koji ajet je izazvao plač Poslanika sallallahu alejhi ve sellem kada ga je učio Ibn Mesud?',
+      en: 'Which verse caused the Prophet ﷺ to cry when Ibn Masud recited it?',
+      bs: 'Koji ajet je izazvao plač Poslanika ﷺ kada ga je učio Ibn Mesud?',
     },
     options: [
       { en: 'Al-Fatiha 1:5', bs: 'El-Fatiha 1:5' },
@@ -1824,14 +1824,14 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Who was the milk mother that the Prophet, sallallahu alejhi ve sellem, and Hamzah ibn Abdul-Muttalib shared?',
-      bs: 'Koja je bila majka po mlijeku koju su dijelili Poslanik, sallallahu alejhi ve sellem, i Hamza b. Abdul-Muttalib?'
+      en: 'Who was the milk mother that the Prophet ﷺ and Hamzah ibn Abdul-Muttalib shared?',
+      bs: 'Koja je bila majka po mlijeku koju su dijelili Poslanik ﷺ i Hamza b. Abdul-Muttalib?'
     },
     options: [
       { en: 'Thuwaibah Al-Aslamiyyah', bs: 'Suvejba el-Eslemijja' },
-      { en: 'Halima As-Sadiyyah', bs: 'Halima es-Sa’dijja' },
       { en: 'Aminah bint Wahb', bs: 'Amina bint Vehb' },
-      { en: 'Fatimah bint Asad', bs: 'Fatima bint Esed' }
+      { en: 'Fatimah bint Asad', bs: 'Fatima bint Esed' },
+      { en: 'Barakah Al-Habashiyyah', bs: 'Bereka el-Habešijja' }
     ],
     correctIndex: 0
   },
@@ -1841,8 +1841,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Who was the companion whose death caused the Prophet peace be upon him to cry after kissing him?',
-      bs: 'Koji ashab je preselio, a Poslanik sallallahu alejhi ve sellem ga je poljubio i plakao?',
+      en: 'Who was the companion whose death caused the Prophet ﷺ to cry after kissing him?',
+      bs: 'Koji ashab je preselio, a Poslanik ﷺ ga je poljubio i plakao?',
     },
     options: [
       { en: 'Uthman ibn Mazun', bs: 'Osman b. Mazun' },
@@ -1858,8 +1858,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What did the Prophet peace be upon him warn against during his final illness?',
-      bs: 'Na šta je Poslanik sallallahu alejhi ve sellem upozorio tokom svoje posljednje bolesti?',
+      en: 'What did the Prophet ﷺ warn against during his final illness?',
+      bs: 'Na šta je Poslanik ﷺ upozorio tokom svoje posljednje bolesti?',
     },
     options: [
       { en: 'Taking the graves of prophets as places of worship', bs: 'Uzimanje kaburova vjerovjesnika kao mjesta ibadeta' },
@@ -1875,8 +1875,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What did Abu Bakr say regarding the burial place of the Prophet peace be upon him?',
-      bs: 'Šta je Ebu Bekr radijallahu anhu rekao u vezi mjesta ukopa Poslanika sallallahu alejhi ve sellem?',
+      en: 'What did Abu Bakr say regarding the burial place of the Prophet ﷺ?',
+      bs: 'Šta je Ebu Bekr radijallahu anhu rekao u vezi mjesta ukopa Poslanika ﷺ?',
     },
     options: [
       { en: 'Prophets are buried only in their hometowns', bs: 'Vjerovjesnici se ukopavaju samo u svom rodnom mjestu' },
@@ -1892,8 +1892,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'What did the Prophet peace be upon him leave as his inheritance according to his statement?',
-      bs: 'Šta je Poslanik sallallahu alejhi ve sellem ostavio kao nasljedstvo prema svom hadisu?',
+      en: 'What did the Prophet ﷺ leave as his inheritance according to his statement?',
+      bs: 'Šta je Poslanik ﷺ ostavio kao nasljedstvo prema svom hadisu?',
     },
     options: [
       { en: 'Gold and silver for his family', bs: 'Zlato i srebro svojoj porodici' },

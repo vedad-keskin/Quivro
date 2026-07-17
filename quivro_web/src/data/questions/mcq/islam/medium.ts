@@ -34,7 +34,7 @@ export const islamMedium: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'medium',
-    prompt: { en: 'Who left as deputy in Medina when the Muslims marched to Badr?', bs: 'Koga je Poslanik, sallallahu alejhi ve sellem, ostavio kao namjesnika u Medini pri odlasku na Bedr?' },
+    prompt: { en: 'Who left as deputy in Medina when the Muslims marched to Badr?', bs: 'Koga je Poslanik ﷺ ostavio kao namjesnika u Medini pri odlasku na Bedr?' },
     options: [
       { en: 'Ali ibn Abi Talib', bs: 'Alija b. Ebi Talib' },
       { en: 'Uthman ibn Affan', bs: 'Osmana b. Affan' },
@@ -49,8 +49,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'Which Ansari companion expressed full support for the Prophet peace be upon him before the Battle of Badr, saying the Ansar would follow him even if he entered the sea?',
-      bs: 'Koji ensarijski ashab je izrazio punu podršku Poslaniku sallallahu alejhi ve sellem prije Bitke na Bedru, rekavši da bi ga ensarije slijedile čak i kada bi ušao u more?',
+      en: 'Which Ansari companion expressed full support for the Prophet ﷺ before the Battle of Badr, saying the Ansar would follow him even if he entered the sea?',
+      bs: 'Koji ensarijski ashab je izrazio punu podršku Poslaniku ﷺ prije Bitke na Bedru, rekavši da bi ga ensarije slijedile čak i kada bi ušao u more?',
     },
     options: [
       { en: 'Sa’d ibn Abi Waqqas', bs: 'Sa’d b. Ebi Vakkas' },
@@ -66,8 +66,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'Which verse did Ubayy ibn Ka‘b identify as the greatest verse in the Qur’an when asked by the Prophet peace be upon him?',
-      bs: 'Koji ajet je Ubej ibn Ka‘b naveo kao najveličanstveniji ajet u Kur’anu kada ga je Poslanik, sallallahu alejhi ve sellem, pitao?',
+      en: 'Which verse did Ubayy ibn Ka‘b identify as the greatest verse in the Qur’an when asked by the Prophet ﷺ?',
+      bs: 'Koji ajet je Ubej ibn Ka‘b naveo kao najveličanstveniji ajet u Kur’anu kada ga je Poslanik ﷺ pitao?',
     },
     options: [
       { en: 'Ayat al-Kursi', bs: 'Ajetul-kursija' },
@@ -83,8 +83,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'Who did Abdulmuttalib entrust with the care of Prophet Muhammad, peace be upon him, before his death?',
-      bs: 'Kome je Abdulmuttalib povjerio brigu o Poslaniku Muhammedu, sallallahu alejhi ve sellem, prije svoje smrti?',
+      en: 'Who did Abdulmuttalib entrust with the care of Prophet Muhammad ﷺ before his death?',
+      bs: 'Kome je Abdulmuttalib povjerio brigu o Poslaniku Muhammedu ﷺ prije svoje smrti?',
     },
     options: [
       { en: 'Abu Talib', bs: 'Ebu Talibu' },
@@ -161,8 +161,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'What did Prophet Muhammad, peace be upon him, hope for after the people of Taif rejected him?',
-      bs: 'Čemu se Poslanik Muhammed, sallallahu alejhi ve sellem, nadao nakon što su ga stanovnici Taifa odbili?',
+      en: 'What did Prophet Muhammad ﷺ hope for after the people of Taif rejected him?',
+      bs: 'Čemu se Poslanik Muhammed ﷺ nadao nakon što su ga stanovnici Taifa odbili?',
     },
     options: [
       { en: 'That Allah would bring from them descendants who worship Him alone', bs: 'Da će Allah od njih izvesti potomke koji će Ga obožavati bez sudruga' },
@@ -177,7 +177,7 @@ export const islamMedium: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'medium',
-    prompt: { en: 'The Prophet recommended which fasting pattern as "the fast of Dawud"?', bs: 'Poslanik, sallallahu alejhi ve sellem, je preporučio koju vrstu posta kao „Davudov post“?' },
+    prompt: { en: 'The Prophet recommended which fasting pattern as "the fast of Dawud"?', bs: 'Poslanik ﷺ je preporučio koju vrstu posta kao „Davudov post“?' },
     options: [
       { en: 'Fast every day without break', bs: 'Post svaki dan bez prekida' },
       { en: 'Fasting in winter', bs: 'Post zimi' },
@@ -206,8 +206,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'What was the main purpose of the Hilf al-Fudul alliance that Prophet Muhammad, peace be upon him, attended in Makkah?',
-      bs: 'Koja je bila glavna svrha saveza Hilful-fudul kojem je prisustvovao Poslanik Muhammed, sallallahu alejhi ve sellem, u Meki?',
+      en: 'What was the main purpose of the Hilf al-Fudul alliance that Prophet Muhammad ﷺ attended in Makkah?',
+      bs: 'Koja je bila glavna svrha saveza Hilful-fudul kojem je prisustvovao Poslanik Muhammed ﷺ u Meki?',
     },
     options: [
       { en: 'To support the oppressed and stand against injustice', bs: 'Da pomogne potlačenima i suprotstavi se nepravdi' },
@@ -223,8 +223,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'Which of Prophet Muhammad’s, peace be upon him, children was the only one who passed away after him?',
-      bs: 'Koje dijete Poslanika Muhammeda, sallallahu alejhi ve sellem, je jedino preselilo nakon njega?',
+      en: 'Which of Prophet Muhammad’s ﷺ children was the only one who passed away after him?',
+      bs: 'Koje dijete Poslanika Muhammeda ﷺ je jedino preselilo nakon njega?',
     },
     options: [
       { en: 'Fatimah, may Allah be pleased with her', bs: 'Fatima, radijallahu anha' },
@@ -240,8 +240,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'Where did Prophet Muhammad, peace be upon him, receive the first revelation?',
-      bs: 'Gdje je Poslanik Muhammed, sallallahu alejhi ve sellem, primio prvu objavu?',
+      en: 'Where did Prophet Muhammad ﷺ receive the first revelation?',
+      bs: 'Gdje je Poslanik Muhammed ﷺ primio prvu objavu?',
     },
     options: [
       { en: 'In the Cave of Hira near Makkah', bs: 'U pećini Hira kod Meke' },
@@ -272,8 +272,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'What was one of the signs that appeared before Prophet Muhammad, peace be upon him, received revelation?',
-      bs: 'Koji je bio jedan od znakova koji su se pojavili prije nego što je Poslanik Muhammed, sallallahu alejhi ve sellem, primio Objavu?',
+      en: 'What was one of the signs that appeared before Prophet Muhammad ﷺ received revelation?',
+      bs: 'Koji je bio jedan od znakova koji su se pojavili prije nego što je Poslanik Muhammed ﷺ primio Objavu?',
     },
     options: [
       { en: 'He began seeing true dreams that came true the next day', bs: 'Počeo je sanjati istinite snove koji bi se ostvarili narednog dana' },
@@ -321,8 +321,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'What was the first command revealed to Prophet Muhammad, peace be upon him, by Angel Jibril in the Cave of Hira?',
-      bs: 'Koja je bila prva naredba koju je melek Džibril prenio Poslaniku Muhammedu, sallallahu alejhi ve sellem, u pećini Hira?',
+      en: 'What was the first command revealed to Prophet Muhammad ﷺ by Angel Jibril in the Cave of Hira?',
+      bs: 'Koja je bila prva naredba koju je melek Džibril prenio Poslaniku Muhammedu ﷺ u pećini Hira?',
     },
     options: [
       { en: 'Read', bs: 'Čitaj' },
@@ -338,8 +338,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'Which type of revelation was the beginning of revelation for Prophet Muhammad, peace be upon him?',
-      bs: 'Koja vrsta Objave je bila početak objave Poslaniku Muhammedu, sallallahu alejhi ve sellem?',
+      en: 'Which type of revelation was the beginning of revelation for Prophet Muhammad ﷺ?',
+      bs: 'Koja vrsta Objave je bila početak objave Poslaniku Muhammedu ﷺ?',
     },
     options: [
       { en: 'True dreams that came true', bs: 'Istiniti snovi koji su se ostvarivali' },
@@ -372,8 +372,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'Which surahs did Prophet Muhammad, peace be upon him, mention as causing his hair to turn gray due to their weight and meaning?',
-      bs: 'Koje sure je Poslanik Muhammed, sallallahu alejhi ve sellem, spomenuo kao razlog pojave sijedih vlasi zbog njihove težine i značenja?',
+      en: 'Which surahs did Prophet Muhammad ﷺ mention as causing his hair to turn gray due to their weight and meaning?',
+      bs: 'Koje sure je Poslanik Muhammed ﷺ spomenuo kao razlog pojave sijedih vlasi zbog njihove težine i značenja?',
     },
     options: [
       { en: 'Al-Fatihah, Al-Ikhlas, and Al-Kawthar', bs: 'El-Fatiha, El-Ihlas i El-Kevser' },
@@ -389,8 +389,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'After which surah did Prophet Muhammad, peace be upon him, begin the secret call to Islam?',
-      bs: 'Nakon koje sure je Poslanik Muhammed, sallallahu alejhi ve sellem, započeo tajno pozivanje u islam?',
+      en: 'After which surah did Prophet Muhammad ﷺ begin the secret call to Islam?',
+      bs: 'Nakon koje sure je Poslanik Muhammed ﷺ započeo tajno pozivanje u islam?',
     },
     options: [
       { en: 'Al-Muddaththir', bs: 'El-Mudessir' },
@@ -406,8 +406,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'Which surah contains the verse that commanded Prophet Muhammad, peace be upon him, to warn his nearest relatives, beginning the public call to Islam?',
-      bs: 'Koja sura sadrži ajet kojim je naređeno Poslaniku Muhammedu, sallallahu alejhi ve sellem, da opominje svoju najbližu rodbinu čime počinje javno pozivanje u islam?',
+      en: 'Which surah contains the verse that commanded Prophet Muhammad ﷺ to warn his nearest relatives, beginning the public call to Islam?',
+      bs: 'Koja sura sadrži ajet kojim je naređeno Poslaniku Muhammedu ﷺ da opominje svoju najbližu rodbinu čime počinje javno pozivanje u islam?',
     },
     options: [
       { en: 'Ash-Shu’ara', bs: 'Eš-Šuara' },
@@ -423,8 +423,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'Where did Prophet Muhammad, peace be upon him, gather the Quraysh to openly call them to Islam?',
-      bs: 'Gdje je Poslanik Muhammed, sallallahu alejhi ve sellem, okupio Kurejšije kako bi ih javno pozvao u islam?',
+      en: 'Where did Prophet Muhammad ﷺ gather the Quraysh to openly call them to Islam?',
+      bs: 'Gdje je Poslanik Muhammed ﷺ okupio Kurejšije kako bi ih javno pozvao u islam?',
     },
     options: [
       { en: 'Mount Safa', bs: 'Brdo Safa' },
@@ -540,8 +540,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'Whom did Waraqah ibn Nawfal say had brought the same revelation that came to Prophet Muhammad, peace be upon him?',
-      bs: 'Za koga je Vereka b. Nevfel rekao da je donio istu objavu koja je došla Poslaniku Muhammedu, sallallahu alejhi ve sellem?'
+      en: 'Whom did Waraqah ibn Nawfal say had brought the same revelation that came to Prophet Muhammad ﷺ?',
+      bs: 'Za koga je Vereka b. Nevfel rekao da je donio istu objavu koja je došla Poslaniku Muhammedu ﷺ?'
     },
     options: [
       { en: 'Musa (Moses)', bs: 'Musa, alejhis-selam' },
@@ -690,8 +690,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'What was the famous title given to Hamza ibn Abdulmuttalib, the uncle of Prophet Muhammad, peace be upon him?',
-      bs: 'Koji je poznati nadimak imao Hamza b. Abdulmuttalib, amidža Poslanika Muhammeda, sallallahu alejhi ve sellem?',
+      en: 'What was the famous title given to Hamza ibn Abdulmuttalib, the uncle of Prophet Muhammad ﷺ?',
+      bs: 'Koji je poznati nadimak imao Hamza b. Abdulmuttalib, amidža Poslanika Muhammeda ﷺ?',
     },
     options: [
       { en: 'The Lion of Allah', bs: 'Allahov lav' },
@@ -707,8 +707,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'Which companion of Prophet Muhammad, peace be upon him, was known as "The Sword of Allah"?',
-      bs: 'Koji ashab Poslanika Muhammeda, sallallahu alejhi ve sellem, je bio poznat kao "Allahova sablja"?',
+      en: 'Which companion of Prophet Muhammad ﷺ was known as "The Sword of Allah"?',
+      bs: 'Koji ashab Poslanika Muhammeda ﷺ je bio poznat kao "Allahova sablja"?',
     },
     options: [
       { en: 'Khalid ibn al-Walid', bs: 'Halid b. Velid' },
@@ -745,7 +745,7 @@ export const islamMedium: Question[] = [
       bs: 'Ko je bio poznat po nadimku "El-Emin" prije poslanstva?'
     },
     options: [
-      { en: 'Muhammad, peace be upon him', bs: 'Muhammed, sallallahu alejhi ve sellem' },
+      { en: 'Muhammad ﷺ', bs: 'Muhammed ﷺ' },
       { en: 'Abu Bakr', bs: 'Ebu Bekr' },
       { en: 'Umar ibn al-Khattab', bs: 'Omer b. Hattab' },
       { en: 'Ali ibn Abi Talib', bs: 'Ali b. Ebi Talib' },
@@ -758,8 +758,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'What famous title was given to Umar ibn al-Khattab, one of the companions of Prophet Muhammad, peace be upon him?',
-      bs: 'Koji poznati nadimak je imao Omer b. Hattab, jedan od ashaba Poslanika Muhammeda, sallallahu alejhi ve sellem?'
+      en: 'What famous title was given to Umar ibn al-Khattab, one of the companions of Prophet Muhammad ﷺ?',
+      bs: 'Koji poznati nadimak je imao Omer b. Hattab, jedan od ashaba Poslanika Muhammeda ﷺ?'
     },
     options: [
       { en: 'Al-Faruq', bs: 'El-Faruk' },
@@ -806,8 +806,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'Which companion of Prophet Muhammad, peace be upon him, was known as "As-Siddiq"?',
-      bs: 'Koji ashab Poslanika Muhammeda, sallallahu alejhi ve sellem, je bio poznat kao "Es-Siddik"?'
+      en: 'Which companion of Prophet Muhammad ﷺ was known as "As-Siddiq"?',
+      bs: 'Koji ashab Poslanika Muhammeda ﷺ je bio poznat kao "Es-Siddik"?'
     },
     options: [
       { en: 'Abu Bakr ibn Abi Quhafa', bs: 'Ebu Bekr b. Ebi Kuhafa' },
@@ -942,7 +942,7 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { en: 'The Prophet passed away in which city and year AH?', 
-              bs: 'Poslanik, sallallahu alejhi ve sellem, preminuo je u kojem gradu i godini po hidžri?' },
+              bs: 'Poslanik ﷺ preminuo je u kojem gradu i godini po hidžri?' },
     options: [
       { en: 'Mecca, 10 AH', bs: 'Meki, 10. h.g.' },
       { en: 'Medina, 11 AH', bs: 'Medini, 11. h.g.' },
@@ -1025,8 +1025,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'Which Quraysh leader protected Prophet Muhammad, peace be upon him, from persecution despite not becoming Muslim?',
-      bs: 'Koji ugledni Kurejšija je štitio Poslanika Muhammeda, sallallahu alejhi ve sellem, od progona iako nije postao musliman?'
+      en: 'Which Quraysh leader protected Prophet Muhammad ﷺ from persecution despite not becoming Muslim?',
+      bs: 'Koji ugledni Kurejšija je štitio Poslanika Muhammeda ﷺ od progona iako nije postao musliman?'
     },
     options: [
       { en: 'Abu Talib', bs: 'Ebu Talib' },
@@ -1042,8 +1042,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'How did Prophet Muhammad, peace be upon him, personally honor Khadijah, may Allah be pleased with her, after her death?',
-      bs: 'Kako je Poslanik Muhammed, sallallahu alejhi ve sellem, lično odao počast Hatidži, radijallahu anha, nakon njene smrti?'
+      en: 'How did Prophet Muhammad ﷺ personally honor Khadijah, may Allah be pleased with her, after her death?',
+      bs: 'Kako je Poslanik Muhammed ﷺ lično odao počast Hatidži, radijallahu anha, nakon njene smrti?'
     },
     options: [
       { en: 'He personally buried her', bs: 'Lično ju je ukopao' },
@@ -1059,8 +1059,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'Who accompanied Prophet Muhammad, peace be upon him, on his journey to Taif?',
-      bs: 'Ko je pratio Poslanika Muhammeda, sallallahu alejhi ve sellem, na putovanju u Taif?'
+      en: 'Who accompanied Prophet Muhammad ﷺ on his journey to Taif?',
+      bs: 'Ko je pratio Poslanika Muhammeda ﷺ na putovanju u Taif?'
     },
     options: [
       { en: 'Zayd ibn Harithah', bs: 'Zejd b. Harise' },
@@ -1077,7 +1077,7 @@ export const islamMedium: Question[] = [
     difficulty: 'medium',
     prompt: { 
       en: 'How did the people of Taif respond to Prophet Muhammad’s call to Islam?',
-      bs: 'Kako su stanovnici Taifa odgovorili na poziv Poslanika Muhammeda, sallallahu alejhi ve sellem, u islam?'
+      bs: 'Kako su stanovnici Taifa odgovorili na poziv Poslanika Muhammeda ﷺ u islam?'
     },
     options: [
       { en: 'They accepted Islam immediately', bs: 'Odmah su prihvatili islam' },
@@ -1111,7 +1111,7 @@ export const islamMedium: Question[] = [
     difficulty: 'medium',
     prompt: { 
       en: 'Isra refers to the Prophet’s journey from Mecca to:',
-      bs: 'Isra označava putovanje Poslanika, sallallahu alejhi ve sellem, iz Meke u:'
+      bs: 'Isra označava putovanje Poslanika ﷺ iz Meke u:'
     },
     options: [
       { en: 'Jerusalem', bs: 'Jerusalem' },
@@ -1128,7 +1128,7 @@ export const islamMedium: Question[] = [
     difficulty: 'medium',
     prompt: { 
       en: 'What is the name of the Prophet’s ascension from Jerusalem to the heavens?',
-      bs: 'Kako se naziva uspinjanje Poslanika, sallallahu alejhi ve sellem, iz Jerusalema prema nebesima?'
+      bs: 'Kako se naziva uspinjanje Poslanika ﷺ iz Jerusalema prema nebesima?'
     },
     options: [
       { en: 'Hijrah', bs: 'Hidžra' },
@@ -1144,8 +1144,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'Which angel accompanied Prophet Muhammad, peace be upon him, during Isra and Miraj?',
-      bs: 'Koji melek je pratio Poslanika Muhammeda, sallallahu alejhi ve sellem, tokom Israa i Miradža?'
+      en: 'Which angel accompanied Prophet Muhammad ﷺ during Isra and Miraj?',
+      bs: 'Koji melek je pratio Poslanika Muhammeda ﷺ tokom Israa i Miradža?'
     },
     options: [
       { en: 'Jibril', bs: 'Džibril' },
@@ -1223,8 +1223,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'Which prophet advised Prophet Muhammad, peace be upon him, to ask for a reduction in the number of prayers?',
-      bs: 'Koji vjerovjesnik je savjetovao Poslanika Muhammeda, sallallahu alejhi ve sellem, da traži smanjenje broja namaza?'
+      en: 'Which prophet advised Prophet Muhammad ﷺ to ask for a reduction in the number of prayers?',
+      bs: 'Koji vjerovjesnik je savjetovao Poslanika Muhammeda ﷺ da traži smanjenje broja namaza?'
     },
     options: [
       { en: 'Musa', bs: 'Musa' },
@@ -1240,8 +1240,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'Which three great signs did Prophet Muhammad, peace be upon him, see during Miraj?',
-      bs: 'Koja tri velika znamenja je Poslanik Muhammed, sallallahu alejhi ve sellem, vidio tokom Miradža?'
+      en: 'Which three great signs did Prophet Muhammad ﷺ see during Miraj?',
+      bs: 'Koja tri velika znamenja je Poslanik Muhammed ﷺ vidio tokom Miradža?'
     },
     options: [
       { en: 'Sidrat al-Muntaha, Bayt al-Ma’mur, and Jibril in his true form', bs: 'Sidretul-munteha, Bejtul-ma’mur i Džibrila u njegovom pravom liku' },
@@ -1274,8 +1274,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'What animal did Prophet Muhammad, peace be upon him, ride during Isra?',
-      bs: 'Na kojoj životinji je Poslanik Muhammed, sallallahu alejhi ve sellem, jahao tokom Israa?'
+      en: 'What animal did Prophet Muhammad ﷺ ride during Isra?',
+      bs: 'Na kojoj životinji je Poslanik Muhammed ﷺ jahao tokom Israa?'
     },
     options: [
       { en: 'Buraq', bs: 'Burak' },
@@ -1292,7 +1292,7 @@ export const islamMedium: Question[] = [
     difficulty: 'medium',
     prompt: { 
       en: 'Where was the first mosque built after the Prophet’s arrival near Medina?',
-      bs: 'Gdje je sagrađena prva džamija nakon dolaska Poslanika, sallallahu alejhi ve sellem, u blizini Medine?'
+      bs: 'Gdje je sagrađena prva džamija nakon dolaska Poslanika ﷺ u blizini Medine?'
     },
     options: [
       { en: 'Uhud', bs: 'Uhud' },
@@ -1308,8 +1308,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'Who accompanied Prophet Muhammad, peace be upon him, during the Hijrah from Mecca to Medina?',
-      bs: 'Ko je pratio Poslanika Muhammeda, sallallahu alejhi ve sellem, tokom hidžre iz Meke u Medinu?'
+      en: 'Who accompanied Prophet Muhammad ﷺ during the Hijrah from Mecca to Medina?',
+      bs: 'Ko je pratio Poslanika Muhammeda ﷺ tokom hidžre iz Meke u Medinu?'
     },
     options: [
       { en: 'Abu Bakr', bs: 'Ebu Bekr' },
@@ -1342,8 +1342,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'In which cave did Prophet Muhammad, peace be upon him, and Abu Bakr hide during Hijrah?',
-      bs: 'U kojoj pećini su se Poslanik Muhammed, sallallahu alejhi ve sellem, i Ebu Bekr sakrili tokom hidžre?'
+      en: 'In which cave did Prophet Muhammad ﷺ and Abu Bakr hide during Hijrah?',
+      bs: 'U kojoj pećini su se Poslanik Muhammed ﷺ i Ebu Bekr sakrili tokom hidžre?'
     },
     options: [
       { en: 'Cave Hira', bs: 'Pećina Hira' },
@@ -1359,8 +1359,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'How many nights did Prophet Muhammad, peace be upon him, and Abu Bakr stay in the Cave of Thawr?',
-      bs: 'Koliko noći su Poslanik Muhammed, sallallahu alejhi ve sellem, i Ebu Bekr proveli u pećini Sevr?'
+      en: 'How many nights did Prophet Muhammad ﷺ and Abu Bakr stay in the Cave of Thawr?',
+      bs: 'Koliko noći su Poslanik Muhammed ﷺ i Ebu Bekr proveli u pećini Sevr?'
     },
     options: [
       { en: 'One night', bs: 'Jednu noć' },
@@ -1376,8 +1376,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'Who was hired as a guide to lead Prophet Muhammad, peace be upon him, and Abu Bakr to Medina?',
-      bs: 'Ko je bio angažovan kao vodič Poslaniku Muhammedu, sallallahu alejhi ve sellem, i Ebu Bekru prema Medini?'
+      en: 'Who was hired as a guide to lead Prophet Muhammad ﷺ and Abu Bakr to Medina?',
+      bs: 'Ko je bio angažovan kao vodič Poslaniku Muhammedu ﷺ i Ebu Bekru prema Medini?'
     },
     options: [
       { en: 'Abdullah ibn Uraiqit', bs: 'Abdullah b. Urejkit' },
@@ -1393,8 +1393,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'What reward did Quraysh offer for capturing Prophet Muhammad, peace be upon him, and Abu Bakr?',
-      bs: 'Kakvu nagradu su Kurejšije ponudile za hvatanje Poslanika Muhammeda, sallallahu alejhi ve sellem, i Ebu Bekra?'
+      en: 'What reward did Quraysh offer for capturing Prophet Muhammad ﷺ and Abu Bakr?',
+      bs: 'Kakvu nagradu su Kurejšije ponudile za hvatanje Poslanika Muhammeda ﷺ i Ebu Bekra?'
     },
     options: [
       { en: 'Fifty camels', bs: 'Pedeset deva' },
@@ -1411,7 +1411,7 @@ export const islamMedium: Question[] = [
     difficulty: 'medium',
     prompt: { 
       en: 'Who did Fatimah bint Muhammad, may Allah be pleased with her, marry?',
-      bs: 'Za koga se udala Fatima, kćerka Poslanika Muhammeda, sallallahu alejhi ve sellem?'
+      bs: 'Za koga se udala Fatima, kćerka Poslanika Muhammeda ﷺ?'
     },
     options: [
       { en: 'Umar ibn al-Khattab', bs: 'Omera b. Hattab' },
@@ -1444,8 +1444,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'At whose house did Prophet Muhammad, peace be upon him, stay after arriving in Medina?',
-      bs: 'Kod koga je Poslanik Muhammed, sallallahu alejhi ve sellem, odsjeo nakon dolaska u Medinu?'
+      en: 'At whose house did Prophet Muhammad ﷺ stay after arriving in Medina?',
+      bs: 'Kod koga je Poslanik Muhammed ﷺ odsjeo nakon dolaska u Medinu?'
     },
     options: [
       { en: 'Abu Ayyub al-Ansari', bs: 'Ebu Ejjub el-Ensari' },
@@ -1461,8 +1461,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'During the night of Hijrah, when Prophet Muhammad, peace be upon him, left his house while the Quraysh were waiting outside, from which surah did he recite a verse?',
-      bs: 'Tokom noći hidžre, kada je Poslanik Muhammed, sallallahu alejhi ve sellem, izašao iz svoje kuće dok su Kurejšije čekale ispred nje, iz koje sure je proučio ajet?'
+      en: 'During the night of Hijrah, when Prophet Muhammad ﷺ left his house while the Quraysh were waiting outside, from which surah did he recite a verse?',
+      bs: 'Tokom noći hidžre, kada je Poslanik Muhammed ﷺ izašao iz svoje kuće dok su Kurejšije čekale ispred nje, iz koje sure je proučio ajet?'
     },
     options: [
       { en: 'Surah Yasin', bs: 'Sura Jasin' },
@@ -1478,8 +1478,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'Which city did the Prophet Muhammad, peace be upon him, settle in after the Hijrah?',
-      bs: 'U kojem gradu se Poslanik Muhammed, sallallahu alejhi ve sellem, nastanio nakon hidžre?'
+      en: 'Which city did the Prophet Muhammad ﷺ settle in after the Hijrah?',
+      bs: 'U kojem gradu se Poslanik Muhammed ﷺ nastanio nakon hidžre?'
     },
     options: [
       { en: 'Mecca', bs: 'Meka' },
@@ -1529,8 +1529,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'What was the first major thing the Prophet Muhammad, peace be upon him, did after arriving in Medina?',
-      bs: 'Šta je Poslanik Muhammed, sallallahu alejhi ve sellem, prvo uradio nakon dolaska u Medinu?'
+      en: 'What was the first major thing the Prophet Muhammad ﷺ did after arriving in Medina?',
+      bs: 'Šta je Poslanik Muhammed ﷺ prvo uradio nakon dolaska u Medinu?'
     },
     options: [
       { en: 'Built a mosque', bs: 'Sagradio džamiju' },
@@ -1546,8 +1546,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'Who was the companion who first told Prophet Muhammad, peace be upon him, about the dream containing the words of the adhan?',
-      bs: 'Koji ashab je prvi obavijestio Poslanika Muhammeda, sallallahu alejhi ve sellem, o snu u kojem su bile riječi ezana?'
+      en: 'Who was the companion who first told Prophet Muhammad ﷺ about the dream containing the words of the adhan?',
+      bs: 'Koji ashab je prvi obavijestio Poslanika Muhammeda ﷺ o snu u kojem su bile riječi ezana?'
     },
     options: [
       { en: 'Abdullah ibn Zayd', bs: 'Abdullah b. Zejd' },
@@ -1631,8 +1631,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'Which expedition was the first one personally led by Prophet Muhammad, peace be upon him?',
-      bs: 'Koji je pohod bio prvi u kojem je lično učestvovao Poslanik Muhammed, sallallahu alejhi ve sellem?'
+      en: 'Which expedition was the first one personally led by Prophet Muhammad ﷺ?',
+      bs: 'Koji je pohod bio prvi u kojem je lično učestvovao Poslanik Muhammed ﷺ?'
     },
     options: [
       { en: 'Abwa', bs: 'Ebva' },
@@ -1733,8 +1733,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'What was Abu Lahab\'s role in Makkah before his opposition to the Prophet peace be upon him?',
-      bs: 'Koju je ulogu Ebu Leheb imao u Mekki prije svog neprijateljstva prema Poslaniku, sallallahu alejhi ve sellem?',
+      en: 'What was Abu Lahab\'s role in Makkah before his opposition to the Prophet ﷺ?',
+      bs: 'Koju je ulogu Ebu Leheb imao u Mekki prije svog neprijateljstva prema Poslaniku ﷺ?',
     },
     options: [
       { en: 'A respected figure connected to the religious affairs of the Kaaba', bs: 'Ugledna osoba povezana s vjerskim poslovima oko Kabe' },
@@ -1768,7 +1768,7 @@ export const islamMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'What was the cause of the Prophet\'s illness that led to the revelation of Surahs Al-Falaq and An-Nas?',
-      bs: 'Šta je bio uzrok bolesti Poslanika, sallallahu alejhi ve sellem, zbog koje su objavljene sure El-Felek i En-Nas?',
+      bs: 'Šta je bio uzrok bolesti Poslanika ﷺ zbog koje su objavljene sure El-Felek i En-Nas?',
     },
     options: [
       { en: 'A spell (sihr) that was made against him', bs: 'Sihr koji mu je napravljen' },
