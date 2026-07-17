@@ -2039,4 +2039,21 @@ export const islamHard: Question[] = [
     ],
     correctIndex: 1,
   },
+  {
+    id: 'islam-hard-124',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'The Prophet ﷺ was so pleased to have been part of the Hilf al-Fudul alliance that he said he would not exchange his participation in it even for…',
+      bs: 'Poslaniku ﷺ je bilo drago što je bio dio saveza Hilful-fudul, da je kazao da ne bi mijenjao učešće u njemu ni za…',
+    },
+    options: [
+      { en: 'A herd of red camels', bs: 'Stado crvenih deva' },
+      { en: 'A hundred purebred horses', bs: 'Stotinu rasnih konja' },
+      { en: 'The sun and the moon', bs: 'Sunce i mjesec' },
+      { en: 'A great amount of treasure', bs: 'Mnoštvo blaga' },
+    ],
+    correctIndex: 0,
+  },
 ];

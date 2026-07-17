@@ -1745,4 +1745,72 @@ export const islamEasy: Question[] = [
     ],
     correctIndex: 2,
   },
+  {
+    id: 'islam-easy-117',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'easy',
+    prompt: {
+      en: 'How many children did the Prophet ﷺ have in total?',
+      bs: 'Koliko ukupno djece je imao Poslanik ﷺ?',
+    },
+    options: [
+      { en: 'Four daughters', bs: 'Četiri kćeri' },
+      { en: 'Two sons and four daughters', bs: 'Dva sina i četiri kćerke' },
+      { en: 'Three sons and four daughters', bs: 'Tri sina i četiri kćerke' },
+      { en: 'One son and three daughters', bs: 'Jedan sin i tri kćeri' },
+    ],
+    correctIndex: 2,
+  },
+  {
+    id: 'islam-easy-118',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'easy',
+    prompt: {
+      en: 'What was the name of the Prophet’s ﷺ eldest daughter?',
+      bs: 'Kako je ime najstarije Poslanikove ﷺ kćerke?',
+    },
+    options: [
+      { en: 'Fatima', bs: 'Fatima' },
+      { en: 'Khadija', bs: 'Hatidža' },
+      { en: 'Zaynab', bs: 'Zejneb' },
+      { en: 'Umm Kulthum', bs: 'Ummu Kulsum' },
+    ],
+    correctIndex: 2,
+  },
+  {
+    id: 'islam-easy-119',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'easy',
+    prompt: {
+      en: 'Who was not a son of the Prophet ﷺ?',
+      bs: 'Ko nije Poslanikov ﷺ sin?',
+    },
+    options: [
+      { en: 'Abdullah', bs: 'Abdullah' },
+      { en: 'Qasim', bs: 'Kasim' },
+      { en: 'Anas', bs: 'Enes' },
+      { en: 'Ibrahim', bs: 'Ibrahim' },
+    ],
+    correctIndex: 2,
+  },
+  {
+    id: 'islam-easy-120',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'easy',
+    prompt: {
+      en: 'Which companion did the Prophet ﷺ marry to his daughter Ruqayya, and after her death also to Umm Kulthum?',
+      bs: 'Kojeg ashaba je Poslanik ﷺ oženio kćerkom Rukajjom, pa nakon njene smrti i drugom kćerkom Ummu Kulsum?',
+    },
+    options: [
+      { en: 'Ali ibn Abi Talib', bs: 'Ali ibn Ebi Talib' },
+      { en: 'Uthman ibn Affan', bs: 'Osman ibn Affan' },
+      { en: 'Umar ibn al-Khattab', bs: 'Omer ibn Hatab' },
+      { en: 'Anas ibn Malik', bs: 'Enes ibn Malik' },
+    ],
+    correctIndex: 1,
+  },
 ];

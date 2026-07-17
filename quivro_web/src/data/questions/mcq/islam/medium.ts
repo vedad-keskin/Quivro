@@ -1965,4 +1965,38 @@ export const islamMedium: Question[] = [
     ],
     correctIndex: 1,
   },
+  {
+    id: 'islam-med-119',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'medium',
+    prompt: {
+      en: 'How old was the Prophet ﷺ when his uncle took him on a trade caravan to Sham?',
+      bs: 'Koliko godina je bilo Poslaniku ﷺ kada ga je njegov amidža poveo na trgovačku karavanu u Šam?',
+    },
+    options: [
+      { en: '10', bs: '10' },
+      { en: '8', bs: '8' },
+      { en: '20', bs: '20' },
+      { en: '12', bs: '12' },
+    ],
+    correctIndex: 3,
+  },
+  {
+    id: 'islam-med-120',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'medium',
+    prompt: {
+      en: 'What is the name of the alliance in which the Prophet ﷺ took part in his twenties?',
+      bs: 'Kako se naziva savez u kojem je Poslanik ﷺ uzeo učešće u svojim dvadesetim godinama?',
+    },
+    options: [
+      { en: 'Hilf al-Fudul', bs: 'Hilful-fudul' },
+      { en: 'Hilf al-Nadwa', bs: 'Hilful-nedve' },
+      { en: 'Dar al-Nadwa', bs: 'Daru-nedve' },
+      { en: 'The Pledge of Aqabah', bs: 'Prisega na Akabi' },
+    ],
+    correctIndex: 0,
+  },
 ];
