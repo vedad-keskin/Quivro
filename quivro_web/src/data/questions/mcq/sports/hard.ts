@@ -872,14 +872,17 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Jamaican sprinter set the still-standing 100m world record of 9.58 seconds?', bs: 'Koji jamajčanski sprinter je postavio još uvijek važeći svjetski rekord na 100 m od 9,58 sekundi?' },
+    prompt: {
+      en: 'In which city did Usain Bolt set the 100m world record of 9.58 seconds?',
+      bs: 'U kojem gradu je Usain Bolt postavio svjetski rekord na 100 m od 9,58 sekundi?'
+    },
     options: [
-      { en: 'Yohan Blake', bs: 'Yohan Blake' },
-      { en: 'Usain Bolt', bs: 'Usain Bolt' },
-      { en: 'Asafa Powell', bs: 'Asafa Powell' },
-      { en: 'Justin Gatlin', bs: 'Justin Gatlin' },
+      { en: 'Berlin', bs: 'Berlin' },
+      { en: 'Beijing', bs: 'Peking' },
+      { en: 'London', bs: 'London' },
+      { en: 'Moscow', bs: 'Moskva' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'sport-hard-063',
@@ -1124,12 +1127,15 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Dutch striker scored for Barcelona in the 1992 European Cup final at Wembley?', bs: 'Koji holandski napadač je dao gol za Barselonu u finalu Evropskog kupa 1992. na Wembleyju?' },
+    prompt: {
+      en: 'Which Dutch defender scored the winning goal for Barcelona in the 1992 European Cup final at Wembley?',
+      bs: 'Koji holandski odbrambeni igrač je postigao pobjednički gol za Barselonu u finalu Evropskog kupa 1992. na Wembleyju?'
+    },
     options: [
-      { en: 'Marco van Basten', bs: 'Marco van Basten' },
+      { en: 'Frank Rijkaard', bs: 'Frank Rijkaard' },
       { en: 'Ronald Koeman', bs: 'Ronald Koeman' },
-      { en: 'Ruud Gullit', bs: 'Ruud Gullit' },
-      { en: 'Dennis Bergkamp', bs: 'Dennis Bergkamp' },
+      { en: 'Jaap Stam', bs: 'Jaap Stam' },
+      { en: 'Ruud Krol', bs: 'Ruud Krol' },
     ],
     correctIndex: 1,
   },

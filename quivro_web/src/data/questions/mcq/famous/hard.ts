@@ -160,16 +160,16 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Simone de Beauvoir is celebrated for contributions to…',
-      bs: 'Simone de Beauvoir je slavljena po doprinosu…',
+      en: 'What is Johnny Knoxville best known for creating?',
+      bs: 'Po čemu je Johnny Knoxville najpoznatiji kao tvorac?'
     },
     options: [
-      { en: 'Organic chemistry', bs: 'Organskoj hemiji' },
-      { en: 'Feminist philosophy', bs: 'Feminističkoj filozofiji' },
-      { en: 'Marine navigation', bs: 'Morskoj navigaciji' },
-      { en: 'Botanical taxonomy', bs: 'Botaničkoj taksonomiji' },
+      { en: 'Jackass', bs: 'Jackass' },
+      { en: 'South Park', bs: 'South Park' },
+      { en: 'The Simpsons', bs: 'Simpsonovi' },
+      { en: 'Family Guy', bs: 'Family Guy' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-011',
@@ -178,7 +178,7 @@ export const famousHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'George Boole formalized the mathematical system now called…',
-      bs: 'George Boole je formalizovao matematički sistem koji se danas naziva…',
+      bs: 'Koji matematički sistem je formalizovao George Boole?',
     },
     options: [
       { en: 'Set theory', bs: 'Teorija skupova' },

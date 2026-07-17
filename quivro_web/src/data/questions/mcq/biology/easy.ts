@@ -1193,7 +1193,7 @@ export const biologyEasy: Question[] = [
     category: 'biology',
     difficulty: 'easy',
     prompt: { en: 'Which nocturnal bird of prey can rotate its head nearly all the way around?',
-              bs: 'Koja noćna ptica grabljivica može okretati glavu gotovo potpuno uokolo?' },
+              bs: 'Koja noćna ptica grabljivica može okretati glavu gotovo potpuno?' },
     options: [
       { en: 'Owl', bs: 'Sova' },
       { en: 'Hawk', bs: 'Jastreb' },

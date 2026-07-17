@@ -1592,7 +1592,7 @@ export const technologyMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: "On Summoner's Rift, how many lanes split the map?",
-      bs: "Koliko linija dijeli mapu na Summoner's Riftu?",
+      bs: "Koliko staza dijeli mapu na Summoner's Riftu?",
     },
     options: [
       { en: '2', bs: '2' },

@@ -90,12 +90,15 @@ export const geographyMedium: Question[] = [
     type: 'mcq',
     category: 'geography',
     difficulty: 'medium',
-    prompt: { en: 'Which mountain range traditionally separates Europe and Asia?', bs: 'Koji planinski lanac tradicionalno razdvaja Evropu i Aziju?' },
+    prompt: {
+      en: 'Which mountain range traditionally separates Europe and Asia?',
+      bs: 'Koji planinski lanac tradicionalno razdvaja Evropu i Aziju?'
+    },
     options: [
       { en: 'Alps', bs: 'Alpe' },
       { en: 'Ural Mountains', bs: 'Uralske planine' },
-      { en: 'Caucasus', bs: 'Kavkaz' },
       { en: 'Carpathians', bs: 'Karpati' },
+      { en: 'Pyrenees', bs: 'Pirineji' },
     ],
     correctIndex: 1,
   },

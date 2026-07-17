@@ -639,7 +639,7 @@ export const moviesMedium: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'medium',
-    prompt: { en: 'Who directed Jaws?', bs: 'Ko je režirao Jaws?' },
+    prompt: { en: 'Who directed the movie Jaws?', bs: 'Ko je režirao film Ralje (Jaws)?' },
     options: [
       { en: 'James Cameron', bs: 'James Cameron' },
       { en: 'Steven Spielberg', bs: 'Steven Spielberg' },
@@ -1107,14 +1107,17 @@ export const moviesMedium: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'medium',
-    prompt: { en: 'In Madagascar, Alex the lion is a…', bs: 'U Madagaskaru, lav Alex je…' },
+    prompt: {
+      en: 'What is Alex the lion’s main role at the Central Park Zoo in Madagascar?',
+      bs: 'Koja je glavna uloga lava Alexa u Zoološkom vrtu Central Park u filmu Madagaskar?'
+    },
     options: [
-      { en: 'Circus performer', bs: 'Cirkuski izvođač' },
-      { en: 'Zoo animal', bs: 'Zoološka životinja' },
-      { en: 'Farm animal', bs: 'Domaća životinja' },
-      { en: 'Jungle king', bs: 'Kralj džungle' },
+      { en: 'The zoo’s star attraction', bs: 'Glavna atrakcija zoološkog vrta' },
+      { en: 'The zoo’s caretaker', bs: 'Čuvar zoološkog vrta' },
+      { en: 'The zoo’s veterinarian', bs: 'Veterinar zoološkog vrta' },
+      { en: 'The zoo’s owner', bs: 'Vlasnik zoološkog vrta' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-080',
