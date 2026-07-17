@@ -381,8 +381,10 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       height: auto;
     }
     .board-col.with-image .board {
-      flex: 0 1 auto;
-      min-height: 0;
+      flex: 0 0 auto;
+      min-height: auto;
+      height: auto;
+      overflow: visible;
     }
     .image-dock {
       flex: 0 0 auto;
@@ -400,7 +402,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       display: flex;
     }
     .board-col.with-image .image-dock {
-      flex: 1 1 auto;
+      flex: 1 1 0;
       min-height: 0;
     }
     .dock-image {

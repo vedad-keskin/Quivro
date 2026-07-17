@@ -260,27 +260,60 @@ import { avatarColor, avatarEmoji, rankPlayers, type RoomPlayer } from '../core/
       font-size: clamp(0.95rem, 1.4vw, 1.15rem);
     }
 
-    /* Denser podium when play page docks an image beside/under the board. */
+    /* Size to content when docked under an image — never clip the podium. */
+    :host-context(.board-col.with-image) {
+      display: block;
+      height: auto;
+      overflow: visible;
+    }
     :host-context(.board-col.with-image) .board {
-      padding: clamp(0.75rem, 1.2vw, 1rem);
+      height: auto;
+      overflow: visible;
+      padding: clamp(0.7rem, 1.1vw, 0.95rem);
+    }
+    :host-context(.board-col.with-image) h2 {
+      font-size: clamp(1.05rem, 1.6vw, 1.25rem);
     }
     :host-context(.board-col.with-image) .q-brand-line {
-      margin: 0.3rem 0 0.55rem;
+      margin: 0.25rem 0 0.45rem;
     }
     :host-context(.board-col.with-image) .podium {
       margin-bottom: 0;
-      gap: 0.3rem;
+      gap: 0.25rem;
+      align-items: end;
+    }
+    :host-context(.board-col.with-image) .podium-card {
+      padding: 0.45rem 0.3rem 0.5rem;
+      gap: 0.15rem;
+    }
+    :host-context(.board-col.with-image) .place-1 {
+      padding-top: 0.55rem;
+      padding-bottom: 0.55rem;
+    }
+    :host-context(.board-col.with-image) .podium-rank {
+      font-size: 1.15rem;
+    }
+    :host-context(.board-col.with-image) .place-1 .podium-rank {
+      font-size: 1.3rem;
     }
     :host-context(.board-col.with-image) .podium-avatar {
-      width: 2.35rem;
-      height: 2.35rem;
+      width: 2.2rem;
+      height: 2.2rem;
+      font-size: 1.05rem;
+    }
+    :host-context(.board-col.with-image) .place-1 .podium-avatar {
+      width: 2.45rem;
+      height: 2.45rem;
       font-size: 1.15rem;
     }
     :host-context(.board-col.with-image) .podium-name {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
     }
     :host-context(.board-col.with-image) .podium-score {
-      font-size: 1rem;
+      font-size: 0.95rem;
+    }
+    :host-context(.board-col.with-image) .place-1 .podium-score {
+      font-size: 1.05rem;
     }
   `,
 })
