@@ -42,7 +42,7 @@ import { avatarColor, avatarEmoji, rankPlayers, type RoomPlayer } from '../core/
         }
 
         @if (listPlayers().length > 0) {
-          <ol>
+          <ol [class.hiding]="podiumOnly()">
             @for (player of listPlayers(); track player.id; let i = $index) {
               <li [attr.data-player-id]="player.id">
                 <span class="rank">{{ listRankOffset() + i + 1 }}</span>
@@ -202,7 +202,28 @@ import { avatarColor, avatarEmoji, rankPlayers, type RoomPlayer } from '../core/
       gap: 0.65rem;
       flex: 1;
       min-height: 0;
+      max-height: 40rem;
       overflow: auto;
+      opacity: 1;
+      transition:
+        max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.35s ease,
+        margin 0.35s ease,
+        gap 0.35s ease;
+    }
+    ol.hiding {
+      max-height: 0;
+      opacity: 0;
+      margin: 0;
+      gap: 0;
+      overflow: hidden;
+      pointer-events: none;
+      flex: 0 0 auto;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      ol {
+        transition: none;
+      }
     }
     li {
       display: grid;
@@ -335,8 +356,8 @@ export class Leaderboard {
     return this.ranked().slice(0, 3);
   });
 
+  /** Players below the podium; kept in DOM when podiumOnly so the list can fade out. */
   readonly listPlayers = computed(() => {
-    if (this.podiumOnly()) return [] as RoomPlayer[];
     const all = this.ranked();
     if (!this.showPodium() || this.podium().length === 0) return all;
     return all.slice(3);

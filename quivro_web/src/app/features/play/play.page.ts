@@ -223,18 +223,28 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
           <div class="layout">
             <div
               class="board-col"
-              [class.with-image]="imagePhase() === 'docked' && !!activeImageUrl()"
+              [class.with-image]="
+                (imagePhase() === 'sliding' || imagePhase() === 'docked') &&
+                !!activeImageUrl()
+              "
             >
               <app-leaderboard
                 class="board"
                 [title]="lang.t().leaderboard"
                 [players]="players()"
                 [deltas]="r.lastScoreDeltas"
-                [podiumOnly]="imagePhase() === 'docked'"
+                [podiumOnly]="
+                  imagePhase() === 'sliding' || imagePhase() === 'docked'
+                "
               />
               <div
                 class="image-dock"
-                [class.visible]="imagePhase() === 'docked' && !!activeImageUrl()"
+                [class.visible]="
+                  (imagePhase() === 'sliding' || imagePhase() === 'docked') &&
+                  !!activeImageUrl()
+                "
+                [class.receiving]="imagePhase() === 'sliding'"
+                [class.seated]="imagePhase() === 'docked'"
               >
                 @if (activeImageUrl(); as src) {
                   <img class="dock-image" [src]="src" alt="" />
@@ -379,6 +389,9 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       flex: 1 1 auto;
       min-height: 0;
       height: auto;
+      transition:
+        flex-basis 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        flex-grow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .board-col.with-image .board {
       flex: 0 0 auto;
@@ -388,7 +401,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
     }
     .image-dock {
       flex: 0 0 auto;
-      display: none;
+      display: flex;
       align-items: center;
       justify-content: center;
       border: 2px solid var(--q-border);
@@ -396,14 +409,42 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       padding: 0.45rem;
       background: #f8fafc;
       min-height: 0;
+      max-height: 0;
+      opacity: 0;
       overflow: hidden;
+      pointer-events: none;
+      transform: translateY(12px) scale(0.96);
+      transition:
+        flex 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
     }
     .image-dock.visible {
-      display: flex;
+      pointer-events: auto;
+      opacity: 1;
+      max-height: 100%;
+      transform: translateY(0) scale(1);
     }
     .board-col.with-image .image-dock {
       flex: 1 1 0;
       min-height: 0;
+    }
+    .image-dock.receiving {
+      border-color: #94a3b8;
+      box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.25);
+    }
+    .image-dock.receiving .dock-image {
+      opacity: 0;
+    }
+    .image-dock.seated {
+      border-color: var(--q-border);
+      animation: dock-settle 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .image-dock.seated .dock-image {
+      opacity: 1;
     }
     .dock-image {
       width: auto;
@@ -415,6 +456,17 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       object-position: center top;
       border-radius: 22px;
       display: block;
+      transition: opacity 0.2s ease;
+    }
+    @keyframes dock-settle {
+      0% {
+        transform: scale(0.98);
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.28);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: none;
+      }
     }
     .stage {
       position: relative;
@@ -450,7 +502,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       animation: preview-in 0.35s ease;
     }
     .image-preview-overlay.sliding {
-      animation: preview-to-dock 0.45s ease forwards;
+      animation: preview-to-dock 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
     .preview-hint {
       margin: 0;
@@ -488,8 +540,14 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
     }
     @media (prefers-reduced-motion: reduce) {
       .image-preview-overlay,
-      .image-preview-overlay.sliding {
+      .image-preview-overlay.sliding,
+      .image-dock.seated {
         animation: none;
+      }
+      .board,
+      .image-dock,
+      .dock-image {
+        transition: none;
       }
     }
     .meta {
