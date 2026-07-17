@@ -252,7 +252,7 @@ export const islamHard: Question[] = [
       { en: 'Building high walls around Medina', bs: 'Gradnju visokih zidina oko Medine' },
       { en: 'Digging a trench', bs: 'Kopanje rova' },
       { en: 'Leaving Medina completely', bs: 'Napustiti Medinu' },
-      { en: 'Building ships', bs: 'Gradnju brodova' },
+      { en: 'Attacking at night', bs: 'Napad noću' },
     ],
     correctIndex: 1,
   },
