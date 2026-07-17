@@ -29,14 +29,18 @@ import {
   avatarColor,
   avatarEmoji,
   clampQuestionSeconds,
+  IMAGE_SLIDE_MS,
   type RoomConfig,
   type RoomPlayer,
   type ScoringMode,
 } from '../../core/room.models';
+import { ServerTimeService } from '../../core/server-time.service';
 import { SnackbarService } from '../../core/snackbar.service';
 import { AnswerGrid } from '../../shared/answer-grid';
 import { Leaderboard } from '../../shared/leaderboard';
 import { TimerRing } from '../../shared/timer-ring';
+
+type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
 
 @Component({
   selector: 'app-play',
@@ -113,7 +117,7 @@ import { TimerRing } from '../../shared/timer-ring';
                 </div>
               </div>
 
-              <section>
+              <section [class.cats-disabled]="!needsCategories()">
                 <label class="q-label">{{ lang.t().categories }}</label>
                 <div class="setting-chips">
                   @for (cat of categories; track cat) {
@@ -121,6 +125,7 @@ import { TimerRing } from '../../shared/timer-ring';
                       type="button"
                       class="q-chip"
                       [class.active]="selectedCats().includes(cat)"
+                      [disabled]="!needsCategories()"
                       (click)="toggleCategory(cat)"
                     >
                       {{ categoryLabel(cat) }}
@@ -216,25 +221,44 @@ import { TimerRing } from '../../shared/timer-ring';
           </section>
         } @else {
           <div class="layout">
-            <app-leaderboard
-              class="board"
-              [title]="lang.t().leaderboard"
-              [players]="players()"
-              [deltas]="r.lastScoreDeltas"
-            />
+            <div class="board-col">
+              <app-leaderboard
+                class="board"
+                [title]="lang.t().leaderboard"
+                [players]="players()"
+                [deltas]="r.lastScoreDeltas"
+              />
+              <div
+                class="image-dock"
+                [class.visible]="imagePhase() === 'docked' && !!activeImageUrl()"
+              >
+                @if (activeImageUrl(); as src) {
+                  <img class="dock-image" [src]="src" alt="" />
+                }
+              </div>
+            </div>
 
-            <section class="stage">
+            <section
+              class="stage"
+              [class.previewing]="imagePhase() === 'preview' || imagePhase() === 'sliding'"
+            >
               @if (r.currentQuestion; as q) {
                 <header class="meta">
                   <div>
                     <p class="progress">
                       {{ lang.t().question }} {{ q.index + 1 }} {{ lang.t().of }} {{ q.total }}
                     </p>
-                    <p class="diff">
-                      {{ categoryLabel(q.category) }} · {{ difficultyLabel(q.difficulty) }}
-                    </p>
+                    @if (imagePhase() !== 'preview' && imagePhase() !== 'sliding') {
+                      <p class="diff">
+                        @if (q.imageUrl) {
+                          {{ lang.t().imageMcq }}
+                        } @else {
+                          {{ categoryLabel(q.category) }} · {{ difficultyLabel(q.difficulty) }}
+                        }
+                      </p>
+                    }
                   </div>
-                  @if (r.phase === 'question') {
+                  @if (r.phase === 'question' && answersOpen()) {
                     <app-timer-ring
                       [endsAt]="q.endsAt"
                       [durationMs]="q.durationMs"
@@ -245,11 +269,11 @@ import { TimerRing } from '../../shared/timer-ring';
                   }
                 </header>
 
-                <div class="prompt-block">
+                <div
+                  class="prompt-block"
+                  [class.dimmed]="imagePhase() === 'preview' || imagePhase() === 'sliding'"
+                >
                   <h1 class="prompt">{{ q.prompt }}</h1>
-                  @if (q.imageUrl) {
-                    <img class="q-image" [src]="q.imageUrl" alt="" />
-                  }
                 </div>
 
                 <div class="answered-row">
@@ -278,6 +302,20 @@ import { TimerRing } from '../../shared/timer-ring';
                   [choicesByIndex]="choicesByIndex()"
                   [disabled]="true"
                 />
+
+                @if (
+                  (imagePhase() === 'preview' || imagePhase() === 'sliding') &&
+                  activeImageUrl();
+                  as src
+                ) {
+                  <div
+                    class="image-preview-overlay"
+                    [class.sliding]="imagePhase() === 'sliding'"
+                  >
+                    <p class="preview-hint">{{ lang.t().getReady }}</p>
+                    <img class="preview-image" [src]="src" alt="" />
+                  </div>
+                }
               } @else {
                 <p class="waiting">{{ lang.t().waitingPlayers }}</p>
               }
@@ -326,8 +364,38 @@ import { TimerRing } from '../../shared/timer-ring';
       min-height: calc(100dvh - 1.5rem);
       align-items: stretch;
     }
-    .board {
+    .board-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
       height: 100%;
+      min-height: 0;
+    }
+    .board {
+      flex: 1 1 auto;
+      min-height: 0;
+      height: auto;
+    }
+    .image-dock {
+      flex: 0 0 auto;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--q-border);
+      border-radius: 22px;
+      padding: 0.55rem;
+      background: #0f172a;
+      min-height: 0;
+    }
+    .image-dock.visible {
+      display: flex;
+    }
+    .dock-image {
+      width: min(100%, 200px);
+      max-height: min(28vh, 260px);
+      aspect-ratio: 3 / 4;
+      object-fit: contain;
+      border-radius: 14px;
     }
     .stage {
       position: relative;
@@ -340,6 +408,68 @@ import { TimerRing } from '../../shared/timer-ring';
       padding-bottom: 3rem;
       height: 100%;
       min-height: 100%;
+      overflow: hidden;
+    }
+    .stage.previewing .answered-row,
+    .stage.previewing app-answer-grid {
+      opacity: 0.22;
+      pointer-events: none;
+    }
+    .prompt-block.dimmed .prompt {
+      opacity: 0.2;
+    }
+    .image-preview-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 8;
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 0.75rem;
+      padding: 1.25rem;
+      background: rgba(255, 255, 255, 0.92);
+      animation: preview-in 0.35s ease;
+    }
+    .image-preview-overlay.sliding {
+      animation: preview-to-dock 0.45s ease forwards;
+    }
+    .preview-hint {
+      margin: 0;
+      font-weight: 900;
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      color: var(--q-muted);
+      letter-spacing: 0.02em;
+    }
+    .preview-image {
+      width: min(100%, 420px);
+      max-height: min(70vh, 520px);
+      aspect-ratio: 3 / 4;
+      object-fit: contain;
+      border-radius: 24px;
+      background: #0f172a;
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.22);
+    }
+    @keyframes preview-in {
+      from {
+        opacity: 0;
+        transform: scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    @keyframes preview-to-dock {
+      to {
+        opacity: 0;
+        transform: translate(-28vw, 18vh) scale(0.35);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .image-preview-overlay,
+      .image-preview-overlay.sliding {
+        animation: none;
+      }
     }
     .meta {
       display: flex;
@@ -371,14 +501,6 @@ import { TimerRing } from '../../shared/timer-ring';
       font-size: clamp(1.9rem, 4.2vw, 3.1rem);
       line-height: 1.15;
       font-weight: 900;
-    }
-    .q-image {
-      width: min(100%, 280px);
-      max-height: 400px;
-      aspect-ratio: 3 / 4;
-      object-fit: contain;
-      border-radius: 20px;
-      background: #0f172a;
     }
     .answered-row {
       display: flex;
@@ -547,6 +669,12 @@ import { TimerRing } from '../../shared/timer-ring';
       gap: 0.5rem;
       margin-top: 0.35rem;
     }
+    .cats-disabled {
+      opacity: 0.45;
+    }
+    .cats-disabled .q-chip {
+      pointer-events: none;
+    }
     .final-actions {
       display: flex;
       gap: 0.75rem;
@@ -569,12 +697,21 @@ import { TimerRing } from '../../shared/timer-ring';
         height: auto;
         min-height: calc(100dvh - 1.5rem);
       }
+      .board-col {
+        height: auto;
+      }
       .board {
         height: auto;
       }
       .stage {
         height: auto;
         min-height: min(72dvh, 720px);
+      }
+      @keyframes preview-to-dock {
+        to {
+          opacity: 0;
+          transform: translate(0, 40vh) scale(0.4);
+        }
       }
     }
   `,
@@ -586,6 +723,7 @@ export class PlayPage implements OnInit, OnDestroy {
   private readonly router = inject(Router);
   private readonly snack = inject(SnackbarService);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly serverTime = inject(ServerTimeService);
 
   readonly room = this.rooms.room;
   readonly avatarColor = avatarColor;
@@ -599,11 +737,16 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly timerPresets = QUESTION_SECONDS_PRESETS;
   readonly selectedCats = signal<CategoryId[]>([...CATEGORIES]);
   readonly selectedTypes = signal<QuestionType[]>([...QUESTION_TYPES]);
+  readonly categoryMemory = signal<CategoryId[]>([...CATEGORIES]);
   readonly roundLength = signal(10);
   readonly scoringMode = signal<ScoringMode>('timed');
   readonly questionSeconds = signal(15);
   readonly rematching = signal(false);
   readonly copied = signal(false);
+  readonly imagePhase = signal<ImagePhase>('idle');
+  readonly activeImageUrl = signal<string | null>(null);
+  /** Ticks so answersOpen() / timer gate stay in sync with server time. */
+  readonly clock = signal(0);
   private configSynced = false;
 
   private code = '';
@@ -611,12 +754,21 @@ export class PlayPage implements OnInit, OnDestroy {
   private revealedForIndex = -1;
   private lastHandledReveal = -1;
   private lastFlyReveal = -1;
+  private lastImageQuestionKey = '';
+  private imageTimerIds: ReturnType<typeof setTimeout>[] = [];
   /** Handle returned by setTimeout so we can cancel stale reveal-advance callbacks. */
   private revealTimeoutId: ReturnType<typeof setTimeout> | null = null;
   private knownRematchReady = new Set<string>();
   private readonly onPageHide = () => {
     void this.rooms.leaveHostedRoom(this.code);
   };
+
+  readonly answersOpen = computed(() => {
+    this.clock();
+    const q = this.room()?.currentQuestion;
+    if (!q) return true;
+    return this.serverTime.nowMs() >= (q.answerOpensAt ?? 0);
+  });
 
   readonly players = computed<RoomPlayer[]>(() =>
     Object.values(this.room()?.players ?? {}),
@@ -625,9 +777,11 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly answeredPlayers = computed(() => {
     const r = this.room();
     if (!r || r.currentIndex < 0) return [] as RoomPlayer[];
+    const opensAt = r.currentQuestion?.answerOpensAt ?? 0;
     const bucket = r.answers[String(r.currentIndex)] ?? {};
-    return Object.keys(bucket)
-      .map((id) => r.players[id])
+    return Object.entries(bucket)
+      .filter(([, ans]) => ans.answeredAt >= opensAt)
+      .map(([id]) => r.players[id])
       .filter((p): p is RoomPlayer => !!p);
   });
 
@@ -635,8 +789,10 @@ export class PlayPage implements OnInit, OnDestroy {
     const r = this.room();
     const out: Record<number, RoomPlayer[]> = { 0: [], 1: [], 2: [], 3: [] };
     if (!r || r.currentIndex < 0) return out;
+    const opensAt = r.currentQuestion?.answerOpensAt ?? 0;
     const bucket = r.answers[String(r.currentIndex)] ?? {};
     for (const [playerId, ans] of Object.entries(bucket)) {
+      if (ans.answeredAt < opensAt) continue;
       const player = r.players[playerId];
       if (!player) continue;
       const choice = Number(ans.choice);
@@ -673,7 +829,14 @@ export class PlayPage implements OnInit, OnDestroy {
 
       if (r.phase === 'finished' && !this.configSynced) {
         this.configSynced = true;
-        this.selectedCats.set([...r.config.categories]);
+        const cats =
+          r.config.categories.length > 0
+            ? [...r.config.categories]
+            : [...this.categoryMemory()];
+        this.selectedCats.set(
+          r.config.questionTypes.includes('mcq') ? cats : [],
+        );
+        if (cats.length > 0) this.categoryMemory.set(cats);
         this.selectedTypes.set([...r.config.questionTypes]);
         this.roundLength.set(normalizeRoundLength(r.config.roundLength));
         this.scoringMode.set(r.config.scoringMode === 'standard' ? 'standard' : 'timed');
@@ -719,11 +882,14 @@ export class PlayPage implements OnInit, OnDestroy {
           void this.advanceFromReveal(advanceForIndex);
         }, REVEAL_MS);
       }
+
+      this.syncImagePresentation(r);
     });
 
-    interval(250)
+    interval(200)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
+        this.clock.set(this.serverTime.nowMs());
         if (!this.rooms.hosting()) return;
         const r = this.room();
         if (r?.phase !== 'question') return;
@@ -731,11 +897,85 @@ export class PlayPage implements OnInit, OnDestroy {
         if (this.revealedForIndex === r.currentIndex) return;
         const playerCount = Object.keys(r.players).length;
         if (playerCount === 0) return;
-        const answered = Object.keys(r.answers[String(r.currentIndex)] ?? {}).length;
+        const opensAt = r.currentQuestion?.answerOpensAt ?? 0;
+        const bucket = r.answers[String(r.currentIndex)] ?? {};
+        const answered = Object.values(bucket).filter(
+          (a) => a.answeredAt >= opensAt,
+        ).length;
         if (answered >= playerCount) {
           void this.onQuestionExpired();
         }
       });
+  }
+
+  private syncImagePresentation(r: {
+    phase: string;
+    currentQuestion: {
+      id: string;
+      index: number;
+      imageUrl?: string | null;
+      answerOpensAt: number;
+    } | null;
+  }): void {
+    const q = r.currentQuestion;
+    const live = r.phase === 'question' || r.phase === 'reveal';
+    if (!live || !q?.imageUrl) {
+      this.clearImagePresentation();
+      return;
+    }
+
+    const key = `${q.id}:${q.index}`;
+    if (key === this.lastImageQuestionKey) return;
+    this.lastImageQuestionKey = key;
+    this.beginImagePresentation(q.imageUrl, q.answerOpensAt);
+  }
+
+  private beginImagePresentation(url: string, answerOpensAt: number): void {
+    this.clearImageTimers();
+    this.activeImageUrl.set(url);
+    try {
+      const warm = new Image();
+      warm.src = url;
+    } catch {
+      /* ignore */
+    }
+
+    const now = this.serverTime.nowMs();
+    const reduceMotion =
+      typeof matchMedia === 'function' &&
+      matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (now >= answerOpensAt || reduceMotion) {
+      this.imagePhase.set('docked');
+      return;
+    }
+
+    const remaining = answerOpensAt - now;
+    const holdMs = Math.max(0, remaining - IMAGE_SLIDE_MS);
+    this.imagePhase.set('preview');
+
+    this.imageTimerIds.push(
+      setTimeout(() => {
+        this.imagePhase.set('sliding');
+        this.imageTimerIds.push(
+          setTimeout(() => {
+            this.imagePhase.set('docked');
+          }, IMAGE_SLIDE_MS),
+        );
+      }, holdMs),
+    );
+  }
+
+  private clearImagePresentation(): void {
+    this.clearImageTimers();
+    this.lastImageQuestionKey = '';
+    this.imagePhase.set('idle');
+    this.activeImageUrl.set(null);
+  }
+
+  private clearImageTimers(): void {
+    for (const id of this.imageTimerIds) clearTimeout(id);
+    this.imageTimerIds = [];
   }
 
   ngOnInit(): void {
@@ -748,6 +988,7 @@ export class PlayPage implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     window.removeEventListener('pagehide', this.onPageHide);
+    this.clearImageTimers();
     void this.rooms.leaveHostedRoom(this.code);
   }
 
@@ -782,17 +1023,32 @@ export class PlayPage implements OnInit, OnDestroy {
   }
 
   toggleCategory(cat: CategoryId): void {
+    if (!this.needsCategories()) return;
     const cur = this.selectedCats();
-    this.selectedCats.set(
-      cur.includes(cat) ? cur.filter((c) => c !== cat) : [...cur, cat],
-    );
+    const next = cur.includes(cat)
+      ? cur.filter((c) => c !== cat)
+      : [...cur, cat];
+    this.selectedCats.set(next);
+    if (next.length > 0) this.categoryMemory.set([...next]);
   }
 
   toggleType(t: QuestionType): void {
     const cur = this.selectedTypes();
-    this.selectedTypes.set(
-      cur.includes(t) ? cur.filter((x) => x !== t) : [...cur, t],
-    );
+    const turningOff = cur.includes(t);
+    const next = turningOff ? cur.filter((x) => x !== t) : [...cur, t];
+
+    if (t === 'mcq') {
+      if (turningOff) {
+        const cats = this.selectedCats();
+        if (cats.length > 0) this.categoryMemory.set([...cats]);
+        this.selectedCats.set([]);
+      } else {
+        const mem = this.categoryMemory();
+        this.selectedCats.set(mem.length > 0 ? [...mem] : [...CATEGORIES]);
+      }
+    }
+
+    this.selectedTypes.set(next);
   }
 
   async onQuestionExpired(): Promise<void> {

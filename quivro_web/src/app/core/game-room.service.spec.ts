@@ -90,6 +90,7 @@ function questionRoom(overrides: Partial<RoomState> = {}): RoomState {
       difficulty: 'hard',
       prompt: 'Prompt?',
       options: ['A', 'B', 'C', 'D'],
+      answerOpensAt: endsAt - 15_000,
       endsAt,
       durationMs: 15_000,
       index: 0,

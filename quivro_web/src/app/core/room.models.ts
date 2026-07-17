@@ -26,6 +26,13 @@ export interface LastWinner {
   avatar: number;
 }
 
+/** Hold large image preview before slide-to-dock begins. */
+export const IMAGE_PREVIEW_HOLD_MS = 1_800;
+/** Slide animation into leaderboard dock. */
+export const IMAGE_SLIDE_MS = 450;
+/** Answers stay locked until preview + slide finish. */
+export const IMAGE_ANSWER_DELAY_MS = IMAGE_PREVIEW_HOLD_MS + IMAGE_SLIDE_MS;
+
 export interface PublicQuestion {
   id: string;
   type: QuestionType;
@@ -34,6 +41,8 @@ export interface PublicQuestion {
   prompt: string;
   options: [string, string, string, string];
   imageUrl?: string | null;
+  /** Epoch ms when phones may answer (after image preview/dock). */
+  answerOpensAt: number;
   endsAt: number;
   durationMs: number;
   index: number;

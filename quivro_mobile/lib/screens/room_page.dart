@@ -335,13 +335,10 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
         }
 
         final picked = _picked ?? room.choiceOf(widget.playerId);
-        final canChange = room.phase == 'question' &&
-            _repo.nowMs() <= room.currentQuestion!.endsAt;
 
         return _PlayView(
           room: room,
           profile: _profile,
-          locked: !canChange,
           picked: picked,
           onPick: (i) => _answer(room, i),
           nowMs: _repo.nowMs,
@@ -463,11 +460,10 @@ class _LobbyView extends StatelessWidget {
   }
 }
 
-class _PlayView extends StatelessWidget {
+class _PlayView extends StatefulWidget {
   const _PlayView({
     required this.room,
     required this.profile,
-    required this.locked,
     required this.picked,
     required this.onPick,
     required this.nowMs,
@@ -476,16 +472,43 @@ class _PlayView extends StatelessWidget {
 
   final RoomState room;
   final PlayerProfile profile;
-  final bool locked;
   final int? picked;
   final ValueChanged<int> onPick;
   final int Function() nowMs;
   final VoidCallback onQuit;
 
   @override
+  State<_PlayView> createState() => _PlayViewState();
+}
+
+class _PlayViewState extends State<_PlayView> {
+  Timer? _tick;
+
+  @override
+  void initState() {
+    super.initState();
+    _tick = Timer.periodic(const Duration(milliseconds: 200), (_) {
+      if (mounted) setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _tick?.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final room = widget.room;
     final q = room.currentQuestion!;
     final isReveal = room.phase == 'reveal';
+    final now = widget.nowMs();
+    final waitingForTv =
+        room.phase == 'question' && now < q.answerOpensAt;
+    final locked = room.phase != 'question' ||
+        waitingForTv ||
+        now > q.endsAt;
 
     return Scaffold(
       backgroundColor: QuivroColors.surface,
@@ -496,7 +519,7 @@ class _PlayView extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(20, 12, 20, 8),
               child: Row(
                 children: [
-                  AvatarBadge(index: profile.avatar, size: 40),
+                  AvatarBadge(index: widget.profile.avatar, size: 40),
                   const SizedBox(width: 10),
                   Expanded(
                     child: Column(
@@ -521,7 +544,7 @@ class _PlayView extends StatelessWidget {
                     ),
                   ),
                   TextButton(
-                    onPressed: onQuit,
+                    onPressed: widget.onQuit,
                     style: TextButton.styleFrom(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
                       minimumSize: Size.zero,
@@ -536,11 +559,11 @@ class _PlayView extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 4),
-                  if (room.phase == 'question')
+                  if (room.phase == 'question' && !waitingForTv)
                     _Countdown(
                       endsAt: q.endsAt,
                       durationMs: q.durationMs,
-                      nowMs: nowMs,
+                      nowMs: widget.nowMs,
                     )
                   else
                     Container(
@@ -556,7 +579,9 @@ class _PlayView extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        isReveal ? 'Locked' : room.phase,
+                        waitingForTv
+                            ? 'TV'
+                            : (isReveal ? 'Locked' : room.phase),
                         textAlign: TextAlign.center,
                         style: GoogleFonts.nunito(
                           fontWeight: FontWeight.w800,
@@ -572,14 +597,18 @@ class _PlayView extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(bottom: 6),
               child: Text(
-                room.phase == 'question'
-                    ? 'Tap another answer to change'
-                    : 'Answers locked',
+                waitingForTv
+                    ? 'Look at the TV…'
+                    : room.phase == 'question'
+                        ? 'Tap another answer to change'
+                        : 'Answers locked',
                 style: GoogleFonts.nunito(
                   fontWeight: FontWeight.w800,
-                  color: room.phase == 'question'
-                      ? QuivroColors.blue
-                      : QuivroColors.purple,
+                  color: waitingForTv
+                      ? QuivroColors.purple
+                      : room.phase == 'question'
+                          ? QuivroColors.blue
+                          : QuivroColors.purple,
                 ),
               ),
             ),
@@ -594,18 +623,18 @@ class _PlayView extends StatelessWidget {
                           Expanded(
                             child: _AnswerTile(
                               index: 0,
-                              selected: picked == 0,
+                              selected: widget.picked == 0,
                               enabled: !locked,
-                              onTap: () => onPick(0),
+                              onTap: () => widget.onPick(0),
                             ),
                           ),
                           const SizedBox(width: 12),
                           Expanded(
                             child: _AnswerTile(
                               index: 1,
-                              selected: picked == 1,
+                              selected: widget.picked == 1,
                               enabled: !locked,
-                              onTap: () => onPick(1),
+                              onTap: () => widget.onPick(1),
                             ),
                           ),
                         ],
@@ -618,18 +647,18 @@ class _PlayView extends StatelessWidget {
                           Expanded(
                             child: _AnswerTile(
                               index: 2,
-                              selected: picked == 2,
+                              selected: widget.picked == 2,
                               enabled: !locked,
-                              onTap: () => onPick(2),
+                              onTap: () => widget.onPick(2),
                             ),
                           ),
                           const SizedBox(width: 12),
                           Expanded(
                             child: _AnswerTile(
                               index: 3,
-                              selected: picked == 3,
+                              selected: widget.picked == 3,
                               enabled: !locked,
-                              onTap: () => onPick(3),
+                              onTap: () => widget.onPick(3),
                             ),
                           ),
                         ],

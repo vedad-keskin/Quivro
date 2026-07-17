@@ -23,6 +23,7 @@ const ROUND_PREFS_KEY = 'quivro.roundPrefs';
 
 interface RoundPrefs {
   categories: CategoryId[];
+  categoryMemory: CategoryId[];
   questionTypes: QuestionType[];
   length: number;
   customMode: boolean;
@@ -31,26 +32,46 @@ interface RoundPrefs {
   questionSeconds: number;
 }
 
+function filterCategories(raw: unknown): CategoryId[] {
+  if (!Array.isArray(raw)) return [];
+  return raw.filter((c): c is CategoryId =>
+    (CATEGORIES as readonly string[]).includes(c as string),
+  );
+}
+
 function loadRoundPrefs(): RoundPrefs | null {
   try {
     const raw = localStorage.getItem(ROUND_PREFS_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw) as Partial<RoundPrefs>;
-    const categories = (parsed.categories ?? []).filter((c): c is CategoryId =>
-      (CATEGORIES as readonly string[]).includes(c),
-    );
     const questionTypes = (parsed.questionTypes ?? []).filter((t): t is QuestionType =>
       (QUESTION_TYPES as readonly string[]).includes(t),
     );
+    const types =
+      questionTypes.length > 0 ? questionTypes : [...QUESTION_TYPES];
+    const needsCats = types.includes('mcq');
+    const memory = filterCategories(parsed.categoryMemory);
+    const categories = filterCategories(parsed.categories);
     const scoringMode: ScoringMode =
       parsed.scoringMode === 'standard' ? 'standard' : 'timed';
     const rawLength = Number(parsed.length) || 10;
     const lengthIsPreset = (ROUND_LENGTH_PRESETS as readonly number[]).includes(
       rawLength,
     );
+    const remembered =
+      memory.length > 0
+        ? memory
+        : categories.length > 0
+          ? categories
+          : [...CATEGORIES];
     return {
-      categories: categories.length > 0 ? categories : [...CATEGORIES],
-      questionTypes: questionTypes.length > 0 ? questionTypes : [...QUESTION_TYPES],
+      categories: needsCats
+        ? categories.length > 0
+          ? categories
+          : [...remembered]
+        : [],
+      categoryMemory: remembered,
+      questionTypes: types,
       length: lengthIsPreset ? rawLength : 10,
       customMode: Boolean(parsed.customMode),
       customLength: normalizeRoundLength(Number(parsed.customLength) || 10),
@@ -78,7 +99,7 @@ function loadRoundPrefs(): RoundPrefs | null {
           <div class="q-brand-line"></div>
         </div>
 
-        <section>
+        <section [class.cats-disabled]="!needsCategories()">
           <label class="q-label">{{ lang.t().categories }}</label>
           <div class="chips">
             @for (cat of categories; track cat) {
@@ -86,6 +107,7 @@ function loadRoundPrefs(): RoundPrefs | null {
                 type="button"
                 class="q-chip"
                 [class.active]="selected().includes(cat)"
+                [disabled]="!needsCategories()"
                 (click)="toggleCategory(cat)"
               >
                 {{ categoryLabel(cat) }}
@@ -242,6 +264,12 @@ function loadRoundPrefs(): RoundPrefs | null {
       margin-top: 0.75rem;
       max-width: 10rem;
     }
+    .cats-disabled {
+      opacity: 0.45;
+    }
+    .cats-disabled .q-chip {
+      pointer-events: none;
+    }
   `,
 })
 export class CreateRoundPage {
@@ -257,6 +285,9 @@ export class CreateRoundPage {
 
   private readonly saved = loadRoundPrefs();
   readonly selected = signal<CategoryId[]>(this.saved?.categories ?? [...CATEGORIES]);
+  readonly categoryMemory = signal<CategoryId[]>(
+    this.saved?.categoryMemory ?? this.saved?.categories ?? [...CATEGORIES],
+  );
   readonly types = signal<QuestionType[]>(this.saved?.questionTypes ?? [...QUESTION_TYPES]);
   readonly length = signal(this.saved?.length ?? 10);
   readonly customMode = signal(this.saved?.customMode ?? false);
@@ -280,6 +311,7 @@ export class CreateRoundPage {
     effect(() => {
       const prefs: RoundPrefs = {
         categories: this.selected(),
+        categoryMemory: this.categoryMemory(),
         questionTypes: this.types(),
         length: this.length(),
         customMode: this.customMode(),
@@ -300,15 +332,32 @@ export class CreateRoundPage {
   }
 
   toggleCategory(cat: CategoryId): void {
+    if (!this.needsCategories()) return;
     const cur = this.selected();
-    this.selected.set(
-      cur.includes(cat) ? cur.filter((c) => c !== cat) : [...cur, cat],
-    );
+    const next = cur.includes(cat)
+      ? cur.filter((c) => c !== cat)
+      : [...cur, cat];
+    this.selected.set(next);
+    if (next.length > 0) this.categoryMemory.set([...next]);
   }
 
   toggleType(t: QuestionType): void {
     const cur = this.types();
-    this.types.set(cur.includes(t) ? cur.filter((x) => x !== t) : [...cur, t]);
+    const turningOff = cur.includes(t);
+    const next = turningOff ? cur.filter((x) => x !== t) : [...cur, t];
+
+    if (t === 'mcq') {
+      if (turningOff) {
+        const cats = this.selected();
+        if (cats.length > 0) this.categoryMemory.set([...cats]);
+        this.selected.set([]);
+      } else {
+        const mem = this.categoryMemory();
+        this.selected.set(mem.length > 0 ? [...mem] : [...CATEGORIES]);
+      }
+    }
+
+    this.types.set(next);
   }
 
   pickPreset(n: number): void {

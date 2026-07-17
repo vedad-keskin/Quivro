@@ -8,6 +8,7 @@ class PublicQuestion {
     required this.difficulty,
     required this.prompt,
     required this.options,
+    required this.answerOpensAt,
     required this.endsAt,
     required this.durationMs,
     required this.index,
@@ -22,6 +23,7 @@ class PublicQuestion {
   final String prompt;
   final List<String> options;
   final String? imageUrl;
+  final int answerOpensAt;
   final int endsAt;
   final int durationMs;
   final int index;
@@ -36,6 +38,10 @@ class PublicQuestion {
         (i) => i < opts.length ? '${opts[i]}' : '',
       );
     }
+    final endsAt = (map['endsAt'] as num?)?.toInt() ?? 0;
+    final durationMs = (map['durationMs'] as num?)?.toInt() ?? 15000;
+    final answerOpensAt = (map['answerOpensAt'] as num?)?.toInt() ??
+        (endsAt - durationMs).clamp(0, endsAt);
     return PublicQuestion(
       id: '${map['id'] ?? ''}',
       type: '${map['type'] ?? 'mcq'}',
@@ -44,8 +50,9 @@ class PublicQuestion {
       prompt: '${map['prompt'] ?? ''}',
       options: options,
       imageUrl: map['imageUrl']?.toString(),
-      endsAt: (map['endsAt'] as num?)?.toInt() ?? 0,
-      durationMs: (map['durationMs'] as num?)?.toInt() ?? 15000,
+      answerOpensAt: answerOpensAt,
+      endsAt: endsAt,
+      durationMs: durationMs,
       index: (map['index'] as num?)?.toInt() ?? 0,
       total: (map['total'] as num?)?.toInt() ?? 0,
     );
@@ -122,6 +129,7 @@ class AnswerSubmissionPolicy {
 
     final question = room.currentQuestion;
     if (question == null || question.index != questionIndex) return false;
+    if (nowMs < question.answerOpensAt) return false;
     if (nowMs > question.endsAt) return false;
 
     return true;

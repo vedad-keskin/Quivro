@@ -137,4 +137,57 @@ void main() {
       isTrue,
     );
   });
+
+  test('canSubmit rejects answers before answerOpensAt', () {
+    final room = RoomState.fromSnapshot('ABC123', {
+      'phase': 'question',
+      'createdAt': 1_000_000,
+      'currentIndex': 0,
+      'totalQuestions': 10,
+      'currentQuestion': {
+        'id': 'q1',
+        'type': 'image_mcq',
+        'category': 'images',
+        'difficulty': 'easy',
+        'prompt': 'Who?',
+        'options': ['A', 'B', 'C', 'D'],
+        'answerOpensAt': 1_990_000,
+        'endsAt': 2_005_000,
+        'durationMs': 15_000,
+        'index': 0,
+        'total': 10,
+      },
+      'players': {
+        'p1': {
+          'id': 'p1',
+          'name': 'Ana',
+          'score': 0,
+          'avatar': 0,
+          'joinedAt': 1,
+        },
+      },
+      'answers': {},
+    });
+
+    expect(
+      AnswerSubmissionPolicy.canSubmit(
+        room: room,
+        playerId: 'p1',
+        questionIndex: 0,
+        choice: 1,
+        nowMs: 1_989_000,
+      ),
+      isFalse,
+    );
+    expect(
+      AnswerSubmissionPolicy.canSubmit(
+        room: room,
+        playerId: 'p1',
+        questionIndex: 0,
+        choice: 1,
+        nowMs: 1_990_000,
+      ),
+      isTrue,
+    );
+  });
 }

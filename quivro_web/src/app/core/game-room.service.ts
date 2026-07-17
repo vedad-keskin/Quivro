@@ -23,6 +23,7 @@ import {
   shuffledOptionsForQuestion,
   stripUndefined,
   AVATAR_COUNT,
+  IMAGE_ANSWER_DELAY_MS,
   clampQuestionSeconds,
   rankPlayers,
   type LastWinner,
@@ -206,10 +207,19 @@ export class GameRoomService {
     const deltas: Record<string, number> = {};
     const playerUpdates: Record<string, number> = {};
 
+    const answerOpensAt =
+      room.currentQuestion?.answerOpensAt ??
+      endsAt - duration;
+
     for (const [playerId, player] of Object.entries(room.players)) {
       const ans = answers[playerId];
       let delta = 0;
-      if (ans && ans.choice === correctIndex) {
+      // Ignore answers submitted before the image preview/dock finished.
+      const answerValid =
+        !!ans &&
+        ans.answeredAt >= answerOpensAt &&
+        ans.choice === correctIndex;
+      if (answerValid && ans) {
         if (scoringMode === 'standard') {
           delta = 1;
         } else {
@@ -578,6 +588,10 @@ export class GameRoomService {
 
     const lang = room.config.language;
     const durationMs = clampQuestionSeconds(room.config.questionSeconds ?? 15) * 1000;
+    const now = this.serverTime.nowMs();
+    const answerDelayMs =
+      question.type === 'image_mcq' ? IMAGE_ANSWER_DELAY_MS : 0;
+    const answerOpensAt = now + answerDelayMs;
 
     const { options: shuffledOptions } = shuffledOptionsForQuestion(
       [
@@ -599,7 +613,8 @@ export class GameRoomService {
       difficulty: question.difficulty,
       prompt: question.prompt[lang],
       options: shuffledOptions,
-      endsAt: this.serverTime.nowMs() + durationMs,
+      answerOpensAt,
+      endsAt: answerOpensAt + durationMs,
       durationMs,
       index,
       total: questions.length,
@@ -705,6 +720,37 @@ export class GameRoomService {
     };
   }
 
+  private normalizePublicQuestion(raw: unknown): PublicQuestion | null {
+    if (!raw || typeof raw !== 'object') return null;
+    const q = raw as Record<string, unknown>;
+    const durationMs = Number(q['durationMs'] ?? 15_000);
+    const endsAt = Number(q['endsAt'] ?? 0);
+    const answerOpensAt = Number(
+      q['answerOpensAt'] ?? Math.max(0, endsAt - durationMs),
+    );
+    const optionsRaw = q['options'];
+    const options: [string, string, string, string] = ['', '', '', ''];
+    if (Array.isArray(optionsRaw)) {
+      for (let i = 0; i < 4; i++) {
+        options[i] = String(optionsRaw[i] ?? '');
+      }
+    }
+    return {
+      id: String(q['id'] ?? ''),
+      type: (q['type'] as PublicQuestion['type']) ?? 'mcq',
+      category: (q['category'] as PublicQuestion['category']) ?? 'geography',
+      difficulty: (q['difficulty'] as PublicQuestion['difficulty']) ?? 'easy',
+      prompt: String(q['prompt'] ?? ''),
+      options,
+      imageUrl: q['imageUrl'] == null ? null : String(q['imageUrl']),
+      answerOpensAt,
+      endsAt,
+      durationMs,
+      index: Number(q['index'] ?? 0),
+      total: Number(q['total'] ?? 0),
+    };
+  }
+
   private fromFirebase(code: string, raw: Record<string, unknown>): RoomState {
     const playersRaw = (raw['players'] as Record<string, Record<string, unknown>>) ?? {};
     const players: Record<string, RoomPlayer> = {};
@@ -736,7 +782,7 @@ export class GameRoomService {
       createdAt: Number(raw['createdAt'] ?? Date.now()),
       currentIndex: Number(raw['currentIndex'] ?? -1),
       totalQuestions: Number(raw['totalQuestions'] ?? 0),
-      currentQuestion: (raw['currentQuestion'] as PublicQuestion) ?? null,
+      currentQuestion: this.normalizePublicQuestion(raw['currentQuestion']),
       correctIndex:
         raw['correctIndex'] === undefined || raw['correctIndex'] === null
           ? null
