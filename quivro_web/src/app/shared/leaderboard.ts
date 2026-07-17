@@ -199,19 +199,17 @@ import { avatarColor, avatarEmoji, rankPlayers, type RoomPlayer } from '../core/
       margin: 0;
       padding: 0;
       display: grid;
+      align-content: start;
       gap: 0.65rem;
       flex: 1;
       min-height: 0;
       max-height: 40rem;
       overflow: auto;
       opacity: 1;
-      transition:
-        max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.35s ease,
-        margin 0.35s ease,
-        gap 0.35s ease;
+      transition: opacity 0.2s ease;
     }
     ol.hiding {
+      height: 0;
       max-height: 0;
       opacity: 0;
       margin: 0;
