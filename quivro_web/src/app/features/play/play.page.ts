@@ -376,26 +376,36 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       min-height: 0;
       height: auto;
     }
+    .board-col:has(.image-dock.visible) .board {
+      flex: 1 1 50%;
+      min-height: 0;
+    }
     .image-dock {
       flex: 0 0 auto;
       display: none;
-      align-items: center;
-      justify-content: center;
+      align-items: stretch;
+      justify-content: stretch;
       border: 2px solid var(--q-border);
-      border-radius: 22px;
-      padding: 0.55rem;
-      background: #0f172a;
+      border-radius: 28px;
+      padding: 0.4rem;
+      background: #f8fafc;
       min-height: 0;
+      overflow: hidden;
     }
     .image-dock.visible {
       display: flex;
     }
+    .board-col:has(.image-dock.visible) .image-dock {
+      flex: 1 1 50%;
+      min-height: 0;
+    }
     .dock-image {
-      width: min(100%, 200px);
-      max-height: min(28vh, 260px);
-      aspect-ratio: 3 / 4;
-      object-fit: contain;
-      border-radius: 14px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 22px;
+      display: block;
     }
     .stage {
       position: relative;
@@ -425,9 +435,9 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       display: grid;
       place-items: center;
       align-content: center;
-      gap: 0.75rem;
-      padding: 1.25rem;
-      background: rgba(255, 255, 255, 0.92);
+      gap: 0.65rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.94);
       animation: preview-in 0.35s ease;
     }
     .image-preview-overlay.sliding {
@@ -436,18 +446,20 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
     .preview-hint {
       margin: 0;
       font-weight: 900;
-      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      font-size: clamp(1.05rem, 1.8vw, 1.35rem);
       color: var(--q-muted);
       letter-spacing: 0.02em;
     }
     .preview-image {
-      width: min(100%, 420px);
-      max-height: min(70vh, 520px);
+      height: min(78vh, 720px);
+      width: auto;
+      max-width: min(100%, 540px);
       aspect-ratio: 3 / 4;
-      object-fit: contain;
-      border-radius: 24px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 28px;
       background: #0f172a;
-      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.22);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.28);
     }
     @keyframes preview-in {
       from {
@@ -462,7 +474,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
     @keyframes preview-to-dock {
       to {
         opacity: 0;
-        transform: translate(-28vw, 18vh) scale(0.35);
+        transform: translate(-30vw, 22vh) scale(0.48);
       }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -703,6 +715,17 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       .board {
         height: auto;
       }
+      .board-col:has(.image-dock.visible) .board {
+        flex: 0 0 auto;
+      }
+      .board-col:has(.image-dock.visible) .image-dock {
+        flex: 0 0 auto;
+        height: min(42vh, 360px);
+      }
+      .preview-image {
+        height: min(68vh, 560px);
+        max-width: min(100%, 420px);
+      }
       .stage {
         height: auto;
         min-height: min(72dvh, 720px);
@@ -710,7 +733,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       @keyframes preview-to-dock {
         to {
           opacity: 0;
-          transform: translate(0, 40vh) scale(0.4);
+          transform: translate(0, 36vh) scale(0.5);
         }
       }
     }
