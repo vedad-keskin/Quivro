@@ -1631,14 +1631,14 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'Which expedition was the first one personally led by Prophet Muhammad ﷺ?',
-      bs: 'Koji je pohod bio prvi u kojem je lično učestvovao Poslanik Muhammed ﷺ?'
+      en: 'Which was the first expedition personally led by the Prophet Muhammad ﷺ?',
+      bs: 'Koja je bila prva vojna ekspedicija koju je lično predvodio Poslanik Muhammed ﷺ?'
     },
     options: [
-      { en: 'Abwa', bs: 'Ebva' },
+      { en: 'Al-Abwa (Waddan)', bs: 'El-Ebva (Veddan)' },
       { en: 'Buwat', bs: 'Buvat' },
       { en: 'Ushayra', bs: 'Ušejra' },
-      { en: 'Sifwan', bs: 'Sefvan' },
+      { en: 'Safwan (First Badr)', bs: 'Sefvan (Prvi Bedr)' },
     ],
     correctIndex: 0,
   },

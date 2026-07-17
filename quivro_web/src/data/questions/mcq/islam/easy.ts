@@ -151,7 +151,7 @@ export const islamEasy: Question[] = [
     difficulty: 'easy',
     prompt: { en: 'Which daughter of the Prophet outlived him?', bs: 'Koja kći Poslanika ﷺ je nadživjela njegovu smrt?' },
     options: [
-      { en: 'Zaynab', bs: 'Zeinab' },
+      { en: 'Zaynab', bs: 'Zejneb' },
       { en: 'Ruqayya', bs: 'Rukajja' },
       { en: 'Fatima', bs: 'Fatima' },
       { en: 'Umm Kulthum', bs: 'Umm Kulsum' },
