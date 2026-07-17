@@ -1999,4 +1999,55 @@ export const islamMedium: Question[] = [
     ],
     correctIndex: 0,
   },
+  {
+    id: 'islam-med-121',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'medium',
+    prompt: {
+      en: 'For approximately how long did the Prophet Muhammad ﷺ call people to Islam in secret before beginning the public call?',
+      bs: 'Koliko je približno trajao period tajnog pozivanja Poslanika Muhammeda ﷺ u islam prije početka javnog poziva?'
+    },
+    options: [
+      { en: 'Three years', bs: 'Tri godine' },
+      { en: 'Five years', bs: 'Pet godina' },
+      { en: 'Seven years', bs: 'Sedam godina' },
+      { en: 'Ten years', bs: 'Deset godina' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'islam-med-122',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'medium',
+    prompt: {
+      en: 'Which surah contains the first verses revealed to the Prophet Muhammad ﷺ?',
+      bs: 'Koja sura sadrži prve ajete objavljene Poslaniku Muhammedu ﷺ?'
+    },
+    options: [
+      { en: 'Al-Alaq', bs: 'El-Alek' },
+      { en: 'Al-Muddaththir', bs: 'El-Mudessir' },
+      { en: 'Al-Fatihah', bs: 'El-Fatiha' },
+      { en: 'Ash-Shuara', bs: 'Eš-Šuara' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'islam-med-123',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'medium',
+    prompt: {
+      en: 'Which surah contains the command that marked the beginning of the Prophet Muhammad’s ﷺ public call to Islam?',
+      bs: 'Koja sura sadrži naredbu koja je označila početak javnog pozivanja Poslanika Muhammeda ﷺ u islam?'
+    },
+    options: [
+      { en: 'Ash-Shuara', bs: 'Eš-Šu\'ara' },
+      { en: 'Al-Alaq', bs: 'El-Alek' },
+      { en: 'Al-Baqarah', bs: 'El-Bekara' },
+      { en: 'Al-Anfal', bs: 'El-Enfal' },
+    ],
+    correctIndex: 0,
+  },
 ];
