@@ -6,10 +6,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'J.K. Rowling is the author of which famous book series?',
-      bs: 'J.K. Rowling je autor koje poznate serije knjiga?',
-    },
+    prompt: { en: 'J.K. Rowling is the author of which famous book series?', 
+              bs: 'J.K. Rowling je autor koje poznate serije knjiga?' },
     options: [
       { en: 'Harry Potter', bs: 'Harry Potter' },
       { en: 'The Lord of the Rings', bs: 'Gospodar prstenova' },
@@ -23,10 +21,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Bill Gates co-founded which technology company?',
-      bs: 'Bill Gates je suosnovao koju tehnološku kompaniju?',
-    },
+    prompt: { en: 'Bill Gates co-founded which technology company?', 
+              bs: 'Bill Gates je suosnovao koju tehnološku kompaniju?' },
     options: [
       { en: 'Apple', bs: 'Apple' },
       { en: 'Microsoft', bs: 'Microsoft' },
@@ -40,10 +36,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Oprah Winfrey became famous primarily as a…',
-      bs: 'Oprah Winfrey je postala poznata prvenstveno kao…',
-    },
+    prompt: { en: 'Oprah Winfrey became famous primarily as a…', 
+              bs: 'Oprah Winfrey je postala poznata prvenstveno kao…' },
     options: [
       { en: 'Talk show host', bs: 'Voditeljka talk showa' },
       { en: 'Supreme Court judge', bs: 'Sudija Vrhovnog suda' },
@@ -57,10 +51,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'David Attenborough is best known for narrating…',
-      bs: 'David Attenborough je najpoznatiji po naraciji…',
-    },
+    prompt: { en: 'David Attenborough is best known for narrating…', 
+              bs: 'David Attenborough je najpoznatiji po naraciji…' },
     options: [
       { en: 'Cooking competitions', bs: 'Kulinarskih takmičenja' },
       { en: 'Crime dramas', bs: 'Krimi drama' },
@@ -74,10 +66,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Stephen King is famous for writing…',
-      bs: 'Stephen King je poznat po pisanju…',
-    },
+    prompt: { en: 'Stephen King is famous for writing…', 
+              bs: 'Stephen King je poznat po pisanju…' },
     options: [
       { en: 'Cookbooks', bs: 'Kuharica' },
       { en: 'Horror novels', bs: 'Horor romana' },
@@ -91,10 +81,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Jeff Bezos founded which online retail company?',
-      bs: 'Jeff Bezos je osnovao koju online prodajnu kompaniju?',
-    },
+    prompt: { en: 'Jeff Bezos founded which online retail company?', 
+              bs: 'Jeff Bezos je osnovao koju online prodajnu kompaniju?' },
     options: [
       { en: 'Amazon', bs: 'Amazon' },
       { en: 'eBay', bs: 'eBay' },
@@ -108,10 +96,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Pope Francis was the head of which religious institution?',
-      bs: 'Papa Franjo je bio poglavar koje vjerske institucije?',
-    },
+    prompt: { en: 'Pope Francis was the head of which religious institution?', 
+              bs: 'Papa Franjo je bio poglavar koje vjerske institucije?' },
     options: [
       { en: 'Catholic Church', bs: 'Katoličke crkve' },
       { en: 'Eastern Orthodox Church', bs: 'Pravoslavne crkve' },
@@ -125,10 +111,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Michelle Obama served as which role during Barack Obama’s presidency?',
-      bs: 'Koju ulogu je Michelle Obama imala tokom predsjedničkog mandata Baracka Obame?',
-    },
+    prompt: { en: 'Michelle Obama served as which role during Barack Obama’s presidency?', 
+              bs: 'Koju ulogu je Michelle Obama imala tokom predsjedničkog mandata Baracka Obame?' },
     options: [
       { en: 'U.S. First Lady', bs: 'Prva dama SAD-a' },
       { en: 'UK Prime Minister', bs: 'Premijerka Ujedinjenog Kraljevstva' },
@@ -142,10 +126,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Walt Disney built a famous empire in…',
-      bs: 'Walt Disney je izgradio poznatu imperiju u…',
-    },
+    prompt: { en: 'Walt Disney built a famous empire in…', 
+              bs: 'Walt Disney je izgradio poznatu imperiju u…' },
     options: [
       { en: 'Oil refining', bs: 'Rafinaciji nafte' },
       { en: 'Animation and film', bs: 'Animaciji i filmu' },
@@ -159,10 +141,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Mother Teresa dedicated her life to helping the poor mainly in…',
-      bs: 'Majka Tereza je posvetila život pomaganju siromašnima prvenstveno u…',
-    },
+    prompt: { en: 'Mother Teresa dedicated her life to helping the poor mainly in…', 
+              bs: 'Majka Tereza je posvetila život pomaganju siromašnima prvenstveno u…' },
     options: [
       { en: 'Canada', bs: 'Kanadi' },
       { en: 'Japan', bs: 'Japanu' },
@@ -176,10 +156,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Elon Musk is widely known for leading companies such as…',
-      bs: 'Elon Musk je poznat po vođenju kompanija poput…',
-    },
+    prompt: { en: 'Elon Musk is widely known for leading companies such as…', 
+              bs: 'Elon Musk je poznat po vođenju kompanija poput…' },
     options: [
       { en: 'Coca-Cola and Pepsi', bs: 'Coca-Cola i Pepsi' },
       { en: 'Ford and GM', bs: 'Ford i GM' },
@@ -193,10 +171,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Albert Einstein is famous for his work in…',
-      bs: 'Albert Einstein je poznat po radu u…',
-    },
+    prompt: { en: 'Albert Einstein is famous for his work in…', 
+              bs: 'Albert Einstein je poznat po radu u…' },
     options: [
       { en: 'Physics', bs: 'Fizici' },
       { en: 'Fashion design', bs: 'Modnom dizajnu' },
@@ -210,15 +186,13 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Nelson Mandela is best known for fighting against…',
-      bs: 'Nelson Mandela je najpoznatiji po borbi protiv…',
-    },
+    prompt: { en: 'Usain Bolt became a global superstar in which sport?', 
+              bs: 'Usain Bolt je postao globalna zvijezda u kojem sportu?' },
     options: [
-      { en: 'Air pollution', bs: 'Zagađenja zraka' },
-      { en: 'Apartheid in South Africa', bs: 'Apartheida u Južnoj Africi' },
-      { en: 'Ocean pollution', bs: 'Zagađenja oceana' },
-      { en: 'Urban traffic', bs: 'Gradskog saobraćaja' },
+      { en: 'Swimming', bs: 'Plivanje' },
+      { en: 'Sprint running', bs: 'Sprint' },
+      { en: 'Tennis', bs: 'Tenis' },
+      { en: 'Basketball', bs: 'Košarka' },
     ],
     correctIndex: 1,
   },
@@ -227,27 +201,23 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Queen Elizabeth II was the long-reigning monarch of…',
-      bs: 'Kraljica Elizabeta II bila je dugovladajući monarh…',
-    },
+    prompt: { en: 'Taylor Swift is best known worldwide as a…', 
+              bs: 'Taylor Swift je širom svijeta najpoznatija kao…' },
     options: [
-      { en: 'France', bs: 'Francuske' },
-      { en: 'Spain', bs: 'Španije' },
-      { en: 'The United Kingdom', bs: 'Ujedinjenog Kraljevstva' },
-      { en: 'Italy', bs: 'Italije' },
+      { en: 'Singer-songwriter', bs: 'Pjevačica i kantautorica' },
+      { en: 'Olympic gymnast', bs: 'Olimpijska gimnastičarka' },
+      { en: 'News anchor', bs: 'TV voditeljica vijesti' },
+      { en: 'Fashion photographer', bs: 'Modna fotografkinja' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'fam-easy-015',
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Mark Zuckerberg co-founded which social media platform?',
-      bs: 'Mark Zuckerberg je suosnovao koju društvenu mrežu?',
-    },
+    prompt: { en: 'Mark Zuckerberg co-founded which social media platform?', 
+              bs: 'Mark Zuckerberg je suosnovao koju društvenu mrežu?' },
     options: [
       { en: 'LinkedIn', bs: 'LinkedIn' },
       { en: 'Pinterest', bs: 'Pinterest' },
@@ -261,10 +231,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Leonardo da Vinci painted the famous artwork…',
-      bs: 'Leonardo da Vinci je naslikao poznato djelo…',
-    },
+    prompt: { en: 'Leonardo da Vinci painted the famous artwork…', 
+              bs: 'Leonardo da Vinci je naslikao poznato djelo…' },
     options: [
       { en: 'Mona Lisa', bs: 'Mona Lisa' },
       { en: 'The Scream', bs: 'Krik' },
@@ -278,10 +246,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Martin Luther King Jr. is remembered for leading the…',
-      bs: 'Martin Luther King Jr. se pamti po vođenju…',
-    },
+    prompt: { en: 'Martin Luther King Jr. is remembered for leading the…', 
+              bs: 'Martin Luther King Jr. se pamti po vođenju…' },
     options: [
       { en: 'Industrial Revolution', bs: 'Industrijske revolucije' },
       { en: 'American civil rights movement', bs: 'Američkog pokreta za građanska prava' },
@@ -295,27 +261,23 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Marie Curie won Nobel Prizes for pioneering research in…',
-      bs: 'Marie Curie je dobila Nobelove nagrade za istraživanje…',
-    },
+    prompt: { en: 'Florence Nightingale is remembered as a pioneer of…', 
+              bs: 'Florence Nightingale se pamti kao pionirka…' },
     options: [
-      { en: 'Botany', bs: 'Botanike' },
-      { en: 'Meteorology', bs: 'Meteorologije' },
-      { en: 'Radioactivity', bs: 'Radioaktivnosti' },
-      { en: 'Geology', bs: 'Geologije' },
+      { en: 'Modern nursing', bs: 'Moderne njege bolesnika' },
+      { en: 'Space exploration', bs: 'Istraživanja svemira' },
+      { en: 'Oil drilling', bs: 'Bušenja nafte' },
+      { en: 'Silent film comedy', bs: 'Komedije nijemog filma' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'fam-easy-019',
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Steve Jobs helped build which technology company?',
-      bs: 'Steve Jobs je pomogao izgraditi koju tehnološku kompaniju?',
-    },
+    prompt: { en: 'Steve Jobs helped build which technology company?', 
+              bs: 'Steve Jobs je pomogao izgraditi koju tehnološku kompaniju?' },
     options: [
       { en: 'Dell', bs: 'Dell' },
       { en: 'HP', bs: 'HP' },
@@ -329,10 +291,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Cleopatra was a famous ruler of ancient…',
-      bs: 'Kleopatra je bila poznata vladarica…',
-    },
+    prompt: { en: 'Cleopatra was a famous ruler of ancient…', 
+              bs: 'Kleopatra je bila poznata vladarica…' },
     options: [
       { en: 'Egypt', bs: 'Drevnog Egipta' },
       { en: 'Greece', bs: 'Drevne Grčke' },
@@ -346,10 +306,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Neil Armstrong is famous for being the first person to…',
-      bs: 'Neil Armstrong je poznat kao prva osoba koja je…',
-    },
+    prompt: { en: 'Neil Armstrong is famous for being the first person to…', 
+              bs: 'Neil Armstrong je poznat kao prva osoba koja je…' },
     options: [
       { en: 'Fly across the Atlantic', bs: 'Preletjela Atlantik' },
       { en: 'Walk on the Moon', bs: 'Hodala po Mjesecu' },
@@ -363,10 +321,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Princess Diana was a beloved member of the British…',
-      bs: 'Princeza Diana bila je omiljena članica britanske…',
-    },
+    prompt: { en: 'Princess Diana was a beloved member of the British…', 
+              bs: 'Princeza Diana bila je omiljena članica britanske…' },
     options: [
       { en: 'Parliament', bs: 'Parlamentarne stranke' },
       { en: 'Navy', bs: 'Ratne mornarice' },
@@ -380,10 +336,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Thomas Edison is often credited with inventing the practical…',
-      bs: 'Thomas Edison se često pripisuje izum praktične…',
-    },
+    prompt: { en: 'Thomas Edison is often credited with inventing the practical…', 
+              bs: 'Thomas Edison se često pripisuje izum praktične…' },
     options: [
       { en: 'Telephone', bs: 'Telefona' },
       { en: 'Television', bs: 'Televizije' },
@@ -397,10 +351,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Malala Yousafzai became the youngest person to receive which major award?',
-      bs: 'Malala Yousafzai je postala najmlađa osoba koja je dobila koju veliku nagradu?',
-    },
+    prompt: { en: 'Malala Yousafzai became the youngest person to receive which major award?', 
+              bs: 'Malala Yousafzai je postala najmlađa osoba koja je dobila koju veliku nagradu?' },
     options: [
       { en: 'Nobel Peace Prize', bs: 'Nobelovu nagradu za mir' },
       { en: 'Academy Award', bs: 'Oskara' },
@@ -414,10 +366,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Winston Churchill served as Prime Minister of…',
-      bs: 'Winston Churchill je bio premijer…',
-    },
+    prompt: { en: 'Winston Churchill served as Prime Minister of…', 
+              bs: 'Winston Churchill je bio premijer…' },
     options: [
       { en: 'Canada', bs: 'Kanade' },
       { en: 'The United Kingdom', bs: 'Ujedinjenog Kraljevstva' },
@@ -431,10 +381,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Arthur Conan Doyle created the famous detective…',
-      bs: 'Arthur Conan Doyle je stvorio poznatog detektiva…',
-    },
+    prompt: { en: 'Arthur Conan Doyle created the famous detective…', 
+              bs: 'Arthur Conan Doyle je stvorio poznatog detektiva…' },
     options: [
       { en: 'Hercule Poirot', bs: 'Hercule Poirot' },
       { en: 'Sherlock Holmes', bs: 'Sherlock Holmes' },
@@ -448,10 +396,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Pablo Picasso was a world-famous…',
-      bs: 'Pablo Picasso je bio svjetski poznati…',
-    },
+    prompt: { en: 'Pablo Picasso was a world-famous…', 
+              bs: 'Pablo Picasso je bio svjetski poznati…' },
     options: [
       { en: 'Chef', bs: 'Kuhar' },
       { en: 'Architect', bs: 'Arhitekta' },
@@ -465,10 +411,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'George Washington was the first president of the…',
-      bs: 'George Washington je bio prvi predsjednik…',
-    },
+    prompt: { en: 'George Washington was the first president of the…', 
+              bs: 'George Washington je bio prvi predsjednik…' },
     options: [
       { en: 'United States', bs: 'Sjedinjenih Američkih Država' },
       { en: 'France', bs: 'Francuske' },
@@ -482,10 +426,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Helen Keller became an inspiration worldwide despite being…',
-      bs: 'Helen Keller je postala inspiracija širom svijeta uprkos tome što je bila…',
-    },
+    prompt: { en: 'Helen Keller became an inspiration worldwide despite being…', 
+              bs: 'Helen Keller je postala inspiracija širom svijeta uprkos tome što je bila…' },
     options: [
       { en: 'Deaf and blind', bs: 'Gluha i slijepa' },
       { en: 'Unable to speak multiple languages', bs: 'Nije mogla govoriti više jezika' },
@@ -499,10 +441,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Abraham Lincoln is best known for serving as U.S. president during the…',
-      bs: 'Abraham Lincoln je najpoznatiji po službi kao predsjednik SAD-a tokom…',
-    },
+    prompt: { en: 'Abraham Lincoln is best known for serving as U.S. president during the…', 
+              bs: 'Abraham Lincoln je najpoznatiji po službi kao predsjednik SAD-a tokom…' },
     options: [
       { en: 'Gold Rush', bs: 'Zlatne groznice' },
       { en: 'Great Depression', bs: 'Velike depresije' },
@@ -516,10 +456,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Which actor starred as Tyler Durden in the film Fight Club?',
-      bs: 'Koji glumac je glumio Tylera Durdena u filmu Fight Club?',
-    },
+    prompt: { en: 'Which actor starred as Tyler Durden in the film Fight Club?', 
+              bs: 'Koji glumac je glumio Tylera Durdena u filmu Fight Club?' },
     options: [
       { en: 'Brad Pitt', bs: 'Brad Pitt' },
       { en: 'Tom Hanks', bs: 'Tom Hanks' },
@@ -533,10 +471,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Mahatma Gandhi led a nonviolent movement for independence in…',
-      bs: 'Mahatma Gandhi je vodio nenasilni pokret za nezavisnost u…',
-    },
+    prompt: { en: 'Mahatma Gandhi led a nonviolent movement for independence in…', 
+              bs: 'Mahatma Gandhi je vodio nenasilni pokret za nezavisnost u…' },
     options: [
       { en: 'India', bs: 'Indiji' },
       { en: 'Egypt', bs: 'Egiptu' },
@@ -550,10 +486,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Charles Darwin is best known for developing the theory of…',
-      bs: 'Charles Darwin je najpoznatiji po razvoju teorije…',
-    },
+    prompt: { en: 'Charles Darwin is best known for developing the theory of…', 
+              bs: 'Charles Darwin je najpoznatiji po razvoju teorije…' },
     options: [
       { en: 'Evolution by natural selection', bs: 'Evolucije prirodnom selekcijom' },
       { en: 'Relativity', bs: 'Relativnosti' },
@@ -567,10 +501,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Leonardo DiCaprio starred as Jack Dawson in which famous film?',
-      bs: 'Leonardo DiCaprio je glumio Jacka Dawsona u kojem poznatom filmu?',
-    },
+    prompt: { en: 'Leonardo DiCaprio starred as Jack Dawson in which famous film?', 
+              bs: 'Leonardo DiCaprio je glumio Jacka Dawsona u kojem poznatom filmu?' },
     options: [
       { en: 'Titanic', bs: 'Titanik' },
       { en: 'Inception', bs: 'Početak' },
@@ -584,10 +516,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Dwayne Johnson is widely known by the nickname…',
-      bs: 'Dwayne Johnson je poznat pod nadimkom…',
-    },
+    prompt: { en: 'Dwayne Johnson is widely known by the nickname…', 
+              bs: 'Dwayne Johnson je poznat pod nadimkom…' },
     options: [
       { en: 'The Chief', bs: 'The Chief' },
       { en: 'The Captain', bs: 'The Captain' },
@@ -601,10 +531,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Tom Hanks starred as a stranded survivor in which film?',
-      bs: 'Tom Hanks je glumio preživjelog na pustom ostrvu u kojem filmu?',
-    },
+    prompt: { en: 'Tom Hanks starred as a stranded survivor in which film?', 
+              bs: 'Tom Hanks je glumio preživjelog na pustom ostrvu u kojem filmu?' },
     options: [
       { en: 'Cast Away', bs: 'Cast Away' },
       { en: 'Gladiator', bs: 'Gladijator' },
@@ -618,10 +546,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Arnold Schwarzenegger became famous as an actor and later served as governor of…',
-      bs: 'Arnold Schwarzenegger je postao poznat kao glumac, a kasnije je bio guverner…',
-    },
+    prompt: { en: 'Arnold Schwarzenegger became famous as an actor and later served as governor of…', 
+              bs: 'Arnold Schwarzenegger je postao poznat kao glumac, a kasnije je bio guverner…' },
     options: [
       { en: 'Texas', bs: 'Teksasa' },
       { en: 'California', bs: 'Kalifornije' },
@@ -635,10 +561,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Meryl Streep is one of the most celebrated…',
-      bs: 'Meryl Streep je jedna od najnagrađivanijih…',
-    },
+    prompt: { en: 'Meryl Streep is one of the most celebrated…', 
+              bs: 'Meryl Streep je jedna od najnagrađivanijih…' },
     options: [
       { en: 'Astronauts', bs: 'Astronautkinja' },
       { en: 'Chefs', bs: 'Kuharica' },
@@ -652,10 +576,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Which famous adventure film was directed by Steven Spielberg?',
-      bs: 'Koji poznati avanturistički film je režirao Steven Spielberg?',
-    },
+    prompt: { en: 'Which famous adventure film was directed by Steven Spielberg?', 
+              bs: 'Koji poznati avanturistički film je režirao Steven Spielberg?' },
     options: [
       { en: 'Jurassic Park', bs: 'Jurassic Park' },
       { en: 'The Godfather', bs: 'Kum' },
@@ -669,10 +591,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Johnny Depp is famous for playing Captain Jack Sparrow in…',
-      bs: 'Johnny Depp je poznat po ulozi kapetana Jacka Sparrowa u…',
-    },
+    prompt: { en: 'Johnny Depp is famous for playing Captain Jack Sparrow in…', 
+              bs: 'Johnny Depp je poznat po ulozi kapetana Jacka Sparrowa u…' },
     options: [
       { en: 'Pirates of the Caribbean', bs: 'Pirati s Kariba' },
       { en: 'Star Wars', bs: 'Star Wars' },
@@ -686,10 +606,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Serena Williams is one of the greatest players in the history of…',
-      bs: 'Serena Williams je jedna od najvećih igračica u historiji…',
-    },
+    prompt: { en: 'Serena Williams is one of the greatest players in the history of…', 
+              bs: 'Serena Williams je jedna od najvećih igračica u historiji…' },
     options: [
       { en: 'Swimming', bs: 'Plivanja' },
       { en: 'Tennis', bs: 'Tenisa' },
@@ -703,10 +621,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Muhammad Ali was a legendary champion in…',
-      bs: 'Muhammad Ali je bio legendarni šampion u…',
-    },
+    prompt: { en: 'Muhammad Ali was a legendary champion in…', 
+              bs: 'Muhammad Ali je bio legendarni šampion u…' },
     options: [
       { en: 'Figure skating', bs: 'Umjetničkom klizanju' },
       { en: 'Golf', bs: 'Golfu' },
@@ -720,10 +636,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Tiger Woods became a global superstar in the sport of…',
-      bs: 'Tiger Woods je postao globalna zvijezda u sportu…',
-    },
+    prompt: { en: 'Tiger Woods became a global superstar in the sport of…', 
+              bs: 'Tiger Woods je postao globalna zvijezda u sportu…' },
     options: [
       { en: 'Basketball', bs: 'Košarke' },
       { en: 'Soccer', bs: 'Nogometa' },
@@ -737,13 +651,11 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Charles Dickens wrote which of these classic novels?',
-      bs: 'Charles Dickens je napisao koji od ovih klasičnih romana?',
-    },
+    prompt: { en: 'Charles Dickens wrote which of these classic novels?', 
+              bs: 'Charles Dickens je napisao koji od ovih klasičnih romana?' },
     options: [
       { en: 'A Tale of Two Cities', bs: 'Priča o dva grada' },
-      { en: 'Oliver Twist', bs: 'Oliver Twist' },
+      { en: 'Pride and Prejudice', bs: 'Ponos i predrasude' },
       { en: 'The Odyssey', bs: 'Odiseja' },
       { en: 'Don Quixote', bs: 'Don Kihot' },
     ],
@@ -754,10 +666,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Jane Austen is famous for writing which classic novel?',
-      bs: 'Jane Austen je poznata po pisanju kojeg klasičnog romana?',
-    },
+    prompt: { en: 'Jane Austen is famous for writing which classic novel?', 
+              bs: 'Jane Austen je poznata po pisanju kojeg klasičnog romana?' },
     options: [
       { en: 'Pride and Prejudice', bs: 'Ponos i predrasude' },
       { en: 'Jane Eyre', bs: 'Džejn Ejr' },
@@ -771,10 +681,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'William Shakespeare is celebrated as a great…',
-      bs: 'William Shakespeare se slavi kao veliki…',
-    },
+    prompt: { en: 'William Shakespeare is celebrated as a great…', 
+              bs: 'William Shakespeare se slavi kao veliki…' },
     options: [
       { en: 'Inventor', bs: 'Izumitelj' },
       { en: 'Explorer', bs: 'Istraživač' },
@@ -788,10 +696,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Agatha Christie is famous for writing…',
-      bs: 'Agatha Christie je poznata po pisanju…',
-    },
+    prompt: { en: 'Agatha Christie is famous for writing…', 
+              bs: 'Agatha Christie je poznata po pisanju…' },
     options: [
       { en: 'Comic books', bs: 'Stripova' },
       { en: 'Cookbooks', bs: 'Kuharica' },
@@ -805,12 +711,10 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Dr. Seuss is best known for writing…',
-      bs: 'Dr. Seuss je najpoznatiji po pisanju…',
-    },
+    prompt: { en: 'Dr. Seuss is best known for writing…', 
+              bs: 'Dr. Seuss je najpoznatiji po pisanju…' },
     options: [
-      { en: "Children's books", bs: 'Dječijih knjiga' },
+      { en: 'Children\'s books', bs: 'Dječijih knjiga' },
       { en: 'Legal contracts', bs: 'Pravnih ugovora' },
       { en: 'Medical journals', bs: 'Medicinskih časopisa' },
       { en: 'War memoirs', bs: 'Ratnih memoara' },
@@ -822,27 +726,23 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Dr. John Watson is the loyal companion of…',
-      bs: 'Dr. John Watson je vjerni suputnik…',
-    },
+    prompt: { en: 'Beyoncé first rose to fame as a lead singer of which group?', 
+              bs: 'Beyoncé je prvo stekla slavu kao vodeća pjevačica koje grupe?' },
     options: [
-      { en: 'Hercule Poirot', bs: 'Hercule Poirota' },
-      { en: 'Sherlock Holmes', bs: 'Sherlocka Holmesa' },
-      { en: 'James Bond', bs: 'Jamesa Bonda' },
-      { en: 'Indiana Jones', bs: 'Indiane Jonesa' },
+      { en: 'Destiny\'s Child', bs: 'Destiny\'s Child' },
+      { en: 'The Supremes', bs: 'The Supremes' },
+      { en: 'Spice Girls', bs: 'Spice Girls' },
+      { en: 'Blackpink', bs: 'Blackpink' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-easy-050',
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Hans Christian Andersen is best known for writing…',
-      bs: 'Hans Christian Andersen je najpoznatiji po pisanju…',
-    },
+    prompt: { en: 'Hans Christian Andersen is best known for writing…', 
+              bs: 'Hans Christian Andersen je najpoznatiji po pisanju…' },
     options: [
       { en: 'Fairy tales', bs: 'Bajki' },
       { en: 'Detective novels', bs: 'Detektivskih romana' },
@@ -856,10 +756,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Vincent van Gogh was a famous…',
-      bs: 'Vincent van Gogh je bio poznati…',
-    },
+    prompt: { en: 'Vincent van Gogh was a famous…', 
+              bs: 'Vincent van Gogh je bio poznati…' },
     options: [
       { en: 'Chef', bs: 'Kuhar' },
       { en: 'Sailor', bs: 'Mornar' },
@@ -873,10 +771,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Claude Monet is associated with the art movement called…',
-      bs: 'Claude Monet se povezuje s umjetničkim pravcem nazvanim…',
-    },
+    prompt: { en: 'Claude Monet is associated with the art movement called…', 
+              bs: 'Claude Monet se povezuje s umjetničkim pravcem nazvanim…' },
     options: [
       { en: 'Impressionism', bs: 'Impresionizam' },
       { en: 'Cubism', bs: 'Kubizam' },
@@ -890,15 +786,13 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Salvador Dalí is famous for which surrealist painting?',
-      bs: 'Salvador Dalí je poznat po kojoj nadrealističkoj slici?',
-    },
+    prompt: { en: 'Freddie Mercury was the lead singer of which rock band?', 
+              bs: 'Freddie Mercury je bio vodeći pjevač kojeg rock benda?' },
     options: [
-      { en: 'The Persistence of Memory', bs: 'Postojanost sjećanja' },
-      { en: 'Guernica', bs: 'Guernica' },
-      { en: 'The Starry Night', bs: 'Zvjezdana noć' },
-      { en: 'Mona Lisa', bs: 'Mona Lisa' },
+      { en: 'Queen', bs: 'Queen' },
+      { en: 'The Beatles', bs: 'The Beatles' },
+      { en: 'ABBA', bs: 'ABBA' },
+      { en: 'U2', bs: 'U2' },
     ],
     correctIndex: 0,
   },
@@ -907,15 +801,13 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Andy Warhol became famous as a leading figure of which art movement?',
-      bs: 'Andy Warhol je postao poznat kao jedan od vodećih predstavnika kojeg umjetničkog pokreta?',
-    },
+    prompt: { en: 'Rihanna is a Barbados-born star best known as a…', 
+              bs: 'Rihanna je zvijezda rođena na Barbadosu, najpoznatija kao…' },
     options: [
-      { en: 'Pop art', bs: 'Pop arta' },
-      { en: 'Surrealism', bs: 'Nadrealizma' },
-      { en: 'Impressionism', bs: 'Impresionizma' },
-      { en: 'Cubism', bs: 'Kubizma' },
+      { en: 'Pop singer', bs: 'Pop pjevačica' },
+      { en: 'Chess champion', bs: 'Šahovska prvakinja' },
+      { en: 'Astronaut', bs: 'Astronautkinja' },
+      { en: 'Prime minister', bs: 'Premijerka' },
     ],
     correctIndex: 0,
   },
@@ -924,10 +816,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Michelangelo painted the ceiling of the…',
-      bs: 'Michelangelo je oslikao plafon…',
-    },
+    prompt: { en: 'Michelangelo painted the ceiling of the…', 
+              bs: 'Michelangelo je oslikao plafon…' },
     options: [
       { en: 'Louvre Museum', bs: 'Muzeja Louvre' },
       { en: 'British Museum', bs: 'Britanskog muzeja' },
@@ -941,10 +831,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Aristotle was an ancient Greek…',
-      bs: 'Aristotel je bio drevni grčki…',
-    },
+    prompt: { en: 'Aristotle was an ancient Greek…', 
+              bs: 'Aristotel je bio drevni grčki…' },
     options: [
       { en: 'Philosopher', bs: 'Filozof' },
       { en: 'Chef', bs: 'Kuhar' },
@@ -958,10 +846,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Plato was a famous philosopher from ancient…',
-      bs: 'Platon je bio poznati filozof iz…',
-    },
+    prompt: { en: 'Plato was a famous philosopher from ancient…', 
+              bs: 'Platon je bio poznati filozof iz…' },
     options: [
       { en: 'Rome', bs: 'Drevnog Rima' },
       { en: 'Greece', bs: 'Drevne Grčke' },
@@ -975,10 +861,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Socrates is remembered as a founding figure of which field?',
-      bs: 'Sokrat se pamti kao jedan od osnivača kojeg područja?',
-    },
+    prompt: { en: 'Socrates is remembered as a founding figure of which field?', 
+              bs: 'Sokrat se pamti kao jedan od osnivača kojeg područja?' },
     options: [
       { en: 'Western philosophy', bs: 'Zapadne filozofije' },
       { en: 'Modern economics', bs: 'Moderne ekonomije' },
@@ -992,27 +876,23 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Confucius was an influential teacher and thinker from…',
-      bs: 'Konfucije je bio uticajan učitelj i mislilac iz…',
-    },
+    prompt: { en: 'Wolfgang Amadeus Mozart was a famous…', 
+              bs: 'Wolfgang Amadeus Mozart je bio poznati…' },
     options: [
-      { en: 'Japan', bs: 'Japana' },
-      { en: 'India', bs: 'Indije' },
-      { en: 'Persia', bs: 'Perzije' },
-      { en: 'China', bs: 'Kine' },
+      { en: 'Composer', bs: 'Kompozitor' },
+      { en: 'Painter', bs: 'Slikar' },
+      { en: 'Explorer', bs: 'Istraživač' },
+      { en: 'Inventor', bs: 'Izumitelj' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
     id: 'fam-easy-060',
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Buddha is the title given to the spiritual teacher Siddhartha Gautama from…',
-      bs: 'Buda je naslov dat duhovnom učitelju Siddharthi Gautami iz…',
-    },
+    prompt: { en: 'Buddha is the title given to the spiritual teacher Siddhartha Gautama from…', 
+              bs: 'Buda je naslov dat duhovnom učitelju Siddharthi Gautami iz…' },
     options: [
       { en: 'Ancient India', bs: 'Drevne Indije' },
       { en: 'Ancient Rome', bs: 'Drevnog Rima' },
@@ -1026,10 +906,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Joan of Arc is a national heroine associated with which country?',
-      bs: 'Ivana d’Ark je nacionalna heroina povezana s kojom državom?',
-    },
+    prompt: { en: 'Joan of Arc is a national heroine associated with which country?', 
+              bs: 'Ivana d’Ark je nacionalna heroina povezana s kojom državom?' },
     options: [
       { en: 'France', bs: 'Francuskom' },
       { en: 'England', bs: 'Engleskom' },
@@ -1043,10 +921,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Napoleon Bonaparte was a famous emperor of…',
-      bs: 'Napoleon Bonaparte je bio poznati car…',
-    },
+    prompt: { en: 'Napoleon Bonaparte was a famous emperor of…', 
+              bs: 'Napoleon Bonaparte je bio poznati car…' },
     options: [
       { en: 'Russia', bs: 'Rusije' },
       { en: 'Austria', bs: 'Austrije' },
@@ -1060,10 +936,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Julius Caesar was a famous leader of ancient…',
-      bs: 'Julije Cezar je bio poznati vođa…',
-    },
+    prompt: { en: 'Julius Caesar was a famous leader of ancient…', 
+              bs: 'Julije Cezar je bio poznati vođa…' },
     options: [
       { en: 'Greece', bs: 'Drevne Grčke' },
       { en: 'Persia', bs: 'Drevne Perzije' },
@@ -1077,10 +951,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Alexander the Great created one of the largest empires of…',
-      bs: 'Aleksandar Veliki je stvorio jedno od najvećih carstava…',
-    },
+    prompt: { en: 'Alexander the Great created one of the largest empires of…', 
+              bs: 'Aleksandar Veliki je stvorio jedno od najvećih carstava…' },
     options: [
       { en: 'Ancient history', bs: 'Drevne historije' },
       { en: 'Modern Europe', bs: 'Moderne Evrope' },
@@ -1094,10 +966,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Christopher Columbus is famous for his voyages across the…',
-      bs: 'Kristofor Kolumbo je poznat po svojim putovanjima preko…',
-    },
+    prompt: { en: 'Christopher Columbus is famous for his voyages across the…', 
+              bs: 'Kristofor Kolumbo je poznat po svojim putovanjima preko…' },
     options: [
       { en: 'Sahara Desert', bs: 'Sahare' },
       { en: 'Atlantic Ocean', bs: 'Atlantskog oceana' },
@@ -1111,10 +981,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Marco Polo is remembered as a famous…',
-      bs: 'Marco Polo se pamti kao poznati…',
-    },
+    prompt: { en: 'Marco Polo is remembered as a famous…', 
+              bs: 'Marco Polo se pamti kao poznati…' },
     options: [
       { en: 'Chef', bs: 'Kuhar' },
       { en: 'Painter', bs: 'Slikar' },
@@ -1128,10 +996,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Ferdinand Magellan is best known for leading the first expedition to…',
-      bs: 'Ferdinand Magellan je najpoznatiji po vođenju prve ekspedicije koja je…',
-    },
+    prompt: { en: 'Ferdinand Magellan is best known for leading the first expedition to…', 
+              bs: 'Ferdinand Magellan je najpoznatiji po vođenju prve ekspedicije koja je…' },
     options: [
       { en: 'Reach the Moon', bs: 'Stigla do Mjeseca' },
       { en: 'Climb Mount Everest', bs: 'Popela se na Mount Everest' },
@@ -1145,10 +1011,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Amelia Earhart became famous for being the first woman to fly solo across the…',
-      bs: 'Amelia Earhart je postala poznata kao prva žena koja je sama preletjela…',
-    },
+    prompt: { en: 'Amelia Earhart became famous for being the first woman to fly solo across the…', 
+              bs: 'Amelia Earhart je postala poznata kao prva žena koja je sama preletjela…' },
     options: [
       { en: 'Atlantic Ocean', bs: 'Atlantski okean' },
       { en: 'Pacific Ocean', bs: 'Tihi okean' },
@@ -1162,27 +1026,23 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'The Wright brothers are credited with achieving the first successful powered…',
-      bs: 'Braća Wright se smatraju zaslužnim za prvi uspješan motorizovani…',
-    },
+    prompt: { en: 'Simone Biles is widely regarded as one of the greatest athletes in…', 
+              bs: 'Simone Biles se široko smatra jednom od najvećih sportašica u…' },
     options: [
-      { en: 'Submarine dive', bs: 'Zaron podmornicom' },
-      { en: 'Airplane flight', bs: 'Let avionom' },
-      { en: 'Rocket launch', bs: 'Lansiranje rakete' },
-      { en: 'Hot air balloon crossing', bs: 'Prelet balonom na vrući zrak' },
+      { en: 'Gymnastics', bs: 'Gimnastici' },
+      { en: 'Ice hockey', bs: 'Hokeju na ledu' },
+      { en: 'Formula One', bs: 'Formuli 1' },
+      { en: 'Golf', bs: 'Golfu' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-easy-070',
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Henry Ford revolutionized manufacturing with the…',
-      bs: 'Henry Ford je revolucionisao proizvodnju pomoću…',
-    },
+    prompt: { en: 'Henry Ford revolutionized manufacturing with the…', 
+              bs: 'Henry Ford je revolucionisao proizvodnju pomoću…' },
     options: [
       { en: 'Printing press', bs: 'Pisaćeg stroja' },
       { en: 'Telegraph', bs: 'Telegrafa' },
@@ -1196,10 +1056,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Tim Cook is the CEO of which major technology company?',
-      bs: 'Tim Cook je CEO koje velike tehnološke kompanije?',
-    },
+    prompt: { en: 'Tim Cook is the CEO of which major technology company?', 
+              bs: 'Tim Cook je CEO koje velike tehnološke kompanije?' },
     options: [
       { en: 'Netflix', bs: 'Netflixa' },
       { en: 'Oracle', bs: 'Oraclea' },
@@ -1213,10 +1071,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Warren Buffett is one of the most famous…',
-      bs: 'Warren Buffett je jedan od najpoznatijih…',
-    },
+    prompt: { en: 'Warren Buffett is one of the most famous…', 
+              bs: 'Warren Buffett je jedan od najpoznatijih…' },
     options: [
       { en: 'Investors', bs: 'Investitora' },
       { en: 'Astronauts', bs: 'Astronauta' },
@@ -1230,44 +1086,38 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Hercule Poirot is a famous detective created by…',
-      bs: 'Hercule Poirot je poznati detektiv koga je stvorila…',
-    },
+    prompt: { en: 'Elvis Presley is often called the King of…', 
+              bs: 'Elvis Presley se često naziva kraljem…' },
     options: [
-      { en: 'Arthur Conan Doyle', bs: 'Arthur Conan Doyle' },
-      { en: 'Agatha Christie', bs: 'Agatha Christie' },
-      { en: 'Edgar Allan Poe', bs: 'Edgar Allan Poe' },
-      { en: 'Roald Dahl', bs: 'Roald Dahl' },
+      { en: 'Rock and roll', bs: 'Rock and rolla' },
+      { en: 'Classical ballet', bs: 'Klasičnog baleta' },
+      { en: 'Country cooking', bs: 'Seoske kuhinje' },
+      { en: 'Modern sculpture', bs: 'Moderne skulpture' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-easy-074',
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Sherlock Holmes is famously associated with an address on…',
-      bs: 'Sherlock Holmes je poznat po adresi na…',
-    },
+    prompt: { en: 'Adele is a British artist famous for her powerful…', 
+              bs: 'Adele je britanska umjetnica poznata po snažnom…' },
     options: [
-      { en: 'Wall Street', bs: 'Wall Streetu' },
-      { en: 'Baker Street', bs: 'Baker Streetu' },
-      { en: 'Oxford Street', bs: 'Oxford Streetu' },
-      { en: 'Downing Street', bs: 'Downing Streetu' },
+      { en: 'Singing voice', bs: 'Pjevačkom glasu' },
+      { en: 'Olympic diving', bs: 'Olimpijskom skakanju u vodu' },
+      { en: 'Political speeches', bs: 'Političkim govorima' },
+      { en: 'Landscape painting', bs: 'Pejzažnom slikarstvu' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-easy-075',
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Larry Page co-founded which internet company?',
-      bs: 'Larry Page je suosnovao koju internet kompaniju?',
-    },
+    prompt: { en: 'Larry Page co-founded which internet company?', 
+              bs: 'Larry Page je suosnovao koju internet kompaniju?' },
     options: [
       { en: 'Yahoo', bs: 'Yahoo' },
       { en: 'eBay', bs: 'eBay' },
@@ -1281,15 +1131,13 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Sergey Brin helped create which search engine company?',
-      bs: 'Sergey Brin je pomogao stvoriti koju kompaniju za pretraživanje?',
-    },
+    prompt: { en: 'Brian Chesky co-founded which home-sharing company?', 
+              bs: 'Brian Chesky je suosnovao koju kompaniju za dijeljenje smještaja?' },
     options: [
-      { en: 'Google', bs: 'Google' },
-      { en: 'Bing', bs: 'Bing' },
-      { en: 'DuckDuckGo', bs: 'DuckDuckGo' },
-      { en: 'Ask Jeeves', bs: 'Ask Jeeves' },
+      { en: 'Airbnb', bs: 'Airbnb' },
+      { en: 'Uber', bs: 'Uber' },
+      { en: 'Spotify', bs: 'Spotify' },
+      { en: 'Netflix', bs: 'Netflix' },
     ],
     correctIndex: 0,
   },
@@ -1298,10 +1146,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Jack Dorsey co-founded which social media platform?',
-      bs: 'Jack Dorsey je suosnovao koju društvenu mrežu?',
-    },
+    prompt: { en: 'Jack Dorsey co-founded which social media platform?', 
+              bs: 'Jack Dorsey je suosnovao koju društvenu mrežu?' },
     options: [
       { en: 'Instagram', bs: 'Instagram' },
       { en: 'Twitter', bs: 'Twitter' },
@@ -1315,10 +1161,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Sundar Pichai is the CEO of…',
-      bs: 'Sundar Pichai je CEO…',
-    },
+    prompt: { en: 'Sundar Pichai is the CEO of…', 
+              bs: 'Sundar Pichai je CEO…' },
     options: [
       { en: 'Microsoft', bs: 'Microsofta' },
       { en: 'Amazon', bs: 'Amazona' },
@@ -1332,32 +1176,28 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Professor Moriarty is often portrayed as the archenemy of…',
-      bs: 'Profesor Moriarty se često prikazuje kao neprijatelj…',
-    },
+    prompt: { en: 'Cristiano Ronaldo is a global superstar in which sport?', 
+              bs: 'Cristiano Ronaldo je globalna zvijezda u kojem sportu?' },
     options: [
-      { en: 'James Bond', bs: 'Jamesa Bonda' },
-      { en: 'Sherlock Holmes', bs: 'Sherlocka Holmesa' },
-      { en: 'Batman', bs: 'Batmana' },
-      { en: 'Robin Hood', bs: 'Robin Hooda' },
+      { en: 'Football (soccer)', bs: 'Nogometu' },
+      { en: 'Tennis', bs: 'Tenisu' },
+      { en: 'Baseball', bs: 'Bejzbolu' },
+      { en: 'Boxing', bs: 'Boksu' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-easy-080',
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Tim Berners-Lee is credited with inventing the…',
-      bs: 'Tim Berners-Lee-u se pripisuje izum…',
-    },
+    prompt: { en: 'Rosa Parks became a civil rights icon after refusing to give up her seat on a…', 
+              bs: 'Rosa Parks je postala ikona građanskih prava nakon što je odbila ustupiti mjesto u…' },
     options: [
-      { en: 'World Wide Web', bs: 'World Wide Weba' },
-      { en: 'Television', bs: 'Televizije' },
-      { en: 'Radio', bs: 'Radija' },
-      { en: 'Telephone', bs: 'Telefona' },
+      { en: 'Bus', bs: 'Autobusu' },
+      { en: 'Theater', bs: 'Pozorištu' },
+      { en: 'Classroom', bs: 'Učionici' },
+      { en: 'Courthouse', bs: 'Sudnici' },
     ],
     correctIndex: 0,
   },
@@ -1366,10 +1206,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Which NBA team did Shaquille O\'Neal help lead to three consecutive championships from 2000 to 2002?',
-      bs: 'Kojem NBA timu je Shaquille O\'Neal pomogao osvojiti tri uzastopne titule od 2000. do 2002. godine?',
-    },
+    prompt: { en: 'Which NBA team did Shaquille O\'Neal help lead to three consecutive championships from 2000 to 2002?', 
+              bs: 'Kojem NBA timu je Shaquille O\'Neal pomogao osvojiti tri uzastopne titule od 2000. do 2002. godine?' },
     options: [
       { en: 'Los Angeles Lakers', bs: 'Los Angeles Lakers' },
       { en: 'Miami Heat', bs: 'Miami Heat' },
@@ -1383,10 +1221,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Louis Pasteur developed methods important to…',
-      bs: 'Louis Pasteur je razvio metode važne za…',
-    },
+    prompt: { en: 'Louis Pasteur developed methods important to…', 
+              bs: 'Louis Pasteur je razvio metode važne za…' },
     options: [
       { en: 'Bridge building', bs: 'Gradnju mostova' },
       { en: 'Map drawing', bs: 'Crtanje karata' },
@@ -1400,10 +1236,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Alexander Fleming discovered…',
-      bs: 'Alexander Fleming je otkrio…',
-    },
+    prompt: { en: 'Alexander Fleming discovered…', 
+              bs: 'Alexander Fleming je otkrio…' },
     options: [
       { en: 'Gravity', bs: 'Gravitaciju' },
       { en: 'Electricity', bs: 'Električnu struju' },
@@ -1417,15 +1251,13 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Jonas Salk became famous for developing one of the first successful vaccines against…',
-      bs: 'Jonas Salk je postao poznat po razvoju jedne od prvih uspješnih vakcina protiv…',
-    },
+    prompt: { en: 'Ruth Bader Ginsburg served as a justice on the…', 
+              bs: 'Ruth Bader Ginsburg je služila kao sutkinja…' },
     options: [
-      { en: 'Polio', bs: 'Dječje paralize' },
-      { en: 'Measles', bs: 'Ospica' },
-      { en: 'Smallpox', bs: 'Velikih boginja' },
-      { en: 'Tuberculosis', bs: 'Tuberkuloze' },
+      { en: 'U.S. Supreme Court', bs: 'Vrhovnog suda SAD-a' },
+      { en: 'International Olympic Committee', bs: 'Međunarodnog olimpijskog komiteta' },
+      { en: 'European Parliament', bs: 'Evropskog parlamenta' },
+      { en: 'United Nations Security Council', bs: 'Vijeća sigurnosti UN-a' },
     ],
     correctIndex: 0,
   },
@@ -1434,10 +1266,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Hippocrates is often called the father of…',
-      bs: 'Hipokrat se često naziva ocem…',
-    },
+    prompt: { en: 'Hippocrates is often called the father of…', 
+              bs: 'Hipokrat se često naziva ocem…' },
     options: [
       { en: 'Modern medicine', bs: 'Moderne medicine' },
       { en: 'Astronomy', bs: 'Astronomije' },
@@ -1451,10 +1281,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Galileo Galilei made important discoveries in…',
-      bs: 'Galileo Galilei je ostvario važna otkrića u…',
-    },
+    prompt: { en: 'Galileo Galilei made important discoveries in…', 
+              bs: 'Galileo Galilei je ostvario važna otkrića u…' },
     options: [
       { en: 'Fashion design', bs: 'Modnom dizajnu' },
       { en: 'Cooking science', bs: 'Nauci o kuhanju' },
@@ -1468,10 +1296,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Nicolaus Copernicus proposed that the…',
-      bs: 'Nikola Kopernik je predložio da…',
-    },
+    prompt: { en: 'Nicolaus Copernicus proposed that the…', 
+              bs: 'Nikola Kopernik je predložio da…' },
     options: [
       { en: 'Sun orbits the Earth', bs: 'Sunce kruži oko Zemlje' },
       { en: 'Earth is the center of the universe', bs: 'Zemlja je centar svemira' },
@@ -1485,10 +1311,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Stephen Hawking was a famous scientist who studied…',
-      bs: 'Stephen Hawking je bio poznati naučnik koji je proučavao…',
-    },
+    prompt: { en: 'Stephen Hawking was a famous scientist who studied…', 
+              bs: 'Stephen Hawking je bio poznati naučnik koji je proučavao…' },
     options: [
       { en: 'The universe and black holes', bs: 'Univerzum i crne rupe' },
       { en: 'Shoe design', bs: 'Dizajn cipela' },
@@ -1502,10 +1326,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Nikola Tesla is famous for his work with…',
-      bs: 'Nikola Tesla je poznat po radu s…',
-    },
+    prompt: { en: 'Nikola Tesla is famous for his work with…', 
+              bs: 'Nikola Tesla je poznat po radu s…' },
     options: [
       { en: 'Paper making', bs: 'Proizvodnjom papira' },
       { en: 'Electricity', bs: 'Električnom energijom' },
@@ -1519,10 +1341,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Benjamin Franklin was a Founding Father of the United States and also a…',
-      bs: 'Benjamin Franklin je bio jedan od osnivača SAD-a i također…',
-    },
+    prompt: { en: 'Benjamin Franklin was a Founding Father of the United States and also a…', 
+              bs: 'Benjamin Franklin je bio jedan od osnivača SAD-a i također…' },
     options: [
       { en: 'Inventor', bs: 'Izumitelj' },
       { en: 'Military commander', bs: 'Vojni zapovjednik' },
@@ -1536,10 +1356,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'George Clooney is a famous…',
-      bs: 'George Clooney je poznati…',
-    },
+    prompt: { en: 'George Clooney is a famous…', 
+              bs: 'George Clooney je poznati…' },
     options: [
       { en: 'Architect', bs: 'Arhitekta' },
       { en: 'Chef', bs: 'Kuhar' },
@@ -1553,15 +1371,13 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'In which film did Brad Pitt play a leading role?',
-      bs: 'U kojem filmu je Brad Pitt glumio glavnu ulogu?',
-    },
+    prompt: { en: 'Emma Watson played Hermione Granger in which film series?', 
+              bs: 'Emma Watson je glumila Hermionu Granger u kojem filmskom serijalu?' },
     options: [
-      { en: 'Fight Club', bs: 'Fight Club' },
-      { en: 'Titanic', bs: 'Titanic' },
-      { en: 'The Dark Knight', bs: 'The Dark Knight' },
-      { en: 'The Godfather', bs: 'Kum' },
+      { en: 'Harry Potter', bs: 'Harry Potter' },
+      { en: 'The Hunger Games', bs: 'Igre gladi' },
+      { en: 'Twilight', bs: 'Sumrak' },
+      { en: 'The Chronicles of Narnia', bs: 'Letopisi Narnije' },
     ],
     correctIndex: 0,
   },
@@ -1570,10 +1386,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Angelina Jolie is known worldwide as an…',
-      bs: 'Angelina Jolie je svjetski poznata kao…',
-    },
+    prompt: { en: 'Angelina Jolie is known worldwide as an…', 
+              bs: 'Angelina Jolie je svjetski poznata kao…' },
     options: [
       { en: 'Astronaut', bs: 'Astronautkinja' },
       { en: 'Actress', bs: 'Glumica' },
@@ -1587,10 +1401,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Jennifer Lawrence won an Oscar for her role in…',
-      bs: 'Jennifer Lawrence je osvojila Oskara za ulogu u…',
-    },
+    prompt: { en: 'Jennifer Lawrence won an Oscar for her role in…', 
+              bs: 'Jennifer Lawrence je osvojila Oskara za ulogu u…' },
     options: [
       { en: 'La La Land', bs: 'La La Land' },
       { en: 'Million Dollar Baby', bs: 'Million Dollar Baby' },
@@ -1604,10 +1416,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Keanu Reeves played Neo in which science fiction film?',
-      bs: 'Keanu Reeves je glumio Nea u kojem naučno-fantastičnom filmu?',
-    },
+    prompt: { en: 'Keanu Reeves played Neo in which science fiction film?', 
+              bs: 'Keanu Reeves je glumio Nea u kojem naučno-fantastičnom filmu?' },
     options: [
       { en: 'The Matrix', bs: 'Matrix' },
       { en: 'Blade Runner', bs: 'Istrebljivač' },
@@ -1621,10 +1431,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Morgan Freeman is famous for his distinctive voice and roles in films such as…',
-      bs: 'Morgan Freeman je poznat po prepoznatljivom glasu i ulogama u filmovima poput…',
-    },
+    prompt: { en: 'Morgan Freeman is famous for his distinctive voice and roles in films such as…', 
+              bs: 'Morgan Freeman je poznat po prepoznatljivom glasu i ulogama u filmovima poput…' },
     options: [
       { en: 'The Shawshank Redemption', bs: 'Iskupljenje u Shawshanku' },
       { en: 'The Titanic', bs: 'Titanik' },
@@ -1638,10 +1446,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Will Smith starred as Agent J in which film series?',
-      bs: 'Will Smith je glumio agenta J u kojem filmskom serijalu?',
-    },
+    prompt: { en: 'Will Smith starred as Agent J in which film series?', 
+              bs: 'Will Smith je glumio agenta J u kojem filmskom serijalu?' },
     options: [
       { en: 'Men in Black', bs: 'Ljudi u crnom' },
       { en: 'I Am Legend', bs: 'Ja sam legenda' },
@@ -1655,10 +1461,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Bruce Lee became a global icon in…',
-      bs: 'Bruce Lee je postao globalna ikona u…',
-    },
+    prompt: { en: 'Bruce Lee became a global icon in…', 
+              bs: 'Bruce Lee je postao globalna ikona u…' },
     options: [
       { en: 'Opera singing', bs: 'Opernom pjevanju' },
       { en: 'Ballet dancing', bs: 'Baletnom plesu' },
@@ -1672,10 +1476,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Jackie Chan is famous for combining comedy with which type of film action?',
-      bs: 'Jackie Chan je poznat po spajanju komedije s kojom vrstom filmske akcije?',
-    },
+    prompt: { en: 'Jackie Chan is famous for combining comedy with which type of film action?', 
+              bs: 'Jackie Chan je poznat po spajanju komedije s kojom vrstom filmske akcije?' },
     options: [
       { en: 'Action stunts', bs: 'Akcijsko-kaskaderskim scenama' },
       { en: 'Sword fighting', bs: 'Borbi mačevima' },
@@ -1689,10 +1491,8 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: {
-      en: 'Charlie Chaplin was a legendary star of which type of cinema?',
-      bs: 'Charlie Chaplin je bio legendarna zvijezda kojeg tipa filma?',
-    },
+    prompt: { en: 'Charlie Chaplin was a legendary star of which type of cinema?', 
+              bs: 'Charlie Chaplin je bio legendarna zvijezda kojeg tipa filma?' },
     options: [
       { en: 'Silent films', bs: 'Nijemih filmova' },
       { en: 'Animated films', bs: 'Animiranih filmova' },

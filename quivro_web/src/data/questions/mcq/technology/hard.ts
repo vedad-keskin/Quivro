@@ -6,10 +6,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which year was the original Super Mario Bros. released (NES)?',
-      bs: 'Koje godine je izašao originalni Super Mario Bros. (NES)?',
-    },
+    prompt: { en: 'Which year was the original Super Mario Bros. released (NES)?', 
+              bs: 'Koje godine je izašao originalni Super Mario Bros. (NES)?' },
     options: [
       { en: '1983', bs: '1983' },
       { en: '1985', bs: '1985' },
@@ -23,10 +21,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which digital distribution platform is Valve best known for creating?',
-      bs: 'Koju digitalnu platformu za distribuciju je Valve najpoznatiji po kreiranju?',
-    },
+    prompt: { en: 'Which digital distribution platform is Valve best known for creating?', 
+              bs: 'Koju digitalnu platformu za distribuciju je Valve najpoznatiji po kreiranju?' },
     options: [
       { en: 'Xbox Live', bs: 'Xbox Live' },
       { en: 'PlayStation Network', bs: 'PlayStation Network' },
@@ -40,10 +36,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In online gaming slang, what does “GG” usually mean?',
-      bs: 'U online igračkom žargonu, šta “GG” obično znači?',
-    },
+    prompt: { en: 'In online gaming slang, what does “GG” usually mean?', 
+              bs: 'U online igračkom žargonu, šta “GG” obično znači?' },
     options: [
       { en: 'Go Green', bs: 'Go Green' },
       { en: 'Great Goal', bs: 'Great Goal' },
@@ -57,10 +51,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which game engine does Epic Games develop?',
-      bs: 'Koji game engine razvija Epic Games?',
-    },
+    prompt: { en: 'Which game engine does Epic Games develop?', 
+              bs: 'Koji game engine razvija Epic Games?' },
     options: [
       { en: 'Unreal Engine', bs: 'Unreal Engine' },
       { en: 'Unity', bs: 'Unity' },
@@ -74,10 +66,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'The famous Konami Code, a classic cheat sequence used in many games, starts with which inputs?',
-      bs: 'Poznati Konami kod, klasična šifra korištena u mnogim igrama, počinje kojim unosima?',
-    },
+    prompt: { en: 'The famous Konami Code, a classic cheat sequence used in many games, starts with which inputs?', 
+              bs: 'Poznati Konami kod, klasična šifra korištena u mnogim igrama, počinje kojim unosima?' },
     options: [
       { en: 'Up Up Down Down', bs: 'Gore Gore Dolje Dolje' },
       { en: 'Left Right Left Right', bs: 'Lijevo Desno Lijevo Desno' },
@@ -91,10 +81,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which NES cartridge was among the first to use battery-backed save RAM for progress?',
-      bs: 'Koji NES kartridž je bio među prvima s baterijski podržanim save RAM-om za napredak?',
-    },
+    prompt: { en: 'Which NES cartridge was among the first to use battery-backed save RAM for progress?', 
+              bs: 'Koji NES kartridž je bio među prvima s baterijski podržanim save RAM-om za napredak?' },
     options: [
       { en: 'The Legend of Zelda', bs: 'The Legend of Zelda' },
       { en: 'Metroid', bs: 'Metroid' },
@@ -108,10 +96,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In which year was the original Doom released?',
-      bs: 'Koje godine je izašao originalni Doom?',
-    },
+    prompt: { en: 'In which year was the original Doom released?', 
+              bs: 'Koje godine je izašao originalni Doom?' },
     options: [
       { en: '1991', bs: '1991' },
       { en: '1995', bs: '1995' },
@@ -125,10 +111,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Hideo Kojima is best known as the creator of which series?',
-      bs: 'Hideo Kojima je najpoznatiji kao kreator kojeg serijala?',
-    },
+    prompt: { en: 'Hideo Kojima is best known as the creator of which series?', 
+              bs: 'Hideo Kojima je najpoznatiji kao kreator kojeg serijala?' },
     options: [
       { en: 'Metal Gear', bs: 'Metal Gear' },
       { en: 'Street Fighter', bs: 'Street Fighter' },
@@ -142,10 +126,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which CPU architecture did the original Game Boy use?',
-      bs: 'Koju CPU arhitekturu je koristio originalni Game Boy?',
-    },
+    prompt: { en: 'Which CPU architecture did the original Game Boy use?', 
+              bs: 'Koju CPU arhitekturu je koristio originalni Game Boy?' },
     options: [
       { en: 'Sharp LR35902 (Z80-derived)', bs: 'Sharp LR35902 (izveden iz Z80)' },
       { en: 'MOS 6502', bs: 'MOS 6502' },
@@ -159,10 +141,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which year did the original PlayStation launch in Japan?',
-      bs: 'Koje godine je originalni PlayStation lansiran u Japanu?',
-    },
+    prompt: { en: 'Which year did the original PlayStation launch in Japan?', 
+              bs: 'Koje godine je originalni PlayStation lansiran u Japanu?' },
     options: [
       { en: '1992', bs: '1992' },
       { en: '1996', bs: '1996' },
@@ -176,10 +156,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In Dark Souls, what is the primary purpose of bonfires?',
-      bs: 'U Dark Soulsu, koja je glavna svrha bonfire-a?',
-    },
+    prompt: { en: 'In Dark Souls, what is the primary purpose of bonfires?', 
+              bs: 'U Dark Soulsu, koja je glavna svrha bonfire-a?' },
     options: [
       { en: 'Buying and upgrading weapons', bs: 'Kupovina i nadogradnja oružja' },
       { en: 'Starting boss battles', bs: 'Započinjanje borbi protiv bossova' },
@@ -193,10 +171,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which indie studio created Hollow Knight?',
-      bs: 'Koji indie studio je kreirao Hollow Knight?',
-    },
+    prompt: { en: 'Which indie studio created Hollow Knight?', 
+              bs: 'Koji indie studio je kreirao Hollow Knight?' },
     options: [
       { en: 'Team Cherry', bs: 'Team Cherry' },
       { en: 'Supergiant Games', bs: 'Supergiant Games' },
@@ -210,10 +186,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which year was the original Pokémon Red/Green released in Japan?',
-      bs: 'Koje godine su originalni Pokémon Red/Green izašli u Japanu?',
-    },
+    prompt: { en: 'Which year was the original Pokémon Red/Green released in Japan?', 
+              bs: 'Koje godine su originalni Pokémon Red/Green izašli u Japanu?' },
     options: [
       { en: '1994', bs: '1994' },
       { en: '1996', bs: '1996' },
@@ -227,10 +201,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which studio developed Elden Ring?',
-      bs: 'Koji studio je razvio Elden Ring?',
-    },
+    prompt: { en: 'Which studio developed Elden Ring?', 
+              bs: 'Koji studio je razvio Elden Ring?' },
     options: [
       { en: 'CD Projekt Red', bs: 'CD Projekt Red' },
       { en: 'BioWare', bs: 'BioWare' },
@@ -244,10 +216,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'What does OAuth commonly enable between applications?',
-      bs: 'Šta OAuth obično omogućava između aplikacija?',
-    },
+    prompt: { en: 'What does OAuth commonly enable between applications?', 
+              bs: 'Šta OAuth obično omogućava između aplikacija?' },
     options: [
       { en: 'Faster database indexing', bs: 'Brže indeksiranje baza podataka' },
       { en: 'Automatic code compilation', bs: 'Automatsko kompajliranje koda' },
@@ -261,10 +231,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'What hybrid feature most distinguishes the Nintendo Switch from prior Nintendo handhelds?',
-      bs: 'Koja hibridna funkcija najviše razlikuje Nintendo Switch od ranijih Nintendo handhelda?',
-    },
+    prompt: { en: 'What hybrid feature most distinguishes the Nintendo Switch from prior Nintendo handhelds?', 
+              bs: 'Koja hibridna funkcija najviše razlikuje Nintendo Switch od ranijih Nintendo handhelda?' },
     options: [
       { en: 'Docked TV play with detachable controllers', bs: 'Igra na TV-u preko docka s odvojivim kontrolerima' },
       { en: 'Dual rear touch panels', bs: 'Dvostruki zadnji touch paneli' },
@@ -278,10 +246,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: "What was the original name of Mario's character in the arcade game Donkey Kong?",
-      bs: 'Kako se originalno zvao Mariov lik u arkadnoj igri Donkey Kong?',
-    },
+    prompt: { en: "What was the original name of Mario's character in the arcade game Donkey Kong?", 
+              bs: 'Kako se originalno zvao Mariov lik u arkadnoj igri Donkey Kong?' },
     options: [
       { en: 'Jumpman', bs: 'Jumpman' },
       { en: 'Jump Boy', bs: 'Jump Boy' },
@@ -295,10 +261,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which company developed the original Portal?',
-      bs: 'Koja kompanija je razvila originalni Portal?',
-    },
+    prompt: { en: 'Which company developed the original Portal?', 
+              bs: 'Koja kompanija je razvila originalni Portal?' },
     options: [
       { en: 'Epic Games', bs: 'Epic Games' },
       { en: 'Ubisoft', bs: 'Ubisoft' },
@@ -312,10 +276,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which year was Tetris first released?',
-      bs: 'Koje godine je Tetris prvi put izašao?',
-    },
+    prompt: { en: 'Which year was Tetris first released?', 
+              bs: 'Koje godine je Tetris prvi put izašao?' },
     options: [
       { en: '1982', bs: '1982' },
       { en: '1986', bs: '1986' },
@@ -329,10 +291,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which year did the original Game Boy launch?',
-      bs: 'Koje godine je lansiran originalni Game Boy?',
-    },
+    prompt: { en: 'Which year did the original Game Boy launch?', 
+              bs: 'Koje godine je lansiran originalni Game Boy?' },
     options: [
       { en: '1989', bs: '1989' },
       { en: '1987', bs: '1987' },
@@ -346,10 +306,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Maxis simulation preceded The Sims and focused on city-building?',
-      bs: 'Koja Maxis simulacija je prethodila The Simsu i fokusirala se na gradnju gradova?',
-    },
+    prompt: { en: 'Which Maxis simulation preceded The Sims and focused on city-building?', 
+              bs: 'Koja Maxis simulacija je prethodila The Simsu i fokusirala se na gradnju gradova?' },
     options: [
       { en: 'SimCity', bs: 'SimCity' },
       { en: 'Spore', bs: 'Spore' },
@@ -363,10 +321,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which year was Street Fighter II released?',
-      bs: 'Koje godine je izašao Street Fighter II?',
-    },
+    prompt: { en: 'Which year was Street Fighter II released?', 
+              bs: 'Koje godine je izašao Street Fighter II?' },
     options: [
       { en: '1989', bs: '1989' },
       { en: '1990', bs: '1990' },
@@ -380,10 +336,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In early development, which programming language was Minecraft written in?',
-      bs: 'U ranom razvoju, na kojem programskom jeziku je pisan Minecraft?',
-    },
+    prompt: { en: 'In early development, which programming language was Minecraft written in?', 
+              bs: 'U ranom razvoju, na kojem programskom jeziku je pisan Minecraft?' },
     options: [
       { en: 'Java', bs: 'Java' },
       { en: 'C#', bs: 'C#' },
@@ -397,10 +351,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which year did GoldenEye 007 release on N64?',
-      bs: 'Koje godine je GoldenEye 007 izašao na N64?',
-    },
+    prompt: { en: 'Which year did GoldenEye 007 release on N64?', 
+              bs: 'Koje godine je GoldenEye 007 izašao na N64?' },
     options: [
       { en: '1997', bs: '1997' },
       { en: '1995', bs: '1995' },
@@ -414,10 +366,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'What does ESC/ESP primarily help prevent in automotive dynamics?',
-      bs: 'Šta ESC/ESP primarno pomaže spriječiti u dinamici automobila?',
-    },
+    prompt: { en: 'What does ESC/ESP primarily help prevent in automotive dynamics?', 
+              bs: 'Šta ESC/ESP primarno pomaže spriječiti u dinamici automobila?' },
     options: [
       { en: 'Loss of control via selective braking', bs: 'Gubitak kontrole selektivnim kočenjem' },
       { en: 'Engine knock under boost', bs: 'Detonaciju motora pod boostom' },
@@ -431,10 +381,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which year did the PlayStation 2 launch in Japan?',
-      bs: 'Koje godine je PlayStation 2 lansiran u Japanu?',
-    },
+    prompt: { en: 'Which year did the PlayStation 2 launch in Japan?', 
+              bs: 'Koje godine je PlayStation 2 lansiran u Japanu?' },
     options: [
       { en: '1998', bs: '1998' },
       { en: '1999', bs: '1999' },
@@ -448,10 +396,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which year did the original Xbox launch in North America?',
-      bs: 'Koje godine je originalni Xbox izašao u Sjevernoj Americi?',
-    },
+    prompt: { en: 'Which year did the original Xbox launch in North America?', 
+              bs: 'Koje godine je originalni Xbox izašao u Sjevernoj Americi?' },
     options: [
       { en: '1999', bs: '1999' },
       { en: '2000', bs: '2000' },
@@ -465,10 +411,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which year did the Nintendo Wii launch?',
-      bs: 'Koje godine je izašao Nintendo Wii?',
-    },
+    prompt: { en: 'Which year did the Nintendo Wii launch?', 
+              bs: 'Koje godine je izašao Nintendo Wii?' },
     options: [
       { en: '2006', bs: '2006' },
       { en: '2004', bs: '2004' },
@@ -482,10 +426,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which role did Faker primarily play during his early SKT dynasty years?',
-      bs: 'Koju ulogu je Faker primarno igrao tokom ranih SKT dinastijskih godina?',
-    },
+    prompt: { en: 'Which role did Faker primarily play during his early SKT dynasty years?', 
+              bs: 'Koju ulogu je Faker primarno igrao tokom ranih SKT dinastijskih godina?' },
     options: [
       { en: 'Mid lane', bs: 'Mid lane' },
       { en: 'Jungle', bs: 'Jungle' },
@@ -499,10 +441,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Under which earlier team brand did T1 compete when Faker won his early Worlds titles?',
-      bs: 'Pod kojim ranijim imenom tima je T1 nastupao kada je Faker osvajao rane Worlds titule?',
-    },
+    prompt: { en: 'Under which earlier team brand did T1 compete when Faker won his early Worlds titles?', 
+              bs: 'Pod kojim ranijim imenom tima je T1 nastupao kada je Faker osvajao rane Worlds titule?' },
     options: [
       { en: 'SK Telecom T1', bs: 'SK Telecom T1' },
       { en: 'Samsung Galaxy', bs: 'Samsung Galaxy' },
@@ -516,10 +456,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which year did the Nintendo Switch launch?',
-      bs: 'Koje godine je lansiran Nintendo Switch?',
-    },
+    prompt: { en: 'Which year did the Nintendo Switch launch?', 
+              bs: 'Koje godine je lansiran Nintendo Switch?' },
     options: [
       { en: '2015', bs: '2015' },
       { en: '2016', bs: '2016' },
@@ -533,10 +471,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: "Which year was Pac-Man's arcade debut?",
-      bs: 'Koje godine se Pac-Man prvi put pojavio u arkadama?',
-    },
+    prompt: { en: "Which year was Pac-Man's arcade debut?", 
+              bs: 'Koje godine se Pac-Man prvi put pojavio u arkadama?' },
     options: [
       { en: '1980', bs: '1980' },
       { en: '1978', bs: '1978' },
@@ -550,10 +486,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In programming, what is a memory leak?',
-      bs: 'U programiranju, šta je curenje memorije (memory leak)?',
-    },
+    prompt: { en: 'In programming, what is a memory leak?', 
+              bs: 'U programiranju, šta je curenje memorije (memory leak)?' },
     options: [
       { en: 'Unreleased memory that is no longer needed', bs: 'Neoslobođena memorija koja više nije potrebna' },
       { en: 'A lost internet connection', bs: 'Izgubljena internet konekcija' },
@@ -567,10 +501,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which year did League of Legends officially launch?',
-      bs: 'Koje godine je League of Legends službeno lansiran?',
-    },
+    prompt: { en: 'Which year did League of Legends officially launch?', 
+              bs: 'Koje godine je League of Legends službeno lansiran?' },
     options: [
       { en: '2007', bs: '2007' },
       { en: '2008', bs: '2008' },
@@ -584,10 +516,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which engine powers most modern Battlefield titles?',
-      bs: 'Koji engine pokreće većinu modernih Battlefield naslova?',
-    },
+    prompt: { en: 'Which engine powers most modern Battlefield titles?', 
+              bs: 'Koji engine pokreće većinu modernih Battlefield naslova?' },
     options: [
       { en: 'Unity', bs: 'Unity' },
       { en: 'CryEngine', bs: 'CryEngine' },
@@ -601,10 +531,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which engine family powered both Doom and Quake?',
-      bs: 'Koja porodica enginea je pokretala i Doom i Quake?',
-    },
+    prompt: { en: 'Which engine family powered both Doom and Quake?', 
+              bs: 'Koja porodica enginea je pokretala i Doom i Quake?' },
     options: [
       { en: 'id Tech', bs: 'id Tech' },
       { en: 'Unreal Engine', bs: 'Unreal Engine' },
@@ -618,10 +546,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which game engine was used by CD Projekt Red for both The Witcher 3 and Cyberpunk 2077?',
-      bs: 'Koji game engine je CD Projekt Red koristio za The Witcher 3 i Cyberpunk 2077?',
-    },
+    prompt: { en: 'Which game engine was used by CD Projekt Red for both The Witcher 3 and Cyberpunk 2077?', 
+              bs: 'Koji game engine je CD Projekt Red koristio za The Witcher 3 i Cyberpunk 2077?' },
     options: [
       { en: 'REDengine', bs: 'REDengine' },
       { en: 'Source', bs: 'Source' },
@@ -635,10 +561,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Bethesda used which engine for Skyrim?',
-      bs: 'Koji engine je Bethesda koristila za Skyrim?',
-    },
+    prompt: { en: 'Bethesda used which engine for Skyrim?', 
+              bs: 'Koji engine je Bethesda koristila za Skyrim?' },
     options: [
       { en: 'CryEngine', bs: 'CryEngine' },
       { en: 'Source', bs: 'Source' },
@@ -652,10 +576,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Capcom debuted RE Engine prominently in which title?',
-      bs: 'Capcom je RE Engine istaknuo u kojem naslovu?',
-    },
+    prompt: { en: 'Capcom debuted RE Engine prominently in which title?', 
+              bs: 'Capcom je RE Engine istaknuo u kojem naslovu?' },
     options: [
       { en: 'Monster Hunter World', bs: 'Monster Hunter World' },
       { en: 'Devil May Cry 5', bs: 'Devil May Cry 5' },
@@ -669,10 +591,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which company developed the Source engine?',
-      bs: 'Koja kompanija je razvila Source engine?',
-    },
+    prompt: { en: 'Which company developed the Source engine?', 
+              bs: 'Koja kompanija je razvila Source engine?' },
     options: [
       { en: 'Valve', bs: 'Valve' },
       { en: 'Epic Games', bs: 'Epic Games' },
@@ -686,10 +606,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Will Wright is best known for creating which life-simulation series?',
-      bs: 'Will Wright je najpoznatiji po kreiranju kojeg life-simulation serijala?',
-    },
+    prompt: { en: 'Will Wright is best known for creating which life-simulation series?', 
+              bs: 'Will Wright je najpoznatiji po kreiranju kojeg life-simulation serijala?' },
     options: [
       { en: 'Halo', bs: 'Halo' },
       { en: 'The Sims', bs: 'The Sims' },
@@ -703,10 +621,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Chinese organization won League of Legends Worlds in 2018?',
-      bs: 'Koja kineska organizacija je osvojila League of Legends Svjetsko prvenstvo 2018.?',
-    },
+    prompt: { en: 'Which Chinese organization won League of Legends Worlds in 2018?', 
+              bs: 'Koja kineska organizacija je osvojila League of Legends Svjetsko prvenstvo 2018.?' },
     options: [
       { en: 'Invictus Gaming', bs: 'Invictus Gaming' },
       { en: 'Royal Never Give Up', bs: 'Royal Never Give Up' },
@@ -720,10 +636,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Toby Fox game continues the Undertale universe with dark-world characters?',
-      bs: 'Koja igra Toby Foxa nastavlja Undertale univerzum s likovima iz mračnog svijeta?',
-    },
+    prompt: { en: 'Which Toby Fox game continues the Undertale universe with dark-world characters?', 
+              bs: 'Koja igra Toby Foxa nastavlja Undertale univerzum s likovima iz mračnog svijeta?' },
     options: [
       { en: 'Deltarune', bs: 'Deltarune' },
       { en: 'Celeste', bs: 'Celeste' },
@@ -737,10 +651,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Yoko Taro directed which philosophical RPG series?',
-      bs: 'Yoko Taro je bio director kojeg filozofskog RPG serijala?',
-    },
+    prompt: { en: 'Yoko Taro directed which philosophical RPG series?', 
+              bs: 'Yoko Taro je bio director kojeg filozofskog RPG serijala?' },
     options: [
       { en: 'NieR', bs: 'NieR' },
       { en: 'Persona', bs: 'Persona' },
@@ -754,10 +666,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Yu Suzuki created which ambitious Sega adventure series?',
-      bs: 'Yu Suzuki je kreirao koji ambiciozni Sega adventure serijal?',
-    },
+    prompt: { en: 'Yu Suzuki created which ambitious Sega adventure series?', 
+              bs: 'Yu Suzuki je kreirao koji ambiciozni Sega adventure serijal?' },
     options: [
       { en: 'Virtua Fighter', bs: 'Virtua Fighter' },
       { en: 'Shenmue', bs: 'Shenmue' },
@@ -771,10 +681,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Hidetaka Miyazaki directed which 2019 FromSoftware title?',
-      bs: 'Hidetaka Miyazaki je bio director kojeg FromSoftware naslova iz 2019.?',
-    },
+    prompt: { en: 'Hidetaka Miyazaki directed which 2019 FromSoftware title?', 
+              bs: 'Hidetaka Miyazaki je bio director kojeg FromSoftware naslova iz 2019.?' },
     options: [
       { en: 'Bloodborne', bs: 'Bloodborne' },
       { en: 'Dark Souls III', bs: 'Dark Souls III' },
@@ -788,10 +696,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which organization did kennyS win a Major with during the 2014–2015 French roster era?',
-      bs: 'S kojom organizacijom je kennyS osvojio Major tokom francuske ere 2014–2015.?',
-    },
+    prompt: { en: 'Which organization did kennyS win a Major with during the 2014–2015 French roster era?', 
+              bs: 'S kojom organizacijom je kennyS osvojio Major tokom francuske ere 2014–2015.?' },
     options: [
       { en: 'Team LDLC', bs: 'Team LDLC' },
       { en: 'Vitality', bs: 'Vitality' },
@@ -805,10 +711,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Markus Persson created Minecraft under which username?',
-      bs: 'Markus Persson je kreirao Minecraft pod kojim usernameom?',
-    },
+    prompt: { en: 'Markus Persson created Minecraft under which username?', 
+              bs: 'Markus Persson je kreirao Minecraft pod kojim usernameom?' },
     options: [
       { en: 'Notch', bs: 'Notch' },
       { en: 'Herobrine', bs: 'Herobrine' },
@@ -822,10 +726,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Ken Kutaragi is known as the architect of which console hardware line?',
-      bs: 'Ken Kutaragi je poznat kao arhitekta koje linije konzolnog hardvera?',
-    },
+    prompt: { en: 'Ken Kutaragi is known as the architect of which console hardware line?', 
+              bs: 'Ken Kutaragi je poznat kao arhitekta koje linije konzolnog hardvera?' },
     options: [
       { en: 'Xbox Live', bs: 'Xbox Live' },
       { en: 'PlayStation hardware', bs: 'PlayStation hardvera' },
@@ -839,10 +741,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Porsche model line introduced a mid-engine layout as a volume sports car distinct from the 911?',
-      bs: 'Koja Porsche linija modela je uvela mid-engine raspored kao serijski sportski auto različit od 911?',
-    },
+    prompt: { en: 'Which Porsche model line introduced a mid-engine layout as a volume sports car distinct from the 911?', 
+              bs: 'Koja Porsche linija modela je uvela mid-engine raspored kao serijski sportski auto različit od 911?' },
     options: [
       { en: 'Cayman', bs: 'Cayman' },
       { en: 'Cayenne', bs: 'Cayenne' },
@@ -856,10 +756,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In BioShock lore, what underwater city did Andrew Ryan build?',
-      bs: 'U BioShock priči, koji podvodni grad je sagradio Andrew Ryan?',
-    },
+    prompt: { en: 'In BioShock lore, what underwater city did Andrew Ryan build?', 
+              bs: 'U BioShock priči, koji podvodni grad je sagradio Andrew Ryan?' },
     options: [
       { en: 'Columbia', bs: 'Columbia' },
       { en: 'Arcadia', bs: 'Arcadia' },
@@ -873,10 +771,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In Halo lore, what alien alliance does humanity primarily fight?',
-      bs: 'U Halo priči, protiv kojeg vanzemaljskog saveza se čovječanstvo primarno bori?',
-    },
+    prompt: { en: 'In Halo lore, what alien alliance does humanity primarily fight?', 
+              bs: 'U Halo priči, protiv kojeg vanzemaljskog saveza se čovječanstvo primarno bori?' },
     options: [
       { en: 'Covenant', bs: 'Covenant' },
       { en: 'Flood', bs: 'Flood' },
@@ -890,10 +786,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In Destiny lore, what does the Last City primarily protect?',
-      bs: 'U Destiny priči, šta Last City primarno štiti?',
-    },
+    prompt: { en: 'In Destiny lore, what does the Last City primarily protect?', 
+              bs: 'U Destiny priči, šta Last City primarno štiti?' },
     options: [
       { en: 'Pyramid Ship', bs: 'Pyramid Ship' },
       { en: 'Traveler', bs: 'Traveler' },
@@ -907,10 +801,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In Silent Hill lore, what often shrouds the town?',
-      bs: 'U Silent Hill priči, šta često prekriva grad?',
-    },
+    prompt: { en: 'In Silent Hill lore, what often shrouds the town?', 
+              bs: 'U Silent Hill priči, šta često prekriva grad?' },
     options: [
       { en: 'Volcanic ash', bs: 'Vulkanski pepeo' },
       { en: 'Ocean tides', bs: 'Okeanske plime' },
@@ -924,10 +816,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'What is the Wankel rotary engine’s main packaging advantage?',
-      bs: 'Koja je glavna pakovna prednost Wankel rotacionog motora?',
-    },
+    prompt: { en: 'What is the Wankel rotary engine’s main packaging advantage?', 
+              bs: 'Koja je glavna pakovna prednost Wankel rotacionog motora?' },
     options: [
       { en: 'High power-to-size with fewer reciprocating parts', bs: 'Visok omjer snage i veličine uz manje reciprocating dijelova' },
       { en: 'Inherent diesel multi-fuel capability', bs: 'Inherentna diesel multi-fuel sposobnost' },
@@ -941,10 +831,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In Dark Souls lore, which age did the First Flame begin?',
-      bs: 'U Dark Souls priči, koje doba je započeo First Flame?',
-    },
+    prompt: { en: 'In Dark Souls lore, which age did the First Flame begin?', 
+              bs: 'U Dark Souls priči, koje doba je započeo First Flame?' },
     options: [
       { en: 'Age of Fire', bs: 'Age of Fire' },
       { en: 'Age of Ice', bs: 'Age of Ice' },
@@ -958,10 +846,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In Fallout lore, what are the underground shelters called?',
-      bs: 'U Fallout priči, kako se zovu podzemna skloništa?',
-    },
+    prompt: { en: 'In Fallout lore, what are the underground shelters called?', 
+              bs: 'U Fallout priči, kako se zovu podzemna skloništa?' },
     options: [
       { en: 'Silos', bs: 'Silos' },
       { en: 'Vaults', bs: 'Vaults' },
@@ -975,10 +861,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Lamborghini model introduced the brand’s first modern production V10 supercar?',
-      bs: 'Koji Lamborghini model je uveo prvi moderni serijski V10 supercar brenda?',
-    },
+    prompt: { en: 'Which Lamborghini model introduced the brand’s first modern production V10 supercar?', 
+              bs: 'Koji Lamborghini model je uveo prvi moderni serijski V10 supercar brenda?' },
     options: [
       { en: 'Gallardo', bs: 'Gallardo' },
       { en: 'Diablo', bs: 'Diablo' },
@@ -992,10 +876,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In The Elder Scrolls lore, which province features the city of Whiterun?',
-      bs: 'U Elder Scrolls priči, koja provincija uključuje grad Whiterun?',
-    },
+    prompt: { en: 'In The Elder Scrolls lore, which province features the city of Whiterun?', 
+              bs: 'U Elder Scrolls priči, koja provincija uključuje grad Whiterun?' },
     options: [
       { en: 'Morrowind', bs: 'Morrowind' },
       { en: 'Cyrodiil', bs: 'Cyrodiil' },
@@ -1009,10 +891,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which console was the first to use a CD-ROM as its main game media?',
-      bs: 'Koja konzola je prva koristila CD-ROM kao glavni medij za igre?'
-    },
+    prompt: { en: 'Which console was the first to use a CD-ROM as its main game media?', 
+              bs: 'Koja konzola je prva koristila CD-ROM kao glavni medij za igre?' },
     options: [
       { en: 'TurboGrafx-CD', bs: 'TurboGrafx-CD' },
       { en: 'PlayStation', bs: 'PlayStation' },
@@ -1026,10 +906,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In object-oriented programming, what does "polymorphism" allow?',
-      bs: 'U objektno-orijentisanom programiranju, šta omogućava "polimorfizam"?',
-    },
+    prompt: { en: 'In object-oriented programming, what does "polymorphism" allow?', 
+              bs: 'U objektno-orijentisanom programiranju, šta omogućava "polimorfizam"?' },
     options: [
       { en: 'Different types through one interface', bs: 'Različite tipove kroz jedan interfejs' },
       { en: 'Programs that use no memory', bs: 'Programe koji ne koriste memoriju' },
@@ -1043,10 +921,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'What was the original codename for the PlayStation during development?',
-      bs: 'Koje je bilo kodno ime PlayStationa tokom razvoja?'
-    },
+    prompt: { en: 'What was the original codename for the PlayStation during development?', 
+              bs: 'Koje je bilo kodno ime PlayStationa tokom razvoja?' },
     options: [
       { en: 'Play Station', bs: 'Play Station' },
       { en: 'Project Reality', bs: 'Project Reality' },
@@ -1060,10 +936,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Nintendo console was originally called Project Reality?',
-      bs: 'Koja Nintendo konzola je prvobitno nosila naziv Project Reality?'
-    },
+    prompt: { en: 'Which Nintendo console was originally called Project Reality?', 
+              bs: 'Koja Nintendo konzola je prvobitno nosila naziv Project Reality?' },
     options: [
       { en: 'Nintendo 64', bs: 'Nintendo 64' },
       { en: 'GameCube', bs: 'GameCube' },
@@ -1077,10 +951,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which programming language was created by Guido van Rossum and first released in 1991?',
-      bs: 'Koji programski jezik je kreirao Guido van Rossum i prvi put objavljen 1991. godine?',
-    },
+    prompt: { en: 'Which programming language was created by Guido van Rossum and first released in 1991?', 
+              bs: 'Koji programski jezik je kreirao Guido van Rossum i prvi put objavljen 1991. godine?' },
     options: [
       { en: 'Python', bs: 'Python' },
       { en: 'Ruby', bs: 'Ruby' },
@@ -1094,10 +966,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'What was the codename of the Nintendo GameCube during development?',
-      bs: 'Koje je bilo kodno ime Nintendo GameCubea tokom razvoja?'
-    },
+    prompt: { en: 'What was the codename of the Nintendo GameCube during development?', 
+              bs: 'Koje je bilo kodno ime Nintendo GameCubea tokom razvoja?' },
     options: [
       { en: 'Project Dolphin', bs: 'Project Dolphin' },
       { en: 'Project Revolution', bs: 'Project Revolution' },
@@ -1111,10 +981,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In game balance updates, what does it mean to "nerf" something?',
-      bs: 'U balansnim ažuriranjima igre, šta znači "nerfovati" nešto?',
-    },
+    prompt: { en: 'In game balance updates, what does it mean to "nerf" something?', 
+              bs: 'U balansnim ažuriranjima igre, šta znači "nerfovati" nešto?' },
     options: [
       { en: 'Make it stronger', bs: 'Ojačati nešto' },
       { en: 'Remove it from the game', bs: 'Ukloniti nešto iz igre' },
@@ -1128,10 +996,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which language was created by Bjarne Stroustrup as an extension of C?',
-      bs: 'Koji jezik je kreirao Bjarne Stroustrup kao proširenje jezika C?',
-    },
+    prompt: { en: 'Which language was created by Bjarne Stroustrup as an extension of C?', 
+              bs: 'Koji jezik je kreirao Bjarne Stroustrup kao proširenje jezika C?' },
     options: [
       { en: 'C++', bs: 'C++' },
       { en: 'C#', bs: 'C#' },
@@ -1145,10 +1011,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which handheld console used game cartridges called UMD discs?',
-      bs: 'Koja ručna konzola je koristila diskove nazvane UMD?'
-    },
+    prompt: { en: 'Which handheld console used game cartridges called UMD discs?', 
+              bs: 'Koja ručna konzola je koristila diskove nazvane UMD?' },
     options: [
       { en: 'PlayStation Portable', bs: 'PlayStation Portable' },
       { en: 'Nintendo DS', bs: 'Nintendo DS' },
@@ -1162,10 +1026,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In computer graphics, what does ray tracing simulate?',
-      bs: 'U kompjuterskoj grafici, šta simulira ray tracing?',
-    },
+    prompt: { en: 'In computer graphics, what does ray tracing simulate?', 
+              bs: 'U kompjuterskoj grafici, šta simulira ray tracing?' },
     options: [
       { en: 'Polygon batching order', bs: 'Redoslijed grupisanja poligona' },
       { en: 'The path and behavior of light', bs: 'Putanju i ponašanje svjetlosti' },
@@ -1179,10 +1041,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which console was nicknamed the "Dreamcast killer" before its release?',
-      bs: 'Koja konzola je prije izlaska nazivana "Dreamcast killer"?'
-    },
+    prompt: { en: 'Which console was nicknamed the "Dreamcast killer" before its release?', 
+              bs: 'Koja konzola je prije izlaska nazivana "Dreamcast killer"?' },
     options: [
       { en: 'PlayStation 2', bs: 'PlayStation 2' },
       { en: 'Xbox', bs: 'Xbox' },
@@ -1196,10 +1056,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In competitive shooters, what does "peeker\'s advantage" refer to?',
-      bs: 'U kompetitivnim shooter igrama, na šta se odnosi "peeker\'s advantage"?',
-    },
+    prompt: { en: 'In competitive shooters, what does "peeker\'s advantage" refer to?', 
+              bs: 'U kompetitivnim shooter igrama, na šta se odnosi "peeker\'s advantage"?' },
     options: [
       { en: 'Holds an angle without moving', bs: 'Čeka na poziciji bez kretanja' },
       { en: 'Reloads more efficiently', bs: 'Efikasnije reloada' },
@@ -1213,10 +1071,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In tactical shooters, what is an "eco round"?',
-      bs: 'U taktičkim shooter igrama, šta je "eco round"?',
-    },
+    prompt: { en: 'In tactical shooters, what is an "eco round"?', 
+              bs: 'U taktičkim shooter igrama, šta je "eco round"?' },
     options: [
       { en: 'A round with little or no buying', bs: 'Runda s malo ili bez kupovine' },
       { en: 'A round that spends all credits', bs: 'Runda koja troši sve kredite' },
@@ -1230,10 +1086,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which device is considered the first commercially available smartphone?',
-      bs: 'Koji uređaj se smatra prvim komercijalno dostupnim pametnim telefonom?'
-    },
+    prompt: { en: 'Which device is considered the first commercially available smartphone?', 
+              bs: 'Koji uređaj se smatra prvim komercijalno dostupnim pametnim telefonom?' },
     options: [
       { en: 'IBM Simon Personal Communicator', bs: 'IBM Simon Personal Communicator' },
       { en: 'Nokia 9000 Communicator', bs: 'Nokia 9000 Communicator' },
@@ -1247,10 +1101,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'What was the name of the first programmable electronic general-purpose computer?',
-      bs: 'Kako se zvao prvi programabilni elektronski računar opće namjene?'
-    },
+    prompt: { en: 'What was the name of the first programmable electronic general-purpose computer?', 
+              bs: 'Kako se zvao prvi programabilni elektronski računar opće namjene?' },
     options: [
       { en: 'ENIAC', bs: 'ENIAC' },
       { en: 'UNIVAC', bs: 'UNIVAC' },
@@ -1264,10 +1116,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'What technology allows modern cars to automatically maintain distance from the vehicle ahead?',
-      bs: 'Koja tehnologija omogućava modernim automobilima automatsko održavanje udaljenosti od vozila ispred?',
-    },
+    prompt: { en: 'What technology allows modern cars to automatically maintain distance from the vehicle ahead?', 
+              bs: 'Koja tehnologija omogućava modernim automobilima automatsko održavanje udaljenosti od vozila ispred?' },
     options: [
       { en: 'Adaptive cruise control', bs: 'Adaptivni tempomat' },
       { en: 'Traction control', bs: 'Kontrola proklizavanja' },
@@ -1281,10 +1131,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'What is the main purpose of a turbocharger in a car engine?',
-      bs: 'Koja je glavna svrha turbo punjača u motoru automobila?',
-    },
+    prompt: { en: 'What is the main purpose of a turbocharger in a car engine?', 
+              bs: 'Koja je glavna svrha turbo punjača u motoru automobila?' },
     options: [
       { en: 'Increase power by forcing more air into the engine', bs: 'Povećati snagu ubacivanjem više zraka u motor' },
       { en: 'Reduce the size of the fuel tank', bs: 'Smanjiti veličinu rezervoara goriva' },
@@ -1298,10 +1146,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which company developed the first widely known mass-produced hybrid car, the Prius?',
-      bs: 'Koja kompanija je razvila prvi široko poznati masovno proizvedeni hibridni automobil Prius?',
-    },
+    prompt: { en: 'Which company developed the first widely known mass-produced hybrid car, the Prius?', 
+              bs: 'Koja kompanija je razvila prvi široko poznati masovno proizvedeni hibridni automobil Prius?' },
     options: [
       { en: 'Toyota', bs: 'Toyota' },
       { en: 'Tesla', bs: 'Tesla' },
@@ -1315,10 +1161,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which company created the first commercially available digital camera?',
-      bs: 'Koja kompanija je napravila prvi komercijalno dostupan digitalni fotoaparat?'
-    },
+    prompt: { en: 'Which company created the first commercially available digital camera?', 
+              bs: 'Koja kompanija je napravila prvi komercijalno dostupan digitalni fotoaparat?' },
     options: [
       { en: 'Dycam', bs: 'Dycam' },
       { en: 'Kodak', bs: 'Kodak' },
@@ -1332,10 +1176,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which home video game console is the best-selling of all time?',
-      bs: 'Koja kućna konzola za videoigre je najprodavanija ikada?',
-    },
+    prompt: { en: 'Which home video game console is the best-selling of all time?', 
+              bs: 'Koja kućna konzola za videoigre je najprodavanija ikada?' },
     options: [
       { en: 'PlayStation 1', bs: 'PlayStation 1' },
       { en: 'Nintendo Wii', bs: 'Nintendo Wii' },
@@ -1349,10 +1191,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Sega exited console hardware after which home console?',
-      bs: 'Sega je izašla iz hardware biznisa nakon koje kućne konzole?',
-    },
+    prompt: { en: 'Sega exited console hardware after which home console?', 
+              bs: 'Sega je izašla iz hardware biznisa nakon koje kućne konzole?' },
     options: [
       { en: 'Dreamcast', bs: 'Dreamcast' },
       { en: 'Genesis', bs: 'Genesis' },
@@ -1366,10 +1206,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: "Which failed stereoscopic handheld did Nintendo release?",
-      bs: 'Koji neuspjeli stereoskopski handheld je izdao Nintendo?',
-    },
+    prompt: { en: "Which failed stereoscopic handheld did Nintendo release?", 
+              bs: 'Koji neuspjeli stereoskopski handheld je izdao Nintendo?' },
     options: [
       { en: 'Game Boy', bs: 'Game Boy' },
       { en: 'Virtual Boy', bs: 'Virtual Boy' },
@@ -1383,10 +1221,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which console is often cited as the first home video game system?',
-      bs: 'Koja konzola se često navodi kao prva kućna videoigračka konzola?',
-    },
+    prompt: { en: 'Which console is often cited as the first home video game system?', 
+              bs: 'Koja konzola se često navodi kao prva kućna videoigračka konzola?' },
     options: [
       { en: 'Atari 2600', bs: 'Atari 2600' },
       { en: 'NES', bs: 'NES' },
@@ -1400,10 +1236,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'The Nintendo 64 primarily used which storage format?',
-      bs: 'Nintendo 64 je primarno koristio koji format pohrane?',
-    },
+    prompt: { en: 'The Nintendo 64 primarily used which storage format?', 
+              bs: 'Nintendo 64 je primarno koristio koji format pohrane?' },
     options: [
       { en: 'Compact discs', bs: 'Compact discs' },
       { en: 'Blu-ray discs', bs: 'Blu-ray discs' },
@@ -1417,10 +1251,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'The Sega Saturn launched in Japan in which year?',
-      bs: 'Sega Saturn je lansiran u Japanu koje godine?',
-    },
+    prompt: { en: 'The Sega Saturn launched in Japan in which year?', 
+              bs: 'Sega Saturn je lansiran u Japanu koje godine?' },
     options: [
       { en: '1994', bs: '1994' },
       { en: '1992', bs: '1992' },
@@ -1434,10 +1266,8 @@ export const technologyHard: Question[] = [
       type: 'mcq',
       category: 'technology',
       difficulty: 'hard',
-      prompt: {
-        en: 'Which company developed the first commercially available computer mouse?',
-        bs: 'Koja kompanija je razvila prvi komercijalno dostupan računarski miš?'
-      },
+      prompt: { en: 'Which company developed the first commercially available computer mouse?', 
+              bs: 'Koja kompanija je razvila prvi komercijalno dostupan računarski miš?' },
       options: [
         { en: 'Xerox', bs: 'Xerox' },
         { en: 'Apple', bs: 'Apple' },
@@ -1451,10 +1281,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'The Xbox Series X and PlayStation 5 both launched in which year?',
-      bs: 'Xbox Series X i PlayStation 5 su lansirani koje godine?',
-    },
+    prompt: { en: 'The Xbox Series X and PlayStation 5 both launched in which year?', 
+              bs: 'Xbox Series X i PlayStation 5 su lansirani koje godine?' },
     options: [
       { en: '2018', bs: '2018' },
       { en: '2019', bs: '2019' },
@@ -1468,10 +1296,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: "What is Valve's handheld PC gaming platform called?",
-      bs: 'Kako se zove Valveov handheld PC gaming platform?',
-    },
+    prompt: { en: "What is Valve's handheld PC gaming platform called?", 
+              bs: 'Kako se zove Valveov handheld PC gaming platform?' },
     options: [
       { en: 'Steam Box', bs: 'Steam Box' },
       { en: 'Steam Link', bs: 'Steam Link' },
@@ -1485,10 +1311,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'What were Neo Geo AES cartridges famously known for?',
-      bs: 'Po čemu su Neo Geo AES kartridži bili poznati?',
-    },
+    prompt: { en: 'What were Neo Geo AES cartridges famously known for?', 
+              bs: 'Po čemu su Neo Geo AES kartridži bili poznati?' },
     options: [
       { en: 'Unusually large size', bs: 'Neobično velikoj veličini' },
       { en: 'Built-in analog sticks', bs: 'Ugrađenim analog stickovima' },
@@ -1502,10 +1326,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Where were MSX computers especially influential in gaming during the 1980s?',
-      bs: 'Gdje su MSX računari bili posebno uticajni u gamingu tokom 1980-ih?',
-    },
+    prompt: { en: 'Where were MSX computers especially influential in gaming during the 1980s?', 
+              bs: 'Gdje su MSX računari bili posebno uticajni u gamingu tokom 1980-ih?' },
     options: [
       { en: 'Japan and parts of Europe', bs: 'Japanu i dijelovima Evrope' },
       { en: 'North America and Canada', bs: 'Sjevernoj Americi i Kanadi' },
@@ -1519,10 +1341,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In League of Legends, what is Baron Nashor?',
-      bs: 'U League of Legendsu, šta je Baron Nashor?',
-    },
+    prompt: { en: 'In League of Legends, what is Baron Nashor?', 
+              bs: 'U League of Legendsu, šta je Baron Nashor?' },
     options: [
       { en: 'A neutral monster with a team buff', bs: 'Neutralno čudovište s timskim buffom' },
       { en: 'A limited-time event champion', bs: 'Šampion ograničenih događaja' },
@@ -1536,10 +1356,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In HTTP, what does a 503 status code typically indicate?',
-      bs: 'U HTTP-u, šta status kod 503 tipično označava?',
-    },
+    prompt: { en: 'In HTTP, what does a 503 status code typically indicate?', 
+              bs: 'U HTTP-u, šta status kod 503 tipično označava?' },
     options: [
       { en: 'Request completed successfully', bs: 'Zahtjev uspješno završen' },
       { en: 'Permanent URL redirection', bs: 'Trajno preusmjeravanje URL-a' },
@@ -1553,10 +1371,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In Dota 2, Roshan drops which prized item?',
-      bs: 'U Dota 2, Roshan baca koji cijenjeni item?',
-    },
+    prompt: { en: 'In Dota 2, Roshan drops which prized item?', 
+              bs: 'U Dota 2, Roshan baca koji cijenjeni item?' },
     options: [
       { en: 'Aegis of the Immortal', bs: 'Aegis of the Immortal' },
       { en: 'Battle Pass token', bs: 'Battle Pass token' },
@@ -1570,10 +1386,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'What does ABS stand for in automotive technology?',
-      bs: 'Šta znači ABS u automobilskoj tehnologiji?',
-    },
+    prompt: { en: 'What does ABS stand for in automotive technology?', 
+              bs: 'Šta znači ABS u automobilskoj tehnologiji?' },
     options: [
       { en: 'Anti-lock Braking System', bs: 'Sistem protiv blokiranja kočnica' },
       { en: 'Automatic Battery System', bs: 'Automatski sistem baterije' },
@@ -1587,10 +1401,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which company developed the Autopilot driver assistance system?',
-      bs: 'Koja kompanija je razvila Autopilot sistem pomoći vozaču?',
-    },
+    prompt: { en: 'Which company developed the Autopilot driver assistance system?', 
+              bs: 'Koja kompanija je razvila Autopilot sistem pomoći vozaču?' },
     options: [
       { en: 'Tesla', bs: 'Tesla' },
       { en: 'Toyota', bs: 'Toyota' },
@@ -1604,10 +1416,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which car is famous for being one of the first mass-produced hybrid vehicles?',
-      bs: 'Koji automobil je poznat kao jedno od prvih masovno proizvedenih hibridnih vozila?',
-    },
+    prompt: { en: 'Which car is famous for being one of the first mass-produced hybrid vehicles?', 
+              bs: 'Koji automobil je poznat kao jedno od prvih masovno proizvedenih hibridnih vozila?' },
     options: [
       { en: 'Toyota Prius', bs: 'Toyota Prius' },
       { en: 'Tesla Model S', bs: 'Tesla Model S' },
@@ -1621,10 +1431,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In PC gaming, what does NVIDIA DLSS use AI to upscale?',
-      bs: 'U PC gamingu, šta NVIDIA DLSS koristi AI da uveća?',
-    },
+    prompt: { en: 'In PC gaming, what does NVIDIA DLSS use AI to upscale?', 
+              bs: 'U PC gamingu, šta NVIDIA DLSS koristi AI da uveća?' },
     options: [
       { en: 'Lower-resolution frames to higher output', bs: 'Frameove niže rezolucije u viši izlaz' },
       { en: 'Compressed audio bitrates', bs: 'Kompresovane audio bitrateove' },
@@ -1638,10 +1446,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'What unique seating layout was the McLaren F1 famous for?',
-      bs: 'Po kojem jedinstvenom rasporedu sjedišta je McLaren F1 bio poznat?',
-    },
+    prompt: { en: 'What unique seating layout was the McLaren F1 famous for?', 
+              bs: 'Po kojem jedinstvenom rasporedu sjedišta je McLaren F1 bio poznat?' },
     options: [
       { en: 'Three-seat layout with a central driver', bs: 'Tri sjedišta s vozačem u sredini' },
       { en: 'Fully electric drivetrain layout', bs: 'Potpuno električni raspored pogona' },
@@ -1655,10 +1461,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In roguelike games, what does "permadeath" mean?',
-      bs: 'U roguelike igrama, šta znači "permadeath"?',
-    },
+    prompt: { en: 'In roguelike games, what does "permadeath" mean?', 
+              bs: 'U roguelike igrama, šta znači "permadeath"?' },
     options: [
       { en: 'Death ends the run permanently', bs: 'Smrt trajno završava pokušaj' },
       { en: 'Abilities are lost after defeat', bs: 'Sposobnosti se gube nakon poraza' },
@@ -1672,10 +1476,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which car is nicknamed "Godzilla" in the automotive world?',
-      bs: 'Koji automobil nosi nadimak "Godzilla" u svijetu automobila?',
-    },
+    prompt: { en: 'Which car is nicknamed "Godzilla" in the automotive world?', 
+              bs: 'Koji automobil nosi nadimak "Godzilla" u svijetu automobila?' },
     options: [
       { en: 'Nissan GT-R', bs: 'Nissan GT-R' },
       { en: 'Lamborghini Huracán', bs: 'Lamborghini Huracán' },
@@ -1689,10 +1491,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Guerrilla Games developed which engine for Horizon Zero Dawn?',
-      bs: 'Guerrilla Games je razvio koji engine za Horizon Zero Dawn?',
-    },
+    prompt: { en: 'Guerrilla Games developed which engine for Horizon Zero Dawn?', 
+              bs: 'Guerrilla Games je razvio koji engine za Horizon Zero Dawn?' },
     options: [
       { en: 'Decima', bs: 'Decima' },
       { en: 'Frostbite', bs: 'Frostbite' },
@@ -1706,10 +1506,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Olofmeister’s famous “Olofboost” play took place on which map?',
-      bs: 'Olofmeisterov poznati “Olofboost” play dogodio se na kojoj mapi?',
-    },
+    prompt: { en: 'Olofmeister’s famous “Olofboost” play took place on which map?', 
+              bs: 'Olofmeisterov poznati “Olofboost” play dogodio se na kojoj mapi?' },
     options: [
       { en: 'Inferno', bs: 'Inferno' },
       { en: 'Mirage', bs: 'Mirage' },
@@ -1723,10 +1521,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'What technology allows 3D printers to create objects layer by layer?',
-      bs: 'Koja tehnologija omogućava 3D printerima da stvaraju objekte sloj po sloj?'
-    },
+    prompt: { en: 'What technology allows 3D printers to create objects layer by layer?', 
+              bs: 'Koja tehnologija omogućava 3D printerima da stvaraju objekte sloj po sloj?' },
     options: [
       { en: 'Additive manufacturing', bs: 'Aditivna proizvodnja' },
       { en: 'Laser cutting', bs: 'Lasersko rezanje' },
@@ -1740,10 +1536,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'The International is the flagship annual championship for which game?',
-      bs: 'The International je glavno godišnje prvenstvo za koju igru?',
-    },
+    prompt: { en: 'The International is the flagship annual championship for which game?', 
+              bs: 'The International je glavno godišnje prvenstvo za koju igru?' },
     options: [
       { en: 'Dota 2', bs: 'Dota 2' },
       { en: 'League of Legends', bs: 'League of Legends' },
@@ -1757,10 +1551,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which team won the first Counter-Strike: Global Offensive Major?',
-      bs: 'Koji tim je pobijedio na prvom Counter-Strike: Global Offensive Majoru?',
-    },
+    prompt: { en: 'Which team won the first Counter-Strike: Global Offensive Major?', 
+              bs: 'Koji tim je pobijedio na prvom Counter-Strike: Global Offensive Majoru?' },
     options: [
       { en: 'Virtus.pro', bs: 'Virtus.pro' },
       { en: 'Natus Vincere', bs: 'Natus Vincere' },
@@ -1774,10 +1566,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which company created the first commercially available 3D printer?',
-      bs: 'Koja kompanija je napravila prvi komercijalno dostupan 3D printer?'
-    },
+    prompt: { en: 'Which company created the first commercially available 3D printer?', 
+              bs: 'Koja kompanija je napravila prvi komercijalno dostupan 3D printer?' },
     options: [
       { en: '3D Systems', bs: '3D Systems' },
       { en: 'HP', bs: 'HP' },
@@ -1791,10 +1581,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'What is League of Legends’ annual world championship widely known as?',
-      bs: 'Kako je široko poznato godišnje svjetsko prvenstvo u League of Legendsu?',
-    },
+    prompt: { en: 'What is League of Legends’ annual world championship widely known as?', 
+              bs: 'Kako je široko poznato godišnje svjetsko prvenstvo u League of Legendsu?' },
     options: [
       { en: 'The Major', bs: 'The Major' },
       { en: 'The International', bs: 'The International' },
@@ -1808,10 +1596,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Faker won most of his World Championships with which organization?',
-      bs: 'Faker je većinu svojih World Championship titula osvojio s kojom organizacijom?',
-    },
+    prompt: { en: 'Faker won most of his World Championships with which organization?', 
+              bs: 'Faker je većinu svojih World Championship titula osvojio s kojom organizacijom?' },
     options: [
       { en: 'G2 Esports', bs: 'G2 Esports' },
       { en: 'Cloud9', bs: 'Cloud9' },
@@ -1825,10 +1611,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'EVO is best known as a premier tournament for which genre?',
-      bs: 'EVO je najpoznatiji kao premijerni turnir za koji žanr?',
-    },
+    prompt: { en: 'EVO is best known as a premier tournament for which genre?', 
+              bs: 'EVO je najpoznatiji kao premijerni turnir za koji žanr?' },
     options: [
       { en: 'MOBAs', bs: 'MOBA igre' },
       { en: 'Fighting games', bs: 'Fighting igre' },
@@ -1842,10 +1626,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'The Olofboost controversy occurred at which CS:GO Major?',
-      bs: 'Olofboost kontroverzni glitch/exploit se dogodila na kojem CS:GO Majoru?',
-    },
+    prompt: { en: 'The Olofboost controversy occurred at which CS:GO Major?', 
+              bs: 'Olofboost kontroverzni glitch/exploit se dogodila na kojem CS:GO Majoru?' },
     options: [
       { en: 'IEM Katowice 2015', bs: 'IEM Katowice 2015' },
       { en: 'MLG Columbus 2016', bs: 'MLG Columbus 2016' },
@@ -1859,10 +1641,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which region operates the LCK professional League of Legends league?',
-      bs: 'Koja regija vodi LCK profesionalnu League of Legends ligu?',
-    },
+    prompt: { en: 'Which region operates the LCK professional League of Legends league?', 
+              bs: 'Koja regija vodi LCK profesionalnu League of Legends ligu?' },
     options: [
       { en: 'Europe', bs: 'Evropa' },
       { en: 'North America', bs: 'Sjeverna Amerika' },
@@ -1876,10 +1656,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'In which game did Daigo Umehara’s legendary “Moment 37” comeback occur?',
-      bs: 'U kojoj igri se dogodio Daigo Umeharin legendarni “Moment 37” comeback?',
-    },
+    prompt: { en: 'In which game did Daigo Umehara’s legendary “Moment 37” comeback occur?', 
+              bs: 'U kojoj igri se dogodio Daigo Umeharin legendarni “Moment 37” comeback?' },
     options: [
       { en: 'Street Fighter III: 3rd Strike', bs: 'Street Fighter III: 3rd Strike' },
       { en: 'Tekken 7', bs: 'Tekken 7' },
@@ -1893,10 +1671,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'BLAST Premier is primarily associated with which esport?',
-      bs: 'BLAST Premier je prvenstveno povezan s kojim esportom?',
-    },
+    prompt: { en: 'BLAST Premier is primarily associated with which esport?', 
+              bs: 'BLAST Premier je prvenstveno povezan s kojim esportom?' },
     options: [
       { en: 'League of Legends', bs: 'League of Legends' },
       { en: 'Counter-Strike', bs: 'Counter-Strike' },
@@ -1910,10 +1686,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which year did the Super Nintendo launch in Japan?',
-      bs: 'Koje godine je Super Nintendo lansiran u Japanu?',
-    },
+    prompt: { en: 'Which year did the Super Nintendo launch in Japan?', 
+              bs: 'Koje godine je Super Nintendo lansiran u Japanu?' },
     options: [
       { en: '1988', bs: '1988' },
       { en: '1990', bs: '1990' },
@@ -1927,10 +1701,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which year did the Sega Genesis launch in North America?',
-      bs: 'Koje godine je Sega Genesis lansiran u Sjevernoj Americi?',
-    },
+    prompt: { en: 'Which year did the Sega Genesis launch in North America?', 
+              bs: 'Koje godine je Sega Genesis lansiran u Sjevernoj Americi?' },
     options: [
       { en: '1989', bs: '1989' },
       { en: '1991', bs: '1991' },
@@ -1944,10 +1716,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which infamous NES accessory used glove-based motion input?',
-      bs: 'Koji zloglasni NES dodatak je koristio motion input rukavice?',
-    },
+    prompt: { en: 'Which infamous NES accessory used glove-based motion input?', 
+              bs: 'Koji zloglasni NES dodatak je koristio motion input rukavice?' },
     options: [
       { en: 'Power Glove', bs: 'Power Glove' },
       { en: 'Balance Board', bs: 'Balance Board' },
@@ -1961,10 +1731,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'For which console was the robotic accessory R.O.B. released?',
-      bs: 'Za koju konzolu je izdat robotski dodatak R.O.B.?'
-    },
+    prompt: { en: 'For which console was the robotic accessory R.O.B. released?', 
+              bs: 'Za koju konzolu je izdat robotski dodatak R.O.B.?' },
     options: [
       { en: 'Nintendo Entertainment System (NES)', bs: 'Nintendo Entertainment System (NES)' },
       { en: 'Super Nintendo Entertainment System (SNES)', bs: 'Super Nintendo Entertainment System (SNES)' },
@@ -1978,10 +1746,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which early handheld was among the first widely sold with a color LCD?',
-      bs: 'Koji rani handheld je bio među prvima široko prodavan s color LCD-om?',
-    },
+    prompt: { en: 'Which early handheld was among the first widely sold with a color LCD?', 
+              bs: 'Koji rani handheld je bio među prvima široko prodavan s color LCD-om?' },
     options: [
       { en: 'Game Boy Pocket', bs: 'Game Boy Pocket' },
       { en: 'Atari Lynx', bs: 'Atari Lynx' },
@@ -1995,10 +1761,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'What did the original PlayStation controller famously lack?',
-      bs: 'Šta originalni PlayStation kontroler poznato nije imao?',
-    },
+    prompt: { en: 'What did the original PlayStation controller famously lack?', 
+              bs: 'Šta originalni PlayStation kontroler poznato nije imao?' },
     options: [
       { en: 'Face buttons', bs: 'Face buttons' },
       { en: 'Analog sticks', bs: 'Analog sticks' },
@@ -2012,10 +1776,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which console used the Zapper light gun accessory?',
-      bs: 'Koja konzola je koristila Zapper svjetlosni pištolj?'
-    },
+    prompt: { en: 'Which console used the Zapper light gun accessory?', 
+              bs: 'Koja konzola je koristila Zapper svjetlosni pištolj?' },
     options: [
       { en: 'NES', bs: 'NES' },
       { en: 'PlayStation', bs: 'PlayStation' },
@@ -2029,10 +1791,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'What was the Nintendo 64 accessory that allowed games to save data called?',
-      bs: 'Kako se zvao dodatak za Nintendo 64 koji je omogućavao čuvanje podataka?'
-    },
+    prompt: { en: 'What was the Nintendo 64 accessory that allowed games to save data called?', 
+              bs: 'Kako se zvao dodatak za Nintendo 64 koji je omogućavao čuvanje podataka?' },
     options: [
       { en: 'Controller Pak', bs: 'Controller Pak' },
       { en: 'Memory Card Plus', bs: 'Memory Card Plus' },
@@ -2046,10 +1806,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Nintendo 64 accessory added extra RAM needed by some games?',
-      bs: 'Koji Nintendo 64 dodatak je dodavao dodatni RAM potreban nekim igrama?'
-    },
+    prompt: { en: 'Which Nintendo 64 accessory added extra RAM needed by some games?', 
+              bs: 'Koji Nintendo 64 dodatak je dodavao dodatni RAM potreban nekim igrama?' },
     options: [
       { en: 'Expansion Pak', bs: 'Expansion Pak' },
       { en: 'Controller Pak', bs: 'Controller Pak' },
@@ -2063,10 +1821,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Nintendo 64 accessory added vibration feedback to controllers?',
-      bs: 'Koji Nintendo 64 dodatak je dodao vibraciju kontroleru?'
-    },
+    prompt: { en: 'Which Nintendo 64 accessory added vibration feedback to controllers?', 
+              bs: 'Koji Nintendo 64 dodatak je dodao vibraciju kontroleru?' },
     options: [
       { en: 'Rumble Pak', bs: 'Rumble Pak' },
       { en: 'Expansion Pak', bs: 'Expansion Pak' },
@@ -2080,10 +1836,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which PlayStation accessory enabled motion-based gameplay years before modern motion controllers?',
-      bs: 'Koji PlayStation dodatak je omogućio igranje pokretima prije modernih motion kontrolera?'
-    },
+    prompt: { en: 'Which PlayStation accessory enabled motion-based gameplay years before modern motion controllers?', 
+              bs: 'Koji PlayStation dodatak je omogućio igranje pokretima prije modernih motion kontrolera?' },
     options: [
       { en: 'EyeToy', bs: 'EyeToy' },
       { en: 'Move', bs: 'Move' },
@@ -2097,10 +1851,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Game Boy accessory allowed players to trade Pokémon wirelessly?',
-      bs: 'Koji Game Boy dodatak je omogućio bežičnu razmjenu Pokémona?'
-    },
+    prompt: { en: 'Which Game Boy accessory allowed players to trade Pokémon wirelessly?', 
+              bs: 'Koji Game Boy dodatak je omogućio bežičnu razmjenu Pokémona?' },
     options: [
       { en: 'Game Boy Wireless Adapter', bs: 'Game Boy Wireless Adapter' },
       { en: 'Link Cable', bs: 'Link Cable' },
@@ -2114,10 +1866,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which CS:GO duo featured on Astralis during its three consecutive Majors from 2018 to 2019?',
-      bs: 'Koji CS:GO duo je bio u Astralisu tokom tri uzastopna Majora od 2018. do 2019.?',
-    },
+    prompt: { en: 'Which CS:GO duo featured on Astralis during its three consecutive Majors from 2018 to 2019?', 
+              bs: 'Koji CS:GO duo je bio u Astralisu tokom tri uzastopna Majora od 2018. do 2019.?' },
     options: [
       { en: 'gla1ve and device', bs: 'gla1ve i device' },
       { en: 'Faker and Bengi', bs: 'Faker i Bengi' },
@@ -2131,10 +1881,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which unusual Nintendo accessory was a motion-sensitive controller shaped like a mat?',
-      bs: 'Koji neobični Nintendo dodatak je bio kontroler u obliku prostirke osjetljiv na pokrete?'
-    },
+    prompt: { en: 'Which unusual Nintendo accessory was a motion-sensitive controller shaped like a mat?', 
+              bs: 'Koji neobični Nintendo dodatak je bio kontroler u obliku prostirke osjetljiv na pokrete?' },
     options: [
       { en: 'Power Pad', bs: 'Power Pad' },
       { en: 'Power Glove', bs: 'Power Glove' },
@@ -2148,10 +1896,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which team won the inaugural League of Legends World Championship?',
-      bs: 'Koji tim je pobijedio na prvom League of Legends World Championshipu?',
-    },
+    prompt: { en: 'Which team won the inaugural League of Legends World Championship?', 
+              bs: 'Koji tim je pobijedio na prvom League of Legends World Championshipu?' },
     options: [
       { en: 'T1', bs: 'T1' },
       { en: 'Fnatic', bs: 'Fnatic' },
@@ -2165,10 +1911,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-  en: 'Which Counter-Strike player became famous for his legendary 1v4 AWP clutch against Team Liquid at the MLG Columbus 2016 Major?',
-  bs: 'Koji Counter-Strike igrač je postao poznat po legendarnom 1v4 AWP clutchu protiv Team Liquida na MLG Columbus 2016 Majoru?'
-    },
+    prompt: { en: 'Which Counter-Strike player became famous for his legendary 1v4 AWP clutch against Team Liquid at the MLG Columbus 2016 Major?', 
+              bs: 'Koji Counter-Strike igrač je postao poznat po legendarnom 1v4 AWP clutchu protiv Team Liquida na MLG Columbus 2016 Majoru?' },
     options: [
       { en: 'coldzera', bs: 'coldzera' },
       { en: 's1mple', bs: 's1mple' },
@@ -2182,10 +1926,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which esports team is famous for winning The International 2018 and 2019 in Dota 2?',
-      bs: 'Koji esport tim je poznat po osvajanju The Internationala 2018. i 2019. u Dota 2?'
-    },
+    prompt: { en: 'Which esports team is famous for winning The International 2018 and 2019 in Dota 2?', 
+              bs: 'Koji esport tim je poznat po osvajanju The Internationala 2018. i 2019. u Dota 2?' },
     options: [
       { en: 'OG', bs: 'OG' },
       { en: 'Team Liquid', bs: 'Team Liquid' },
@@ -2199,10 +1941,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'IEM Katowice became one of esports’ most prestigious events through its long history with which competitive game?',
-      bs: 'IEM Katowice je postao jedan od najprestižnijih esport događaja kroz dugu historiju kojeg takmičarskog naslova?',
-    },
+    prompt: { en: 'IEM Katowice became one of esports’ most prestigious events through its long history with which competitive game?', 
+              bs: 'IEM Katowice je postao jedan od najprestižnijih esport događaja kroz dugu historiju kojeg takmičarskog naslova?' },
     options: [
       { en: 'Counter-Strike', bs: 'Counter-Strike' },
       { en: 'StarCraft II', bs: 'StarCraft II' },
@@ -2216,10 +1956,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'What is China’s top professional League of Legends league called?',
-      bs: 'Kako se zove glavna profesionalna League of Legends liga u Kini?',
-    },
+    prompt: { en: 'What is China’s top professional League of Legends league called?', 
+              bs: 'Kako se zove glavna profesionalna League of Legends liga u Kini?' },
     options: [
       { en: 'LEC', bs: 'LEC' },
       { en: 'LCS', bs: 'LCS' },
@@ -2233,10 +1971,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which two players were involved in the legendary Zed 1v1 duel?',
-      bs: 'Koja dva igrača su učestvovala u legendarnom Zed 1v1 duelu?'
-    },
+    prompt: { en: 'Which two players were involved in the legendary Zed 1v1 duel?', 
+              bs: 'Koja dva igrača su učestvovala u legendarnom Zed 1v1 duelu?' },
     options: [
       { en: 'Faker and Ryu', bs: 'Faker i Ryu' },
       { en: 'Faker and Uzi', bs: 'Faker i Uzi' },
@@ -2250,10 +1986,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which famous glitch allows players to access World -1 in the original Super Mario Bros.?',
-      bs: 'Koji poznati glitch omogućava pristup World -1 u originalnom Super Mario Bros.?'
-    },
+    prompt: { en: 'Which famous glitch allows players to access World -1 in the original Super Mario Bros.?', 
+              bs: 'Koji poznati glitch omogućava pristup World -1 u originalnom Super Mario Bros.?' },
     options: [
       { en: 'Minus World glitch', bs: 'Minus World glitch' },
       { en: 'Warp Pipe glitch', bs: 'Warp Pipe glitch' },
@@ -2267,10 +2001,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which organization won back-to-back League of Legends Worlds in 2015 and 2016?',
-      bs: 'Koja organizacija je osvojila uzastopna League of Legends Svjetska prvenstva 2015. i 2016. godine?',
-    },
+    prompt: { en: 'Which organization won back-to-back League of Legends Worlds in 2015 and 2016?', 
+              bs: 'Koja organizacija je osvojila uzastopna League of Legends Svjetska prvenstva 2015. i 2016. godine?' },
     options: [
       { en: 'Fnatic', bs: 'Fnatic' },
       { en: 'G2 Esports', bs: 'G2 Esports' },
@@ -2284,10 +2016,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which car is often cited as the first production vehicle with a carbon fiber monocoque chassis?',
-      bs: 'Koji automobil se često navodi kao prvo serijsko vozilo s karbonskom monokok šasijom?',
-    },
+    prompt: { en: 'Which car is often cited as the first production vehicle with a carbon fiber monocoque chassis?', 
+              bs: 'Koji automobil se često navodi kao prvo serijsko vozilo s karbonskom monokok šasijom?' },
     options: [
       { en: 'McLaren F1', bs: 'McLaren F1' },
       { en: 'Ferrari F40', bs: 'Ferrari F40' },
@@ -2301,10 +2031,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which engine is famously associated with the Toyota Supra MK4?',
-      bs: 'Koji motor je najpoznatiji u vezi sa Toyotom Supra MK4?',
-    },
+    prompt: { en: 'Which engine is famously associated with the Toyota Supra MK4?', 
+              bs: 'Koji motor je najpoznatiji u vezi sa Toyotom Supra MK4?' },
     options: [
       { en: '2JZ-GTE', bs: '2JZ-GTE' },
       { en: 'RB26DETT', bs: 'RB26DETT' },
@@ -2318,10 +2046,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'The Nissan Skyline GT-R R32 became famous partly because of which advanced system?',
-      bs: 'Nissan Skyline GT-R R32 je postao poznat dijelom zbog kojeg naprednog sistema?',
-    },
+    prompt: { en: 'The Nissan Skyline GT-R R32 became famous partly because of which advanced system?', 
+              bs: 'Nissan Skyline GT-R R32 je postao poznat dijelom zbog kojeg naprednog sistema?' },
     options: [
       { en: 'ATTESA E-TS all-wheel drive', bs: 'ATTESA E-TS pogon na sva četiri' },
       { en: 'Hybrid electric drivetrain', bs: 'Hibridni električni pogon' },
@@ -2335,10 +2061,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which vehicle introduced Tesla\'s first mass-market electric platform?',
-      bs: 'Koje vozilo je predstavilo Teslinu prvu masovno prihvaćenu električnu platformu?',
-    },
+    prompt: { en: 'Which vehicle introduced Tesla\'s first mass-market electric platform?', 
+              bs: 'Koje vozilo je predstavilo Teslinu prvu masovno prihvaćenu električnu platformu?' },
     options: [
       { en: 'Tesla Model 3', bs: 'Tesla Model 3' },
       { en: 'Tesla Roadster', bs: 'Tesla Roadster' },
@@ -2352,10 +2076,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Porsche model is known for using a rear-mounted flat-six engine?',
-      bs: 'Koji Porsche model je poznat po stražnje postavljenom bokser šestocilindričnom motoru?',
-    },
+    prompt: { en: 'Which Porsche model is known for using a rear-mounted flat-six engine?', 
+              bs: 'Koji Porsche model je poznat po stražnje postavljenom bokser šestocilindričnom motoru?' },
     options: [
       { en: 'Porsche 911', bs: 'Porsche 911' },
       { en: 'Porsche Cayenne', bs: 'Porsche Cayenne' },
@@ -2369,10 +2091,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Bugatti model was the first production-derived car to exceed 480 km/h in a record run?',
-      bs: 'Koji Bugatti model je prvi automobil izveden iz serijskog modela koji je premašio 480 km/h u rekordnoj vožnji?',
-    },
+    prompt: { en: 'Which Bugatti model was the first production-derived car to exceed 480 km/h in a record run?', 
+              bs: 'Koji Bugatti model je prvi automobil izveden iz serijskog modela koji je premašio 480 km/h u rekordnoj vožnji?' },
     options: [
       { en: 'Chiron Super Sport 300+', bs: 'Chiron Super Sport 300+' },
       { en: 'Veyron Super Sport', bs: 'Veyron Super Sport' },
@@ -2386,10 +2106,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which car is famous for using Mazda\'s rotary Wankel engine?',
-      bs: 'Koji automobil je poznat po korištenju Mazdinog rotacionog Wankel motora?',
-    },
+    prompt: { en: 'Which car is famous for using Mazda\'s rotary Wankel engine?', 
+              bs: 'Koji automobil je poznat po korištenju Mazdinog rotacionog Wankel motora?' },
     options: [
       { en: 'Mazda RX-7', bs: 'Mazda RX-7' },
       { en: 'Mazda MX-5 Miata', bs: 'Mazda MX-5 Miata' },
@@ -2403,10 +2121,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Lamborghini model was one of the first production cars to use a carbon fiber monocoque?',
-      bs: 'Koji Lamborghini model je među prvim serijskim automobilima koristio karbonski monokok?',
-    },
+    prompt: { en: 'Which Lamborghini model was one of the first production cars to use a carbon fiber monocoque?', 
+              bs: 'Koji Lamborghini model je među prvim serijskim automobilima koristio karbonski monokok?' },
     options: [
       { en: 'Lamborghini Aventador', bs: 'Lamborghini Aventador' },
       { en: 'Lamborghini Gallardo', bs: 'Lamborghini Gallardo' },
@@ -2420,10 +2136,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Volkswagen model became famous for introducing the MQB modular platform?',
-      bs: 'Koji Volkswagen model je poznat po korištenju MQB modularne platforme?',
-    },
+    prompt: { en: 'Which Volkswagen model became famous for introducing the MQB modular platform?', 
+              bs: 'Koji Volkswagen model je poznat po korištenju MQB modularne platforme?' },
     options: [
       { en: 'Volkswagen Golf Mk7', bs: 'Volkswagen Golf Mk7' },
       { en: 'Volkswagen Beetle 1970', bs: 'Volkswagen Buba 1970' },
@@ -2437,10 +2151,8 @@ export const technologyHard: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which character is Mario trying to rescue in most classic Mario games?',
-      bs: 'Koju osobu Mario pokušava spasiti u većini klasičnih Mario igara?'
-    },
+    prompt: { en: 'Which character is Mario trying to rescue in most classic Mario games?', 
+              bs: 'Koju osobu Mario pokušava spasiti u većini klasičnih Mario igara?' },
     options: [
       { en: 'Princess Peach', bs: 'Princezu Peach' },
       { en: 'Princess Daisy', bs: 'Princezu Daisy' },
