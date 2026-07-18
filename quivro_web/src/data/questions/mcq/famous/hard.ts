@@ -7,14 +7,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Dmitri Mendeleev is best known for creating the…',
-      bs: 'Dmitri Mendelejev je najpoznatiji po stvaranju…',
+      en: 'Which scientific chart is Dmitri Mendeleev best known for creating?',
+      bs: 'Koju naučnu tabelu je Dmitri Mendelejev najpoznatiji po stvaranju?',
     },
     options: [
-      { en: 'Periodic table', bs: 'Periodnog sistema elemenata' },
-      { en: 'Steam engine', bs: 'Parnog stroja' },
-      { en: 'Microscope', bs: 'Mikroskopa' },
-      { en: 'Compass', bs: 'Kompasa' },
+      { en: 'Periodic table', bs: 'Periodni sistem elemenata' },
+      { en: 'pH scale', bs: 'pH skalu' },
+      { en: 'Electromagnetic spectrum chart', bs: 'Tabelu elektromagnetnog spektra' },
+      { en: 'Geologic time scale', bs: 'Geološku vremensku skalu' },
     ],
     correctIndex: 0,
   },
@@ -41,14 +41,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Alan Turing laid foundations for modern…',
-      bs: 'Alan Turing je postavio temelje modernom…',
+      en: 'Alan Turing laid foundations for which modern field?',
+      bs: 'Alan Turing je postavio temelje kojem modernom polju?',
     },
     options: [
-      { en: 'Photography', bs: 'Fotografiji' },
-      { en: 'Aviation', bs: 'Avijaciji' },
+      { en: 'Cryptography', bs: 'Kriptografiji' },
+      { en: 'Telecommunications', bs: 'Telekomunikacijama' },
       { en: 'Computing', bs: 'Računarstvu' },
-      { en: 'Metallurgy', bs: 'Metalurgiji' },
+      { en: 'Electrical engineering', bs: 'Elektrotehnici' },
     ],
     correctIndex: 2,
   },
@@ -58,16 +58,16 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Hypatia was a celebrated scholar in ancient…',
-      bs: 'Hypatija je bila slavna učenjakinja u drevnoj…',
+      en: 'Who was the first person to spend a year in space?',
+      bs: 'Ko je bio prvi čovjek koji je proveo godinu dana u svemiru?'
     },
     options: [
-      { en: 'Rome', bs: 'Rimu' },
-      { en: 'Athens', bs: 'Atini' },
-      { en: 'Babylon', bs: 'Babilonu' },
-      { en: 'Alexandria', bs: 'Aleksandriji' },
+      { en: 'Valeri Polyakov', bs: 'Valeri Poljakov' },
+      { en: 'Yuri Gagarin', bs: 'Jurij Gagarin' },
+      { en: 'Neil Armstrong', bs: 'Neil Armstrong' },
+      { en: 'Chris Hadfield', bs: 'Chris Hadfield' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-005',
@@ -75,8 +75,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'I.M. Pei designed the glass pyramid entrance at the…',
-      bs: 'I.M. Pei je dizajnirao staklenu piramidalnu ulaznicu u…',
+      en: 'I.M. Pei designed the glass pyramid entrance at which museum?',
+      bs: 'I.M. Pei je dizajnirao staklenu piramidalnu ulaznicu na kojem muzeju?',
     },
     options: [
       { en: 'Louvre', bs: 'Louvreu' },
@@ -92,16 +92,16 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Katherine Johnson calculated trajectories for early…',
-      bs: 'Katherine Johnson je računala putanje za rane…',
+      en: 'Who was the first person to climb all 14 mountains above 8,000 meters?',
+      bs: 'Ko je prvi popeo svih 14 planina viših od 8.000 metara?'
     },
     options: [
-      { en: 'Shipping fleets', bs: 'Brodovske flote' },
-      { en: 'NASA space missions', bs: 'NASA svemirske misije' },
-      { en: 'Railway networks', bs: 'Željezničke mreže' },
-      { en: 'Airline routes', bs: 'Avionske rute' },
+      { en: 'Reinhold Messner', bs: 'Reinhold Messner' },
+      { en: 'Edmund Hillary', bs: 'Edmund Hillary' },
+      { en: 'Alex Honnold', bs: 'Alex Honnold' },
+      { en: 'Nirmal Purja', bs: 'Nirmal Purja' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-007',
@@ -109,16 +109,16 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Elizabeth II was queen of the…',
-      bs: 'Elizabeta II. bila je kraljica…',
+      en: 'Who climbed Mount Everest without bottled oxygen for the first time?',
+      bs: 'Ko je prvi popeo Mount Everest bez dodatnog kisika?'
     },
     options: [
-      { en: 'Netherlands', bs: 'Nizozemske' },
-      { en: 'Spain', bs: 'Španije' },
-      { en: 'United Kingdom', bs: 'Ujedinjenog Kraljevstva' },
-      { en: 'Denmark', bs: 'Danske' },
+      { en: 'Reinhold Messner and Peter Habeler', bs: 'Reinhold Messner i Peter Habeler' },
+      { en: 'Edmund Hillary and Tenzing Norgay', bs: 'Edmund Hillary i Tenzing Norgay' },
+      { en: 'Alex Honnold and Tommy Caldwell', bs: 'Alex Honnold i Tommy Caldwell' },
+      { en: 'Chris Bonington and Doug Scott', bs: 'Chris Bonington i Doug Scott' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-008',
@@ -126,14 +126,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Who directed the anime film Your Name?',
-      bs: 'Ko je režirao anime film Your Name?',
+      en: 'Which anime film directed by Makoto Shinkai became one of Japan’s highest-grossing movies?',
+      bs: 'Koji anime film u režiji Makota Shinkaija postao je jedan od najuspješnijih japanskih filmova?'
     },
     options: [
-      { en: 'Makoto Shinkai', bs: 'Makoto Shinkai' },
-      { en: 'Hayao Miyazaki', bs: 'Hayao Miyazaki' },
-      { en: 'Satoshi Kon', bs: 'Satoshi Kon' },
-      { en: 'Mamoru Hosoda', bs: 'Mamoru Hosoda' },
+      { en: 'Your Name', bs: 'Your Name' },
+      { en: 'Spirited Away', bs: 'Avanture male Chihiro' },
+      { en: 'Akira', bs: 'Akira' },
+      { en: 'Perfect Blue', bs: 'Perfect Blue' },
     ],
     correctIndex: 0,
   },
@@ -143,14 +143,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Nelson Mandela spent decades opposing…',
-      bs: 'Nelson Mandela je decenijama se suprotstavljao…',
+      en: 'Nelson Mandela spent decades opposing which system of racial segregation?',
+      bs: 'Nelson Mandela je decenijama se suprotstavljao kojem sistemu rasne segregacije?',
     },
     options: [
       { en: 'Apartheid', bs: 'Apartheidu' },
-      { en: 'Colonial taxes', bs: 'Kolonialnim porezima' },
-      { en: 'Trade tariffs', bs: 'Trgovinskim carinama' },
-      { en: 'Postal reform', bs: 'Poštanskoj reformi' },
+      { en: 'Jim Crow laws', bs: 'Zakonima Jim Crow' },
+      { en: 'Caste hierarchy', bs: 'Kastinskoj hijerarhiji' },
+      { en: 'Colonial forced labor', bs: 'Kolonijalnom prinudnom radu' },
     ],
     correctIndex: 0,
   },
@@ -161,7 +161,7 @@ export const famousHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'What is Johnny Knoxville best known for creating?',
-      bs: 'Po čemu je Johnny Knoxville najpoznatiji kao tvorac?'
+      bs: 'Po čemu je Johnny Knoxville najpoznatiji kao tvorac?',
     },
     options: [
       { en: 'Jackass', bs: 'Jackass' },
@@ -177,13 +177,13 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'George Boole formalized the mathematical system now called…',
-      bs: 'Koji matematički sistem je formalizovao George Boole?',
+      en: 'George Boole formalized which algebraic system used in modern digital logic?',
+      bs: 'Koji algebarski sistem, korišten u modernoj digitalnoj logici, je formalizovao George Boole?',
     },
     options: [
       { en: 'Set theory', bs: 'Teorija skupova' },
       { en: 'Tensor calculus', bs: 'Tenzorski račun' },
-      { en: 'Boolean algebra', bs: 'Bulova algebra' },
+      { en: 'Boolean algebra', bs: 'Buleanova algebra' },
       { en: 'Game theory', bs: 'Teorija igara' },
     ],
     correctIndex: 2,
@@ -194,16 +194,16 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Ignaz Semmelweis urged physicians to wash hands to prevent…',
-      bs: 'Ignaz Semmelweis je liječnike pozivao da peru ruke kako bi spriječili…',
+      en: 'Which actor was once a professional boxer before becoming famous?',
+      bs: 'Koji glumac je nekada bio profesionalni bokser prije slave?'
     },
     options: [
-      { en: 'Malaria outbreaks', bs: 'Malarijne epidemije' },
-      { en: 'Cholera epidemics', bs: 'Kolere epidemije' },
-      { en: 'Typhoid spread', bs: 'Širenje tifusa' },
-      { en: 'Childbed fever', bs: 'Grožnicu nakon porođaja' },
+      { en: 'Mickey Rourke', bs: 'Mickey Rourke' },
+      { en: 'Tom Hanks', bs: 'Tom Hanks' },
+      { en: 'Leonardo DiCaprio', bs: 'Leonardo DiCaprio' },
+      { en: 'Brad Pitt', bs: 'Brad Pitt' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-013',
@@ -211,8 +211,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Howard Carter led the archaeological discovery of the tomb of…',
-      bs: 'Howard Carter je vodio arheološko otkriće grobnice…',
+      en: 'Howard Carter led the archaeological discovery of whose tomb?',
+      bs: 'Howard Carter je vodio arheološko otkriće čije grobnice?',
     },
     options: [
       { en: 'Tutankhamun', bs: 'Tutankhamona' },
@@ -228,14 +228,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Srinivasa Ramanujan made extraordinary contributions to…',
-      bs: 'Srinivasa Ramanujan je dao izuzetan doprinos…',
+      en: 'Srinivasa Ramanujan made extraordinary contributions to which area of mathematics?',
+      bs: 'Srinivasa Ramanujan je dao izuzetan doprinos kojem području matematike?',
     },
     options: [
-      { en: 'Marine navigation', bs: 'Morskoj navigaciji' },
+      { en: 'Topology', bs: 'Topologiji' },
       { en: 'Number theory', bs: 'Teoriji brojeva' },
-      { en: 'Botanical taxonomy', bs: 'Botaničkoj taksonomiji' },
-      { en: 'Metallurgy', bs: 'Metalurgiji' },
+      { en: 'Statistics', bs: 'Statistici' },
+      { en: 'Geometry of solids', bs: 'Geometriji čvrstih tijela' },
     ],
     correctIndex: 1,
   },
@@ -245,16 +245,16 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Emmy Noether revolutionized modern mathematics through…',
-      bs: 'Emmy Noether je revolucionisala modernu matematiku kroz…',
+      en: 'Who was the first person to run a marathon on all seven continents?',
+      bs: 'Ko je prvi istrčao maraton na svih sedam kontinenata?'
     },
     options: [
-      { en: 'Botanical illustration', bs: 'Botaničku ilustraciju' },
-      { en: 'Celestial cartography', bs: 'Nebesku kartografiju' },
-      { en: 'Abstract algebra', bs: 'Apstraktnu algebru' },
-      { en: 'Hydraulic engineering', bs: 'Hidrauličko inženjerstvo' },
+      { en: 'Richard Donovan', bs: 'Richard Donovan' },
+      { en: 'Dean Karnazes', bs: 'Dean Karnazes' },
+      { en: 'Eliud Kipchoge', bs: 'Eliud Kipchoge' },
+      { en: 'Usain Bolt', bs: 'Usain Bolt' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-016',
@@ -262,8 +262,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Artemisia Gentileschi is acclaimed for dramatic works in…',
-      bs: 'Artemisia Gentileschi je slavljena po dramatičnim djelima u…',
+      en: 'Artemisia Gentileschi is acclaimed for dramatic works in which art style?',
+      bs: 'Artemisia Gentileschi je slavljena po dramatičnim djelima u kojem umjetničkom stilu?',
     },
     options: [
       { en: 'Renaissance fresco cycles', bs: 'Renesansnim freskama' },
@@ -279,14 +279,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Douglas Engelbart demonstrated early interactive computing in the…',
-      bs: 'Douglas Engelbart je demonstrirao rano interaktivno računarstvo u…',
+      en: 'As of 2026, who became the youngest Formula 1 World Champion?',
+      bs: 'Do 2026. godine, ko je najmlađi prvak Formule 1?'
     },
     options: [
-      { en: 'Mother of All Demos', bs: 'Demou majke svih demo snimaka' },
-      { en: 'Manhattan Project briefings', bs: 'Manhattan Project brifinzima' },
-      { en: 'Apollo guidance tests', bs: 'Apollo testovima vođenja' },
-      { en: 'Bell Labs transistor rollout', bs: 'Bell Labs predstavljanju tranzistora' },
+      { en: 'Sebastian Vettel', bs: 'Sebastian Vettel' },
+      { en: 'Max Verstappen', bs: 'Max Verstappen' },
+      { en: 'Lewis Hamilton', bs: 'Lewis Hamilton' },
+      { en: 'Fernando Alonso', bs: 'Fernando Alonso' },
     ],
     correctIndex: 0,
   },
@@ -296,16 +296,16 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: "Mary Wollstonecraft argued for women's rights in…",
-      bs: 'Mary Wollstonecraft je zagovarala prava žena u…',
+      en: 'Who created the Pokémon franchise?',
+      bs: 'Ko je kreirao Pokémon franšizu?'
     },
     options: [
-      { en: 'The Communist Manifesto', bs: 'Komunističkom manifestu' },
-      { en: 'A Vindication of the Rights of Woman', bs: 'Odbrani prava žene' },
-      { en: 'Leviathan', bs: 'Leviathanu' },
-      { en: 'The Social Contract', bs: 'Društvenom ugovoru' },
+      { en: 'Satoshi Tajiri', bs: 'Satoshi Tajiri' },
+      { en: 'Shigeru Miyamoto', bs: 'Shigeru Miyamoto' },
+      { en: 'Hideo Kojima', bs: 'Hideo Kojima' },
+      { en: 'Hayao Miyazaki', bs: 'Hayao Miyazaki' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-019',
@@ -313,8 +313,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Frederick Douglass published the abolitionist newspaper…',
-      bs: 'Frederick Douglass je objavljivao abolicionističke novine…',
+      en: 'Which abolitionist newspaper did Frederick Douglass publish?',
+      bs: 'Koje abolicionističke novine je objavljivao Frederick Douglass?',
     },
     options: [
       { en: 'The Liberator', bs: 'The Liberator' },
@@ -330,16 +330,16 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Roald Amundsen led the first expedition to reach the…',
-      bs: 'Roald Amundsen je vodio prvu ekspediciju koja je stigla do…',
+      en: 'Who co-founded Studio Ghibli and directed Spirited Away?',
+      bs: 'Ko je suosnivač Studija Ghibli i režiser filma Spirited Away?'
     },
     options: [
-      { en: 'North Magnetic Pole', bs: 'Sjevernog magnetnog pola' },
-      { en: 'Summit of Everest', bs: 'Vrha Everesta' },
-      { en: 'Deepest ocean trench', bs: 'Najdublje okeanske brazde' },
-      { en: 'South Pole', bs: 'Južnog pola' },
+      { en: 'Hayao Miyazaki', bs: 'Hayao Miyazaki' },
+      { en: 'Akira Toriyama', bs: 'Akira Toriyama' },
+      { en: 'Makoto Shinkai', bs: 'Makoto Shinkai' },
+      { en: 'Satoshi Kon', bs: 'Satoshi Kon' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-021',
@@ -347,14 +347,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Sergei Eisenstein developed influential theories of…',
-      bs: 'Sergei Eisenstein je razvio uticajne teorije…',
+      en: 'Which director is famous for using IMAX cameras in films?',
+      bs: 'Koji režiser je poznat po korištenju IMAX kamera u filmovima?'
     },
     options: [
-      { en: 'Film montage', bs: 'Filmskog montaža' },
-      { en: 'Method acting', bs: 'Metode glume' },
-      { en: 'Stage lighting', bs: 'Scenske rasvjete' },
-      { en: 'Costume design', bs: 'Kostimografije' },
+      { en: 'Christopher Nolan', bs: 'Christopher Nolan' },
+      { en: 'James Cameron', bs: 'James Cameron' },
+      { en: 'Steven Spielberg', bs: 'Steven Spielberg' },
+      { en: 'Denis Villeneuve', bs: 'Denis Villeneuve' },
     ],
     correctIndex: 0,
   },
@@ -380,17 +380,17 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Johannes Vermeer is celebrated for intimate scenes of…',
-      bs: 'Johannes Vermeer je slav po intimnim prizorima…',
+    prompt: { 
+      en: 'Which famous novels were written by Victor Hugo?',
+      bs: 'Koje poznate romane je napisao Victor Hugo?'
     },
     options: [
-      { en: 'Roman battlefields', bs: 'Rimskih bojišta' },
-      { en: 'Alpine glaciers', bs: 'Alpijskih glečera' },
-      { en: 'Dutch domestic life', bs: 'Holandskog domaćeg života' },
-      { en: 'Persian court rituals', bs: 'Perzijskih dvorskih obreda' },
+      { en: 'Les Misérables and The Hunchback of Notre-Dame', bs: 'Jadnici i Zvonar crkve Notre-Dame' },
+      { en: 'The Three Musketeers and The Count of Monte Cristo', bs: 'Tri mušketira i Grof Monte Cristo' },
+      { en: 'The Little Prince and Night', bs: 'Mali princ i Noć' },
+      { en: 'Madame Bovary and Germinal', bs: 'Gospođa Bovary i Germinal' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-024',
@@ -398,14 +398,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: "Christopher Wren rebuilt London's cathedral of…",
-      bs: 'Christopher Wren je obnovio londonsku katedralu…',
+      en: 'Which London cathedral did Christopher Wren rebuild after the Great Fire?',
+      bs: 'Koju londonsku katedralu je Christopher Wren obnovio nakon Velikog požara?',
     },
     options: [
       { en: 'Westminster Abbey', bs: 'Westminster Abbey' },
       { en: 'Canterbury Cathedral', bs: 'Canterbury Cathedral' },
       { en: 'York Minster', bs: 'York Minster' },
-      { en: "St Paul's", bs: "St Paul's" },
+      { en: 'St Paul\'s', bs: 'St Paul\'s' },
     ],
     correctIndex: 3,
   },
@@ -415,8 +415,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Paul Ehrlich’s idea of the "magic bullet" became the foundation of…',
-      bs: 'Ideja "čarobnog metka" Paula Ehrlicha postala je temelj…',
+      en: 'Paul Ehrlich’s idea of the "magic bullet" became the foundation of which medical approach?',
+      bs: 'Ideja "čarobnog metka" Paula Ehrlicha postala je temelj kojeg medicinskog pristupa?',
     },
     options: [
       { en: 'Chemotherapy', bs: 'Hemoterapije' },
@@ -432,14 +432,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'George Washington Carver promoted crop rotation centered on…',
-      bs: 'George Washington Carver je promovisao rotaciju usjeva sa fokusom na…',
+      en: 'George Washington Carver promoted crop rotation centered on which crops?',
+      bs: 'George Washington Carver je promovisao rotaciju usjeva sa fokusom na koje usjeve?',
     },
     options: [
-      { en: 'Sugarcane', bs: 'Šećernoj trsci' },
-      { en: 'Peanuts and soil renewal', bs: 'Kikirikiju i obnovi tla' },
-      { en: 'Cotton monoculture', bs: 'Monokulturi pamuka' },
-      { en: 'Rice terracing', bs: 'Rižinim terasama' },
+      { en: 'Sugarcane', bs: 'Šećernu trsku' },
+      { en: 'Peanuts and soil renewal', bs: 'Kikiriki i obnovu tla' },
+      { en: 'Cotton monoculture', bs: 'Monokulturu pamuka' },
+      { en: 'Rice terracing', bs: 'Rižine terase' },
     ],
     correctIndex: 1,
   },
@@ -449,13 +449,13 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Lewis Latimer improved the practical design of the electric…',
-      bs: 'Lewis Latimer je unaprijedio praktični dizajn električne…',
+      en: 'Lewis Latimer improved the practical design of which electric component?',
+      bs: 'Lewis Latimer je unaprijedio praktični dizajn kojeg električnog dijela?',
     },
     options: [
       { en: 'Telegraph key', bs: 'Telegrafskog ključa' },
       { en: 'Battery cell', bs: 'Baterijske ćelije' },
-      { en: 'Light bulb filament', bs: 'Nit svjetlosne žarulje' },
+      { en: 'Light bulb filament', bs: 'Niti svjetlosne žarulje' },
       { en: 'Power turbine', bs: 'Energetske turbine' },
     ],
     correctIndex: 2,
@@ -466,14 +466,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Garrett Morgan patented safety devices including an early…',
-      bs: 'Garrett Morgan je patentirao sigurnosne uređaje uključujući rani…',
+      en: 'Garrett Morgan patented safety devices including an early version of which invention?',
+      bs: 'Garrett Morgan je patentirao sigurnosne uređaje uključujući ranu verziju kojeg izuma?',
     },
     options: [
-      { en: 'X-ray scanner', bs: 'X-ray skener' },
-      { en: 'Radar receiver', bs: 'Radar prijemnik' },
-      { en: 'Sonar buoy', bs: 'Sonar bova' },
-      { en: 'Traffic signal', bs: 'Semafor' },
+      { en: 'X-ray scanner', bs: 'X-ray skenera' },
+      { en: 'Radar receiver', bs: 'Radar prijemnika' },
+      { en: 'Sonar buoy', bs: 'Sonar bove' },
+      { en: 'Traffic signal', bs: 'Semafora' },
     ],
     correctIndex: 3,
   },
@@ -482,15 +482,15 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Dorothy Hodgkin determined molecular structures using…',
-      bs: 'Dorothy Hodgkin je određivala molekularne strukture pomoću…',
+    prompt: { 
+      en: 'Which two elements did Marie Curie discover?',
+      bs: 'Koja dva elementa je otkrila Marie Curie?'
     },
     options: [
-      { en: 'X-ray crystallography', bs: 'Rentgenske kristalografije' },
-      { en: 'Mass spectrometry', bs: 'Masene spektrometrije' },
-      { en: 'Electron microscopy', bs: 'Elektronske mikroskopije' },
-      { en: 'Thermal imaging', bs: 'Termalnog snimanja' },
+      { en: 'Radium and Polonium', bs: 'Radij i Polonij' },
+      { en: 'Gold and Silver', bs: 'Zlato i Srebro' },
+      { en: 'Hydrogen and Oxygen', bs: 'Vodik i Kiseonik' },
+      { en: 'Iron and Copper', bs: 'Željezo i Bakar' },
     ],
     correctIndex: 0,
   },
@@ -499,17 +499,17 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Gerty Cori elucidated the metabolic pathway known as the…',
-      bs: 'Gerty Cori je objasnila metabolički put poznat kao…',
+    prompt: { 
+      en: 'On which island did Napoleon Bonaparte die?',
+      bs: 'Na kojem otoku je umro Napoleon Bonaparte?'
     },
     options: [
-      { en: 'Krebs cycle', bs: 'Krebsov ciklus' },
-      { en: 'Cori cycle', bs: 'Cori ciklus' },
-      { en: 'Calvin cycle', bs: 'Calvin ciklus' },
-      { en: 'Urea cycle', bs: 'Urein ciklus' },
+      { en: 'Saint Helena', bs: 'Sveta Helena' },
+      { en: 'Corsica', bs: 'Korzika' },
+      { en: 'Elba', bs: 'Elba' },
+      { en: 'Sicily', bs: 'Sicilija' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-031',
@@ -517,14 +517,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Severo Ochoa synthesized compounds central to understanding…',
-      bs: 'Severo Ochoa je sintetisao spojeve ključne za razumijevanje…',
+      en: 'Severo Ochoa synthesized compounds central to understanding which biological process?',
+      bs: 'Severo Ochoa je sintetisao spojeve ključne za razumijevanje kojeg biološkog procesa?',
     },
     options: [
       { en: 'Protein folding', bs: 'Preklapanja proteina' },
-      { en: 'Mineral deposits', bs: 'Mineralnih naslaga' },
+      { en: 'Cell membrane transport', bs: 'Transporta kroz ćelijsku membranu' },
       { en: 'RNA synthesis', bs: 'Sinteze RNK' },
-      { en: 'Fossil pigments', bs: 'Fosilnih pigmenata' },
+      { en: 'DNA replication', bs: 'Replikacije DNK' },
     ],
     correctIndex: 2,
   },
@@ -533,17 +533,17 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Barbara Liskov introduced foundational ideas in…',
-      bs: 'Barbara Liskov je uvela temeljne ideje u…',
+    prompt: { 
+      en: 'Who wrote the novel "White Fang"?',
+      bs: 'Ko je napisao roman "Bijeli očnjak"?'
     },
     options: [
-      { en: 'Quantum optics', bs: 'Kvantnoj optici' },
-      { en: 'Plate tectonics', bs: 'Tektonici ploča' },
-      { en: 'Organic synthesis', bs: 'Organskoj sintezi' },
-      { en: 'Data abstraction in programming', bs: 'Apstrakciji podataka u programiranju' },
+      { en: 'Jack London', bs: 'Jack London' },
+      { en: 'Ernest Hemingway', bs: 'Ernest Hemingway' },
+      { en: 'Mark Twain', bs: 'Mark Twain' },
+      { en: 'Jules Verne', bs: 'Jules Verne' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-033',
@@ -551,14 +551,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Donald Knuth authored the comprehensive series…',
-      bs: 'Donald Knuth je napisao opsežnu seriju…',
+      en: 'Donald Knuth authored which comprehensive series on algorithms?',
+      bs: 'Donald Knuth je napisao koju opsežnu seriju o algoritmima?',
     },
     options: [
       { en: 'The Art of Computer Programming', bs: 'The Art of Computer Programming' },
-      { en: 'Principia Mathematica', bs: 'Principia Mathematica' },
-      { en: 'Critique of Pure Reason', bs: 'Critique of Pure Reason' },
-      { en: 'Origin of Species', bs: 'Origin of Species' },
+      { en: 'Structure and Interpretation of Computer Programs', bs: 'Structure and Interpretation of Computer Programs' },
+      { en: 'Introduction to Algorithms', bs: 'Introduction to Algorithms' },
+      { en: 'Compilers: Principles, Techniques, and Tools', bs: 'Compilers: Principles, Techniques, and Tools' },
     ],
     correctIndex: 0,
   },
@@ -567,17 +567,17 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Claude Shannon founded the field of…',
-      bs: 'Claude Shannon je osnovao oblast…',
+    prompt: { 
+      en: 'Who wrote the original story of Pinocchio?',
+      bs: 'Ko je napisao originalnu priču o Pinokiju?'
     },
     options: [
-      { en: 'Thermodynamics', bs: 'Termodinamike' },
-      { en: 'Information theory', bs: 'Teorije informacija' },
-      { en: 'Plate kinematics', bs: 'Kinematike ploča' },
-      { en: 'Genetic drift', bs: 'Genetskog drifta' },
+      { en: 'Carlo Collodi', bs: 'Carlo Collodi' },
+      { en: 'Hans Christian Andersen', bs: 'Hans Christian Andersen' },
+      { en: 'The Brothers Grimm', bs: 'Braća Grimm' },
+      { en: 'Jules Verne', bs: 'Jules Verne' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-035',
@@ -585,14 +585,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'John von Neumann helped formalize the…',
-      bs: 'John von Neumann je pomogao formalizovati…',
+      en: 'John von Neumann helped formalize which computing concept?',
+      bs: 'John von Neumann je pomogao formalizovati koji računarski koncept?',
     },
     options: [
-      { en: 'Heliocentric model', bs: 'Heliocentrični model' },
-      { en: 'Germ theory', bs: 'Teoriju klica' },
+      { en: 'Packet switching', bs: 'Paketno prebacivanje' },
+      { en: 'Relational databases', bs: 'Relacijske baze podataka' },
       { en: 'Stored-program computer architecture', bs: 'Arhitekturu računara sa pohranjenim programom' },
-      { en: 'Continental drift', bs: 'Kontinentalno pomjeranje' },
+      { en: 'Graphical user interfaces', bs: 'Grafička korisnička sučelja' },
     ],
     correctIndex: 2,
   },
@@ -601,32 +601,32 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Frances Perkins shaped U.S. labor policy as architect of…',
-      bs: 'Frances Perkins je oblikovala američku radnu politiku kao arhitekt…',
+    prompt: { 
+      en: 'Who is the only Nobel Prize winner born in Bosnia and Herzegovina?',
+      bs: 'Ko je jedini dobitnik Nobelove nagrade rođen u Bosni i Hercegovini?'
     },
     options: [
-      { en: 'Interstate highway funding', bs: 'Finansiranja međudržavnih autoputeva' },
-      { en: 'Federal reserve banking', bs: 'Federalnog rezervnog bankarstva' },
-      { en: 'Postal savings banks', bs: 'Poštanskih štedionica' },
-      { en: 'Social Security legislation', bs: 'Zakonodavstva o socijalnom osiguranju' },
+      { en: 'Ivo Andrić', bs: 'Ivo Andrić' },
+      { en: 'Meša Selimović', bs: 'Meša Selimović' },
+      { en: 'Branko Ćopić', bs: 'Branko Ćopić' },
+      { en: 'Mak Dizdar', bs: 'Mak Dizdar' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-037',
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Who was the first person to receive two Nobel Prizes in different scientific fields?',
-      bs: 'Ko je bio prva osoba koja je dobila dvije Nobelove nagrade u različitim naučnim oblastima?',
+    prompt: { 
+      en: 'Which work is most closely associated with Ivo Andrić’s Nobel Prize in Literature?',
+      bs: 'Koje djelo se najviše povezuje s Nobelovom nagradom Ive Andrića za književnost?'
     },
     options: [
-      { en: 'Marie Curie', bs: 'Marie Curie' },
-      { en: 'Albert Einstein', bs: 'Albert Einstein' },
-      { en: 'Isaac Newton', bs: 'Isaac Newton' },
-      { en: 'Niels Bohr', bs: 'Niels Bohr' },
+      { en: 'The Bridge on the Drina', bs: 'Na Drini ćuprija' },
+      { en: 'The Mountain Wreath', bs: 'Gorski vijenac' },
+      { en: 'The Little Prince', bs: 'Mali princ' },
+      { en: 'War and Peace', bs: 'Rat i mir' },
     ],
     correctIndex: 0,
   },
@@ -636,8 +636,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Clara Barton founded the American branch of the…',
-      bs: 'Clara Barton je osnovala američko odjeljenje…',
+      en: 'Clara Barton founded the American branch of which organization?',
+      bs: 'Clara Barton je osnovala američko odjeljenje koje organizacije?',
     },
     options: [
       { en: 'Salvation Army', bs: 'Salvation Army' },
@@ -652,49 +652,49 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Dorothea Dix campaigned to reform care for people with…',
-      bs: 'Dorothea Dix je agitirala za reformu brige o osobama sa…',
+    prompt: { 
+      en: 'Which famous gangster was once imprisoned at Alcatraz?',
+      bs: 'Koji poznati gangster je bio zatvoren u Alcatrazu?'
     },
     options: [
-      { en: 'Hearing loss', bs: 'Gubitkom sluha' },
-      { en: 'Color blindness', bs: 'Daltonizmom' },
-      { en: 'Mental illness', bs: 'Duševnim bolestima' },
-      { en: 'Seasonal allergies', bs: 'Sezonskim alergijama' },
+      { en: 'Al Capone', bs: 'Al Capone' },
+      { en: 'Pablo Escobar', bs: 'Pablo Escobar' },
+      { en: 'Lucky Luciano', bs: 'Lucky Luciano' },
+      { en: 'John Dillinger', bs: 'John Dillinger' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-040',
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Ida B. Wells documented and protested against…',
-      bs: 'Ida B. Wells je dokumentovala i protestovala protiv…',
+    prompt: { 
+      en: 'Which famous author wrote books while using a typewriter with only one finger?',
+      bs: 'Koji poznati pisac je pisao knjige koristeći pisaću mašinu samo jednim prstom?'
     },
     options: [
-      { en: 'Postal monopolies', bs: 'Poštanskih monopola' },
-      { en: 'Trade embargoes', bs: 'Trgovinskih embarga' },
-      { en: 'Colonial tariffs', bs: 'Kolonialnih carina' },
-      { en: 'Lynching in the United States', bs: 'Linčeva u Sjedinjenim Američkim Državama' },
+      { en: 'Agatha Christie', bs: 'Agatha Christie' },
+      { en: 'J.R.R. Tolkien', bs: 'J.R.R. Tolkien' },
+      { en: 'Stephen King', bs: 'Stephen King' },
+      { en: 'George Orwell', bs: 'George Orwell' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-041',
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'W.E.B. Du Bois co-founded the civil rights organization…',
-      bs: 'W.E.B. Du Bois je suosnovao organizaciju za građanska prava…',
+    prompt: { 
+      en: 'Which inventor reportedly slept only a few hours a day and took short naps?',
+      bs: 'Koji izumitelj je poznat po tome što je spavao samo nekoliko sati dnevno i kratko odmarao?'
     },
     options: [
-      { en: 'NAACP', bs: 'NAACP' },
-      { en: 'ACLU', bs: 'ACLU' },
-      { en: 'Sierra Club', bs: 'Sierra Club' },
-      { en: 'Red Cross', bs: 'Crveni krst' },
+      { en: 'Nikola Tesla', bs: 'Nikola Tesla' },
+      { en: 'Thomas Edison', bs: 'Thomas Edison' },
+      { en: 'Alexander Graham Bell', bs: 'Alexander Graham Bell' },
+      { en: 'Leonardo da Vinci', bs: 'Leonardo da Vinci' },
     ],
     correctIndex: 0,
   },
@@ -703,34 +703,34 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Booker T. Washington built vocational education at…',
-      bs: 'Booker T. Washington je gradio stručno obrazovanje u…',
+    prompt: { 
+      en: 'Which athlete became famous for winning eight gold medals at a single Olympics?',
+      bs: 'Koji sportista je postao poznat po osvajanju osam zlatnih medalja na jednim Olimpijskim igrama?'
     },
     options: [
-      { en: 'Howard University', bs: 'Howard University' },
-      { en: 'Tuskegee Institute', bs: 'Tuskegee Institute' },
-      { en: 'West Point', bs: 'West Pointu' },
-      { en: 'Radcliffe College', bs: 'Radcliffe College' },
+      { en: 'Michael Phelps', bs: 'Michael Phelps' },
+      { en: 'Usain Bolt', bs: 'Usain Bolt' },
+      { en: 'Simone Biles', bs: 'Simone Biles' },
+      { en: 'Carl Lewis', bs: 'Carl Lewis' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-043',
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Marcus Garvey organized the mass movement…',
-      bs: 'Marcus Garvey je organizovao masovni pokret…',
+    prompt: { 
+      en: 'Which famous scientist had a unit of measurement named after him?',
+      bs: 'Po kojem poznatom naučniku je nazvana jedinica mjere?'
     },
     options: [
-      { en: 'Fabian Society', bs: 'Fabian Society' },
-      { en: 'Chartist League', bs: 'Chartist League' },
-      { en: 'Universal Negro Improvement Association', bs: 'Universal Negro Improvement Association' },
-      { en: 'Young Turks', bs: 'Young Turks' },
+      { en: 'Isaac Newton', bs: 'Isaac Newton' },
+      { en: 'Albert Einstein', bs: 'Albert Einstein' },
+      { en: 'Charles Darwin', bs: 'Charles Darwin' },
+      { en: 'Galileo Galilei', bs: 'Galileo Galilei' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-044',
@@ -755,8 +755,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Shirley Chisholm became the first Black woman elected to the U.S…',
-      bs: 'Shirley Chisholm je postala prva crna žena izabrana u američki…',
+      en: 'Shirley Chisholm became the first Black woman elected to which U.S. body?',
+      bs: 'Shirley Chisholm je postala prva crna žena izabrana u koje američko tijelo?',
     },
     options: [
       { en: 'Congress', bs: 'Kongres' },
@@ -771,51 +771,51 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Phillis Wheatley was the first African-American woman to publish a book of…',
-      bs: 'Phillis Wheatley je bila prva afroamerička žena koja je objavila knjigu…',
+    prompt: { 
+      en: 'Which famous actor was once a professional wrestler before becoming a movie star?',
+      bs: 'Koji poznati glumac je nekada bio profesionalni hrvač prije nego što je postao filmska zvijezda?'
     },
     options: [
-      { en: 'Navigation charts', bs: 'Navigacionih karata' },
-      { en: 'Poetry', bs: 'Poezije' },
-      { en: 'Medical treatises', bs: 'Medicinskih traktata' },
-      { en: 'Legal codes', bs: 'Pravnih kodeksa' },
+      { en: 'Dwayne Johnson', bs: 'Dwayne Johnson' },
+      { en: 'Tom Cruise', bs: 'Tom Cruise' },
+      { en: 'Leonardo DiCaprio', bs: 'Leonardo DiCaprio' },
+      { en: 'Brad Pitt', bs: 'Brad Pitt' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-047',
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'What is the name of the wizarding school attended by Viktor Krum in Harry Potter?',
-      bs: 'Kako se zove škola čarobnjaštva koju je pohađao Viktor Krum u serijalu Harry Potter?',
+    prompt: { 
+      en: 'Which famous scientist had a pet crow named Grip?',
+      bs: 'Koji poznati naučnik je imao gavrana po imenu Grip?'
     },
     options: [
-      { en: 'Hogwarts', bs: 'Hogwarts' },
-      { en: 'Beauxbatons', bs: 'Beauxbatons' },
-      { en: 'Durmstrang', bs: 'Durmstrang' },
-      { en: 'Ilvermorny', bs: 'Ilvermorny' },
+      { en: 'Charles Dickens', bs: 'Charles Dickens' },
+      { en: 'Isaac Newton', bs: 'Isaac Newton' },
+      { en: 'Albert Einstein', bs: 'Albert Einstein' },
+      { en: 'Leonardo da Vinci', bs: 'Leonardo da Vinci' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-048',
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Harriet Tubman guided enslaved people via the…',
-      bs: 'Harriet Tubman je vodila robove preko…',
+    prompt: { 
+      en: 'Which famous director created the Star Wars universe?',
+      bs: 'Koji poznati režiser je stvorio Star Wars univerzum?'
     },
     options: [
-      { en: 'Oregon Trail', bs: 'Oregon Traila' },
-      { en: 'Silk Road caravans', bs: 'Silk Road karavana' },
-      { en: 'Panama Canal route', bs: 'Panama Canal rute' },
-      { en: 'Underground Railroad', bs: 'Podzemne željeznice' },
+      { en: 'George Lucas', bs: 'George Lucas' },
+      { en: 'James Cameron', bs: 'James Cameron' },
+      { en: 'Peter Jackson', bs: 'Peter Jackson' },
+      { en: 'Ridley Scott', bs: 'Ridley Scott' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-049',
@@ -839,51 +839,51 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Lucretia Mott helped organize the Seneca Falls…',
-      bs: 'Lucretia Mott je pomogla organizovati Seneca Falls…',
+    prompt: { 
+      en: 'Which famous composer continued creating music after becoming deaf?',
+      bs: 'Koji poznati kompozitor je nastavio stvarati muziku nakon što je oglušio?'
     },
     options: [
-      { en: 'Railway junction', bs: 'Željeznički čvor' },
-      { en: "Convention on women's rights", bs: 'Konvenciju o pravima žena' },
-      { en: 'Trade fair', bs: 'Sajam trgovine' },
-      { en: 'Naval academy', bs: 'Pomorsku akademiju' },
+      { en: 'Ludwig van Beethoven', bs: 'Ludwig van Beethoven' },
+      { en: 'Wolfgang Mozart', bs: 'Wolfgang Mozart' },
+      { en: 'Johann Bach', bs: 'Johann Bach' },
+      { en: 'Antonio Vivaldi', bs: 'Antonio Vivaldi' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-051',
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Elizabeth Cady Stanton drafted the Declaration of…',
-      bs: 'Elizabeth Cady Stanton je napisala Deklaraciju…',
+    prompt: { 
+      en: 'Which famous filmmaker was a student of physics before making movies?',
+      bs: 'Koji poznati režiser je studirao fiziku prije nego što je počeo praviti filmove?'
     },
     options: [
-      { en: 'Independence', bs: 'nezavisnosti' },
-      { en: 'Human Rights', bs: 'ljudskih prava' },
-      { en: 'Sentiments', bs: 'osjećaja' },
-      { en: 'Geneva Conventions', bs: 'Ženevskih konvencija' },
+      { en: 'Christopher Nolan', bs: 'Christopher Nolan' },
+      { en: 'Steven Spielberg', bs: 'Steven Spielberg' },
+      { en: 'Quentin Tarantino', bs: 'Quentin Tarantino' },
+      { en: 'Martin Scorsese', bs: 'Martin Scorsese' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-052',
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Joseph Lister introduced antiseptic methods using…',
-      bs: 'Joseph Lister je uveo antiseptičke metode koristeći…',
+    prompt: { 
+      en: 'As of 2026, who holds the Guinness World Record for the most YouTube subscribers?',
+      bs: 'Do 2026. godine, ko drži Guinnessov rekord po broju YouTube pretplatnika?'
     },
     options: [
-      { en: 'Ether anesthesia', bs: 'Etersku anesteziju' },
-      { en: 'Mercury compounds', bs: 'Živine spojeve' },
-      { en: 'Iodine tablets', bs: 'Jodne tablete' },
-      { en: 'Carbolic acid in surgery', bs: 'Karbolnu kiselinu u hirurgiji' },
+      { en: 'MrBeast', bs: 'MrBeast' },
+      { en: 'PewDiePie', bs: 'PewDiePie' },
+      { en: 'Markiplier', bs: 'Markiplier' },
+      { en: 'T-Series', bs: 'T-Series' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-053',
@@ -891,13 +891,13 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Robert Koch identified the bacterium causing…',
-      bs: 'Robert Koch je identificirao bakteriju koja uzrokuje…',
+      en: 'Robert Koch identified the bacterium causing which disease?',
+      bs: 'Robert Koch je identificirao bakteriju koja uzrokuje koju bolest?',
     },
     options: [
       { en: 'Tuberculosis', bs: 'Tuberkulozu' },
       { en: 'Malaria', bs: 'Malariju' },
-      { en: 'Cholera', bs: 'Koleru' },
+      { en: 'Smallpox', bs: 'Velike boginje' },
       { en: 'Influenza', bs: 'Grip' },
     ],
     correctIndex: 0,
@@ -908,8 +908,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Andreas Vesalius revolutionized anatomy with…',
-      bs: 'Andreas Vesalius je revolucionisao anatomiju djelom…',
+      en: 'Andreas Vesalius revolutionized anatomy with which landmark work?',
+      bs: 'Andreas Vesalius je revolucionisao anatomiju kojim značajnim djelom?',
     },
     options: [
       { en: 'On the Origin of Species', bs: 'On the Origin of Species' },
@@ -925,8 +925,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'William Harvey is best known for demonstrating the circulation of…',
-      bs: 'William Harvey je najpoznatiji po dokazivanju cirkulacije…',
+      en: 'William Harvey is best known for demonstrating the circulation of what?',
+      bs: 'William Harvey je najpoznatiji po dokazivanju cirkulacije čega?',
     },
     options: [
       { en: 'Blood through the body', bs: 'Krvi kroz tijelo' },
@@ -941,17 +941,17 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Antonie van Leeuwenhoek became famous for being one of the first scientists to observe…',
-      bs: 'Antonie van Leeuwenhoek postao je poznat kao jedan od prvih naučnika koji je posmatrao…',
+    prompt: { 
+      en: 'Jeanne Calment holds the record for the longest verified human lifespan. How old was she when she died?',
+      bs: 'Jeanne Calment drži rekord za najduži potvrđeni ljudski životni vijek. Koliko je imala godina kada je umrla?'
     },
     options: [
-      { en: 'Stellar nebulae', bs: 'Zvjezdane maglice' },
-      { en: 'Mountain crystals', bs: 'Planinske kristale' },
-      { en: 'Fossil bones', bs: 'Fosilne kosti' },
-      { en: 'Microorganisms', bs: 'Mikroorganizme' },
+      { en: '122 years', bs: '122 godine' },
+      { en: '115 years', bs: '115 godina' },
+      { en: '130 years', bs: '130 godina' },
+      { en: '140 years', bs: '140 godina' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-057',
@@ -959,8 +959,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Gregor Mendel established inheritance laws through experiments on…',
-      bs: 'Gregor Mendel je utvrdio zakone nasljeđivanja eksperimentima na…',
+      en: 'Gregor Mendel established inheritance laws through experiments on which organisms?',
+      bs: 'Gregor Mendel je utvrdio zakone nasljeđivanja eksperimentima na kojim organizmima?',
     },
     options: [
       { en: 'Pea plants', bs: 'Grašku' },
@@ -975,17 +975,17 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Alfred Russel Wallace independently proposed a mechanism of…',
-      bs: 'Alfred Russel Wallace je nezavisno predložio mehanizam…',
+    prompt: { 
+      en: 'Who was the main designer behind the original PlayStation console?',
+      bs: 'Ko je bio glavni dizajner originalne PlayStation konzole?'
     },
     options: [
-      { en: 'Continental drift', bs: 'Kontinentalnog pomjeranja' },
-      { en: 'Natural selection', bs: 'Prirodne selekcije' },
-      { en: 'Quantum tunneling', bs: 'Kvantnog tuneliranja' },
-      { en: 'Plate subduction', bs: 'Subdukcije ploča' },
+      { en: 'Ken Kutaragi', bs: 'Ken Kutaragi' },
+      { en: 'Hiroshi Yamauchi', bs: 'Hiroshi Yamauchi' },
+      { en: 'Shigeru Miyamoto', bs: 'Shigeru Miyamoto' },
+      { en: 'Yu Suzuki', bs: 'Yu Suzuki' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-059',
@@ -1009,32 +1009,32 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Carolus Linnaeus standardized biological naming through…',
-      bs: 'Carolus Linnaeus je standardizovao biološko imenovanje kroz…',
+    prompt: { 
+      en: 'Who was the creator of the Game Boy?',
+      bs: 'Ko je bio kreator Game Boy konzole?'
     },
     options: [
-      { en: 'Fossil stratigraphy', bs: 'Fosilnu stratigrafiju' },
-      { en: 'Chromosome staining', bs: 'Bojenje hromozoma' },
-      { en: 'Protein sequencing', bs: 'Sekvenciranje proteina' },
-      { en: 'Binomial nomenclature', bs: 'Binomnu nomenklaturu' },
+      { en: 'Gunpei Yokoi', bs: 'Gunpei Yokoi' },
+      { en: 'Shigeru Miyamoto', bs: 'Shigeru Miyamoto' },
+      { en: 'Satoshi Tajiri', bs: 'Satoshi Tajiri' },
+      { en: 'Ken Kutaragi', bs: 'Ken Kutaragi' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-061',
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Alexander von Humboldt mapped ecosystems emphasizing…',
-      bs: 'Alexander von Humboldt je mapirao ekosisteme naglašavajući…',
+    prompt: { 
+      en: 'Who was the first actor to win three Academy Awards for Best Actor?',
+      bs: 'Ko je bio prvi glumac koji je osvojio tri Oscara za najboljeg glumca?'
     },
     options: [
-      { en: 'Interconnected natural systems', bs: 'Međusobno povezane prirodne sisteme' },
-      { en: 'Isolated desert biomes', bs: 'Izolirane pustinjske biome' },
-      { en: 'Single-species farming', bs: 'Monokulturu jedne vrste' },
-      { en: 'Urban zoning grids', bs: 'Urbanističke zone' },
+      { en: 'Daniel Day-Lewis', bs: 'Daniel Day-Lewis' },
+      { en: 'Tom Hanks', bs: 'Tom Hanks' },
+      { en: 'Jack Nicholson', bs: 'Jack Nicholson' },
+      { en: 'Marlon Brando', bs: 'Marlon Brando' },
     ],
     correctIndex: 0,
   },
@@ -1043,17 +1043,17 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Lynn Margulis advanced the theory of…',
-      bs: 'Lynn Margulis je unaprijedila teoriju…',
+    prompt: { 
+      en: 'Which actor played the Joker in The Dark Knight and won a posthumous Oscar?',
+      bs: 'Koji glumac je igrao Jokera u filmu Vitez tame i osvojio Oscara nakon smrti?'
     },
     options: [
-      { en: 'Spontaneous generation', bs: 'Spontane generacije' },
-      { en: 'Endosymbiosis in cell evolution', bs: 'Endosimbioze u evoluciji ćelija' },
-      { en: 'Lamarckian inheritance', bs: 'Lamarkovskog nasljeđivanja' },
-      { en: 'Fixed species creation', bs: 'Fiksne kreacije vrsta' },
+      { en: 'Heath Ledger', bs: 'Heath Ledger' },
+      { en: 'Joaquin Phoenix', bs: 'Joaquin Phoenix' },
+      { en: 'Jack Nicholson', bs: 'Jack Nicholson' },
+      { en: 'Jared Leto', bs: 'Jared Leto' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-063',
@@ -1061,14 +1061,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Dian Fossey devoted her life to studying…',
-      bs: 'Dian Fossey je posvetila život proučavanju…',
+      en: 'Dian Fossey devoted her life to studying which animals?',
+      bs: 'Dian Fossey je posvetila život proučavanju kojih životinja?',
     },
     options: [
-      { en: 'Arctic wolves', bs: 'Arktičkih vukova' },
-      { en: 'Deep-sea vents', bs: 'Dubokomorskih otvora' },
+      { en: 'Chimpanzees', bs: 'Čimpanzi' },
+      { en: 'Orangutans', bs: 'Orangutana' },
       { en: 'Mountain gorillas', bs: 'Planinskih gorila' },
-      { en: 'Sahara antelope', bs: 'Saharskih antilopa' },
+      { en: 'Bonobos', bs: 'Bonoba' },
     ],
     correctIndex: 2,
   },
@@ -1078,13 +1078,13 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Biruté Galdikas conducted long-term fieldwork on…',
-      bs: 'Biruté Galdikas je vodila dugoročno terensko istraživanje…',
+      en: 'Biruté Galdikas conducted long-term fieldwork on which primates?',
+      bs: 'Biruté Galdikas je vodila dugoročno terensko istraživanje kojih primata?',
     },
     options: [
-      { en: 'Emperor penguins', bs: 'Carskih pingvina' },
-      { en: 'Blue whales', bs: 'Plavih kitova' },
-      { en: 'Red pandas', bs: 'Crvenih pandi' },
+      { en: 'Baboons', bs: 'Pavijana' },
+      { en: 'Gibbons', bs: 'Gibona' },
+      { en: 'Mandrills', bs: 'Mandrila' },
       { en: 'Orangutans', bs: 'Orangutana' },
     ],
     correctIndex: 3,
@@ -1094,15 +1094,15 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Mary Leakey is famous for discovering ancient hominin footprints at…',
-      bs: 'Mary Leakey je poznata po otkriću drevnih tragova hominina u…',
+    prompt: { 
+      en: 'As of 2026, which actor holds the record for the most Academy Award nominations for acting?',
+      bs: 'Do 2026. godine, koji glumac drži rekord po broju nominacija za glumačkog Oscara?'
     },
     options: [
-      { en: 'Laetoli, Tanzania', bs: 'Laetoliju u Tanzaniji' },
-      { en: 'Olduvai Gorge, Tanzania', bs: 'Klisuri Olduvai u Tanzaniji' },
-      { en: 'Lascaux Cave, France', bs: 'Pećini Lascaux u Francuskoj' },
-      { en: 'Altamira Cave, Spain', bs: 'Pećini Altamira u Španiji' },
+      { en: 'Meryl Streep', bs: 'Meryl Streep' },
+      { en: 'Leonardo DiCaprio', bs: 'Leonardo DiCaprio' },
+      { en: 'Brad Pitt', bs: 'Brad Pitt' },
+      { en: 'Robert De Niro', bs: 'Robert De Niro' },
     ],
     correctIndex: 0,
   },
@@ -1111,17 +1111,17 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: "Louis Leakey's excavations at Olduvai Gorge revealed early…",
-      bs: 'Louis Leakey-eva iskopavanja u Olduvai Gorge otkrila su rane…',
+    prompt: { 
+      en: 'Which actor won an Oscar for playing Stephen Hawking in The Theory of Everything?',
+      bs: 'Koji glumac je osvojio Oscara za ulogu Stephena Hawkinga u filmu Teorija svega?'
     },
     options: [
-      { en: 'Pyramid blocks', bs: 'Piramidalne blokove' },
-      { en: 'Hominin fossils', bs: 'Hominidne fosile' },
-      { en: 'Bronze armor', bs: 'Bronzana oklop' },
-      { en: 'Silk manuscripts', bs: 'Svila rukopise' },
+      { en: 'Eddie Redmayne', bs: 'Eddie Redmayne' },
+      { en: 'Benedict Cumberbatch', bs: 'Benedict Cumberbatch' },
+      { en: 'Christian Bale', bs: 'Christian Bale' },
+      { en: 'Matt Damon', bs: 'Matt Damon' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-067',
@@ -1129,8 +1129,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Heinrich Schliemann excavated sites linked to legendary…',
-      bs: 'Heinrich Schliemann je iskopavao lokacije povezane sa legendarnim…',
+      en: 'Heinrich Schliemann excavated sites linked to which legendary city?',
+      bs: 'Heinrich Schliemann je iskopavao lokacije povezane s kojim legendarnim gradom?',
     },
     options: [
       { en: 'Atlantis', bs: 'Atlantisom' },
@@ -1162,15 +1162,15 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Flinders Petrie introduced precision dating methods in…',
-      bs: 'Flinders Petrie je uveo precizne metode datiranja u…',
+    prompt: { 
+      en: 'Which actor became the youngest person to win an acting Oscar?',
+      bs: 'Koja glumica je postala najmlađa dobitnica Oscara za glumu?'
     },
     options: [
-      { en: 'Egyptology', bs: 'Egiptologiji' },
-      { en: 'Meteoritics', bs: 'Meteoritici' },
-      { en: 'Volcanology', bs: 'Vulkanologiji' },
-      { en: 'Glaciology', bs: 'Glaciologiji' },
+      { en: 'Tatum O’Neal', bs: 'Tatum O’Neal' },
+      { en: 'Emma Stone', bs: 'Emma Stone' },
+      { en: 'Jennifer Lawrence', bs: 'Jennifer Lawrence' },
+      { en: 'Natalie Portman', bs: 'Natalie Portman' },
     ],
     correctIndex: 0,
   },
@@ -1180,8 +1180,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Kathleen Kenyon led stratigraphic excavations at ancient…',
-      bs: 'Kathleen Kenyon je vodila stratigrafska iskopavanja u drevnom…',
+      en: 'Kathleen Kenyon led stratigraphic excavations at which ancient site?',
+      bs: 'Kathleen Kenyon je vodila stratigrafska iskopavanja na kojoj drevnoj lokaciji?',
     },
     options: [
       { en: 'Carthage', bs: 'Kartagu' },
@@ -1197,8 +1197,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Giovanni Battista Belzoni transported colossal statues from…',
-      bs: 'Giovanni Battista Belzoni je prenio kolosalne statue iz…',
+      en: 'Giovanni Battista Belzoni transported colossal statues from which site?',
+      bs: 'Giovanni Battista Belzoni je prenio kolosalne statue s koje lokacije?',
     },
     options: [
       { en: 'Angkor Wat', bs: 'Angkor Wata' },
@@ -1214,8 +1214,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Jean-François Champollion deciphered hieroglyphs using the…',
-      bs: 'Jean-François Champollion je dešifrovao hijeroglife koristeći…',
+      en: 'Jean-François Champollion deciphered hieroglyphs using which artifact?',
+      bs: 'Jean-François Champollion je dešifrovao hijeroglife koristeći koji artefakt?',
     },
     options: [
       { en: 'Behistun inscription', bs: 'Behistun natpis' },
@@ -1230,15 +1230,15 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Auguste Comte is regarded as a founder of…',
-      bs: 'Auguste Comte se smatra osnivačem…',
+    prompt: { 
+      en: 'Which actor became the first person to win two Oscars for playing the same character?',
+      bs: 'Koji glumac je postao prvi koji je osvojio dva Oscara za igranje istog lika?'
     },
     options: [
-      { en: 'Positivist sociology', bs: 'Pozitivističke sociologije' },
-      { en: 'Existential psychoanalysis', bs: 'Egzistencijalne psihoanalize' },
-      { en: 'Romantic poetry', bs: 'Romantične poezije' },
-      { en: 'Mercantilist trade theory', bs: 'Merkantilističke trgovinske teorije' },
+      { en: 'Anthony Hopkins as Hannibal Lecter', bs: 'Anthony Hopkins kao Hannibal Lecter' },
+      { en: 'Al Pacino as Michael Corleone', bs: 'Al Pacino kao Michael Corleone' },
+      { en: 'Jack Nicholson as Joker', bs: 'Jack Nicholson kao Joker' },
+      { en: 'Tom Hanks as Forrest Gump', bs: 'Tom Hanks kao Forrest Gump' },
     ],
     correctIndex: 0,
   },
@@ -1247,32 +1247,32 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: "Max Weber analyzed capitalism's roots in…",
-      bs: 'Max Weber je analizirao korijene kapitalizma u…',
+    prompt: { 
+      en: 'Which actor won an Oscar for portraying Abraham Lincoln?',
+      bs: 'Koji glumac je osvojio Oscara za ulogu Abrahama Lincolna?'
     },
     options: [
-      { en: 'Hydraulic empires', bs: 'Hidrauličkim imperijama' },
-      { en: 'The Protestant ethic thesis', bs: 'Tezi o protestantskoj etici' },
-      { en: 'Feudal guild charters', bs: 'Feudalnim cehovskim poveljama' },
-      { en: 'Colonial spice routes', bs: 'Kolonialnim rutama začina' },
+      { en: 'Daniel Day-Lewis', bs: 'Daniel Day-Lewis' },
+      { en: 'Tom Hanks', bs: 'Tom Hanks' },
+      { en: 'Gary Oldman', bs: 'Gary Oldman' },
+      { en: 'Hugh Jackman', bs: 'Hugh Jackman' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-075',
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Émile Durkheim studied social cohesion through research on…',
-      bs: 'Émile Durkheim je proučavao društvenu koheziju kroz istraživanje…',
+    prompt: { 
+      en: 'Which actor played Wolverine for nearly 20 years?',
+      bs: 'Koji glumac je igrao Wolverinea skoro 20 godina?'
     },
     options: [
-      { en: 'Suicide rates and social patterns', bs: 'Stopa samoubistava i društvenih obrazaca' },
-      { en: 'Economic markets and trade systems', bs: 'Ekonomskih tržišta i trgovinskih sistema' },
-      { en: 'Political revolutions and warfare', bs: 'Političkih revolucija i ratovanja' },
-      { en: 'Language evolution and communication', bs: 'Razvoja jezika i komunikacije' },
+      { en: 'Hugh Jackman', bs: 'Hugh Jackman' },
+      { en: 'Ryan Reynolds', bs: 'Ryan Reynolds' },
+      { en: 'Chris Evans', bs: 'Chris Evans' },
+      { en: 'Ben Affleck', bs: 'Ben Affleck' },
     ],
     correctIndex: 0,
   },
@@ -1281,32 +1281,32 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'John Maynard Keynes advocated government spending to manage…',
-      bs: 'John Maynard Keynes je zagovarao državnu potrošnju za upravljanje…',
+    prompt: { 
+      en: 'Which US president issued the Emancipation Proclamation that helped end slavery in the United States?',
+      bs: 'Koji američki predsjednik je izdao Proglas o emancipaciji koji je pomogao ukidanju ropstva u SAD-u?'
     },
     options: [
-      { en: 'Colonial borders', bs: 'Kolonialnim granicama' },
-      { en: 'Postal routes', bs: 'Poštanskim rutama' },
-      { en: 'Naval tonnage', bs: 'Pomorskom tonažom' },
-      { en: 'Economic recessions', bs: 'Ekonomskim recesijama' },
+      { en: 'Abraham Lincoln', bs: 'Abraham Lincoln' },
+      { en: 'George Washington', bs: 'George Washington' },
+      { en: 'Thomas Jefferson', bs: 'Thomas Jefferson' },
+      { en: 'Theodore Roosevelt', bs: 'Theodore Roosevelt' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-077',
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Amartya Sen developed the capability approach to measuring…',
-      bs: 'Amartya Sen je razvio pristup sposobnostima za mjerenje…',
+    prompt: { 
+      en: 'Which US president was the first person to serve as president of the United States?',
+      bs: 'Ko je bio prvi predsjednik Sjedinjenih Američkih Država?'
     },
     options: [
-      { en: 'Human welfare', bs: 'Ljudske dobrobiti' },
-      { en: 'Stellar luminosity', bs: 'Zvjezdane luminoznosti' },
-      { en: 'Ocean salinity', bs: 'Slanosti okeana' },
-      { en: 'Fossil density', bs: 'Gustoće fosila' },
+      { en: 'George Washington', bs: 'George Washington' },
+      { en: 'Abraham Lincoln', bs: 'Abraham Lincoln' },
+      { en: 'John F. Kennedy', bs: 'John F. Kennedy' },
+      { en: 'Franklin D. Roosevelt', bs: 'Franklin D. Roosevelt' },
     ],
     correctIndex: 0,
   },
@@ -1315,34 +1315,34 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'John Nash formulated the equilibrium concept central to…',
-      bs: 'John Nash je formulirao koncept ravnoteže centralan za…',
+    prompt: { 
+      en: 'Which king is famous for ordering the construction of the Taj Mahal?',
+      bs: 'Koji kralj je poznat po naredbi za izgradnju Taj Mahala?'
     },
     options: [
-      { en: 'Plate tectonics', bs: 'Tektoniku ploča' },
-      { en: 'Game theory', bs: 'Teoriju igara' },
-      { en: 'Organic chemistry', bs: 'Organsku hemiju' },
-      { en: 'Botanical taxonomy', bs: 'Botaničku taksonomiju' },
+      { en: 'Shah Jahan', bs: 'Šah Džahan' },
+      { en: 'Akbar', bs: 'Akbar' },
+      { en: 'Genghis Khan', bs: 'Džingis-kan' },
+      { en: 'Suleiman the Magnificent', bs: 'Sulejman Veličanstveni' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-079',
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Leonhard Euler solved the famous problem of the…',
-      bs: 'Leonhard Euler je riješio poznati problem…',
+    prompt: { 
+      en: 'Who said "I have a dream" during a famous civil rights speech?',
+      bs: 'Ko je rekao "Ja imam san" tokom poznatog govora o pravima građana?'
     },
     options: [
-      { en: 'Three-body orbits', bs: 'Tri-tijela orbita' },
-      { en: "Fermat's Last Theorem", bs: 'Fermatove posljednje teoreme' },
-      { en: 'Seven bridges of Königsberg', bs: 'Sedam mostova u Königsbergu' },
-      { en: 'Goldbach conjecture', bs: 'Goldbachove konjekture' },
+      { en: 'Martin Luther King Jr.', bs: 'Martin Luther King Jr.' },
+      { en: 'Nelson Mandela', bs: 'Nelson Mandela' },
+      { en: 'Abraham Lincoln', bs: 'Abraham Lincoln' },
+      { en: 'Mahatma Gandhi', bs: 'Mahatma Gandhi' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-080',
@@ -1350,12 +1350,12 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Pierre-Simon Laplace advanced mathematical models of…',
-      bs: 'Pierre-Simon Laplace je unaprijedio matematičke modele…',
+      en: 'Pierre-Simon Laplace advanced mathematical models of which subject?',
+      bs: 'Pierre-Simon Laplace je unaprijedio matematičke modele kojeg predmeta?',
     },
     options: [
-      { en: 'Volcanic ash clouds', bs: 'Vulkanskih pepeo oblaka' },
-      { en: 'Tidal bore waves', bs: 'Plimnih talasa' },
+      { en: 'Fluid turbulence', bs: 'Turbulencije fluida' },
+      { en: 'Optical refraction', bs: 'Optičke refrakcije' },
       { en: 'Crystal lattice defects', bs: 'Defekata kristalne rešetke' },
       { en: 'Celestial mechanics', bs: 'Nebeške mehanike' },
     ],
@@ -1366,15 +1366,15 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Joseph Fourier developed series used to analyze…',
-      bs: 'Joseph Fourier je razvio redove korištene za analizu…',
+    prompt: { 
+      en: 'Who said "That’s one small step for man, one giant leap for mankind"?',
+      bs: 'Ko je rekao "To je mali korak za čovjeka, ali veliki skok za čovječanstvo"?'
     },
     options: [
-      { en: 'Heat diffusion', bs: 'Difuzije toplote' },
-      { en: 'Genetic drift', bs: 'Genetskog drifta' },
-      { en: 'Ocean salinity', bs: 'Slanosti okeana' },
-      { en: 'Fossil aging', bs: 'Starosti fosila' },
+      { en: 'Neil Armstrong', bs: 'Neil Armstrong' },
+      { en: 'Yuri Gagarin', bs: 'Jurij Gagarin' },
+      { en: 'Buzz Aldrin', bs: 'Buzz Aldrin' },
+      { en: 'John Glenn', bs: 'John Glenn' },
     ],
     correctIndex: 0,
   },
@@ -1384,14 +1384,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: "Euclid's Elements systematized proofs in…",
-      bs: 'Euclid-ovi Elements su sistematizovali dokaze u…',
+      en: 'Euclid\'s Elements systematized proofs in which branch of mathematics?',
+      bs: 'Euklidovi Elements su sistematizovali dokaze u kojoj grani matematike?',
     },
     options: [
-      { en: 'Astronomy', bs: 'Astronomiji' },
+      { en: 'Arithmetic', bs: 'Aritmetici' },
       { en: 'Geometry', bs: 'Geometriji' },
-      { en: 'Meteorology', bs: 'Meteorologiji' },
-      { en: 'Pharmacology', bs: 'Farmakologiji' },
+      { en: 'Algebra', bs: 'Algebri' },
+      { en: 'Trigonometry', bs: 'Trigonometriji' },
     ],
     correctIndex: 1,
   },
@@ -1402,7 +1402,7 @@ export const famousHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Archimedes is best known for formulating which principle about fluids and submerged objects?',
-      bs: 'Archimedes je najpoznatiji po formulisanju kojeg principa o fluidima i uronjenim objektima?',
+      bs: 'Arhimed je najpoznatiji po formulisanju kojeg principa o fluidima i uronjenim objektima?',
     },
     options: [
       { en: 'Buoyancy', bs: 'Uzgona' },
@@ -1418,8 +1418,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Eratosthenes estimated Earth’s circumference by comparing…',
-      bs: 'Eratosten je procijenio obim Zemlje poredeći…',
+      en: 'Eratosthenes estimated Earth’s circumference by comparing what measurements?',
+      bs: 'Eratosten je procijenio obim Zemlje poredeći koja mjerenja?',
     },
     options: [
       { en: 'The positions of planets in the sky', bs: 'Položaje planeta na nebu' },
@@ -1435,14 +1435,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Muḥammad ibn Mūsā al-Khwārizmī gave his name to the concept of an…',
-      bs: 'Muḥammad ibn Mūsā al-Khwārizmī je dao ime konceptu…',
+      en: 'Muḥammad ibn Mūsā al-Khwārizmī’s mathematical work helped establish which foundational idea?',
+      bs: 'Matematički rad Muḥammada ibn Mūsā al-Khwārizmīja pomogao je uspostaviti koju temeljnu ideju?',
     },
     options: [
-      { en: 'Algorithm', bs: 'Algoritma' },
-      { en: 'Atom', bs: 'Atoma' },
-      { en: 'Axiom', bs: 'Aksioma' },
-      { en: 'Alloy', bs: 'Legure' },
+      { en: 'Algorithm', bs: 'Algoritam' },
+      { en: 'Atom', bs: 'Atom' },
+      { en: 'Axiom', bs: 'Aksiom' },
+      { en: 'Alloy', bs: 'Leguru' },
     ],
     correctIndex: 0,
   },
@@ -1468,17 +1468,17 @@ export const famousHard: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'hard',
-    prompt: {
-      en: 'Ibn Rushd wrote influential commentaries on…',
-      bs: 'Ibn Rushd je pisao uticajne komentare o…',
+    prompt: { 
+      en: 'Who said "Veni, vidi, vici" ("I came, I saw, I conquered")?',
+      bs: 'Ko je rekao "Dođoh, vidjeh, pobijedih"?'
     },
     options: [
-      { en: 'Homeric epics', bs: 'Homerovim epima' },
-      { en: 'Roman law codes', bs: 'Rimskim pravnim kodeksima' },
-      { en: "Aristotle's philosophy", bs: 'Aristotelovoj filozofiji' },
-      { en: 'Vedic hymns', bs: 'Vedskim himnama' },
+      { en: 'Julius Caesar', bs: 'Julije Cezar' },
+      { en: 'Alexander the Great', bs: 'Aleksandar Veliki' },
+      { en: 'Napoleon Bonaparte', bs: 'Napoleon Bonaparte' },
+      { en: 'Augustus', bs: 'August' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-088',
@@ -1486,16 +1486,16 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Ibn al-Haytham challenged ancient theories of vision by proving that sight occurs when…',
-      bs: 'Ibn al-Haytham je osporio drevne teorije vida dokazujući da vid nastaje kada…',
+      en: 'Who is associated with the famous words "We must not leave the wounded behind" during the Battle of Sutjeska?',
+      bs: 'Ko se povezuje s poznatim riječima "Ranjenike ne smijemo ostaviti" tokom Bitke na Sutjesci?'
     },
     options: [
-      { en: 'The eyes emit rays that touch objects', bs: 'Oči emituju zrake koje dodiruju predmete' },
-      { en: 'Light enters the eyes from external sources', bs: 'Svjetlost ulazi u oči iz vanjskih izvora' },
-      { en: 'The brain creates images without light', bs: 'Mozak stvara slike bez svjetlosti' },
-      { en: 'Objects produce invisible sounds that create images', bs: 'Predmeti proizvode nevidljive zvukove koji stvaraju slike' },
+      { en: 'Josip Broz Tito', bs: 'Josip Broz Tito' },
+      { en: 'Draža Mihailović', bs: 'Draža Mihailović' },
+      { en: 'Winston Churchill', bs: 'Winston Churchill' },
+      { en: 'Josif Staljin', bs: 'Josif Staljin' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-089',
@@ -1503,14 +1503,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Omar Khayyam solved cubic equations and wrote celebrated…',
-      bs: 'Omar Khayyam je rješavao kubne jednačine i napisao slavne…',
+      en: 'Who was the first person to be awarded the FIFA Ballon d’Or?',
+      bs: 'Ko je bio prvi dobitnik FIFA Zlatne lopte?'
     },
     options: [
-      { en: 'Quatrains', bs: 'Katrene' },
-      { en: 'Epic cycles', bs: 'Epske cikluse' },
-      { en: 'Legal commentaries', bs: 'Pravne komentare' },
-      { en: 'Naval logbooks', bs: 'Pomorske dnevnike' },
+      { en: 'Stanley Matthews', bs: 'Stanley Matthews' },
+      { en: 'Pelé', bs: 'Pelé' },
+      { en: 'Johan Cruyff', bs: 'Johan Cruyff' },
+      { en: 'Alfredo Di Stéfano', bs: 'Alfredo Di Stéfano' },
     ],
     correctIndex: 0,
   },
@@ -1520,8 +1520,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Nasir al-Din al-Tusi proposed the astronomical model known as the…',
-      bs: 'Nasir al-Din al-Tusi je predložio astronomski model poznat kao…',
+      en: 'Nasir al-Din al-Tusi proposed which geometric device used to model planetary motion?',
+      bs: 'Nasir al-Din al-Tusi je predložio koji geometrijski uređaj korišten za modeliranje planetarnog kretanja?',
     },
     options: [
       { en: 'Ptolemaic deferent', bs: 'Ptolemejev deferent' },
@@ -1537,16 +1537,16 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Su Song built an elaborate astronomical clock tower in…',
-      bs: 'Su Song je izgradio složeni astronomski sat u…',
+      en: 'Who was the first person to win an Academy Award for Best Actor?',
+      bs: 'Ko je bio prvi dobitnik Oscara za najboljeg glumca?'
     },
     options: [
-      { en: 'Baghdad', bs: 'Bagdadu' },
-      { en: 'Delhi', bs: 'Delhiju' },
-      { en: 'Song Dynasty China', bs: 'Kini Song dinastije' },
-      { en: 'Constantinople', bs: 'Carigradu' },
+      { en: 'Emil Jannings', bs: 'Emil Jannings' },
+      { en: 'Charlie Chaplin', bs: 'Charlie Chaplin' },
+      { en: 'Clark Gable', bs: 'Clark Gable' },
+      { en: 'Spencer Tracy', bs: 'Spencer Tracy' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-092',
@@ -1554,8 +1554,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Zhang Heng invented an early instrument to detect…',
-      bs: 'Zhang Heng je izumio rani instrument za detekciju…',
+      en: 'Zhang Heng invented an early instrument to detect which natural event?',
+      bs: 'Zhang Heng je izumio rani instrument za detekciju kojeg prirodnog događaja?',
     },
     options: [
       { en: 'Solar flares', bs: 'Sunčevih baklji' },
@@ -1571,14 +1571,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Shen Kuo recorded scientific observations in…',
-      bs: 'Shen Kuo je zapisivao naučna zapažanja u…',
+      en: 'Who was the first person to win a Formula 1 World Championship?',
+      bs: 'Ko je bio prvi prvak svijeta Formule 1?'
     },
     options: [
-      { en: 'Dream Pool Essays', bs: 'Dream Pool Essays' },
-      { en: 'Principia Mathematica', bs: 'Principia Mathematica' },
-      { en: 'Origin of Species', bs: 'Origin of Species' },
-      { en: 'Critique of Pure Reason', bs: 'Critique of Pure Reason' },
+      { en: 'Giuseppe Farina', bs: 'Giuseppe Farina' },
+      { en: 'Juan Manuel Fangio', bs: 'Juan Manuel Fangio' },
+      { en: 'Ayrton Senna', bs: 'Ayrton Senna' },
+      { en: 'Alain Prost', bs: 'Alain Prost' },
     ],
     correctIndex: 0,
   },
@@ -1588,16 +1588,16 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Gertrude Stein hosted a Paris salon associated with…',
-      bs: 'Gertrude Stein je vodila pariski salon povezan sa…',
+      en: 'Who was the first person to orbit Earth?',
+      bs: 'Ko je bio prvi čovjek koji je obišao Zemlju u orbiti?'
     },
     options: [
-      { en: 'Neoclassical revival', bs: 'Neoklasičnim preporodom' },
-      { en: 'Modernist literature', bs: 'Modernističkom književnošću' },
-      { en: 'Gothic architecture', bs: 'Gotičkom arhitekturom' },
-      { en: 'Mercantile banking', bs: 'Merkantilističkim bankarstvom' },
+      { en: 'Yuri Gagarin', bs: 'Jurij Gagarin' },
+      { en: 'John Glenn', bs: 'John Glenn' },
+      { en: 'Alan Shepard', bs: 'Alan Shepard' },
+      { en: 'Gherman Titov', bs: 'German Titov' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-095',
@@ -1605,14 +1605,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Virginia Apgar devised a quick assessment score for…',
-      bs: 'Virginia Apgar je osmislila brzu procjenu za…',
+      en: 'Virginia Apgar devised a quick assessment score for which patients?',
+      bs: 'Virginia Apgar je osmislila brzu procjenu za koje pacijente?',
     },
     options: [
       { en: 'Adult cardiac patients', bs: 'Odrasle kardijalne pacijente' },
-      { en: 'Surgical instruments', bs: 'Hirurške instrumente' },
+      { en: 'Trauma victims', bs: 'Žrtve trauma' },
       { en: 'Newborn infants', bs: 'Novorođenčad' },
-      { en: 'Hospital budgets', bs: 'Bolničke budžete' },
+      { en: 'Elderly surgical patients', bs: 'Starije hirurške pacijente' },
     ],
     correctIndex: 2,
   },
@@ -1639,8 +1639,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Fritz Haber developed industrial synthesis of…',
-      bs: 'Fritz Haber je razvio industrijsku sintezu…',
+      en: 'Fritz Haber developed industrial synthesis of which chemical compound?',
+      bs: 'Fritz Haber je razvio industrijsku sintezu kojeg hemijskog spoja?',
     },
     options: [
       { en: 'Ammonia', bs: 'Amonijaka' },
@@ -1656,8 +1656,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Nadia Comăneci scored the first perfect ten in Olympic…',
-      bs: 'Nadia Comăneci je postigla prvu savršenu desetku na olimpijskoj…',
+      en: 'Nadia Comăneci scored the first perfect ten in which Olympic sport?',
+      bs: 'Nadia Comăneci je postigla prvu savršenu desetku u kojem olimpijskom sportu?',
     },
     options: [
       { en: 'Swimming', bs: 'Plivanju' },
@@ -1673,8 +1673,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Gertrude Ederle was the first woman to swim the…',
-      bs: 'Gertrude Ederle je bila prva žena koja je preplivala…',
+      en: 'Gertrude Ederle was the first woman to swim which body of water?',
+      bs: 'Gertrude Ederle je bila prva žena koja je preplivala koje vodeno tijelo?',
     },
     options: [
       { en: 'Panama Canal', bs: 'Panama kanal' },
@@ -1690,14 +1690,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Dick Fosbury revolutionized high jump technique with the…',
-      bs: 'Dick Fosbury je revolucionisao tehniku skoka u vis koristeći…',
+      en: 'Dick Fosbury revolutionized high jump technique with which method?',
+      bs: 'Dick Fosbury je revolucionisao tehniku skoka u vis kojom metodom?',
     },
     options: [
       { en: 'Scissor kick', bs: 'Makaze' },
       { en: 'Western roll', bs: 'Western roll' },
       { en: 'Straddle style', bs: 'Straddle stil' },
-      { en: 'Fosbury flop', bs: 'Fosbury flop' },
+      { en: 'Back-first flop', bs: 'Skokom leđima naprijed' },
     ],
     correctIndex: 3,
   },
