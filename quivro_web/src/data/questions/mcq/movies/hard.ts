@@ -1837,4 +1837,21 @@ export const moviesHard: Question[] = [
     ],
     correctIndex: 0,
   },
+  {
+    id: 'movie-hard-109',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Besides cost, why are traditional IMAX film cameras rarely used to shoot entire movies?',
+      bs: 'Osim cijene, zašto se tradicionalne IMAX filmske kamere rijetko koriste za snimanje cijelih filmova?'
+    },
+    options: [
+      { en: 'They are extremely loud', bs: 'Izuzetno su glasne' },
+      { en: 'They cannot record color', bs: 'Ne mogu snimati u boji' },
+      { en: 'They only work outdoors', bs: 'Rade samo na otvorenom' },
+      { en: 'They overheat after a few minutes', bs: 'Pregrijavaju se nakon nekoliko minuta' },
+    ],
+    correctIndex: 0,
+  },
 ];
