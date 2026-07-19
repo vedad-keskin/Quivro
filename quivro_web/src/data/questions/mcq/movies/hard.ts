@@ -1854,4 +1854,21 @@ export const moviesHard: Question[] = [
     ],
     correctIndex: 0,
   },
+  {
+    id: 'movie-hard-110',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which film became the first feature film shot entirely with IMAX film cameras?',
+      bs: 'Koji film je postao prvi dugometražni film u potpunosti snimljen IMAX filmskim kamerama?'
+    },
+    options: [
+      { en: 'The Odyssey', bs: 'The Odyssey' },
+      { en: 'Oppenheimer', bs: 'Oppenheimer' },
+      { en: 'Dunkirk', bs: 'Dunkirk' },
+      { en: 'Avatar: The Way of Water', bs: 'Avatar: Put vode' },
+    ],
+    correctIndex: 0,
+  },
 ];
