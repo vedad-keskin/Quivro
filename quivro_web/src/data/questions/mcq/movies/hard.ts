@@ -6,7 +6,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Which film won the first Academy Award for Best Picture?', bs: 'Koji film je osvojio prvog Oscara za najbolji film?' },
+    prompt: {
+      en: 'Which film won the first Academy Award for Best Picture?',
+      bs: 'Koji film je osvojio prvog Oscara za najbolji film?'
+    },
     options: [
       { en: 'Gone with the Wind', bs: 'Gone with the Wind' },
       { en: 'Wings', bs: 'Wings' },
@@ -20,7 +23,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Alfred Hitchcock’s famous shower scene is in which film?', bs: 'Čuvena Hitchcockova scena pod tušem je u kojem filmu?' },
+    prompt: {
+      en: 'Alfred Hitchcock’s famous shower scene is in which film?',
+      bs: 'Čuvena Hitchcockova scena pod tušem je u kojem filmu?'
+    },
     options: [
       { en: 'Vertigo', bs: 'Vertigo' },
       { en: 'Rear Window', bs: 'Rear Window' },
@@ -34,7 +40,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Citizen Kane, what is the name of Kane’s childhood sled?', bs: 'U Citizen Kaneu, kako se zove Kaneove dječije sanke?' },
+    prompt: {
+      en: 'In Citizen Kane, what is the name of Kane’s childhood sled?',
+      bs: 'U Citizen Kaneu, kako se zove Kaneove dječije sanke?'
+    },
     options: [
       { en: 'Rosebud', bs: 'Rosebud' },
       { en: 'Snowflake', bs: 'Snowflake' },
@@ -48,7 +57,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In which year was the original Star Wars film released?', bs: 'Koje godine je izašao originalni film Ratovi zvijezda?' },
+    prompt: {
+      en: 'In which year was the original Star Wars film released?',
+      bs: 'Koje godine je izašao originalni film Ratovi zvijezda?'
+    },
     options: [
       { en: '1975', bs: '1975' },
       { en: '1977', bs: '1977' },
@@ -62,7 +74,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who created the TV series The Sopranos?', bs: 'Ko je kreirao TV seriju The Sopranos?' },
+    prompt: {
+      en: 'Who created the TV series The Sopranos?',
+      bs: 'Ko je kreirao TV seriju The Sopranos?'
+    },
     options: [
       { en: 'David Chase', bs: 'David Chase' },
       { en: 'Vince Gilligan', bs: 'Vince Gilligan' },
@@ -76,7 +91,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Hayao Miyazaki co-founded which animation studio?', bs: 'Hayao Miyazaki je suosnivač kojeg animacijskog studija?' },
+    prompt: {
+      en: 'Hayao Miyazaki co-founded which animation studio?',
+      bs: 'Hayao Miyazaki je suosnivač kojeg animacijskog studija?'
+    },
     options: [
       { en: 'Pixar', bs: 'Pixar' },
       { en: 'DreamWorks', bs: 'DreamWorks' },
@@ -90,7 +108,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Twin Peaks was co-created by…', bs: 'Twin Peaks su su-kreirali…' },
+    prompt: {
+      en: 'Who co-created the TV series Twin Peaks?',
+      bs: 'Ko je su-kreirao TV seriju Twin Peaks?'
+    },
     options: [
       { en: 'David Lynch and Mark Frost', bs: 'David Lynch i Mark Frost' },
       { en: 'J.J. Abrams and Damon Lindelof', bs: 'J.J. Abrams i Damon Lindelof' },
@@ -104,7 +125,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who won the Oscar for Best Actress for La La Land?', bs: 'Ko je osvojio Oscara za najbolju glumicu za La La Land?' },
+    prompt: {
+      en: 'Who won the Oscar for Best Actress for La La Land?',
+      bs: 'Ko je osvojio Oscara za najbolju glumicu za La La Land?'
+    },
     options: [
       { en: 'Natalie Portman', bs: 'Natalie Portman' },
       { en: 'Emma Stone', bs: 'Emma Stone' },
@@ -118,7 +142,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who created the anthology series Black Mirror?', bs: 'Ko je kreirao antologijsku seriju Black Mirror?' },
+    prompt: {
+      en: 'Who created the anthology series Black Mirror?',
+      bs: 'Ko je kreirao antologijsku seriju Black Mirror?'
+    },
     options: [
       { en: 'Charlie Brooker', bs: 'Charlie Brooker' },
       { en: 'Noah Hawley', bs: 'Noah Hawley' },
@@ -132,7 +159,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Casablanca, Rick’s famous toast line is…', bs: 'U Casablanci, Rickova čuvena zdravica glasi…' },
+    prompt: {
+      en: 'What is Rick’s famous toast line in Casablanca?',
+      bs: 'Koja je Rickova čuvena zdravica u Casablanci?'
+    },
     options: [
       { en: '“May the Force be with you.”', bs: '“Neka Sila bude s tobom.”' },
       { en: '“Here’s looking at you, kid.”', bs: '“Evo te gledam, mali.”' },
@@ -146,7 +176,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who directed 2001: A Space Odyssey?', bs: 'Ko je režirao 2001: A Space Odyssey?' },
+    prompt: {
+      en: 'Who directed 2001: A Space Odyssey?',
+      bs: 'Ko je režirao 2001: A Space Odyssey?'
+    },
     options: [
       { en: 'Steven Spielberg', bs: 'Steven Spielberg' },
       { en: 'Stanley Kubrick', bs: 'Stanley Kubrick' },
@@ -160,7 +193,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In The Godfather, the central crime family is the…', bs: 'U Kumu, centralna kriminalna porodica je…' },
+    prompt: {
+      en: 'What is the name of the central crime family in The Godfather?',
+      bs: 'Kako se zove centralna kriminalna porodica u Kumu?'
+    },
     options: [
       { en: 'Corleone', bs: 'Corleone' },
       { en: 'Soprano', bs: 'Soprano' },
@@ -174,7 +210,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who directed Pulp Fiction?', bs: 'Ko je režirao Pulp Fiction?' },
+    prompt: {
+      en: 'Who directed Pulp Fiction?',
+      bs: 'Ko je režirao Pulp Fiction?'
+    },
     options: [
       { en: 'Quentin Tarantino', bs: 'Quentin Tarantino' },
       { en: 'Martin Scorsese', bs: 'Martin Scorsese' },
@@ -188,7 +227,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In which year was The Wizard of Oz released?', bs: 'Koje godine je izašao Čarobnjak iz Oza?' },
+    prompt: {
+      en: 'In which year was The Wizard of Oz released?',
+      bs: 'Koje godine je izašao Čarobnjak iz Oza?'
+    },
     options: [
       { en: '1929', bs: '1929' },
       { en: '1939', bs: '1939' },
@@ -202,7 +244,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who directed The Godfather?', bs: 'Ko je režirao Kuma?' },
+    prompt: {
+      en: 'Who directed The Godfather?',
+      bs: 'Ko je režirao Kuma?'
+    },
     options: [
       { en: 'Martin Scorsese', bs: 'Martin Scorsese' },
       { en: 'Francis Ford Coppola', bs: 'Francis Ford Coppola' },
@@ -216,7 +261,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Citizen Kane was directed by…', bs: 'Citizen Kane je režirao…' },
+    prompt: {
+      en: 'Who directed Citizen Kane?',
+      bs: 'Ko je režirao Citizen Kane?'
+    },
     options: [
       { en: 'Orson Welles', bs: 'Orson Welles' },
       { en: 'Alfred Hitchcock', bs: 'Alfred Hitchcock' },
@@ -230,7 +278,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who created Breaking Bad?', bs: 'Ko je kreirao Breaking Bad?' },
+    prompt: {
+      en: 'Who created Breaking Bad?',
+      bs: 'Ko je kreirao Breaking Bad?'
+    },
     options: [
       { en: 'David Chase', bs: 'David Chase' },
       { en: 'Vince Gilligan', bs: 'Vince Gilligan' },
@@ -244,7 +295,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who created The Wire?', bs: 'Ko je kreirao The Wire?' },
+    prompt: {
+      en: 'Who created The Wire?',
+      bs: 'Ko je kreirao The Wire?'
+    },
     options: [
       { en: 'David Simon', bs: 'David Simon' },
       { en: 'HBO Studios', bs: 'HBO Studios' },
@@ -258,7 +312,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who created Mad Men?', bs: 'Ko je kreirao Mad Men?' },
+    prompt: {
+      en: 'Who created Mad Men?',
+      bs: 'Ko je kreirao Mad Men?'
+    },
     options: [
       { en: 'Matthew Weiner', bs: 'Matthew Weiner' },
       { en: 'David Chase', bs: 'David Chase' },
@@ -272,7 +329,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'The Simpsons was created by…', bs: 'Simpsone je kreirao…' },
+    prompt: {
+      en: 'Who created The Simpsons?',
+      bs: 'Ko je kreirao Simpsone?'
+    },
     options: [
       { en: 'Seth MacFarlane', bs: 'Seth MacFarlane' },
       { en: 'Matt Groening', bs: 'Matt Groening' },
@@ -286,7 +346,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who created Rick and Morty?', bs: 'Ko je kreirao Rick and Morty?' },
+    prompt: {
+      en: 'Who created Rick and Morty?',
+      bs: 'Ko je kreirao Rick and Morty?'
+    },
     options: [
       { en: 'Dan Harmon and Justin Roiland', bs: 'Dan Harmon i Justin Roiland' },
       { en: 'Matt Groening', bs: 'Matt Groening' },
@@ -302,7 +365,7 @@ export const moviesHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which Disney film was the first full-length animated feature film released by the studio?',
-      bs: 'Koji Disneyjev film je bio prvi dugometražni animirani film koji je studio objavio?',
+      bs: 'Koji Disneyjev film je bio prvi dugometražni animirani film koji je studio objavio?'
     },
     options: [
       { en: 'Snow White and the Seven Dwarfs', bs: 'Snjeguljica i sedam patuljaka' },
@@ -317,7 +380,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Spirited Away, what name does Yubaba give Chihiro at the bathhouse?', bs: 'U Spirited Away, koje ime Yubaba daje Chihiro u kupatilu?' },
+    prompt: {
+      en: 'In Spirited Away, what name does Yubaba give Chihiro at the bathhouse?',
+      bs: 'U Spirited Away, koje ime Yubaba daje Chihiro u kupatilu?'
+    },
     options: [
       { en: 'Sen', bs: 'Sen' },
       { en: 'Haku', bs: 'Haku' },
@@ -333,7 +399,7 @@ export const moviesHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which film was the first fully computer-animated feature released by Pixar?',
-      bs: 'Koji je film bio prvi potpuno računalno animirani dugometražni film koji je objavio Pixar?',
+      bs: 'Koji je film bio prvi potpuno računalno animirani dugometražni film koji je objavio Pixar?'
     },
     options: [
       { en: 'Toy Story', bs: 'Toy Story' },
@@ -348,7 +414,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Your Name, the disaster that threatens Mitsuha’s town involves a fragment of a…', bs: 'U Your Name, katastrofa koja prijeti Mitsuinom gradu uključuje fragment…' },
+    prompt: {
+      en: 'What object causes the disaster that threatens Mitsuha’s town in Your Name?',
+      bs: 'Koji predmet uzrokuje katastrofu koja prijeti Mitsuinom gradu u Your Name?'
+    },
     options: [
       { en: 'Comet', bs: 'Komete' },
       { en: 'Meteor shower', bs: 'Meteorskog pljuska' },
@@ -362,7 +431,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who created Family Guy?', bs: 'Ko je kreirao Family Guy?' },
+    prompt: {
+      en: 'Who created Family Guy?',
+      bs: 'Ko je kreirao Family Guy?'
+    },
     options: [
       { en: 'Matt Groening', bs: 'Matt Groening' },
       { en: 'Seth MacFarlane', bs: 'Seth MacFarlane' },
@@ -376,7 +448,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In which year was E.T. the Extra-Terrestrial released?', bs: 'Koje godine je izašao E.T. the Extra-Terrestrial?' },
+    prompt: {
+      en: 'In which year was E.T. the Extra-Terrestrial released?',
+      bs: 'Koje godine je izašao E.T. the Extra-Terrestrial?'
+    },
     options: [
       { en: '1977', bs: '1977' },
       { en: '1982', bs: '1982' },
@@ -390,7 +465,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In which year was Jurassic Park released?', bs: 'Koje godine je izašao Jurassic Park?' },
+    prompt: {
+      en: 'In which year was Jurassic Park released?',
+      bs: 'Koje godine je izašao Jurassic Park?'
+    },
     options: [
       { en: '1988', bs: '1988' },
       { en: '1993', bs: '1993' },
@@ -404,7 +482,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In which year was The Matrix released?', bs: 'Koje godine je izašao Matrix?' },
+    prompt: {
+      en: 'In which year was The Matrix released?',
+      bs: 'Koje godine je izašao Matrix?'
+    },
     options: [
       { en: '1994', bs: '1994' },
       { en: '1999', bs: '1999' },
@@ -418,7 +499,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In which year was the first Harry Potter film released?', bs: 'Koje godine je izašao prvi Harry Potter film?' },
+    prompt: {
+      en: 'In which year was the first Harry Potter film released?',
+      bs: 'Koje godine je izašao prvi Harry Potter film?'
+    },
     options: [
       { en: '1998', bs: '1998' },
       { en: '2001', bs: '2001' },
@@ -432,7 +516,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In The Silence of the Lambs, Hannibal Lecter mentions a wine paired with liver and…', bs: 'U The Silence of the Lambs, Hannibal Lecter spominje vino uz jetra i…' },
+    prompt: {
+      en: 'In The Silence of the Lambs, what does Hannibal Lecter famously eat with liver and a nice Chianti?',
+      bs: 'U The Silence of the Lambs, šta Hannibal Lecter poznato jede uz jetra i dobar Chianti?'
+    },
     options: [
       { en: 'Fava beans', bs: 'Bob' },
       { en: 'Potatoes', bs: 'Krompir' },
@@ -446,7 +533,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who directed Fight Club?', bs: 'Ko je režirao Fight Club?' },
+    prompt: {
+      en: 'Who directed Fight Club?',
+      bs: 'Ko je režirao Fight Club?'
+    },
     options: [
       { en: 'David Fincher', bs: 'David Fincher' },
       { en: 'Christopher Nolan', bs: 'Christopher Nolan' },
@@ -462,7 +552,7 @@ export const moviesHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'What is the name of the newspaper where Peter Parker works in Spider-Man films?',
-      bs: 'Kako se nazivaju novine u kojoj Peter Parker radi u Spider-Man filmovima?',
+      bs: 'Kako se nazivaju novine u kojoj Peter Parker radi u Spider-Man filmovima?'
     },
     options: [
       { en: 'Daily Bugle', bs: 'Daily Bugle' },
@@ -477,7 +567,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who directed Schindler’s List?', bs: 'Ko je režirao Schindler’s List?' },
+    prompt: {
+      en: 'Who directed Schindler’s List?',
+      bs: 'Ko je režirao Schindler’s List?'
+    },
     options: [
       { en: 'Steven Spielberg', bs: 'Steven Spielberg' },
       { en: 'Roman Polanski', bs: 'Roman Polanski' },
@@ -491,7 +584,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who directed Parasite?', bs: 'Ko je režirao Parasite?' },
+    prompt: {
+      en: 'Who directed Parasite?',
+      bs: 'Ko je režirao Parasite?'
+    },
     options: [
       { en: 'Park Chan-wook', bs: 'Park Chan-wook' },
       { en: 'Bong Joon-ho', bs: 'Bong Joon-ho' },
@@ -505,7 +601,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Parasite was the first non-English-language film to win Oscar for…', bs: 'Parasite je bio prvi ne-engleski film koji je osvojio Oscara za…' },
+    prompt: {
+      en: 'Parasite was the first non-English-language film to win which Oscar category?',
+      bs: 'Parasite je bio prvi neengleski film koji je osvojio Oscara u kojoj kategoriji?'
+    },
     options: [
       { en: 'Best Director', bs: 'Najboljeg režisera' },
       { en: 'Best Picture', bs: 'Najbolji film' },
@@ -519,7 +618,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Which Studio Ghibli film features the wolf-god Moro?', bs: 'Koji Studio Ghibli film prikazuje vuk-boga Moro?' },
+    prompt: {
+      en: 'Which Studio Ghibli film features the wolf-god Moro?',
+      bs: 'Koji Studio Ghibli film prikazuje vuk-boga Moro?'
+    },
     options: [
       { en: 'Princess Mononoke', bs: 'Princeza Mononoke' },
       { en: 'My Neighbor Totoro', bs: 'My Neighbor Totoro' },
@@ -533,7 +635,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Naruto, the protagonist’s home village is the Hidden…', bs: 'U Narutu, protagonistov rodni selo je Skriveno…' },
+    prompt: {
+      en: 'What is the name of the protagonist’s home village in Naruto?',
+      bs: 'Kako se zove rodno selo protagoniste u Narutu?'
+    },
     options: [
       { en: 'Leaf Village', bs: 'selo Lišća' },
       { en: 'Sand Village', bs: 'selo Pijeska' },
@@ -547,7 +652,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Dragon Ball, Goku’s signature energy attack is the…', bs: 'U Dragon Ballu, Gokuov prepoznatljiv energetski napad je…' },
+    prompt: {
+      en: 'What is the name of Goku’s signature energy attack in Dragon Ball?',
+      bs: 'Kako se zove Gokuov prepoznatljiv energetski napad u Dragon Ballu?'
+    },
     options: [
       { en: 'Kamehameha', bs: 'Kamehameha' },
       { en: 'Rasengan', bs: 'Rasengan' },
@@ -561,7 +669,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In South Park, the town is located in which U.S. state?', bs: 'U South Parku, grad se nalazi u kojoj američkoj saveznoj državi?' },
+    prompt: {
+      en: 'In South Park, the town is located in which U.S. state?',
+      bs: 'U South Parku, grad se nalazi u kojoj američkoj saveznoj državi?'
+    },
     options: [
       { en: 'Colorado', bs: 'Coloradu' },
       { en: 'California', bs: 'Kaliforniji' },
@@ -575,7 +686,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In The Incredibles, Mr. Incredible’s real name is…', bs: 'U The Incredibles, pravo ime Mr. Incrediblea je…' },
+    prompt: {
+      en: 'What is Mr. Incredible’s real name in The Incredibles?',
+      bs: 'Kako se zove Mr. Incredible u stvarnom životu u The Incredibles?'
+    },
     options: [
       { en: 'Robert Parr', bs: 'Robert Parr' },
       { en: 'Bob Smith', bs: 'Bob Smith' },
@@ -589,7 +703,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Inside Out, which emotion is voiced by Lewis Black?', bs: 'U Inside Outu, koju emociju glumi Lewis Black?' },
+    prompt: {
+      en: 'In Inside Out, which emotion is voiced by Lewis Black?',
+      bs: 'U Inside Outu, koju emociju glumi Lewis Black?'
+    },
     options: [
       { en: 'Anger', bs: 'Ljutnju' },
       { en: 'Fear', bs: 'Strah' },
@@ -603,7 +720,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Coco, Miguel is transported to the Land of the…', bs: 'U Cocu, Miguela prenese u Zemlju…' },
+    prompt: {
+      en: 'Which realm is Miguel transported to in Coco?',
+      bs: 'U koje carstvo je Miguel prenesen u filmu Coco?'
+    },
     options: [
       { en: 'Dead', bs: 'mrtvih' },
       { en: 'Dreams', bs: 'snova' },
@@ -617,7 +737,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who directed The Lord of the Rings trilogy?', bs: 'Ko je režirao trilogiju Gospodar prstenova?' },
+    prompt: {
+      en: 'Who directed The Lord of the Rings trilogy?',
+      bs: 'Ko je režirao trilogiju Gospodar prstenova?'
+    },
     options: [
       { en: 'Peter Jackson', bs: 'Peter Jackson' },
       { en: 'Guillermo del Toro', bs: 'Guillermo del Toro' },
@@ -631,7 +754,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who performed Gollum through motion capture in The Lord of the Rings?', bs: 'Ko je glumio Golluma kroz motion capture u Gospodaru prstenova?' },
+    prompt: {
+      en: 'Who performed Gollum through motion capture in The Lord of the Rings?',
+      bs: 'Ko je glumio Golluma kroz motion capture u Gospodaru prstenova?'
+    },
     options: [
       { en: 'Ian McKellen', bs: 'Ian McKellen' },
       { en: 'Andy Serkis', bs: 'Andy Serkis' },
@@ -645,7 +771,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who directed Dune Movies?', bs: 'Ko je režirao Dune filmove?' },
+    prompt: {
+      en: 'Who directed Dune Movies?',
+      bs: 'Ko je režirao Dune filmove?'
+    },
     options: [
       { en: 'Denis Villeneuve', bs: 'Denis Villeneuve' },
       { en: 'Christopher Nolan', bs: 'Christopher Nolan' },
@@ -659,7 +788,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Star Trek was created by…', bs: 'Star Trek je kreirao…' },
+    prompt: {
+      en: 'Who created Star Trek?',
+      bs: 'Ko je kreirao Star Trek?'
+    },
     options: [
       { en: 'Gene Roddenberry', bs: 'Gene Roddenberry' },
       { en: 'George Lucas', bs: 'George Lucas' },
@@ -673,7 +805,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'The X-Files was created by…', bs: 'The X-Files je kreirao…' },
+    prompt: {
+      en: 'Who created The X-Files?',
+      bs: 'Ko je kreirao The X-Files?'
+    },
     options: [
       { en: 'Chris Carter', bs: 'Chris Carter' },
       { en: 'J.J. Abrams', bs: 'J.J. Abrams' },
@@ -687,7 +822,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Which Lord of the Rings film won 11 Academy Awards?', bs: 'Koji film iz Gospodara prstenova je osvojio 11 Oscara?' },
+    prompt: {
+      en: 'Which Lord of the Rings film won 11 Academy Awards?',
+      bs: 'Koji film iz Gospodara prstenova je osvojio 11 Oscara?'
+    },
     options: [
       { en: 'The Fellowship of the Ring', bs: 'The Fellowship of the Ring' },
       { en: 'The Two Towers', bs: 'The Two Towers' },
@@ -701,7 +839,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Futurama, the Planet Express crew works for a…', bs: 'U Futurami, ekipa Planet Expressa radi za…' },
+    prompt: {
+      en: 'What kind of company does the Planet Express crew work for in Futurama?',
+      bs: 'Za kakvu kompaniju radi ekipa Planet Expressa u Futurami?'
+    },
     options: [
       { en: 'Delivery company', bs: 'Dostavnu kompaniju' },
       { en: 'Law firm', bs: 'Advokatsku kancelariju' },
@@ -715,7 +856,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who played Hannibal Lecter in The Silence of the Lambs?', bs: 'Ko je glumio Hannibala Lectera u The Silence of the Lambs?' },
+    prompt: {
+      en: 'Who played Hannibal Lecter in The Silence of the Lambs?',
+      bs: 'Ko je glumio Hannibala Lectera u The Silence of the Lambs?'
+    },
     options: [
       { en: 'Anthony Hopkins', bs: 'Anthony Hopkins' },
       { en: 'Mads Mikkelsen', bs: 'Mads Mikkelsen' },
@@ -729,7 +873,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who directed The Dark Knight?', bs: 'Ko je režirao The Dark Knight?' },
+    prompt: {
+      en: 'Who directed The Dark Knight?',
+      bs: 'Ko je režirao The Dark Knight?'
+    },
     options: [
       { en: 'Christopher Nolan', bs: 'Christopher Nolan' },
       { en: 'Tim Burton', bs: 'Tim Burton' },
@@ -743,7 +890,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who played the Joker in The Dark Knight (2008)?', bs: 'Ko je glumio Jokera u The Dark Knight (2008)?' },
+    prompt: {
+      en: 'Who played the Joker in The Dark Knight (2008)?',
+      bs: 'Ko je glumio Jokera u The Dark Knight (2008)?'
+    },
     options: [
       { en: 'Heath Ledger', bs: 'Heath Ledger' },
       { en: 'Joaquin Phoenix', bs: 'Joaquin Phoenix' },
@@ -757,7 +907,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who directed Oppenheimer?', bs: 'Ko je režirao Oppenheimer?' },
+    prompt: {
+      en: 'Who directed Oppenheimer?',
+      bs: 'Ko je režirao Oppenheimer?'
+    },
     options: [
       { en: 'Christopher Nolan', bs: 'Christopher Nolan' },
       { en: 'Denis Villeneuve', bs: 'Denis Villeneuve' },
@@ -771,7 +924,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who played J. Robert Oppenheimer in Oppenheimer?', bs: 'Ko je glumio J. Robert Oppenheimera u Oppenheimeru?' },
+    prompt: {
+      en: 'Who played J. Robert Oppenheimer in Oppenheimer?',
+      bs: 'Ko je glumio J. Robert Oppenheimera u Oppenheimeru?'
+    },
     options: [
       { en: 'Matt Damon', bs: 'Matt Damon' },
       { en: 'Cillian Murphy', bs: 'Cillian Murphy' },
@@ -785,7 +941,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Family Guy, the Griffins live in the fictional town of Quahog in…', bs: 'U Family Guyu, Griffinovi žive u izmišljenom gradu Quahog u…' },
+    prompt: {
+      en: 'In which U.S. state is the fictional town of Quahog located in Family Guy?',
+      bs: 'U kojoj američkoj saveznoj državi se nalazi izmišljeni grad Quahog u Family Guyu?'
+    },
     options: [
       { en: 'Rhode Island', bs: 'Rhode Islandu' },
       { en: 'California', bs: 'Kaliforniji' },
@@ -799,7 +958,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Adventure Time, the Ice King’s crown once belonged to…', bs: 'U Adventure Timeu, Ice Kingova kruna je nekada pripadala…' },
+    prompt: {
+      en: 'Who did the Ice King’s crown originally belong to in Adventure Time?',
+      bs: 'Kome je Ice Kingova kruna originalno pripadala u Adventure Timeu?'
+    },
     options: [
       { en: 'Simon Petrikov', bs: 'Simonu Petrikovu' },
       { en: 'Finn the Human', bs: 'Finnu the Human' },
@@ -813,7 +975,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In which year was James Cameron’s Avatar released?', bs: 'Koje godine je izašao James Cameronov Avatar?' },
+    prompt: {
+      en: 'In which year was James Cameron’s Avatar released?',
+      bs: 'Koje godine je izašao James Cameronov Avatar?'
+    },
     options: [
       { en: '2005', bs: '2005' },
       { en: '2009', bs: '2009' },
@@ -827,7 +992,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who directed Mad Max: Fury Road?', bs: 'Ko je režirao Mad Max: Fury Road?' },
+    prompt: {
+      en: 'Who directed Mad Max: Fury Road?',
+      bs: 'Ko je režirao Mad Max: Fury Road?'
+    },
     options: [
       { en: 'George Miller', bs: 'George Miller' },
       { en: 'Ridley Scott', bs: 'Ridley Scott' },
@@ -841,7 +1009,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In One Piece, the Straw Hat Pirates search for the legendary treasure called…', bs: 'U One Pieceu, Straw Hat pirati traže legendarno blago zvano…' },
+    prompt: {
+      en: 'What is the name of the legendary treasure the Straw Hat Pirates search for in One Piece?',
+      bs: 'Kako se zove legendarno blago koje Straw Hat pirati traže u One Pieceu?'
+    },
     options: [
       { en: 'One Piece', bs: 'One Piece' },
       { en: 'All Blue', bs: 'All Blue' },
@@ -855,7 +1026,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Memento, the protagonist suffers from…', bs: 'U Mementu, protagonist pati od…' },
+    prompt: {
+      en: 'What condition does the protagonist suffer from in Memento?',
+      bs: 'Od kakvog stanja pati protagonist u Mementu?'
+    },
     options: [
       { en: 'Total blindness', bs: 'Potpune sljepoće' },
       { en: 'Short-term memory loss', bs: 'Gubitka kratkoročne memorije' },
@@ -869,7 +1043,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who directed Blade Runner (1982)?', bs: 'Ko je režirao Blade Runner (1982)?' },
+    prompt: {
+      en: 'Who directed Blade Runner (1982)?',
+      bs: 'Ko je režirao Blade Runner (1982)?'
+    },
     options: [
       { en: 'Ridley Scott', bs: 'Ridley Scott' },
       { en: 'James Cameron', bs: 'James Cameron' },
@@ -883,7 +1060,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In which year was Blade Runner released?', bs: 'Koje godine je izašao Blade Runner?' },
+    prompt: {
+      en: 'In which year was Blade Runner released?',
+      bs: 'Koje godine je izašao Blade Runner?'
+    },
     options: [
       { en: '1977', bs: '1977' },
       { en: '1982', bs: '1982' },
@@ -897,7 +1077,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who directed Inception?', bs: 'Ko je režirao Inception?' },
+    prompt: {
+      en: 'Who directed Inception?',
+      bs: 'Ko je režirao Inception?'
+    },
     options: [
       { en: 'Christopher Nolan', bs: 'Christopher Nolan' },
       { en: 'Denis Villeneuve', bs: 'Denis Villeneuve' },
@@ -911,7 +1094,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In which year was Inception released?', bs: 'Koje godine je izašao Inception?' },
+    prompt: {
+      en: 'In which year was Inception released?',
+      bs: 'Koje godine je izašao Inception?'
+    },
     options: [
       { en: '2005', bs: '2005' },
       { en: '2010', bs: '2010' },
@@ -925,7 +1111,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Samurai Jack, the main villain is the shape-shifting demon…', bs: 'U Samurai Jacku, glavni negativac je demon koji mijenja oblik…' },
+    prompt: {
+      en: 'What is the name of the shape-shifting demon villain in Samurai Jack?',
+      bs: 'Kako se zove demon koji mijenja oblik, glavni negativac u Samurai Jacku?'
+    },
     options: [
       { en: 'Aku', bs: 'Aku' },
       { en: 'Haku', bs: 'Haku' },
@@ -939,7 +1128,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Looney Tunes, Bugs Bunny’s famous catchphrase is…', bs: 'U Looney Tunesima, Bugs Bunnyjev poznati slogan je…' },
+    prompt: {
+      en: 'What is Bugs Bunny’s famous catchphrase in Looney Tunes?',
+      bs: 'Koji je Bugs Bunnyjev poznati slogan u Looney Tunesima?'
+    },
     options: [
       { en: '“What’s up, Doc?”', bs: '“What’s up, Doc?”' },
       { en: '“That’s all, folks!”', bs: '“That’s all, folks!”' },
@@ -953,7 +1145,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Gravity Falls, the mysterious journals were written by…', bs: 'U Gravity Fallsu, misteriozne bilježnice je napisao…' },
+    prompt: {
+      en: 'Who wrote the mysterious journals in Gravity Falls?',
+      bs: 'Ko je napisao misteriozne bilježnice u Gravity Fallsu?'
+    },
     options: [
       { en: 'Stanford Pines', bs: 'Stanford Pines' },
       { en: 'Stanley Pines', bs: 'Stanley Pines' },
@@ -967,7 +1162,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who created BoJack Horseman?', bs: 'Ko je kreirao BoJack Horseman?' },
+    prompt: {
+      en: 'Who created BoJack Horseman?',
+      bs: 'Ko je kreirao BoJack Horseman?'
+    },
     options: [
       { en: 'Raphael Bob-Waksberg', bs: 'Raphael Bob-Waksberg' },
       { en: 'Matt Groening', bs: 'Matt Groening' },
@@ -981,7 +1179,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who created Avatar: The Last Airbender?', bs: 'Ko je kreirao Avatar: The Last Airbender?' },
+    prompt: {
+      en: 'Who created Avatar: The Last Airbender?',
+      bs: 'Ko je kreirao Avatar: The Last Airbender?'
+    },
     options: [
       { en: 'Michael DiMartino and Bryan Konietzko', bs: 'Michael DiMartino i Bryan Konietzko' },
       { en: 'Hayao Miyazaki', bs: 'Hayao Miyazaki' },
@@ -995,7 +1196,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Akira is set in a futuristic version of Tokyo called…', bs: 'Akira se događa u futurističkoj verziji Tokija zvanoj…' },
+    prompt: {
+      en: 'What is the futuristic version of Tokyo called in Akira?',
+      bs: 'Kako se zove futuristička verzija Tokija u Akiri?'
+    },
     options: [
       { en: 'Neo-Tokyo', bs: 'Neo-Tokyo' },
       { en: 'Mega-Tokyo', bs: 'Mega-Tokyo' },
@@ -1009,7 +1213,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In WALL-E, the sleek probe robot that WALL-E falls in love with is named…', bs: 'U WALL-Eu, elegantni robotski sond koji voli WALL-E zove se…' },
+    prompt: {
+      en: 'What is the name of the sleek probe robot that WALL-E falls in love with?',
+      bs: 'Kako se zove elegantni robotski sonda u koju se WALL-E zaljubi?'
+    },
     options: [
       { en: 'EVE', bs: 'EVE' },
       { en: 'AUTO', bs: 'AUTO' },
@@ -1023,7 +1230,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who directed The Shining?', bs: 'Ko je režirao The Shining?' },
+    prompt: {
+      en: 'Who directed The Shining?',
+      bs: 'Ko je režirao The Shining?'
+    },
     options: [
       { en: 'Stanley Kubrick', bs: 'Stanley Kubrick' },
       { en: 'Steven Spielberg', bs: 'Steven Spielberg' },
@@ -1037,7 +1247,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In The Shining, what phrase does Jack type repeatedly?', bs: 'U The Shining, koju frazu Jack uporno kuca?' },
+    prompt: {
+      en: 'In The Shining, what phrase does Jack type repeatedly?',
+      bs: 'U The Shining, koju frazu Jack uporno kuca?'
+    },
     options: [
       { en: 'All work and no play', bs: 'All work and no play' },
       { en: 'Redrum', bs: 'Redrum' },
@@ -1051,7 +1264,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who directed Goodfellas?', bs: 'Ko je režirao Goodfellas?' },
+    prompt: {
+      en: 'Who directed Goodfellas?',
+      bs: 'Ko je režirao Goodfellas?'
+    },
     options: [
       { en: 'Martin Scorsese', bs: 'Martin Scorsese' },
       { en: 'Francis Ford Coppola', bs: 'Francis Ford Coppola' },
@@ -1065,7 +1281,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In which year was Goodfellas released?', bs: 'Koje godine je izašao Goodfellas?' },
+    prompt: {
+      en: 'In which year was Goodfellas released?',
+      bs: 'Koje godine je izašao Goodfellas?'
+    },
     options: [
       { en: '1985', bs: '1985' },
       { en: '1990', bs: '1990' },
@@ -1079,7 +1298,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Scooby-Doo, the gang travels in a van called the…', bs: 'U Scooby-Doo, ekipa putuje kombijem zvanim…' },
+    prompt: {
+      en: 'What is the name of the van the gang travels in on Scooby-Doo?',
+      bs: 'Kako se zove kombi kojim ekipa putuje u Scooby-Doo?'
+    },
     options: [
       { en: 'Mystery Machine', bs: 'Mystery Machine' },
       { en: 'Ghost Chaser', bs: 'Ghost Chaser' },
@@ -1093,7 +1315,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In The Flintstones, Fred Flintstone works at a…', bs: 'U Flintstonesima, Fred Flintstone radi u…' },
+    prompt: {
+      en: 'Where does Fred Flintstone work in The Flintstones?',
+      bs: 'Gdje Fred Flintstone radi u Flintstonesima?'
+    },
     options: [
       { en: 'Stone quarry', bs: 'Kamolomu' },
       { en: 'Bakery', bs: 'Pekari' },
@@ -1107,7 +1332,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who created Fleabag?', bs: 'Ko je kreirao Fleabag?' },
+    prompt: {
+      en: 'Who created Fleabag?',
+      bs: 'Ko je kreirao Fleabag?'
+    },
     options: [
       { en: 'Phoebe Waller-Bridge', bs: 'Phoebe Waller-Bridge' },
       { en: 'Michaela Coel', bs: 'Michaela Coel' },
@@ -1121,7 +1349,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who created Westworld (HBO)?', bs: 'Ko je kreirao Westworld (HBO)?' },
+    prompt: {
+      en: 'Who created Westworld (HBO)?',
+      bs: 'Ko je kreirao Westworld (HBO)?'
+    },
     options: [
       { en: 'Jonathan Nolan and Lisa Joy', bs: 'Jonathan Nolan i Lisa Joy' },
       { en: 'J.J. Abrams', bs: 'J.J. Abrams' },
@@ -1135,7 +1366,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Seinfeld, who co-created the show with Jerry Seinfeld?', bs: 'U Seinfeldu, ko je su-kreirao emisiju s Jerryjem Seinfeldom?' },
+    prompt: {
+      en: 'In Seinfeld, who co-created the show with Jerry Seinfeld?',
+      bs: 'U Seinfeldu, ko je su-kreirao emisiju s Jerryjem Seinfeldom?'
+    },
     options: [
       { en: 'Larry David', bs: 'Larry David' },
       { en: 'Jason Alexander', bs: 'Jason Alexander' },
@@ -1149,7 +1383,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who created Lost?', bs: 'Ko je kreirao Lost?' },
+    prompt: {
+      en: 'Who created Lost?',
+      bs: 'Ko je kreirao Lost?'
+    },
     options: [
       { en: 'J.J. Abrams, Damon Lindelof, and Jeffrey Lieber', bs: 'J.J. Abrams, Damon Lindelof i Jeffrey Lieber' },
       { en: 'David Chase', bs: 'David Chase' },
@@ -1163,7 +1400,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In The Office (UK), who created the original series?', bs: 'U The Office (UK), ko je kreirao originalnu seriju?' },
+    prompt: {
+      en: 'In The Office (UK), who created the original series?',
+      bs: 'U The Office (UK), ko je kreirao originalnu seriju?'
+    },
     options: [
       { en: 'Ricky Gervais and Stephen Merchant', bs: 'Ricky Gervais i Stephen Merchant' },
       { en: 'Greg Daniels', bs: 'Greg Daniels' },
@@ -1177,7 +1417,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who directed Rear Window?', bs: 'Ko je režirao Rear Window?' },
+    prompt: {
+      en: 'Who directed Rear Window?',
+      bs: 'Ko je režirao Rear Window?'
+    },
     options: [
       { en: 'Alfred Hitchcock', bs: 'Alfred Hitchcock' },
       { en: 'Orson Welles', bs: 'Orson Welles' },
@@ -1191,7 +1434,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who directed Vertigo?', bs: 'Ko je režirao Vertigo?' },
+    prompt: {
+      en: 'Who directed Vertigo?',
+      bs: 'Ko je režirao Vertigo?'
+    },
     options: [
       { en: 'Alfred Hitchcock', bs: 'Alfred Hitchcock' },
       { en: 'Stanley Kubrick', bs: 'Stanley Kubrick' },
@@ -1207,7 +1453,7 @@ export const moviesHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which presenter was part of the famous Top Gear trio alongside Jeremy Clarkson and Richard Hammond?',
-      bs: 'Koji voditelj je bio dio poznatog Top Gear trojca zajedno s Jeremyjem Clarksonom i Richardom Hammondom?',
+      bs: 'Koji voditelj je bio dio poznatog Top Gear trojca zajedno s Jeremyjem Clarksonom i Richardom Hammondom?'
     },
     options: [
       { en: 'James May', bs: 'James May' },
@@ -1222,7 +1468,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Avatar: The Last Airbender, Aang was born among the…', bs: 'U Avatar: The Last Airbender, Aang je rođen među…' },
+    prompt: {
+      en: 'Which nation was Aang born into in Avatar: The Last Airbender?',
+      bs: 'Kojoj naciji je Aang pripadao po rođenju u Avatar: The Last Airbender?'
+    },
     options: [
       { en: 'Air Nomads', bs: 'Zračnim nomadima' },
       { en: 'Water Tribes', bs: 'Vodnim plemenima' },
@@ -1238,7 +1487,7 @@ export const moviesHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'What is the name of Bambi’s childhood friend who is a female deer?',
-      bs: 'Kako se zove Bambijeva prijateljica iz djetinjstva koja je ženka jelena?',
+      bs: 'Kako se zove Bambijeva prijateljica iz djetinjstva koja je ženka jelena?'
     },
     options: [
       { en: 'Faline', bs: 'Felina' },
@@ -1255,7 +1504,7 @@ export const moviesHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'In Ratatouille, what is the name of the restaurant where Remy helps Linguini?',
-      bs: 'U filmu Ratatouille, kako se zove restoran u kojem Remy pomaže Linguiniju?',
+      bs: 'U filmu Ratatouille, kako se zove restoran u kojem Remy pomaže Linguiniju?'
     },
     options: [
       { en: 'Gusteau’s', bs: 'Kod Gusteau-a' },
@@ -1270,7 +1519,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Phineas and Ferb, their pet platypus Perry is secretly…', bs: 'U Phineas and Ferb, njihov ljubimac platipus Perry je tajno…' },
+    prompt: {
+      en: 'What is Perry the Platypus secretly in Phineas and Ferb?',
+      bs: 'Šta je platipus Perry tajno u Phineas and Ferb?'
+    },
     options: [
       { en: 'A secret agent', bs: 'Tajni agent' },
       { en: 'A mad scientist', bs: 'Ludi naučnik' },
@@ -1284,7 +1536,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In which year was Lawrence of Arabia released?', bs: 'Koje godine je izašao Lawrence of Arabia?' },
+    prompt: {
+      en: 'In which year was Lawrence of Arabia released?',
+      bs: 'Koje godine je izašao Lawrence of Arabia?'
+    },
     options: [
       { en: '1952', bs: '1952' },
       { en: '1962', bs: '1962' },
@@ -1298,7 +1553,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In BoJack Horseman, Bojack became famous starring in a sitcom called…', bs: 'U BoJack Horsemanu, Bojack je postao poznat glumeći u sitkomu zvanom…' },
+    prompt: {
+      en: 'What was the name of the sitcom that made BoJack Horseman famous?',
+      bs: 'Kako se zvao sitkom koji je učinio BoJacka Horsemana poznatim?'
+    },
     options: [
       { en: 'Horsin’ Around', bs: 'Horsin’ Around' },
       { en: 'Mr. Peanutbutter’s House', bs: 'Mr. Peanutbutter’s House' },
@@ -1312,7 +1570,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In SpongeBob SquarePants, Plankton’s rival restaurant is called the…', bs: 'U SpongeBob SquarePants, Planktonov rival restoran zove se…' },
+    prompt: {
+      en: 'What is the name of Plankton’s rival restaurant in SpongeBob SquarePants?',
+      bs: 'Kako se zove Planktonov rival restoran u SpongeBob SquarePants?'
+    },
     options: [
       { en: 'Chum Bucket', bs: 'Chum Bucket' },
       { en: 'Krusty Krab', bs: 'Krusty Krab' },
@@ -1326,7 +1587,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In The Graduate, Mr. McGuire urges Benjamin at a pool party to pursue a career in…', bs: 'U The Graduate, g. McGuire na zabavi kod bazena potiče Benjamina da se bavi…' },
+    prompt: {
+      en: 'What career does Mr. McGuire urge Benjamin to pursue in The Graduate?',
+      bs: 'Koju karijeru g. McGuire potiče Benjamina da izabere u The Graduate?'
+    },
     options: [
       { en: 'Aerospace', bs: 'Astronautikom' },
       { en: 'Plastics', bs: 'Plastikom' },
@@ -1341,8 +1605,8 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'In Rick and Morty, Rick Sanchez’s portal gun primarily allows travel between…',
-      bs: 'U Rick and Mortyju, Rickov pištolj za portale prvenstveno omogućava putovanje između…',
+      en: 'What does Rick Sanchez’s portal gun primarily allow travel between in Rick and Morty?',
+      bs: 'Šta Rickov pištolj za portale prvenstveno omogućava u Rick and Mortyju?'
     },
     options: [
       { en: 'Different dimensions and universes', bs: 'Različitih dimenzija i univerzuma' },
@@ -1357,7 +1621,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Which animation studio produced the Ice Age films?', bs: 'Koji animacijski studio je producirao filmove Ledeno doba?' },
+    prompt: {
+      en: 'Which animation studio produced the Ice Age films?',
+      bs: 'Koji animacijski studio je producirao filmove Ledeno doba?'
+    },
     options: [
       { en: 'Pixar', bs: 'Pixar' },
       { en: 'Blue Sky Studios', bs: 'Blue Sky Studios' },
@@ -1371,7 +1638,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In The Powerpuff Girls, the trio was created by…', bs: 'U Powerpuff Girls, trio je stvorio…' },
+    prompt: {
+      en: 'Who created the Powerpuff Girls?',
+      bs: 'Ko je kreirao Powerpuff Girls?'
+    },
     options: [
       { en: 'Professor Utonium', bs: 'Profesor Utonium' },
       { en: 'Mojo Jojo', bs: 'Mojo Jojo' },
@@ -1385,7 +1655,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In Steven Universe, Garnet is a fusion of which two Gems?', bs: 'U Steven Universeu, Garnet je fuzija koja dva Gema?' },
+    prompt: {
+      en: 'In Steven Universe, Garnet is a fusion of which two Gems?',
+      bs: 'U Steven Universeu, Garnet je fuzija koja dva Gema?'
+    },
     options: [
       { en: 'Ruby and Sapphire', bs: 'Ruby i Sapphire' },
       { en: 'Amethyst and Pearl', bs: 'Amethyst i Pearl' },
@@ -1399,7 +1672,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In which year was Toy Story released?', bs: 'Koje godine je izašao Toy Story?' },
+    prompt: {
+      en: 'In which year was Toy Story released?',
+      bs: 'Koje godine je izašao Toy Story?'
+    },
     options: [
       { en: '1990', bs: '1990' },
       { en: '1995', bs: '1995' },
@@ -1413,7 +1689,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who composed the iconic score for The Good, the Bad and the Ugly?', bs: 'Ko je komponovao ikoničnu muziku za The Good, the Bad and the Ugly?' },
+    prompt: {
+      en: 'Who composed the iconic score for The Good, the Bad and the Ugly?',
+      bs: 'Ko je komponovao ikoničnu muziku za The Good, the Bad and the Ugly?'
+    },
     options: [
       { en: 'John Williams', bs: 'John Williams' },
       { en: 'Ennio Morricone', bs: 'Ennio Morricone' },
@@ -1427,7 +1706,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In The Lord of the Rings, what is the Elvish name of Mount Doom?', bs: 'U Gospodaru prstenova, koje je elfijsko ime Planine sudbine?' },
+    prompt: {
+      en: 'In The Lord of the Rings, what is the Elvish name of Mount Doom?',
+      bs: 'U Gospodaru prstenova, koje je elfijsko ime Planine sudbine?'
+    },
     options: [
       { en: 'Barad-dûr', bs: 'Barad-dûr' },
       { en: 'Minas Tirith', bs: 'Minas Tirith' },
@@ -1441,7 +1723,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Who played Aragorn in Peter Jackson’s Lord of the Rings films?', bs: 'Ko je glumio Aragorna u Peter Jacksonovim filmovima Gospodar prstenova?' },
+    prompt: {
+      en: 'Who played Aragorn in Peter Jackson’s Lord of the Rings films?',
+      bs: 'Ko je glumio Aragorna u Peter Jacksonovim filmovima Gospodar prstenova?'
+    },
     options: [
       { en: 'Orlando Bloom', bs: 'Orlando Bloom' },
       { en: 'Viggo Mortensen', bs: 'Viggo Mortensen' },
@@ -1455,7 +1740,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In the first Ice Age film, Ray Romano voices which main character?', bs: 'U prvom filmu Ledeno doba, Ray Romano glumi glavnog lika…' },
+    prompt: {
+      en: 'In the first Ice Age film, Ray Romano voices which main character?',
+      bs: 'Kojeg glavnog lika glumi Ray Romano u prvom filmu Ledeno doba?'
+    },
     options: [
       { en: 'Manny the mammoth', bs: 'Mannyja, mamuta' },
       { en: 'Sid the sloth', bs: 'Sida, ljenjivca' },
@@ -1469,7 +1757,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'The one-eyed weasel Buck becomes a major character starting in which Ice Age film?', bs: 'Jednooki lasica Buck postaje važan lik počevši od kojeg filma Ledenog doba?' },
+    prompt: {
+      en: 'The one-eyed weasel Buck becomes a major character starting in which Ice Age film?',
+      bs: 'Jednooki lasica Buck postaje važan lik počevši od kojeg filma Ledenog doba?'
+    },
     options: [
       { en: 'Ice Age: Dawn of the Dinosaurs', bs: 'Ledeno doba 3: Dinosaurski zor' },
       { en: 'Ice Age', bs: 'Ledeno doba' },
@@ -1483,7 +1774,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'In the first Ice Age film, Denis Leary voices which character?', bs: 'U prvom filmu Ledeno doba, Denis Leary glumi kojeg lika?' },
+    prompt: {
+      en: 'In the first Ice Age film, Denis Leary voices which character?',
+      bs: 'U prvom filmu Ledeno doba, Denis Leary glumi kojeg lika?'
+    },
     options: [
       { en: 'Sid', bs: 'Sida' },
       { en: 'Diego', bs: 'Diega' },
@@ -1497,7 +1791,10 @@ export const moviesHard: Question[] = [
     type: 'mcq',
     category: 'movies',
     difficulty: 'hard',
-    prompt: { en: 'Ice Age: Collision Course centers on the herd trying to stop what threat?', bs: 'Ledeno doba: Sudar kursa prikazuje čopor koji pokušava zaustaviti koju prijetnju?' },
+    prompt: {
+      en: 'Ice Age: Collision Course centers on the herd trying to stop what threat?',
+      bs: 'Ledeno doba: Sudar kursa prikazuje čopor koji pokušava zaustaviti koju prijetnju?'
+    },
     options: [
       { en: 'A giant tsunami', bs: 'Divovski cunami' },
       { en: 'A supervolcano eruption', bs: 'Erupciju supervulkana' },
