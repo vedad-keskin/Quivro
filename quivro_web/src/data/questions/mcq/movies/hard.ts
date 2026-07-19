@@ -1827,7 +1827,7 @@ export const moviesHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which Japanese studio created Spirited Away and Princess Mononoke?',
-      bs: 'Koji japanski studio je napravio Odnesene duhovima i Princezu Mononoke?'
+      bs: 'Koji japanski studio je napravio Avanture male Chihiro i Princezu Mononoke?'
     },
     options: [
       { en: 'Studio Ghibli', bs: 'Studio Ghibli' },
