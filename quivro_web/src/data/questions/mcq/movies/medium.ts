@@ -24,8 +24,8 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Who directed Titanic (1997)?',
-      bs: 'Ko je režirao Titanic (1997)?'
+      en: 'Who directed Titanic?',
+      bs: 'Ko je režirao Titanic?'
     },
     options: [
       { en: 'Steven Spielberg', bs: 'Steven Spielberg' },
@@ -58,16 +58,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Stranger Things is mainly set in which decade?',
-      bs: 'Stranger Things se uglavnom dešava u kojoj deceniji?'
+      en: 'What is the name of the town where Stranger Things takes place?',
+      bs: 'Kako se zove grad u kojem se odvija radnja serije Stranger Things?'
     },
     options: [
-      { en: '1960s', bs: '1960-e' },
-      { en: '1970s', bs: '1970-e' },
-      { en: '1980s', bs: '1980-e' },
-      { en: '1990s', bs: '1990-e' },
+      { en: 'Hawkins', bs: 'Hawkins' },
+      { en: 'Riverdale', bs: 'Riverdale' },
+      { en: 'Sunnydale', bs: 'Sunnydale' },
+      { en: 'Springfield', bs: 'Springfield' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-005',
@@ -75,14 +75,14 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'In The Office (US), what company do they work for?',
-      bs: 'U The Officeu (SAD), za koju firmu rade?'
+      en: 'What food does Garfield love the most?',
+      bs: 'Koju hranu Garfield najviše voli?'
     },
     options: [
-      { en: 'Dunder Mifflin', bs: 'Dunder Mifflin' },
-      { en: 'Sterling Cooper', bs: 'Sterling Cooper' },
-      { en: 'Pied Piper', bs: 'Pied Piper' },
-      { en: 'Waystar Royco', bs: 'Waystar Royco' },
+      { en: 'Lasagna', bs: 'Lazanje' },
+      { en: 'Pizza', bs: 'Pizza' },
+      { en: 'Burgers', bs: 'Hamburgeri' },
+      { en: 'Ice cream', bs: 'Sladoled' },
     ],
     correctIndex: 0,
   },
@@ -93,7 +93,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'How many Infinity Stones are there in the MCU?',
-      bs: 'Koliko Infinity kamenova postoji u MCU-u?'
+      bs: 'Koliko Infinity kamenja postoji u Marvel Cinematic Universe-u?'
     },
     options: [
       { en: '4', bs: '4' },
@@ -160,16 +160,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'In The Mandalorian, which phrase is famously associated with Mandalorians?',
-      bs: 'U The Mandalorianu, koja fraza je poznato povezana s Mandalorcima?'
+      en: 'What is the name of the boy who owns Buzz Lightyear and Woody in Toy Story?',
+      bs: 'Kako se zove dječak koji posjeduje Buzza Lightyeara i Woodyja u Priči o igračkama?'
     },
     options: [
-      { en: 'May the Force be with you', bs: 'Neka Sila bude s tobom' },
-      { en: 'This is the Way', bs: 'Ovo je Put' },
-      { en: 'I have spoken', bs: 'Rekao sam' },
-      { en: 'Live long and prosper', bs: 'Dugo i uspješno živi' },
+      { en: 'Andy', bs: 'Andy' },
+      { en: 'Sid', bs: 'Sid' },
+      { en: 'Bonnie', bs: 'Bonnie' },
+      { en: 'Sam', bs: 'Sam' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-011',
@@ -177,8 +177,8 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Which actor played Tony Stark in the MCU?',
-      bs: 'Koji glumac je glumio Tonyja Starka u MCU-u?'
+      en: 'Which actor played Tony Stark in the Marvel Cinematic Universe?',
+      bs: 'Koji glumac je glumio Tonyja Starka u Marvel Cinematic Universe-u?'
     },
     options: [
       { en: 'Chris Evans', bs: 'Chris Evans' },
@@ -211,8 +211,8 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'What is Black Widow’s real name in the MCU?',
-      bs: 'Koje je pravo ime Black Widow u MCU-u?'
+      en: 'What is Black Widow’s real name in the Marvel Cinematic Universe?',
+      bs: 'Koje je pravo ime Black Widow u Marvel Cinematic Universe-u?'
     },
     options: [
       { en: 'Natasha Romanoff', bs: 'Natasha Romanoff' },
@@ -228,8 +228,8 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Which actor plays Thor in the MCU?',
-      bs: 'Koji glumac glumi Thora u MCU-u?'
+      en: 'Which actor plays Thor in the Marvel Cinematic Universe?',
+      bs: 'Koji glumac glumi Thora u Marvel Cinematic Universe-u?'
     },
     options: [
       { en: 'Tom Hiddleston', bs: 'Tom Hiddleston' },
@@ -245,8 +245,8 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'What is Wanda Maximoff’s superhero alias in the MCU?',
-      bs: 'Koji je nadimak superjunaka Wande Maximoff u MCU-u?'
+      en: 'What is Wanda Maximoff’s superhero alias in the Marvel Cinematic Universe?',
+      bs: 'Koji je nadimak superjunaka Wande Maximoff u Marvel Cinematic Universe-u?'
     },
     options: [
       { en: 'Scarlet Witch', bs: 'Scarlet Witch' },
@@ -262,14 +262,14 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Which organization polices the timeline in a Marvel Disney+ series set after Avengers: Endgame?',
-      bs: 'Koja organizacija nadgleda vremensku liniju u Marvel Disney+ seriji nakon Avengers: Endgame?'
+      en: 'What is the name of the first cartoon character to win an Academy Award?',
+      bs: 'Kako se zove prvi crtani lik koji je osvojio Oscara?'
     },
     options: [
-      { en: 'Time Variance Authority', bs: 'Organizacija za vremenske varijante' },
-      { en: 'S.H.I.E.L.D.', bs: 'S.H.I.E.L.D.' },
-      { en: 'HYDRA', bs: 'HYDRA' },
-      { en: 'AIM', bs: 'AIM' },
+      { en: 'Mickey Mouse', bs: 'Mickey Mouse' },
+      { en: 'Bugs Bunny', bs: 'Bugs Bunny' },
+      { en: 'Tom', bs: 'Tom' },
+      { en: 'Popeye', bs: 'Popeye' },
     ],
     correctIndex: 0,
   },
@@ -279,8 +279,8 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Which actor plays Spider-Man in the MCU?',
-      bs: 'Koji glumac glumi Spider-Mana u MCU-u?'
+      en: 'Which actor plays Spider-Man in the Marvel Cinematic Universe?',
+      bs: 'Koji glumac glumi Spider-Mana u Marvel Cinematic Universe-u?'
     },
     options: [
       { en: 'Andrew Garfield', bs: 'Andrew Garfield' },
@@ -296,8 +296,8 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Who plays Captain America in the MCU?',
-      bs: 'Ko glumi Captain Americu u MCU-u?'
+      en: 'Who plays Captain America in the Marvel Cinematic Universe?',
+      bs: 'Ko glumi Captain Americu u Marvel Cinematic Universe-u?'
     },
     options: [
       { en: 'Chris Evans', bs: 'Chris Evans' },
@@ -314,7 +314,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Who leads the Guardians of the Galaxy?',
-      bs: 'Ko vodi Guardians of the Galaxy?'
+      bs: 'Ko vodi Čuvare galaksije?'
     },
     options: [
       { en: 'Drax', bs: 'Drax' },
@@ -364,14 +364,14 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'In Captain America: The Winter Soldier, which organization infiltrates S.H.I.E.L.D.?',
-      bs: 'U Captain America: The Winter Soldier, koja organizacija infiltrira S.H.I.E.L.D.?'
+      en: 'What was the first feature-length computer-animated movie?',
+      bs: 'Koji je bio prvi dugometražni potpuno kompjuterski animirani film?'
     },
     options: [
-      { en: 'Hydra', bs: 'Hydra' },
-      { en: 'AIM', bs: 'AIM' },
-      { en: 'The Hand', bs: 'The Hand' },
-      { en: 'The Ten Rings', bs: 'The Ten Rings' },
+      { en: 'Toy Story', bs: 'Priča o igračkama' },
+      { en: 'Shrek', bs: 'Shrek' },
+      { en: 'Finding Nemo', bs: 'Potraga za Nemom' },
+      { en: 'Monsters, Inc.', bs: 'Čudovišta, Inc.' },
     ],
     correctIndex: 0,
   },
@@ -382,7 +382,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which talking raccoon is a member of the Guardians of the Galaxy?',
-      bs: 'Koji govoreći rakun je član Guardians of the Galaxy?'
+      bs: 'Koji pričajući rakun je član Čuvara galaksije?'
     },
     options: [
       { en: 'Rocket', bs: 'Rocket' },
@@ -398,16 +398,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'What do the Avengers travel through to undo Thanos’s snap in Avengers: Endgame?',
-      bs: 'Kroz šta Osvetnici putuju da poništе Thanosov prstohvat u Avengers: Endgame?'
+      en: 'What is the name of the fictional newspaper where Peter Parker works?',
+      bs: 'Kako se zovu novine u kojim radi Peter Parker?'
     },
     options: [
-      { en: 'Wormholes', bs: 'Crvotočine' },
-      { en: 'Time', bs: 'Vrijeme' },
-      { en: 'Dreams', bs: 'Snove' },
-      { en: 'Alternate dimensions', bs: 'Alternativne dimenzije' },
+      { en: 'Daily Bugle', bs: 'Daily Bugle' },
+      { en: 'Daily Planet', bs: 'Daily Planet' },
+      { en: 'The Times', bs: 'The Times' },
+      { en: 'New York Post', bs: 'New York Post' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-025',
@@ -432,16 +432,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Who is Harry Potter’s red-haired best friend?',
-      bs: 'Ko je Harry Potterov crvenokosi najbolji prijatelj?'
+      en: 'What was the original name of Mickey Mouse before it was changed?',
+      bs: 'Kako se Mickey Mouse prvobitno trebao zvati?'
     },
     options: [
-      { en: 'Draco Malfoy', bs: 'Draco Malfoy' },
-      { en: 'Ron Weasley', bs: 'Ron Weasley' },
-      { en: 'Neville Longbottom', bs: 'Neville Longbottom' },
-      { en: 'Seamus Finnigan', bs: 'Seamus Finnigan' },
+      { en: 'Mortimer Mouse', bs: 'Mortimer Mouse' },
+      { en: 'Michael Mouse', bs: 'Michael Mouse' },
+      { en: 'Martin Mouse', bs: 'Martin Mouse' },
+      { en: 'Max Mouse', bs: 'Max Mouse' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-027',
@@ -500,16 +500,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Which Hogwarts house has a snake as its symbol?',
-      bs: 'Koji Hogwarts dom ima zmiju kao simbol?'
+      en: 'What is the name of the village where many witches and wizards live near Hogwarts?',
+      bs: 'Kako se zove selo u blizini Hogwartsa u kojem žive mnogi čarobnjaci?'
     },
     options: [
-      { en: 'Gryffindor', bs: 'Gryffindor' },
-      { en: 'Ravenclaw', bs: 'Ravenclaw' },
-      { en: 'Hufflepuff', bs: 'Hufflepuff' },
-      { en: 'Slytherin', bs: 'Slytherin' },
+      { en: 'Hogsmeade', bs: 'Hogsmeade' },
+      { en: 'Diagon Alley', bs: 'Zakutna ulica' },
+      { en: 'Godric’s Hollow', bs: 'Godrikova dolina' },
+      { en: 'Little Whinging', bs: 'Little Whinging' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-031',
@@ -568,16 +568,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Who is Harry Potter’s clever friend known for her bushy hair?',
-      bs: 'Ko je Harry Potterova pametna prijateljica poznata po kovrčavoj kosi?'
+      en: 'What creature is Buckbeak?',
+      bs: 'Koje je stvorenje Buckbeak?'
     },
     options: [
-      { en: 'Luna Lovegood', bs: 'Luna Lovegood' },
-      { en: 'Hermione Granger', bs: 'Hermione Granger' },
-      { en: 'Ginny Weasley', bs: 'Ginny Weasley' },
-      { en: 'Cho Chang', bs: 'Cho Chang' },
+      { en: 'Hippogriff', bs: 'Hipogrif' },
+      { en: 'Thestral', bs: 'Testral' },
+      { en: 'Basilisk', bs: 'Bazilisk' },
+      { en: 'Phoenix', bs: 'Feniks' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-035',
@@ -585,16 +585,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'On which desert planet does Luke Skywalker grow up?',
-      bs: 'Na kojoj pustinjskoj planeti odrasta Luke Skywalker?'
+      en: 'Which Hogwarts house was Luna Lovegood sorted into?',
+      bs: 'U koju Hogwarts kuću je svrstana Luna Lovegood?'
     },
     options: [
-      { en: 'Hoth', bs: 'Hoth' },
-      { en: 'Tatooine', bs: 'Tatooine' },
-      { en: 'Endor', bs: 'Endor' },
-      { en: 'Naboo', bs: 'Naboo' },
+      { en: 'Ravenclaw', bs: 'Ravenclaw' },
+      { en: 'Gryffindor', bs: 'Gryffindor' },
+      { en: 'Hufflepuff', bs: 'Hufflepuff' },
+      { en: 'Slytherin', bs: 'Slytherin' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-036',
@@ -602,16 +602,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'What is the name of Han Solo’s famous ship?',
-      bs: 'Kako se zove Han Solov poznati brod?'
+      en: 'What is the name of the three-headed dog guarding the Philosopher’s Stone?',
+      bs: 'Kako se zove troglavi pas koji čuva Kamen mudraca?'
     },
     options: [
-      { en: 'Enterprise', bs: 'Enterprise' },
-      { en: 'Millennium Falcon', bs: 'Millennium Falcon' },
-      { en: 'Serenity', bs: 'Serenity' },
-      { en: 'Discovery', bs: 'Discovery' },
+      { en: 'Fluffy', bs: 'Fluffy' },
+      { en: 'Fang', bs: 'Fang' },
+      { en: 'Aragog', bs: 'Aragog' },
+      { en: 'Norbert', bs: 'Norbert' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-037',
@@ -619,16 +619,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Who tells Luke Skywalker, “I am your father”?',
-      bs: 'Ko Lukeu Skywalkeru kaže: “Ja sam tvoj otac”?'
+      en: 'What was the number of Harry Potter’s vault at Gringotts?',
+      bs: 'Koji je broj trezora Harryja Pottera u Gringotts banci?'
     },
     options: [
-      { en: 'Obi-Wan Kenobi', bs: 'Obi-Wan Kenobi' },
-      { en: 'Darth Vader', bs: 'Darth Vader' },
-      { en: 'Emperor Palpatine', bs: 'Emperor Palpatine' },
-      { en: 'Yoda', bs: 'Yoda' },
+      { en: '687', bs: '687' },
+      { en: '713', bs: '713' },
+      { en: '394', bs: '394' },
+      { en: '999', bs: '999' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-038',
@@ -636,16 +636,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'What is Boba Fett best known for being in the Star Wars universe?',
-      bs: 'Po čemu je Boba Fett najpoznatiji u svemiru Ratova zvijezda?'
+      en: 'Which weapon does Michelangelo usually use?',
+      bs: 'Koje oružje Michelangelo najčešće koristi?'
     },
     options: [
-      { en: 'Jedi Knight', bs: 'Jedi vitez' },
-      { en: 'Bounty hunter', bs: 'Lovac na nagrade' },
-      { en: 'Senator', bs: 'Senator' },
-      { en: 'Droid builder', bs: 'Konstruktor droidova' },
+      { en: 'Nunchaku', bs: 'Nunčake' },
+      { en: 'Katana', bs: 'Katane' },
+      { en: 'Bo staff', bs: 'Bō štap' },
+      { en: 'Sai', bs: 'Sai' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-039',
@@ -653,16 +653,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Princess Leia is revealed to be the twin sister of which Star Wars hero?',
-      bs: 'Za koga se otkriva da je princeza Leia bliznakinja u Ratovima zvijezda?'
+      en: 'What is the name of the Ninja Turtles’ main enemy?',
+      bs: 'Kako se zove glavni neprijatelj Nindža Kornjača?'
     },
     options: [
-      { en: 'Han Solo', bs: 'Han Soloa' },
-      { en: 'Luke Skywalker', bs: 'Lukea Skywalkera' },
-      { en: 'Lando Calrissian', bs: 'Landa Calrissiana' },
-      { en: 'Anakin Skywalker', bs: 'Anakina Skywalkera' },
+      { en: 'Shredder', bs: 'Shredder' },
+      { en: 'Krang', bs: 'Krang' },
+      { en: 'Bebop', bs: 'Bebop' },
+      { en: 'Rocksteady', bs: 'Rocksteady' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-040',
@@ -670,16 +670,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Where does Yoda train Luke Skywalker?',
-      bs: 'Gdje Yoda trenira Lukea Skywalkera?'
+      en: 'Which Ninja Turtle is known for being the smartest?',
+      bs: 'Koja Ninja Kornjača je poznata kao najpametnija?'
     },
     options: [
-      { en: 'Coruscant', bs: 'Coruscantu' },
-      { en: 'Dagobah', bs: 'Dagobahu' },
-      { en: 'Mustafar', bs: 'Mustafaru' },
-      { en: 'Alderaan', bs: 'Alderaanu' },
+      { en: 'Donatello', bs: 'Donatello' },
+      { en: 'Leonardo', bs: 'Leonardo' },
+      { en: 'Raphael', bs: 'Raphael' },
+      { en: 'Michelangelo', bs: 'Michelangelo' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-041',
@@ -687,16 +687,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Chewbacca belongs to which alien species?',
-      bs: 'Chewbacca pripada kojoj vanzemaljskoj vrsti?'
+      en: 'What city do the Ninja Turtles usually protect?',
+      bs: 'Koji grad Ninja Kornjače najčešće štite?'
     },
     options: [
-      { en: 'Ewok', bs: 'Ewok' },
-      { en: 'Wookiee', bs: 'Wookiee' },
-      { en: 'Gungan', bs: 'Gungan' },
-      { en: 'Twi’lek', bs: 'Twi’lek' },
+      { en: 'New York City', bs: 'New York' },
+      { en: 'Gotham City', bs: 'Gotham' },
+      { en: 'Los Angeles', bs: 'Los Angeles' },
+      { en: 'Tokyo', bs: 'Tokio' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-042',
@@ -704,16 +704,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'What color is Yoda’s lightsaber in most Star Wars media?',
-      bs: 'Koje je boje Yodina svjetlosna sablja u većini Star Wars medija?'
+      en: 'What is the name of the saber-toothed tiger in Ice Age?',
+      bs: 'Kako se zove sabljozubi tigar u filmu Ledeno doba?'
     },
     options: [
-      { en: 'Red', bs: 'Crvena' },
-      { en: 'Blue', bs: 'Plava' },
-      { en: 'Green', bs: 'Zelena' },
-      { en: 'Purple', bs: 'Ljubičasta' },
+      { en: 'Diego', bs: 'Diego' },
+      { en: 'Manny', bs: 'Manny' },
+      { en: 'Sid', bs: 'Sid' },
+      { en: 'Buck', bs: 'Buck' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-043',
@@ -739,11 +739,11 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'In Indiana Jones, what animal does Indy famously fear?',
-      bs: 'U Indiana Jonesu, koje životinje Indy poznato strahuje?'
+      bs: 'U filmu Indiana Jones, koje se životinje Indy najviše boji?'
     },
     options: [
       { en: 'Spiders', bs: 'Pauka' },
-      { en: 'Snakes', bs: 'Zmije' },
+      { en: 'Snakes', bs: 'Zmija' },
       { en: 'Sharks', bs: 'Ajkula' },
       { en: 'Bats', bs: 'Šišmiša' },
     ],
@@ -840,16 +840,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'What role does Tom Cruise play in Top Gun: Maverick?',
-      bs: 'Koju ulogu igra Tom Cruise u Top Gun: Maverick?'
+      en: 'What is the name of the acorn-obsessed squirrel in Ice Age?',
+      bs: 'Kako se zove vjeverica koja stalno pokušava sačuvati žir u filmu Ledeno doba?'
     },
     options: [
-      { en: 'Submarine captain', bs: 'Kapetana podmornice' },
-      { en: 'Navy fighter pilot', bs: 'Mornaričkog borbenog pilota' },
-      { en: 'Army general', bs: 'Armijskog generala' },
-      { en: 'Commercial airline pilot', bs: 'Komercijalnog pilota' },
+      { en: 'Scrat', bs: 'Scrat' },
+      { en: 'Buck', bs: 'Buck' },
+      { en: 'Crash', bs: 'Crash' },
+      { en: 'Eddie', bs: 'Eddie' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-051',
@@ -857,14 +857,14 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'In Ghostbusters, what do the heroes use to catch ghosts?',
-      bs: 'U Ghostbustersima, šta heroji koriste da hvataju duhove?'
+      en: 'What is the name of Megamind’s superhero rival?',
+      bs: 'Kako se zove Megamindov glavni superherojski protivnik?'
     },
     options: [
-      { en: 'Proton packs', bs: 'Proton pakove' },
-      { en: 'Butterfly nets', bs: 'Mreže za leptire' },
-      { en: 'Vacuum cleaners', bs: 'Usisivače' },
-      { en: 'Fishing rods', bs: 'Štapove za pecanje' },
+      { en: 'Metro Man', bs: 'Metro Man' },
+      { en: 'Titan', bs: 'Titan' },
+      { en: 'Superman', bs: 'Superman' },
+      { en: 'Captain Hero', bs: 'Captain Hero' },
     ],
     correctIndex: 0,
   },
@@ -943,13 +943,13 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'How does Andy escape from prison in The Shawshank Redemption?',
-      bs: 'Kako Andy bježi iz zatvora u Shawshank Redemption?'
+      bs: 'Kako Andy pobjegne iz zatvora u filmu Iskupljenje u Shawshanku?'
     },
     options: [
-      { en: 'A hidden tunnel', bs: 'Skriveni tunel' },
-      { en: 'A sewer pipe', bs: 'Kanalizacijsku cijev' },
-      { en: 'A helicopter', bs: 'Helikopter' },
-      { en: 'A laundry truck', bs: 'Kamion za rublje' },
+      { en: 'A hidden tunnel', bs: 'Skrivenim tunelom' },
+      { en: 'A sewer pipe', bs: 'Kanalizacijskom cijevi' },
+      { en: 'A helicopter', bs: 'Helikopterom' },
+      { en: 'A laundry truck', bs: 'Kamionom za rublje' },
     ],
     correctIndex: 1,
   },
@@ -976,14 +976,14 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'In Succession, the Roy family runs which media company?',
-      bs: 'U Successionu, porodica Roy vodi koju medijsku kompaniju?'
+      en: 'What is the name of the city where Megamind takes place?',
+      bs: 'Kako se zove grad u kojem se odvija radnja filma Megamind?'
     },
     options: [
-      { en: 'Waystar Royco', bs: 'Waystar Royco' },
-      { en: 'Dunder Mifflin', bs: 'Dunder Mifflin' },
-      { en: 'Sterling Cooper', bs: 'Sterling Cooper' },
-      { en: 'Pied Piper', bs: 'Pied Piper' },
+      { en: 'Metro City', bs: 'Metro City' },
+      { en: 'Gotham City', bs: 'Gotham City' },
+      { en: 'New York', bs: 'New York' },
+      { en: 'Hero City', bs: 'Hero City' },
     ],
     correctIndex: 0,
   },
@@ -1061,16 +1061,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'The Bear is set in which city’s restaurant scene?',
-      bs: 'The Bear se dešava u restoranskoj sceni kojeg grada?'
+      en: 'In Up, why does Carl tie thousands of balloons to his house?',
+      bs: 'U Nebesima, zašto Carl veže hiljade balona za svoju kuću?'
     },
     options: [
-      { en: 'New York', bs: 'New Yorka' },
-      { en: 'Chicago', bs: 'Chicago-a' },
-      { en: 'Los Angeles', bs: 'Los Angelesa' },
-      { en: 'Miami', bs: 'Miamia' },
+      { en: 'To fly it to South America', bs: 'Da je odleti do Južne Amerike' },
+      { en: 'To escape a flood', bs: 'Da pobjegne od poplave' },
+      { en: 'To win a contest', bs: 'Da pobijedi na takmičenju' },
+      { en: 'To impress his neighbors', bs: 'Da impresionira susjede' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-064',
@@ -1078,14 +1078,14 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Who does Marty Byrde launder money for in Ozark?',
-      bs: 'Za koga Marty Byrde pere novac u Ozarku?'
+      en: 'In Penguins of Madagascar, what is the penguins’ leader named?',
+      bs: 'U Pingvinima s Madagaskara, kako se zove vođa pingvina?'
     },
     options: [
-      { en: 'Drug cartel', bs: 'Narko kartel' },
-      { en: 'Tech startup', bs: 'Tech startup' },
-      { en: 'Sports team', bs: 'Sportski tim' },
-      { en: 'Film studio', bs: 'Filmski studio' },
+      { en: 'Skipper', bs: 'Skipper' },
+      { en: 'Kowalski', bs: 'Kowalski' },
+      { en: 'Rico', bs: 'Rico' },
+      { en: 'Private', bs: 'Private' },
     ],
     correctIndex: 0,
   },
@@ -1095,14 +1095,14 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'What are the undead creatures called in The Walking Dead?',
-      bs: 'Kako se zovu nemrtva stvorenja u The Walking Dead?'
+      en: 'In Over the Hedge, what do the forest animals discover has been built near their home?',
+      bs: 'U crtanom filmu Preko ograde, šta životinje otkriju da je izgrađeno blizu njihovog doma?'
     },
     options: [
-      { en: 'Walkers', bs: 'Walkers' },
-      { en: 'Dementors', bs: 'Dementors' },
-      { en: 'White Walkers', bs: 'White Walkers' },
-      { en: 'Replicants', bs: 'Replicants' },
+      { en: 'A suburban housing development', bs: 'Predgrađe s kućama' },
+      { en: 'A theme park', bs: 'Zabavni park' },
+      { en: 'A highway', bs: 'Autoput' },
+      { en: 'A zoo', bs: 'Zoološki vrt' },
     ],
     correctIndex: 0,
   },
@@ -1112,8 +1112,8 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'In Sherlock (BBC), who plays Sherlock Holmes?',
-      bs: 'U Sherlocku (BBC), ko glumi Sherlocka Holmesa?'
+      en: 'In BBC version of Sherlock, who plays Sherlock Holmes?',
+      bs: 'U BBC verziji Sherlocka, ko glumi Sherlocka Holmesa?'
     },
     options: [
       { en: 'Martin Freeman', bs: 'Martin Freeman' },
@@ -1146,14 +1146,14 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Bridgerton is set during which historical period?',
-      bs: 'Bridgerton se dešava u kojem historijskom periodu?'
+      en: 'What causes the chaos in Cloudy with a Chance of Meatballs?',
+      bs: 'Šta uzrokuje haos u filmu Oblačno s ćuftama?'
     },
     options: [
-      { en: 'Regency era London', bs: 'Regency era Londonu' },
-      { en: 'Wild West', bs: 'Divljem zapadu' },
-      { en: 'Ancient Rome', bs: 'Starom Rimu' },
-      { en: '1920s New York', bs: 'New Yorku 1920-ih' },
+      { en: 'A machine that turns water into food', bs: 'Mašina koja pretvara vodu u hranu' },
+      { en: 'A magical cooking pot', bs: 'Čarobni lonac za kuhanje' },
+      { en: 'A talking refrigerator', bs: 'Frižider koji priča' },
+      { en: 'A wish granted by a genie', bs: 'Želja koju ispuni duh' },
     ],
     correctIndex: 0,
   },
@@ -1163,14 +1163,14 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'What is the name of the ranching family in Yellowstone?',
-      bs: 'Kako se zove stočarska porodica u Yellowstoneu?'
+      en: 'In Bee Movie, what does the Barry sue humans for?',
+      bs: 'U Pčelinom filmu, zbog čega Barry tuži ljude?'
     },
     options: [
-      { en: 'Dutton', bs: 'Dutton' },
-      { en: 'Roy', bs: 'Roy' },
-      { en: 'Bluth', bs: 'Bluth' },
-      { en: 'Soprano', bs: 'Soprano' },
+      { en: 'Stealing honey from bees', bs: 'Krađe meda od pčela' },
+      { en: 'Destroying flowers', bs: 'Uništavanja cvijeća' },
+      { en: 'Polluting the hive', bs: 'Zagađivanja košnice' },
+      { en: 'Trapping bees in jars', bs: 'Hvatanja pčela u tegle' },
     ],
     correctIndex: 0,
   },
@@ -1184,10 +1184,10 @@ export const moviesMedium: Question[] = [
       bs: 'Koji autor je napisao knjige na kojima se zasniva TV serija The Witcher?'
     },
     options: [
-      { en: 'George R.R. Martin', bs: 'George R.R. Martin-a' },
+      { en: 'George R.R. Martin', bs: 'George R.R. Martin' },
       { en: 'Andrzej Sapkowski', bs: 'Andrzej Sapkowski' },
-      { en: 'Tolkien', bs: 'Tolkien-a' },
-      { en: 'Stephen King', bs: 'Stephen King-a' },
+      { en: 'Tolkien', bs: 'Tolkien' },
+      { en: 'Stephen King', bs: 'Stephen King' },
     ],
     correctIndex: 1,
   },
@@ -1197,14 +1197,14 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Which British institution does The Crown mainly focus on?',
-      bs: 'Na koju britansku instituciju se The Crown uglavnom fokusira?'
+      en: 'In Wreck-It Ralph, which video game does Ralph originally live in?',
+      bs: 'U Razbijaču Ralphu, u kojoj video igri Ralph originalno živi?'
     },
     options: [
-      { en: 'Royal family', bs: 'Kraljevsku porodicu' },
-      { en: 'Football league', bs: 'Fudbalsku ligu' },
-      { en: 'Parliament', bs: 'Parlament' },
-      { en: 'Police force', bs: 'Policiju' },
+      { en: 'Fix-It Felix Jr.', bs: 'Fix-It Felix Jr.' },
+      { en: 'Sugar Rush', bs: 'Sugar Rush' },
+      { en: 'Hero’s Duty', bs: 'Hero’s Duty' },
+      { en: 'Space Invaders', bs: 'Space Invaders' },
     ],
     correctIndex: 0,
   },
@@ -1265,16 +1265,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'What does the company in Monsters, Inc. collect energy from?',
-      bs: 'Iz čega kompanija u Monsters, Inc. skuplja energiju?'
+      en: 'What creatures do the main characters befriend in Trolls?',
+      bs: 'S kim se glavni likovi sprijatelje u Trolovima?'
     },
     options: [
-      { en: 'Toys', bs: 'Igračaka' },
-      { en: 'Screams', bs: 'Vrisaka' },
-      { en: 'Homework', bs: 'Domacih zadataka' },
-      { en: 'Birthday cakes', bs: 'Rođendanskih torti' },
+      { en: 'Bergens', bs: 'Bergenima' },
+      { en: 'Ogres', bs: 'Ogrima' },
+      { en: 'Gnomes', bs: 'Patuljcima' },
+      { en: 'Fairies', bs: 'Vilama' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-076',
@@ -1333,14 +1333,14 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'What is Alex the lion’s main role at the Central Park Zoo in Madagascar?',
-      bs: 'Koja je glavna uloga lava Alexa u Zoološkom vrtu Central Park u filmu Madagaskar?'
+      en: 'In Hotel Transylvania, which classic monster runs the hotel?',
+      bs: 'U Hotelu Transilvanija, koje klasično čudovište vodi hotel?'
     },
     options: [
-      { en: 'The zoo’s star attraction', bs: 'Glavna atrakcija zoološkog vrta' },
-      { en: 'The zoo’s caretaker', bs: 'Čuvar zoološkog vrta' },
-      { en: 'The zoo’s veterinarian', bs: 'Veterinar zoološkog vrta' },
-      { en: 'The zoo’s owner', bs: 'Vlasnik zoološkog vrta' },
+      { en: 'Count Dracula', bs: 'Grof Drakula' },
+      { en: 'Frankenstein’s monster', bs: 'Frankeštajnovo čudovište' },
+      { en: 'The Mummy', bs: 'Mumija' },
+      { en: 'The Invisible Man', bs: 'Nevidljivi čovjek' },
     ],
     correctIndex: 0,
   },
@@ -1384,16 +1384,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Where does SpongeBob SquarePants work?',
-      bs: 'Gdje SpongeBob SquarePants radi?'
+      en: 'What is Morty’s last name in Rick and Morty?',
+      bs: 'Kako je Mortyjevo prezime u serijalu Rick and Morty?'
     },
     options: [
-      { en: 'Chum Bucket', bs: 'Chum Bucket' },
-      { en: 'Krusty Krab', bs: 'Krusty Krab' },
-      { en: 'Bikini Bottom Bank', bs: 'Bikini Bottom Bank' },
-      { en: 'Jellyfish Fields', bs: 'Jellyfish Fields' },
+      { en: 'Smith', bs: 'Smith' },
+      { en: 'Sanchez', bs: 'Sanchez' },
+      { en: 'Jones', bs: 'Jones' },
+      { en: 'Brown', bs: 'Brown' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-083',
@@ -1401,14 +1401,14 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Who is the main villain in The Lion King?',
-      bs: 'Ko je glavni negativac u Kralju lavova?'
+      en: 'Who is the main villain in the first film of The Lion King?',
+      bs: 'Ko je glavni negativac u prvom filmu Kralj lavova?'
     },
     options: [
-      { en: 'Mufasa', bs: 'Mufasa' },
+      { en: 'Nuka', bs: 'Nuka' },
       { en: 'Scar', bs: 'Scar' },
-      { en: 'Zazu', bs: 'Zazu' },
-      { en: 'Timon', bs: 'Timon' },
+      { en: 'Kovu', bs: 'Kovu' },
+      { en: 'Zira', bs: 'Zira' },
     ],
     correctIndex: 1,
   },
@@ -1419,7 +1419,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which Pixar film features a rat who wants to become a chef?',
-      bs: 'Koji Pixar film prikazuje pacova koji želi postati kuhar?'
+      bs: 'Koji Pixar film prikazuje štakora koji želi postati kuhar?'
     },
     options: [
       { en: 'Up', bs: 'Up' },
@@ -1452,14 +1452,14 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Who directed Get Out?',
-      bs: 'Ko je režirao Get Out?'
+      en: 'In South Park, what famously happens to Kenny in almost every episode?',
+      bs: 'U South Parku, šta se poznato dešava Kennyju u skoro svakoj epizodi?'
     },
     options: [
-      { en: 'Jordan Peele', bs: 'Jordan Peele' },
-      { en: 'Spike Lee', bs: 'Spike Lee' },
-      { en: 'Barry Jenkins', bs: 'Barry Jenkins' },
-      { en: 'Ryan Coogler', bs: 'Ryan Coogler' },
+      { en: 'He dies', bs: 'Umire' },
+      { en: 'He wins the trophy', bs: 'Osvoji trofej' },
+      { en: 'He loses his voice', bs: 'Izgubi glas' },
+      { en: 'He moves away', bs: 'Preseli se u drugi grad' },
     ],
     correctIndex: 0,
   },
@@ -1469,16 +1469,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'How do the creatures hunt their prey in A Quiet Place?',
-      bs: 'Kako stvorenja love svoj plijen u A Quiet Place?'
+      en: 'What nearly destroyed most of the completed work on Toy Story 2 during production?',
+      bs: 'Šta je skoro uništilo veći dio urađenog posla na Toy Story 2 tokom produkcije?'
     },
     options: [
-      { en: 'Bright light', bs: 'Jarko svjetlo' },
-      { en: 'Sound', bs: 'Zvuk' },
-      { en: 'Heat', bs: 'Toplotu' },
-      { en: 'Color', bs: 'Boju' },
+      { en: 'An accidental file deletion', bs: 'Slučajno brisanje fajlova' },
+      { en: 'A studio fire', bs: 'Požar u studiju' },
+      { en: 'A flood in the office', bs: 'Poplava u kancelariji' },
+      { en: 'A computer virus', bs: 'Kompjuterski virus' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-088',
@@ -1503,14 +1503,14 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'What is the surname of the real-life paranormal investigators in The Conjuring films?',
-      bs: 'Koje je prezime istraživača paranormalnog iz stvarnog života u filmovima The Conjuring?'
+      en: 'What is the name of the hotel in The Shining?',
+      bs: 'Kako se zove hotel u filmu The Shining?'
     },
     options: [
-      { en: 'The Warrens', bs: 'Warrenovi' },
-      { en: 'The Gracys', bs: 'Gracy' },
-      { en: 'The Kents', bs: 'Kentovi' },
-      { en: 'The Murphys', bs: 'Murphyjevi' },
+      { en: 'Overlook Hotel', bs: 'Overlook Hotel' },
+      { en: 'Bates Motel', bs: 'Bates Motel' },
+      { en: 'Blackwood Hotel', bs: 'Blackwood Hotel' },
+      { en: 'Raven Hotel', bs: 'Raven Hotel' },
     ],
     correctIndex: 0,
   },
@@ -1538,13 +1538,13 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Where does Freddy Krueger haunt his victims?',
-      bs: 'Gdje Freddy Krueger proganja svoje žrtve?'
+      bs: 'Gdje Freddy Krueger napada svoje žrtve?'
     },
     options: [
-      { en: 'Dreams', bs: 'Snove' },
-      { en: 'Kitchens', bs: 'Kuhinjama' },
-      { en: 'Cars', bs: 'Automobilima' },
-      { en: 'Schools', bs: 'Školama' },
+      { en: 'Dreams', bs: 'U snovima' },
+      { en: 'Kitchens', bs: 'U kuhinjama' },
+      { en: 'Cars', bs: 'U automobilima' },
+      { en: 'Schools', bs: 'U školama' },
     ],
     correctIndex: 0,
   },
@@ -1571,16 +1571,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Seinfeld is mainly set in which US city?',
-      bs: 'Seinfeld se uglavnom dešava u kojem američkom gradu?'
+      en: 'What is the real name of the killer in Saw?',
+      bs: 'Kako glasi pravo ime ubice iz Slagalica Strave serijala?'
     },
     options: [
-      { en: 'Chicago', bs: 'Chicago-u' },
-      { en: 'New York City', bs: 'New York Cityju' },
-      { en: 'Los Angeles', bs: 'Los Angelesu' },
-      { en: 'Boston', bs: 'Bostonu' },
+      { en: 'John Kramer', bs: 'John Kramer' },
+      { en: 'Billy Gordon', bs: 'Billy Gordon' },
+      { en: 'Mark Hoffman', bs: 'Mark Hoffman' },
+      { en: 'Adam Stanheight', bs: 'Adam Stanheight' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-094',
@@ -1589,7 +1589,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'In How I Met Your Mother, who does Ted tell the story of how he met their mother to?',
-      bs: 'U seriji How I Met Your Mother, kome Ted priča priču o tome kako je upoznao njihovu majku?'
+      bs: 'U seriji Kako sam upoznao vašu majku, kome Ted priča priču o tome kako je upoznao njihovu majku?'
     },
     options: [
       { en: 'His children', bs: 'Svojoj djeci' },
@@ -1605,14 +1605,14 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'What is the name of the fictional town in Parks and Recreation?',
-      bs: 'Kako se zove izmišljeni grad u seriji Parks and Recreation?'
+      en: 'Which 1973 horror film became famous for rumors of a "cursed" production?',
+      bs: 'Koji horor film iz 1973. godine postao je poznat po pričama o "ukletom" snimanju?'
     },
     options: [
-      { en: 'Pawnee', bs: 'Pawnee' },
-      { en: 'Springfield', bs: 'Springfield' },
-      { en: 'Stars Hollow', bs: 'Stars Hollow' },
-      { en: 'Twin Peaks', bs: 'Twin Peaks' },
+      { en: 'The Exorcist', bs: 'Egzorcist' },
+      { en: 'Halloween', bs: 'Noć vještica' },
+      { en: 'Psycho', bs: 'Psiho' },
+      { en: 'Jaws', bs: 'Ralje' },
     ],
     correctIndex: 0,
   },
@@ -1622,14 +1622,14 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Which police precinct do the detectives in Brooklyn Nine-Nine work at?',
-      bs: 'U kojem policijskom precinktu radi ekipa iz Brooklyn Nine-Nine?'
+      en: 'Which movie had actors wearing heavy costumes that caused health problems during filming?',
+      bs: 'Koji film je imao glumce u teškim kostimima koji su uzrokovali zdravstvene probleme tokom snimanja?'
     },
     options: [
-      { en: '99th precinct', bs: '99. precinktu' },
-      { en: '12th precinct', bs: '12. precinktu' },
-      { en: '5th precinct', bs: '5. precinktu' },
-      { en: '1st precinct', bs: '1. precinktu' },
+      { en: 'The Wizard of Oz', bs: 'Čarobnjak iz Oza' },
+      { en: 'Jurassic Park', bs: 'Park iz doba Jure' },
+      { en: 'Avatar', bs: 'Avatar' },
+      { en: 'Gladiator', bs: 'Gladijator' },
     ],
     correctIndex: 0,
   },
@@ -1640,13 +1640,13 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'In which city do the scientists in The Big Bang Theory mainly live?',
-      bs: 'U kojem gradu uglavnom žive naučnici iz The Big Bang Theory?'
+      bs: 'U kojem gradu uglavnom žive naučnici iz serije Teorija velikog praska?'
     },
     options: [
-      { en: 'Boston', bs: 'Bostonu' },
-      { en: 'Pasadena', bs: 'Pasadeni' },
-      { en: 'Seattle', bs: 'Seattleu' },
-      { en: 'Austin', bs: 'Austinu' },
+      { en: 'Boston', bs: 'Boston' },
+      { en: 'Pasadena', bs: 'Pasadena' },
+      { en: 'Seattle', bs: 'Seattle' },
+      { en: 'Austin', bs: 'Austin' },
     ],
     correctIndex: 1,
   },
@@ -1656,16 +1656,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Where does most of the show Cheers take place?',
-      bs: 'Gdje se odvija većina radnje serije Cheers?'
+      en: 'Which TV show had a famous coffee shop called Central Perk?',
+      bs: 'Koja serija je imala poznati kafić Central Perk?'
     },
     options: [
-      { en: 'Hospital', bs: 'Bolnice' },
-      { en: 'Bar', bs: 'Bara' },
-      { en: 'Airport', bs: 'Aerodroma' },
-      { en: 'Library', bs: 'Biblioteke' },
+      { en: 'Friends', bs: 'Prijatelji' },
+      { en: 'How I Met Your Mother', bs: 'Kako sam upoznao vašu majku' },
+      { en: 'Seinfeld', bs: 'Seinfeld' },
+      { en: 'The Office', bs: 'U uredu' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-099',
@@ -1673,14 +1673,14 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'What is the name of the dysfunctional family in Arrested Development?',
-      bs: 'Kako se zove disfunkcionalna porodica u seriji Arrested Development?'
+      en: 'Which famous movie prop was accidentally destroyed during filming of a scene?',
+      bs: 'Koji poznati filmski rekvizit je slučajno uništen tokom snimanja?'
     },
     options: [
-      { en: 'Bluth', bs: 'Bluth' },
-      { en: 'Roy', bs: 'Roy' },
-      { en: 'Dutton', bs: 'Dutton' },
-      { en: 'Soprano', bs: 'Soprano' },
+      { en: 'The Millennium Falcon model', bs: 'Model Millennium Falcona' },
+      { en: 'The Titanic set', bs: 'Titanic set' },
+      { en: 'The DeLorean', bs: 'DeLorean' },
+      { en: 'The Batmobile', bs: 'Batmobil' },
     ],
     correctIndex: 0,
   },
@@ -1690,16 +1690,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Where does the Rose family end up living in Schitt’s Creek?',
-      bs: 'Gdje porodica Rose završi živeći u Schitt’s Creek?'
+      en: 'Which actor played Wolverine in the X-Men movies?',
+      bs: 'Koji glumac je igrao Wolverinea u X-Men filmovima?'
     },
     options: [
-      { en: 'Luxury penthouse', bs: 'Luksuznom penthausu' },
-      { en: 'Small-town motel', bs: 'Malom motelu' },
-      { en: 'Submarine', bs: 'Podmornici' },
-      { en: 'Castle', bs: 'Dvorcu' },
+      { en: 'Hugh Jackman', bs: 'Hugh Jackman' },
+      { en: 'Ryan Reynolds', bs: 'Ryan Reynolds' },
+      { en: 'Chris Hemsworth', bs: 'Chris Hemsworth' },
+      { en: 'Jason Momoa', bs: 'Jason Momoa' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'movie-med-101',
