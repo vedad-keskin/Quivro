@@ -1735,4 +1735,21 @@ export const moviesMedium: Question[] = [
     ],
     correctIndex: 2,
   },
+  {
+    id: 'movie-med-103',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'medium',
+    prompt: {
+      en: 'Which filmmaker is widely credited with revolutionizing modern 3D cinema?',
+      bs: 'Koji se filmski režiser smatra zaslužnim za revoluciju modernog 3D filma?'
+    },
+    options: [
+      { en: 'James Cameron', bs: 'James Cameron' },
+      { en: 'Steven Spielberg', bs: 'Steven Spielberg' },
+      { en: 'Christopher Nolan', bs: 'Christopher Nolan' },
+      { en: 'Peter Jackson', bs: 'Peter Jackson' },
+    ],
+    correctIndex: 0,
+  },
 ];
