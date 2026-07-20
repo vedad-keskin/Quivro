@@ -762,10 +762,10 @@ export const sportsHard: Question[] = [
     difficulty: 'hard',
     prompt: { en: 'Which Italian defensive system of the 1960s is known as “catenaccio”?', bs: 'Koji italijanski odbrambeni sistem 1960-ih je poznat kao „catenaccio“?' },
     options: [
-      { en: 'A fluid attacking style', bs: 'Fluidni napadački stil' },
-      { en: 'A highly organized defensive system with a sweeper', bs: 'Vrlo organizovan odbrambeni sistem sa liberoom' },
-      { en: 'A 4-4-2 midfield press', bs: '4-4-2 pressing u veznom redu' },
-      { en: 'A set-piece routine', bs: 'Rutina za prekide' },
+      { en: 'Total football attack', bs: 'Totalni napadački fudbal' },
+      { en: 'Sweeper-based lock-down defense', bs: 'Odbrana sa liberoom i zatvaranjem' },
+      { en: 'High midfield press', bs: 'Visok pressing u veznom redu' },
+      { en: 'Set-piece focus', bs: 'Fokus na prekidima' },
     ],
     correctIndex: 1,
   },
@@ -1057,7 +1057,7 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Argentine club did Diego Maradona lead to a Serie A title with Napoli?', bs: 'S kojim klubom je Diego Maradona osvojio titulu Serie A u Napoliju?' },
+    prompt: { en: 'Which club did Diego Maradona lead to Serie A titles while playing in Naples?', bs: 'Koji klub je Diego Maradona vodio do titula u Serie A igrajući u Napulju?' },
     options: [
       { en: 'Roma', bs: 'Roma' },
       { en: 'Napoli', bs: 'Napoli' },
