@@ -6,7 +6,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which country won the FIFA World Cup in 2014?', bs: 'Koja zemlja je osvojila FIFA Svjetsko prvenstvo 2014.?' },
+    prompt: { en: 'Which country won the FIFA World Cup in 2014?',
+              bs: 'Koja zemlja je osvojila FIFA Svjetsko prvenstvo 2014.?' },
     options: [
       { en: 'Argentina', bs: 'Argentina' },
       { en: 'Germany', bs: 'Njemačka' },
@@ -20,7 +21,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which club has won the most UEFA Champions League titles?', bs: 'Koji klub je osvojio najviše titula UEFA Lige šampiona?' },
+    prompt: { en: 'Which club has won the most UEFA Champions League titles?',
+              bs: 'Koji klub je osvojio najviše titula UEFA Lige šampiona?' },
     options: [
       { en: 'Barcelona', bs: 'Barselona' },
       { en: 'AC Milan', bs: 'AC Milan' },
@@ -34,7 +36,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In football, what is the offside rule mainly designed to prevent?', bs: 'U fudbalu, čemu uglavnom služi pravilo ofsajda?' },
+    prompt: { en: 'In football, what is the offside rule mainly designed to prevent?',
+              bs: 'U fudbalu, čemu uglavnom služi pravilo ofsajda?' },
     options: [
       { en: 'Illegal goalkeeper handling', bs: 'Nedozvoljeno rukom golmana' },
       { en: 'Attackers camping by the goal', bs: 'Napadače koji čekaju kod gola' },
@@ -48,7 +51,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which stadium is home to Manchester United?', bs: 'Koji stadion je dom Manchester Uniteda?' },
+    prompt: { en: 'Which stadium is home to Manchester United?',
+              bs: 'Koji stadion je dom Manchester Uniteda?' },
     options: [
       { en: 'Anfield', bs: 'Anfield' },
       { en: 'Old Trafford', bs: 'Old Trafford' },
@@ -62,7 +66,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which country hosted the 2010 FIFA World Cup?', bs: 'Koja zemlja je bila domaćin FIFA Svjetskog prvenstva 2010.?' },
+    prompt: { en: 'Which country hosted the 2010 FIFA World Cup?',
+              bs: 'Koja zemlja je bila domaćin FIFA Svjetskog prvenstva 2010.?' },
     options: [
       { en: 'Germany', bs: 'Njemačka' },
       { en: 'South Africa', bs: 'Južna Afrika' },
@@ -76,7 +81,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which Portuguese forward wore number 7 at Manchester United, Real Madrid, and Juventus?', bs: 'Koji portugalski napadač nosio je broj 7 u Manchester Unitedu, Real Madridu i Juventusu?' },
+    prompt: { en: 'Which Portuguese forward wore number 7 at Manchester United, Real Madrid, and Juventus?',
+              bs: 'Koji portugalski napadač nosio je broj 7 u Manchester Unitedu, Real Madridu i Juventusu?' },
     options: [
       { en: 'Cristiano Ronaldo', bs: 'Cristiano Ronaldo' },
       { en: 'Luis Figo', bs: 'Luis Figo' },
@@ -90,7 +96,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which Italian league is the top division of club football?', bs: 'Koja italijanska liga je najviši rang klupskog fudbala?' },
+    prompt: { en: 'Which Italian league is the top division of club football?',
+              bs: 'Koja italijanska liga je najviši rang klupskog fudbala?' },
     options: [
       { en: 'Serie B', bs: 'Serie B' },
       { en: 'Serie A', bs: 'Serie A' },
@@ -104,7 +111,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which club plays its home matches at the Allianz Arena?', bs: 'Koji klub igra domaće utakmice na Allianz Areni?' },
+    prompt: { en: 'Which club plays its home matches at the Allianz Arena?',
+              bs: 'Koji klub igra domaće utakmice na Allianz Areni?' },
     options: [
       { en: 'Borussia Dortmund', bs: 'Borussia Dortmund' },
       { en: 'Bayern Munich', bs: 'Bayern Minhen' },
@@ -118,7 +126,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'What is a “clean sheet” in football?', bs: 'Šta je „clean sheet“ u fudbalu?' },
+    prompt: { en: 'What is a “clean sheet” in football?',
+              bs: 'Šta je „clean sheet“ u fudbalu?' },
     options: [
       { en: 'Winning by three goals', bs: 'Pobjeda s tri gola razlike' },
       { en: 'Not conceding any goals in a match', bs: 'Ne primiti nijedan gol na utakmici' },
@@ -132,7 +141,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which South American tournament is the continental championship for national teams?', bs: 'Koje južnoameričko takmičenje je kontinentalno prvenstvo za nacionalne timove?' },
+    prompt: { en: 'Which South American tournament is the continental championship for national teams?',
+              bs: 'Koje južnoameričko takmičenje je kontinentalno prvenstvo za nacionalne timove?' },
     options: [
       { en: 'Gold Cup', bs: 'Gold Cup' },
       { en: 'Copa América', bs: 'Copa América' },
@@ -146,7 +156,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which club is nicknamed “The Gunners”?', bs: 'Koji klub ima nadimak „The Gunners“?' },
+    prompt: { en: 'Which club is nicknamed “The Gunners”?',
+              bs: 'Koji klub ima nadimak „The Gunners“?' },
     options: [
       { en: 'Chelsea', bs: 'Chelsea' },
       { en: 'Arsenal', bs: 'Arsenal' },
@@ -160,7 +171,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'How many substitutions were traditionally allowed per team in a football match?', bs: 'Koliko izmjena je tradicionalno bilo dozvoljeno po timu u fudbalskoj utakmici?' },
+    prompt: { en: 'How many substitutions were traditionally allowed per team in a football match?',
+              bs: 'Koliko izmjena je tradicionalno bilo dozvoljeno po timu u fudbalskoj utakmici?' },
     options: [
       { en: '1', bs: '1' },
       { en: '2', bs: '2' },
@@ -174,7 +186,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which Dutch club is famous for its orange-tinged history and plays in Amsterdam?', bs: 'Koji holandski klub je poznat po istoriji povezanoj s narandžastom bojom i igra u Amsterdamu?' },
+    prompt: { en: 'Which Dutch club is famous for its orange-tinged history and plays in Amsterdam?',
+              bs: 'Koji holandski klub je poznat po istoriji povezanoj s narandžastom bojom i igra u Amsterdamu?' },
     options: [
       { en: 'PSV Eindhoven', bs: 'PSV Eindhoven' },
       { en: 'Feyenoord', bs: 'Feyenoord' },
@@ -188,7 +201,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which French club plays at the Parc des Princes?', bs: 'Koji francuski klub igra na Parc des Princes?' },
+    prompt: { en: 'Which French club plays at the Parc des Princes?',
+              bs: 'Koji francuski klub igra na Parc des Princes?' },
     options: [
       { en: 'Olympique Marseille', bs: 'Olympique Marseille' },
       { en: 'Paris Saint-Germain', bs: 'Paris Saint-Germain' },
@@ -202,7 +216,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In basketball, how many personal fouls usually foul a player out of an NBA game?', bs: 'U košarci, koliko ličnih faulova obično isključuje igrača iz NBA utakmice?' },
+    prompt: { en: 'In basketball, how many personal fouls usually foul a player out of an NBA game?',
+              bs: 'U košarci, koliko ličnih faulova obično isključuje igrača iz NBA utakmice?' },
     options: [
       { en: '4', bs: '4' },
       { en: '5', bs: '5' },
@@ -216,7 +231,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which NBA team is based in Chicago?', bs: 'Koji NBA tim je iz Čikaga?' },
+    prompt: { en: 'Which NBA team is based in Chicago?',
+              bs: 'Koji NBA tim je iz Čikaga?' },
     options: [
       { en: 'Celtics', bs: 'Celtics' },
       { en: 'Bulls', bs: 'Bulls' },
@@ -230,7 +246,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'What is the name of the NBA championship trophy?', bs: 'Kako se zove trofej NBA šampionata?' },
+    prompt: { en: 'What is the name of the NBA championship trophy?',
+              bs: 'Kako se zove trofej NBA šampionata?' },
     options: [
       { en: 'Vince Lombardi Trophy', bs: 'Vince Lombardi Trophy' },
       { en: 'Larry O’Brien Trophy', bs: 'Larry O’Brien Trophy' },
@@ -244,7 +261,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which basketball position traditionally plays closest to the basket?', bs: 'Koja košarkaška pozicija tradicionalno igra najbliže košu?' },
+    prompt: { en: 'Which basketball position traditionally plays closest to the basket?',
+              bs: 'Koja košarkaška pozicija tradicionalno igra najbliže košu?' },
     options: [
       { en: 'Point guard', bs: 'Plejmejker' },
       { en: 'Shooting guard', bs: 'Bek šuter' },
@@ -258,7 +276,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Stephen Curry is most associated with which NBA franchise?', bs: 'Stephen Curry je najviše povezan s kojom NBA franšizom?' },
+    prompt: { en: 'Stephen Curry is most associated with which NBA franchise?',
+              bs: 'Stephen Curry je najviše povezan s kojom NBA franšizom?' },
     options: [
       { en: 'Los Angeles Lakers', bs: 'Los Angeles Lakers' },
       { en: 'Golden State Warriors', bs: 'Golden State Warriors' },
@@ -272,7 +291,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In basketball, a “double-double” means a player recorded double digits in how many statistical categories?', bs: 'U košarci, „double-double“ znači da je igrač ostvario dvocifrene brojke u koliko statističkih kategorija?' },
+    prompt: { en: 'In basketball, a “double-double” means a player recorded double digits in how many statistical categories?',
+              bs: 'U košarci, „double-double“ znači da je igrač ostvario dvocifrene brojke u koliko statističkih kategorija?' },
     options: [
       { en: '1', bs: '1' },
       { en: '2', bs: '2' },
@@ -286,7 +306,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which city hosted the 2008 Summer Olympics?', bs: 'Koji grad je bio domaćin Ljetnih olimpijskih igara 2008.?' },
+    prompt: { en: 'Which city hosted the 2008 Summer Olympics?',
+              bs: 'Koji grad je bio domaćin Ljetnih olimpijskih igara 2008.?' },
     options: [
       { en: 'Athens', bs: 'Atina' },
       { en: 'Beijing', bs: 'Peking' },
@@ -300,7 +321,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which city hosted the 2020 Summer Olympics (held in 2021)?', bs: 'Koji grad je bio domaćin Ljetnih olimpijskih igara 2020. (održanih 2021.)?' },
+    prompt: { en: 'Which city hosted the 2020 Summer Olympics (held in 2021)?',
+              bs: 'Koji grad je bio domaćin Ljetnih olimpijskih igara 2020. (održanih 2021.)?' },
     options: [
       { en: 'Paris', bs: 'Pariz' },
       { en: 'Tokyo', bs: 'Tokio' },
@@ -314,7 +336,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Usain Bolt’s most famous Olympic distance events were the 100m and which other?', bs: 'Usain Boltove najpoznatije olimpijske discipline su 100 m i koja još?' },
+    prompt: { en: 'Usain Bolt’s most famous Olympic distance events were the 100m and which other?',
+              bs: 'Usain Boltove najpoznatije olimpijske discipline su 100 m i koja još?' },
     options: [
       { en: '400 m', bs: '400 m' },
       { en: '200 m', bs: '200 m' },
@@ -328,7 +351,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which Olympic sport combines cross-country skiing and rifle shooting?', bs: 'Koji olimpijski sport kombinuje skijaško trčanje i streljaštvo?' },
+    prompt: { en: 'Which Olympic sport combines cross-country skiing and rifle shooting?',
+              bs: 'Koji olimpijski sport kombinuje skijaško trčanje i streljaštvo?' },
     options: [
       { en: 'Nordic combined', bs: 'Nordijska kombinacija' },
       { en: 'Biathlon', bs: 'Biatlon' },
@@ -342,7 +366,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'A triathlon typically includes swimming, cycling, and which other discipline?', bs: 'Triatlon obično uključuje plivanje, biciklizam i koju još disciplinu?' },
+    prompt: { en: 'A triathlon typically includes swimming, cycling, and which other discipline?',
+              bs: 'Triatlon obično uključuje plivanje, biciklizam i koju još disciplinu?' },
     options: [
       { en: 'Rowing', bs: 'Veslanje' },
       { en: 'Running', bs: 'Trčanje' },
@@ -356,7 +381,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which Grand Slam tennis tournament is played on clay in Paris?', bs: 'Koji Grand Slam teniski turnir se igra na šljaci u Parizu?' },
+    prompt: { en: 'Which Grand Slam tennis tournament is played on clay in Paris?',
+              bs: 'Koji Grand Slam teniski turnir se igra na šljaci u Parizu?' },
     options: [
       { en: 'Wimbledon', bs: 'Wimbledon' },
       { en: 'French Open', bs: 'Roland Garros' },
@@ -370,7 +396,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which Grand Slam is played first on the calendar each year?', bs: 'Koji Grand Slam se igra prvi u kalendaru svake godine?' },
+    prompt: { en: 'Which Grand Slam is played first on the calendar each year?',
+              bs: 'Koji Grand Slam se igra prvi u kalendaru svake godine?' },
     options: [
       { en: 'French Open', bs: 'Roland Garros' },
       { en: 'Australian Open', bs: 'Australian Open' },
@@ -384,7 +411,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In tennis, what does “deuce” mean?', bs: 'U tenisu, šta znači „deuce“?' },
+    prompt: { en: 'In tennis, what does “deuce” mean?',
+              bs: 'U tenisu, šta znači „deuce“?' },
     options: [
       { en: 'The match is over', bs: 'Meč je gotov' },
       { en: 'The score is tied at 40–40', bs: 'Rezultat je izjednačen na 40–40' },
@@ -398,7 +426,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which surface is the US Open mainly played on today?', bs: 'Na kojoj se podlozi danas uglavnom igra US Open?' },
+    prompt: { en: 'Which surface is the US Open mainly played on today?',
+              bs: 'Na kojoj se podlozi danas uglavnom igra US Open?' },
     options: [
       { en: 'Grass', bs: 'Trava' },
       { en: 'Clay', bs: 'Šljaka' },
@@ -412,7 +441,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'The Davis Cup is an international team competition in which sport?', bs: 'Davis Cup je međunarodno ekipno takmičenje u kojem sportu?' },
+    prompt: { en: 'The Davis Cup is an international team competition in which sport?',
+              bs: 'Davis Cup je međunarodno ekipno takmičenje u kojem sportu?' },
     options: [
       { en: 'Golf', bs: 'Golf' },
       { en: 'Tennis', bs: 'Tenis' },
@@ -426,7 +456,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which Formula 1 team is based in Maranello, Italy?', bs: 'Koji Formula 1 tim je baziran u Maranellu u Italiji?' },
+    prompt: { en: 'Which Formula 1 team is based in Maranello, Italy?',
+              bs: 'Koji Formula 1 tim je baziran u Maranellu u Italiji?' },
     options: [
       { en: 'Mercedes', bs: 'Mercedes' },
       { en: 'Ferrari', bs: 'Ferrari' },
@@ -440,7 +471,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'What does “pole position” mean in Formula 1?', bs: 'Šta znači „pole position“ u Formuli 1?' },
+    prompt: { en: 'What does “pole position” mean in Formula 1?',
+              bs: 'Šta znači „pole position“ u Formuli 1?' },
     options: [
       { en: 'Finishing last', bs: 'Završiti posljednji' },
       { en: 'First on the grid', bs: 'Prvi na startnom grilu' },
@@ -454,7 +486,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which famous F1 circuit is known for its high-speed layout in Italy?', bs: 'Koja poznata F1 staza je poznata po brzom rasporedu u Italiji?' },
+    prompt: { en: 'Which famous F1 circuit is known for its high-speed layout in Italy?',
+              bs: 'Koja poznata F1 staza je poznata po brzom rasporedu u Italiji?' },
     options: [
       { en: 'Silverstone', bs: 'Silverstone' },
       { en: 'Monza', bs: 'Monza' },
@@ -468,7 +501,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'How many points does a Formula 1 race winner usually receive under the modern scoring system?', bs: 'Koliko bodova obično dobija pobjednik trke Formule 1 po modernom sistemu bodovanja?' },
+    prompt: { en: 'How many points does a Formula 1 race winner usually receive under the modern scoring system?',
+              bs: 'Koliko bodova obično dobija pobjednik trke Formule 1 po modernom sistemu bodovanja?' },
     options: [
       { en: '10', bs: '10' },
       { en: '15', bs: '15' },
@@ -482,7 +516,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In swimming, which stroke is performed on the back?', bs: 'U plivanju, koji stil se izvodi na leđima?' },
+    prompt: { en: 'In swimming, which stroke is performed on the back?',
+              bs: 'U plivanju, koji stil se izvodi na leđima?' },
     options: [
       { en: 'Butterfly', bs: 'Leptir' },
       { en: 'Backstroke', bs: 'Leđno' },
@@ -496,7 +531,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'An Olympic-size swimming pool is how many meters long?', bs: 'Koliko metara dug je olimpijski bazen?' },
+    prompt: { en: 'An Olympic-size swimming pool is how many meters long?',
+              bs: 'Koliko metara dug je olimpijski bazen?' },
     options: [
       { en: '25', bs: '25' },
       { en: '50', bs: '50' },
@@ -510,7 +546,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which boxing weight class is heavier: welterweight or heavyweight?', bs: 'Koja bokserska kategorija je teža: velter ili teška?' },
+    prompt: { en: 'Which boxing weight class is heavier: welterweight or heavyweight?',
+              bs: 'Koja bokserska kategorija je teža: velter ili teška?' },
     options: [
       { en: 'Welterweight', bs: 'Velter' },
       { en: 'Heavyweight', bs: 'Teška' },
@@ -524,7 +561,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'A knockout (KO) in boxing means what?', bs: 'Šta znači nokaut (KO) u boksu?' },
+    prompt: { en: 'A knockout (KO) in boxing means what?',
+              bs: 'Šta znači nokaut (KO) u boksu?' },
     options: [
       { en: 'Goes to the scorecards', bs: 'Ide na bodovanje sudija' },
       { en: 'Fighter cannot continue after knockdown', bs: 'Bokser ne može nastaviti nakon nokdauna' },
@@ -538,7 +576,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In cricket, what is a “century”?', bs: 'U kriketu, šta je „century“?' },
+    prompt: { en: 'In cricket, what is a “century”?',
+              bs: 'U kriketu, šta je „century“?' },
     options: [
       { en: '100 runs scored by a batter', bs: '100 runova koje postigne udarač' },
       { en: '100 wickets in a season', bs: '100 vicket-a u sezoni' },
@@ -552,7 +591,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which cricket format is the shortest of the three main international formats?', bs: 'Koji format kriketa je najkraći od tri glavna međunarodna formata?' },
+    prompt: { en: 'Which cricket format is the shortest of the three main international formats?',
+              bs: 'Koji format kriketa je najkraći od tri glavna međunarodna formata?' },
     options: [
       { en: 'Test cricket', bs: 'Test kriket' },
       { en: 'One Day International (ODI)', bs: 'One Day International (ODI)' },
@@ -566,7 +606,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'The Ashes is a famous cricket series between England and which other country?', bs: 'The Ashes je poznata kriket serija između Engleske i koje druge zemlje?' },
+    prompt: { en: 'The Ashes is a famous cricket series between England and which other country?',
+              bs: 'The Ashes je poznata kriket serija između Engleske i koje druge zemlje?' },
     options: [
       { en: 'India', bs: 'Indija' },
       { en: 'Australia', bs: 'Australija' },
@@ -580,7 +621,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In rugby, what is a “try”?', bs: 'U ragbiju, šta je „try“?' },
+    prompt: { en: 'In rugby, what is a “try”?',
+              bs: 'U ragbiju, šta je „try“?' },
     options: [
       { en: 'A kick between the posts', bs: 'Udarac između stativa' },
       { en: 'Ball grounded in in-goal', bs: 'Lopta spuštena u in-goal' },
@@ -594,7 +636,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'How many points is a try worth in rugby union?', bs: 'Koliko bodova vrijedi try u ragbi unionu?' },
+    prompt: { en: 'How many points is a try worth in rugby union?',
+              bs: 'Koliko bodova vrijedi try u ragbi unionu?' },
     options: [
       { en: '3', bs: '3' },
       { en: '5', bs: '5' },
@@ -608,7 +651,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which country is famous for the All Blacks rugby team?', bs: 'Koja zemlja je poznata po ragbi timu All Blacks?' },
+    prompt: { en: 'Which country is famous for the All Blacks rugby team?',
+              bs: 'Koja zemlja je poznata po ragbi timu All Blacks?' },
     options: [
       { en: 'Australia', bs: 'Australija' },
       { en: 'New Zealand', bs: 'Novi Zeland' },
@@ -622,7 +666,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In volleyball, what is it called when a defender passes the ball up from low on the floor after a spike?', bs: 'U odbojci, kako se naziva kada branioc podigne loptu nisko sa poda nakon smeča?' },
+    prompt: { en: 'In volleyball, what is it called when a defender passes the ball up from low on the floor after a spike?',
+              bs: 'U odbojci, kako se naziva kada branioc podigne loptu nisko sa poda nakon smeča?' },
     options: [
       { en: 'A dig', bs: 'Dig' },
       { en: 'A block', bs: 'Blok' },
@@ -636,7 +681,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Beach volleyball is usually played with how many players per team?', bs: 'Odbojka na pijesku se obično igra s koliko igrača po timu?' },
+    prompt: { en: 'Beach volleyball is usually played with how many players per team?',
+              bs: 'Odbojka na pijesku se obično igra s koliko igrača po timu?' },
     options: [
       { en: '2', bs: '2' },
       { en: '3', bs: '3' },
@@ -650,7 +696,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'How many periods are there in a standard NHL ice hockey game?', bs: 'Koliko perioda ima standardna NHL utakmica hokeja na ledu?' },
+    prompt: { en: 'How many periods are there in a standard NHL ice hockey game?',
+              bs: 'Koliko perioda ima standardna NHL utakmica hokeja na ledu?' },
     options: [
       { en: '2', bs: '2' },
       { en: '3', bs: '3' },
@@ -664,7 +711,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In ice hockey, how many players per team (including the goalie) are usually on the ice during even strength?', bs: 'U hokeju na ledu, koliko igrača po timu (uključujući golmana) je obično na ledu pri jednakom broju?' },
+    prompt: { en: 'In ice hockey, how many players per team (including the goalie) are usually on the ice during even strength?',
+              bs: 'U hokeju na ledu, koliko igrača po timu (uključujući golmana) je obično na ledu pri jednakom broju?' },
     options: [
       { en: '5', bs: '5' },
       { en: '6', bs: '6' },
@@ -678,7 +726,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which golf major is traditionally played at Augusta National?', bs: 'Koji golf major se tradicionalno igra na Augusta Nationalu?' },
+    prompt: { en: 'Which golf major is traditionally played at Augusta National?',
+              bs: 'Koji golf major se tradicionalno igra na Augusta Nationalu?' },
     options: [
       { en: 'The Open Championship', bs: 'The Open Championship' },
       { en: 'The Masters', bs: 'The Masters' },
@@ -692,7 +741,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In golf, what does “par” mean for a hole?', bs: 'U golfu, šta znači „par“ za rupu?' },
+    prompt: { en: 'In golf, what does “par” mean for a hole?',
+              bs: 'U golfu, šta znači „par“ za rupu?' },
     options: [
       { en: 'Maximum allowed score', bs: 'Maksimalni dozvoljeni rezultat' },
       { en: 'Expected strokes for the hole', bs: 'Očekivani broj udaraca za rupu' },
@@ -706,7 +756,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which cycling race is nicknamed “La Grande Boucle”?', bs: 'Koja biciklistička trka ima nadimak „La Grande Boucle“?' },
+    prompt: { en: 'Which cycling race is nicknamed “La Grande Boucle”?',
+              bs: 'Koja biciklistička trka ima nadimak „La Grande Boucle“?' },
     options: [
       { en: 'Giro d’Italia', bs: 'Giro d’Italia' },
       { en: 'Tour de France', bs: 'Tour de France' },
@@ -720,7 +771,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In American football, how many points is a field goal usually worth?', bs: 'U američkom fudbalu, koliko bodova obično vrijedi field goal?' },
+    prompt: { en: 'In American football, how many points is a field goal usually worth?',
+              bs: 'U američkom fudbalu, koliko bodova obično vrijedi field goal?' },
     options: [
       { en: '2', bs: '2' },
       { en: '3', bs: '3' },
@@ -734,7 +786,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'How many players are on the field for one American football team at a time?', bs: 'Koliko igrača jednog tima američkog fudbala je na terenu u isto vrijeme?' },
+    prompt: { en: 'How many players are on the field for one American football team at a time?',
+              bs: 'Koliko igrača jednog tima američkog fudbala je na terenu u isto vrijeme?' },
     options: [
       { en: '9', bs: '9' },
       { en: '11', bs: '11' },
@@ -748,7 +801,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In baseball, what is a “home run”?', bs: 'U bejzbolu, šta je „home run“?' },
+    prompt: { en: 'In baseball, what is a “home run”?',
+              bs: 'U bejzbolu, šta je „home run“?' },
     options: [
       { en: 'A walk to first base', bs: 'Šetnja do prve baze' },
       { en: 'A hit scoring on all bases', bs: 'Udarac kojim se postiže poen sa svih baza' },
@@ -762,7 +816,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'How many innings are there in a standard Major League Baseball game?', bs: 'Koliko ininga ima standardna MLB utakmica?' },
+    prompt: { en: 'How many innings are there in a standard Major League Baseball game?',
+              bs: 'Koliko ininga ima standardna MLB utakmica?' },
     options: [
       { en: '7', bs: '7' },
       { en: '8', bs: '8' },
@@ -776,7 +831,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which sport awards the Heisman Trophy to an outstanding college player in the US?', bs: 'Koji sport dodjeljuje Heisman Trophy izuzetnom univerzitetskom igraču u SAD-u?' },
+    prompt: { en: 'Which sport awards the Heisman Trophy to an outstanding college player in the US?',
+              bs: 'Koji sport dodjeljuje Heisman Trophy izuzetnom univerzitetskom igraču u SAD-u?' },
     options: [
       { en: 'Basketball', bs: 'Košarka' },
       { en: 'American football', bs: 'Američki fudbal' },
@@ -790,7 +846,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In badminton, what must the shuttlecock do to score on a rally-ending shot?', bs: 'U badmintonu, šta perjanica mora uraditi da bi se osvojio poen na udarcu koji završava razmjenu?' },
+    prompt: { en: 'In badminton, what must the shuttlecock do to score on a rally-ending shot?',
+              bs: 'U badmintonu, šta perjanica mora uraditi da bi se osvojio poen na udarcu koji završava razmjenu?' },
     options: [
       { en: 'Clear the net', bs: 'Preći preko mreže' },
       { en: 'Land in the opponent’s court', bs: 'Pasti u protivnički teren' },
@@ -804,7 +861,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which country has historically dominated table tennis at the Olympics?', bs: 'Koja zemlja je istorijski dominirala u stonom tenisu na Olimpijadi?' },
+    prompt: { en: 'Which country has historically dominated table tennis at the Olympics?',
+              bs: 'Koja zemlja je istorijski dominirala u stonom tenisu na Olimpijadi?' },
     options: [
       { en: 'Japan', bs: 'Japan' },
       { en: 'China', bs: 'Kina' },
@@ -818,7 +876,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In handball, a regulation match is usually divided into how many halves?', bs: 'U rukometu, regulaciona utakmica je obično podijeljena na koliko poluvremena?' },
+    prompt: { en: 'In handball, a regulation match is usually divided into how many halves?',
+              bs: 'U rukometu, regulaciona utakmica je obično podijeljena na koliko poluvremena?' },
     options: [
       { en: '2', bs: '2' },
       { en: '3', bs: '3' },
@@ -832,10 +891,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: {
-      en: 'Which gymnastics apparatus is used only in women’s artistic gymnastics?',
-      bs: 'Koja gimnastička sprava se koristi samo u ženskoj sportskoj gimnastici?',
-    },
+    prompt: { en: 'Which gymnastics apparatus is used only in women’s artistic gymnastics?',
+              bs: 'Koja gimnastička sprava se koristi samo u ženskoj sportskoj gimnastici?' },
     options: [
       { en: 'Rings', bs: 'Karike' },
       { en: 'Balance beam', bs: 'Gredica' },
@@ -849,7 +906,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which winter sport involves a timed descent on a narrow sled face-first?', bs: 'Koji zimski sport uključuje mjereni spust na uskim sankama licem naprijed?' },
+    prompt: { en: 'Which winter sport involves a timed descent on a narrow sled face-first?',
+              bs: 'Koji zimski sport uključuje mjereni spust na uskim sankama licem naprijed?' },
     options: [
       { en: 'Bobsleigh', bs: 'Bob' },
       { en: 'Skeleton', bs: 'Skeleton' },
@@ -863,7 +921,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which Alpine skiing discipline is generally the fastest downhill race?', bs: 'Koja alpska skijaška disciplina je uglavnom najbrža spustna trka?' },
+    prompt: { en: 'Which Alpine skiing discipline is generally the fastest downhill race?',
+              bs: 'Koja alpska skijaška disciplina je uglavnom najbrža spustna trka?' },
     options: [
       { en: 'Slalom', bs: 'Slalom' },
       { en: 'Giant slalom', bs: 'Veleslalom' },
@@ -877,7 +936,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which martial art from Korea is known for high kicks and is an Olympic sport?', bs: 'Koja borilačka vještina iz Koreje je poznata po visokim udarcima nogom i olimpijski je sport?' },
+    prompt: { en: 'Which martial art from Korea is known for high kicks and is an Olympic sport?',
+              bs: 'Koja borilačka vještina iz Koreje je poznata po visokim udarcima nogom i olimpijski je sport?' },
     options: [
       { en: 'Judo', bs: 'Džudo' },
       { en: 'Taekwondo', bs: 'Tekvondo' },
@@ -891,7 +951,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In fencing, which weapon allows hits with the tip only and has a rectangular piste target area limited to the torso?', bs: 'U mačevanju, koje oružje dozvoljava pogotke samo vrhom i ima metu ograničenu na torzo?' },
+    prompt: { en: 'In fencing, which weapon allows hits with the tip only and has a rectangular piste target area limited to the torso?',
+              bs: 'U mačevanju, koje oružje dozvoljava pogotke samo vrhom i ima metu ograničenu na torzo?' },
     options: [
       { en: 'Sabre', bs: 'Sablja' },
       { en: 'Foil', bs: 'Floreta' },
@@ -905,7 +966,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which snooker ball is worth the most points when potting normally?', bs: 'Koja snuker kugla vrijedi najviše bodova pri normalnom ubacivanju?' },
+    prompt: { en: 'Which snooker ball is worth the most points when potting normally?',
+              bs: 'Koja snuker kugla vrijedi najviše bodova pri normalnom ubacivanju?' },
     options: [
       { en: 'Yellow', bs: 'Žuta' },
       { en: 'Blue', bs: 'Plava' },
@@ -919,7 +981,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In bowling, what is a “strike”?', bs: 'U kuglanju, šta je „strike“?' },
+    prompt: { en: 'In bowling, what is a “strike”?',
+              bs: 'U kuglanju, šta je „strike“?' },
     options: [
       { en: 'Knocking down all pins with two balls', bs: 'Oboriti sve čunjeve s dvije kugle' },
       { en: 'Knocking down all pins with the first ball', bs: 'Oboriti sve čunjeve prvom kuglom' },
@@ -933,7 +996,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which football club is nicknamed “The Blues” and plays at Stamford Bridge?', bs: 'Koji fudbalski klub ima nadimak „The Blues“ i igra na Stamford Bridgeu?' },
+    prompt: { en: 'Which football club is nicknamed “The Blues” and plays at Stamford Bridge?',
+              bs: 'Koji fudbalski klub ima nadimak „The Blues“ i igra na Stamford Bridgeu?' },
     options: [
       { en: 'Manchester City', bs: 'Manchester City' },
       { en: 'Chelsea', bs: 'Chelsea' },
@@ -947,7 +1011,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which African tournament is the continental championship for national football teams?', bs: 'Koje afričko takmičenje je kontinentalno prvenstvo za nacionalne fudbalske timove?' },
+    prompt: { en: 'Which African tournament is the continental championship for national football teams?',
+              bs: 'Koje afričko takmičenje je kontinentalno prvenstvo za nacionalne fudbalske timove?' },
     options: [
       { en: 'Copa América', bs: 'Copa América' },
       { en: 'Africa Cup of Nations', bs: 'Afrički kup nacija' },
@@ -961,7 +1026,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which Spanish league is the top division of club football?', bs: 'Koja španska liga je najviši rang klupskog fudbala?' },
+    prompt: { en: 'Which Spanish league is the top division of club football?',
+              bs: 'Koja španska liga je najviši rang klupskog fudbala?' },
     options: [
       { en: 'La Liga', bs: 'La Liga' },
       { en: 'Serie A', bs: 'Serie A' },
@@ -975,7 +1041,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which footballer won the Ballon d’Or seven times while mostly at Barcelona?', bs: 'Koji fudbaler je osvojio Zlatnu loptu sedam puta uglavnom dok je bio u Barseloni?' },
+    prompt: { en: 'Which footballer won the Ballon d’Or seven times while mostly at Barcelona?',
+              bs: 'Koji fudbaler je osvojio Zlatnu loptu sedam puta uglavnom dok je bio u Barseloni?' },
     options: [
       { en: 'Cristiano Ronaldo', bs: 'Cristiano Ronaldo' },
       { en: 'Lionel Messi', bs: 'Lionel Messi' },
@@ -989,7 +1056,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which NBA team is based in Boston and wears green?', bs: 'Koji NBA tim je iz Bostona i nosi zelenu boju?' },
+    prompt: { en: 'Which NBA team is based in Boston and wears green?',
+              bs: 'Koji NBA tim je iz Bostona i nosi zelenu boju?' },
     options: [
       { en: 'Nets', bs: 'Nets' },
       { en: 'Celtics', bs: 'Celtics' },
@@ -1003,7 +1071,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In basketball, what is a “triple-double”?', bs: 'U košarci, šta je „triple-double“?' },
+    prompt: { en: 'In basketball, what is a “triple-double”?',
+              bs: 'U košarci, šta je „triple-double“?' },
     options: [
       { en: 'Three three-pointers in a row', bs: 'Tri trice zaredom' },
       { en: 'Double digits in three statistical categories', bs: 'Dvocifrene brojke u tri statističke kategorije' },
@@ -1017,7 +1086,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which Olympic athletics event combines long jump, high jump, shot put, and more over two days for men?', bs: 'Koja olimpijska atletska disciplina za muškarce kombinuje skok u dalj, skok u vis, bacanje kugle i još discipline tokom dva dana?' },
+    prompt: { en: 'Which Olympic athletics event combines long jump, high jump, shot put, and more over two days for men?',
+              bs: 'Koja olimpijska atletska disciplina za muškarce kombinuje skok u dalj, skok u vis, bacanje kugle i još discipline tokom dva dana?' },
     options: [
       { en: 'Pentathlon', bs: 'Pentatlon' },
       { en: 'Decathlon', bs: 'Desetoboj' },
@@ -1031,7 +1101,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which tennis shot is hit before the ball bounces?', bs: 'Koji teniski udarac se izvodi prije nego lopta odskoči?' },
+    prompt: { en: 'Which tennis shot is hit before the ball bounces?',
+              bs: 'Koji teniski udarac se izvodi prije nego lopta odskoči?' },
     options: [
       { en: 'Groundstroke', bs: 'Udarac s tla' },
       { en: 'Volley', bs: 'Volej' },
@@ -1045,7 +1116,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which country does Carlos Alcaraz represent in tennis?', bs: 'Koju zemlju Carlos Alcaraz predstavlja u tenisu?' },
+    prompt: { en: 'Which country does Carlos Alcaraz represent in tennis?',
+              bs: 'Koju zemlju Carlos Alcaraz predstavlja u tenisu?' },
     options: [
       { en: 'Italy', bs: 'Italija' },
       { en: 'Spain', bs: 'Španija' },
@@ -1059,7 +1131,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which F1 circuit is famous for the Eau Rouge/Raidillon complex in Belgium?', bs: 'Koja F1 staza je poznata po kompleksu Eau Rouge/Raidillon u Belgiji?' },
+    prompt: { en: 'Which F1 circuit is famous for the Eau Rouge/Raidillon complex in Belgium?',
+              bs: 'Koja F1 staza je poznata po kompleksu Eau Rouge/Raidillon u Belgiji?' },
     options: [
       { en: 'Monza', bs: 'Monza' },
       { en: 'Spa-Francorchamps', bs: 'Spa-Francorchamps' },
@@ -1073,7 +1146,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which swimming race is the longest individual freestyle event commonly contested at the Olympics?', bs: 'Koja plivačka trka je najduža pojedinačna disciplina slobodnim stilom koja se obično takmiči na Olimpijadi?' },
+    prompt: { en: 'Which swimming race is the longest individual freestyle event commonly contested at the Olympics?',
+              bs: 'Koja plivačka trka je najduža pojedinačna disciplina slobodnim stilom koja se obično takmiči na Olimpijadi?' },
     options: [
       { en: '400 m freestyle', bs: '400 m slobodno' },
       { en: '800 m freestyle', bs: '800 m slobodno' },
@@ -1087,7 +1161,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which football club’s home ground is the San Siro, shared historically with another Milan club?', bs: 'Koji fudbalski klub ima domaći teren San Siro, istorijski dijeljen s drugim milanskim klubom?' },
+    prompt: { en: 'Which football club’s home ground is the San Siro, shared historically with another Milan club?',
+              bs: 'Koji fudbalski klub ima domaći teren San Siro, istorijski dijeljen s drugim milanskim klubom?' },
     options: [
       { en: 'Juventus', bs: 'Juventus' },
       { en: 'AC Milan', bs: 'AC Milan' },
@@ -1101,7 +1176,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which trophy is awarded to the winner of the English FA Cup final?', bs: 'Koji trofej dobija pobjednik finala engleskog FA Kupa?' },
+    prompt: { en: 'Which trophy is awarded to the winner of the English FA Cup final?',
+              bs: 'Koji trofej dobija pobjednik finala engleskog FA Kupa?' },
     options: [
       { en: 'Champions League trophy', bs: 'Trofej Lige šampiona' },
       { en: 'FA Cup trophy', bs: 'Trofej FA Kupa' },
@@ -1115,7 +1191,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In football, a penalty kick is taken from how many yards (approximately 11 meters) from goal?', bs: 'U fudbalu, penal se izvodi s koliko jardi (približno 11 metara) od gola?' },
+    prompt: { en: 'In football, a penalty kick is taken from how many yards (approximately 11 meters) from goal?',
+              bs: 'U fudbalu, penal se izvodi s koliko jardi (približno 11 metara) od gola?' },
     options: [
       { en: '6 yards', bs: '6 jardi' },
       { en: '12 yards', bs: '12 jardi' },
@@ -1129,7 +1206,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which NBA draft lottery helps determine the order for selecting top young players?', bs: 'Koja NBA lutrija pomaže odrediti redoslijed biranja najboljih mladih igrača?' },
+    prompt: { en: 'Which NBA draft lottery helps determine the order for selecting top young players?',
+              bs: 'Koja NBA lutrija pomaže odrediti redoslijed biranja najboljih mladih igrača?' },
     options: [
       { en: 'Draft combine', bs: 'Draft combine' },
       { en: 'Draft lottery', bs: 'Draft lutrija' },
@@ -1143,7 +1221,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which football position typically takes most corner kicks and free kicks for a team?', bs: 'Koja fudbalska pozicija obično izvodi većinu kornera i slobodnih udaraca za tim?' },
+    prompt: { en: 'Which football position typically takes most corner kicks and free kicks for a team?',
+              bs: 'Koja fudbalska pozicija obično izvodi većinu kornera i slobodnih udaraca za tim?' },
     options: [
       { en: 'Centre-back', bs: 'Štoper' },
       { en: 'Set-piece specialist', bs: 'Specijalista za prekide' },
@@ -1157,7 +1236,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which Winter Olympic sport includes snowboard halfpipe and big-air events?', bs: 'Koji sport Zimskih olimpijskih igara uključuje snowboard halfpipe i big-air discipline?' },
+    prompt: { en: 'Which Winter Olympic sport includes snowboard halfpipe and big-air events?',
+              bs: 'Koji sport Zimskih olimpijskih igara uključuje snowboard halfpipe i big-air discipline?' },
     options: [
       { en: 'Alpine skiing', bs: 'Alpsko skijanje' },
       { en: 'Snowboard freestyle events', bs: 'Freestyle discipline snowboarda' },
@@ -1171,7 +1251,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which country won the men’s Rugby World Cup in 2023?', bs: 'Koja zemlja je osvojila muško Svjetsko prvenstvo u ragbiju 2023.?' },
+    prompt: { en: 'Which country won the men’s Rugby World Cup in 2023?',
+              bs: 'Koja zemlja je osvojila muško Svjetsko prvenstvo u ragbiju 2023.?' },
     options: [
       { en: 'New Zealand', bs: 'Novi Zeland' },
       { en: 'South Africa', bs: 'Južna Afrika' },
@@ -1185,7 +1266,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which football club is based in Turin and wears black and white stripes?', bs: 'Koji fudbalski klub je iz Torina i nosi crno-bijele pruge?' },
+    prompt: { en: 'Which football club is based in Turin and wears black and white stripes?',
+              bs: 'Koji fudbalski klub je iz Torina i nosi crno-bijele pruge?' },
     options: [
       { en: 'Inter Milan', bs: 'Inter Milan' },
       { en: 'Juventus', bs: 'Juventus' },
@@ -1199,7 +1281,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In tennis, winning a set 6–0 is sometimes nicknamed what?', bs: 'U tenisu, pobjeda u setu 6–0 ponekad se naziva kako?' },
+    prompt: { en: 'In tennis, winning a set 6–0 is sometimes nicknamed what?',
+              bs: 'U tenisu, pobjeda u setu 6–0 ponekad se naziva kako?' },
     options: [
       { en: 'A bagel', bs: 'Bagel' },
       { en: 'A breadstick', bs: 'Breadstick' },
@@ -1213,7 +1296,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'What is Major League Baseball’s championship series called?', bs: 'Kako se zove šampionska serija Major League Baseballa?' },
+    prompt: { en: 'What is Major League Baseball’s championship series called?',
+              bs: 'Kako se zove šampionska serija Major League Baseballa?' },
     options: [
       { en: 'Super Bowl', bs: 'Super Bowl' },
       { en: 'World Series', bs: 'World Series' },
@@ -1227,7 +1311,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which football competition is contested by European national teams every four years?', bs: 'Koje fudbalsko takmičenje igraju evropske nacionalne selekcije svake četiri godine?' },
+    prompt: { en: 'Which football competition is contested by European national teams every four years?',
+              bs: 'Koje fudbalsko takmičenje igraju evropske nacionalne selekcije svake četiri godine?' },
     options: [
       { en: 'Copa América', bs: 'Copa América' },
       { en: 'UEFA European Championship (Euros)', bs: 'UEFA Evropsko prvenstvo (Euro)' },
@@ -1241,7 +1326,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which athlete is famous for the “Fosbury Flop” high-jump technique?', bs: 'Koji sportista je poznat po tehnici skoka u vis „Fosbury Flop“?' },
+    prompt: { en: 'Which athlete is famous for the “Fosbury Flop” high-jump technique?',
+              bs: 'Koji sportista je poznat po tehnici skoka u vis „Fosbury Flop“?' },
     options: [
       { en: 'Carl Lewis', bs: 'Carl Lewis' },
       { en: 'Dick Fosbury', bs: 'Dick Fosbury' },
@@ -1255,7 +1341,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which club won the UEFA Champions League in 2024?', bs: 'Koji klub je osvojio UEFA Ligu šampiona 2024.?' },
+    prompt: { en: 'Which club won the UEFA Champions League in 2024?',
+              bs: 'Koji klub je osvojio UEFA Ligu šampiona 2024.?' },
     options: [
       { en: 'Borussia Dortmund', bs: 'Borussia Dortmund' },
       { en: 'Real Madrid', bs: 'Real Madrid' },
@@ -1269,7 +1356,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In volleyball, what is the role of the “libero”?', bs: 'U odbojci, koja je uloga „libera“?' },
+    prompt: { en: 'In volleyball, what is the role of the “libero”?',
+              bs: 'U odbojci, koja je uloga „libera“?' },
     options: [
       { en: 'Main attacker at the net', bs: 'Glavni napadač na mreži' },
       { en: 'Defensive specialist in alternate jersey', bs: 'Odbrambeni specijalista u drugom dresu' },
@@ -1283,7 +1371,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which country is associated with sumo wrestling as a national sport?', bs: 'Koja zemlja je povezana sa sumo hrvanjem kao nacionalnim sportom?' },
+    prompt: { en: 'Which country is associated with sumo wrestling as a national sport?',
+              bs: 'Koja zemlja je povezana sa sumo hrvanjem kao nacionalnim sportom?' },
     options: [
       { en: 'China', bs: 'Kina' },
       { en: 'Japan', bs: 'Japan' },
@@ -1297,7 +1386,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which football stadium is home to Chelsea?', bs: 'Koji fudbalski stadion je dom Chelsea?' },
+    prompt: { en: 'Which football stadium is home to Chelsea?',
+              bs: 'Koji fudbalski stadion je dom Chelsea?' },
     options: [
       { en: 'Emirates Stadium', bs: 'Emirates Stadium' },
       { en: 'Tottenham Hotspur Stadium', bs: 'Tottenham Hotspur Stadium' },
@@ -1311,7 +1401,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In Formula 1, what is a “safety car” used for?', bs: 'U Formuli 1, čemu služi „safety car“?' },
+    prompt: { en: 'In Formula 1, what is a “safety car” used for?',
+              bs: 'U Formuli 1, čemu služi „safety car“?' },
     options: [
       { en: 'Mid-race refueling', bs: 'Točenje goriva usred trke' },
       { en: 'Slowing the field when unsafe', bs: 'Usporavanje trke u opasnim uslovima' },
@@ -1325,7 +1416,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which Olympic combat sport is contested in freestyle and Greco-Roman styles?', bs: 'Koji olimpijski borilački sport se takmiči u slobodnom i grčko-rimskom stilu?' },
+    prompt: { en: 'Which Olympic combat sport is contested in freestyle and Greco-Roman styles?',
+              bs: 'Koji olimpijski borilački sport se takmiči u slobodnom i grčko-rimskom stilu?' },
     options: [
       { en: 'Judo', bs: 'Džudo' },
       { en: 'Wrestling', bs: 'Hrvanje' },
@@ -1339,7 +1431,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which football club is nicknamed “The Citizens” in the Premier League?', bs: 'Koji fudbalski klub u Premier ligi ima nadimak „The Citizens“?' },
+    prompt: { en: 'Which football club is nicknamed “The Citizens” in the Premier League?',
+              bs: 'Koji fudbalski klub u Premier ligi ima nadimak „The Citizens“?' },
     options: [
       { en: 'Manchester United', bs: 'Manchester United' },
       { en: 'Manchester City', bs: 'Manchester City' },
@@ -1353,10 +1446,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: {
-      en: 'The Australian Open is held annually in which Australian city?',
-      bs: 'Australian Open se svake godine održava u kojem Australskom gradu?',
-    },
+    prompt: { en: 'The Australian Open is held annually in which Australian city?',
+              bs: 'Australian Open se svake godine održava u kojem Australskom gradu?' },
     options: [
       { en: 'Melbourne', bs: 'Melburn' },
       { en: 'Sydney', bs: 'Sidnej' },
@@ -1370,7 +1461,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In basketball, the painted area near the basket is commonly called what?', bs: 'U košarci, obojeno područje blizu koša se obično naziva kako?' },
+    prompt: { en: 'In basketball, the painted area near the basket is commonly called what?',
+              bs: 'U košarci, obojeno područje blizu koša se obično naziva kako?' },
     options: [
       { en: 'The crease', bs: 'Mrlja' },
       { en: 'The paint', bs: 'Reket' },
@@ -1384,7 +1476,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which country won UEFA Euro 2024?', bs: 'Koja zemlja je osvojila UEFA Euro 2024.?' },
+    prompt: { en: 'Which country won UEFA Euro 2024?',
+              bs: 'Koja zemlja je osvojila UEFA Euro 2024.?' },
     options: [
       { en: 'England', bs: 'Engleska' },
       { en: 'Spain', bs: 'Španija' },
@@ -1398,7 +1491,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which Olympic relay covers exactly one lap of the track and is famous for high-speed baton exchanges?', bs: 'Koja olimpijska štafeta pokriva tačno jedan krug staze i poznata je po brzim predajama palice?' },
+    prompt: { en: 'Which Olympic relay covers exactly one lap of the track and is famous for high-speed baton exchanges?',
+              bs: 'Koja olimpijska štafeta pokriva tačno jedan krug staze i poznata je po brzim predajama palice?' },
     options: [
       { en: '4×100 m', bs: '4×100 m' },
       { en: '4×200 m', bs: '4×200 m' },

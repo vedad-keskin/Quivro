@@ -6,7 +6,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which country won the first FIFA World Cup in 1930?', bs: 'Koja zemlja je osvojila prvo FIFA Svjetsko prvenstvo 1930.?' },
+    prompt: { en: 'Which country won the first FIFA World Cup in 1930?',
+              bs: 'Koja zemlja je osvojila prvo FIFA Svjetsko prvenstvo 1930.?' },
     options: [
       { en: 'Argentina', bs: 'Argentina' },
       { en: 'Uruguay', bs: 'Urugvaj' },
@@ -20,7 +21,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which player scored the “Hand of God” goal at the 1986 World Cup?', bs: 'Koji igrač je dao gol „Božje ruke“ na Svjetskom prvenstvu 1986.?' },
+    prompt: { en: 'Which player scored the “Hand of God” goal at the 1986 World Cup?',
+              bs: 'Koji igrač je dao gol „Božje ruke“ na Svjetskom prvenstvu 1986.?' },
     options: [
       { en: 'Pelé', bs: 'Pelé' },
       { en: 'Diego Maradona', bs: 'Diego Maradona' },
@@ -34,7 +36,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which nation is the only one to have played in every FIFA World Cup finals tournament?', bs: 'Koja je jedina nacija koja je igrala na svakom FIFA Svjetskom prvenstvu?' },
+    prompt: { en: 'Which nation is the only one to have played in every FIFA World Cup finals tournament?',
+              bs: 'Koja je jedina nacija koja je igrala na svakom FIFA Svjetskom prvenstvu?' },
     options: [
       { en: 'Germany', bs: 'Njemačka' },
       { en: 'Brazil', bs: 'Brazil' },
@@ -48,10 +51,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { 
-      en: 'Who was the FIFA World Cup all-time top scorer before the 2026 World Cup?',
-      bs: 'Ko je bio najbolji strijelac svih vremena na FIFA Svjetskim prvenstvima prije Svjetskog prvenstva 2026.?'
-    },
+    prompt: { en: 'Who was the FIFA World Cup all-time top scorer before the 2026 World Cup?',
+              bs: 'Ko je bio najbolji strijelac svih vremena na FIFA Svjetskim prvenstvima prije Svjetskog prvenstva 2026.?' },
     options: [
       { en: 'Pelé', bs: 'Pelé' },
       { en: 'Miroslav Klose', bs: 'Miroslav Klose' },
@@ -65,7 +66,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which club did Johan Cruyff famously star for in the Netherlands before moving to Barcelona?', bs: 'Za koji holandski klub je Johan Cruyff poznato igrao prije prelaska u Barselonu?' },
+    prompt: { en: 'Which club did Johan Cruyff famously star for in the Netherlands before moving to Barcelona?',
+              bs: 'Za koji holandski klub je Johan Cruyff poznato igrao prije prelaska u Barselonu?' },
     options: [
       { en: 'Feyenoord', bs: 'Feyenoord' },
       { en: 'Ajax', bs: 'Ajax' },
@@ -79,7 +81,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which country won the FIFA World Cup in 1966, hosted at home?', bs: 'Koja zemlja je osvojila FIFA Svjetsko prvenstvo 1966. kao domaćin?' },
+    prompt: { en: 'Which country won the FIFA World Cup in 1966, hosted at home?',
+              bs: 'Koja zemlja je osvojila FIFA Svjetsko prvenstvo 1966. kao domaćin?' },
     options: [
       { en: 'West Germany', bs: 'Zapadna Njemačka' },
       { en: 'England', bs: 'Engleska' },
@@ -93,7 +96,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Brazilian scored the iconic diving header opening goal in the 1970 World Cup final?', bs: 'Koji Brazilac je dao ikonični gol glavom na startu finala Svjetskog prvenstva 1970.?' },
+    prompt: { en: 'Which Brazilian scored the iconic diving header opening goal in the 1970 World Cup final?',
+              bs: 'Koji Brazilac je dao ikonični gol glavom na startu finala Svjetskog prvenstva 1970.?' },
     options: [
       { en: 'Jairzinho', bs: 'Jairzinho' },
       { en: 'Pelé', bs: 'Pelé' },
@@ -107,7 +111,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which European club was the first to win three consecutive European Cups (1956–58)?', bs: 'Koji evropski klub je prvi osvojio tri uzastopna Evropska kupa (1956–58)?' },
+    prompt: { en: 'Which European club was the first to win three consecutive European Cups (1956–58)?',
+              bs: 'Koji evropski klub je prvi osvojio tri uzastopna Evropska kupa (1956–58)?' },
     options: [
       { en: 'Benfica', bs: 'Benfica' },
       { en: 'Real Madrid', bs: 'Real Madrid' },
@@ -121,7 +126,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored the winning goal for Germany in the 2014 World Cup final?', bs: 'Ko je dao pobjednički gol za Njemačku u finalu Svjetskog prvenstva 2014.?' },
+    prompt: { en: 'Who scored the winning goal for Germany in the 2014 World Cup final?',
+              bs: 'Ko je dao pobjednički gol za Njemačku u finalu Svjetskog prvenstva 2014.?' },
     options: [
       { en: 'Thomas Müller', bs: 'Thomas Müller' },
       { en: 'Mario Götze', bs: 'Mario Götze' },
@@ -135,7 +141,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which defender captained Italy to the 2006 World Cup title?', bs: 'Koji odbrambeni igrač je bio kapiten Italije do titule Svjetskog prvenstva 2006.?' },
+    prompt: { en: 'Which defender captained Italy to the 2006 World Cup title?',
+              bs: 'Koji odbrambeni igrač je bio kapiten Italije do titule Svjetskog prvenstva 2006.?' },
     options: [
       { en: 'Paolo Maldini', bs: 'Paolo Maldini' },
       { en: 'Fabio Cannavaro', bs: 'Fabio Cannavaro' },
@@ -149,7 +156,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which French midfielder was sent off in the 2006 World Cup final after a headbutt?', bs: 'Koji francuski vezni igrač je isključen u finalu SP 2006. nakon udarca glavom?' },
+    prompt: { en: 'Which French midfielder was sent off in the 2006 World Cup final after a headbutt?',
+              bs: 'Koji francuski vezni igrač je isključen u finalu SP 2006. nakon udarca glavom?' },
     options: [
       { en: 'Thierry Henry', bs: 'Thierry Henry' },
       { en: 'Zinedine Zidane', bs: 'Zinedine Zidane' },
@@ -163,7 +171,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Scottish manager led Manchester United to the 1999 Champions League treble?', bs: 'Koji škotski trener je odveo Manchester United do triplete Lige šampiona 1999.?' },
+    prompt: { en: 'Which Scottish manager led Manchester United to the 1999 Champions League treble?',
+              bs: 'Koji škotski trener je odveo Manchester United do triplete Lige šampiona 1999.?' },
     options: [
       { en: 'Kenny Dalglish', bs: 'Kenny Dalglish' },
       { en: 'Alex Ferguson', bs: 'Alex Ferguson' },
@@ -177,7 +186,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Portuguese club did Eusébio star for during his peak years?', bs: 'Za koji portugalski klub je Eusébio igrao u vrhuncu karijere?' },
+    prompt: { en: 'Which Portuguese club did Eusébio star for during his peak years?',
+              bs: 'Za koji portugalski klub je Eusébio igrao u vrhuncu karijere?' },
     options: [
       { en: 'Porto', bs: 'Porto' },
       { en: 'Benfica', bs: 'Benfica' },
@@ -191,7 +201,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which country won UEFA Euro 1992 as a last-minute replacement for Yugoslavia?', bs: 'Koja zemlja je osvojila Euro 1992. kao zamjena za Jugoslaviju u posljednji trenutak?' },
+    prompt: { en: 'Which country won UEFA Euro 1992 as a last-minute replacement for Yugoslavia?',
+              bs: 'Koja zemlja je osvojila Euro 1992. kao zamjena za Jugoslaviju u posljednji trenutak?' },
     options: [
       { en: 'Sweden', bs: 'Švedska' },
       { en: 'Denmark', bs: 'Danska' },
@@ -205,7 +216,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which country won UEFA Euro 2004 as a major underdog?', bs: 'Koja zemlja je kao veliki autsajder osvojila UEFA Euro 2004.?' },
+    prompt: { en: 'Which country won UEFA Euro 2004 as a major underdog?',
+              bs: 'Koja zemlja je kao veliki autsajder osvojila UEFA Euro 2004.?' },
     options: [
       { en: 'Belgium', bs: 'Belgija' },
       { en: 'Greece', bs: 'Grčka' },
@@ -219,7 +231,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who holds the record for most career NBA points scored?', bs: 'Ko drži rekord za najviše poena u NBA karijeri?' },
+    prompt: { en: 'Who holds the record for most career NBA points scored?',
+              bs: 'Ko drži rekord za najviše poena u NBA karijeri?' },
     options: [
       { en: 'Kareem Abdul-Jabbar', bs: 'Kareem Abdul-Jabbar' },
       { en: 'LeBron James', bs: 'LeBron James' },
@@ -233,7 +246,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which NBA player scored 100 points in a single game in 1962?', bs: 'Koji NBA igrač je dao 100 poena na jednoj utakmici 1962.?' },
+    prompt: { en: 'Which NBA player scored 100 points in a single game in 1962?',
+              bs: 'Koji NBA igrač je dao 100 poena na jednoj utakmici 1962.?' },
     options: [
       { en: 'Wilt Chamberlain', bs: 'Wilt Chamberlain' },
       { en: 'Bill Russell', bs: 'Bill Russell' },
@@ -247,7 +261,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Boston Celtics center won 11 NBA championships as a player?', bs: 'Koji centar Boston Celticsa je osvojio 11 NBA titula kao igrač?' },
+    prompt: { en: 'Which Boston Celtics center won 11 NBA championships as a player?',
+              bs: 'Koji centar Boston Celticsa je osvojio 11 NBA titula kao igrač?' },
     options: [
       { en: 'Larry Bird', bs: 'Larry Bird' },
       { en: 'Bill Russell', bs: 'Bill Russell' },
@@ -261,7 +276,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which “Dream Team” Olympics introduced NBA stars to the Games in 1992?', bs: 'Na kojim Olimpijskim igrama je „Dream Team“ uveo NBA zvijezde 1992.?' },
+    prompt: { en: 'Which “Dream Team” Olympics introduced NBA stars to the Games in 1992?',
+              bs: 'Na kojim Olimpijskim igrama je „Dream Team“ uveo NBA zvijezde 1992.?' },
     options: [
       { en: 'Seoul 1988', bs: 'Seul 1988.' },
       { en: 'Barcelona 1992', bs: 'Barselona 1992.' },
@@ -275,7 +291,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Chicago Bulls coach led Michael Jordan’s dynasty in the 1990s?', bs: 'Koji trener Chicago Bullsa je vodio dinastiju Michaela Jordana 1990-ih?' },
+    prompt: { en: 'Which Chicago Bulls coach led Michael Jordan’s dynasty in the 1990s?',
+              bs: 'Koji trener Chicago Bullsa je vodio dinastiju Michaela Jordana 1990-ih?' },
     options: [
       { en: 'Pat Riley', bs: 'Pat Riley' },
       { en: 'Phil Jackson', bs: 'Phil Jackson' },
@@ -289,7 +306,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which tennis player completed a Calendar Grand Slam in 1988?', bs: 'Koja teniserka je ostvarila Calendar Grand Slam 1988.?' },
+    prompt: { en: 'Which tennis player completed a Calendar Grand Slam in 1988?',
+              bs: 'Koja teniserka je ostvarila Calendar Grand Slam 1988.?' },
     options: [
       { en: 'Steffi Graf', bs: 'Steffi Graf' },
       { en: 'Martina Navratilova', bs: 'Martina Navratilova' },
@@ -303,7 +321,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who was the last man to win a Calendar Grand Slam in singles (1969)?', bs: 'Ko je bio posljednji muškarac koji je osvojio Calendar Grand Slam u singlu (1969)?' },
+    prompt: { en: 'Who was the last man to win a Calendar Grand Slam in singles (1969)?',
+              bs: 'Ko je bio posljednji muškarac koji je osvojio Calendar Grand Slam u singlu (1969)?' },
     options: [
       { en: 'Rod Laver', bs: 'Rod Laver' },
       { en: 'Björn Borg', bs: 'Björn Borg' },
@@ -317,7 +336,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Spaniard won a record 14 French Open men’s singles titles?', bs: 'Koji Španac je osvojio rekordnih 14 titula Roland Garrosa u muškom singlu?' },
+    prompt: { en: 'Which Spaniard won a record 14 French Open men’s singles titles?',
+              bs: 'Koji Španac je osvojio rekordnih 14 titula Roland Garrosa u muškom singlu?' },
     options: [
       { en: 'Carlos Alcaraz', bs: 'Carlos Alcaraz' },
       { en: 'Rafael Nadal', bs: 'Rafael Nadal' },
@@ -331,7 +351,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Swedish tennis legend won 11 Grand Slam singles titles and was famous for ice-cool demeanor?', bs: 'Koji švedski teniski legendarni igrač je osvojio 11 Grand Slam titula u singlu i bio poznat po hladnokrvnosti?' },
+    prompt: { en: 'Which Swedish tennis legend won 11 Grand Slam singles titles and was famous for ice-cool demeanor?',
+              bs: 'Koji švedski teniski legendarni igrač je osvojio 11 Grand Slam titula u singlu i bio poznat po hladnokrvnosti?' },
     options: [
       { en: 'Mats Wilander', bs: 'Mats Wilander' },
       { en: 'Björn Borg', bs: 'Björn Borg' },
@@ -345,10 +366,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which tennis player holds the Open Era record with 23 Grand Slam women’s singles titles?',
-      bs: 'Koja teniserka drži rekord Open ere sa 23 osvojene Grand Slam titule u ženskom singlu?',
-    },
+    prompt: { en: 'Which tennis player holds the Open Era record with 23 Grand Slam women’s singles titles?',
+              bs: 'Koja teniserka drži rekord Open ere sa 23 osvojene Grand Slam titule u ženskom singlu?' },
     options: [
       { en: 'Serena Williams', bs: 'Serena Williams' },
       { en: 'Venus Williams', bs: 'Venus Williams' },
@@ -362,7 +381,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Formula 1 driver won seven world championships before Lewis Hamilton matched the mark?', bs: 'Koji vozač Formule 1 je osvojio sedam svjetskih titula prije nego što je Lewis Hamilton izjednačio taj broj?' },
+    prompt: { en: 'Which Formula 1 driver won seven world championships before Lewis Hamilton matched the mark?',
+              bs: 'Koji vozač Formule 1 je osvojio sedam svjetskih titula prije nego što je Lewis Hamilton izjednačio taj broj?' },
     options: [
       { en: 'Ayrton Senna', bs: 'Ayrton Senna' },
       { en: 'Michael Schumacher', bs: 'Michael Schumacher' },
@@ -376,7 +396,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'At which circuit did Ayrton Senna fatally crash in 1994?', bs: 'Na kojoj stazi je Ayrton Senna fatalno udario 1994.?' },
+    prompt: { en: 'At which circuit did Ayrton Senna fatally crash in 1994?',
+              bs: 'Na kojoj stazi je Ayrton Senna fatalno udario 1994.?' },
     options: [
       { en: 'Monza', bs: 'Monza' },
       { en: 'Imola (San Marino GP)', bs: 'Imola (VN San Marina)' },
@@ -390,7 +411,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Argentine F1 legend won five world titles in the 1950s?', bs: 'Koji argentinski F1 legendarni vozač je osvojio pet svjetskih titula 1950-ih?' },
+    prompt: { en: 'Which Argentine F1 legend won five world titles in the 1950s?',
+              bs: 'Koji argentinski F1 legendarni vozač je osvojio pet svjetskih titula 1950-ih?' },
     options: [
       { en: 'Carlos Reutemann', bs: 'Carlos Reutemann' },
       { en: 'Juan Manuel Fangio', bs: 'Juan Manuel Fangio' },
@@ -404,7 +426,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which British driver won the 1992 Formula 1 World Championship with Williams?', bs: 'Koji britanski vozač je osvojio svjetsko prvenstvo Formule 1 1992. s Williamsom?' },
+    prompt: { en: 'Which British driver won the 1992 Formula 1 World Championship with Williams?',
+              bs: 'Koji britanski vozač je osvojio svjetsko prvenstvo Formule 1 1992. s Williamsom?' },
     options: [
       { en: 'Damon Hill', bs: 'Damon Hill' },
       { en: 'Nigel Mansell', bs: 'Nigel Mansell' },
@@ -418,7 +441,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'How many Olympic gold medals did Michael Phelps win in total?', bs: 'Koliko olimpijskih zlatnih medalja je ukupno osvojio Michael Phelps?' },
+    prompt: { en: 'How many Olympic gold medals did Michael Phelps win in total?',
+              bs: 'Koliko olimpijskih zlatnih medalja je ukupno osvojio Michael Phelps?' },
     options: [
       { en: '18', bs: '18' },
       { en: '23', bs: '23' },
@@ -432,7 +456,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which American sprinter won four gold medals at the 1936 Berlin Olympics?', bs: 'Koji američki sprinter je osvojio četiri zlatne medalje na Olimpijadi u Berlinu 1936.?' },
+    prompt: { en: 'Which American sprinter won four gold medals at the 1936 Berlin Olympics?',
+              bs: 'Koji američki sprinter je osvojio četiri zlatne medalje na Olimpijadi u Berlinu 1936.?' },
     options: [
       { en: 'Carl Lewis', bs: 'Carl Lewis' },
       { en: 'Jesse Owens', bs: 'Jesse Owens' },
@@ -446,10 +471,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Formula 1 circuit is famous for the Eau Rouge and Raidillon corners?',
-      bs: 'Koja Formula 1 staza je poznata po zavojima Eau Rouge i Raidillon?',
-    },
+    prompt: { en: 'Which Formula 1 circuit is famous for the Eau Rouge and Raidillon corners?',
+              bs: 'Koja Formula 1 staza je poznata po zavojima Eau Rouge i Raidillon?' },
     options: [
       { en: 'Circuit de Spa-Francorchamps', bs: 'Staza Spa-Francorchamps' },
       { en: 'Nürburgring', bs: 'Nürburgring' },
@@ -463,7 +486,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which city hosted the first modern Olympic Games in 1896?', bs: 'Koji grad je bio domaćin prvih modernih Olimpijskih igara 1896.?' },
+    prompt: { en: 'Which city hosted the first modern Olympic Games in 1896?',
+              bs: 'Koji grad je bio domaćin prvih modernih Olimpijskih igara 1896.?' },
     options: [
       { en: 'Paris', bs: 'Pariz' },
       { en: 'Athens', bs: 'Atina' },
@@ -477,7 +501,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which boxer was known as “The Greatest” and refused induction into the Vietnam War draft?', bs: 'Koji bokser je bio poznat kao „The Greatest“ i odbio je regrutaciju za Vijetnamski rat?' },
+    prompt: { en: 'Which boxer was known as “The Greatest” and refused induction into the Vietnam War draft?',
+              bs: 'Koji bokser je bio poznat kao „The Greatest“ i odbio je regrutaciju za Vijetnamski rat?' },
     options: [
       { en: 'Joe Frazier', bs: 'Joe Frazier' },
       { en: 'Muhammad Ali', bs: 'Muhammad Ali' },
@@ -491,7 +516,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which boxing match between Ali and Foreman in Zaire was nicknamed “The Rumble in the Jungle”?', bs: 'Koji bokserski meč između Alija i Foremana u Zairu je nazvan „The Rumble in the Jungle“?' },
+    prompt: { en: 'Which boxing match between Ali and Foreman in Zaire was nicknamed “The Rumble in the Jungle”?',
+              bs: 'Koji bokserski meč između Alija i Foremana u Zairu je nazvan „The Rumble in the Jungle“?' },
     options: [
       { en: '1971', bs: '1971.' },
       { en: '1974', bs: '1974.' },
@@ -505,7 +531,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Cuban amateur boxing legend won three Olympic gold medals (1972–80)?', bs: 'Koji kubanski amaterski bokserski legendarni borac je osvojio tri olimpijska zlata (1972–80)?' },
+    prompt: { en: 'Which Cuban amateur boxing legend won three Olympic gold medals (1972–80)?',
+              bs: 'Koji kubanski amaterski bokserski legendarni borac je osvojio tri olimpijska zlata (1972–80)?' },
     options: [
       { en: 'Félix Savón', bs: 'Félix Savón' },
       { en: 'Teófilo Stevenson', bs: 'Teófilo Stevenson' },
@@ -519,7 +546,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which country has won the most Cricket World Cups (ODI)?', bs: 'Koja zemlja je osvojila najviše Svjetskih prvenstava u kriketu (ODI)?' },
+    prompt: { en: 'Which country has won the most Cricket World Cups (ODI)?',
+              bs: 'Koja zemlja je osvojila najviše Svjetskih prvenstava u kriketu (ODI)?' },
     options: [
       { en: 'India', bs: 'Indija' },
       { en: 'Australia', bs: 'Australija' },
@@ -533,7 +561,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Indian batsman is nicknamed “The Little Master” and scored 100 international centuries?', bs: 'Koji indijski batsman ima nadimak „The Little Master“ i postigao je 100 međunarodnih centurija?' },
+    prompt: { en: 'Which Indian batsman is nicknamed “The Little Master” and scored 100 international centuries?',
+              bs: 'Koji indijski batsman ima nadimak „The Little Master“ i postigao je 100 međunarodnih centurija?' },
     options: [
       { en: 'Virender Sehwag', bs: 'Virender Sehwag' },
       { en: 'Sachin Tendulkar', bs: 'Sachin Tendulkar' },
@@ -547,7 +576,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which West Indies fast bowler was part of the feared 1970s–80s pace attack with Holding and Roberts?', bs: 'Koji brzi bowler Zapadnih Indija bio je dio zastrašujućeg napada 1970-ih/80-ih s Holdingom i Robertsom?' },
+    prompt: { en: 'Which West Indies fast bowler was part of the feared 1970s–80s pace attack with Holding and Roberts?',
+              bs: 'Koji brzi bowler Zapadnih Indija bio je dio zastrašujućeg napada 1970-ih/80-ih s Holdingom i Robertsom?' },
     options: [
       { en: 'Curtly Ambrose', bs: 'Curtly Ambrose' },
       { en: 'Michael Holding', bs: 'Michael Holding' },
@@ -561,7 +591,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which country won the first Rugby World Cup in 1987?', bs: 'Koja zemlja je osvojila prvo Svjetsko prvenstvo u ragbiju 1987.?' },
+    prompt: { en: 'Which country won the first Rugby World Cup in 1987?',
+              bs: 'Koja zemlja je osvojila prvo Svjetsko prvenstvo u ragbiju 1987.?' },
     options: [
       { en: 'Australia', bs: 'Australija' },
       { en: 'New Zealand', bs: 'Novi Zeland' },
@@ -575,7 +606,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which All Blacks captain lifted the Rugby World Cup in 2011 and 2015?', bs: 'Koji kapiten All Blacksa je podigao Svjetsko prvenstvo u ragbiju 2011. i 2015.?' },
+    prompt: { en: 'Which All Blacks captain lifted the Rugby World Cup in 2011 and 2015?',
+              bs: 'Koji kapiten All Blacksa je podigao Svjetsko prvenstvo u ragbiju 2011. i 2015.?' },
     options: [
       { en: 'Dan Carter', bs: 'Dan Carter' },
       { en: 'Richie McCaw', bs: 'Richie McCaw' },
@@ -589,7 +621,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which NHL player is nicknamed “The Great One” and holds the career points record?', bs: 'Koji NHL igrač ima nadimak „The Great One“ i drži rekord karijere u poenima?' },
+    prompt: { en: 'Which NHL player is nicknamed “The Great One” and holds the career points record?',
+              bs: 'Koji NHL igrač ima nadimak „The Great One“ i drži rekord karijere u poenima?' },
     options: [
       { en: 'Mario Lemieux', bs: 'Mario Lemieux' },
       { en: 'Wayne Gretzky', bs: 'Wayne Gretzky' },
@@ -603,7 +636,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Montreal Canadiens legend won a record 10 Stanley Cups as a player?', bs: 'Koji legendarni igrač Montreal Canadiensa je osvojio rekordnih 10 Stanley Cupova kao igrač?' },
+    prompt: { en: 'Which Montreal Canadiens legend won a record 10 Stanley Cups as a player?',
+              bs: 'Koji legendarni igrač Montreal Canadiensa je osvojio rekordnih 10 Stanley Cupova kao igrač?' },
     options: [
       { en: 'Maurice Richard', bs: 'Maurice Richard' },
       { en: 'Henri Richard', bs: 'Henri Richard' },
@@ -617,7 +651,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which golfer completed the career Grand Slam and was known as “The Golden Bear”?', bs: 'Koji golf igrač je ostvario career Grand Slam i bio poznat kao „The Golden Bear“?' },
+    prompt: { en: 'Which golfer completed the career Grand Slam and was known as “The Golden Bear”?',
+              bs: 'Koji golf igrač je ostvario career Grand Slam i bio poznat kao „The Golden Bear“?' },
     options: [
       { en: 'Arnold Palmer', bs: 'Arnold Palmer' },
       { en: 'Jack Nicklaus', bs: 'Jack Nicklaus' },
@@ -631,7 +666,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which American golfer won 15 major championships before Tiger Woods?', bs: 'Koji američki golf igrač je osvojio 15 major titula prije Tiger Woodsa?' },
+    prompt: { en: 'Which American golfer won 15 major championships before Tiger Woods?',
+              bs: 'Koji američki golf igrač je osvojio 15 major titula prije Tiger Woodsa?' },
     options: [
       { en: 'Arnold Palmer', bs: 'Arnold Palmer' },
       { en: 'Jack Nicklaus', bs: 'Jack Nicklaus' },
@@ -645,7 +681,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Belgian cyclist nicknamed “The Cannibal” won five Tours de France?', bs: 'Koji belgijski biciklista s nadimkom „Kanibal“ je osvojio pet Tour de Francea?' },
+    prompt: { en: 'Which Belgian cyclist nicknamed “The Cannibal” won five Tours de France?',
+              bs: 'Koji belgijski biciklista s nadimkom „Kanibal“ je osvojio pet Tour de Francea?' },
     options: [
       { en: 'Eddy Merckx', bs: 'Eddy Merckx' },
       { en: 'Jacques Anquetil', bs: 'Jacques Anquetil' },
@@ -659,7 +696,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Spanish cyclist won five consecutive Tours de France in the 1990s?', bs: 'Koji španski biciklista je osvojio pet uzastopnih Tour de Francea 1990-ih?' },
+    prompt: { en: 'Which Spanish cyclist won five consecutive Tours de France in the 1990s?',
+              bs: 'Koji španski biciklista je osvojio pet uzastopnih Tour de Francea 1990-ih?' },
     options: [
       { en: 'Alberto Contador', bs: 'Alberto Contador' },
       { en: 'Miguel Induráin', bs: 'Miguel Induráin' },
@@ -673,7 +711,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which American athlete won four Olympic golds in athletics at Los Angeles 1984?', bs: 'Koji američki sportista je osvojio četiri olimpijska zlata u atletici u Los Anđelesu 1984.?' },
+    prompt: { en: 'Which American athlete won four Olympic golds in athletics at Los Angeles 1984?',
+              bs: 'Koji američki sportista je osvojio četiri olimpijska zlata u atletici u Los Anđelesu 1984.?' },
     options: [
       { en: 'Michael Johnson', bs: 'Michael Johnson' },
       { en: 'Carl Lewis', bs: 'Carl Lewis' },
@@ -687,7 +726,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Romanian gymnast scored the first perfect 10 at the Olympics in 1976?', bs: 'Koja rumunska gimnastičarka je ostvarila prvu savršenu desetku na Olimpijadi 1976.?' },
+    prompt: { en: 'Which Romanian gymnast scored the first perfect 10 at the Olympics in 1976?',
+              bs: 'Koja rumunska gimnastičarka je ostvarila prvu savršenu desetku na Olimpijadi 1976.?' },
     options: [
       { en: 'Nadia Comăneci', bs: 'Nadia Comăneci' },
       { en: 'Olga Korbut', bs: 'Olga Korbut' },
@@ -701,7 +741,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Soviet gymnast became a global star at the 1972 Munich Olympics?', bs: 'Koja sovjetska gimnastičarka je postala svjetska zvijezda na Olimpijadi u Minhenu 1972.?' },
+    prompt: { en: 'Which Soviet gymnast became a global star at the 1972 Munich Olympics?',
+              bs: 'Koja sovjetska gimnastičarka je postala svjetska zvijezda na Olimpijadi u Minhenu 1972.?' },
     options: [
       { en: 'Nadia Comăneci', bs: 'Nadia Comăneci' },
       { en: 'Olga Korbut', bs: 'Olga Korbut' },
@@ -715,7 +756,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Brazilian footballer is the only player to win three World Cups as a player?', bs: 'Koji brazilski fudbaler je jedini igrač koji je osvojio tri Svjetska prvenstva kao igrač?' },
+    prompt: { en: 'Which Brazilian footballer is the only player to win three World Cups as a player?',
+              bs: 'Koji brazilski fudbaler je jedini igrač koji je osvojio tri Svjetska prvenstva kao igrač?' },
     options: [
       { en: 'Ronaldo', bs: 'Ronaldo' },
       { en: 'Pelé', bs: 'Pelé' },
@@ -729,7 +771,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which national football team of the 1950s was nicknamed the “Mighty Magyars”?', bs: 'Koja fudbalska reprezentacija 1950-ih je imala nadimak „Mighty Magyars“?' },
+    prompt: { en: 'Which national football team of the 1950s was nicknamed the “Mighty Magyars”?',
+              bs: 'Koja fudbalska reprezentacija 1950-ih je imala nadimak „Mighty Magyars“?' },
     options: [
       { en: 'Hungary', bs: 'Mađarska' },
       { en: 'Brazil', bs: 'Brazil' },
@@ -743,10 +786,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Dutch football philosophy of fluid positional interchange is associated with Ajax and Johan Cruyff?',
-      bs: 'Koja holandska fudbalska filozofija fluidne razmjene pozicija je povezana s Ajaxom i Johanom Cruyffom?',
-    },
+    prompt: { en: 'Which Dutch football philosophy of fluid positional interchange is associated with Ajax and Johan Cruyff?',
+              bs: 'Koja holandska fudbalska filozofija fluidne razmjene pozicija je povezana s Ajaxom i Johanom Cruyffom?' },
     options: [
       { en: 'Catenaccio', bs: 'Catenaccio' },
       { en: 'Total Football', bs: 'Totalni fudbal' },
@@ -760,7 +801,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Italian defensive system of the 1960s is known as “catenaccio”?', bs: 'Koji italijanski odbrambeni sistem 1960-ih je poznat kao „catenaccio“?' },
+    prompt: { en: 'Which Italian defensive system of the 1960s is known as “catenaccio”?',
+              bs: 'Koji italijanski odbrambeni sistem 1960-ih je poznat kao „catenaccio“?' },
     options: [
       { en: 'Total football attack', bs: 'Totalni napadački fudbal' },
       { en: 'Sweeper-based lock-down defense', bs: 'Odbrana sa liberoom i zatvaranjem' },
@@ -774,7 +816,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which English club was involved in the Munich air disaster of 1958?', bs: 'Koji engleski klub je bio uključen u avionsku katastrofu u Minhenu 1958.?' },
+    prompt: { en: 'Which English club was involved in the Munich air disaster of 1958?',
+              bs: 'Koji engleski klub je bio uključen u avionsku katastrofu u Minhenu 1958.?' },
     options: [
       { en: 'Liverpool', bs: 'Liverpool' },
       { en: 'Manchester United', bs: 'Manchester United' },
@@ -788,7 +831,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Northern Irish footballer won the Ballon d’Or in 1968?', bs: 'Koji sjevernoirski fudbaler je osvojio Zlatnu loptu 1968.?' },
+    prompt: { en: 'Which Northern Irish footballer won the Ballon d’Or in 1968?',
+              bs: 'Koji sjevernoirski fudbaler je osvojio Zlatnu loptu 1968.?' },
     options: [
       { en: 'George Best', bs: 'George Best' },
       { en: 'Bobby Charlton', bs: 'Bobby Charlton' },
@@ -802,7 +846,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Soviet goalkeeper was nicknamed the “Black Spider” at the 1960s World Cups?', bs: 'Koji sovjetski golman je imao nadimak „Crni pauk“ na Svjetskim prvenstvima 1960-ih?' },
+    prompt: { en: 'Which Soviet goalkeeper was nicknamed the “Black Spider” at the 1960s World Cups?',
+              bs: 'Koji sovjetski golman je imao nadimak „Crni pauk“ na Svjetskim prvenstvima 1960-ih?' },
     options: [
       { en: 'Rinat Dasayev', bs: 'Rinat Dasayev' },
       { en: 'Lev Yashin', bs: 'Lev Yashin' },
@@ -816,7 +861,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which French footballer scored a famous volley in the 1998 World Cup final?', bs: 'Koji francuski fudbaler je dao poznati volej u finalu SP 1998.?' },
+    prompt: { en: 'Which French footballer scored a famous volley in the 1998 World Cup final?',
+              bs: 'Koji francuski fudbaler je dao poznati volej u finalu SP 1998.?' },
     options: [
       { en: 'Thierry Henry', bs: 'Thierry Henry' },
       { en: 'Zinedine Zidane', bs: 'Zinedine Zidane' },
@@ -830,7 +876,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Brazilian Ronaldo won the World Cup Golden Boot in 2002?', bs: 'Koji brazilski Ronaldo je osvojio Zlatnu kopačku SP 2002.?' },
+    prompt: { en: 'Which Brazilian Ronaldo won the World Cup Golden Boot in 2002?',
+              bs: 'Koji brazilski Ronaldo je osvojio Zlatnu kopačku SP 2002.?' },
     options: [
       { en: 'Ronaldinho', bs: 'Ronaldinho' },
       { en: 'Ronaldo Nazário', bs: 'Ronaldo Nazário' },
@@ -844,7 +891,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Cameroon striker became famous for corner-flag dances at the 1990 World Cup?', bs: 'Koji kamerunski napadač je postao poznat po plesovima kod korner zastavice na SP 1990.?' },
+    prompt: { en: 'Which Cameroon striker became famous for corner-flag dances at the 1990 World Cup?',
+              bs: 'Koji kamerunski napadač je postao poznat po plesovima kod korner zastavice na SP 1990.?' },
     options: [
       { en: 'Samuel Eto’o', bs: 'Samuel Eto’o' },
       { en: 'Roger Milla', bs: 'Roger Milla' },
@@ -858,7 +906,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which American swimmer won seven gold medals at a single Olympics in 1972?', bs: 'Koji američki plivač je osvojio sedam zlatnih medalja na jednim Olimpijskim igrama 1972.?' },
+    prompt: { en: 'Which American swimmer won seven gold medals at a single Olympics in 1972?',
+              bs: 'Koji američki plivač je osvojio sedam zlatnih medalja na jednim Olimpijskim igrama 1972.?' },
     options: [
       { en: 'Mark Spitz', bs: 'Mark Spitz' },
       { en: 'Michael Phelps', bs: 'Michael Phelps' },
@@ -872,10 +921,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: {
-      en: 'In which city did Usain Bolt set the 100m world record of 9.58 seconds?',
-      bs: 'U kojem gradu je Usain Bolt postavio svjetski rekord na 100 m od 9,58 sekundi?'
-    },
+    prompt: { en: 'In which city did Usain Bolt set the 100m world record of 9.58 seconds?',
+              bs: 'U kojem gradu je Usain Bolt postavio svjetski rekord na 100 m od 9,58 sekundi?' },
     options: [
       { en: 'Berlin', bs: 'Berlin' },
       { en: 'Beijing', bs: 'Peking' },
@@ -889,7 +936,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which year did Usain Bolt set the 100m world record of 9.58 in Berlin?', bs: 'Koje godine je Usain Bolt postavio rekord 9,58 na 100 m u Berlinu?' },
+    prompt: { en: 'Which year did Usain Bolt set the 100m world record of 9.58 in Berlin?',
+              bs: 'Koje godine je Usain Bolt postavio rekord 9,58 na 100 m u Berlinu?' },
     options: [
       { en: '2008', bs: '2008.' },
       { en: '2009', bs: '2009.' },
@@ -903,7 +951,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Norwegian figure skater won three Olympic golds (1928–36) and later became a Hollywood star?', bs: 'Koja norveška umjetnička klizačica je osvojila tri olimpijska zlata (1928–36) i kasnije postala holivudska zvijezda?' },
+    prompt: { en: 'Which Norwegian figure skater won three Olympic golds (1928–36) and later became a Hollywood star?',
+              bs: 'Koja norveška umjetnička klizačica je osvojila tri olimpijska zlata (1928–36) i kasnije postala holivudska zvijezda?' },
     options: [
       { en: 'Sonja Henie', bs: 'Sonja Henie' },
       { en: 'Katarina Witt', bs: 'Katarina Witt' },
@@ -917,7 +966,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Czech-American tennis star won 18 Grand Slam singles titles and defected from Czechoslovakia?', bs: 'Koja češko-američka teniska zvijezda je osvojila 18 Grand Slam titula u singlu i pobjegla iz Čehoslovačke?' },
+    prompt: { en: 'Which Czech-American tennis star won 18 Grand Slam singles titles and defected from Czechoslovakia?',
+              bs: 'Koja češko-američka teniska zvijezda je osvojila 18 Grand Slam titula u singlu i pobjegla iz Čehoslovačke?' },
     options: [
       { en: 'Martina Navratilova', bs: 'Martina Navratilova' },
       { en: 'Hana Mandlíková', bs: 'Hana Mandlíková' },
@@ -931,7 +981,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which German tennis player won Wimbledon as a teenager in 1985?', bs: 'Koji njemački teniser je osvojio Wimbledon kao tinejdžer 1985.?' },
+    prompt: { en: 'Which German tennis player won Wimbledon as a teenager in 1985?',
+              bs: 'Koji njemački teniser je osvojio Wimbledon kao tinejdžer 1985.?' },
     options: [
       { en: 'Michael Stich', bs: 'Michael Stich' },
       { en: 'Boris Becker', bs: 'Boris Becker' },
@@ -945,7 +996,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Brazilian Ayrton Senna rival won four F1 titles and was nicknamed “The Professor”?', bs: 'Koji rival Ayrtona Senne je osvojio četiri F1 titule i imao nadimak „Profesor“?' },
+    prompt: { en: 'Which Brazilian Ayrton Senna rival won four F1 titles and was nicknamed “The Professor”?',
+              bs: 'Koji rival Ayrtona Senne je osvojio četiri F1 titule i imao nadimak „Profesor“?' },
     options: [
       { en: 'Niki Lauda', bs: 'Niki Lauda' },
       { en: 'Alain Prost', bs: 'Alain Prost' },
@@ -959,7 +1011,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Austrian F1 champion survived a near-fatal crash at the Nürburgring in 1976?', bs: 'Koji austrijski F1 šampion je preživio skoro fatalnu nesreću na Nürburgringu 1976.?' },
+    prompt: { en: 'Which Austrian F1 champion survived a near-fatal crash at the Nürburgring in 1976?',
+              bs: 'Koji austrijski F1 šampion je preživio skoro fatalnu nesreću na Nürburgringu 1976.?' },
     options: [
       { en: 'Jochen Rindt', bs: 'Jochen Rindt' },
       { en: 'Niki Lauda', bs: 'Niki Lauda' },
@@ -973,7 +1026,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which baseball player held the MLB career home run record before Barry Bonds?', bs: 'Koji bejzbol igrač je držao MLB rekord karijere u home runovima prije Barryja Bondsa?' },
+    prompt: { en: 'Which baseball player held the MLB career home run record before Barry Bonds?',
+              bs: 'Koji bejzbol igrač je držao MLB rekord karijere u home runovima prije Barryja Bondsa?' },
     options: [
       { en: 'Babe Ruth', bs: 'Babe Ruth' },
       { en: 'Hank Aaron', bs: 'Hank Aaron' },
@@ -987,7 +1041,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which New York Yankees icon was nicknamed “The Bambino” and “The Sultan of Swat”?', bs: 'Koja ikona New York Yankeesa je imala nadimke „The Bambino“ i „The Sultan of Swat“?' },
+    prompt: { en: 'Which New York Yankees icon was nicknamed “The Bambino” and “The Sultan of Swat”?',
+              bs: 'Koja ikona New York Yankeesa je imala nadimke „The Bambino“ i „The Sultan of Swat“?' },
     options: [
       { en: 'Lou Gehrig', bs: 'Lou Gehrig' },
       { en: 'Babe Ruth', bs: 'Babe Ruth' },
@@ -1001,7 +1056,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which American football coach won six Super Bowls with the New England Patriots?', bs: 'Koji trener američkog fudbala je osvojio šest Super Bowlova s New England Patriotsima?' },
+    prompt: { en: 'Which American football coach won six Super Bowls with the New England Patriots?',
+              bs: 'Koji trener američkog fudbala je osvojio šest Super Bowlova s New England Patriotsima?' },
     options: [
       { en: 'Bill Belichick', bs: 'Bill Belichick' },
       { en: 'Tom Landry', bs: 'Tom Landry' },
@@ -1015,7 +1071,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which quarterback won seven Super Bowls, most of them with New England?', bs: 'Koji quarterback je osvojio sedam Super Bowlova, većinu s New Englandom?' },
+    prompt: { en: 'Which quarterback won seven Super Bowls, most of them with New England?',
+              bs: 'Koji quarterback je osvojio sedam Super Bowlova, većinu s New Englandom?' },
     options: [
       { en: 'Joe Montana', bs: 'Joe Montana' },
       { en: 'Tom Brady', bs: 'Tom Brady' },
@@ -1029,7 +1086,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'After which legendary coach is the Super Bowl trophy named?', bs: 'Po kojem legendarnom treneru je nazvan trofej Super Bowla?' },
+    prompt: { en: 'After which legendary coach is the Super Bowl trophy named?',
+              bs: 'Po kojem legendarnom treneru je nazvan trofej Super Bowla?' },
     options: [
       { en: 'Tom Landry', bs: 'Tom Landry' },
       { en: 'Vince Lombardi', bs: 'Vince Lombardi' },
@@ -1043,7 +1101,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Brazilian football club is nicknamed “Mengão” and based in Rio?', bs: 'Koji brazilski fudbalski klub ima nadimak „Mengão“ i baziran je u Riju?' },
+    prompt: { en: 'Which Brazilian football club is nicknamed “Mengão” and based in Rio?',
+              bs: 'Koji brazilski fudbalski klub ima nadimak „Mengão“ i baziran je u Riju?' },
     options: [
       { en: 'Fluminense', bs: 'Fluminense' },
       { en: 'Flamengo', bs: 'Flamengo' },
@@ -1057,7 +1116,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which club did Diego Maradona lead to Serie A titles while playing in Naples?', bs: 'Koji klub je Diego Maradona vodio do titula u Serie A igrajući u Napulju?' },
+    prompt: { en: 'Which club did Diego Maradona lead to Serie A titles while playing in Naples?',
+              bs: 'Koji klub je Diego Maradona vodio do titula u Serie A igrajući u Napulju?' },
     options: [
       { en: 'Roma', bs: 'Roma' },
       { en: 'Napoli', bs: 'Napoli' },
@@ -1071,7 +1131,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which year did Napoli win their first Serie A title with Maradona?', bs: 'Koje godine je Napoli osvojio prvu titulu Serie A s Maradonom?' },
+    prompt: { en: 'Which year did Napoli win their first Serie A title with Maradona?',
+              bs: 'Koje godine je Napoli osvojio prvu titulu Serie A s Maradonom?' },
     options: [
       { en: '1985', bs: '1985.' },
       { en: '1987', bs: '1987.' },
@@ -1085,7 +1146,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which English club completed the first “Invincibles” Premier League season without a loss?', bs: 'Koji engleski klub je ostvario prvu „Invincibles“ Premier liga sezonu bez poraza?' },
+    prompt: { en: 'Which English club completed the first “Invincibles” Premier League season without a loss?',
+              bs: 'Koji engleski klub je ostvario prvu „Invincibles“ Premier liga sezonu bez poraza?' },
     options: [
       { en: 'Manchester United', bs: 'Manchester United' },
       { en: 'Arsenal', bs: 'Arsenal' },
@@ -1099,7 +1161,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'In which Premier League season did Arsenal go unbeaten as the Invincibles?', bs: 'U kojoj sezoni Premier lige je Arsenal bio neporažen kao Invincibles?' },
+    prompt: { en: 'In which Premier League season did Arsenal go unbeaten as the Invincibles?',
+              bs: 'U kojoj sezoni Premier lige je Arsenal bio neporažen kao Invincibles?' },
     options: [
       { en: '2001–02', bs: '2001–02.' },
       { en: '2003–04', bs: '2003–04.' },
@@ -1113,7 +1176,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which French manager led Arsenal’s Invincibles side?', bs: 'Koji francuski trener je vodio Arsenalov Invincibles tim?' },
+    prompt: { en: 'Which French manager led Arsenal’s Invincibles side?',
+              bs: 'Koji francuski trener je vodio Arsenalov Invincibles tim?' },
     options: [
       { en: 'Jacques Santini', bs: 'Jacques Santini' },
       { en: 'Arsène Wenger', bs: 'Arsène Wenger' },
@@ -1127,10 +1191,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Dutch defender scored the winning goal for Barcelona in the 1992 European Cup final at Wembley?',
-      bs: 'Koji holandski odbrambeni igrač je postigao pobjednički gol za Barselonu u finalu Evropskog kupa 1992. na Wembleyju?'
-    },
+    prompt: { en: 'Which Dutch defender scored the winning goal for Barcelona in the 1992 European Cup final at Wembley?',
+              bs: 'Koji holandski odbrambeni igrač je postigao pobjednički gol za Barselonu u finalu Evropskog kupa 1992. na Wembleyju?' },
     options: [
       { en: 'Frank Rijkaard', bs: 'Frank Rijkaard' },
       { en: 'Ronald Koeman', bs: 'Ronald Koeman' },
@@ -1144,7 +1206,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Ukrainian striker won the Ballon d’Or in 2004 while at AC Milan?', bs: 'Koji ukrajinski napadač je osvojio Zlatnu loptu 2004. dok je bio u AC Milanu?' },
+    prompt: { en: 'Which Ukrainian striker won the Ballon d’Or in 2004 while at AC Milan?',
+              bs: 'Koji ukrajinski napadač je osvojio Zlatnu loptu 2004. dok je bio u AC Milanu?' },
     options: [
       { en: 'Andriy Shevchenko', bs: 'Andrij Ševčenko' },
       { en: 'Serhiy Rebrov', bs: 'Serhij Rebrov' },
@@ -1158,7 +1221,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Liberian forward won the Ballon d’Or in 1995 with AC Milan?', bs: 'Koji liberijski napadač je osvojio Zlatnu loptu 1995. s AC Milanom?' },
+    prompt: { en: 'Which Liberian forward won the Ballon d’Or in 1995 with AC Milan?',
+              bs: 'Koji liberijski napadač je osvojio Zlatnu loptu 1995. s AC Milanom?' },
     options: [
       { en: 'Didier Drogba', bs: 'Didier Drogba' },
       { en: 'George Weah', bs: 'George Weah' },
@@ -1172,7 +1236,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Brazilian midfielder won the 2007 Ballon d’Or with AC Milan?', bs: 'Koji brazilski vezni igrač je osvojio Zlatnu loptu 2007. s AC Milanom?' },
+    prompt: { en: 'Which Brazilian midfielder won the 2007 Ballon d’Or with AC Milan?',
+              bs: 'Koji brazilski vezni igrač je osvojio Zlatnu loptu 2007. s AC Milanom?' },
     options: [
       { en: 'Ronaldinho', bs: 'Ronaldinho' },
       { en: 'Kaká', bs: 'Kaká' },
@@ -1186,7 +1251,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Olympic Games were cancelled because of World War I?', bs: 'Koje Olimpijske igre su otkazane zbog Prvog svjetskog rata?' },
+    prompt: { en: 'Which Olympic Games were cancelled because of World War I?',
+              bs: 'Koje Olimpijske igre su otkazane zbog Prvog svjetskog rata?' },
     options: [
       { en: '1912 Stockholm', bs: '1912. Stockholm' },
       { en: '1916 Berlin', bs: '1916. Berlin' },
@@ -1200,10 +1266,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Summer Olympics were boycotted by the United States in response to the invasion of Afghanistan?',
-      bs: 'Koje Ljetne olimpijske igre su Sjedinjene Američke Države bojkotovale kao odgovor na invaziju Afganistana?',
-    },
+    prompt: { en: 'Which Summer Olympics were boycotted by the United States in response to the invasion of Afghanistan?',
+              bs: 'Koje Ljetne olimpijske igre su Sjedinjene Američke Države bojkotovale kao odgovor na invaziju Afganistana?' },
     options: [
       { en: 'Montreal 1976', bs: 'Montreal 1976.' },
       { en: 'Moscow 1980', bs: 'Moskva 1980.' },
@@ -1217,10 +1281,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Summer Olympics did the Soviet Union boycott in retaliation for the 1980 Western-led boycott?',
-      bs: 'Koje Ljetne olimpijske igre je Sovjetski Savez bojkotovao kao odgovor na zapadni bojkot iz 1980. godine?',
-    },
+    prompt: { en: 'Which Summer Olympics did the Soviet Union boycott in retaliation for the 1980 Western-led boycott?',
+              bs: 'Koje Ljetne olimpijske igre je Sovjetski Savez bojkotovao kao odgovor na zapadni bojkot iz 1980. godine?' },
     options: [
       { en: 'Moscow 1980', bs: 'Moskva 1980.' },
       { en: 'Los Angeles 1984', bs: 'Los Anđeles 1984.' },
@@ -1234,7 +1296,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which American won the Olympic marathon gold at Munich 1972?', bs: 'Koji Amerikanac je osvojio olimpijsko zlato u maratonu u Minhenu 1972.?' },
+    prompt: { en: 'Which American won the Olympic marathon gold at Munich 1972?',
+              bs: 'Koji Amerikanac je osvojio olimpijsko zlato u maratonu u Minhenu 1972.?' },
     options: [
       { en: 'Frank Shorter', bs: 'Frank Shorter' },
       { en: 'Bill Rodgers', bs: 'Bill Rodgers' },
@@ -1248,7 +1311,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Finnish distance runner won gold in both the 5,000m and 10,000m at Munich 1972 and Montreal 1976?', bs: 'Koji finski trkač na duge staze je osvojio zlato na 5.000 m i 10.000 m u Minhenu 1972. i Montrealu 1976.?' },
+    prompt: { en: 'Which Finnish distance runner won gold in both the 5,000m and 10,000m at Munich 1972 and Montreal 1976?',
+              bs: 'Koji finski trkač na duge staze je osvojio zlato na 5.000 m i 10.000 m u Minhenu 1972. i Montrealu 1976.?' },
     options: [
       { en: 'Paavo Nurmi', bs: 'Paavo Nurmi' },
       { en: 'Lasse Virén', bs: 'Lasse Virén' },
@@ -1262,7 +1326,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which horse won the English Triple Crown in 1970, the last to do so for decades?', bs: 'Koji konj je osvojio englesku Triple Crown 1970., posljednji koji je to uradio decenijama?' },
+    prompt: { en: 'Which horse won the English Triple Crown in 1970, the last to do so for decades?',
+              bs: 'Koji konj je osvojio englesku Triple Crown 1970., posljednji koji je to uradio decenijama?' },
     options: [
       { en: 'Shergar', bs: 'Shergar' },
       { en: 'Nijinsky', bs: 'Nijinsky' },
@@ -1276,7 +1341,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which American racehorse won the US Triple Crown in 1973 in record times?', bs: 'Koji američki trkaći konj je osvojio US Triple Crown 1973. u rekordnim vremenima?' },
+    prompt: { en: 'Which American racehorse won the US Triple Crown in 1973 in record times?',
+              bs: 'Koji američki trkaći konj je osvojio US Triple Crown 1973. u rekordnim vremenima?' },
     options: [
       { en: 'Seattle Slew', bs: 'Seattle Slew' },
       { en: 'Secretariat', bs: 'Secretariat' },
@@ -1290,7 +1356,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Scottish snooker player was the first to win seven World Championship titles?', bs: 'Koji škotski snuker igrač je prvi osvojio sedam titula Svjetskog prvenstva?' },
+    prompt: { en: 'Which Scottish snooker player was the first to win seven World Championship titles?',
+              bs: 'Koji škotski snuker igrač je prvi osvojio sedam titula Svjetskog prvenstva?' },
     options: [
       { en: 'Stephen Hendry', bs: 'Stephen Hendry' },
       { en: 'John Higgins', bs: 'John Higgins' },
@@ -1304,7 +1371,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which chess world champion from the Soviet Union held the title from 1985 to 2000 (with a brief interruption)?', bs: 'Koji sovjetski/svjetski šahovski šampion je držao titulu od 1985. do 2000. (s kratkim prekidom)?' },
+    prompt: { en: 'Which chess world champion from the Soviet Union held the title from 1985 to 2000 (with a brief interruption)?',
+              bs: 'Koji sovjetski/svjetski šahovski šampion je držao titulu od 1985. do 2000. (s kratkim prekidom)?' },
     options: [
       { en: 'Anatoly Karpov', bs: 'Anatolij Karpov' },
       { en: 'Garry Kasparov', bs: 'Garri Kasparov' },
@@ -1318,7 +1386,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who defeated Boris Spassky to become World Chess Champion in 1972?', bs: 'Ko je pobijedio Borisa Spaskog i postao svjetski šahovski šampion 1972.?' },
+    prompt: { en: 'Who defeated Boris Spassky to become World Chess Champion in 1972?',
+              bs: 'Ko je pobijedio Borisa Spaskog i postao svjetski šahovski šampion 1972.?' },
     options: [
       { en: 'Anatoly Karpov', bs: 'Anatolij Karpov' },
       { en: 'Bobby Fischer', bs: 'Bobby Fischer' },
@@ -1332,7 +1401,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Yugoslav basketball club from Split won the European Champions Cup in 1989 and 1990?', bs: 'Koji jugoslovenski košarkaški klub iz Splita je osvojio Kup evropskih šampiona 1989. i 1990.?' },
+    prompt: { en: 'Which Yugoslav basketball club from Split won the European Champions Cup in 1989 and 1990?',
+              bs: 'Koji jugoslovenski košarkaški klub iz Splita je osvojio Kup evropskih šampiona 1989. i 1990.?' },
     options: [
       { en: 'Partizan', bs: 'Partizan' },
       { en: 'Jugoplastika', bs: 'Jugoplastika' },
@@ -1346,7 +1416,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Croatian NBA Hall of Famer starred for the New Jersey Nets and died in a 1993 car accident?', bs: 'Koji hrvatski NBA Hall of Famer je igrao za New Jersey Netse i poginuo u saobraćajnoj nesreći 1993.?' },
+    prompt: { en: 'Which Croatian NBA Hall of Famer starred for the New Jersey Nets and died in a 1993 car accident?',
+              bs: 'Koji hrvatski NBA Hall of Famer je igrao za New Jersey Netse i poginuo u saobraćajnoj nesreći 1993.?' },
     options: [
       { en: 'Vlade Divac', bs: 'Vlade Divac' },
       { en: 'Dražen Petrović', bs: 'Dražen Petrović' },
@@ -1360,7 +1431,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Croatian basketball star won three NBA titles with the Chicago Bulls as the “Sixth Man”?', bs: 'Koja hrvatska košarkaška zvijezda je osvojila tri NBA titule s Chicago Bullsima kao „šesti igrač“?' },
+    prompt: { en: 'Which Croatian basketball star won three NBA titles with the Chicago Bulls as the “Sixth Man”?',
+              bs: 'Koja hrvatska košarkaška zvijezda je osvojila tri NBA titule s Chicago Bullsima kao „šesti igrač“?' },
     options: [
       { en: 'Dražen Petrović', bs: 'Dražen Petrović' },
       { en: 'Toni Kukoč', bs: 'Toni Kukoč' },
@@ -1374,7 +1446,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Serbian basketball player won NBA MVP in 2021 with the Denver Nuggets?', bs: 'Koji srpski košarkaš je osvojio NBA MVP 2021. s Denver Nuggetsima?' },
+    prompt: { en: 'Which Serbian basketball player won NBA MVP in 2021 with the Denver Nuggets?',
+              bs: 'Koji srpski košarkaš je osvojio NBA MVP 2021. s Denver Nuggetsima?' },
     options: [
       { en: 'Bogdan Bogdanović', bs: 'Bogdan Bogdanović' },
       { en: 'Nikola Jokić', bs: 'Nikola Jokić' },
@@ -1388,7 +1461,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which football World Cup final is known for Geoff Hurst’s controversial “Wembley Goal”?', bs: 'Koje finale Svjetskog prvenstva je poznato po kontroverznom „Wembley golu“ Geoffa Hursta?' },
+    prompt: { en: 'Which football World Cup final is known for Geoff Hurst’s controversial “Wembley Goal”?',
+              bs: 'Koje finale Svjetskog prvenstva je poznato po kontroverznom „Wembley golu“ Geoffa Hursta?' },
     options: [
       { en: '1954', bs: '1954.' },
       { en: '1966', bs: '1966.' },
@@ -1402,7 +1476,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Dutch club’s youth academy is nicknamed “De Toekomst” and produced generations of stars?', bs: 'Koja holandska omladinska akademija ima nadimak „De Toekomst“ i proizvela je generacije zvijezda?' },
+    prompt: { en: 'Which Dutch club’s youth academy is nicknamed “De Toekomst” and produced generations of stars?',
+              bs: 'Koja holandska omladinska akademija ima nadimak „De Toekomst“ i proizvela je generacije zvijezda?' },
     options: [
       { en: 'Feyenoord', bs: 'Feyenoord' },
       { en: 'Ajax', bs: 'Ajax' },
@@ -1416,7 +1491,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Brazilian stadium hosted the 1950 World Cup final, famous for Uruguay’s upset of Brazil?', bs: 'Koji brazilski stadion je bio domaćin finala SP 1950., poznatog po Urugvajevom iznenađenju protiv Brazila?' },
+    prompt: { en: 'Which Brazilian stadium hosted the 1950 World Cup final, famous for Uruguay’s upset of Brazil?',
+              bs: 'Koji brazilski stadion je bio domaćin finala SP 1950., poznatog po Urugvajevom iznenađenju protiv Brazila?' },
     options: [
       { en: 'Morumbi', bs: 'Morumbi' },
       { en: 'Maracanã', bs: 'Maracana' },
@@ -1430,7 +1506,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored a hat-trick in the 2022 FIFA World Cup final?', bs: 'Ko je postigao hat-trick u finalu FIFA Svjetskog prvenstva 2022.?' },
+    prompt: { en: 'Who scored a hat-trick in the 2022 FIFA World Cup final?',
+              bs: 'Ko je postigao hat-trick u finalu FIFA Svjetskog prvenstva 2022.?' },
     options: [
       { en: 'Lionel Messi', bs: 'Lionel Messi' },
       { en: 'Kylian Mbappé', bs: 'Kylian Mbappé' },
@@ -1444,7 +1521,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored the extra-time winner in the 2010 FIFA World Cup final?', bs: 'Ko je postigao pobjednički gol u produžecima finala FIFA Svjetskog prvenstva 2010.?' },
+    prompt: { en: 'Who scored the extra-time winner in the 2010 FIFA World Cup final?',
+              bs: 'Ko je postigao pobjednički gol u produžecima finala FIFA Svjetskog prvenstva 2010.?' },
     options: [
       { en: 'David Villa', bs: 'David Villa' },
       { en: 'Xavi', bs: 'Xavi' },
@@ -1458,7 +1536,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored both of Brazil’s goals in the 2002 FIFA World Cup final?', bs: 'Ko je postigao oba gola Brazila u finalu FIFA Svjetskog prvenstva 2002.?' },
+    prompt: { en: 'Who scored both of Brazil’s goals in the 2002 FIFA World Cup final?',
+              bs: 'Ko je postigao oba gola Brazila u finalu FIFA Svjetskog prvenstva 2002.?' },
     options: [
       { en: 'Ronaldo', bs: 'Ronaldo' },
       { en: 'Rivaldo', bs: 'Rivaldo' },
@@ -1472,7 +1551,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored the penalty that won West Germany the 1990 FIFA World Cup final?', bs: 'Ko je iz penala donio Zapadnoj Njemačkoj pobjedu u finalu FIFA Svjetskog prvenstva 1990.?' },
+    prompt: { en: 'Who scored the penalty that won West Germany the 1990 FIFA World Cup final?',
+              bs: 'Ko je iz penala donio Zapadnoj Njemačkoj pobjedu u finalu FIFA Svjetskog prvenstva 1990.?' },
     options: [
       { en: 'Lothar Matthäus', bs: 'Lothar Matthäus' },
       { en: 'Jürgen Klinsmann', bs: 'Jürgen Klinsmann' },
@@ -1486,7 +1566,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored Argentina’s late winning goal in the 1986 FIFA World Cup final?', bs: 'Ko je postigao kasni pobjednički gol Argentine u finalu FIFA Svjetskog prvenstva 1986.?' },
+    prompt: { en: 'Who scored Argentina’s late winning goal in the 1986 FIFA World Cup final?',
+              bs: 'Ko je postigao kasni pobjednički gol Argentine u finalu FIFA Svjetskog prvenstva 1986.?' },
     options: [
       { en: 'Jorge Valdano', bs: 'Jorge Valdano' },
       { en: 'José Luis Brown', bs: 'José Luis Brown' },
@@ -1500,7 +1581,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Italian midfielder scored the goal that proved to be the winner in the 1982 FIFA World Cup final?', bs: 'Koji italijanski veznjak je postigao gol koji se pokazao pobjedničkim u finalu FIFA Svjetskog prvenstva 1982.?' },
+    prompt: { en: 'Which Italian midfielder scored the goal that proved to be the winner in the 1982 FIFA World Cup final?',
+              bs: 'Koji italijanski veznjak je postigao gol koji se pokazao pobjedničkim u finalu FIFA Svjetskog prvenstva 1982.?' },
     options: [
       { en: 'Paolo Rossi', bs: 'Paolo Rossi' },
       { en: 'Marco Tardelli', bs: 'Marco Tardelli' },
@@ -1514,7 +1596,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored Argentina’s go-ahead goal in extra time of the 1978 FIFA World Cup final?', bs: 'Ko je postigao vodeći gol Argentine u produžecima finala FIFA Svjetskog prvenstva 1978.?' },
+    prompt: { en: 'Who scored Argentina’s go-ahead goal in extra time of the 1978 FIFA World Cup final?',
+              bs: 'Ko je postigao vodeći gol Argentine u produžecima finala FIFA Svjetskog prvenstva 1978.?' },
     options: [
       { en: 'Daniel Bertoni', bs: 'Daniel Bertoni' },
       { en: 'Daniel Passarella', bs: 'Daniel Passarella' },
@@ -1528,7 +1611,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored West Germany’s winning goal in the 1974 FIFA World Cup final?', bs: 'Ko je postigao pobjednički gol Zapadne Njemačke u finalu FIFA Svjetskog prvenstva 1974.?' },
+    prompt: { en: 'Who scored West Germany’s winning goal in the 1974 FIFA World Cup final?',
+              bs: 'Ko je postigao pobjednički gol Zapadne Njemačke u finalu FIFA Svjetskog prvenstva 1974.?' },
     options: [
       { en: 'Paul Breitner', bs: 'Paul Breitner' },
       { en: 'Gerd Müller', bs: 'Gerd Müller' },
@@ -1542,7 +1626,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored West Germany’s winning goal in the 1954 “Miracle of Bern” final?', bs: 'Ko je postigao pobjednički gol Zapadne Njemačke u finalu „Čuda u Bernu“ 1954.?' },
+    prompt: { en: 'Who scored West Germany’s winning goal in the 1954 “Miracle of Bern” final?',
+              bs: 'Ko je postigao pobjednički gol Zapadne Njemačke u finalu „Čuda u Bernu“ 1954.?' },
     options: [
       { en: 'Max Morlock', bs: 'Max Morlock' },
       { en: 'Fritz Walter', bs: 'Fritz Walter' },
@@ -1556,7 +1641,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored Uruguay’s winning goal against Brazil in the decisive match of the 1950 FIFA World Cup?', bs: 'Ko je postigao pobjednički gol Urugvaja protiv Brazila u odlučujućoj utakmici FIFA Svjetskog prvenstva 1950.?' },
+    prompt: { en: 'Who scored Uruguay’s winning goal against Brazil in the decisive match of the 1950 FIFA World Cup?',
+              bs: 'Ko je postigao pobjednički gol Urugvaja protiv Brazila u odlučujućoj utakmici FIFA Svjetskog prvenstva 1950.?' },
     options: [
       { en: 'Juan Alberto Schiaffino', bs: 'Juan Alberto Schiaffino' },
       { en: 'Obdulio Varela', bs: 'Obdulio Varela' },
@@ -1570,7 +1656,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored Spain’s late winning goal in the UEFA Euro 2024 final?', bs: 'Ko je postigao kasni pobjednički gol Španije u finalu UEFA Eura 2024.?' },
+    prompt: { en: 'Who scored Spain’s late winning goal in the UEFA Euro 2024 final?',
+              bs: 'Ko je postigao kasni pobjednički gol Španije u finalu UEFA Eura 2024.?' },
     options: [
       { en: 'Nico Williams', bs: 'Nico Williams' },
       { en: 'Álvaro Morata', bs: 'Álvaro Morata' },
@@ -1584,7 +1671,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored Portugal’s extra-time winner in the UEFA Euro 2016 final?', bs: 'Ko je postigao pobjednički gol Portugala u produžecima finala UEFA Eura 2016.?' },
+    prompt: { en: 'Who scored Portugal’s extra-time winner in the UEFA Euro 2016 final?',
+              bs: 'Ko je postigao pobjednički gol Portugala u produžecima finala UEFA Eura 2016.?' },
     options: [
       { en: 'Cristiano Ronaldo', bs: 'Cristiano Ronaldo' },
       { en: 'Nani', bs: 'Nani' },
@@ -1598,7 +1686,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored the only goal of the UEFA Euro 2008 final?', bs: 'Ko je postigao jedini gol u finalu UEFA Eura 2008.?' },
+    prompt: { en: 'Who scored the only goal of the UEFA Euro 2008 final?',
+              bs: 'Ko je postigao jedini gol u finalu UEFA Eura 2008.?' },
     options: [
       { en: 'David Villa', bs: 'David Villa' },
       { en: 'Fernando Torres', bs: 'Fernando Torres' },
@@ -1612,7 +1701,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored France’s golden goal in the UEFA Euro 2000 final?', bs: 'Ko je postigao zlatni gol Francuske u finalu UEFA Eura 2000.?' },
+    prompt: { en: 'Who scored France’s golden goal in the UEFA Euro 2000 final?',
+              bs: 'Ko je postigao zlatni gol Francuske u finalu UEFA Eura 2000.?' },
     options: [
       { en: 'Thierry Henry', bs: 'Thierry Henry' },
       { en: 'Sylvain Wiltord', bs: 'Sylvain Wiltord' },
@@ -1626,7 +1716,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored the first golden goal in senior international football to win the UEFA Euro 1996 final?', bs: 'Ko je postigao prvi zlatni gol u seniorskom međunarodnom fudbalu za pobjedu u finalu UEFA Eura 1996.?' },
+    prompt: { en: 'Who scored the first golden goal in senior international football to win the UEFA Euro 1996 final?',
+              bs: 'Ko je postigao prvi zlatni gol u seniorskom međunarodnom fudbalu za pobjedu u finalu UEFA Eura 1996.?' },
     options: [
       { en: 'Oliver Bierhoff', bs: 'Oliver Bierhoff' },
       { en: 'Jürgen Klinsmann', bs: 'Jürgen Klinsmann' },
@@ -1640,7 +1731,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored the iconic volley that sealed the Netherlands’ victory in the UEFA Euro 1988 final?', bs: 'Ko je postigao ikonični volej kojim je potvrđena pobjeda Nizozemske u finalu UEFA Eura 1988.?' },
+    prompt: { en: 'Who scored the iconic volley that sealed the Netherlands’ victory in the UEFA Euro 1988 final?',
+              bs: 'Ko je postigao ikonični volej kojim je potvrđena pobjeda Nizozemske u finalu UEFA Eura 1988.?' },
     options: [
       { en: 'Ruud Gullit', bs: 'Ruud Gullit' },
       { en: 'Frank Rijkaard', bs: 'Frank Rijkaard' },
@@ -1654,7 +1746,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored the only goal of the 2023 UEFA Champions League final?', bs: 'Ko je postigao jedini gol u finalu UEFA Lige šampiona 2023.?' },
+    prompt: { en: 'Who scored the only goal of the 2023 UEFA Champions League final?',
+              bs: 'Ko je postigao jedini gol u finalu UEFA Lige šampiona 2023.?' },
     options: [
       { en: 'Erling Haaland', bs: 'Erling Haaland' },
       { en: 'Kevin De Bruyne', bs: 'Kevin De Bruyne' },
@@ -1668,7 +1761,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored Real Madrid’s winning goal in the 2022 UEFA Champions League final?', bs: 'Ko je postigao pobjednički gol Real Madrida u finalu UEFA Lige šampiona 2022.?' },
+    prompt: { en: 'Who scored Real Madrid’s winning goal in the 2022 UEFA Champions League final?',
+              bs: 'Ko je postigao pobjednički gol Real Madrida u finalu UEFA Lige šampiona 2022.?' },
     options: [
       { en: 'Vinícius Júnior', bs: 'Vinícius Júnior' },
       { en: 'Karim Benzema', bs: 'Karim Benzema' },
@@ -1682,7 +1776,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored Real Madrid’s stoppage-time equalizer in the 2014 UEFA Champions League final?', bs: 'Ko je postigao izjednačujući gol Real Madrida u sudijskoj nadoknadi finala UEFA Lige šampiona 2014.?' },
+    prompt: { en: 'Who scored Real Madrid’s stoppage-time equalizer in the 2014 UEFA Champions League final?',
+              bs: 'Ko je postigao izjednačujući gol Real Madrida u sudijskoj nadoknadi finala UEFA Lige šampiona 2014.?' },
     options: [
       { en: 'Gareth Bale', bs: 'Gareth Bale' },
       { en: 'Cristiano Ronaldo', bs: 'Cristiano Ronaldo' },
@@ -1696,7 +1791,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored Chelsea’s late equalizer and then the winning shootout penalty in the 2012 UEFA Champions League final?', bs: 'Ko je postigao kasni izjednačujući gol Chelseaja, a zatim i pobjednički penal u raspucavanju finala UEFA Lige šampiona 2012.?' },
+    prompt: { en: 'Who scored Chelsea’s late equalizer and then the winning shootout penalty in the 2012 UEFA Champions League final?',
+              bs: 'Ko je postigao kasni izjednačujući gol Chelseaja, a zatim i pobjednički penal u raspucavanju finala UEFA Lige šampiona 2012.?' },
     options: [
       { en: 'Frank Lampard', bs: 'Frank Lampard' },
       { en: 'Didier Drogba', bs: 'Didier Drogba' },
@@ -1710,7 +1806,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which substitute scored Barcelona’s winning goal in the 2006 UEFA Champions League final?', bs: 'Koji rezervni igrač je postigao pobjednički gol Barcelone u finalu UEFA Lige šampiona 2006.?' },
+    prompt: { en: 'Which substitute scored Barcelona’s winning goal in the 2006 UEFA Champions League final?',
+              bs: 'Koji rezervni igrač je postigao pobjednički gol Barcelone u finalu UEFA Lige šampiona 2006.?' },
     options: [
       { en: 'Samuel Eto’o', bs: 'Samuel Eto’o' },
       { en: 'Henrik Larsson', bs: 'Henrik Larsson' },
@@ -1724,7 +1821,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored Manchester United’s injury-time winning goal in the 1999 UEFA Champions League final?', bs: 'Ko je postigao pobjednički gol Manchester Uniteda u sudijskoj nadoknadi finala UEFA Lige šampiona 1999.?' },
+    prompt: { en: 'Who scored Manchester United’s injury-time winning goal in the 1999 UEFA Champions League final?',
+              bs: 'Ko je postigao pobjednički gol Manchester Uniteda u sudijskoj nadoknadi finala UEFA Lige šampiona 1999.?' },
     options: [
       { en: 'Teddy Sheringham', bs: 'Teddy Sheringham' },
       { en: 'Dwight Yorke', bs: 'Dwight Yorke' },
