@@ -1752,4 +1752,38 @@ export const moviesMedium: Question[] = [
     ],
     correctIndex: 0,
   },
+  {
+    id: 'movie-med-104',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'medium',
+    prompt: {
+      en: 'Who directed the original Pirates of the Caribbean trilogy?',
+      bs: 'Ko je režirao originalnu trilogiju filmova Pirati s Kariba?',
+    },
+    options: [
+      { en: 'Gore Verbinski', bs: 'Gore Verbinski' },
+      { en: 'Tim Burton', bs: 'Tim Burton' },
+      { en: 'Rob Marshall', bs: 'Rob Marshall' },
+      { en: 'Joe Russo', bs: 'Joe Russo' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'movie-med-105',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'medium',
+    prompt: {
+      en: 'What was Pirates of the Caribbean originally based on?',
+      bs: 'Na čemu je originalno zasnovan film Pirati s Kariba?',
+    },
+    options: [
+      { en: 'A Disneyland theme park ride', bs: 'Atrakcija u Disneylandu' },
+      { en: 'A historical pirate book', bs: 'Historijska knjiga o piratima' },
+      { en: 'A video game', bs: 'Video igra' },
+      { en: 'A TV series', bs: 'TV serija' },
+    ],
+    correctIndex: 0,
+  },
 ];
