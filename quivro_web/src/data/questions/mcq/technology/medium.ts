@@ -2230,4 +2230,55 @@ export const technologyMedium: Question[] = [
     ],
     correctIndex: 0,
   },
+  {
+    id: 'tech-med-142',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'medium',
+    prompt: {
+      en: 'Which actor voices Joel in The Last of Us?',
+      bs: 'Koji glumac daje glas Joelu u igri The Last of Us?',
+    },
+    options: [
+      { en: 'Troy Baker', bs: 'Troy Baker' },
+      { en: 'Nolan North', bs: 'Nolan North' },
+      { en: 'Christopher Judge', bs: 'Christopher Judge' },
+      { en: 'Roger Clark', bs: 'Roger Clark' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-med-143',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'medium',
+    prompt: {
+      en: 'Which actor voices Kratos in God of War (2018) and Ragnarök?',
+      bs: 'Koji glumac daje glas Kratosu u igrama God of War (2018) i Ragnarök?',
+    },
+    options: [
+      { en: 'Christopher Judge', bs: 'Christopher Judge' },
+      { en: 'Troy Baker', bs: 'Troy Baker' },
+      { en: 'Nolan North', bs: 'Nolan North' },
+      { en: 'David Hayter', bs: 'David Hayter' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'tech-med-144',
+    type: 'mcq',
+    category: 'technology',
+    difficulty: 'medium',
+    prompt: {
+      en: 'Which voice actor won Best Performance at The Game Awards for portraying Kratos?',
+      bs: 'Koji je glasovni glumac osvojio nagradu za najbolju izvedbu na The Game Awardsu za ulogu Kratosa?',
+    },
+    options: [
+      { en: 'Christopher Judge', bs: 'Christopher Judge' },
+      { en: 'Troy Baker', bs: 'Troy Baker' },
+      { en: 'Yuri Lowenthal', bs: 'Yuri Lowenthal' },
+      { en: 'Roger Clark', bs: 'Roger Clark' },
+    ],
+    correctIndex: 0,
+  },
 ];
