@@ -194,11 +194,13 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The Statue of Liberty was a gift from which country?',
-              bs: 'Kip slobode je bio poklon koje zemlje?' },
+    prompt: {
+      en: 'Which country gifted the Statue of Liberty to the United States?',
+      bs: 'Koja zemlja je poklonila Kip slobode Sjedinjenim Državama?',
+    },
     options: [
       { en: 'France', bs: 'Francuska' },
-      { en: 'Britain', bs: 'Britanija' },
+      { en: 'United Kingdom', bs: 'Ujedinjeno Kraljevstvo' },
       { en: 'Spain', bs: 'Španija' },
       { en: 'Italy', bs: 'Italija' },
     ],
