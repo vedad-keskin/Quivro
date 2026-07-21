@@ -6,7 +6,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'In which year did the French Revolution begin?', bs: 'Koje godine je počela Francuska revolucija?' },
+    prompt: { en: 'In which year did the French Revolution begin?',
+              bs: 'Koje godine je počela Francuska revolucija?' },
     options: [
       { en: '1776', bs: '1776' },
       { en: '1789', bs: '1789' },
@@ -20,7 +21,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which French figure was executed in Rouen in 1431 after rallying forces during the Hundred Years\' War?', bs: 'Koja francuska ličnost je pogubljena u Rouenu 1431. nakon što je okupila snage tokom Stogodišnjeg rata?' },
+    prompt: { en: 'Which French figure was executed in Rouen in 1431 after rallying forces during the Hundred Years\' War?',
+              bs: 'Koja francuska ličnost je pogubljena u Rouenu 1431. nakon što je okupila snage tokom Stogodišnjeg rata?' },
     options: [
       { en: 'Joan of Arc', bs: 'Ivana Orleanska' },
       { en: 'Eleanor of Aquitaine', bs: 'Eleonora Akvitanijska' },
@@ -34,7 +36,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'At which meadow was the Magna Carta sealed in 1215?', bs: 'Na kojoj livadi je Magna Carta pečatirana 1215.?' },
+    prompt: { en: 'At which meadow was the Magna Carta sealed in 1215?',
+              bs: 'Na kojoj livadi je Magna Carta pečatirana 1215.?' },
     options: [
       { en: 'Runnymede', bs: 'Runnymede' },
       { en: 'Agincourt', bs: 'Agincourt' },
@@ -48,7 +51,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which empire built Machu Picchu?', bs: 'Koje carstvo je sagradilo Machu Picchu?' },
+    prompt: { en: 'Which empire built Machu Picchu?',
+              bs: 'Koje carstvo je sagradilo Machu Picchu?' },
     options: [
       { en: 'Aztec', bs: 'Asteci' },
       { en: 'Maya', bs: 'Maje' },
@@ -62,7 +66,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'In which year did Mehmed II capture Constantinople?', bs: 'Koje godine je Mehmed II zauzeo Konstantinopolj?' },
+    prompt: { en: 'In which year did Mehmed II capture Constantinople?',
+              bs: 'Koje godine je Mehmed II zauzeo Konstantinopolj?' },
     options: [
       { en: '1453', bs: '1453' },
       { en: '1492', bs: '1492' },
@@ -76,7 +81,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which English king was forced to seal the Magna Carta?', bs: 'Koji engleski kralj bio je prisiljen pečatirati Magna Cartu?' },
+    prompt: { en: 'Which English king was forced to seal the Magna Carta?',
+              bs: 'Koji engleski kralj bio je prisiljen pečatirati Magna Cartu?' },
     options: [
       { en: 'King John', bs: 'Kralj John' },
       { en: 'Henry VIII', bs: 'Henrik VIII' },
@@ -90,7 +96,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'In which year was the Battle of Hastings fought?', bs: 'Koje godine je vođena Bitka kod Hastingsa?' },
+    prompt: { en: 'In which year was the Battle of Hastings fought?',
+              bs: 'Koje godine je vođena Bitka kod Hastingsa?' },
     options: [
       { en: '1016', bs: '1016' },
       { en: '1215', bs: '1215' },
@@ -104,7 +111,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Who wrote the political treatise The Prince?', bs: 'Ko je napisao politički spis Vladalac (Il Principe)?' },
+    prompt: { en: 'Who wrote the political treatise The Prince?',
+              bs: 'Ko je napisao politički spis Vladalac (Il Principe)?' },
     options: [
       { en: 'Thomas More', bs: 'Thomas More' },
       { en: 'Niccolò Machiavelli', bs: 'Niccolò Machiavelli' },
@@ -118,10 +126,9 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: {
-      en: 'The Peace of Westphalia in 1648 brought an end to which major European conflict?',
-      bs: 'Vestfalski mir iz 1648. godine okončao je koji veliki evropski sukob?',
-    },
+    prompt: { en: 'The Peace of Westphalia in 1648 brought an end to which major European conflict?',
+
+              bs: 'Vestfalski mir iz 1648. godine okončao je koji veliki evropski sukob?' },
     options: [
       { en: 'The Thirty Years’ War', bs: 'Tridesetogodišnji rat' },
       { en: 'The War of the Spanish Succession', bs: 'Rat za špansko nasljeđe' },
@@ -135,7 +142,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Chinese dynasty built the Forbidden City in Beijing?', bs: 'Koja kineska dinastija je sagradila Zabranjeni grad u Pekingu?' },
+    prompt: { en: 'Which Chinese dynasty built the Forbidden City in Beijing?',
+              bs: 'Koja kineska dinastija je sagradila Zabranjeni grad u Pekingu?' },
     options: [
       { en: 'Tang', bs: 'Tang' },
       { en: 'Song', bs: 'Song' },
@@ -149,10 +157,9 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: {
-      en: 'The Congress of Vienna was held after the defeat of which European leader?',
-      bs: 'Bečki kongres je održan nakon poraza kojeg evropskog vođe?',
-    },
+    prompt: { en: 'The Congress of Vienna was held after the defeat of which European leader?',
+
+              bs: 'Bečki kongres je održan nakon poraza kojeg evropskog vođe?' },
     options: [
       { en: 'Napoleon Bonaparte', bs: 'Napoleona Bonaparte' },
       { en: 'Louis XIV', bs: 'Luja XIV' },
@@ -166,7 +173,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Who was the first emperor of a unified China?', bs: 'Ko je bio prvi car ujedinjene Kine?' },
+    prompt: { en: 'Who was the first emperor of a unified China?',
+              bs: 'Ko je bio prvi car ujedinjene Kine?' },
     options: [
       { en: 'Kublai Khan', bs: 'Kublaj-kan' },
       { en: 'Emperor Wu of Han', bs: 'Car Wu iz dinastije Han' },
@@ -180,10 +188,9 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: {
-      en: 'The Code of Hammurabi was created under which ancient civilization?',
-      bs: 'Hamurabijev zakonik je nastao u okviru koje drevne civilizacije?',
-    },
+    prompt: { en: 'The Code of Hammurabi was created under which ancient civilization?',
+
+              bs: 'Hamurabijev zakonik je nastao u okviru koje drevne civilizacije?' },
     options: [
       { en: 'Babylonian civilization', bs: 'Babilonske civilizacije' },
       { en: 'Hittite civilization', bs: 'Hetitske civilizacije' },
@@ -197,7 +204,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which treaty formally ended World War I for Germany?', bs: 'Koji sporazum je formalno okončao Prvi svjetski rat za Njemačku?' },
+    prompt: { en: 'Which treaty formally ended World War I for Germany?',
+              bs: 'Koji sporazum je formalno okončao Prvi svjetski rat za Njemačku?' },
     options: [
       { en: 'The Treaty of Utrecht', bs: 'Utrechtski mir' },
       { en: 'The Treaty of Versailles', bs: 'Versajski mir' },
@@ -211,7 +219,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Who led the Bolsheviks during the October Revolution of 1917?', bs: 'Ko je vodio boljševike tokom Oktobarske revolucije 1917.?' },
+    prompt: { en: 'Who led the Bolsheviks during the October Revolution of 1917?',
+              bs: 'Ko je vodio boljševike tokom Oktobarske revolucije 1917.?' },
     options: [
       { en: 'Joseph Stalin', bs: 'Josif Staljin' },
       { en: 'Leon Trotsky', bs: 'Lav Trocki' },
@@ -225,7 +234,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'The Meiji Restoration transformed which country’s government?', bs: 'Meiji restauracija je transformisala vladu koje zemlje?' },
+    prompt: { en: 'The Meiji Restoration transformed which country’s government?',
+              bs: 'Meiji restauracija je transformisala vladu koje zemlje?' },
     options: [
       { en: 'China', bs: 'Kina' },
       { en: 'Korea', bs: 'Koreja' },
@@ -239,7 +249,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which battle in 1815 marked Napoleon’s final defeat?', bs: 'Koja bitka 1815. označila je Napoleonov konačni poraz?' },
+    prompt: { en: 'Which battle in 1815 marked Napoleon’s final defeat?',
+              bs: 'Koja bitka 1815. označila je Napoleonov konačni poraz?' },
     options: [
       { en: 'The Battle of Waterloo', bs: 'Bitka kod Waterlooa' },
       { en: 'The Battle of Austerlitz', bs: 'Bitka kod Austerlitza' },
@@ -253,7 +264,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'The Domesday Book was commissioned by which English king?', bs: 'Knjigu Domesday naručio je koji engleski kralj?' },
+    prompt: { en: 'The Domesday Book was commissioned by which English king?',
+              bs: 'Knjigu Domesday naručio je koji engleski kralj?' },
     options: [
       { en: 'Henry II', bs: 'Henrik II' },
       { en: 'William the Conqueror', bs: 'Vilim Osvajač' },
@@ -267,7 +279,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which 1713 treaty ended the War of the Spanish Succession?', bs: 'Koji mir 1713. okončao je Rat za špansko nasljeđe?' },
+    prompt: { en: 'Which 1713 treaty ended the War of the Spanish Succession?',
+              bs: 'Koji mir 1713. okončao je Rat za špansko nasljeđe?' },
     options: [
       { en: 'The Treaty of Utrecht', bs: 'Utrechtski mir' },
       { en: 'The Peace of Westphalia', bs: 'Vestfalski mir' },
@@ -281,7 +294,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which English king won the Battle of Agincourt in 1415?', bs: 'Koji engleski kralj pobijedio je u bitci kod Agincourta 1415.?' },
+    prompt: { en: 'Which English king won the Battle of Agincourt in 1415?',
+              bs: 'Koji engleski kralj pobijedio je u bitci kod Agincourta 1415.?' },
     options: [
       { en: 'Henry V', bs: 'Henrik V' },
       { en: 'Henry VIII', bs: 'Henrik VIII' },
@@ -295,7 +309,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'The Hundred Years’ War was fought mainly between England and…', bs: 'Stogodišnji rat vođen je uglavnom između Engleske i…' },
+    prompt: { en: 'The Hundred Years’ War was fought mainly between England and which country?',
+              bs: 'Stogodišnji rat vođen je uglavnom između Engleske i koje zemlje?' },
     options: [
       { en: 'France', bs: 'Francuske' },
       { en: 'Spain', bs: 'Španije' },
@@ -309,7 +324,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Byzantine emperor codified Roman law in the Corpus Juris Civilis?', bs: 'Koji bizantijski car kodificirao je rimsko pravo u Corpus Juris Civilis?' },
+    prompt: { en: 'Which Byzantine emperor codified Roman law in the Corpus Juris Civilis?',
+              bs: 'Koji bizantijski car kodificirao je rimsko pravo u Corpus Juris Civilis?' },
     options: [
       { en: 'Justinian I', bs: 'Justinijan I' },
       { en: 'Constantine I', bs: 'Konstantin I' },
@@ -323,7 +339,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Carthaginian general crossed the Alps to invade Italy in the Second Punic War?', bs: 'Koji kartaginski general prešao je Alpe da napadne Italiju u Drugom punskom ratu?' },
+    prompt: { en: 'Which Carthaginian general crossed the Alps to invade Italy in the Second Punic War?',
+              bs: 'Koji kartaginski general prešao je Alpe da napadne Italiju u Drugom punskom ratu?' },
     options: [
       { en: 'Hannibal Barca', bs: 'Hanibal Barka' },
       { en: 'Scipio Africanus', bs: 'Scipion Afrički' },
@@ -337,7 +354,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Roman emperor made Christianity legal with the Edict of Milan?', bs: 'Koji rimski car legalizovao je hrišćanstvo Milanskim ediktom?' },
+    prompt: { en: 'Which Roman emperor made Christianity legal with the Edict of Milan?',
+              bs: 'Koji rimski car legalizovao je hrišćanstvo Milanskim ediktom?' },
     options: [
       { en: 'Constantine I', bs: 'Konstantin I' },
       { en: 'Nero', bs: 'Neron' },
@@ -351,7 +369,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which year marks the traditional end of the Western Roman Empire?', bs: 'Koja godina označava tradicionalni kraj Zapadnog Rimskog Carstva?' },
+    prompt: { en: 'Which year marks the traditional end of the Western Roman Empire?',
+              bs: 'Koja godina označava tradicionalni kraj Zapadnog Rimskog Carstva?' },
     options: [
       { en: '476 CE', bs: '476. n. e.' },
       { en: '1453 CE', bs: '1453. n. e.' },
@@ -365,7 +384,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Frankish king was crowned Holy Roman Emperor by Pope Leo III in 800?', bs: 'Koji franački kralj okrunjen je za svetog rimskog cara od pape Lava III 800.?' },
+    prompt: { en: 'Which Frankish king was crowned Holy Roman Emperor by Pope Leo III in 800?',
+              bs: 'Koji franački kralj okrunjen je za svetog rimskog cara od pape Lava III 800.?' },
     options: [
       { en: 'Charlemagne', bs: 'Karlo Veliki' },
       { en: 'Clovis I', bs: 'Klodvig I' },
@@ -379,7 +399,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which treaty divided newly explored lands between Spain and Portugal in 1494?', bs: 'Koji ugovor podijelio je novoistražene zemlje između Španije i Portugala 1494.?' },
+    prompt: { en: 'Which treaty divided newly explored lands between Spain and Portugal in 1494?',
+              bs: 'Koji ugovor podijelio je novoistražene zemlje između Španije i Portugala 1494.?' },
     options: [
       { en: 'The Treaty of Tordesillas', bs: 'Tordesiljaski ugovor' },
       { en: 'The Treaty of Versailles', bs: 'Versajski mir' },
@@ -393,10 +414,9 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Inca emperor was captured by Francisco Pizarro at Cajamarca in 1532?',
-      bs: 'Koji car inka je zarobljen od Francisca Pizarra kod Cajamarce 1532. godine?',
-    },
+    prompt: { en: 'Which Inca emperor was captured by Francisco Pizarro at Cajamarca in 1532?',
+
+              bs: 'Koji car inka je zarobljen od Francisca Pizarra kod Cajamarce 1532. godine?' },
     options: [
       { en: 'Atahualpa', bs: 'Atahualpa' },
       { en: 'Manco Inca Yupanqui', bs: 'Manko Inka Jupanki' },
@@ -410,7 +430,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Aztec ruler was in power when Cortés arrived in Tenochtitlán?', bs: 'Koji asteški vladar bio je na vlasti kad je Cortés stigao u Tenochtitlán?' },
+    prompt: { en: 'Which Aztec ruler was in power when Cortés arrived in Tenochtitlán?',
+              bs: 'Koji asteški vladar bio je na vlasti kad je Cortés stigao u Tenochtitlán?' },
     options: [
       { en: 'Moctezuma II (Montezuma)', bs: 'Moctezuma II (Montezuma)' },
       { en: 'Atahualpa', bs: 'Atahualpa' },
@@ -424,7 +445,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Russian tsar founded St. Petersburg as a “window to Europe”?', bs: 'Koji ruski car osnovao je Sankt Peterburg kao „prozor u Evropu“?' },
+    prompt: { en: 'Which Russian tsar founded St. Petersburg as a “window to Europe”?',
+              bs: 'Koji ruski car osnovao je Sankt Peterburg kao „prozor u Evropu“?' },
     options: [
       { en: 'Peter the Great', bs: 'Petar Veliki' },
       { en: 'Ivan IV', bs: 'Ivan IV' },
@@ -438,7 +460,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Prussian king was a major military leader during the Seven Years’ War?', bs: 'Koji pruski kralj bio je važan vojni vođa tokom Sedmogodišnjeg rata?' },
+    prompt: { en: 'Which Prussian king was a major military leader during the Seven Years’ War?',
+              bs: 'Koji pruski kralj bio je važan vojni vođa tokom Sedmogodišnjeg rata?' },
     options: [
       { en: 'Frederick the Great', bs: 'Fridrih Veliki' },
       { en: 'Otto von Bismarck', bs: 'Otto von Bismarck' },
@@ -452,10 +475,9 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Prussian statesman played the leading role in the unification of Germany in 1871?',
-      bs: 'Koji pruski državnik je imao vodeću ulogu u ujedinjenju Njemačke 1871. godine?',
-    },
+    prompt: { en: 'Which Prussian statesman played the leading role in the unification of Germany in 1871?',
+
+              bs: 'Koji pruski državnik je imao vodeću ulogu u ujedinjenju Njemačke 1871. godine?' },
     options: [
       { en: 'Otto von Bismarck', bs: 'Otto von Bismarck' },
       { en: 'Klemens von Metternich', bs: 'Klemens von Metternich' },
@@ -469,10 +491,9 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Italian statesman played a major role in the diplomatic unification of Italy in the 1800s?',
-      bs: 'Koji italijanski državnik je imao veliku ulogu u diplomatskom ujedinjenju Italije u 1800-im?',
-    },
+    prompt: { en: 'Which Italian statesman played a major role in the diplomatic unification of Italy in the 1800s?',
+
+              bs: 'Koji italijanski državnik je imao veliku ulogu u diplomatskom ujedinjenju Italije u 1800-im?' },
     options: [
       { en: 'Camillo di Cavour', bs: 'Camillo di Cavour' },
       { en: 'Giuseppe Mazzini', bs: 'Giuseppe Mazzini' },
@@ -486,10 +507,9 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Italian military leader commanded the “Redshirts” during the campaign to unite southern Italy?',
-      bs: 'Koji italijanski vojni vođa je komandovao „Crvenim košuljama“ tokom pohoda za ujedinjenje južne Italije?',
-    },
+    prompt: { en: 'Which Italian military leader commanded the “Redshirts” during the campaign to unite southern Italy?',
+
+              bs: 'Koji italijanski vojni vođa je komandovao „Crvenim košuljama“ tokom pohoda za ujedinjenje južne Italije?' },
     options: [
       { en: 'Giuseppe Garibaldi', bs: 'Giuseppe Garibaldi' },
       { en: 'Camillo di Cavour', bs: 'Camillo di Cavour' },
@@ -503,7 +523,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which battle in 1571 was a major naval victory of the Holy League over the Ottomans?', bs: 'Koja bitka 1571. bila je velika pomorska pobjeda Svete lige nad Osmanlijama?' },
+    prompt: { en: 'Which battle in 1571 was a major naval victory of the Holy League over the Ottomans?',
+              bs: 'Koja bitka 1571. bila je velika pomorska pobjeda Svete lige nad Osmanlijama?' },
     options: [
       { en: 'Lepanto', bs: 'Lepanto' },
       { en: 'Trafalgar', bs: 'Trafalgar' },
@@ -517,7 +538,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which siege in 1683 marked a turning point against Ottoman expansion into Central Europe?', bs: 'Koja opsada 1683. označila je prekretnicu protiv osmanskog širenja u Srednju Evropu?' },
+    prompt: { en: 'Which siege in 1683 marked a turning point against Ottoman expansion into Central Europe?',
+              bs: 'Koja opsada 1683. označila je prekretnicu protiv osmanskog širenja u Srednju Evropu?' },
     options: [
       { en: 'The Siege of Vienna', bs: 'Opsada Beča' },
       { en: 'The Siege of Troy', bs: 'Opsada Troje' },
@@ -531,7 +553,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Mughal emperor commissioned the Taj Mahal?', bs: 'Koji mogulski car naručio je Taj Mahal?' },
+    prompt: { en: 'Which Mughal emperor commissioned the Taj Mahal?',
+              bs: 'Koji mogulski car naručio je Taj Mahal?' },
     options: [
       { en: 'Shah Jahan', bs: 'Shah Jahan' },
       { en: 'Akbar', bs: 'Akbar' },
@@ -545,7 +568,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Ming emperor sponsored the early 15th-century treasure voyages?', bs: 'Koji car dinastije Ming je sponzorisao putovanja flota blaga početkom 15. vijeka?' },
+    prompt: { en: 'Which Ming emperor sponsored the early 15th-century treasure voyages?',
+              bs: 'Koji car dinastije Ming je sponzorisao putovanja flota blaga početkom 15. vijeka?' },
     options: [
       { en: 'The Yongle Emperor', bs: 'Car Yongle' },
       { en: 'The Hongwu Emperor', bs: 'Car Hongwu' },
@@ -559,7 +583,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Japanese shogunate ruled from Edo (Tokyo) from 1603 to 1868?', bs: 'Koji japanski šogunat vladao je iz Eda (Tokija) od 1603. do 1868.?' },
+    prompt: { en: 'Which Japanese shogunate ruled from Edo (Tokyo) from 1603 to 1868?',
+              bs: 'Koji japanski šogunat vladao je iz Eda (Tokija) od 1603. do 1868.?' },
     options: [
       { en: 'Tokugawa', bs: 'Tokugawa' },
       { en: 'Ashikaga', bs: 'Ashikaga' },
@@ -573,7 +598,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Korean kingdom invented the Hangul alphabet under King Sejong?', bs: 'Koje korejsko kraljevstvo izumilo je pismo hangul pod kraljem Sejongom?' },
+    prompt: { en: 'Which Korean kingdom invented the Hangul alphabet under King Sejong?',
+              bs: 'Koje korejsko kraljevstvo izumilo je pismo hangul pod kraljem Sejongom?' },
     options: [
       { en: 'Joseon', bs: 'Joseon' },
       { en: 'Goguryeo', bs: 'Goguryeo' },
@@ -587,10 +613,9 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: {
-      en: 'What major reform did Emperor Diocletian introduce in 293 AD?',
-      bs: 'Koju veliku reformu je car Dioklecijan uveo 293. godine?',
-    },
+    prompt: { en: 'What major reform did Emperor Diocletian introduce in 293 AD?',
+
+              bs: 'Koju veliku reformu je car Dioklecijan uveo 293. godine?' },
     options: [
       { en: 'The Tetrarchy, dividing rule among four leaders', bs: 'Tetrarhiju, podjelu vlasti među četiri vladara' },
       { en: 'The Edict of Milan granting religious freedom', bs: 'Milanski edikt kojim je uvedena vjerska sloboda' },
@@ -604,7 +629,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which West African empire preceded Mali and was famous for gold trade?', bs: 'Koje zapadnoafričko carstvo prethodilo je Maliju i bilo poznato po trgovini zlatom?' },
+    prompt: { en: 'Which West African empire preceded Mali and was famous for gold trade?',
+              bs: 'Koje zapadnoafričko carstvo prethodilo je Maliju i bilo poznato po trgovini zlatom?' },
     options: [
       { en: 'Ghana Empire', bs: 'Carstvo Gana' },
       { en: 'Zulu Kingdom', bs: 'Zulu kraljevstvo' },
@@ -618,7 +644,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Songhai ruler expanded the empire from Gao in the late 1400s?', bs: 'Koji songajski vladar proširio je carstvo iz Gaoa krajem 1400-ih?' },
+    prompt: { en: 'Which Songhai ruler expanded the empire from Gao in the late 1400s?',
+              bs: 'Koji songajski vladar proširio je carstvo iz Gaoa krajem 1400-ih?' },
     options: [
       { en: 'Askia Muhammad (Askia the Great)', bs: 'Askia Muhammed (Askia Veliki)' },
       { en: 'Mansa Musa', bs: 'Mansa Musa' },
@@ -632,7 +659,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Mesoamerican civilization built Chichen Itza?', bs: 'Koja mezoamerička civilizacija izgradila je Chichen Itzu?' },
+    prompt: { en: 'Which Mesoamerican civilization built Chichen Itza?',
+              bs: 'Koja mezoamerička civilizacija izgradila je Chichen Itzu?' },
     options: [
       { en: 'The Maya', bs: 'Maje' },
       { en: 'The Inca', bs: 'Inke' },
@@ -646,7 +674,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Andean people built the road network later used by the Inca?', bs: 'Koji andski narod izgradio je mrežu puteva koju su kasnije koristile Inke?' },
+    prompt: { en: 'Which Andean people built the road network later used by the Inca?',
+              bs: 'Koji andski narod izgradio je mrežu puteva koju su kasnije koristile Inke?' },
     options: [
       { en: 'The Wari (Huari) among others', bs: 'Wari (Huari) među ostalima' },
       { en: 'The Aztecs', bs: 'Asteci' },
@@ -660,7 +689,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Viking leader is traditionally credited with reaching North America around 1000 CE?', bs: 'Koji vikinški vođa tradicionalno se smatra da je stigao do Sjeverne Amerike oko 1000. n. e.?' },
+    prompt: { en: 'Which Viking leader is traditionally credited with reaching North America around 1000 CE?',
+              bs: 'Koji vikinški vođa tradicionalno se smatra da je stigao do Sjeverne Amerike oko 1000. n. e.?' },
     options: [
       { en: 'Leif Erikson', bs: 'Leif Erikson' },
       { en: 'Erik the Red', bs: 'Erik Crveni' },
@@ -674,7 +704,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Norse settlement site in Newfoundland confirms Viking presence in North America?', bs: 'Koje nordijsko naselje na Newfoundlandu potvrđuje vikinško prisustvo u Sjevernoj Americi?' },
+    prompt: { en: 'Which Norse settlement site in Newfoundland confirms Viking presence in North America?',
+              bs: 'Koje nordijsko naselje na Newfoundlandu potvrđuje vikinško prisustvo u Sjevernoj Americi?' },
     options: [
       { en: 'L’Anse aux Meadows', bs: 'L’Anse aux Meadows' },
       { en: 'Jamestown', bs: 'Jamestown' },
@@ -688,7 +719,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which English king was killed at the Battle of Bosworth Field in 1485?', bs: 'Koji engleski kralj poginuo je u bitci kod Bosworth Fielda 1485.?' },
+    prompt: { en: 'Which English king was killed at the Battle of Bosworth Field in 1485?',
+              bs: 'Koji engleski kralj poginuo je u bitci kod Bosworth Fielda 1485.?' },
     options: [
       { en: 'Richard III', bs: 'Richard III' },
       { en: 'Henry V', bs: 'Henrik V' },
@@ -702,7 +734,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which of Henry VIII’s wives was the mother of Elizabeth I?', bs: 'Koja od žena Henrika VIII bila je majka Elizabete I?' },
+    prompt: { en: 'Which of Henry VIII’s wives was the mother of Elizabeth I?',
+              bs: 'Koja od žena Henrika VIII bila je majka Elizabete I?' },
     options: [
       { en: 'Anne Boleyn', bs: 'Anne Boleyn' },
       { en: 'Catherine of Aragon', bs: 'Catherine of Aragon' },
@@ -716,7 +749,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Spanish king launched the Armada against England in 1588?', bs: 'Koji španski kralj poslao je Armadu protiv Engleske 1588.?' },
+    prompt: { en: 'Which Spanish king launched the Armada against England in 1588?',
+              bs: 'Koji španski kralj poslao je Armadu protiv Engleske 1588.?' },
     options: [
       { en: 'Philip II', bs: 'Filip II' },
       { en: 'Charles V', bs: 'Karlo V' },
@@ -730,7 +764,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'The Eighty Years’ War began when provinces in which region rebelled against Spanish Habsburg rule in 1568?', bs: 'Osamdesetogodišnji rat počeo je kada su pokrajine u kojoj regiji digle ustanak protiv španske Habzburške vlasti 1568.?' },
+    prompt: { en: 'The Eighty Years’ War began when provinces in which region rebelled against Spanish Habsburg rule in 1568?',
+              bs: 'Osamdesetogodišnji rat počeo je kada su pokrajine u kojoj regiji digle ustanak protiv španske Habzburške vlasti 1568.?' },
     options: [
       { en: 'The Low Countries', bs: 'Nizozemske zemlje' },
       { en: 'Ireland', bs: 'Irska' },
@@ -744,10 +779,9 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which Swedish king became famous as a Protestant military leader during the Thirty Years’ War?',
-      bs: 'Koji švedski kralj postao je poznat kao protestantski vojni vođa tokom Tridesetogodišnjeg rata?',
-    },
+    prompt: { en: 'Which Swedish king became famous as a Protestant military leader during the Thirty Years’ War?',
+
+              bs: 'Koji švedski kralj postao je poznat kao protestantski vojni vođa tokom Tridesetogodišnjeg rata?' },
     options: [
       { en: 'Gustavus Adolphus', bs: 'Gustav Adolf' },
       { en: 'Charles XII', bs: 'Karlo XII' },
@@ -761,7 +795,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which French finance minister under Louis XIV promoted mercantilism?', bs: 'Koji francuski ministar finansija pod Louisom XIV promovirao je merkantilizam?' },
+    prompt: { en: 'Which French finance minister under Louis XIV promoted mercantilism?',
+              bs: 'Koji francuski ministar finansija pod Louisom XIV promovirao je merkantilizam?' },
     options: [
       { en: 'Jean-Baptiste Colbert', bs: 'Jean-Baptiste Colbert' },
       { en: 'Robespierre', bs: 'Robespierre' },
@@ -775,7 +810,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which palace became the main residence of Louis XIV?', bs: 'Koji dvorac postao je glavna rezidencija Louisa XIV?' },
+    prompt: { en: 'Which palace became the main residence of Louis XIV?',
+              bs: 'Koji dvorac postao je glavna rezidencija Louisa XIV?' },
     options: [
       { en: 'Versailles', bs: 'Versailles' },
       { en: 'The Louvre', bs: 'Louvre' },
@@ -789,7 +825,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Russian empress expanded the empire and corresponded with Enlightenment thinkers?', bs: 'Koja ruska carica proširila je carstvo i dopisivala se s prosvjetiteljskim misliocima?' },
+    prompt: { en: 'Which Russian empress expanded the empire and corresponded with Enlightenment thinkers?',
+              bs: 'Koja ruska carica proširila je carstvo i dopisivala se s prosvjetiteljskim misliocima?' },
     options: [
       { en: 'Catherine the Great', bs: 'Katarina Velika' },
       { en: 'Elizabeth I of England', bs: 'Elizabeta I Engleska' },
@@ -803,7 +840,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Austrian diplomat dominated the Congress of Vienna?', bs: 'Koji austrijski diplomat dominirao je Bečkim kongresom?' },
+    prompt: { en: 'Which Austrian diplomat dominated the Congress of Vienna?',
+              bs: 'Koji austrijski diplomat dominirao je Bečkim kongresom?' },
     options: [
       { en: 'Klemens von Metternich', bs: 'Klemens von Metternich' },
       { en: 'Otto von Bismarck', bs: 'Otto von Bismarck' },
@@ -817,7 +855,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which year saw a wave of liberal revolutions across Europe known as the Springtime of Nations?', bs: 'Koja godina vidjela je talas liberalnih revolucija širom Evrope poznat kao Proljeće naroda?' },
+    prompt: { en: 'Which year saw a wave of liberal revolutions across Europe known as the Springtime of Nations?',
+              bs: 'Koja godina vidjela je talas liberalnih revolucija širom Evrope poznat kao Proljeće naroda?' },
     options: [
       { en: '1848', bs: '1848' },
       { en: '1789', bs: '1789' },
@@ -831,7 +870,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which war (1853–56) pitted Russia against Britain, France, and the Ottomans?', bs: 'Koji rat (1853–56) sukobio je Rusiju s Britanijom, Francuskom i Osmanlijama?' },
+    prompt: { en: 'Which war (1853–56) pitted Russia against Britain, France, and the Ottomans?',
+              bs: 'Koji rat (1853–56) sukobio je Rusiju s Britanijom, Francuskom i Osmanlijama?' },
     options: [
       { en: 'The Crimean War', bs: 'Krimski rat' },
       { en: 'The Russo-Japanese War', bs: 'Rusko-japanski rat' },
@@ -845,7 +885,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which nurse became famous for reforming military hospitals during the Crimean War?', bs: 'Koja medicinska sestra postala je poznata po reformi vojnih bolnica tokom Krimskog rata?' },
+    prompt: { en: 'Which nurse became famous for reforming military hospitals during the Crimean War?',
+              bs: 'Koja medicinska sestra postala je poznata po reformi vojnih bolnica tokom Krimskog rata?' },
     options: [
       { en: 'Florence Nightingale', bs: 'Florence Nightingale' },
       { en: 'Clara Barton', bs: 'Clara Barton' },
@@ -859,7 +900,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which 1904–05 war shocked Europe when an Asian power defeated Russia?', bs: 'Koji rat 1904–05. šokirao je Evropu kad je azijska sila porazila Rusiju?' },
+    prompt: { en: 'Which 1904–05 war shocked Europe when an Asian power defeated Russia?',
+              bs: 'Koji rat 1904–05. šokirao je Evropu kad je azijska sila porazila Rusiju?' },
     options: [
       { en: 'The Russo-Japanese War', bs: 'Rusko-japanski rat' },
       { en: 'The Opium Wars', bs: 'Opijumski ratovi' },
@@ -873,7 +915,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which secret Serbian nationalist group was linked to the assassination in Sarajevo?', bs: 'Koja tajna srpska nacionalistička grupa povezana je s atentatom u Sarajevu?' },
+    prompt: { en: 'Which secret Serbian nationalist group was linked to the assassination in Sarajevo?',
+              bs: 'Koja tajna srpska nacionalistička grupa povezana je s atentatom u Sarajevu?' },
     options: [
       { en: 'The Black Hand', bs: 'Crna ruka' },
       { en: 'The Carbonari', bs: 'Karbonari' },
@@ -887,10 +930,9 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which 1916 World War I battle became a symbol of attrition warfare due to massive casualties on the Western Front?',
-      bs: 'Koja bitka iz Prvog svjetskog rata 1916. godine postala je simbol rovovskog rata iscrpljivanja zbog ogromnih gubitaka na Zapadnom frontu?',
-    },
+    prompt: { en: 'Which 1916 World War I battle became a symbol of attrition warfare due to massive casualties on the Western Front?',
+
+              bs: 'Koja bitka iz Prvog svjetskog rata 1916. godine postala je simbol rovovskog rata iscrpljivanja zbog ogromnih gubitaka na Zapadnom frontu?' },
     options: [
       { en: 'The Battle of the Somme', bs: 'Bitka na Sommi' },
       { en: 'The Battle of Midway', bs: 'Bitka kod Midwaya' },
@@ -904,10 +946,9 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which treaty officially ended Russia’s involvement in World War I in 1918?',
-      bs: 'Koji sporazum je zvanično okončao učešće Rusije u Prvom svjetskom ratu 1918. godine?',
-    },
+    prompt: { en: 'Which treaty officially ended Russia’s involvement in World War I in 1918?',
+
+              bs: 'Koji sporazum je zvanično okončao učešće Rusije u Prvom svjetskom ratu 1918. godine?' },
     options: [
       { en: 'Treaty of Brest-Litovsk', bs: 'Brest-Litovski sporazum' },
       { en: 'Treaty of Versailles', bs: 'Versajski sporazum' },
@@ -921,7 +962,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which U.S. president proposed the Fourteen Points after World War I?', bs: 'Koji američki predsjednik predložio je Četrnaest tačaka nakon Prvog svjetskog rata?' },
+    prompt: { en: 'Which U.S. president proposed the Fourteen Points after World War I?',
+              bs: 'Koji američki predsjednik predložio je Četrnaest tačaka nakon Prvog svjetskog rata?' },
     options: [
       { en: 'Woodrow Wilson', bs: 'Woodrow Wilson' },
       { en: 'Franklin D. Roosevelt', bs: 'Franklin D. Roosevelt' },
@@ -935,7 +977,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which 1919 treaty redrew Hungary’s borders after World War I?', bs: 'Koji mir 1919. prekrojio je granice Mađarske nakon Prvog svjetskog rata?' },
+    prompt: { en: 'Which 1919 treaty redrew Hungary’s borders after World War I?',
+              bs: 'Koji mir 1919. prekrojio je granice Mađarske nakon Prvog svjetskog rata?' },
     options: [
       { en: 'The Treaty of Trianon', bs: 'Trijanski mir' },
       { en: 'The Treaty of Versailles', bs: 'Versajski mir' },
@@ -949,7 +992,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Chinese uprising against foreigners in 1900 is called the Boxer Rebellion?', bs: 'Koji kineski ustanak protiv stranaca 1900. naziva se Bokserški ustanak?' },
+    prompt: { en: 'Which Chinese uprising against foreigners in 1900 is called the Boxer Rebellion?',
+              bs: 'Koji kineski ustanak protiv stranaca 1900. naziva se Bokserški ustanak?' },
     options: [
       { en: 'The Boxer Rebellion', bs: 'Bokserški ustanak' },
       { en: 'The Taiping Rebellion', bs: 'Taipinški ustanak' },
@@ -963,7 +1007,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Indian rebellion against British rule began in 1857?', bs: 'Koja indijska pobuna protiv britanske vladavine počela je 1857.?' },
+    prompt: { en: 'Which Indian rebellion against British rule began in 1857?',
+              bs: 'Koja indijska pobuna protiv britanske vladavine počela je 1857.?' },
     options: [
       { en: 'The Sepoy Mutiny / Indian Rebellion of 1857', bs: 'Sepojska pobuna / Indijska pobuna 1857.' },
       { en: 'The Salt March', bs: 'Marš soli' },
@@ -977,7 +1022,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which 19th-century Ottoman reform program modernized law, administration, and the military along European lines?', bs: 'Koji osmanski reformski program 19. vijeka modernizovao je pravo, upravu i vojsku po evropskom uzoru?' },
+    prompt: { en: 'Which 19th-century Ottoman reform program modernized law, administration, and the military along European lines?',
+              bs: 'Koji osmanski reformski program 19. vijeka modernizovao je pravo, upravu i vojsku po evropskom uzoru?' },
     options: [
       { en: 'The Tanzimat', bs: 'Tanzimat' },
       { en: 'The Islahat reforms', bs: 'Islahatske reforme' },
@@ -991,7 +1037,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which 1908 revolt in the Ottoman Empire forced Sultan Abdulhamid II to restore the suspended constitution?', bs: 'Koja pobuna 1908. u Osmanskom Carstvu prisilila je sultana Abdulhamida II da obnovi suspendovani ustav?' },
+    prompt: { en: 'Which 1908 revolt in the Ottoman Empire forced Sultan Abdulhamid II to restore the suspended constitution?',
+              bs: 'Koja pobuna 1908. u Osmanskom Carstvu prisilila je sultana Abdulhamida II da obnovi suspendovani ustav?' },
     options: [
       { en: 'The Young Turk Revolution', bs: 'Revolucija Mladih Turaka' },
       { en: 'The 31 March Incident', bs: 'Incident 31. mart' },
@@ -1005,7 +1052,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which 1938 agreement allowed Nazi Germany to annex the Sudetenland?', bs: 'Koji sporazum 1938. omogućio je nacističkoj Njemačkoj aneksiju Sudeta?' },
+    prompt: { en: 'Which 1938 agreement allowed Nazi Germany to annex the Sudetenland?',
+              bs: 'Koji sporazum 1938. omogućio je nacističkoj Njemačkoj aneksiju Sudeta?' },
     options: [
       { en: 'The Munich Agreement', bs: 'Minhenski sporazum' },
       { en: 'The Molotov–Ribbentrop Pact', bs: 'Molotov–Ribbentrop pakt' },
@@ -1019,7 +1067,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which 1939 non-aggression pact secretly divided Eastern Europe between Germany and the USSR?', bs: 'Koji pakt o nenapadanju 1939. tajno podijelio je Istočnu Evropu između Njemačke i SSSR-a?' },
+    prompt: { en: 'Which 1939 non-aggression pact secretly divided Eastern Europe between Germany and the USSR?',
+              bs: 'Koji pakt o nenapadanju 1939. tajno podijelio je Istočnu Evropu između Njemačke i SSSR-a?' },
     options: [
       { en: 'The Molotov–Ribbentrop Pact', bs: 'Molotov–Ribbentrop pakt' },
       { en: 'The Munich Agreement', bs: 'Minhenski sporazum' },
@@ -1033,7 +1082,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which 1942–43 battle is often seen as the turning point on the Eastern Front?', bs: 'Koja bitka 1942–43. često se smatra prekretnicom na Istočnom frontu?' },
+    prompt: { en: 'Which 1942–43 battle is often seen as the turning point on the Eastern Front?',
+              bs: 'Koja bitka 1942–43. često se smatra prekretnicom na Istočnom frontu?' },
     options: [
       { en: 'Stalingrad', bs: 'Staljingrad' },
       { en: 'El Alamein in Africa', bs: 'El Alamein' },
@@ -1047,7 +1097,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Pacific battle in 1942 halted Japanese expansion toward Australia?', bs: 'Koja pacifička bitka 1942. zaustavila je japansko širenje prema Australiji?' },
+    prompt: { en: 'Which Pacific battle in 1942 halted Japanese expansion toward Australia?',
+              bs: 'Koja pacifička bitka 1942. zaustavila je japansko širenje prema Australiji?' },
     options: [
       { en: 'Midway', bs: 'Midway' },
       { en: 'Stalingrad', bs: 'Staljingrad' },
@@ -1061,7 +1112,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which 1943 conference of Allied leaders was held in Iran?', bs: 'Koja konferencija savezničkih vođa 1943. održana je u Iranu?' },
+    prompt: { en: 'Which 1943 conference of Allied leaders was held in Iran?',
+              bs: 'Koja konferencija savezničkih vođa 1943. održana je u Iranu?' },
     options: [
       { en: 'Tehran', bs: 'Teheran' },
       { en: 'Yalta', bs: 'Jalta' },
@@ -1075,7 +1127,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which 1945 conference decided much of the postwar order in Europe?', bs: 'Koja konferencija 1945. odredila je velik dio poslijeratnog poretka u Evropi?' },
+    prompt: { en: 'Which 1945 conference decided much of the postwar order in Europe?',
+              bs: 'Koja konferencija 1945. odredila je velik dio poslijeratnog poretka u Evropi?' },
     options: [
       { en: 'Yalta', bs: 'Jalta' },
       { en: 'Congress of Vienna', bs: 'Bečki kongres' },
@@ -1089,7 +1142,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which U.S. doctrine pledged aid to countries resisting communism in 1947?', bs: 'Koja američka doktrina 1947. obećala je pomoć zemljama koje se opiru komunizmu?' },
+    prompt: { en: 'Which U.S. doctrine pledged aid to countries resisting communism in 1947?',
+              bs: 'Koja američka doktrina 1947. obećala je pomoć zemljama koje se opiru komunizmu?' },
     options: [
       { en: 'The Truman Doctrine', bs: 'Trumanova doktrina' },
       { en: 'The Monroe Doctrine', bs: 'Monroova doktrina' },
@@ -1103,7 +1157,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which U.S. diplomat authored the 1947 “X Article” advocating containment of Soviet expansion?', bs: 'Koji američki diplomata napisao je „X članak“ 1947. zagovarajući suzbijanje sovjetskog širenja?' },
+    prompt: { en: 'Which U.S. diplomat authored the 1947 “X Article” advocating containment of Soviet expansion?',
+              bs: 'Koji američki diplomata napisao je „X članak“ 1947. zagovarajući suzbijanje sovjetskog širenja?' },
     options: [
       { en: 'George Kennan', bs: 'George Kennan' },
       { en: 'George Marshall', bs: 'George Marshall' },
@@ -1117,7 +1172,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which military alliance was formed in 1949 as a Western collective defense pact?', bs: 'Koji vojni savez osnovan je 1949. kao zapadni pakt kolektivne odbrane?' },
+    prompt: { en: 'Which military alliance was formed in 1949 as a Western collective defense pact?',
+              bs: 'Koji vojni savez osnovan je 1949. kao zapadni pakt kolektivne odbrane?' },
     options: [
       { en: 'NATO', bs: 'NATO' },
       { en: 'The Warsaw Pact', bs: 'Varšavski pakt' },
@@ -1131,7 +1187,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Soviet-led alliance answered NATO in 1955?', bs: 'Koji sovjetski savez odgovorio je na NATO 1955.?' },
+    prompt: { en: 'Which Soviet-led alliance answered NATO in 1955?',
+              bs: 'Koji sovjetski savez odgovorio je na NATO 1955.?' },
     options: [
       { en: 'The Warsaw Pact', bs: 'Varšavski pakt' },
       { en: 'COMECON', bs: 'SEV' },
@@ -1145,7 +1202,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which 1956 uprising against Soviet control was crushed in Eastern Europe?', bs: 'Koji ustanak 1956. protiv sovjetske kontrole ugušen je u Istočnoj Evropi?' },
+    prompt: { en: 'Which 1956 uprising against Soviet control was crushed in Eastern Europe?',
+              bs: 'Koji ustanak 1956. protiv sovjetske kontrole ugušen je u Istočnoj Evropi?' },
     options: [
       { en: 'The Hungarian Revolution', bs: 'Mađarska revolucija' },
       { en: 'The Prague Spring', bs: 'Praško proljeće' },
@@ -1159,7 +1217,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which 1968 reform movement in Czechoslovakia was ended by Warsaw Pact invasion?', bs: 'Koji reformski pokret 1968. u Čehoslovačkoj okončan je invazijom Varšavskog pakta?' },
+    prompt: { en: 'Which 1968 reform movement in Czechoslovakia was ended by Warsaw Pact invasion?',
+              bs: 'Koji reformski pokret 1968. u Čehoslovačkoj okončan je invazijom Varšavskog pakta?' },
     options: [
       { en: 'The Prague Spring', bs: 'Praško proljeće' },
       { en: 'The Hungarian Revolution of 1956', bs: 'Mađarska revolucija 1956.' },
@@ -1173,7 +1232,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Polish trade union movement challenged communist rule in the 1980s?', bs: 'Koji poljski sindikalni pokret izazvao je komunističku vlast 1980-ih?' },
+    prompt: { en: 'Which Polish trade union movement challenged communist rule in the 1980s?',
+              bs: 'Koji poljski sindikalni pokret izazvao je komunističku vlast 1980-ih?' },
     options: [
       { en: 'Solidarity (Solidarność)', bs: 'Solidarnost (Solidarność)' },
       { en: 'The Chartists', bs: 'Čartisti' },
@@ -1187,10 +1247,9 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: {
-      en: 'Enzo Ferrari founded the company that became famous for producing which type of vehicles?',
-      bs: 'Enzo Ferrari je osnovao kompaniju koja je postala poznata po proizvodnji kojih vozila?',
-    },
+    prompt: { en: 'Enzo Ferrari founded the company that became famous for producing which type of vehicles?',
+
+              bs: 'Enzo Ferrari je osnovao kompaniju koja je postala poznata po proizvodnji kojih vozila?' },
     options: [
       { en: 'High-performance sports cars', bs: 'Sportskih automobila visokih performansi' },
       { en: 'Commercial airplanes', bs: 'Komercijalnih aviona' },
@@ -1204,10 +1263,9 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: {
-      en: 'The Boston Tea Party of 1773 was a protest against which colonial policy?',
-      bs: 'Bostonska čajanka iz 1773. godine bila je protest protiv koje kolonijalne politike?',
-    },
+    prompt: { en: 'The Boston Tea Party of 1773 was a protest against which colonial policy?',
+
+              bs: 'Bostonska čajanka iz 1773. godine bila je protest protiv koje kolonijalne politike?' },
     options: [
       { en: 'British taxation without colonial representation', bs: 'Britanskog oporezivanja bez predstavnika kolonija' },
       { en: 'French control of North American territories', bs: 'Francuske kontrole teritorija Sjeverne Amerike' },
@@ -1221,7 +1279,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which 1955 conference of newly independent nations was held in Indonesia?', bs: 'Koja konferencija novooslobođenih nacija 1955. održana je u Indoneziji?' },
+    prompt: { en: 'Which 1955 conference of newly independent nations was held in Indonesia?',
+              bs: 'Koja konferencija novooslobođenih nacija 1955. održana je u Indoneziji?' },
     options: [
       { en: 'The Bandung Conference', bs: 'Bandunška konferencija' },
       { en: 'The Yalta Conference', bs: 'Jaltinska konferencija' },
@@ -1235,7 +1294,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Egyptian leader nationalized the Suez Canal in 1956?', bs: 'Koji egipatski vođa nacionalizovao je Suecki kanal 1956.?' },
+    prompt: { en: 'Which Egyptian leader nationalized the Suez Canal in 1956?',
+              bs: 'Koji egipatski vođa nacionalizovao je Suecki kanal 1956.?' },
     options: [
       { en: 'Gamal Abdel Nasser', bs: 'Gamal Abdel Nasser' },
       { en: 'Anwar Sadat', bs: 'Anwar Sadat' },
@@ -1249,7 +1309,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which North African country gained independence from France after an eight-year war that ended in 1962?', bs: 'Koja sjevernoafrička zemlja je stekla nezavisnost od Francuske nakon osmogodišnjeg rata koji je završen 1962.?' },
+    prompt: { en: 'Which North African country gained independence from France after an eight-year war that ended in 1962?',
+              bs: 'Koja sjevernoafrička zemlja je stekla nezavisnost od Francuske nakon osmogodišnjeg rata koji je završen 1962.?' },
     options: [
       { en: 'Algeria', bs: 'Alžir' },
       { en: 'Morocco', bs: 'Maroko' },
@@ -1263,7 +1324,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which South African system of racial segregation was dismantled in the early 1990s?', bs: 'Koji južnoafrički sistem rasne segregacije ukinut je početkom 1990-ih?' },
+    prompt: { en: 'Which South African system of racial segregation was dismantled in the early 1990s?',
+              bs: 'Koji južnoafrički sistem rasne segregacije ukinut je početkom 1990-ih?' },
     options: [
       { en: 'Apartheid', bs: 'Apartheid' },
       { en: 'Jim Crow', bs: 'Jim Crow' },
@@ -1277,10 +1339,9 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which ancient civilization created the first known written legal code?',
-      bs: 'Koja drevna civilizacija je stvorila prvi poznati pisani zakonik?',
-    },
+    prompt: { en: 'Which ancient civilization created the first known written legal code?',
+
+              bs: 'Koja drevna civilizacija je stvorila prvi poznati pisani zakonik?' },
     options: [
       { en: 'Babylonians', bs: 'Babilonci' },
       { en: 'Romans', bs: 'Rimljani' },
@@ -1294,7 +1355,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which English civil war battle of 1645 was a decisive Parliamentarian victory?', bs: 'Koja bitka engleskog građanskog rata 1645. bila je odlučujuća pobjeda parlamentarca?' },
+    prompt: { en: 'Which English civil war battle of 1645 was a decisive Parliamentarian victory?',
+              bs: 'Koja bitka engleskog građanskog rata 1645. bila je odlučujuća pobjeda parlamentarca?' },
     options: [
       { en: 'Naseby', bs: 'Naseby' },
       { en: 'Hastings', bs: 'Hastings' },
@@ -1308,7 +1370,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Greek historian is often called the “Father of History”?', bs: 'Koji grčki historičar često se naziva „ocem historije“?' },
+    prompt: { en: 'Which Greek historian is often called the “Father of History”?',
+              bs: 'Koji grčki historičar često se naziva „ocem historije“?' },
     options: [
       { en: 'Herodotus', bs: 'Herodot' },
       { en: 'Thucydides', bs: 'Tukidid' },
@@ -1322,7 +1385,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Athenian statesman led the city during its Golden Age and the start of the Peloponnesian War?', bs: 'Koji atinski državnik vodio je grad tokom zlatnog doba i početka Peloponeskog rata?' },
+    prompt: { en: 'Which Athenian statesman led the city during its Golden Age and the start of the Peloponnesian War?',
+              bs: 'Koji atinski državnik vodio je grad tokom zlatnog doba i početka Peloponeskog rata?' },
     options: [
       { en: 'Pericles', bs: 'Perikle' },
       { en: 'Alexander the Great', bs: 'Aleksandar Veliki' },
@@ -1336,7 +1400,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which battle in 480 BCE saw a small Greek force delay the Persians at a mountain pass?', bs: 'Koja bitka 480. p. n. e. vidjela je malu grčku silu kako zadržava Perzijance na planinskom prolazu?' },
+    prompt: { en: 'Which battle in 480 BCE saw a small Greek force delay the Persians at a mountain pass?',
+              bs: 'Koja bitka 480. p. n. e. vidjela je malu grčku silu kako zadržava Perzijance na planinskom prolazu?' },
     options: [
       { en: 'Thermopylae', bs: 'Termopile' },
       { en: 'Marathon', bs: 'Maraton' },
@@ -1350,7 +1415,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which naval battle in 480 BCE helped save Greece from Persian invasion?', bs: 'Koja pomorska bitka 480. p. n. e. pomogla je spasiti Grčku od perzijske invazije?' },
+    prompt: { en: 'Which naval battle in 480 BCE helped save Greece from Persian invasion?',
+              bs: 'Koja pomorska bitka 480. p. n. e. pomogla je spasiti Grčku od perzijske invazije?' },
     options: [
       { en: 'Salamis', bs: 'Salamina' },
       { en: 'Actium', bs: 'Akcij' },
@@ -1364,7 +1430,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Roman civil war victor became the first emperor as Augustus?', bs: 'Koji pobjednik rimskog građanskog rata postao je prvi car kao August?' },
+    prompt: { en: 'Which Roman civil war victor became the first emperor as Augustus?',
+              bs: 'Koji pobjednik rimskog građanskog rata postao je prvi car kao August?' },
     options: [
       { en: 'Octavian (Octavius)', bs: 'Oktavijan (Oktavije)' },
       { en: 'Mark Antony', bs: 'Marko Antonije' },
@@ -1378,7 +1445,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which 31 BCE naval battle secured Octavian’s path to sole power?', bs: 'Koja pomorska bitka 31. p. n. e. osigurala je Oktavijanu put do jedinovlasti?' },
+    prompt: { en: 'Which 31 BCE naval battle secured Octavian’s path to sole power?',
+              bs: 'Koja pomorska bitka 31. p. n. e. osigurala je Oktavijanu put do jedinovlasti?' },
     options: [
       { en: 'Actium', bs: 'Akcij' },
       { en: 'Salamis', bs: 'Salamina' },
@@ -1392,7 +1460,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which medieval Islamic caliphate’s capital was Baghdad during its golden age?', bs: 'Koja srednjovjekovna islamska kalifatska prijestolnica bila je Bagdad tokom zlatnog doba?' },
+    prompt: { en: 'Which medieval Islamic caliphate’s capital was Baghdad during its golden age?',
+              bs: 'Koja srednjovjekovna islamska kalifatska prijestolnica bila je Bagdad tokom zlatnog doba?' },
     options: [
       { en: 'The Abbasid Caliphate', bs: 'Abasidski kalifat' },
       { en: 'The Umayyad Caliphate', bs: 'Omejidski kalifat' },
@@ -1406,7 +1475,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Mongol khan founded the Yuan dynasty in China?', bs: 'Koji mongolski kan osnovao je dinastiju Yuan u Kini?' },
+    prompt: { en: 'Which Mongol khan founded the Yuan dynasty in China?',
+              bs: 'Koji mongolski kan osnovao je dinastiju Yuan u Kini?' },
     options: [
       { en: 'Kublai Khan', bs: 'Kublaj-kan' },
       { en: 'Genghis Khan', bs: 'Džingis-kan' },
@@ -1420,7 +1490,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which 1214 English battle helped lead to Magna Carta the next year?', bs: 'Koja engleska bitka 1214. pomogla je dovesti do Magna Carte sljedeće godine?' },
+    prompt: { en: 'Which 1214 English battle helped lead to Magna Carta the next year?',
+              bs: 'Koja engleska bitka 1214. pomogla je dovesti do Magna Carte sljedeće godine?' },
     options: [
       { en: 'Bouvines (French victory over John’s allies)', bs: 'Bouvines (francuska pobjeda nad Johnovim saveznicima)' },
       { en: 'Hastings', bs: 'Hastings' },
@@ -1434,7 +1505,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Scottish victory in 1314 secured Robert the Bruce’s position against England?', bs: 'Koja škotska pobjeda 1314. osigurala je položaj Roberta Brucea protiv Engleske?' },
+    prompt: { en: 'Which Scottish victory in 1314 secured Robert the Bruce’s position against England?',
+              bs: 'Koja škotska pobjeda 1314. osigurala je položaj Roberta Brucea protiv Engleske?' },
     options: [
       { en: 'Bannockburn', bs: 'Bannockburn' },
       { en: 'Culloden', bs: 'Culloden' },

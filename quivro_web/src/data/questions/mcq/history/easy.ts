@@ -6,7 +6,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who was the first President of the United States?', bs: 'Ko je bio prvi predsjednik Sjedinjenih Američkih Država?' },
+    prompt: { en: 'Who was the first President of the United States?',
+              bs: 'Ko je bio prvi predsjednik Sjedinjenih Američkih Država?' },
     options: [
       { en: 'Abraham Lincoln', bs: 'Abraham Lincoln' },
       { en: 'George Washington', bs: 'George Washington' },
@@ -20,7 +21,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The pyramids of Giza are in which country?', bs: 'Piramide u Gizi su u kojoj zemlji?' },
+    prompt: { en: 'The pyramids of Giza are in which country?',
+              bs: 'Piramide u Gizi su u kojoj zemlji?' },
     options: [
       { en: 'Mexico', bs: 'Meksiko' },
       { en: 'Egypt', bs: 'Egipat' },
@@ -34,7 +36,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'In which city is the Colosseum?', bs: 'U kojem gradu je Koloseum?' },
+    prompt: { en: 'In which city is the Colosseum?',
+              bs: 'U kojem gradu je Koloseum?' },
     options: [
       { en: 'Athens', bs: 'Atina' },
       { en: 'Rome', bs: 'Rim' },
@@ -48,10 +51,9 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: {
-      en: 'In which year did World War II end?',
-      bs: 'Koje godine je završen Drugi svjetski rat?',
-    },
+    prompt: { en: 'In which year did World War II end?',
+
+              bs: 'Koje godine je završen Drugi svjetski rat?' },
     options: [
       { en: '1943', bs: '1943.' },
       { en: '1945', bs: '1945.' },
@@ -65,7 +67,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The Titanic sank in which year?', bs: 'Titanic je potonuo koje godine?' },
+    prompt: { en: 'The Titanic sank in which year?',
+              bs: 'Titanic je potonuo koje godine?' },
     options: [
       { en: '1905', bs: '1905' },
       { en: '1912', bs: '1912' },
@@ -79,7 +82,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The Great Wall is located in which country?', bs: 'Veliki zid se nalazi u kojoj zemlji?' },
+    prompt: { en: 'The Great Wall is located in which country?',
+              bs: 'Veliki zid se nalazi u kojoj zemlji?' },
     options: [
       { en: 'China', bs: 'Kina' },
       { en: 'Japan', bs: 'Japan' },
@@ -93,7 +97,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who is credited with inventing the telephone?', bs: 'Ko se smatra izumiteljem telefona?' },
+    prompt: { en: 'Who is credited with inventing the telephone?',
+              bs: 'Ko se smatra izumiteljem telefona?' },
     options: [
       { en: 'Thomas Edison', bs: 'Thomas Edison' },
       { en: 'Nikola Tesla', bs: 'Nikola Tesla' },
@@ -107,7 +112,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Napoleon Bonaparte was emperor of which country?', bs: 'Napoleon Bonaparte je bio car koje zemlje?' },
+    prompt: { en: 'Napoleon Bonaparte was emperor of which country?',
+              bs: 'Napoleon Bonaparte je bio car koje zemlje?' },
     options: [
       { en: 'France', bs: 'Francuske' },
       { en: 'Belgium', bs: 'Belgije' },
@@ -121,7 +127,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'In feudal Japan, which warriors traditionally served feudal lords?', bs: 'U feudalnom Japanu, koji ratnici su tradicionalno služili feudalne gospodare?' },
+    prompt: { en: 'In feudal Japan, which warriors traditionally served feudal lords?',
+              bs: 'U feudalnom Japanu, koji ratnici su tradicionalno služili feudalne gospodare?' },
     options: [
       { en: 'Samurai', bs: 'Samuraji' },
       { en: 'Ronins', bs: 'Ronini' },
@@ -135,7 +142,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who sailed across the Atlantic in 1492?', bs: 'Ko je preplovio Atlantik 1492. godine?' },
+    prompt: { en: 'Who sailed across the Atlantic in 1492?',
+              bs: 'Ko je preplovio Atlantik 1492. godine?' },
     options: [
       { en: 'Marco Polo', bs: 'Marco Polo' },
       { en: 'Vasco da Gama', bs: 'Vasco da Gama' },
@@ -149,7 +157,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Albert Einstein is best known for which theory?', bs: 'Albert Einstein je najpoznatiji po kojoj teoriji?' },
+    prompt: { en: 'Albert Einstein is best known for which theory?',
+              bs: 'Albert Einstein je najpoznatiji po kojoj teoriji?' },
     options: [
       { en: 'Evolution', bs: 'Evolucija' },
       { en: 'Gravity', bs: 'Gravitacija' },
@@ -163,7 +172,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who led India toward independence using nonviolent protest?', bs: 'Ko je vodio Indiju ka nezavisnosti koristeći nenasilni protest?' },
+    prompt: { en: 'Who led India toward independence using nonviolent protest?',
+              bs: 'Ko je vodio Indiju ka nezavisnosti koristeći nenasilni protest?' },
     options: [
       { en: 'Nelson Mandela', bs: 'Nelson Mandela' },
       { en: 'Mahatma Gandhi', bs: 'Mahatma Gandhi' },
@@ -177,7 +187,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The Statue of Liberty was a gift from which country?', bs: 'Kip slobode je bio poklon koje zemlje?' },
+    prompt: { en: 'The Statue of Liberty was a gift from which country?',
+              bs: 'Kip slobode je bio poklon koje zemlje?' },
     options: [
       { en: 'France', bs: 'Francuska' },
       { en: 'Britain', bs: 'Britanija' },
@@ -191,7 +202,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Which ancient wonder stood in Babylon?', bs: 'Koje drevno čudo je stajalo u Babilonu?' },
+    prompt: { en: 'Which ancient wonder stood in Babylon?',
+              bs: 'Koje drevno čudo je stajalo u Babilonu?' },
     options: [
       { en: 'The Colossus', bs: 'Kolos' },
       { en: 'The Hanging Gardens', bs: 'Viseći vrtovi' },
@@ -205,7 +217,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who was the British prime minister during most of World War II?', bs: 'Ko je bio britanski premijer tokom većeg dijela Drugog svjetskog rata?' },
+    prompt: { en: 'Who was the British prime minister during most of World War II?',
+              bs: 'Ko je bio britanski premijer tokom većeg dijela Drugog svjetskog rata?' },
     options: [
       { en: 'Neville Chamberlain', bs: 'Neville Chamberlain' },
       { en: 'Margaret Thatcher', bs: 'Margaret Thatcher' },
@@ -219,7 +232,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The ancient city of Pompeii was buried by which volcano?', bs: 'Drevni grad Pompeji je zatrpan kojim vulkanom?' },
+    prompt: { en: 'The ancient city of Pompeii was buried by which volcano?',
+              bs: 'Drevni grad Pompeji je zatrpan kojim vulkanom?' },
     options: [
       { en: 'Etna', bs: 'Etna' },
       { en: 'Stromboli', bs: 'Stromboli' },
@@ -233,7 +247,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Which ocean did the Mayflower cross in 1620?', bs: 'Koji okean je Mayflower preplovio 1620. godine?' },
+    prompt: { en: 'Which ocean did the Mayflower cross in 1620?',
+              bs: 'Koji okean je Mayflower preplovio 1620. godine?' },
     options: [
       { en: 'The Atlantic Ocean', bs: 'Atlantski okean' },
       { en: 'The Pacific Ocean', bs: 'Tihi okean' },
@@ -247,10 +262,9 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: {
-      en: 'Martin Luther King Jr. is best known for leading which movement?',
-      bs: 'Martin Luther King Jr. je najpoznatiji po vođenju kojeg pokreta?',
-    },
+    prompt: { en: 'Martin Luther King Jr. is best known for leading which movement?',
+
+              bs: 'Martin Luther King Jr. je najpoznatiji po vođenju kojeg pokreta?' },
     options: [
       { en: 'The American civil rights movement', bs: 'Američkog pokreta za građanska prava' },
       { en: 'The women’s suffrage movement', bs: 'Pokreta za pravo glasa žena' },
@@ -264,10 +278,9 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: {
-      en: 'Which empire built the famous road system that connected much of Europe, North Africa, and the Middle East?',
-      bs: 'Koje carstvo je izgradilo poznati sistem puteva koji je povezivao veliki dio Evrope, Sjeverne Afrike i Bliskog istoka?',
-    },
+    prompt: { en: 'Which empire built the famous road system that connected much of Europe, North Africa, and the Middle East?',
+
+              bs: 'Koje carstvo je izgradilo poznati sistem puteva koji je povezivao veliki dio Evrope, Sjeverne Afrike i Bliskog istoka?' },
     options: [
       { en: 'Roman Empire', bs: 'Rimsko Carstvo' },
       { en: 'Mongol Empire', bs: 'Mongolsko Carstvo' },
@@ -281,7 +294,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Which famous African desert did caravans cross for centuries of trade?', bs: 'Koju poznatu afričku pustinju su karavane stoljećima prelazile zbog trgovine?' },
+    prompt: { en: 'Which famous African desert did caravans cross for centuries of trade?',
+              bs: 'Koju poznatu afričku pustinju su karavane stoljećima prelazile zbog trgovine?' },
     options: [
       { en: 'The Sahara', bs: 'Sahara' },
       { en: 'The Gobi', bs: 'Gobi' },
@@ -295,10 +309,9 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: {
-      en: 'Julius Caesar was a leader of which ancient civilization?',
-      bs: 'Julije Cezar je bio vođa koje drevne civilizacije?',
-    },
+    prompt: { en: 'Julius Caesar was a leader of which ancient civilization?',
+
+              bs: 'Julije Cezar je bio vođa koje drevne civilizacije?' },
     options: [
       { en: 'Ancient Rome', bs: 'Drevni Rim' },
       { en: 'Ancient Greece', bs: 'Drevna Grčka' },
@@ -312,7 +325,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who was the first man to walk on the Moon?', bs: 'Ko je bio prvi čovjek koji je hodao po Mjesecu?' },
+    prompt: { en: 'Who was the first man to walk on the Moon?',
+              bs: 'Ko je bio prvi čovjek koji je hodao po Mjesecu?' },
     options: [
       { en: 'Yuri Gagarin', bs: 'Jurij Gagarin' },
       { en: 'Neil Armstrong', bs: 'Neil Armstrong' },
@@ -326,7 +340,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The Eiffel Tower is in which city?', bs: 'Ajfelov toranj je u kojem gradu?' },
+    prompt: { en: 'The Eiffel Tower is in which city?',
+              bs: 'Ajfelov toranj je u kojem gradu?' },
     options: [
       { en: 'London', bs: 'Londonu' },
       { en: 'Berlin', bs: 'Berlinu' },
@@ -340,10 +355,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { 
-      en: 'Who wrote many famous plays, including Romeo and Juliet?', 
-      bs: 'Ko je napisao mnoge poznate drame, uključujući Romea i Juliju?' 
-    },
+    prompt: { en: 'Who wrote many famous plays, including Romeo and Juliet?',
+              bs: 'Ko je napisao mnoge poznate drame, uključujući Romea i Juliju?' },
     options: [
       { en: 'William Shakespeare', bs: 'William Shakespeare' },
       { en: 'Christopher Marlowe', bs: 'Christopher Marlowe' },
@@ -357,10 +370,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { 
-      en: 'Abraham Lincoln was president during which American war?', 
-      bs: 'Abraham Lincoln je bio predsjednik tokom kojeg američkog rata?' 
-    },
+    prompt: { en: 'Abraham Lincoln was president during which American war?',
+              bs: 'Abraham Lincoln je bio predsjednik tokom kojeg američkog rata?' },
     options: [
       { en: 'The American Civil War', bs: 'Američkog građanskog rata' },
       { en: 'The Mexican-American War', bs: 'Meksičko-američkog rata' },
@@ -374,7 +385,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Mount Rushmore shows the faces of how many U.S. presidents?', bs: 'Mount Rushmore prikazuje lica koliko američkih predsjednika?' },
+    prompt: { en: 'Mount Rushmore shows the faces of how many U.S. presidents?',
+              bs: 'Mount Rushmore prikazuje lica koliko američkih predsjednika?' },
     options: [
       { en: '4', bs: '4' },
       { en: '2', bs: '2' },
@@ -388,10 +400,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { 
-      en: 'Who discovered penicillin?', 
-      bs: 'Ko je otkrio penicilin?' 
-    },
+    prompt: { en: 'Who discovered penicillin?',
+              bs: 'Ko je otkrio penicilin?' },
     options: [
       { en: 'Alexander Fleming', bs: 'Alexander Fleming' },
       { en: 'Louis Pasteur', bs: 'Louis Pasteur' },
@@ -405,7 +415,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The Taj Mahal is located in which country?', bs: 'Tadž Mahal se nalazi u kojoj zemlji?' },
+    prompt: { en: 'The Taj Mahal is located in which country?',
+              bs: 'Tadž Mahal se nalazi u kojoj zemlji?' },
     options: [
       { en: 'India', bs: 'Indija' },
       { en: 'Pakistan', bs: 'Pakistan' },
@@ -419,7 +430,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Which Italian bell tower began tilting during its construction in the 12th century?', bs: 'Koji italijanski zvonik je počeo da se naginje tokom gradnje u 12. vijeku?' },
+    prompt: { en: 'Which Italian bell tower began tilting during its construction in the 12th century?',
+              bs: 'Koji italijanski zvonik je počeo da se naginje tokom gradnje u 12. vijeku?' },
     options: [
       { en: 'Tower of Pisa', bs: 'Toranj u Pisi' },
       { en: "Giotto's Campanile", bs: 'Giottoov zvonik' },
@@ -433,7 +445,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'World War I began in which year?', bs: 'Prvi svjetski rat je počeo u kojoj godini?' },
+    prompt: { en: 'World War I began in which year?',
+              bs: 'Prvi svjetski rat je počeo u kojoj godini?' },
     options: [
       { en: '1914', bs: '1914' },
       { en: '1917', bs: '1917' },
@@ -447,7 +460,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who painted the ceiling of the Sistine Chapel?', bs: 'Ko je naslikao plafon Sikstinske kapele?' },
+    prompt: { en: 'Who painted the ceiling of the Sistine Chapel?',
+              bs: 'Ko je naslikao plafon Sikstinske kapele?' },
     options: [
       { en: 'Michelangelo', bs: 'Mikelanđelo' },
       { en: 'Da Vinci', bs: 'Da Vinči' },
@@ -461,7 +475,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The ancient Egyptians wrote using which system of symbols?', bs: 'Drevni Egipćani su pisali koristeći koji sistem simbola?' },
+    prompt: { en: 'The ancient Egyptians wrote using which system of symbols?',
+              bs: 'Drevni Egipćani su pisali koristeći koji sistem simbola?' },
     options: [
       { en: 'Hieroglyphs', bs: 'Hijeroglifi' },
       { en: 'Rune alphabet', bs: 'Rune' },
@@ -475,7 +490,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'From which country did Magellan’s expedition set sail in 1519?', bs: 'Iz koje zemlje je Magellanova ekspedicija otplovila 1519. godine?' },
+    prompt: { en: 'From which country did Magellan’s expedition set sail in 1519?',
+              bs: 'Iz koje zemlje je Magellanova ekspedicija otplovila 1519. godine?' },
     options: [
       { en: 'Spain', bs: 'Španije' },
       { en: 'Portugal', bs: 'Portugala' },
@@ -489,7 +505,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who invented the light bulb?', bs: 'Ko je izumio sijalicu?' },
+    prompt: { en: 'Who is most commonly credited with inventing the practical incandescent light bulb?',
+              bs: 'Kome se najčešće pripisuje izum praktične žarulje?' },
     options: [
       { en: 'Thomas Edison', bs: 'Thomas Edison' },
       { en: 'Henry Ford', bs: 'Henry Ford' },
@@ -503,7 +520,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The Wright brothers are famous for inventing the first successful…', bs: 'Braća Wright poznata su po izumu prvog uspješnog…' },
+    prompt: { en: 'Which invention are the Wright brothers famous for?',
+              bs: 'Po kojem izumu su braća Wright poznata?' },
     options: [
       { en: 'Airplane', bs: 'Aviona' },
       { en: 'Telephone', bs: 'Telefona' },
@@ -517,7 +535,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Angkor Wat is a famous temple complex in which country?', bs: 'Angkor Vat je poznati hramski kompleks u kojoj zemlji?' },
+    prompt: { en: 'Angkor Wat is a famous temple complex in which country?',
+              bs: 'Angkor Vat je poznati hramski kompleks u kojoj zemlji?' },
     options: [
       { en: 'Cambodia', bs: 'Kambodža' },
       { en: 'Thailand', bs: 'Tajland' },
@@ -531,7 +550,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who was the first person in space?', bs: 'Ko je bio prva osoba u svemiru?' },
+    prompt: { en: 'Who was the first person in space?',
+              bs: 'Ko je bio prva osoba u svemiru?' },
     options: [
       { en: 'Yuri Gagarin', bs: 'Jurij Gagarin' },
       { en: 'Neil Armstrong', bs: 'Neil Armstrong' },
@@ -545,7 +565,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The Declaration of Independence was signed in which country?', bs: 'Deklaracija o nezavisnosti potpisana je u kojoj zemlji?' },
+    prompt: { en: 'The Declaration of Independence was signed in which country?',
+              bs: 'Deklaracija o nezavisnosti potpisana je u kojoj zemlji?' },
     options: [
       { en: 'The United States', bs: 'Sjedinjene Američke Države' },
       { en: 'France', bs: 'Francuska' },
@@ -559,7 +580,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Vincent van Gogh painted which famous painting?', bs: 'Vincent van Gogh je naslikao koju poznatu sliku?' },
+    prompt: { en: 'Vincent van Gogh painted which famous painting?',
+              bs: 'Vincent van Gogh je naslikao koju poznatu sliku?' },
     options: [
       { en: 'The Starry Night', bs: 'Zvjezdana noć' },
       { en: 'The Mona Lisa', bs: 'Mona Lisa' },
@@ -573,7 +595,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Which famous ship carried Pilgrims to North America in 1620?', bs: 'Koji poznati brod je 1620. prevezao hodočasnike u Sjevernu Ameriku?' },
+    prompt: { en: 'Which famous ship carried Pilgrims to North America in 1620?',
+              bs: 'Koji poznati brod je 1620. prevezao hodočasnike u Sjevernu Ameriku?' },
     options: [
       { en: 'The Mayflower', bs: 'Mayflower' },
       { en: 'The Titanic', bs: 'Titanic' },
@@ -587,7 +610,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Adolf Hitler was the dictator of which country during World War II?', bs: 'Adolf Hitler je bio diktator koje zemlje tokom Drugog svjetskog rata?' },
+    prompt: { en: 'Adolf Hitler was the dictator of which country during World War II?',
+              bs: 'Adolf Hitler je bio diktator koje zemlje tokom Drugog svjetskog rata?' },
     options: [
       { en: 'Germany', bs: 'Njemačke' },
       { en: 'Italy', bs: 'Italije' },
@@ -601,7 +625,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The ancient city of Athens is in which modern country?', bs: 'Drevni grad Atina je u kojoj modernoj zemlji?' },
+    prompt: { en: 'The ancient city of Athens is in which modern country?',
+              bs: 'Drevni grad Atina je u kojoj modernoj zemlji?' },
     options: [
       { en: 'Greece', bs: 'Grčka' },
       { en: 'Italy', bs: 'Italija' },
@@ -615,7 +640,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Hannibal is famous for crossing the Alps with which animals to attack Rome?', bs: 'Hanibal je poznat po prelasku Alpa s kojim životinjama da napadne Rim?' },
+    prompt: { en: 'Hannibal is famous for crossing the Alps with which animals to attack Rome?',
+              bs: 'Hanibal je poznat po prelasku Alpa s kojim životinjama da napadne Rim?' },
     options: [
       { en: 'Elephants', bs: 'Slonovima' },
       { en: 'Camels', bs: 'Kamile' },
@@ -629,7 +655,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Marie Curie is famous for her research on…', bs: 'Marie Curie je poznata po istraživanjima…' },
+    prompt: { en: 'What did Marie Curie’s research focus on?',
+              bs: 'Na čemu je Marie Curie fokusirala svoja istraživanja?' },
     options: [
       { en: 'Radioactivity', bs: 'Radioaktivnosti' },
       { en: 'Steam engines', bs: 'Parnih mašina' },
@@ -643,7 +670,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The Big Ben clock tower is in which city?', bs: 'Satni toranj Big Ben je u kojem gradu?' },
+    prompt: { en: 'The Big Ben clock tower is in which city?',
+              bs: 'Satni toranj Big Ben je u kojem gradu?' },
     options: [
       { en: 'London', bs: 'London' },
       { en: 'Paris', bs: 'Pariz' },
@@ -657,7 +685,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who was the first Black president of the United States?', bs: 'Ko je bio prvi crni predsjednik Sjedinjenih Američkih Država?' },
+    prompt: { en: 'Who was the first Black president of the United States?',
+              bs: 'Ko je bio prvi crni predsjednik Sjedinjenih Američkih Država?' },
     options: [
       { en: 'Barack Obama', bs: 'Barack Obama' },
       { en: 'Abraham Lincoln', bs: 'Abraham Lincoln' },
@@ -671,10 +700,9 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: {
-      en: 'The Vikings originated mainly from which region of Europe?',
-      bs: 'Vikinzi su uglavnom poticali iz koje regije Evrope?',
-    },
+    prompt: { en: 'The Vikings originated mainly from which region of Europe?',
+
+              bs: 'Vikinzi su uglavnom poticali iz koje regije Evrope?' },
     options: [
       { en: 'Scandinavia', bs: 'Skandinavije' },
       { en: 'The Iberian Peninsula', bs: 'Pirinejskog poluostrva' },
@@ -688,7 +716,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'In ancient Rome, fighters who battled in arenas for public entertainment were called…', bs: 'U drevnom Rimu, borci koji su se tukli u arenama za javnu zabavu nazivali su se…' },
+    prompt: { en: 'In ancient Rome, what were fighters in public arena battles called?',
+              bs: 'Kako su se u drevnom Rimu nazivali borci u javnim borbama u arenama?' },
     options: [
       { en: 'Gladiators', bs: 'Gladijatori' },
       { en: 'Samurai', bs: 'Samuraji' },
@@ -702,7 +731,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Isaac Newton is famous for discovering the laws of…', bs: 'Isaac Newton je poznat po otkriću zakona…' },
+    prompt: { en: 'Isaac Newton is famous for discovering the laws of what?',
+              bs: 'Isaac Newton je poznat po otkriću zakona čega?' },
     options: [
       { en: 'Motion and gravity', bs: 'Kretanja i gravitacije' },
       { en: 'Electricity', bs: 'Elektriciteta' },
@@ -716,7 +746,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Which country launched the first artificial satellite, Sputnik?', bs: 'Koja zemlja je lansirala prvi vještački satelit, Sputnik?' },
+    prompt: { en: 'Which country launched the first artificial satellite, Sputnik?',
+              bs: 'Koja zemlja je lansirala prvi vještački satelit, Sputnik?' },
     options: [
       { en: 'The Soviet Union', bs: 'Sovjetski Savez' },
       { en: 'Brazil', bs: 'Brazil' },
@@ -730,7 +761,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who was the famous queen of England during the Spanish Armada?', bs: 'Koja je bila poznata kraljica Engleske u vrijeme španske Armade?' },
+    prompt: { en: 'Who was the famous queen of England during the Spanish Armada?',
+              bs: 'Koja je bila poznata kraljica Engleske u vrijeme španske Armade?' },
     options: [
       { en: 'Elizabeth I', bs: 'Elizabeta I' },
       { en: 'Victoria', bs: 'Viktorija' },
@@ -744,7 +776,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Stonehenge is an ancient stone circle in which country?', bs: 'Stonehenge je drevni kameni krug u kojoj zemlji?' },
+    prompt: { en: 'Stonehenge is an ancient stone circle in which country?',
+              bs: 'Stonehenge je drevni kameni krug u kojoj zemlji?' },
     options: [
       { en: 'England', bs: 'Engleska' },
       { en: 'Egypt', bs: 'Egipat' },
@@ -758,7 +791,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Alexander the Great was a famous conqueror from which kingdom?', bs: 'Aleksandar Veliki je bio poznati osvajač iz kojeg kraljevstva?' },
+    prompt: { en: 'Alexander the Great was a famous conqueror from which kingdom?',
+              bs: 'Aleksandar Veliki je bio poznati osvajač iz kojeg kraljevstva?' },
     options: [
       { en: 'Macedonia', bs: 'Makedonije' },
       { en: 'China', bs: 'Kine' },
@@ -772,7 +806,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The Bastille prison was stormed at the start of...', bs: 'Zatvor Bastille napadnut je na početku...' },
+    prompt: { en: 'The storming of the Bastille marked the start of which revolution?',
+              bs: 'Osvajanje zatvora Bastille označilo je početak koje revolucije?' },
     options: [
       { en: 'The French Revolution', bs: 'Francuske revolucije' },
       { en: 'The American Civil War', bs: 'Američkog građanskog rata' },
@@ -786,7 +821,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Marco Polo is famous for traveling to which Asian country?', bs: 'Marco Polo je poznat po putovanju u koju azijsku zemlju?' },
+    prompt: { en: 'Marco Polo is famous for traveling to which Asian country?',
+              bs: 'Marco Polo je poznat po putovanju u koju azijsku zemlju?' },
     options: [
       { en: 'China', bs: 'Kina' },
       { en: 'India', bs: 'Indija' },
@@ -800,7 +836,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The Great Fire of London happened in which century?', bs: 'Veliki požar Londona dogodio se u kojem vijeku?' },
+    prompt: { en: 'The Great Fire of London happened in which century?',
+              bs: 'Veliki požar Londona dogodio se u kojem vijeku?' },
     options: [
       { en: '17th century', bs: '17. vijek' },
       { en: '10th century', bs: '10. vijek' },
@@ -814,7 +851,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'In ancient Egyptian mythology, which figure was associated with the sun?', bs: 'U drevnoegipatskoj mitologiji, koja figura je bila povezana sa Suncem?' },
+    prompt: { en: 'In ancient Egyptian mythology, which figure was associated with the sun?',
+              bs: 'U drevnoegipatskoj mitologiji, koja figura je bila povezana sa Suncem?' },
     options: [
       { en: 'Ra', bs: 'Ra' },
       { en: 'Anubis', bs: 'Anubis' },
@@ -828,7 +866,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'In ancient Egyptian mythology, which figure is associated with mummification and the afterlife?', bs: 'U drevnoegipatskoj mitologiji, koja figura je bila povezana sa mumifikacijom i životom poslije smrti?' },
+    prompt: { en: 'In ancient Egyptian mythology, which figure is associated with mummification and the afterlife?',
+              bs: 'U drevnoegipatskoj mitologiji, koja figura je bila povezana sa mumifikacijom i životom poslije smrti?' },
     options: [
       { en: 'Anubis', bs: 'Anubis' },
       { en: 'Ra', bs: 'Ra' },
@@ -842,7 +881,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who was the famous nurse known as “the Lady with the Lamp”?', bs: 'Koja je bila poznata medicinska sestra poznata kao „Dama s lampom“?' },
+    prompt: { en: 'Who was the famous nurse known as “the Lady with the Lamp”?',
+              bs: 'Koja je bila poznata medicinska sestra poznata kao „Dama s lampom“?' },
     options: [
       { en: 'Florence Nightingale', bs: 'Florence Nightingale' },
       { en: 'Marie Curie', bs: 'Marie Curie' },
@@ -856,7 +896,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The ancient Romans spoke which language?', bs: 'Drevni Rimljani su govorili koji jezik?' },
+    prompt: { en: 'The ancient Romans spoke which language?',
+              bs: 'Drevni Rimljani su govorili koji jezik?' },
     options: [
       { en: 'Latin', bs: 'Latinski' },
       { en: 'Greek', bs: 'Grčki' },
@@ -870,7 +911,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Pearl Harbor was attacked in which year, bringing the U.S. into World War II?', bs: 'Pearl Harbor je napadnut koje godine, uvodeći SAD u Drugi svjetski rat?' },
+    prompt: { en: 'Pearl Harbor was attacked in which year, bringing the U.S. into World War II?',
+              bs: 'Pearl Harbor je napadnut koje godine, uvodeći SAD u Drugi svjetski rat?' },
     options: [
       { en: '1941', bs: '1941' },
       { en: '1914', bs: '1914' },
@@ -884,10 +926,9 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: {
-      en: 'Which Egyptian pharaoh became famous after the discovery of his nearly intact tomb in 1922?',
-      bs: 'Koji egipatski faraon je postao poznat nakon otkrića gotovo netaknute grobnice 1922. godine?',
-    },
+    prompt: { en: 'Which Egyptian pharaoh became famous after the discovery of his nearly intact tomb in 1922?',
+
+              bs: 'Koji egipatski faraon je postao poznat nakon otkrića gotovo netaknute grobnice 1922. godine?' },
     options: [
       { en: 'Tutankhamun', bs: 'Tutankamon' },
       { en: 'Ramses II', bs: 'Ramzes II' },
@@ -901,7 +942,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The Renaissance is best known as a rebirth of art and learning in…', bs: 'Renesansa je najpoznatija kao preporod umjetnosti i učenja u…' },
+    prompt: { en: 'The Renaissance is best known as a rebirth of art and learning in which region?',
+              bs: 'Renesansa je najpoznatija kao preporod umjetnosti i učenja u kojoj regiji?' },
     options: [
       { en: 'Europe', bs: 'Evropi' },
       { en: 'Australia', bs: 'Australiji' },
@@ -915,7 +957,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who was the first emperor of Rome?', bs: 'Ko je bio prvi car Rima?' },
+    prompt: { en: 'Who was the first emperor of Rome?',
+              bs: 'Ko je bio prvi car Rima?' },
     options: [
       { en: 'Augustus', bs: 'August' },
       { en: 'Nero', bs: 'Neron' },
@@ -929,7 +972,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The Berlin Wall fell in which decade?', bs: 'Berlinski zid je pao u kojoj deceniji?' },
+    prompt: { en: 'The Berlin Wall fell in which decade?',
+              bs: 'Berlinski zid je pao u kojoj deceniji?' },
     options: [
       { en: '1980s', bs: '1980-e' },
       { en: '1950s', bs: '1950-e' },
@@ -943,7 +987,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'In ancient Egyptian mythology, which figure ruled the underworld?', bs: 'U drevnoegipatskoj mitologiji, koja figura je vladala podzemljem?' },
+    prompt: { en: 'In ancient Egyptian mythology, which figure ruled the underworld?',
+              bs: 'U drevnoegipatskoj mitologiji, koja figura je vladala podzemljem?' },
     options: [
       { en: 'Osiris', bs: 'Oziris' },
       { en: 'Horus', bs: 'Horus' },
@@ -957,7 +1002,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'In a legend, a giant wooden horse was used to enter which ancient city?', bs: 'Po legendi, veliki drveni konj korišten je da se uđe u koji drevni grad?' },
+    prompt: { en: 'In a legend, a giant wooden horse was used to enter which ancient city?',
+              bs: 'Po legendi, veliki drveni konj korišten je da se uđe u koji drevni grad?' },
     options: [
       { en: 'Troy', bs: 'Troja' },
       { en: 'Athens', bs: 'Atina' },
@@ -971,7 +1017,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who was the famous queen of France who said (according to legend) “Let them eat cake”?', bs: 'Koja je bila poznata kraljica Francuske za koju legenda kaže „Neka jedu kolače“?' },
+    prompt: { en: 'Who was the famous queen of France who said (according to legend) “Let them eat cake”?',
+              bs: 'Koja je bila poznata kraljica Francuske za koju legenda kaže „Neka jedu kolače“?' },
     options: [
       { en: 'Marie Antoinette', bs: 'Marija Antoaneta' },
       { en: 'Cleopatra', bs: 'Kleopatra' },
@@ -985,7 +1032,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Which ancient ruler is famous for one of the earliest known written law codes?', bs: 'Koji drevni vladar je poznat po jednom od najranijih poznatih pisanih zakonika?' },
+    prompt: { en: 'Which ancient ruler is famous for one of the earliest known written law codes?',
+              bs: 'Koji drevni vladar je poznat po jednom od najranijih poznatih pisanih zakonika?' },
     options: [
       { en: 'Hammurabi', bs: 'Hamurabi' },
       { en: 'Julius Caesar', bs: 'Julije Cezar' },
@@ -999,7 +1047,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who led the Soviet Union during much of World War II?', bs: 'Ko je vodio Sovjetski Savez tokom većeg dijela Drugog svjetskog rata?' },
+    prompt: { en: 'Who led the Soviet Union during much of World War II?',
+              bs: 'Ko je vodio Sovjetski Savez tokom većeg dijela Drugog svjetskog rata?' },
     options: [
       { en: 'Joseph Stalin', bs: 'Josif Staljin' },
       { en: 'Vladimir Putin', bs: 'Vladimir Putin' },
@@ -1013,7 +1062,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The ancient Maya civilization lived mainly in which region?', bs: 'Drevna majanska civilizacija živjela je uglavnom u kojoj regiji?' },
+    prompt: { en: 'The ancient Maya civilization lived mainly in which region?',
+              bs: 'Drevna majanska civilizacija živjela je uglavnom u kojoj regiji?' },
     options: [
       { en: 'Central America/Mexico', bs: 'Srednja Amerika/Meksiko' },
       { en: 'Australia', bs: 'Australija' },
@@ -1027,7 +1077,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who was the famous admiral who won the Battle of Trafalgar?', bs: 'Ko je bio poznati admiral koji je pobijedio u bitci kod Trafalgara?' },
+    prompt: { en: 'Who was the famous admiral who won the Battle of Trafalgar?',
+              bs: 'Ko je bio poznati admiral koji je pobijedio u bitci kod Trafalgara?' },
     options: [
       { en: 'Horatio Nelson', bs: 'Horatio Nelson' },
       { en: 'Napoleon Bonaparte', bs: 'Napoleon Bonaparte' },
@@ -1041,7 +1092,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Steam engines helped power factories during which major historical change?', bs: 'Parne mašine pomogle su pokretati fabrike tokom koje velike historijske promjene?' },
+    prompt: { en: 'Steam engines helped power factories during which major historical change?',
+              bs: 'Parne mašine pomogle su pokretati fabrike tokom koje velike historijske promjene?' },
     options: [
       { en: 'The Industrial Revolution', bs: 'Industrijske revolucije' },
       { en: 'The Stone Age', bs: 'Kamenog doba' },
@@ -1055,7 +1107,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who was the famous Chinese teacher and philosopher known for sayings about respect and learning?', bs: 'Ko je bio poznati kineski učitelj i filozof poznat po izrekama o poštovanju i učenju?' },
+    prompt: { en: 'Who was the famous Chinese teacher and philosopher known for sayings about respect and learning?',
+              bs: 'Ko je bio poznati kineski učitelj i filozof poznat po izrekama o poštovanju i učenju?' },
     options: [
       { en: 'Confucius', bs: 'Konfucije' },
       { en: 'Socrates', bs: 'Sokrat' },
@@ -1069,7 +1122,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The Acropolis and Parthenon are famous landmarks in which city?', bs: 'Akropolj i Partenon su poznati spomenici u kojem gradu?' },
+    prompt: { en: 'The Acropolis and Parthenon are famous landmarks in which city?',
+              bs: 'Akropolj i Partenon su poznati spomenici u kojem gradu?' },
     options: [
       { en: 'Athens', bs: 'Atina' },
       { en: 'Rome', bs: 'Rim' },
@@ -1083,7 +1137,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who was the U.S. president during most of World War II?', bs: 'Ko je bio predsjednik SAD tokom većeg dijela Drugog svjetskog rata?' },
+    prompt: { en: 'Who was the U.S. president during most of World War II?',
+              bs: 'Ko je bio predsjednik SAD tokom većeg dijela Drugog svjetskog rata?' },
     options: [
       { en: 'Franklin D. Roosevelt', bs: 'Franklin D. Roosevelt' },
       { en: 'Abraham Lincoln', bs: 'Abraham Lincoln' },
@@ -1097,7 +1152,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Which famous Italian city is known for its canals and gondolas?', bs: 'Koji poznati italijanski grad poznat je po kanalima i gondolama?' },
+    prompt: { en: 'Which famous Italian city is known for its canals and gondolas?',
+              bs: 'Koji poznati italijanski grad poznat je po kanalima i gondolama?' },
     options: [
       { en: 'Venice', bs: 'Venecija' },
       { en: 'Madrid', bs: 'Madrid' },
@@ -1111,7 +1167,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who wrote the Declaration of Independence (main author)?', bs: 'Ko je napisao Deklaraciju o nezavisnosti (glavni autor)?' },
+    prompt: { en: 'Who wrote the Declaration of Independence (main author)?',
+              bs: 'Ko je napisao Deklaraciju o nezavisnosti (glavni autor)?' },
     options: [
       { en: 'Thomas Jefferson', bs: 'Thomas Jefferson' },
       { en: 'George Washington', bs: 'George Washington' },
@@ -1125,7 +1182,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The Black Death was a deadly plague that spread mainly in which century in Europe?', bs: 'Crna smrt bila je smrtonosna kuga koja se u Evropi uglavnom širila u kojem vijeku?' },
+    prompt: { en: 'The Black Death was a deadly plague that spread mainly in which century in Europe?',
+              bs: 'Crna smrt bila je smrtonosna kuga koja se u Evropi uglavnom širila u kojem vijeku?' },
     options: [
       { en: '14th century', bs: '14. vijeku' },
       { en: '20th century', bs: '20. vijeku' },
@@ -1139,7 +1197,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who was the famous Italian scientist who improved the telescope and supported heliocentrism?', bs: 'Ko je bio poznati italijanski naučnik koji je usavršio teleskop i podržavao heliocentrizam?' },
+    prompt: { en: 'Who was the famous Italian scientist who improved the telescope and supported heliocentrism?',
+              bs: 'Ko je bio poznati italijanski naučnik koji je usavršio teleskop i podržavao heliocentrizam?' },
     options: [
       { en: 'Galileo Galilei', bs: 'Galileo Galilei' },
       { en: 'Isaac Newton', bs: 'Isaac Newton' },
@@ -1153,7 +1212,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The Great Depression began after a stock market crash in which decade?', bs: 'Velika depresija je počela nakon pada berze u kojoj deceniji?' },
+    prompt: { en: 'The Great Depression began after a stock market crash in which decade?',
+              bs: 'Velika depresija je počela nakon pada berze u kojoj deceniji?' },
     options: [
       { en: '1920s', bs: '1920-e' },
       { en: '1950s', bs: '1950-e' },
@@ -1167,7 +1227,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who was the famous South American independence leader known as “El Libertador”?', bs: 'Ko je bio poznati južnoamerički vođa nezavisnosti poznat kao „El Libertador“?' },
+    prompt: { en: 'Who was the famous South American independence leader known as “El Libertador”?',
+              bs: 'Ko je bio poznati južnoamerički vođa nezavisnosti poznat kao „El Libertador“?' },
     options: [
       { en: 'Simón Bolívar', bs: 'Simón Bolívar' },
       { en: 'George Washington', bs: 'George Washington' },
@@ -1181,7 +1242,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The ancient Egyptians built tombs for pharaohs called…', bs: 'Drevni Egipćani su gradili grobnice za faraone zvane…' },
+    prompt: { en: 'What were the large tombs ancient Egyptians built for pharaohs called?',
+              bs: 'Kako su se nazivale velike grobnice koje su drevni Egipćani gradili za faraone?' },
     options: [
       { en: 'Pyramids', bs: 'Piramide' },
       { en: 'Castles', bs: 'Dvorci' },
@@ -1195,7 +1257,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who was the famous British queen who ruled for most of the 1800s?', bs: 'Koja je bila poznata britanska kraljica koja je vladala tokom većeg dijela 1800-ih?' },
+    prompt: { en: 'Who was the famous British queen who ruled for most of the 1800s?',
+              bs: 'Koja je bila poznata britanska kraljica koja je vladala tokom većeg dijela 1800-ih?' },
     options: [
       { en: 'Queen Victoria', bs: 'Kraljica Viktorija' },
       { en: 'Queen Elizabeth I', bs: 'Kraljica Elizabeta I' },
@@ -1209,7 +1272,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Charles Darwin is best known for his theory of…', bs: 'Charles Darwin je najpoznatiji po teoriji…' },
+    prompt: { en: 'Charles Darwin is best known for his theory of what?',
+              bs: 'Charles Darwin je najpoznatiji po teoriji čega?' },
     options: [
       { en: 'Evolution', bs: 'Evolucije' },
       { en: 'Relativity', bs: 'Relativnosti' },
@@ -1223,7 +1287,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The ancient city of Rome is in which modern country?', bs: 'Drevni grad Rim je u kojoj modernoj zemlji?' },
+    prompt: { en: 'The ancient city of Rome is in which modern country?',
+              bs: 'Drevni grad Rim je u kojoj modernoj zemlji?' },
     options: [
       { en: 'Italy', bs: 'Italija' },
       { en: 'Greece', bs: 'Grčka' },
@@ -1237,7 +1302,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who was the famous American inventor of the assembly-line Model T car?', bs: 'Ko je bio poznati američki izumitelj automobila Model T s pokretnom trakom?' },
+    prompt: { en: 'Who was the famous American inventor of the assembly-line Model T car?',
+              bs: 'Ko je bio poznati američki izumitelj automobila Model T s pokretnom trakom?' },
     options: [
       { en: 'Henry Ford', bs: 'Henry Ford' },
       { en: 'Thomas Edison', bs: 'Thomas Edison' },
@@ -1251,7 +1317,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The ancient Olympic Games were held in honor of which Greek figure?', bs: 'Drevne olimpijske igre održavane su u čast koje grčke figure?' },
+    prompt: { en: 'The ancient Olympic Games were held in honor of which Greek figure?',
+              bs: 'Drevne olimpijske igre održavane su u čast koje grčke figure?' },
     options: [
       { en: 'Zeus', bs: 'Zeus' },
       { en: 'Poseidon', bs: 'Poseidon' },
@@ -1265,7 +1332,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Which Russian tsar modernized Russia in the early 1700s?', bs: 'Koji ruski car je modernizovao Rusiju početkom 1700-ih?' },
+    prompt: { en: 'Which Russian tsar modernized Russia in the early 1700s?',
+              bs: 'Koji ruski car je modernizovao Rusiju početkom 1700-ih?' },
     options: [
       { en: 'Peter the Great', bs: 'Petar Veliki' },
       { en: 'Ivan the Terrible', bs: 'Ivan Grozni' },
@@ -1279,7 +1347,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The Great Sphinx stands near which famous pyramids?', bs: 'Velika Sfinga stoji blizu kojih poznatih piramida?' },
+    prompt: { en: 'The Great Sphinx stands near which famous pyramids?',
+              bs: 'Velika Sfinga stoji blizu kojih poznatih piramida?' },
     options: [
       { en: 'The pyramids of Giza', bs: 'Piramida u Gizi' },
       { en: 'The pyramids of Alexandria', bs: 'Piramida u Aleksandriji' },
@@ -1293,7 +1362,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'In ancient Egyptian mythology, which figure is often depicted with the head of a falcon?', bs: 'U drevnoegipatskoj mitologiji, koja figura se često prikazuje s glavom sokola?' },
+    prompt: { en: 'In ancient Egyptian mythology, which figure is often depicted with the head of a falcon?',
+              bs: 'U drevnoegipatskoj mitologiji, koja figura se često prikazuje s glavom sokola?' },
     options: [
       { en: 'Horus', bs: 'Horus' },
       { en: 'Anubis', bs: 'Anubis' },
@@ -1307,7 +1377,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The ancient city of Petra is in which modern country?', bs: 'Drevni grad Petra je u kojoj modernoj zemlji?' },
+    prompt: { en: 'The ancient city of Petra is in which modern country?',
+              bs: 'Drevni grad Petra je u kojoj modernoj zemlji?' },
     options: [
       { en: 'Jordan', bs: 'Jordan' },
       { en: 'France', bs: 'Francuska' },
@@ -1321,7 +1392,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who was the famous artist who painted The Last Supper?', bs: 'Ko je bio poznati umjetnik koji je naslikao Posljednju večeru?' },
+    prompt: { en: 'Who was the famous artist who painted The Last Supper?',
+              bs: 'Ko je bio poznati umjetnik koji je naslikao Posljednju večeru?' },
     options: [
       { en: 'Leonardo da Vinci', bs: 'Leonardo da Vinci' },
       { en: 'Picasso', bs: 'Picasso' },
@@ -1335,7 +1407,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The United Nations was founded after which major war?', bs: 'Ujedinjene nacije osnovane su nakon kojeg velikog rata?' },
+    prompt: { en: 'The United Nations was founded after which major war?',
+              bs: 'Ujedinjene nacije osnovane su nakon kojeg velikog rata?' },
     options: [
       { en: 'World War II', bs: 'Drugog svjetskog rata' },
       { en: 'The American Civil War', bs: 'Američkog građanskog rata' },
@@ -1349,7 +1422,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who was the famous Greek philosopher who taught Alexander the Great?', bs: 'Ko je bio poznati grčki filozof koji je podučavao Aleksandra Velikog?' },
+    prompt: { en: 'Who was the famous Greek philosopher who taught Alexander the Great?',
+              bs: 'Ko je bio poznati grčki filozof koji je podučavao Aleksandra Velikog?' },
     options: [
       { en: 'Aristotle', bs: 'Aristotel' },
       { en: 'Socrates', bs: 'Sokrat' },
@@ -1363,7 +1437,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The ancient city of Jerusalem is holy to which major religions?', bs: 'Drevni grad Jerusalim svet je kojim velikim religijama?' },
+    prompt: { en: 'The ancient city of Jerusalem is holy to which major religions?',
+              bs: 'Drevni grad Jerusalim svet je kojim velikim religijama?' },
     options: [
       { en: 'Judaism, Christianity, and Islam', bs: 'Judaizmu, hrišćanstvu i islamu' },
       { en: 'Buddhism', bs: 'Budizmu' },
@@ -1377,7 +1452,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The Liberty Bell is a famous historic symbol in which U.S. city?', bs: 'Liberty Bell je poznati historijski simbol u kojem američkom gradu?' },
+    prompt: { en: 'The Liberty Bell is a famous historic symbol in which U.S. city?',
+              bs: 'Liberty Bell je poznati historijski simbol u kojem američkom gradu?' },
     options: [
       { en: 'Philadelphia', bs: 'Philadelphia' },
       { en: 'Los Angeles', bs: 'Los Angeles' },
@@ -1391,7 +1467,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The ancient city of Carthage fought Rome in which famous wars?', bs: 'Drevni grad Kartagina ratovao je s Rimom u kojim poznatim ratovima?' },
+    prompt: { en: 'The ancient city of Carthage fought Rome in which famous wars?',
+              bs: 'Drevni grad Kartagina ratovao je s Rimom u kojim poznatim ratovima?' },
     options: [
       { en: 'The Punic Wars', bs: 'Punski ratovi' },
       { en: 'World War I', bs: 'Prvi svjetski rat' },
@@ -1405,7 +1482,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Ada Lovelace is often called one of the first…', bs: 'Ada Lovelace često se naziva jednom od prvih…' },
+    prompt: { en: 'Ada Lovelace is often called one of the first what?',
+              bs: 'Ada Lovelace se često naziva jednom od prvih čega?' },
     options: [
       { en: 'Computer programmers', bs: 'Računarskih programera' },
       { en: 'Astronauts', bs: 'Astronauta' },
@@ -1419,7 +1497,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'The ancient city of Babylon was located in which modern-day country region?', bs: 'Drevni grad Babilon nalazio se u regiji koje današnje zemlje?' },
+    prompt: { en: 'The ancient city of Babylon was located in which modern-day country region?',
+              bs: 'Drevni grad Babilon nalazio se u regiji koje današnje zemlje?' },
     options: [
       { en: 'Iraq', bs: 'Irak' },
       { en: 'Japan', bs: 'Japan' },
