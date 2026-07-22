@@ -145,15 +145,17 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Chinese dynasty built the Forbidden City in Beijing?',
-              bs: 'Koja kineska dinastija je sagradila Zabranjeni grad u Pekingu?' },
+    prompt: { 
+      en: 'Which prehistoric site in Turkey is older than Stonehenge and the Egyptian pyramids?',
+      bs: 'Koje prahistorijsko nalazište u Turskoj je starije od Stonehengea i egipatskih piramida?'
+    },
     options: [
-      { en: 'Tang', bs: 'Tang' },
-      { en: 'Song', bs: 'Song' },
-      { en: 'Qing', bs: 'Qing' },
-      { en: 'Ming', bs: 'Ming' },
+      { en: 'Göbekli Tepe', bs: 'Göbekli Tepe' },
+      { en: 'Çatalhöyük', bs: 'Čatal Hüyük' },
+      { en: 'Midas Monument', bs: 'Midasov spomenik' },
+      { en: 'Mount Nemrut', bs: 'Planina Nemrut' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
     id: 'hist-hard-011',

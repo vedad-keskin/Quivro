@@ -786,14 +786,14 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { 
-      en: 'Which Inca emperor was captured by Francisco Pizarro in 1532?',
-      bs: 'Kojeg cara Inka je Francisco Pizarro zarobio 1532. godine?'
+      en: 'What is the oldest known form of art created by humans?',
+      bs: 'Koji je najstariji poznati oblik umjetnosti koji su stvorili ljudi?'
     },
     options: [
-      { en: 'Atahualpa', bs: 'Atahualpa' },
-      { en: 'Montezuma II', bs: 'Montezuma II' },
-      { en: 'Pachacuti', bs: 'Pachacuti' },
-      { en: 'Huayna Capac', bs: 'Huayna Capac' },
+      { en: 'Cave paintings and engravings', bs: 'Pećinske slike i gravure' },
+      { en: 'Stone statues', bs: 'Kamene statue' },
+      { en: 'Written texts', bs: 'Pisani tekstovi' },
+      { en: 'Metal sculptures', bs: 'Metalne skulpture' },
     ],
     correctIndex: 0,
   },
@@ -1293,17 +1293,17 @@ export const historyMedium: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'medium',
-    prompt: {
-      en: 'Which treaty officially ended World War I?',
-      bs: 'Koji ugovor je zvanično završio Prvi svjetski rat?',
-    },
-    options: [
-      { en: 'Treaty of Versailles', bs: 'Versajski ugovor' },
-      { en: 'Treaty of Paris', bs: 'Pariški ugovor' },
-      { en: 'Treaty of Rome', bs: 'Rimski ugovor' },
-      { en: 'Treaty of Vienna', bs: 'Bečki ugovor' },
-    ],
-    correctIndex: 0,
+      prompt: { 
+        en: 'Which famous cave contains prehistoric paintings over 17,000 years old?',
+        bs: 'Koja poznata pećina sadrži prahistorijske slike stare preko 17.000 godina?'
+      },
+      options: [
+        { en: 'Lascaux Cave', bs: 'Pećina Lascaux' },
+        { en: 'Mammoth Cave', bs: 'Mamutova pećina' },
+        { en: 'Altamira Cave', bs: 'Pećina Altamira' },
+        { en: 'Skocjan Cave', bs: 'Škocjanske pećine' },
+      ],
+      correctIndex: 0,
   },
   {
     id: 'hist-med-083',

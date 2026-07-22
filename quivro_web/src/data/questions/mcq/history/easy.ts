@@ -145,8 +145,8 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: { en: 'Who sailed across the Atlantic in 1492?',
-              bs: 'Ko je preplovio Atlantik 1492. godine?' },
+    prompt: { en: 'Who sailed across the Atlantic and discovered America in 1492?',
+              bs: 'Ko je preplovio Atlantik i otkrio Ameriku 1492. godine?' },
     options: [
       { en: 'Marco Polo', bs: 'Marco Polo' },
       { en: 'Vasco da Gama', bs: 'Vasco da Gama' },
@@ -177,15 +177,15 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: {
-      en: 'Which event marked the beginning of World War I?',
-      bs: 'Koji događaj je označio početak Prvog svjetskog rata?',
+    prompt: { 
+      en: 'Which species is considered the first known human ancestor to walk upright?',
+      bs: 'Koja vrsta se smatra jednim od prvih poznatih ljudskih predaka koji je hodao uspravno?'
     },
     options: [
-      { en: 'Assassination of Archduke Franz Ferdinand', bs: 'Atentat na nadvojvodu Franza Ferdinanda' },
-      { en: 'Sinking of the Titanic', bs: 'Potonuće Titanica' },
-      { en: 'Battle of Waterloo', bs: 'Bitka kod Waterlooa' },
-      { en: 'French Revolution', bs: 'Francuska revolucija' },
+      { en: 'Australopithecus', bs: 'Australopitek' },
+      { en: 'Neanderthal', bs: 'Neandertalac' },
+      { en: 'Homo sapiens', bs: 'Homo sapiens' },
+      { en: 'Homo erectus', bs: 'Homo erektus' },
     ],
     correctIndex: 0,
   },
@@ -410,15 +410,15 @@ export const historyEasy: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'easy',
-    prompt: {
-      en: 'Who discovered America in 1492?',
-      bs: 'Ko je otkrio Ameriku 1492. godine?',
+    prompt: { 
+      en: 'What was the name of the famous prehistoric human found frozen in the Alps in 1991?',
+      bs: 'Kako se zvao poznati prahistorijski čovjek pronađen zaleđen u Alpama 1991.?'
     },
     options: [
-      { en: 'Christopher Columbus', bs: 'Kristofor Kolumbo' },
-      { en: 'Ferdinand Magellan', bs: 'Fernando Magellan' },
-      { en: 'Vasco da Gama', bs: 'Vasco da Gama' },
-      { en: 'Marco Polo', bs: 'Marko Polo' },
+      { en: 'Ötzi the Iceman', bs: 'Ötzi Ledeni čovjek' },
+      { en: 'Kennewick Man', bs: 'Čovjek iz Kennewicka' },
+      { en: 'Cheddar Man', bs: 'Čovjek iz Cheddara' },
+      { en: 'Lindow Man', bs: 'Čovjek iz Lindowa' },
     ],
     correctIndex: 0,
   },
