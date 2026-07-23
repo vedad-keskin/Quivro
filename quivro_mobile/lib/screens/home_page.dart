@@ -133,123 +133,163 @@ class _HomePageState extends State<HomePage> {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                GestureDetector(
-                                  onLongPressStart: (_) {
-                                    _easterEggTimer?.cancel();
-                                    _easterEggTimer = Timer(
-                                      const Duration(seconds: 1),
-                                      () {
-                                        if (mounted) _showCredits();
-                                      },
-                                    );
-                                  },
-                                  onLongPressEnd: (_) =>
-                                      _easterEggTimer?.cancel(),
-                                  onLongPressCancel: () =>
-                                      _easterEggTimer?.cancel(),
-                                  child: QuivroWordmarkHero(
-                                    child: Text(
-                                      'Quivro',
-                                      style: GoogleFonts.nunito(
-                                        fontSize: 36,
-                                        fontWeight: FontWeight.w800,
-                                        color: palette.text,
-                                      ),
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  final bottomInset = MediaQuery.viewInsetsOf(context).bottom;
+                  return SingleChildScrollView(
+                    padding: EdgeInsets.only(bottom: bottomInset),
+                    keyboardDismissBehavior:
+                        ScrollViewKeyboardDismissBehavior.onDrag,
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight: constraints.maxHeight,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            GestureDetector(
+                                              onLongPressStart: (_) {
+                                                _easterEggTimer?.cancel();
+                                                _easterEggTimer = Timer(
+                                                  const Duration(seconds: 1),
+                                                  () {
+                                                    if (mounted) {
+                                                      _showCredits();
+                                                    }
+                                                  },
+                                                );
+                                              },
+                                              onLongPressEnd: (_) =>
+                                                  _easterEggTimer?.cancel(),
+                                              onLongPressCancel: () =>
+                                                  _easterEggTimer?.cancel(),
+                                              child: QuivroWordmarkHero(
+                                                child: Text(
+                                                  'Quivro',
+                                                  style: GoogleFonts.nunito(
+                                                    fontSize: 36,
+                                                    fontWeight: FontWeight.w800,
+                                                    color: palette.text,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Container(
+                                          margin: const EdgeInsets.only(top: 6),
+                                          height: 4,
+                                          width: 64,
+                                          decoration: BoxDecoration(
+                                            gradient: const LinearGradient(
+                                              colors: [
+                                                QuivroColors.blue,
+                                                QuivroColors.purple,
+                                              ],
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(99),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            Container(
-                              margin: const EdgeInsets.only(top: 6),
-                              height: 4,
-                              width: 64,
-                              decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                  colors: [
-                                    QuivroColors.blue,
-                                    QuivroColors.purple,
-                                  ],
-                                ),
-                                borderRadius: BorderRadius.circular(99),
+                                  GestureDetector(
+                                    onTap: () =>
+                                        context.go('/setup', extra: _profile),
+                                    child: AvatarBadge(
+                                      index: _profile.avatar,
+                                      size: 52,
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
-                          ],
-                        ),
+                              const SizedBox(height: 12),
+                              Text(
+                                strings.playingAs(_profile.nickname),
+                                style: GoogleFonts.nunito(
+                                  fontWeight: FontWeight.w700,
+                                  color: palette.muted,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Text(
+                                strings.joinARoom,
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.nunito(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                              const SizedBox(height: 16),
+                              TextField(
+                                controller: _code,
+                                textAlign: TextAlign.center,
+                                textCapitalization:
+                                    TextCapitalization.characters,
+                                style: GoogleFonts.nunito(
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.w800,
+                                  letterSpacing: 8,
+                                ),
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.allow(
+                                    RegExp(r'[A-Za-z0-9]'),
+                                  ),
+                                  LengthLimitingTextInputFormatter(6),
+                                  _UpperCaseFormatter(),
+                                ],
+                                decoration: InputDecoration(
+                                  hintText: strings.codeHint,
+                                ),
+                              ),
+                              const SizedBox(height: 20),
+                              SizedBox(
+                                height: 56,
+                                child: OutlinedButton(
+                                  onPressed: _joining ? null : _join,
+                                  child: Text(
+                                    _joining ? strings.joining : strings.join,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 12),
+                              TextButton(
+                                onPressed: () =>
+                                    context.go('/setup', extra: _profile),
+                                child: Text(
+                                  strings.editNicknameAvatar,
+                                  style: GoogleFonts.nunito(
+                                    fontWeight: FontWeight.w700,
+                                    color: palette.muted,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const Center(child: SettingsChips()),
+                        ],
                       ),
-                      GestureDetector(
-                        onTap: () => context.go('/setup', extra: _profile),
-                        child: AvatarBadge(index: _profile.avatar, size: 52),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 12),
-                  Text(
-                    strings.playingAs(_profile.nickname),
-                    style: GoogleFonts.nunito(
-                      fontWeight: FontWeight.w700,
-                      color: palette.muted,
                     ),
-                  ),
-                  const Spacer(),
-                  Text(
-                    strings.joinARoom,
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.nunito(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  TextField(
-                    controller: _code,
-                    textAlign: TextAlign.center,
-                    textCapitalization: TextCapitalization.characters,
-                    style: GoogleFonts.nunito(
-                      fontSize: 28,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: 8,
-                    ),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp(r'[A-Za-z0-9]')),
-                      LengthLimitingTextInputFormatter(6),
-                      _UpperCaseFormatter(),
-                    ],
-                    decoration: InputDecoration(hintText: strings.codeHint),
-                  ),
-                  const SizedBox(height: 20),
-                  SizedBox(
-                    height: 56,
-                    child: OutlinedButton(
-                      onPressed: _joining ? null : _join,
-                      child: Text(_joining ? strings.joining : strings.join),
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  TextButton(
-                    onPressed: () => context.go('/setup', extra: _profile),
-                    child: Text(
-                      strings.editNicknameAvatar,
-                      style: GoogleFonts.nunito(
-                        fontWeight: FontWeight.w700,
-                        color: palette.muted,
-                      ),
-                    ),
-                  ),
-                  const Spacer(),
-                  const Center(child: SettingsChips()),
-                ],
+                  );
+                },
               ),
             ),
             Align(

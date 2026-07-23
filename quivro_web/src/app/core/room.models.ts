@@ -204,7 +204,7 @@ export const AVATAR_EMOJIS = [
   '🦊',
   '🐯',
   '🐸',
-  '🪼',
+  '🦍', // MIUI/Xiaomi: was 🪼 (Unicode 15, missing glyph on many devices)
   '🦄',
   '🦁',
   '🐼',
