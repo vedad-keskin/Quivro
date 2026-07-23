@@ -4,26 +4,35 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../core/net_probe.dart';
 import '../core/strings.dart';
 import '../core/theme.dart';
 
 /// Live connectivity chip, pinned in a corner near the avatar.
 ///
-/// Combines two signals:
+/// Combines three signals:
 /// - `connectivity_plus`: is there a network at all (wifi/cellular)?
-/// - Firebase `.info/connected`: can we actually reach the Realtime Database?
+/// - Firebase `.info/connected`: can we reach the Realtime Database?
+/// - An active internet probe, consulted only when the two disagree.
 ///
-/// The two signals get different grace periods: losing the device network
-/// entirely is a hard, reliable signal and gets a short grace. Firebase's
-/// own socket briefly cycling — which is normal and can take several
-/// seconds even on a perfectly fine connection (backgrounding, network
-/// handoff, routine housekeeping) — gets a much longer grace so those
-/// blips resolve silently instead of flashing an "offline" chip.
+/// The probe exists because Firebase's signal is *not* trustworthy as an
+/// offline indicator on this screen: the RTDB client deliberately closes
+/// its socket after ~60s of inactivity when only synthetic `.info/*`
+/// listeners are attached (which is all Home ever subscribes to), and
+/// `.info/connected` then reports `false` indefinitely even though the
+/// internet is fine. So "Firebase down + device network up" is treated as
+/// merely *suspect*: the chip only appears if a real reachability probe
+/// (HTTPS 204 check) also fails — which additionally catches captive
+/// portals, where wifi is connected but the internet is not.
 ///
-/// When the device network transitions from none to some, this also nudges
-/// the Firebase Database client to retry immediately (`goOffline()` +
-/// `goOnline()`), because its own exponential backoff can otherwise leave
-/// it waiting long after the network is actually back.
+/// Losing the device network entirely remains a hard, reliable signal with
+/// a short grace period.
+///
+/// The Firebase client is nudged out of its exponential backoff
+/// (`goOffline()` + `goOnline()`) when the device network transitions from
+/// none to some, and when a probe succeeds right after probes had been
+/// failing (a real outage just ended). Plain idle disconnects are *not*
+/// nudged, so Home doesn't loop reconnect/idle-drop churn.
 ///
 /// Shows an amber "Offline" chip while disconnected, and a brief green
 /// "Online" chip on reconnect (only once the recovered state has held
@@ -43,17 +52,25 @@ enum _BannerState { hidden, offline, backOnline }
 class _OfflineBannerState extends State<OfflineBanner> {
   // Real network loss is reliable and should surface quickly.
   static const _hardOfflineGrace = Duration(seconds: 2);
-  // Firebase-only disconnects are usually a normal, short-lived socket
-  // recycle — give them room to resolve before alarming the user.
+  // Firebase-down-but-probe-failed outages get a bit more room to resolve
+  // before alarming the user.
   static const _softReconnectGrace = Duration(seconds: 7);
   static const _onlineConfirmDelay = Duration(milliseconds: 1500);
   static const _backOnlineVisibleFor = Duration(seconds: 2);
+  // While Firebase claims disconnected (and the device network is up),
+  // re-verify actual reachability: quickly while probes are failing (an
+  // outage is in progress), relaxed while they succeed (Firebase is just
+  // idle) to keep steady-state network chatter minimal.
+  static const _probeRetryInterval = Duration(seconds: 10);
+  static const _probeIdleInterval = Duration(seconds: 30);
+  static const _probeTimeout = Duration(seconds: 3);
 
   StreamSubscription<List<ConnectivityResult>>? _connectivitySub;
   StreamSubscription<DatabaseEvent>? _firebaseSub;
   Timer? _graceTimer;
   Timer? _confirmOnlineTimer;
   Timer? _backOnlineTimer;
+  Timer? _probeTimer;
 
   bool _networkOffline = false;
   bool _firebaseConnected = true;
@@ -62,7 +79,15 @@ class _OfflineBannerState extends State<OfflineBanner> {
   bool? _pendingGraceIsHard;
   _BannerState _state = _BannerState.hidden;
 
-  bool get _isOffline => _networkOffline || !_firebaseConnected;
+  bool _probing = false;
+  // Last probe verdict; optimistic until a probe actually fails, so a
+  // Firebase idle-disconnect alone can never flash the chip.
+  bool _probeOk = true;
+  // A probe has failed since Firebase went down — i.e. this was (or still
+  // is) a real outage, not just an idle socket.
+  bool _probeHadFailed = false;
+
+  bool get _isOffline => _networkOffline || (!_firebaseConnected && !_probeOk);
 
   @override
   void initState() {
@@ -81,6 +106,12 @@ class _OfflineBannerState extends State<OfflineBanner> {
         .onValue
         .listen((event) {
           _firebaseConnected = event.snapshot.value == true;
+          if (_firebaseConnected) {
+            // Firebase itself confirms reachability — probes are moot.
+            _probeOk = true;
+            _probeHadFailed = false;
+          }
+          _syncProbeLoop();
           _evaluate();
         });
   }
@@ -92,6 +123,7 @@ class _OfflineBannerState extends State<OfflineBanner> {
     _graceTimer?.cancel();
     _confirmOnlineTimer?.cancel();
     _backOnlineTimer?.cancel();
+    _probeTimer?.cancel();
     super.dispose();
   }
 
@@ -103,7 +135,53 @@ class _OfflineBannerState extends State<OfflineBanner> {
     _networkOffline = offline;
     _networkWasOffline = offline;
     if (regained) _nudgeFirebaseReconnect();
+    _syncProbeLoop();
     _evaluate();
+  }
+
+  bool get _suspect => !_firebaseConnected && !_networkOffline;
+
+  /// Starts or stops the reachability probe loop so it runs exactly while
+  /// the state is "suspect": Firebase down but the device network up.
+  void _syncProbeLoop() {
+    if (!_suspect) {
+      _probeTimer?.cancel();
+      _probeTimer = null;
+      return;
+    }
+    // A pending timer or an in-flight probe will keep the loop alive.
+    if (_probeTimer != null || _probing) return;
+    _scheduleProbe(Duration.zero);
+  }
+
+  void _scheduleProbe(Duration delay) {
+    _probeTimer?.cancel();
+    _probeTimer = Timer(delay, _runProbe);
+  }
+
+  Future<void> _runProbe() async {
+    _probeTimer = null;
+    if (_probing) return;
+    _probing = true;
+    final ok = await probeInternet(timeout: _probeTimeout);
+    _probing = false;
+    if (!mounted) return;
+    // Discard stale results: the suspect state may have ended (Firebase
+    // reconnected / network dropped) while the probe was in flight.
+    if (!_suspect) return;
+
+    if (ok && _probeHadFailed) {
+      // A real outage just ended — kick Firebase out of its backoff so the
+      // room session can resume promptly. (Plain idle disconnects never
+      // reach this: their probes succeed from the start.)
+      _probeHadFailed = false;
+      unawaited(_nudgeFirebaseReconnect());
+    } else if (!ok) {
+      _probeHadFailed = true;
+    }
+    _probeOk = ok;
+    _evaluate();
+    _scheduleProbe(ok ? _probeIdleInterval : _probeRetryInterval);
   }
 
   /// Firebase's client manages its own reconnection with exponential
@@ -151,7 +229,8 @@ class _OfflineBannerState extends State<OfflineBanner> {
       return;
     }
 
-    // Both signals agree we're online.
+    // Online: network present and either Firebase confirms it or the
+    // reachability probe does.
     _graceTimer?.cancel();
     _graceTimer = null;
     _pendingGraceIsHard = null;
