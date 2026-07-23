@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -8,6 +10,7 @@ import '../core/room_repository.dart';
 import '../core/strings.dart';
 import '../core/theme.dart';
 import '../widgets/avatar_widgets.dart';
+import '../widgets/credits_dialog.dart';
 import '../widgets/offline_banner.dart';
 import '../widgets/quivro_snackbar.dart';
 import '../widgets/settings_chips.dart';
@@ -29,6 +32,7 @@ class _HomePageState extends State<HomePage> {
   late PlayerProfile _profile;
   bool _joining = false;
   bool _resumingSession = false;
+  Timer? _easterEggTimer;
 
   @override
   void initState() {
@@ -54,8 +58,13 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void dispose() {
+    _easterEggTimer?.cancel();
     _code.dispose();
     super.dispose();
+  }
+
+  void _showCredits() {
+    unawaited(CreditsDialog.show(context));
   }
 
   /// Called when the connection comes back: if the app booted offline with
@@ -135,13 +144,28 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Row(
                               children: [
-                                QuivroWordmarkHero(
-                                  child: Text(
-                                    'Quivro',
-                                    style: GoogleFonts.nunito(
-                                      fontSize: 36,
-                                      fontWeight: FontWeight.w800,
-                                      color: palette.text,
+                                GestureDetector(
+                                  onLongPressStart: (_) {
+                                    _easterEggTimer?.cancel();
+                                    _easterEggTimer = Timer(
+                                      const Duration(seconds: 1),
+                                      () {
+                                        if (mounted) _showCredits();
+                                      },
+                                    );
+                                  },
+                                  onLongPressEnd: (_) =>
+                                      _easterEggTimer?.cancel(),
+                                  onLongPressCancel: () =>
+                                      _easterEggTimer?.cancel(),
+                                  child: QuivroWordmarkHero(
+                                    child: Text(
+                                      'Quivro',
+                                      style: GoogleFonts.nunito(
+                                        fontSize: 36,
+                                        fontWeight: FontWeight.w800,
+                                        color: palette.text,
+                                      ),
                                     ),
                                   ),
                                 ),

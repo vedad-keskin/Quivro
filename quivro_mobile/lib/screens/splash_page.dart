@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math' as math;
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -47,6 +48,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   int _taglineIndex = 0;
   bool _bootFailed = false;
   bool _offlineNote = false;
+  final AudioPlayer _introSound = AudioPlayer();
 
   /// The intro choreography only starts once the logo bitmap is decoded, so
   /// the entrance never animates a half-loaded image.
@@ -81,6 +83,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     setState(() => _introReady = true);
     _introStopwatch.start();
     _introStarted.complete();
+    unawaited(_playIntroSound());
 
     // Haptic tick when the elastic logo entrance "lands".
     Future.delayed(const Duration(milliseconds: 900), () {
@@ -99,11 +102,22 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     });
   }
 
+  Future<void> _playIntroSound() async {
+    try {
+      await _introSound.setReleaseMode(ReleaseMode.stop);
+      await _introSound.setSource(AssetSource('sounds/into_splash.mp3'));
+      await _introSound.resume();
+    } catch (_) {
+      // Ignore audio failures — splash must continue.
+    }
+  }
+
   @override
   void dispose() {
     _ambient.dispose();
     _breath.dispose();
     _taglineTimer?.cancel();
+    unawaited(_introSound.dispose());
     super.dispose();
   }
 

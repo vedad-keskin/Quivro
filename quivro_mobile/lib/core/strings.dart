@@ -63,6 +63,10 @@ class AppStrings {
     required this.chooseLanguage,
     required this.themeDay,
     required this.themeNight,
+    required this.creditsTitle,
+    required this.creditsLeadDev,
+    required this.creditsQuestionCurator,
+    required this.close,
   });
 
   // Splash.
@@ -134,6 +138,12 @@ class AppStrings {
   final String chooseLanguage;
   final String themeDay;
   final String themeNight;
+
+  // Credits.
+  final String creditsTitle;
+  final String creditsLeadDev;
+  final String creditsQuestionCurator;
+  final String close;
 
   String playingAs(String name) => _playingAs.replaceAll('{name}', name);
 
@@ -215,6 +225,10 @@ class AppStrings {
     chooseLanguage: 'Choose language',
     themeDay: 'Day',
     themeNight: 'Night',
+    creditsTitle: 'Team Credits',
+    creditsLeadDev: 'Lead Developer',
+    creditsQuestionCurator: 'Question Curator',
+    close: 'Close',
   );
 
   static const bosnian = AppStrings(
@@ -283,6 +297,10 @@ class AppStrings {
     chooseLanguage: 'Odaberi jezik',
     themeDay: 'Dan',
     themeNight: 'Noć',
+    creditsTitle: 'Tim',
+    creditsLeadDev: 'Glavni developer',
+    creditsQuestionCurator: 'Kustos pitanja',
+    close: 'Zatvori',
   );
 }
 
