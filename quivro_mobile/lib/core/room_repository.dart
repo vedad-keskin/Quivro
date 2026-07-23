@@ -23,7 +23,8 @@ class RoomRepository {
   /// Approximate Firebase server epoch ms (shared clock with web host).
   int nowMs() => _serverTime.nowMs();
 
-  DatabaseReference roomRef(String code) => _db.ref('rooms/${code.toUpperCase()}');
+  DatabaseReference roomRef(String code) =>
+      _db.ref('rooms/${code.toUpperCase()}');
 
   Stream<RoomState?> watchRoom(String code) {
     final upper = code.toUpperCase();
@@ -226,13 +227,11 @@ class RoomRepository {
       return;
     }
 
-    final path =
-        roomRef(upper).child('answers').child('$questionIndex').child(playerId);
+    final path = roomRef(
+      upper,
+    ).child('answers').child('$questionIndex').child(playerId);
     // Reselect overwrites choice + answeredAt so timed scoring uses the final pick.
-    await path.set({
-      'choice': choice,
-      'answeredAt': now,
-    });
+    await path.set({'choice': choice, 'answeredAt': now});
   }
 
   Future<void> setRematchReady({

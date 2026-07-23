@@ -7,6 +7,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../core/bootstrap.dart';
+import '../core/strings.dart';
+import '../widgets/wordmark.dart';
 
 /// Branded animated loading screen.
 ///
@@ -23,19 +25,11 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
-  static const _minSplash = Duration(milliseconds: 2400);
+  static const _minSplash = Duration(milliseconds: 3000);
   static const _bg = Color(0xFF0A0E27);
   static const _blue = Color(0xFF2F7CF6);
   static const _purple = Color(0xFF7B3FF2);
-
-  static const _taglines = <String>[
-    'Sharpening pencils…',
-    'Shuffling questions…',
-    'Warming up the buzzers…',
-    'Polishing trophies…',
-    'Herding quiz masters…',
-    'Counting brain cells…',
-  ];
+  static const _logoAsset = 'assets/branding/logo_big.png';
 
   /// Slow ambient loop driving the aurora blobs, particles and shimmer bar.
   late final AnimationController _ambient = AnimationController(
@@ -54,9 +48,39 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   bool _bootFailed = false;
   bool _offlineNote = false;
 
+  /// The intro choreography only starts once the logo bitmap is decoded, so
+  /// the entrance never animates a half-loaded image.
+  bool _introReady = false;
+  bool _precacheStarted = false;
+  final _introStarted = Completer<void>();
+  final _introStopwatch = Stopwatch();
+
+  /// Set for a short "exit beat": the progress area and taglines fade out
+  /// right before navigating, while the wordmark morphs via Hero.
+  bool _exiting = false;
+
   @override
   void initState() {
     super.initState();
+    _boot();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_precacheStarted) return;
+    _precacheStarted = true;
+    precacheImage(const AssetImage(_logoAsset), context).whenComplete(() {
+      if (mounted) _startIntro();
+    });
+  }
+
+  /// Kicks off every timed piece of the choreography, measured from the
+  /// moment the logo is actually ready to draw.
+  void _startIntro() {
+    setState(() => _introReady = true);
+    _introStopwatch.start();
+    _introStarted.complete();
 
     // Haptic tick when the elastic logo entrance "lands".
     Future.delayed(const Duration(milliseconds: 900), () {
@@ -71,16 +95,8 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     // Rotating playful taglines.
     _taglineTimer = Timer.periodic(const Duration(milliseconds: 1700), (_) {
       if (!mounted || _bootFailed) return;
-      setState(() => _taglineIndex = (_taglineIndex + 1) % _taglines.length);
+      setState(() => _taglineIndex = _taglineIndex + 1);
     });
-
-    _boot();
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    precacheImage(const AssetImage('assets/branding/logo_only.png'), context);
   }
 
   @override
@@ -94,11 +110,13 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   Future<void> _boot() async {
     if (_bootFailed) setState(() => _bootFailed = false);
 
-    final stopwatch = Stopwatch()..start();
     final result = await AppBootstrapper().run();
 
-    // Let the intro play out even on fast devices.
-    final remaining = _minSplash - stopwatch.elapsed;
+    // Let the intro play out even on fast devices — measured from when the
+    // intro actually started, not from boot kickoff.
+    await _introStarted.future;
+    final elapsed = _introStopwatch.elapsed;
+    final remaining = _minSplash - elapsed;
     if (remaining > Duration.zero) {
       await Future.delayed(remaining);
     }
@@ -115,6 +133,11 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       await Future.delayed(const Duration(milliseconds: 1100));
       if (!mounted) return;
     }
+
+    // Exit beat: fade the transient pieces, then hand off to the Hero.
+    setState(() => _exiting = true);
+    await Future.delayed(const Duration(milliseconds: 280));
+    if (!mounted) return;
 
     final location = result.initialLocation;
     if (location.startsWith('/room/')) {
@@ -150,44 +173,66 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
               builder: (context, _) =>
                   CustomPaint(painter: _AmbientPainter(_ambient.value)),
             ),
-            SafeArea(
-              child: Column(
-                children: [
-                  const Spacer(flex: 5),
-                  _buildLogo(),
-                  const SizedBox(height: 28),
-                  _buildWordmark(),
-                  const SizedBox(height: 10),
-                  Text(
-                        'The party quiz game',
-                        style: GoogleFonts.nunito(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.white.withValues(alpha: 0.45),
-                          letterSpacing: 0.4,
-                        ),
-                      )
-                      .animate(delay: 1550.ms)
-                      .fadeIn(duration: 500.ms)
-                      .slideY(begin: 0.4, end: 0, curve: Curves.easeOutCubic),
-                  const Spacer(flex: 4),
-                  SizedBox(
-                    height: 132,
-                    child: AnimatedSwitcher(
-                      duration: const Duration(milliseconds: 350),
-                      switchInCurve: Curves.easeOutCubic,
-                      child: _bootFailed
-                          ? _BootErrorCard(onRetry: _boot)
-                          : _buildProgress(),
+            // Content appears only once the logo bitmap is decoded, so the
+            // whole choreography starts from a clean, fully-loaded frame.
+            if (_introReady)
+              SafeArea(
+                child: Column(
+                  children: [
+                    const Spacer(flex: 5),
+                    _fadeOnExit(_buildLogo()),
+                    const SizedBox(height: 28),
+                    QuivroWordmarkHero(child: _buildWordmark()),
+                    const SizedBox(height: 10),
+                    _fadeOnExit(
+                      Text(
+                            context.strings.tagline,
+                            style: GoogleFonts.nunito(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white.withValues(alpha: 0.45),
+                              letterSpacing: 0.4,
+                            ),
+                          )
+                          .animate(delay: 1550.ms)
+                          .fadeIn(duration: 500.ms)
+                          .slideY(
+                            begin: 0.4,
+                            end: 0,
+                            curve: Curves.easeOutCubic,
+                          ),
                     ),
-                  ),
-                  const SizedBox(height: 24),
-                ],
+                    const Spacer(flex: 4),
+                    _fadeOnExit(
+                      SizedBox(
+                        height: 132,
+                        child: AnimatedSwitcher(
+                          duration: const Duration(milliseconds: 350),
+                          switchInCurve: Curves.easeOutCubic,
+                          child: _bootFailed
+                              ? _BootErrorCard(onRetry: _boot)
+                              : _buildProgress(),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+                  ],
+                ),
               ),
-            ),
           ],
         ),
       ),
+    );
+  }
+
+  /// Fades [child] out during the exit beat (the wordmark is excluded — it
+  /// stays visible and morphs into the next screen's header via Hero).
+  Widget _fadeOnExit(Widget child) {
+    return AnimatedOpacity(
+      opacity: _exiting ? 0 : 1,
+      duration: const Duration(milliseconds: 260),
+      curve: Curves.easeOut,
+      child: child,
     );
   }
 
@@ -229,7 +274,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
             },
             child:
                 Image.asset(
-                      'assets/branding/logo_only.png',
+                      _logoAsset,
                       width: 148,
                       height: 148,
                       filterQuality: FilterQuality.high,
@@ -338,9 +383,10 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
             ),
             child: Text(
               _offlineNote
-                  ? 'No internet — continuing offline'
-                  : _taglines[_taglineIndex],
-              key: ValueKey(_offlineNote ? 'offline' : _taglineIndex),
+                  ? context.strings.offlineContinuing
+                  : context.strings.splashTaglines[_taglineIndex %
+                        context.strings.splashTaglines.length],
+              key: ValueKey(_offlineNote ? -1 : _taglineIndex),
               style: GoogleFonts.nunito(
                 fontSize: 14,
                 fontWeight: FontWeight.w700,
@@ -370,7 +416,7 @@ class _BootErrorCard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Text(
-          'Something went wrong',
+          context.strings.bootErrorTitle,
           style: GoogleFonts.nunito(
             fontSize: 16,
             fontWeight: FontWeight.w800,
@@ -379,7 +425,7 @@ class _BootErrorCard extends StatelessWidget {
         ),
         const SizedBox(height: 4),
         Text(
-          "We couldn't get Quivro started.",
+          context.strings.bootErrorBody,
           style: GoogleFonts.nunito(
             fontSize: 14,
             fontWeight: FontWeight.w600,
@@ -390,7 +436,7 @@ class _BootErrorCard extends StatelessWidget {
         ElevatedButton.icon(
           onPressed: onRetry,
           icon: const Icon(Icons.refresh_rounded, size: 20),
-          label: const Text('Try again'),
+          label: Text(context.strings.tryAgain),
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           ),

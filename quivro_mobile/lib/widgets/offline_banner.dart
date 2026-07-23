@@ -4,7 +4,8 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../core/avatars.dart';
+import '../core/strings.dart';
+import '../core/theme.dart';
 
 /// Live connectivity chip, pinned in a corner near the avatar.
 ///
@@ -195,17 +196,17 @@ class _OfflineBannerState extends State<OfflineBanner> {
       ),
       child: switch (_state) {
         _BannerState.hidden => const SizedBox.shrink(key: ValueKey('hidden')),
-        _BannerState.offline => const _Pill(
-          key: ValueKey('offline'),
+        _BannerState.offline => _Pill(
+          key: const ValueKey('offline'),
           icon: Icons.wifi_off_rounded,
-          color: Color(0xFFFFB020),
-          text: 'Offline',
+          color: const Color(0xFFFFB020),
+          text: context.strings.offline,
         ),
-        _BannerState.backOnline => const _Pill(
-          key: ValueKey('online'),
+        _BannerState.backOnline => _Pill(
+          key: const ValueKey('online'),
           icon: Icons.wifi_rounded,
-          color: Color(0xFF84CC16),
-          text: 'Online',
+          color: const Color(0xFF84CC16),
+          text: context.strings.online,
         ),
       },
     );
@@ -228,14 +229,15 @@ class _Pill extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.palette;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
-        color: QuivroColors.navy,
+        color: palette.pill,
         borderRadius: BorderRadius.circular(99),
         boxShadow: [
           BoxShadow(
-            color: QuivroColors.navy.withValues(alpha: 0.22),
+            color: palette.shadow,
             blurRadius: 16,
             offset: const Offset(0, 6),
           ),

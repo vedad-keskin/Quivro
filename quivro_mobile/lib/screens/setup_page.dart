@@ -4,8 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 import '../core/avatars.dart';
 import '../core/profile_store.dart';
 import '../core/room_repository.dart';
+import '../core/strings.dart';
+import '../core/theme.dart';
 import '../widgets/avatar_widgets.dart';
 import '../widgets/quivro_snackbar.dart';
+import '../widgets/settings_chips.dart';
+import '../widgets/wordmark.dart';
 
 class SetupPage extends StatefulWidget {
   const SetupPage({
@@ -16,6 +20,7 @@ class SetupPage extends StatefulWidget {
   });
 
   final PlayerProfile? existing;
+
   /// When set (e.g. `/room/ABC123`), navigate here after save instead of home.
   final String? returnTo;
   final String? returnPlayerId;
@@ -47,7 +52,7 @@ class _SetupPageState extends State<SetupPage> {
   Future<void> _save() async {
     final name = _nick.text.trim();
     if (name.isEmpty) {
-      showQuivroSnack(context, 'Enter a nickname');
+      showQuivroSnack(context, context.strings.enterNickname);
       return;
     }
     setState(() => _saving = true);
@@ -76,10 +81,10 @@ class _SetupPageState extends State<SetupPage> {
         returnTo.startsWith('/room/') &&
         returnPlayerId != null &&
         returnPlayerId.isNotEmpty) {
-      context.go(returnTo, extra: {
-        'playerId': returnPlayerId,
-        'profile': profile,
-      });
+      context.go(
+        returnTo,
+        extra: {'playerId': returnPlayerId, 'profile': profile},
+      );
       return;
     }
 
@@ -89,6 +94,8 @@ class _SetupPageState extends State<SetupPage> {
   @override
   Widget build(BuildContext context) {
     final fromRoom = widget.returnTo != null;
+    final strings = context.strings;
+    final palette = context.palette;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -99,12 +106,17 @@ class _SetupPageState extends State<SetupPage> {
               Row(
                 children: [
                   Expanded(
-                    child: Text(
-                      'Quivro',
-                      style: GoogleFonts.nunito(
-                        fontSize: 40,
-                        fontWeight: FontWeight.w800,
-                        color: QuivroColors.navy,
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: QuivroWordmarkHero(
+                        child: Text(
+                          'Quivro',
+                          style: GoogleFonts.nunito(
+                            fontSize: 40,
+                            fontWeight: FontWeight.w800,
+                            color: palette.text,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -115,21 +127,23 @@ class _SetupPageState extends State<SetupPage> {
                           : () {
                               final returnTo = widget.returnTo!;
                               final playerId = widget.returnPlayerId;
-                              if (playerId != null &&
-                                  widget.existing != null) {
-                                context.go(returnTo, extra: {
-                                  'playerId': playerId,
-                                  'profile': widget.existing,
-                                });
+                              if (playerId != null && widget.existing != null) {
+                                context.go(
+                                  returnTo,
+                                  extra: {
+                                    'playerId': playerId,
+                                    'profile': widget.existing,
+                                  },
+                                );
                               } else {
                                 context.go(returnTo);
                               }
                             },
                       child: Text(
-                        'Cancel',
+                        strings.cancel,
                         style: GoogleFonts.nunito(
                           fontWeight: FontWeight.w700,
-                          color: QuivroColors.muted,
+                          color: palette.muted,
                         ),
                       ),
                     ),
@@ -147,11 +161,11 @@ class _SetupPageState extends State<SetupPage> {
                 ),
               ),
               Text(
-                'Choose a nickname & avatar',
+                strings.chooseNicknameAvatar,
                 style: GoogleFonts.nunito(
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
-                  color: QuivroColors.muted,
+                  color: palette.muted,
                 ),
               ),
               const SizedBox(height: 24),
@@ -159,8 +173,8 @@ class _SetupPageState extends State<SetupPage> {
                 controller: _nick,
                 textCapitalization: TextCapitalization.words,
                 maxLength: 16,
-                decoration: const InputDecoration(
-                  labelText: 'Nickname',
+                decoration: InputDecoration(
+                  labelText: strings.nickname,
                   counterText: '',
                 ),
               ),
@@ -176,8 +190,13 @@ class _SetupPageState extends State<SetupPage> {
                 width: double.infinity,
                 child: OutlinedButton(
                   onPressed: _saving ? null : _save,
-                  child: Text(_saving ? 'Saving…' : 'Continue'),
+                  child: Text(_saving ? strings.saving : strings.continueLabel),
                 ),
+              ),
+              const SizedBox(height: 14),
+              const SizedBox(
+                width: double.infinity,
+                child: Center(child: SettingsChips()),
               ),
             ],
           ),

@@ -5,9 +5,13 @@ import 'package:google_fonts/google_fonts.dart';
 import '../core/avatars.dart';
 import '../core/profile_store.dart';
 import '../core/room_repository.dart';
+import '../core/strings.dart';
+import '../core/theme.dart';
 import '../widgets/avatar_widgets.dart';
 import '../widgets/offline_banner.dart';
 import '../widgets/quivro_snackbar.dart';
+import '../widgets/settings_chips.dart';
+import '../widgets/wordmark.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.profile});
@@ -64,7 +68,7 @@ class _HomePageState extends State<HomePage> {
         const Duration(seconds: 4),
       );
       if (session == null || !mounted) return;
-      showQuivroSnack(context, 'Rejoining your room…');
+      showQuivroSnack(context, context.strings.rejoiningRoom);
       context.go(
         '/room/${session.code}',
         extra: {'playerId': session.playerId, 'profile': _profile},
@@ -79,7 +83,7 @@ class _HomePageState extends State<HomePage> {
   Future<void> _join() async {
     final code = _code.text.trim().toUpperCase();
     if (code.length < 4) {
-      showQuivroSnack(context, 'Enter the room code');
+      showQuivroSnack(context, context.strings.enterRoomCode);
       return;
     }
 
@@ -97,12 +101,13 @@ class _HomePageState extends State<HomePage> {
       );
     } catch (e) {
       if (!mounted) return;
+      final strings = context.strings;
       final text = e.toString();
       final message = text.contains('ROOM_NOT_FOUND')
-          ? 'Room not found. Check the code on the TV.'
+          ? strings.roomNotFound
           : text.contains('ROOM_IN_PROGRESS')
-          ? 'Game already in progress. Wait for the next round.'
-          : 'Could not join. Check your connection.';
+          ? strings.gameInProgress
+          : strings.couldNotJoin;
       showQuivroSnack(context, message, kind: QuivroSnackKind.error);
     } finally {
       if (mounted) setState(() => _joining = false);
@@ -111,6 +116,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final strings = context.strings;
+    final palette = context.palette;
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -128,21 +135,14 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Row(
                               children: [
-                                // ClipRRect(
-                                //   borderRadius: BorderRadius.circular(8),
-                                //   child: Image.asset(
-                                //     'assets/branding/logo_only.png',
-                                //     width: 36,
-                                //     height: 36,
-                                //     fit: BoxFit.cover,
-                                //   ),
-                                // ),
-                                // const SizedBox(width: 1),
-                                Text(
-                                  'Quivro',
-                                  style: GoogleFonts.nunito(
-                                    fontSize: 36,
-                                    fontWeight: FontWeight.w800,
+                                QuivroWordmarkHero(
+                                  child: Text(
+                                    'Quivro',
+                                    style: GoogleFonts.nunito(
+                                      fontSize: 36,
+                                      fontWeight: FontWeight.w800,
+                                      color: palette.text,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -172,15 +172,15 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'Playing as ${_profile.nickname}',
+                    strings.playingAs(_profile.nickname),
                     style: GoogleFonts.nunito(
                       fontWeight: FontWeight.w700,
-                      color: QuivroColors.muted,
+                      color: palette.muted,
                     ),
                   ),
                   const Spacer(),
                   Text(
-                    'Join a room',
+                    strings.joinARoom,
                     textAlign: TextAlign.center,
                     style: GoogleFonts.nunito(
                       fontSize: 22,
@@ -202,28 +202,29 @@ class _HomePageState extends State<HomePage> {
                       LengthLimitingTextInputFormatter(6),
                       _UpperCaseFormatter(),
                     ],
-                    decoration: const InputDecoration(hintText: 'CODE'),
+                    decoration: InputDecoration(hintText: strings.codeHint),
                   ),
                   const SizedBox(height: 20),
                   SizedBox(
                     height: 56,
                     child: OutlinedButton(
                       onPressed: _joining ? null : _join,
-                      child: Text(_joining ? 'Joining…' : 'Join'),
+                      child: Text(_joining ? strings.joining : strings.join),
                     ),
                   ),
                   const SizedBox(height: 12),
                   TextButton(
                     onPressed: () => context.go('/setup', extra: _profile),
                     child: Text(
-                      'Edit nickname & avatar',
+                      strings.editNicknameAvatar,
                       style: GoogleFonts.nunito(
                         fontWeight: FontWeight.w700,
-                        color: QuivroColors.muted,
+                        color: palette.muted,
                       ),
                     ),
                   ),
                   const Spacer(),
+                  const Center(child: SettingsChips()),
                 ],
               ),
             ),

@@ -40,7 +40,8 @@ class PublicQuestion {
     }
     final endsAt = (map['endsAt'] as num?)?.toInt() ?? 0;
     final durationMs = (map['durationMs'] as num?)?.toInt() ?? 15000;
-    final answerOpensAt = (map['answerOpensAt'] as num?)?.toInt() ??
+    final answerOpensAt =
+        (map['answerOpensAt'] as num?)?.toInt() ??
         (endsAt - durationMs).clamp(0, endsAt);
     return PublicQuestion(
       id: '${map['id'] ?? ''}',

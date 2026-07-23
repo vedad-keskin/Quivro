@@ -1813,4 +1813,38 @@ export const islamEasy: Question[] = [
     ],
     correctIndex: 1,
   },
+  {
+    id: 'islam-easy-121',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'easy',
+    prompt: {
+      en: 'Which mosque is known as "the mosque of the two qiblas"?',
+      bs: 'Koja je džamija poznata kao "džamija dviju kibli"?'
+    },
+    options: [
+      { en: 'Masjid al-Qiblatayn', bs: 'Mesdžidul-Kibletejn' },
+      { en: 'Quba Mosque', bs: 'Džamija Kuba' },
+      { en: 'Al-Aqsa Mosque', bs: 'Mesdžidul-Aksa' },
+      { en: 'The Prophet’s Mosque', bs: 'Poslanikova džamija' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'islam-easy-122',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'easy',
+    prompt: {
+      en: 'Which prophet built the Ark by Allah’s command?',
+      bs: 'Koji je poslanik po Allahovoj naredbi sagradio lađu?'
+    },
+    options: [
+      { en: 'Nuh', bs: 'Nuh' },
+      { en: 'Hud', bs: 'Hud' },
+      { en: 'Salih', bs: 'Salih' },
+      { en: 'Yunus', bs: 'Junus' },
+    ],
+    correctIndex: 0,
+  },
 ];

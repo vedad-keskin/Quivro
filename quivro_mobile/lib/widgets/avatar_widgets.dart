@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import '../core/avatars.dart';
 
 class AvatarBadge extends StatelessWidget {
-  const AvatarBadge({
-    super.key,
-    required this.index,
-    this.size = 48,
-  });
+  const AvatarBadge({super.key, required this.index, this.size = 48});
 
   final int index;
   final double size;
@@ -21,10 +17,7 @@ class AvatarBadge extends StatelessWidget {
         color: avatarColor(index),
         shape: BoxShape.circle,
       ),
-      child: Text(
-        avatarEmoji(index),
-        style: TextStyle(fontSize: size * 0.48),
-      ),
+      child: Text(avatarEmoji(index), style: TextStyle(fontSize: size * 0.48)),
     );
   }
 }

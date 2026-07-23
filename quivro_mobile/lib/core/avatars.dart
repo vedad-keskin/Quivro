@@ -107,11 +107,9 @@ const answerColors = <Color>[
 
 const answerLabels = <String>['A', 'B', 'C', 'D'];
 
-Color avatarColor(int index) =>
-    avatarColors[index.clamp(0, avatarCount - 1)];
+Color avatarColor(int index) => avatarColors[index.clamp(0, avatarCount - 1)];
 
-String avatarEmoji(int index) =>
-    avatarEmojis[index.clamp(0, avatarCount - 1)];
+String avatarEmoji(int index) => avatarEmojis[index.clamp(0, avatarCount - 1)];
 
 abstract final class QuivroColors {
   static const blue = Color(0xFF2F7CF6);

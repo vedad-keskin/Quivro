@@ -8,8 +8,11 @@ import '../core/profile_store.dart';
 import '../core/room_models.dart';
 import '../core/room_repository.dart';
 import '../core/sfx.dart';
+import '../core/strings.dart';
+import '../core/theme.dart';
 import '../widgets/avatar_widgets.dart';
 import '../widgets/quivro_snackbar.dart';
+import '../widgets/wordmark.dart';
 
 class RoomPage extends StatefulWidget {
   const RoomPage({
@@ -70,7 +73,7 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
       playerId: widget.playerId,
     );
     if (!ok && mounted && !_exitingClosedRoom) {
-      _handleRoomEnded(message: 'This room has ended');
+      _handleRoomEnded(message: context.strings.roomEnded);
     }
   }
 
@@ -80,7 +83,7 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
     await _repo.clearActiveSession();
     if (!mounted) return;
     if (showClosed) {
-      showQuivroSnack(context, 'Room closed');
+      showQuivroSnack(context, context.strings.roomClosed);
     } else if (message != null) {
       showQuivroSnack(context, message);
     }
@@ -98,26 +101,27 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
   }
 
   Future<void> _confirmQuitGame() async {
+    final strings = context.strings;
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
         title: Text(
-          'Leave this game?',
+          strings.leaveGameTitle,
           style: GoogleFonts.nunito(fontWeight: FontWeight.w800),
         ),
         content: Text(
-          'You will be removed from the room.',
+          strings.leaveGameBody,
           style: GoogleFonts.nunito(fontWeight: FontWeight.w600),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: const Text('Cancel'),
+            child: Text(strings.cancel),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(true),
             child: Text(
-              'Leave',
+              strings.leave,
               style: GoogleFonts.nunito(
                 fontWeight: FontWeight.w800,
                 color: const Color(0xFFEC4899),
@@ -133,11 +137,14 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
   }
 
   void _openSetup() {
-    context.go('/setup', extra: {
-      'existing': _profile,
-      'returnTo': '/room/${widget.code}',
-      'returnPlayerId': widget.playerId,
-    });
+    context.go(
+      '/setup',
+      extra: {
+        'existing': _profile,
+        'returnTo': '/room/${widget.code}',
+        'returnPlayerId': widget.playerId,
+      },
+    );
   }
 
   void _handleRoomClosed() {
@@ -153,14 +160,15 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
   }
 
   void _handleStaleRoom() {
-    _handleRoomEnded(message: 'This room has ended');
+    _handleRoomEnded(message: context.strings.roomEnded);
   }
 
   void _handleConnectionError() {
     if (_exitingClosedRoom) return;
     _exitingClosedRoom = true;
+    final message = context.strings.connectionLost;
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      unawaited(_leaveToHome(message: 'Connection lost'));
+      unawaited(_leaveToHome(message: message));
     });
   }
 
@@ -191,7 +199,11 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
       );
     } catch (_) {
       if (mounted) {
-        showQuivroSnack(context, 'Could not send answer', kind: QuivroSnackKind.error);
+        showQuivroSnack(
+          context,
+          context.strings.couldNotSendAnswer,
+          kind: QuivroSnackKind.error,
+        );
       }
     } finally {
       if (mounted) setState(() => _submitting = false);
@@ -202,13 +214,14 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
     if (_optingIn) return;
     setState(() => _optingIn = true);
     try {
-      await _repo.setRematchReady(
-        code: widget.code,
-        playerId: widget.playerId,
-      );
+      await _repo.setRematchReady(code: widget.code, playerId: widget.playerId);
     } catch (_) {
       if (mounted) {
-        showQuivroSnack(context, 'Could not join rematch', kind: QuivroSnackKind.error);
+        showQuivroSnack(
+          context,
+          context.strings.couldNotJoinRematch,
+          kind: QuivroSnackKind.error,
+        );
       }
     } finally {
       if (mounted) setState(() => _optingIn = false);
@@ -220,15 +233,17 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
     return StreamBuilder<RoomState?>(
       stream: _stream,
       builder: (context, snap) {
+        final strings = context.strings;
         if (snap.hasError) {
           _handleConnectionError();
           return Scaffold(
-            body: Center(child: Text('Connection error: ${snap.error}')),
+            body: Center(child: Text(strings.connectionError(snap.error!))),
           );
         }
         final room = snap.data;
         if (room == null) {
-          final waiting = snap.connectionState == ConnectionState.waiting && !_sawRoom;
+          final waiting =
+              snap.connectionState == ConnectionState.waiting && !_sawRoom;
           if (!waiting) {
             _handleRoomClosed();
           }
@@ -239,7 +254,7 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
                 children: [
                   const CircularProgressIndicator(),
                   const SizedBox(height: 16),
-                  Text(waiting ? 'Connecting…' : 'Room closed'),
+                  Text(waiting ? strings.connecting : strings.roomClosed),
                 ],
               ),
             ),
@@ -258,7 +273,7 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
           }
           WidgetsBinding.instance.addPostFrameCallback((_) {
             if (!mounted || _exitingClosedRoom) return;
-            _handleRoomEnded(message: 'Round started without you');
+            _handleRoomEnded(message: strings.roundStartedWithoutYou);
           });
           return const Scaffold(
             body: Center(child: CircularProgressIndicator()),
@@ -278,14 +293,14 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
 
         if (RoomSessionPolicy.isStalePlayState(room, _repo.nowMs())) {
           _handleStaleRoom();
-          return const Scaffold(
+          return Scaffold(
             body: Center(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  CircularProgressIndicator(),
-                  SizedBox(height: 16),
-                  Text('This room has ended'),
+                  const CircularProgressIndicator(),
+                  const SizedBox(height: 16),
+                  Text(strings.roomEnded),
                 ],
               ),
             ),
@@ -364,6 +379,8 @@ class _LobbyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final strings = context.strings;
+    final palette = context.palette;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -377,11 +394,14 @@ class _LobbyView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'Quivro',
-                          style: GoogleFonts.nunito(
-                            fontSize: 36,
-                            fontWeight: FontWeight.w800,
+                        QuivroWordmarkHero(
+                          child: Text(
+                            'Quivro',
+                            style: GoogleFonts.nunito(
+                              fontSize: 36,
+                              fontWeight: FontWeight.w800,
+                              color: palette.text,
+                            ),
                           ),
                         ),
                         Container(
@@ -406,19 +426,19 @@ class _LobbyView extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               Text(
-                'Playing as ${profile.nickname}',
+                strings.playingAs(profile.nickname),
                 style: GoogleFonts.nunito(
                   fontWeight: FontWeight.w700,
-                  color: QuivroColors.muted,
+                  color: palette.muted,
                 ),
               ),
               const Spacer(),
               Text(
-                'Room',
+                strings.room,
                 textAlign: TextAlign.center,
                 style: GoogleFonts.nunito(
                   fontWeight: FontWeight.w700,
-                  color: QuivroColors.muted,
+                  color: palette.muted,
                 ),
               ),
               Text(
@@ -433,22 +453,22 @@ class _LobbyView extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               Text(
-                'Waiting for the host to start…',
+                strings.waitingForHost,
                 textAlign: TextAlign.center,
                 style: GoogleFonts.nunito(
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
-                  color: QuivroColors.muted,
+                  color: palette.muted,
                 ),
               ),
               const Spacer(),
               TextButton(
                 onPressed: onLeave,
                 child: Text(
-                  'Leave',
+                  strings.leave,
                   style: GoogleFonts.nunito(
                     fontWeight: FontWeight.w700,
-                    color: QuivroColors.muted,
+                    color: palette.muted,
                   ),
                 ),
               ),
@@ -500,18 +520,17 @@ class _PlayViewState extends State<_PlayView> {
 
   @override
   Widget build(BuildContext context) {
+    final strings = context.strings;
+    final palette = context.palette;
     final room = widget.room;
     final q = room.currentQuestion!;
     final isReveal = room.phase == 'reveal';
     final now = widget.nowMs();
-    final waitingForTv =
-        room.phase == 'question' && now < q.answerOpensAt;
-    final locked = room.phase != 'question' ||
-        waitingForTv ||
-        now > q.endsAt;
+    final waitingForTv = room.phase == 'question' && now < q.answerOpensAt;
+    final locked = room.phase != 'question' || waitingForTv || now > q.endsAt;
 
     return Scaffold(
-      backgroundColor: QuivroColors.surface,
+      backgroundColor: palette.surface,
       body: SafeArea(
         child: Column(
           children: [
@@ -526,7 +545,7 @@ class _PlayViewState extends State<_PlayView> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Q ${q.index + 1} / ${q.total}',
+                          strings.questionCounter(q.index + 1, q.total),
                           style: GoogleFonts.nunito(
                             fontWeight: FontWeight.w800,
                             fontSize: 18,
@@ -536,7 +555,7 @@ class _PlayViewState extends State<_PlayView> {
                           '${q.category} · ${q.difficulty}',
                           style: GoogleFonts.nunito(
                             fontWeight: FontWeight.w700,
-                            color: QuivroColors.muted,
+                            color: palette.muted,
                             fontSize: 13,
                           ),
                         ),
@@ -551,10 +570,10 @@ class _PlayViewState extends State<_PlayView> {
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     ),
                     child: Text(
-                      'Quit',
+                      strings.quit,
                       style: GoogleFonts.nunito(
                         fontWeight: FontWeight.w800,
-                        color: QuivroColors.muted,
+                        color: palette.muted,
                       ),
                     ),
                   ),
@@ -570,24 +589,28 @@ class _PlayViewState extends State<_PlayView> {
                       width: 56,
                       height: 56,
                       alignment: Alignment.center,
+                      padding: const EdgeInsets.all(6),
                       decoration: BoxDecoration(
-                        color: const Color(0xFFF5F3FF),
+                        color: palette.chipPurple,
                         borderRadius: BorderRadius.circular(99),
                         border: Border.all(
                           color: QuivroColors.purple,
                           width: 3,
                         ),
                       ),
-                      child: Text(
-                        waitingForTv
-                            ? 'TV'
-                            : (isReveal ? 'Locked' : room.phase),
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.nunito(
-                          fontWeight: FontWeight.w800,
-                          fontSize: 12,
-                          height: 1.1,
-                          color: QuivroColors.purple,
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          waitingForTv
+                              ? strings.tvBadge
+                              : (isReveal ? strings.lockedBadge : room.phase),
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.nunito(
+                            fontWeight: FontWeight.w800,
+                            fontSize: 12,
+                            height: 1.1,
+                            color: QuivroColors.purple,
+                          ),
                         ),
                       ),
                     ),
@@ -598,17 +621,17 @@ class _PlayViewState extends State<_PlayView> {
               padding: const EdgeInsets.only(bottom: 6),
               child: Text(
                 waitingForTv
-                    ? 'Look at the TV…'
+                    ? strings.lookAtTv
                     : room.phase == 'question'
-                        ? 'Tap another answer to change'
-                        : 'Answers locked',
+                    ? strings.tapToChange
+                    : strings.answersLocked,
                 style: GoogleFonts.nunito(
                   fontWeight: FontWeight.w800,
                   color: waitingForTv
                       ? QuivroColors.purple
                       : room.phase == 'question'
-                          ? QuivroColors.blue
-                          : QuivroColors.purple,
+                      ? QuivroColors.blue
+                      : QuivroColors.purple,
                 ),
               ),
             ),
@@ -703,9 +726,7 @@ class _AnswerTileState extends State<_AnswerTile> {
   @override
   Widget build(BuildContext context) {
     final base = answerColors[widget.index];
-    final fill = widget.selected
-        ? Color.lerp(base, Colors.white, 0.08)!
-        : base;
+    final fill = widget.selected ? Color.lerp(base, Colors.white, 0.08)! : base;
     final dimmed = !widget.enabled && !widget.selected;
 
     return SizedBox.expand(
@@ -733,13 +754,11 @@ class _AnswerTileState extends State<_AnswerTile> {
                 borderRadius: BorderRadius.circular(24),
                 border: Border.all(
                   width: 3,
-                  color: widget.selected
-                      ? Colors.white
-                      : Colors.transparent,
+                  color: widget.selected ? Colors.white : Colors.transparent,
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: QuivroColors.navy.withValues(alpha: 0.12),
+                    color: context.palette.shadow,
                     blurRadius: 16,
                     offset: const Offset(0, 6),
                   ),
@@ -866,6 +885,7 @@ class _CountdownState extends State<_Countdown> {
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.palette;
     final urgent = _left <= 5;
     return Container(
       width: 56,
@@ -873,7 +893,7 @@ class _CountdownState extends State<_Countdown> {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: urgent ? const Color(0xFFFCE7F3) : const Color(0xFFE0F2FE),
+        color: urgent ? palette.chipPink : palette.chipBlue,
         border: Border.all(
           color: urgent ? const Color(0xFFEC4899) : QuivroColors.blue,
           width: 3,
@@ -914,6 +934,8 @@ class _FinishedView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final strings = context.strings;
+    final palette = context.palette;
     final ranked = room.ranked();
     final winnerIds = room.lastWinners.map((w) => w.playerId).toSet();
 
@@ -928,7 +950,7 @@ class _FinishedView extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      'Final leaderboard',
+                      strings.finalLeaderboard,
                       style: GoogleFonts.nunito(
                         fontSize: 28,
                         fontWeight: FontWeight.w900,
@@ -946,10 +968,10 @@ class _FinishedView extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'Winner: ',
+                      strings.winnerPrefix,
                       style: GoogleFonts.nunito(
                         fontWeight: FontWeight.w700,
-                        color: QuivroColors.muted,
+                        color: palette.muted,
                       ),
                     ),
                     AvatarBadge(index: room.lastWinners.first.avatar, size: 28),
@@ -966,10 +988,10 @@ class _FinishedView extends StatelessWidget {
               ] else if (room.lastWinners.length > 1) ...[
                 const SizedBox(height: 4),
                 Text(
-                  'Tied winners:',
+                  strings.tiedWinners,
                   style: GoogleFonts.nunito(
                     fontWeight: FontWeight.w700,
-                    color: QuivroColors.muted,
+                    color: palette.muted,
                   ),
                 ),
                 const SizedBox(height: 6),
@@ -1006,17 +1028,17 @@ class _FinishedView extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: isSelf
-                            ? const Color(0xFFE0F2FE)
+                            ? palette.chipBlue
                             : isWinner
-                                ? const Color(0xFFF5F3FF)
-                                : const Color(0xFFF8FAFC),
+                            ? palette.chipPurple
+                            : palette.surface,
                         borderRadius: BorderRadius.circular(16),
                         border: Border.all(
                           color: isSelf
                               ? QuivroColors.blue
                               : isWinner
-                                  ? QuivroColors.purple
-                                  : const Color(0xFFE2E8F0),
+                              ? QuivroColors.purple
+                              : palette.border,
                           width: isSelf || isWinner ? 2 : 1,
                         ),
                       ),
@@ -1029,7 +1051,7 @@ class _FinishedView extends StatelessWidget {
                               style: GoogleFonts.nunito(
                                 fontWeight: FontWeight.w900,
                                 fontSize: 18,
-                                color: QuivroColors.muted,
+                                color: palette.muted,
                               ),
                             ),
                           ),
@@ -1048,7 +1070,7 @@ class _FinishedView extends StatelessWidget {
                                 ),
                                 if (p.wins > 0)
                                   Text(
-                                    '${p.wins}W',
+                                    strings.winsShort(p.wins),
                                     style: GoogleFonts.nunito(
                                       fontWeight: FontWeight.w700,
                                       fontSize: 12,
@@ -1075,7 +1097,7 @@ class _FinishedView extends StatelessWidget {
               if (optedIn) ...[
                 const SizedBox(height: 8),
                 Text(
-                  "You're in for another round — waiting for the host…",
+                  strings.rematchOptedIn,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.nunito(
                     fontWeight: FontWeight.w800,
@@ -1090,10 +1112,10 @@ class _FinishedView extends StatelessWidget {
                   onPressed: optedIn || optingIn ? null : onPlayAgain,
                   child: Text(
                     optedIn
-                        ? 'Ready!'
+                        ? strings.ready
                         : optingIn
-                            ? 'Joining…'
-                            : 'Play again',
+                        ? strings.joiningRematch
+                        : strings.playAgain,
                   ),
                 ),
               ),
@@ -1102,7 +1124,7 @@ class _FinishedView extends StatelessWidget {
                 width: double.infinity,
                 child: OutlinedButton(
                   onPressed: onHome,
-                  child: const Text('Home'),
+                  child: Text(strings.home),
                 ),
               ),
             ],

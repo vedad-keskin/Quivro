@@ -1,6 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'core/profile_store.dart';
+import 'core/settings.dart';
 import 'core/theme.dart';
 import 'screens/home_page.dart';
 import 'screens/room_page.dart';
@@ -11,11 +15,17 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   // All heavy initialization (Firebase, profile, session resolve) happens on
   // the splash screen via AppBootstrapper, so the first frame paints fast.
-  runApp(const QuivroApp());
+  // Settings load in parallel: SharedPreferences only, resolves in
+  // milliseconds and notifies the app when done.
+  final settings = SettingsController();
+  unawaited(settings.load());
+  runApp(QuivroApp(settings: settings));
 }
 
 class QuivroApp extends StatefulWidget {
-  const QuivroApp({super.key});
+  const QuivroApp({super.key, required this.settings});
+
+  final SettingsController settings;
 
   @override
   State<QuivroApp> createState() => _QuivroAppState();
@@ -92,11 +102,29 @@ class _QuivroAppState extends State<QuivroApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Quivro',
-      debugShowCheckedModeBanner: false,
-      theme: buildQuivroTheme(),
-      routerConfig: _router,
+    return AnimatedBuilder(
+      animation: widget.settings,
+      builder: (context, _) => Settings(
+        controller: widget.settings,
+        child: MaterialApp.router(
+          title: 'Quivro',
+          debugShowCheckedModeBanner: false,
+          theme: buildQuivroTheme(),
+          darkTheme: buildQuivroDarkTheme(),
+          themeMode: widget.settings.themeMode,
+          // Soft cross-fade when toggling day/night.
+          themeAnimationDuration: const Duration(milliseconds: 300),
+          themeAnimationCurve: Curves.easeInOut,
+          locale: widget.settings.language.locale,
+          supportedLocales: const [Locale('en'), Locale('bs')],
+          localizationsDelegates: const [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          routerConfig: _router,
+        ),
+      ),
     );
   }
 }

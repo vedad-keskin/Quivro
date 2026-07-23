@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../core/avatars.dart';
+import '../core/theme.dart';
 
 enum QuivroSnackKind { info, error, success }
 
@@ -32,14 +33,15 @@ class _QuivroSnackCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final palette = context.palette;
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: palette.card,
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: QuivroColors.border, width: 2),
+        border: Border.all(color: palette.border, width: 2),
         boxShadow: [
           BoxShadow(
-            color: QuivroColors.navy.withValues(alpha: 0.14),
+            color: palette.shadow,
             blurRadius: 40,
             offset: const Offset(0, 14),
           ),
@@ -58,7 +60,7 @@ class _QuivroSnackCard extends StatelessWidget {
                 fontWeight: FontWeight.w700,
                 fontSize: 15,
                 height: 1.35,
-                color: QuivroColors.navy,
+                color: palette.text,
               ),
             ),
           ),
@@ -77,27 +79,23 @@ class _AccentBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final decoration = switch (kind) {
       QuivroSnackKind.error => const BoxDecoration(
-          color: Color(0xFFEC4899),
-          borderRadius: BorderRadius.all(Radius.circular(99)),
-        ),
+        color: Color(0xFFEC4899),
+        borderRadius: BorderRadius.all(Radius.circular(99)),
+      ),
       QuivroSnackKind.success => const BoxDecoration(
-          color: Color(0xFF84CC16),
-          borderRadius: BorderRadius.all(Radius.circular(99)),
-        ),
+        color: Color(0xFF84CC16),
+        borderRadius: BorderRadius.all(Radius.circular(99)),
+      ),
       QuivroSnackKind.info => const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [QuivroColors.blue, QuivroColors.purple],
-          ),
-          borderRadius: BorderRadius.all(Radius.circular(99)),
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [QuivroColors.blue, QuivroColors.purple],
         ),
+        borderRadius: BorderRadius.all(Radius.circular(99)),
+      ),
     };
 
-    return Container(
-      width: 6,
-      height: 36,
-      decoration: decoration,
-    );
+    return Container(width: 6, height: 36, decoration: decoration);
   }
 }

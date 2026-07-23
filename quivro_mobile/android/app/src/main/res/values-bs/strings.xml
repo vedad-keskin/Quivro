@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Launcher label for Bosnian-language devices. The brand name stays
+         "Quivro"; this resource exists so the label can diverge later. -->
+    <string name="app_name">Quivro</string>
+</resources>

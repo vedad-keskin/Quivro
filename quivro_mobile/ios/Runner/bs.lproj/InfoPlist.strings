@@ -1,0 +1,3 @@
+/* Launcher label (Bosnian). Brand name stays "Quivro"; this file exists so
+   the label can diverge later. */
+"CFBundleDisplayName" = "Quivro";

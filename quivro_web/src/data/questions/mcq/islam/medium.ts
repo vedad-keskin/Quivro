@@ -723,15 +723,15 @@ export const islamMedium: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'medium',
-    prompt: { 
-      en: 'Tayammum is permitted when water is unavailable or using it would cause:',
-      bs: 'Tejemum je dozvoljen kada nema vode ili bi njeno korištenje uzrokovalo:'
+    prompt: {
+      en: 'Which prophet is mentioned by name the most times in the Qur’an?',
+      bs: 'Koji se poslanik imenom najviše puta spominje u Kur’anu?'
     },
     options: [
-      { en: 'Harm to health', bs: 'Štetu po zdravlje' },
-      { en: 'Unnecessary difficulty', bs: 'Nepotrebnu poteškoću' },
-      { en: 'Delay in prayer time', bs: 'Odgađanje namaskog vremena' },
-      { en: 'Discomfort due to weather', bs: 'Neugodnost zbog vremenskih uslova' },
+      { en: 'Musa', bs: 'Musa' },
+      { en: 'Ibrahim', bs: 'Ibrahim' },
+      { en: 'Isa', bs: 'Isa' },
+      { en: 'Nuh', bs: 'Nuh' },
     ],
     correctIndex: 0,
   },
@@ -2047,6 +2047,23 @@ export const islamMedium: Question[] = [
       { en: 'Al-Alaq', bs: 'El-Alek' },
       { en: 'Al-Baqarah', bs: 'El-Bekara' },
       { en: 'Al-Anfal', bs: 'El-Enfal' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'islam-med-124',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'medium',
+    prompt: {
+      en: 'What is the only month mentioned by name in the Qur’an?',
+      bs: 'Koji je jedini mjesec koji se imenom spominje u Kur’anu?'
+    },
+    options: [
+      { en: 'Ramadan', bs: 'Ramazan' },
+      { en: 'Muharram', bs: 'Muharrem' },
+      { en: 'Dhu al-Hijjah', bs: 'Zul-hidždže' },
+      { en: 'Rajab', bs: 'Redžeb' },
     ],
     correctIndex: 0,
   },
