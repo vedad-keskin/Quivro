@@ -27,6 +27,8 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   static const _minSplash = Duration(milliseconds: 3000);
+  /// Brief pause before intro SFX so it sits closer to the wordmark reveal.
+  static const _introSoundDelay = Duration(milliseconds: 200);
   static const _bg = Color(0xFF0A0E27);
   static const _blue = Color(0xFF2F7CF6);
   static const _purple = Color(0xFF7B3FF2);
@@ -104,6 +106,8 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
   Future<void> _playIntroSound() async {
     try {
+      await Future.delayed(_introSoundDelay);
+      if (!mounted) return;
       await _introSound.setReleaseMode(ReleaseMode.stop);
       await _introSound.setSource(AssetSource('sounds/into_splash.mp3'));
       await _introSound.resume();

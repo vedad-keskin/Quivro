@@ -55,6 +55,11 @@ import { SettingsChips } from '../../shared/settings-chips';
       width: min(420px, 78vw);
       margin-top: 0.25rem;
       display: block;
+      transition: filter 0.3s ease;
+    }
+    :host-context(html[data-theme='dark']) .logo {
+      /* Dark wordmark in the asset — invert + hue restore keeps the Q gradient readable. */
+      filter: invert(1) hue-rotate(180deg) brightness(1.08) saturate(1.05);
     }
     .brand .q-brand-line {
       margin-top: 0;
