@@ -1,31 +1,21 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'core/profile_store.dart';
-import 'core/room_repository.dart';
 import 'core/theme.dart';
-import 'firebase_options.dart';
 import 'screens/home_page.dart';
 import 'screens/room_page.dart';
 import 'screens/setup_page.dart';
+import 'screens/splash_page.dart';
 
-Future<void> main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  final store = ProfileStore();
-  final profile = await store.load();
-  ActiveRoomSession? session;
-  if (profile != null) {
-    session = await RoomRepository(profileStore: store).resolveActiveSession();
-  }
-  runApp(QuivroApp(initialProfile: profile, initialSession: session));
+  // All heavy initialization (Firebase, profile, session resolve) happens on
+  // the splash screen via AppBootstrapper, so the first frame paints fast.
+  runApp(const QuivroApp());
 }
 
 class QuivroApp extends StatefulWidget {
-  const QuivroApp({super.key, this.initialProfile, this.initialSession});
-
-  final PlayerProfile? initialProfile;
-  final ActiveRoomSession? initialSession;
+  const QuivroApp({super.key});
 
   @override
   State<QuivroApp> createState() => _QuivroAppState();
@@ -33,18 +23,23 @@ class QuivroApp extends StatefulWidget {
 
 class _QuivroAppState extends State<QuivroApp> {
   late final GoRouter _router = GoRouter(
-    initialLocation: _initialLocation(),
+    initialLocation: '/splash',
     routes: [
       GoRoute(
+        path: '/splash',
+        pageBuilder: (context, state) =>
+            NoTransitionPage(key: state.pageKey, child: const SplashPage()),
+      ),
+      GoRoute(
         path: '/setup',
-        builder: (context, state) {
+        pageBuilder: (context, state) {
           final extra = state.extra;
+          Widget page;
           if (extra is Map) {
-            final existing = extra['existing'] is PlayerProfile
-                ? extra['existing'] as PlayerProfile
-                : widget.initialProfile;
-            return SetupPage(
-              existing: existing,
+            page = SetupPage(
+              existing: extra['existing'] is PlayerProfile
+                  ? extra['existing'] as PlayerProfile
+                  : null,
               returnTo: extra['returnTo'] is String
                   ? extra['returnTo'] as String
                   : null,
@@ -52,63 +47,48 @@ class _QuivroAppState extends State<QuivroApp> {
                   ? extra['returnPlayerId'] as String
                   : null,
             );
+          } else {
+            page = SetupPage(existing: extra is PlayerProfile ? extra : null);
           }
-          final existing = extra is PlayerProfile
-              ? extra
-              : widget.initialProfile;
-          return SetupPage(existing: existing);
+          return _fadeThroughPage(key: state.pageKey, child: page);
         },
       ),
       GoRoute(
         path: '/',
-        builder: (context, state) {
+        pageBuilder: (context, state) {
           final profile = state.extra is PlayerProfile
               ? state.extra as PlayerProfile
-              : widget.initialProfile;
-          if (profile == null) {
-            return const SetupPage();
-          }
-          return HomePage(profile: profile);
+              : null;
+          return _fadeThroughPage(
+            key: state.pageKey,
+            child: profile != null
+                ? HomePage(profile: profile)
+                : const _StoredProfileGate(),
+          );
         },
       ),
       GoRoute(
         path: '/room/:code',
-        builder: (context, state) {
+        pageBuilder: (context, state) {
           final code = (state.pathParameters['code'] ?? '').toUpperCase();
           final extra = state.extra;
+          Widget page;
           if (extra is Map) {
-            final playerId = '${extra['playerId']}';
-            final profile = extra['profile'] as PlayerProfile;
-            return RoomPage(
+            page = RoomPage(
               code: code,
-              playerId: playerId,
-              profile: profile,
+              playerId: '${extra['playerId']}',
+              profile: extra['profile'] as PlayerProfile,
             );
+          } else {
+            // No extra (e.g. setup "Cancel" edge case): resume from the
+            // stored session if it matches this room.
+            page = _StoredSessionGate(code: code);
           }
-          // Cold-start rejoin: session validated in main().
-          final session = widget.initialSession;
-          final profile = widget.initialProfile;
-          if (session != null &&
-              profile != null &&
-              session.code == code) {
-            return RoomPage(
-              code: session.code,
-              playerId: session.playerId,
-              profile: profile,
-            );
-          }
-          return const SetupPage();
+          return _fadeThroughPage(key: state.pageKey, child: page);
         },
       ),
     ],
   );
-
-  String _initialLocation() {
-    if (widget.initialProfile == null) return '/setup';
-    final session = widget.initialSession;
-    if (session != null) return '/room/${session.code}';
-    return '/';
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -117,6 +97,87 @@ class _QuivroAppState extends State<QuivroApp> {
       debugShowCheckedModeBanner: false,
       theme: buildQuivroTheme(),
       routerConfig: _router,
+    );
+  }
+}
+
+/// Fade-through transition used when leaving the splash screen (and between
+/// top-level routes) so screen changes feel seamless.
+CustomTransitionPage<void> _fadeThroughPage({
+  required LocalKey key,
+  required Widget child,
+}) {
+  return CustomTransitionPage<void>(
+    key: key,
+    child: child,
+    transitionDuration: const Duration(milliseconds: 450),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      final fade = CurvedAnimation(
+        parent: animation,
+        curve: const Interval(0.25, 1, curve: Curves.easeOut),
+      );
+      final scale = Tween<double>(
+        begin: 0.98,
+        end: 1,
+      ).animate(CurvedAnimation(parent: animation, curve: Curves.easeOutCubic));
+      return FadeTransition(
+        opacity: fade,
+        child: ScaleTransition(scale: scale, child: child),
+      );
+    },
+  );
+}
+
+/// Fallback for `/` when no profile was passed: loads it from local storage.
+class _StoredProfileGate extends StatelessWidget {
+  const _StoredProfileGate();
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<PlayerProfile?>(
+      future: ProfileStore().load(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState != ConnectionState.done) {
+          return const Scaffold(body: SizedBox.shrink());
+        }
+        final profile = snapshot.data;
+        if (profile == null) return const SetupPage();
+        return HomePage(profile: profile);
+      },
+    );
+  }
+}
+
+/// Fallback for `/room/:code` without navigation extras: resumes from the
+/// stored active session when it matches, otherwise goes to setup.
+class _StoredSessionGate extends StatelessWidget {
+  const _StoredSessionGate({required this.code});
+
+  final String code;
+
+  static Future<(PlayerProfile?, ActiveRoomSession?)> _load() async {
+    final store = ProfileStore();
+    return (await store.load(), await store.loadActiveSession());
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<(PlayerProfile?, ActiveRoomSession?)>(
+      future: _load(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState != ConnectionState.done) {
+          return const Scaffold(body: SizedBox.shrink());
+        }
+        final (profile, session) = snapshot.data ?? (null, null);
+        if (profile != null && session != null && session.code == code) {
+          return RoomPage(
+            code: session.code,
+            playerId: session.playerId,
+            profile: profile,
+          );
+        }
+        return SetupPage(existing: profile);
+      },
     );
   }
 }

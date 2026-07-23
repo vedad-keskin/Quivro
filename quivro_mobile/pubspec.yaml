@@ -40,6 +40,8 @@ dependencies:
   go_router: ^17.3.0
   google_fonts: ^8.1.0
   audioplayers: ^6.5.1
+  flutter_animate: ^4.5.2
+  connectivity_plus: ^7.0.0
 
 dev_dependencies:
   flutter_test:
@@ -52,6 +54,24 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
   flutter_launcher_icons: ^0.14.4
+  flutter_native_splash: ^2.4.7
+
+flutter_native_splash:
+  color: "#0A0E27"
+  image: assets/branding/logo_only.png
+  # Android 12+ uses a completely different splash mechanism: it renders
+  # `android_12.image` inside a hard circular mask that only shows the
+  # inner ~66.7% of the canvas (see the "Android 12 and Later" section of
+  # the flutter_native_splash README) and *crops* anything outside it. Our
+  # logo artwork fills ~90% of its own canvas, so feeding it directly here
+  # gets its edges clipped. `logo_only_android12.png` is the same artwork
+  # re-padded onto a larger transparent canvas so it comfortably fits the
+  # safe circle instead.
+  android_12:
+    color: "#0A0E27"
+    image: assets/branding/logo_only_android12.png
+  ios: true
+  android: true
 
 flutter_launcher_icons:
   android: true
