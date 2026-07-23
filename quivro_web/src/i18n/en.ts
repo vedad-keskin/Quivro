@@ -86,6 +86,8 @@ export const en = {
   fillAllFields: 'Fill all fields and pick a correct answer',
   alreadyHostingOtherTab:
     'This room is already hosting in another tab. Use that tab, or close it first.',
+  themeDay: 'Day',
+  themeNight: 'Night',
 };
 
 export type UiStrings = Record<keyof typeof en, string>;

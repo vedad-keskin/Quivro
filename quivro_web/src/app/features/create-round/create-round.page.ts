@@ -17,7 +17,7 @@ import {
   type ScoringMode,
 } from '../../core/room.models';
 import { SnackbarService } from '../../core/snackbar.service';
-import { LangToggle } from '../../shared/lang-toggle';
+import { SettingsChips } from '../../shared/settings-chips';
 
 const ROUND_PREFS_KEY = 'quivro.roundPrefs';
 
@@ -85,12 +85,12 @@ function loadRoundPrefs(): RoundPrefs | null {
 
 @Component({
   selector: 'app-create-round',
-  imports: [FormsModule, RouterLink, LangToggle],
+  imports: [FormsModule, RouterLink, SettingsChips],
   template: `
     <div class="q-page">
       <header class="top">
         <a routerLink="/" class="q-btn q-btn-ghost">← {{ lang.t().back }}</a>
-        <app-lang-toggle />
+        <app-settings-chips />
       </header>
 
       <div class="panel">

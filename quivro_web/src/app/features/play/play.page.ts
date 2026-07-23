@@ -353,7 +353,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
   styles: `
     .tv {
       min-height: 100dvh;
-      background: #fff;
+      background: var(--q-bg);
       padding: clamp(0.75rem, 1.5vw, 1.25rem);
       position: relative;
       overflow: hidden;
@@ -362,9 +362,9 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       margin: 0 0 0.75rem;
       padding: 0.75rem 1rem;
       border-radius: 14px;
-      background: #fff7ed;
+      background: var(--q-chip-warm);
       border: 2px solid #fdba74;
-      color: #9a3412;
+      color: var(--q-navy);
       font-weight: 800;
       line-height: 1.35;
       position: relative;
@@ -407,7 +407,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       border: 2px solid var(--q-border);
       border-radius: 28px;
       padding: 0.45rem;
-      background: #f8fafc;
+      background: var(--q-surface);
       min-height: 0;
       max-height: 0;
       opacity: 0;
@@ -498,7 +498,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       align-content: center;
       gap: 0.65rem;
       padding: 1rem;
-      background: rgba(255, 255, 255, 0.94);
+      background: color-mix(in srgb, var(--q-bg) 94%, transparent);
       animation: preview-in 0.35s ease;
     }
     .image-preview-overlay.sliding {
@@ -625,7 +625,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       font-size: 0.9rem;
       line-height: 1.1;
       color: var(--q-purple);
-      background: #f5f3ff;
+      background: var(--q-chip-purple);
       border: 3px solid var(--q-purple);
       border-radius: 50%;
       animation: fade-in 0.35s ease;
@@ -688,7 +688,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       padding: 1.1rem 1.2rem;
       border: 2px solid var(--q-border);
       border-radius: 22px;
-      background: #f8fafc;
+      background: var(--q-surface);
     }
     .rematch-hub h2 {
       margin: 0;

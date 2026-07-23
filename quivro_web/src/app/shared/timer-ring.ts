@@ -43,7 +43,7 @@ import { ServerTimeService } from '../core/server-time.service';
       stroke-width: 3.2;
     }
     .bg {
-      stroke: #e2e8f0;
+      stroke: var(--q-track);
     }
     .fg {
       stroke: var(--q-blue);

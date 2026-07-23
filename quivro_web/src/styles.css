@@ -16,6 +16,10 @@
   --q-bg: #ffffff;
   --q-radius: 20px;
   --q-shadow: 0 10px 30px rgba(30, 41, 59, 0.08);
+  --q-chip-warm: #fff7ed;
+  --q-chip-gold: #fffbeb;
+  --q-chip-purple: #f5f3ff;
+  --q-track: #e2e8f0;
   --answer-a: #22d3ee;
   --answer-b: #f97316;
   --answer-c: #ec4899;
@@ -26,10 +30,30 @@
   line-height: 1.4;
 }
 
+html[data-theme='dark'] {
+  --q-navy: #f1f5f9;
+  --q-muted: #94a3b8;
+  --q-surface: #141b33;
+  --q-card: #1b2440;
+  --q-border: #2e3a54;
+  --q-bg: #0e1430;
+  --q-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --q-chip-warm: #3b1b36;
+  --q-chip-gold: #3a2f14;
+  --q-chip-purple: #29254e;
+  --q-track: #2e3a54;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+html {
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
 }
 
 html,
@@ -40,7 +64,11 @@ body {
 
 body {
   min-height: 100dvh;
-  background: #fff;
+  background: var(--q-bg);
+  color: var(--q-navy);
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
 }
 
 button,
@@ -63,7 +91,11 @@ img {
 .q-page {
   min-height: 100dvh;
   padding: 1.25rem clamp(1rem, 3vw, 2.5rem);
-  background: #fff;
+  background: var(--q-bg);
+  color: var(--q-navy);
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
 }
 
 .q-brand-line {
@@ -81,7 +113,13 @@ img {
   padding: 0.85rem 1.5rem;
   font-weight: 800;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease,
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .q-btn:hover:not(:disabled) {
@@ -102,7 +140,7 @@ img {
 .q-btn-secondary,
 .q-btn-outline {
   color: var(--q-navy);
-  background: #fff;
+  background: var(--q-card);
   border: 2px solid var(--q-pink);
 }
 
@@ -117,6 +155,9 @@ img {
   border-radius: var(--q-radius);
   box-shadow: none;
   padding: 1.35rem;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .q-chip {
@@ -126,10 +167,14 @@ img {
   padding: 0.55rem 1rem;
   border-radius: 999px;
   border: 2px solid var(--q-border);
-  background: #fff;
+  background: var(--q-card);
+  color: var(--q-navy);
   font-weight: 700;
   cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease;
 }
 
 .q-chip.active {
@@ -145,8 +190,12 @@ img {
   border: 2px solid var(--q-border);
   border-radius: 18px;
   padding: 0.85rem 1rem;
-  background: #fff;
+  background: var(--q-card);
   color: var(--q-navy);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .q-input:focus,

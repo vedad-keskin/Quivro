@@ -12,18 +12,18 @@ import { GameRoomService } from '../../core/game-room.service';
 import { LanguageService } from '../../core/language.service';
 import { avatarColor, avatarEmoji } from '../../core/room.models';
 import { SnackbarService } from '../../core/snackbar.service';
-import { LangToggle } from '../../shared/lang-toggle';
+import { SettingsChips } from '../../shared/settings-chips';
 
 @Component({
   selector: 'app-lobby',
-  imports: [LangToggle],
+  imports: [SettingsChips],
   template: `
     <div class="q-page lobby">
       <header class="top">
         <button type="button" class="q-btn q-btn-ghost" (click)="goHome()">
           ← {{ lang.t().home }}
         </button>
-        <app-lang-toggle />
+        <app-settings-chips />
       </header>
 
       @if (room(); as r) {
@@ -100,7 +100,7 @@ import { LangToggle } from '../../shared/lang-toggle';
       border: 2px solid var(--q-border);
       border-radius: 24px;
       padding: 1.5rem;
-      background: #fff;
+      background: var(--q-card);
     }
     .label {
       margin: 0;
@@ -137,9 +137,9 @@ import { LangToggle } from '../../shared/lang-toggle';
       margin: 0 0 1rem;
       padding: 0.85rem 1rem;
       border-radius: 14px;
-      background: #fff7ed;
+      background: var(--q-chip-warm);
       border: 2px solid #fdba74;
-      color: #9a3412;
+      color: var(--q-navy);
       font-weight: 800;
       line-height: 1.35;
     }

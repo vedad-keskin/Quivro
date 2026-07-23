@@ -75,7 +75,7 @@ import { avatarColor, avatarEmoji, rankPlayers, type RoomPlayer } from '../core/
       border: 2px solid var(--q-border);
       border-radius: 28px;
       padding: clamp(1.15rem, 1.8vw, 1.45rem);
-      background: #fff;
+      background: var(--q-card);
       display: flex;
       flex-direction: column;
       min-height: 0;
@@ -124,19 +124,19 @@ import { avatarColor, avatarEmoji, rankPlayers, type RoomPlayer } from '../core/
       animation: podiumIn 0.45s ease both;
     }
     .place-1 {
-      background: #fffbeb;
+      background: var(--q-chip-gold);
       border-color: #eab308;
       padding-top: 0.95rem;
       padding-bottom: 0.9rem;
       z-index: 1;
     }
     .place-2 {
-      background: #f8fafc;
+      background: var(--q-surface);
       border-color: #94a3b8;
       animation-delay: 0.06s;
     }
     .place-3 {
-      background: #fff7ed;
+      background: var(--q-chip-warm);
       border-color: #d97706;
       animation-delay: 0.12s;
     }
@@ -263,7 +263,7 @@ import { avatarColor, avatarEmoji, rankPlayers, type RoomPlayer } from '../core/
       font-size: 0.75rem;
       font-weight: 900;
       color: var(--q-purple);
-      background: #f5f3ff;
+      background: var(--q-chip-purple);
       padding: 0.12rem 0.4rem;
       border-radius: 999px;
       flex-shrink: 0;

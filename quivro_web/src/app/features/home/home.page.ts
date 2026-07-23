@@ -1,15 +1,15 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { LanguageService } from '../../core/language.service';
-import { LangToggle } from '../../shared/lang-toggle';
+import { SettingsChips } from '../../shared/settings-chips';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, LangToggle],
+  imports: [RouterLink, SettingsChips],
   template: `
     <div class="q-page home">
       <header>
-        <app-lang-toggle />
+        <app-settings-chips />
       </header>
 
       <section class="hero">

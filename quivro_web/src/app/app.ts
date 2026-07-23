@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ThemeService } from './core/theme.service';
 import { SnackbarHost } from './shared/snackbar-host';
 
 @Component({
@@ -16,4 +17,7 @@ import { SnackbarHost } from './shared/snackbar-host';
     }
   `,
 })
-export class App {}
+export class App {
+  /** Eagerly construct so data-theme is applied on first client boot. */
+  private readonly _theme = inject(ThemeService);
+}

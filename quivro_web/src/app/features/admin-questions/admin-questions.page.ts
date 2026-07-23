@@ -12,16 +12,16 @@ import {
 import { LanguageService } from '../../core/language.service';
 import { QuestionBankService } from '../../core/question-bank.service';
 import { SnackbarService } from '../../core/snackbar.service';
-import { LangToggle } from '../../shared/lang-toggle';
+import { SettingsChips } from '../../shared/settings-chips';
 
 @Component({
   selector: 'app-admin-questions',
-  imports: [FormsModule, RouterLink, LangToggle],
+  imports: [FormsModule, RouterLink, SettingsChips],
   template: `
     <div class="q-page">
       <header class="top">
         <a routerLink="/" class="q-btn q-btn-ghost">← {{ lang.t().back }}</a>
-        <app-lang-toggle />
+        <app-settings-chips />
       </header>
 
       <div class="q-card form">

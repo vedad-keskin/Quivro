@@ -88,4 +88,6 @@ export const bs: UiStrings = {
   fillAllFields: 'Popuni sva polja i odaberi tačan odgovor',
   alreadyHostingOtherTab:
     'Ova soba se već vodi u drugom tabu. Koristi taj tab ili ga prvo zatvori.',
+  themeDay: 'Dan',
+  themeNight: 'Noć',
 };

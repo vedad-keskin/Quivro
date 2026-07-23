@@ -32,7 +32,7 @@ import { SnackbarService } from '../core/snackbar.service';
       align-items: center;
       padding: 0.95rem 1.1rem;
       border-radius: 18px;
-      background: #fff;
+      background: var(--q-card);
       border: 2px solid var(--q-border);
       box-shadow: 0 14px 40px rgba(30, 41, 59, 0.14);
       cursor: pointer;
