@@ -75,8 +75,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which country is paella originally from?',
-      bs: 'U kojoj zemlji je nastala paella?',
+      en: 'Which country is paella originally from, a famous rice dish?',
+      bs: 'U kojoj zemlji je nastala paella, poznato jelo od riže?'
     },
     options: [
       { en: 'Italy', bs: 'Italija' },
@@ -109,8 +109,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which Italian dessert is made with coffee-soaked ladyfingers and mascarpone?',
-      bs: 'Koji italijanski desert se pravi od piškota natopljenih kafom i mascarponea?',
+      en: 'Which Italian dessert, famous for its layers of coffee-soaked ladyfingers and mascarpone cream, is called "pick me up" in Italian?',
+      bs: 'Koji italijanski desert, poznat po slojevima piškota natopljenih kafom i kremom od mascarponea, na italijanskom znači "podigni me"?'
     },
     options: [
       { en: 'Panna cotta', bs: 'Panna cotta' },
@@ -126,8 +126,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which French dessert has a caramelized sugar crust on top?',
-      bs: 'Koji francuski desert ima karameliziranu šećernu koricu na vrhu?',
+      en: 'Which classic French dessert is known for its creamy custard base topped with a layer of caramelized sugar?',
+      bs: 'Koji klasični francuski desert je poznat po kremastoj bazi od kreme prekrivenoj slojem karameliziranog šećera?'
     },
     options: [
       { en: 'Crème brûlée', bs: 'Crème brûlée' },
@@ -143,14 +143,14 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'What does the Italian cooking term "al dente" mean?',
-      bs: 'Šta znači italijanski kuharski pojam "al dente"?',
+      en: 'What does the Italian cooking term "al dente" mean when describing pasta?',
+      bs: 'Šta znači italijanski kuharski pojam "al dente" kada se opisuje tjestenina?'
     },
     options: [
-      { en: 'Fully soft and overcooked', bs: 'Potpuno meko i prekuhano' },
-      { en: 'Served cold', bs: 'Posluženo hladno' },
-      { en: 'Cooked in wine', bs: 'Kuvano u vinu' },
-      { en: 'Firm to the bite', bs: 'Čvrsto na zagriz' },
+      { en: 'Fully soft and overcooked', bs: 'Potpuno meka i prekuhana' },
+      { en: 'Served cold', bs: 'Poslužena hladna' },
+      { en: 'Cooked in wine', bs: 'Kuhana u vinu' },
+      { en: 'Firm to the bite', bs: 'Čvrsta pri zagrizu' },
     ],
     correctIndex: 3,
   },
@@ -160,16 +160,16 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which taste is known as the fifth basic taste, often described as savory?',
-      bs: 'Koji ukus je poznat kao peti osnovni ukus, često opisan kao slano-mesnati?',
+      en: 'Which Japanese term describes the fifth basic taste, associated with the savory flavor found in foods like meat, mushrooms, and soy sauce?',
+      bs: 'Koji japanski izraz opisuje peti osnovni ukus, povezan sa slanim okusom hrane poput mesa, gljiva i soja sosa?'
     },
     options: [
-      { en: 'Bitter', bs: 'Gorko' },
-      { en: 'Sour', bs: 'Kiselo' },
       { en: 'Umami', bs: 'Umami' },
-      { en: 'Spicy', bs: 'Ljuto' },
+      { en: 'Wasabi', bs: 'Wasabi' },
+      { en: 'Kombu', bs: 'Kombu' },
+      { en: 'Miso', bs: 'Miso' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'food-med-011',
@@ -211,8 +211,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which Lebanese dish is made from ground chickpeas or fava beans?',
-      bs: 'Koje libansko jelo se pravi od mljevenog leblebija ili boba?',
+      en: 'Which Middle Eastern dish is made from ground chickpeas or fava beans and is usually fried into small balls or patties?',
+      bs: 'Koje bliskoistočno jelo se pravi od mljevenih leblebija ili boba i obično se prži u obliku kuglica ili pljeskavica?'
     },
     options: [
       { en: 'Shawarma', bs: 'Shawarma' },
@@ -228,8 +228,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which pastry dessert is made of thin phyllo layers, nuts, and syrup?',
-      bs: 'Koji desert od peciva se pravi od tankih korâ, oraha i sirupa?',
+      en: 'Which traditional dessert is made with layers of thin phyllo dough, chopped nuts, and sweet syrup?',
+      bs: 'Koji tradicionalni desert se pravi od slojeva tankih kora, sjeckanih orašastih plodova i slatkog sirupa?'
     },
     options: [
       { en: 'Baklava', bs: 'Baklava' },
@@ -262,14 +262,14 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which cooking method means cooking food in a sealed bag in a water bath?',
-      bs: 'Koja metoda kuhanja znači kuhanje hrane u zatvorenoj vrećici u vodenom kupatilu?',
+      en: 'Which French cooking technique involves vacuum-sealing food in a bag and cooking it slowly in a temperature-controlled water bath?',
+      bs: 'Koja francuska tehnika kuhanja uključuje vakumiranje hrane u vrećicu i sporo kuhanje u vodenom kupatilu kontrolisane temperature?'
     },
     options: [
       { en: 'Flambé', bs: 'Flambé' },
       { en: 'Sous vide', bs: 'Sous vide' },
       { en: 'Julienne', bs: 'Julienne' },
-      { en: 'Deglaze', bs: 'Deglaze' },
+      { en: 'Deglaze', bs: 'Deglaziranje' },
     ],
     correctIndex: 1,
   },
@@ -313,8 +313,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which Canadian dish is fries topped with cheese curds and gravy?',
-      bs: 'Koje kanadsko jelo su pomfrit sa sirnim zrnima i umakom?',
+      en: 'Which famous Canadian dish consists of French fries topped with cheese curds and gravy?',
+      bs: 'Koje poznato kanadsko jelo se sastoji od pomfrita prelivenog sirnim zrncima i umakom?'
     },
     options: [
       { en: 'Poutine', bs: 'Poutine' },
@@ -398,12 +398,12 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which cheese is a soft French cheese with a white edible rind?',
-      bs: 'Koji je meki francuski sir s bijelom jestivom korom?',
+      en: 'Which famous French cheese is soft and creamy with a white edible rind made from mold?',
+      bs: 'Koji poznati francuski sir je mekan i kremast, s bijelom jestivom korom nastalom od plijesni?'
     },
     options: [
-      { en: 'Parmesan', bs: 'Parmesan' },
-      { en: 'Gouda', bs: 'Gouda' },
+      { en: 'Parmesan', bs: 'Parmezan' },
+      { en: 'Gouda', bs: 'Gauda' },
       { en: 'Brie', bs: 'Brie' },
       { en: 'Cheddar', bs: 'Cheddar' },
     ],
@@ -415,14 +415,14 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which Polish dumplings are often filled with potato, cheese, or meat?',
-      bs: 'Koji poljski dumplingi se često pune krompirom, sirom ili mesom?',
+      en: 'Which traditional Polish dumplings are made from dough and commonly filled with potato, cheese, meat, or sauerkraut?',
+      bs: 'Koje tradicionalne poljske knedle od tijesta se često pune krompirom, sirom, mesom ili kiselim kupusom?'
     },
     options: [
       { en: 'Pierogi', bs: 'Pierogi' },
       { en: 'Gyoza', bs: 'Gyoza' },
       { en: 'Ravioli', bs: 'Ravioli' },
-      { en: 'Empanadas', bs: 'Empanadas' },
+      { en: 'Empanadas', bs: 'Empanade' },
     ],
     correctIndex: 0,
   },
@@ -432,12 +432,12 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which tropical fruit has a spiky pink skin and white flesh with black seeds?',
-      bs: 'Koje tropsko voće ima bodljikavu ružičastu koru i bijelo meso s crnim sjemenkama?',
+      en: 'Which tropical fruit, also known as pitaya, has a bright pink spiky skin and white flesh with tiny black seeds?',
+      bs: 'Koje tropsko voće, poznato i kao pitaja, ima jarkoružičastu bodljikavu koru i bijelu unutrašnjost s malim crnim sjemenkama?'
     },
     options: [
       { en: 'Lychee', bs: 'Liči' },
-      { en: 'Dragon fruit', bs: 'Dragon fruit' },
+      { en: 'Dragon fruit', bs: 'Zmajevo voće' },
       { en: 'Rambutan', bs: 'Rambutan' },
       { en: 'Durian', bs: 'Durian' },
     ],
@@ -449,14 +449,14 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which Italian cured ham is typically thinly sliced and served raw?',
-      bs: 'Koja italijanska sušena šunka se tipično tanko reže i služi sirova?',
+      en: 'Which famous Italian cured ham is aged, thinly sliced, and traditionally served uncooked as an antipasto?',
+      bs: 'Koja poznata italijanska sušena šunka se odležava, tanko reže i tradicionalno služi nekuhana kao predjelo?'
     },
     options: [
       { en: 'Bacon', bs: 'Slanina' },
       { en: 'Prosciutto', bs: 'Prosciutto' },
       { en: 'Salami', bs: 'Salama' },
-      { en: 'Pancetta', bs: 'Pancetta' },
+      { en: 'Pancetta', bs: 'Panceta' },
     ],
     correctIndex: 1,
   },
@@ -484,7 +484,7 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which Cypriot cheese is often grilled and squeaks when bitten?',
-      bs: 'Koji cipanski sir se često peče na roštilju i škripi pri zagrizu?',
+      bs: 'Koji Kiparski sir se često peče na roštilju i škripi pri zagrizu?',
     },
     options: [
       { en: 'Feta', bs: 'Feta' },
@@ -500,8 +500,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which Korean mixed rice bowl is topped with vegetables, egg, and gochujang?',
-      bs: 'Koja korejska zdjela miješane riže ide s povrćem, jajetom i gochujangom?',
+      en: 'Which traditional Korean dish is a mixed rice bowl topped with vegetables, a fried egg, meat, and spicy gochujang sauce?',
+      bs: 'Koje tradicionalno korejsko jelo je zdjela riže pomiješana s povrćem, prženim jajetom, mesom i ljutim gochujang umakom?'
     },
     options: [
       { en: 'Kimchi', bs: 'Kimchi' },
