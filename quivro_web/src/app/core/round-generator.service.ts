@@ -19,6 +19,22 @@ export function normalizeRoundLength(length: number): number {
   );
 }
 
+export function parseCustomRoundLength(value: number | string): number {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? Math.round(parsed) : 0;
+}
+
+export function roundLengthIssue(length: number): 'high' | 'low' | null {
+  const n = Math.round(length);
+  if (!Number.isFinite(n) || n < MIN_ROUND_LENGTH) return 'low';
+  if (n > MAX_ROUND_LENGTH) return 'high';
+  return null;
+}
+
+export function isValidRoundLength(length: number): boolean {
+  return roundLengthIssue(length) === null;
+}
+
 /** Target image count when both text and picture types are selected. */
 export function allocateImageCount(length: number): number {
   return Math.max(1, Math.round(length * 0.1));

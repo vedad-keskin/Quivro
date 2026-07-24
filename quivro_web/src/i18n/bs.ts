@@ -85,6 +85,7 @@ export const bs: UiStrings = {
   roomNotFound: 'Soba nije pronađena',
   minPlayers: 'Sačekaj barem jednog prijatelja sa telefona',
   noQuestions: 'Nema pitanja za odabrane filtere. Dodaj više ili promijeni tipove.',
+  roundLengthTooHigh: 'Maksimalna dužina runde je 100 pitanja',
   startFailed: 'Nije uspjelo. Pokušaj ponovo.',
   fillAllFields: 'Popuni sva polja i odaberi tačan odgovor',
   alreadyHostingOtherTab:

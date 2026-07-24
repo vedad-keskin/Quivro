@@ -3,7 +3,10 @@ import { describe, expect, it } from 'vitest';
 import type { Question } from '../../data/questions/types';
 import { QuestionBankService } from './question-bank.service';
 import {
+  isValidRoundLength,
   normalizeRoundLength,
+  parseCustomRoundLength,
+  roundLengthIssue,
   RoundGeneratorService,
 } from './round-generator.service';
 
@@ -41,6 +44,19 @@ describe('normalizeRoundLength', () => {
   it('rounds fractional values', () => {
     expect(normalizeRoundLength(10.4)).toBe(10);
     expect(normalizeRoundLength(10.6)).toBe(11);
+  });
+
+  it('detects out-of-range custom values', () => {
+    expect(roundLengthIssue(100)).toBeNull();
+    expect(roundLengthIssue(101)).toBe('high');
+    expect(roundLengthIssue(2)).toBe('low');
+    expect(isValidRoundLength(50)).toBe(true);
+    expect(isValidRoundLength(150)).toBe(false);
+  });
+
+  it('parses custom input without clamping', () => {
+    expect(parseCustomRoundLength('150')).toBe(150);
+    expect(parseCustomRoundLength('')).toBe(0);
   });
 });
 

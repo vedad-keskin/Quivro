@@ -16,7 +16,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { interval } from 'rxjs';
 import {
   CATEGORIES,
-  MAX_ROUND_LENGTH,
   MIN_ROUND_LENGTH,
   QUESTION_SECONDS_PRESETS,
   QUESTION_TYPES,
@@ -27,7 +26,12 @@ import {
 } from '../../../data/questions/types';
 import { GameRoomService } from '../../core/game-room.service';
 import { LanguageService } from '../../core/language.service';
-import { normalizeRoundLength } from '../../core/round-generator.service';
+import {
+  isValidRoundLength,
+  normalizeRoundLength,
+  parseCustomRoundLength,
+  roundLengthIssue,
+} from '../../core/round-generator.service';
 import {
   avatarColor,
   avatarEmoji,
@@ -218,12 +222,11 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                     class="q-input custom-input"
                     type="number"
                     [min]="minRoundLength"
-                    [max]="maxRoundLength"
                     [ngModel]="customLength()"
                     (ngModelChange)="onCustom($event)"
                   />
                 }
-                <p class="hint">
+                <p class="hint" [class.warn]="customMode() && !customLengthValid()">
                   {{ effectiveLength() }} {{ lang.t().questions }}
                   · {{ lang.t().difficultyMix }}
                 </p>
@@ -778,6 +781,9 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       color: var(--q-muted);
       font-weight: 700;
     }
+    .hint.warn {
+      color: #db2777;
+    }
     .custom-input {
       margin-top: 0.75rem;
       max-width: 10rem;
@@ -860,7 +866,6 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly presets = ROUND_LENGTH_PRESETS;
   readonly timerPresets = QUESTION_SECONDS_PRESETS;
   readonly minRoundLength = MIN_ROUND_LENGTH;
-  readonly maxRoundLength = MAX_ROUND_LENGTH;
   readonly selectedCats = signal<CategoryId[]>([...CATEGORIES]);
   readonly selectedTypes = signal<QuestionType[]>([...QUESTION_TYPES]);
   readonly categoryMemory = signal<CategoryId[]>([...CATEGORIES]);
@@ -944,12 +949,16 @@ export class PlayPage implements OnInit, OnDestroy {
     this.selectedTypes().includes('mcq'),
   );
   readonly effectiveLength = computed(() =>
-    normalizeRoundLength(this.customMode() ? this.customLength() : this.length()),
+    this.customMode() ? this.customLength() : this.length(),
+  );
+  readonly customLengthValid = computed(
+    () => !this.customMode() || isValidRoundLength(this.customLength()),
   );
   readonly canRematch = computed(
     () =>
       this.selectedTypes().length > 0 &&
       (!this.needsCategories() || this.selectedCats().length > 0) &&
+      this.customLengthValid() &&
       this.rematchReadyPlayers().length > 0,
   );
 
@@ -1170,9 +1179,15 @@ export class PlayPage implements OnInit, OnDestroy {
 
   onCustom(value: number | string): void {
     this.customMode.set(true);
-    this.customLength.set(
-      normalizeRoundLength(Number(value) || MIN_ROUND_LENGTH),
-    );
+    const prev = this.customLength();
+    const next = parseCustomRoundLength(value);
+    this.customLength.set(next);
+    if (
+      roundLengthIssue(next) === 'high' &&
+      roundLengthIssue(prev) !== 'high'
+    ) {
+      this.snack.error(this.lang.t().roundLengthTooHigh);
+    }
   }
 
   toggleCategory(cat: CategoryId): void {
@@ -1240,7 +1255,7 @@ export class PlayPage implements OnInit, OnDestroy {
       const nextConfig: RoomConfig = {
         categories: this.selectedCats(),
         questionTypes: this.selectedTypes(),
-        roundLength: this.effectiveLength(),
+        roundLength: normalizeRoundLength(this.effectiveLength()),
         language: room?.config.language ?? this.lang.lang(),
         scoringMode: this.scoringMode(),
         questionSeconds: clampQuestionSeconds(this.questionSeconds()),

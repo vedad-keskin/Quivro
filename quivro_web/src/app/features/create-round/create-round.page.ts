@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import {
   CATEGORIES,
-  MAX_ROUND_LENGTH,
   MIN_ROUND_LENGTH,
   QUESTION_SECONDS_PRESETS,
   QUESTION_TYPES,
@@ -13,7 +12,12 @@ import {
 } from '../../../data/questions/types';
 import { GameRoomService } from '../../core/game-room.service';
 import { LanguageService } from '../../core/language.service';
-import { normalizeRoundLength } from '../../core/round-generator.service';
+import {
+  isValidRoundLength,
+  normalizeRoundLength,
+  parseCustomRoundLength,
+  roundLengthIssue,
+} from '../../core/round-generator.service';
 import {
   clampQuestionSeconds,
   type ScoringMode,
@@ -76,7 +80,7 @@ function loadRoundPrefs(): RoundPrefs | null {
       questionTypes: types,
       length: lengthIsPreset ? rawLength : 10,
       customMode: Boolean(parsed.customMode),
-      customLength: normalizeRoundLength(Number(parsed.customLength) || 10),
+      customLength: parseCustomRoundLength(Number(parsed.customLength) || 10),
       scoringMode,
       questionSeconds: clampQuestionSeconds(Number(parsed.questionSeconds) || 15),
     };
@@ -205,12 +209,11 @@ function loadRoundPrefs(): RoundPrefs | null {
               class="q-input custom-input"
               type="number"
               [min]="minRoundLength"
-              [max]="maxRoundLength"
               [ngModel]="customLength()"
               (ngModelChange)="onCustom($event)"
             />
           }
-          <p class="hint">
+          <p class="hint" [class.warn]="customMode() && !customLengthValid()">
             {{ effectiveLength() }} {{ lang.t().questions }}
             · {{ lang.t().difficultyMix }}
           </p>
@@ -285,7 +288,6 @@ export class CreateRoundPage {
   readonly presets = ROUND_LENGTH_PRESETS;
   readonly timerPresets = QUESTION_SECONDS_PRESETS;
   readonly minRoundLength = MIN_ROUND_LENGTH;
-  readonly maxRoundLength = MAX_ROUND_LENGTH;
 
   private readonly saved = loadRoundPrefs();
   readonly selected = signal<CategoryId[]>(this.saved?.categories ?? [...CATEGORIES]);
@@ -301,13 +303,17 @@ export class CreateRoundPage {
   readonly creating = signal(false);
 
   readonly effectiveLength = computed(() =>
-    normalizeRoundLength(this.customMode() ? this.customLength() : this.length()),
+    this.customMode() ? this.customLength() : this.length(),
+  );
+  readonly customLengthValid = computed(
+    () => !this.customMode() || isValidRoundLength(this.customLength()),
   );
   readonly needsCategories = computed(() => this.types().includes('mcq'));
   readonly canCreate = computed(
     () =>
       this.types().length > 0 &&
       (!this.needsCategories() || this.selected().length > 0) &&
+      this.customLengthValid() &&
       this.rooms.isLive,
   );
 
@@ -371,9 +377,15 @@ export class CreateRoundPage {
 
   onCustom(value: number | string): void {
     this.customMode.set(true);
-    this.customLength.set(
-      normalizeRoundLength(Number(value) || MIN_ROUND_LENGTH),
-    );
+    const prev = this.customLength();
+    const next = parseCustomRoundLength(value);
+    this.customLength.set(next);
+    if (
+      roundLengthIssue(next) === 'high' &&
+      roundLengthIssue(prev) !== 'high'
+    ) {
+      this.snack.error(this.lang.t().roundLengthTooHigh);
+    }
   }
 
   async create(): Promise<void> {
@@ -383,7 +395,7 @@ export class CreateRoundPage {
       const code = await this.rooms.createRoom({
         categories: this.selected(),
         questionTypes: this.types(),
-        roundLength: this.effectiveLength(),
+        roundLength: normalizeRoundLength(this.effectiveLength()),
         language: this.lang.lang(),
         scoringMode: this.scoringMode(),
         questionSeconds: clampQuestionSeconds(this.questionSeconds()),

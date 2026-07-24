@@ -83,6 +83,7 @@ export const en = {
   roomNotFound: 'Room not found',
   minPlayers: 'Wait for at least one friend to join from the phone',
   noQuestions: 'No questions match your filters. Add more or change types.',
+  roundLengthTooHigh: 'Maximum round length is 100 questions',
   startFailed: 'Could not start. Try again.',
   fillAllFields: 'Fill all fields and pick a correct answer',
   alreadyHostingOtherTab:
