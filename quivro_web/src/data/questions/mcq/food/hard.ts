@@ -7,16 +7,16 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which spice is often said to be worth more than gold by weight?',
-      bs: 'Koji začin se često kaže da vrijedi više od zlata po težini?',
+      en: 'Which spice was once used as a symbol of wealth and traded along ancient spice routes?',
+      bs: 'Koji začin je nekada korišten kao simbol bogatstva i trgovao se drevnim putevima začina?'
     },
     options: [
-      { en: 'Vanilla', bs: 'Vanilija' },
-      { en: 'Cardamom', bs: 'Kardamom' },
-      { en: 'Saffron', bs: 'Šafran' },
       { en: 'Cinnamon', bs: 'Cimet' },
+      { en: 'Salt', bs: 'So' },
+      { en: 'Basil', bs: 'Bosiljak' },
+      { en: 'Oregano', bs: 'Origano' },
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
   {
     id: 'food-hard-002',
@@ -41,8 +41,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which fruit can float on water because it is about 25% air?',
-      bs: 'Koje voće može plutati na vodi jer je oko 25% zraka?',
+      en: 'Which common fruit can float in water because its flesh contains tiny air pockets?',
+      bs: 'Koje uobičajeno voće može plutati na vodi jer njegova unutrašnjost sadrži male zračne džepove?'
     },
     options: [
       { en: 'Orange', bs: 'Narandža' },
@@ -58,14 +58,14 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which blue cheese is famous for being aged with living mold cultures?',
-      bs: 'Koji plavi sir je poznat po tome što se zrije s živim kulturama plijesni?',
+      en: 'Which famous French blue cheese is aged in caves and developed with Penicillium mold cultures?',
+      bs: 'Koji poznati francuski plavi sir sazrijeva u pećinama i razvija uz pomoć kultura plijesni Penicillium?'
     },
     options: [
-      { en: 'Gouda', bs: 'Gouda' },
+      { en: 'Gouda', bs: 'Gauda' },
       { en: 'Camembert', bs: 'Camembert' },
       { en: 'Roquefort', bs: 'Roquefort' },
-      { en: 'Parmesan', bs: 'Parmesan' },
+      { en: 'Parmesan', bs: 'Parmezan' },
     ],
     correctIndex: 2,
   },
@@ -75,8 +75,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which chili pepper has held Guinness World Records for hottest pepper?',
-      bs: 'Koja paprika je držala Guinnessov rekord za najljuću papriku?',
+      en: 'Which chili pepper held the Guinness World Record as the world’s hottest pepper before being surpassed in 2023?',
+      bs: 'Koja paprika je držala Guinnessov rekord za najljuću papriku prije nego što je rekord oboren 2023.?'
     },
     options: [
       { en: 'Jalapeño', bs: 'Jalapeño' },
@@ -109,14 +109,14 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'What plant is real wasabi traditionally made from?',
-      bs: 'Od koje biljke se tradicionalno pravi pravi wasabi?',
+      en: 'Which chili pepper was officially recognized by Guinness World Records in 2023 as the world’s hottest pepper?',
+      bs: 'Koja paprika je 2023. godine službeno priznata od Guinnessovih rekorda kao najljuća paprika na svijetu?'
     },
     options: [
-      { en: 'Horseradish root', bs: 'Korijena hrena' },
-      { en: 'Ginger root', bs: 'Korijena đumbira' },
-      { en: 'Mustard seed', bs: 'Sjemenki senfa' },
-      { en: 'Wasabia japonica rhizome', bs: 'Rizoma Wasabia japonica' },
+      { en: 'Jalapeño', bs: 'Jalapeño' },
+      { en: 'Habanero', bs: 'Habanero' },
+      { en: 'Carolina Reaper', bs: 'Carolina Reaper' },
+      { en: 'Pepper X', bs: 'Pepper X' },
     ],
     correctIndex: 3,
   },
@@ -126,14 +126,14 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Why is Kobe beef especially prized?',
-      bs: 'Zašto je Kobe govedina posebno cijenjena?',
+      en: 'Why is authentic Kobe beef considered a luxury food?',
+      bs: 'Zašto se prava Kobe govedina smatra luksuznom hranom?'
     },
     options: [
       { en: 'It is always served raw', bs: 'Uvijek se služi sirova' },
       { en: 'It comes only from wild cattle', bs: 'Dolazi samo od divlje stoke' },
       { en: 'It contains no fat at all', bs: 'Uopće ne sadrži mast' },
-      { en: 'Its fine marbling and careful raising of Tajima cattle', bs: 'Zbog fine mramoriranosti i pažljivog uzgoja Tajima goveda' },
+      { en: 'It has exceptional marbling and comes from carefully raised Tajima cattle', bs: 'Ima izuzetnu mramoriranost i dolazi od pažljivo uzgojenog Tajima goveda' },
     ],
     correctIndex: 3,
   },
@@ -149,8 +149,8 @@ export const foodHard: Question[] = [
     options: [
       { en: 'Root beer and ginger ale', bs: 'Root beer i ginger ale' },
       { en: 'Coca-Cola and Pepsi', bs: 'Coca-Cola i Pepsi' },
-      { en: 'Only energy drinks', bs: 'Samo energetska pića' },
-      { en: 'Only sparkling water brands', bs: 'Samo brendovi gazirane vode' },
+      { en: 'energy drinks', bs: 'Energetska pića' },
+      { en: 'Sparkling water brands', bs: 'Gazirana voda' },
     ],
     correctIndex: 1,
   },
@@ -177,16 +177,16 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'What does "Champagne" legally refer to in wine naming?',
-      bs: 'Šta "Champagne" pravno znači u imenovanju vina?',
+      en: 'What makes a sparkling wine legally eligible to be called "Champagne"?',
+      bs: 'Šta čini pjenušavo vino pravno prihvatljivim da se naziva "Champagne"?'
     },
     options: [
-      { en: 'Any sparkling wine worldwide', bs: 'Bilo koje pjenušavo vino u svijetu' },
-      { en: 'Any white wine from Europe', bs: 'Bilo koje bijelo vino iz Evrope' },
-      { en: 'Only sweet sparkling wine', bs: 'Samo slatko pjenušavo vino' },
-      { en: 'Sparkling wine from France\'s Champagne region', bs: 'Pjenušavo vino iz francuske regije Champagne' },
+      { en: 'It must come from the Champagne region of France', bs: 'Mora dolaziti iz regije Champagne u Francuskoj' },
+      { en: 'It must be the sweetest type of sparkling wine', bs: 'Mora biti najslađa vrsta pjenušavog vina' },
+      { en: 'It must be produced in Europe', bs: 'Mora biti proizvedeno u Evropi' },
+      { en: 'It must contain only white grapes', bs: 'Mora sadržavati samo bijelo grožđe' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
     id: 'food-hard-012',
@@ -211,16 +211,16 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which Spanish cured ham is made from Iberian pigs and can be extremely expensive?',
-      bs: 'Koja španska sušena šunka se pravi od iberskih svinja i može biti izuzetno skupa?',
+      en: 'Which country is the original home of Wagyu cattle, known for producing highly marbled beef?',
+      bs: 'Koja zemlja je izvorna domovina Wagyu goveda, poznatih po izrazito mramoriranom mesu?'
     },
     options: [
-      { en: 'Prosciutto di Parma', bs: 'Prosciutto di Parma' },
-      { en: 'Jamón Ibérico', bs: 'Jamón Ibérico' },
-      { en: 'Black Forest ham', bs: 'Schwarzwald šunka' },
-      { en: 'York ham', bs: 'York šunka' },
+      { en: 'Japan', bs: 'Japan' },
+      { en: 'Argentina', bs: 'Argentina' },
+      { en: 'United States', bs: 'Sjedinjene Američke Države' },
+      { en: 'Australia', bs: 'Australija' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'food-hard-014',
@@ -262,14 +262,14 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which Japanese beef brand name refers to cattle from the Hyogo Prefecture area?',
-      bs: 'Koji japanski brend govedine se odnosi na stoku iz područja prefekture Hyogo?',
+      en: 'Which famous Japanese beef variety comes from Tajima cattle raised in Hyogo Prefecture and is known for its exceptional marbling?',
+      bs: 'Koja poznata japanska vrsta govedine dolazi od Tajima goveda uzgajanih u prefekturi Hyogo i poznata je po izuzetnoj mramoriranosti?'
     },
     options: [
       { en: 'Wagyu', bs: 'Wagyu' },
-      { en: 'Kobe beef', bs: 'Kobe govedina' },
-      { en: 'Angus beef', bs: 'Angus govedina' },
-      { en: 'Hereford beef', bs: 'Hereford govedina' },
+      { en: 'Kobe', bs: 'Kobe' },
+      { en: 'Angus', bs: 'Angus' },
+      { en: 'Hereford', bs: 'Hereford' },
     ],
     correctIndex: 1,
   },
@@ -280,7 +280,7 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which Southeast Asian fruit is famous for its strong smell and creamy flesh?',
-      bs: 'Koje jugoistočnoazijsko voće je poznato po jakom mirisu i kremastom mesu?',
+      bs: 'Koje jugoistočnoazijsko voće je poznato po jakom mirisu i kremastoj unutrašnjosti?',
     },
     options: [
       { en: 'Lychee', bs: 'Liči' },
@@ -296,8 +296,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which vegetable looks like a fractal green cone of spiral florets?',
-      bs: 'Koje povrće izgleda kao fraktalni zeleni stožac spiralnih cvjetova?',
+      en: 'Which unusual vegetable is known for its lime-green color and natural fractal pattern of spiral florets?',
+      bs: 'Koje neobično povrće je poznato po svijetlozelenoj boji i prirodnom fraktalnom uzorku spiralnih cvjetića?'
     },
     options: [
       { en: 'Broccoli', bs: 'Brokula' },
@@ -335,7 +335,7 @@ export const foodHard: Question[] = [
     },
     options: [
       { en: 'To cut food into thin matchstick strips', bs: 'Sjeći hranu u tanke štapiće' },
-      { en: 'To mash food into a puree', bs: 'Pireati hranu' },
+      { en: 'To mash food into a puree', bs: 'Pretvoriti hranu u pire' },
       { en: 'To deep-fry until crisp', bs: 'Duboko pržiti do hrskavosti' },
       { en: 'To bake under a broiler', bs: 'Peći ispod grila' },
     ],
@@ -347,16 +347,16 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which meringue-based dessert is named after a Russian ballerina?',
-      bs: 'Koji desert na bazi merenge nosi ime po ruskoj balerini?',
+      en: 'Which dessert, featuring a crisp meringue shell topped with whipped cream and fruit, was named after ballerina?',
+      bs: 'Koji desert, sa hrskavom korom od meringe prelivenom šlagom i voćem, dobio je ime po balerini?'
     },
     options: [
-      { en: 'Opera cake', bs: 'Opera torta' },
       { en: 'Pavlova', bs: 'Pavlova' },
-      { en: 'Eton mess', bs: 'Eton mess' },
-      { en: 'Baked Alaska', bs: 'Baked Alaska' },
+      { en: 'Macaron', bs: 'Makaron' },
+      { en: 'Soufflé', bs: 'Sufle' },
+      { en: 'Crème brûlée', bs: 'Crème brûlée' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'food-hard-022',
@@ -381,16 +381,16 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which spice comes from the dried stigma of a crocus flower?',
-      bs: 'Koji začin dolazi od sušenih tučkova cvijeta šafrana (crocus)?',
+      en: 'Which spice is traditionally used in Persian cuisine and gives rice dishes a yellow-golden appearance?',
+      bs: 'Koji začin se tradicionalno koristi u perzijskoj kuhinji i daje jelima od riže žuto-zlatnu boju?'
     },
     options: [
-      { en: 'Turmeric', bs: 'Kurkuma' },
       { en: 'Saffron', bs: 'Šafran' },
-      { en: 'Cardamom', bs: 'Kardamom' },
+      { en: 'Ginger', bs: 'Đumbir' },
       { en: 'Clove', bs: 'Karanfilić' },
+      { en: 'Coriander', bs: 'Korijander' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'food-hard-024',
@@ -398,14 +398,14 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which chocolate brand is famous for gold-wrapped hazelnut pralines?',
-      bs: 'Koji brend čokolade je poznat po pralinama od lješnjaka u zlatnom papiru?',
+      en: 'Why is saffron one of the most expensive spices in the world?',
+      bs: 'Zašto je šafran jedan od najskupljih začina na svijetu?'
     },
     options: [
-      { en: 'Kinder', bs: 'Kinder' },
-      { en: 'Ferrero Rocher', bs: 'Ferrero Rocher' },
-      { en: 'Toblerone', bs: 'Toblerone' },
-      { en: 'KitKat', bs: 'KitKat' },
+      { en: 'It comes from rare tropical trees', bs: 'Dolazi od rijetkih tropskih stabala' },
+      { en: 'Each flower must be harvested by hand for its tiny stigmas', bs: 'Svaki cvijet se mora ručno brati zbog sitnih tučkova' },
+      { en: 'It can only be found underwater', bs: 'Može se pronaći samo pod vodom' },
+      { en: 'It takes many years to grow a single plant', bs: 'Potrebne su godine da izraste jedna biljka' },
     ],
     correctIndex: 1,
   },
@@ -449,12 +449,12 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which cheese from the Netherlands is typically wax-coated and mild to aged?',
-      bs: 'Koji sir iz Nizozemske je tipično obložen voskom i može biti blag do zreo?',
+      en: 'Which famous Dutch cheese is known for its yellow wax coating and varieties ranging from young and mild to aged and strong?',
+      bs: 'Koji poznati nizozemski sir je poznat po žutoj voštanoj kori i vrstama koje variraju od mladog i blagog do zrelog i jakog okusa?'
     },
     options: [
       { en: 'Brie', bs: 'Brie' },
-      { en: 'Gouda', bs: 'Gouda' },
+      { en: 'Gouda', bs: 'Gauda' },
       { en: 'Roquefort', bs: 'Roquefort' },
       { en: 'Halloumi', bs: 'Halloumi' },
     ],
@@ -484,10 +484,10 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which hairy red tropical fruit has translucent sweet flesh similar to lychee?',
-      bs: 'Koje dlakavo crveno tropsko voće ima prozirno slatko meso slično ličiju?',
+      bs: 'Koje dlakavo crveno tropsko voće ima prozirno slatku unutrašnjost sličnu ličiju?',
     },
     options: [
-      { en: 'Dragon fruit', bs: 'Dragon fruit' },
+      { en: 'Dragon fruit', bs: 'Zmajevo voće' },
       { en: 'Rambutan', bs: 'Rambutan' },
       { en: 'Jackfruit', bs: 'Jackfruit' },
       { en: 'Passion fruit', bs: 'Marakuja' },
@@ -500,14 +500,14 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which vanilla orchid species produces the most commercially important vanilla pods?',
-      bs: 'Koja vrsta orhideje vanilije daje komercijalno najvažnije mahune vanilije?',
+      en: 'Which Dutch cheese, named after a city in the Netherlands, is one of the most popular cheeses in the world?',
+      bs: 'Koji nizozemski sir, nazvan po gradu u Nizozemskoj, jedan je od najpopularnijih sireva na svijetu?'
     },
     options: [
-      { en: 'Vanilla planifolia', bs: 'Vanilla planifolia' },
-      { en: 'Orchis mascula', bs: 'Orchis mascula' },
-      { en: 'Cattleya labiata', bs: 'Cattleya labiata' },
-      { en: 'Phalaenopsis amabilis', bs: 'Phalaenopsis amabilis' },
+      { en: 'Gouda', bs: 'Gouda' },
+      { en: 'Edam', bs: 'Edam' },
+      { en: 'Brie', bs: 'Brie' },
+      { en: 'Parmesan', bs: 'Parmezan' },
     ],
     correctIndex: 0,
   },
