@@ -40,7 +40,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     duration: const Duration(seconds: 10),
   )..repeat();
 
-  /// Gentle breathing pulse for the logo + glow once it has landed.
+  /// Gentle breathing pulse for the logo once it has landed.
   late final AnimationController _breath = AnimationController(
     vsync: this,
     duration: const Duration(milliseconds: 2200),
@@ -261,28 +261,6 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          // Pulsing glow behind the logo, synced to the breathing.
-          AnimatedBuilder(
-            animation: _breath,
-            builder: (context, _) {
-              final t = Curves.easeInOut.transform(_breath.value);
-              return Container(
-                width: 230,
-                height: 230,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient: RadialGradient(
-                    colors: [
-                      _purple.withValues(alpha: 0.30 + 0.18 * t),
-                      _blue.withValues(alpha: 0.10 + 0.08 * t),
-                      Colors.transparent,
-                    ],
-                    stops: const [0.0, 0.55, 1.0],
-                  ),
-                ),
-              );
-            },
-          ).animate().fadeIn(duration: 900.ms),
           // Logo with elastic entrance, then breathing.
           AnimatedBuilder(
             animation: _breath,
