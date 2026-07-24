@@ -11,6 +11,7 @@ export type CategoryId =
   | 'movies'
   | 'famous'
   | 'islam'
+  | 'food'
   | 'images';
 export type Difficulty = 'easy' | 'medium' | 'hard';
 export type QuestionType = 'mcq' | 'image_mcq';
@@ -37,6 +38,7 @@ export const CATEGORIES: CategoryId[] = [
   'movies',
   'famous',
   'islam',
+  'food',
 ];
 export const DIFFICULTIES: Difficulty[] = ['easy', 'medium', 'hard'];
 export const ROUND_LENGTH_PRESETS = [10, 20, 30, 50] as const;

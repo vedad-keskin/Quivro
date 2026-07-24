@@ -22,6 +22,9 @@ import { famousMedium } from './mcq/famous/medium';
 import { islamEasy } from './mcq/islam/easy';
 import { islamHard } from './mcq/islam/hard';
 import { islamMedium } from './mcq/islam/medium';
+import { foodEasy } from './mcq/food/easy';
+import { foodHard } from './mcq/food/hard';
+import { foodMedium } from './mcq/food/medium';
 import { imageQuestions } from './image_mcq/questions';
 import type { CategoryId, Difficulty, Question } from './types';
 import { CATEGORIES, DIFFICULTIES } from './types';
@@ -37,6 +40,7 @@ const MCQ_BANK: Record<ContentCategoryId, Record<Difficulty, Question[]>> = {
   movies: { easy: moviesEasy, medium: moviesMedium, hard: moviesHard },
   famous: { easy: famousEasy, medium: famousMedium, hard: famousHard },
   islam: { easy: islamEasy, medium: islamMedium, hard: islamHard },
+  food: { easy: foodEasy, medium: foodMedium, hard: foodHard },
 };
 
 /** Text MCQ bank only (image questions live in the flat pool). */

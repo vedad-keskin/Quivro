@@ -39,6 +39,7 @@ export const en = {
   movies: 'Movies & TV',
   famous: 'Famous People',
   islam: 'Islam',
+  food: 'Food & Drinks',
   images: 'Pictures',
   selectAtLeastOne: 'Select at least one category',
   selectAtLeastOneType: 'Select at least one question type',

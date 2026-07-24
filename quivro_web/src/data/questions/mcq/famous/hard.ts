@@ -1701,4 +1701,21 @@ export const famousHard: Question[] = [
     ],
     correctIndex: 3,
   },
+  {
+    id: 'fam-hard-101',
+    type: 'mcq',
+    category: 'famous',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which Hollywood actor praised France’s privacy laws before becoming a French citizen in late 2025?',
+      bs: 'Koji holivudski glumac je hvalio francuske zakone o privatnosti prije nego što je krajem 2025. dobio francusko državljanstvo?'
+    },
+    options: [
+      { en: 'George Clooney', bs: 'George Clooney' },
+      { en: 'Brad Pitt', bs: 'Brad Pitt' },
+      { en: 'Tom Cruise', bs: 'Tom Cruise' },
+      { en: 'Johnny Depp', bs: 'Johnny Depp' },
+    ],
+    correctIndex: 0,
+  },
 ];
