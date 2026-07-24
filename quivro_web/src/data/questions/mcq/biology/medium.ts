@@ -1166,23 +1166,6 @@ export const biologyMedium: Question[] = [
   ],
   correctIndex: 1,
 },
-{
-  id: 'bio-med-077',
-  type: 'mcq',
-  category: 'biology',
-  difficulty: 'medium',
-  prompt: {
-    en: 'Which animal is the largest venomous animal currently known?',
-    bs: 'Koja životinja je najveća poznata otrovna životinja?',
-  },
-  options: [
-    { en: 'Sperm whale', bs: 'Ulješura' },
-    { en: 'Komodo dragon', bs: 'Komodo varan' },
-    { en: 'King cobra', bs: 'Kraljevska kobra' },
-    { en: 'Box jellyfish', bs: 'Kubična meduza' },
-  ],
-  correctIndex: 1,
-},
   {
     id: 'bio-med-079',
     type: 'mcq',

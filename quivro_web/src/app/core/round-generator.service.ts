@@ -156,10 +156,17 @@ export function interleaveEvenly<T>(base: T[], inserts: T[]): T[] {
 export class RoundGeneratorService {
   private readonly bank = inject(QuestionBankService);
 
+  /**
+   * Build a round. When `excludeIds` is provided, prefer questions not in that
+   * set (cross-rematch anti-repeat). The set may be mutated: if a pool cannot
+   * fill its quota from unseen IDs, those pool IDs are removed from the set and
+   * the full pool is used again.
+   */
   generate(
     categories: CategoryId[],
     roundLength: number,
     questionTypes: QuestionType[] = ['mcq', 'image_mcq'],
+    excludeIds: Set<string> = new Set(),
   ): Question[] {
     const length = normalizeRoundLength(roundLength);
     const types =
@@ -168,19 +175,19 @@ export class RoundGeneratorService {
     const wantsImage = types.includes('image_mcq');
 
     if (wantsImage && !wantsMcq) {
-      return this.pickImages(length);
+      return this.pickImages(length, excludeIds);
     }
 
     if (wantsMcq && !wantsImage) {
-      return this.generateTextRound(categories, length);
+      return this.generateTextRound(categories, length, excludeIds);
     }
 
     // Both: ~10% images from the global pool, rest text from selected categories.
     const imagePoolSize = this.imagePool().length;
     const imageCount = Math.min(allocateImageCount(length), imagePoolSize);
     const textCount = Math.max(0, length - imageCount);
-    const text = this.generateTextRound(categories, textCount);
-    const images = this.pickImages(imageCount);
+    const text = this.generateTextRound(categories, textCount, excludeIds);
+    const images = this.pickImages(imageCount, excludeIds);
     return interleaveEvenly(text, images);
   }
 
@@ -188,12 +195,18 @@ export class RoundGeneratorService {
     return this.bank.getAll().filter((q) => q.type === 'image_mcq');
   }
 
-  private pickImages(count: number): Question[] {
+  private pickImages(count: number, excludeIds: Set<string>): Question[] {
     if (count <= 0) return [];
-    const pool = shuffle(this.imagePool());
-    if (pool.length === 0) {
+    const allImages = this.imagePool();
+    if (allImages.length === 0) {
       console.warn('No image_mcq questions in the bank');
       return [];
+    }
+
+    let pool = shuffle(allImages.filter((q) => !excludeIds.has(q.id)));
+    if (pool.length < count) {
+      for (const q of allImages) excludeIds.delete(q.id);
+      pool = shuffle(allImages);
     }
     if (pool.length < count) {
       console.warn(
@@ -206,6 +219,7 @@ export class RoundGeneratorService {
   private generateTextRound(
     categories: CategoryId[],
     length: number,
+    excludeIds: Set<string>,
   ): Question[] {
     if (length <= 0) return [];
 
@@ -237,6 +251,7 @@ export class RoundGeneratorService {
         counts[difficulty],
         usedIds,
         categoryUsage,
+        excludeIds,
       );
     }
 
@@ -260,12 +275,18 @@ export class RoundGeneratorService {
     count: number,
     usedIds: Set<string>,
     categoryUsage: Map<CategoryId, number>,
+    excludeIds: Set<string>,
   ): Question[] {
     if (count <= 0) return [];
 
-    const pool = shuffle(
-      all.filter((q) => q.difficulty === difficulty && !usedIds.has(q.id)),
+    const inDifficulty = all.filter(
+      (q) => q.difficulty === difficulty && !usedIds.has(q.id),
     );
+    let pool = shuffle(inDifficulty.filter((q) => !excludeIds.has(q.id)));
+    if (pool.length < count) {
+      for (const q of inDifficulty) excludeIds.delete(q.id);
+      pool = shuffle(inDifficulty);
+    }
     if (pool.length === 0) {
       console.warn(`No questions for difficulty ${difficulty}`);
       return [];

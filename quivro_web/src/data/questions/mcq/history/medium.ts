@@ -81,10 +81,10 @@ export const historyMedium: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'hist-easy-005',
+    id: 'hist-med-006',
     type: 'mcq',
     category: 'history',
-    difficulty: 'easy',
+    difficulty: 'medium',
     prompt: { en: 'Which ancient civilization is credited with some of the earliest known uses of the wheel?',
               bs: 'Koja drevna civilizacija se povezuje s nekim od najranijih poznatih upotreba točka?' },
     options: [

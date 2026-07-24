@@ -38,6 +38,8 @@ import {
 const CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 const LAST_HOSTED_CODE_KEY = 'quivro.lastHostedCode';
 const HOST_SESSION_KEY = 'quivro.hostSessionId';
+/** Host-only rematch anti-repeat; keyed by room code. Not written to Firebase. */
+const USED_QUESTIONS_KEY_PREFIX = 'quivro.usedQuestions.';
 
 @Injectable({ providedIn: 'root' })
 export class GameRoomService {
@@ -83,6 +85,10 @@ export class GameRoomService {
       throw new Error('NO_QUESTIONS');
     }
     const code = await this.allocateCode();
+    this.saveUsedQuestionIds(
+      code,
+      new Set(questions.map((q) => q.id)),
+    );
     const hostSessionId = this.ensureTabHostSessionId();
     const state: RoomState = {
       code,
@@ -288,14 +294,18 @@ export class GameRoomService {
       }
     }
 
+    const usedIds = this.loadUsedQuestionIds(code);
     const questions = this.generator.generate(
       config.categories,
       config.roundLength,
       config.questionTypes,
+      usedIds,
     );
     if (questions.length === 0) {
       throw new Error('NO_QUESTIONS');
     }
+    for (const q of questions) usedIds.add(q.id);
+    this.saveUsedQuestionIds(code, usedIds);
 
     this.roundQuestions.set(code, questions);
 
@@ -326,6 +336,7 @@ export class GameRoomService {
     await this.cancelHostDisconnect();
     this.stopWatching();
     this.roundQuestions.delete(code);
+    this.clearUsedQuestionIds(code);
     this.hostedCode = null;
     this.hosting.set(false);
     this.clearLastHostedCode(code);
@@ -377,6 +388,7 @@ export class GameRoomService {
       } else {
         const db = this.requireDb();
         await remove(ref(db, `rooms/${previous}`));
+        this.clearUsedQuestionIds(previous);
         this.clearLastHostedCode(previous);
       }
     } catch (e) {
@@ -412,6 +424,44 @@ export class GameRoomService {
       if (!stored || stored === code.toUpperCase()) {
         localStorage.removeItem(LAST_HOSTED_CODE_KEY);
       }
+    } catch {
+      /* ignore */
+    }
+  }
+
+  private usedQuestionsKey(code: string): string {
+    return `${USED_QUESTIONS_KEY_PREFIX}${code.toUpperCase()}`;
+  }
+
+  /** Host-tab rematch history; never synced to Firebase. */
+  private loadUsedQuestionIds(code: string): Set<string> {
+    try {
+      const raw = sessionStorage.getItem(this.usedQuestionsKey(code));
+      if (!raw) return new Set();
+      const parsed: unknown = JSON.parse(raw);
+      if (!Array.isArray(parsed)) return new Set();
+      return new Set(
+        parsed.filter((id): id is string => typeof id === 'string' && id.length > 0),
+      );
+    } catch {
+      return new Set();
+    }
+  }
+
+  private saveUsedQuestionIds(code: string, ids: Set<string>): void {
+    try {
+      sessionStorage.setItem(
+        this.usedQuestionsKey(code),
+        JSON.stringify([...ids]),
+      );
+    } catch {
+      /* ignore quota / private mode */
+    }
+  }
+
+  private clearUsedQuestionIds(code: string): void {
+    try {
+      sessionStorage.removeItem(this.usedQuestionsKey(code));
     } catch {
       /* ignore */
     }
