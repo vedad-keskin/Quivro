@@ -2,7 +2,10 @@ import { TestBed } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 import type { Question } from '../../data/questions/types';
 import { QuestionBankService } from './question-bank.service';
-import { RoundGeneratorService } from './round-generator.service';
+import {
+  normalizeRoundLength,
+  RoundGeneratorService,
+} from './round-generator.service';
 
 function q(
   id: string,
@@ -25,6 +28,21 @@ function q(
     correctIndex: 0,
   };
 }
+
+describe('normalizeRoundLength', () => {
+  it('clamps values to the supported range', () => {
+    expect(normalizeRoundLength(99)).toBe(99);
+    expect(normalizeRoundLength(100)).toBe(100);
+    expect(normalizeRoundLength(101)).toBe(100);
+    expect(normalizeRoundLength(2)).toBe(3);
+    expect(normalizeRoundLength(3)).toBe(3);
+  });
+
+  it('rounds fractional values', () => {
+    expect(normalizeRoundLength(10.4)).toBe(10);
+    expect(normalizeRoundLength(10.6)).toBe(11);
+  });
+});
 
 describe('RoundGeneratorService excludeIds', () => {
   it('skips previously used IDs across generates', () => {

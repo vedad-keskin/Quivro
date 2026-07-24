@@ -41,6 +41,8 @@ export const CATEGORIES: CategoryId[] = [
   'food',
 ];
 export const DIFFICULTIES: Difficulty[] = ['easy', 'medium', 'hard'];
+export const MIN_ROUND_LENGTH = 3;
+export const MAX_ROUND_LENGTH = 100;
 export const ROUND_LENGTH_PRESETS = [10, 20, 30, 50] as const;
 export const QUESTION_TYPES: QuestionType[] = ['mcq', 'image_mcq'];
 export const QUESTION_SECONDS_PRESETS = [10, 15, 20, 30] as const;

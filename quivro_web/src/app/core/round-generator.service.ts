@@ -5,11 +5,18 @@ import type {
   Question,
   QuestionType,
 } from '../../data/questions/types';
-import { DIFFICULTIES } from '../../data/questions/types';
+import {
+  DIFFICULTIES,
+  MAX_ROUND_LENGTH,
+  MIN_ROUND_LENGTH,
+} from '../../data/questions/types';
 import { QuestionBankService } from './question-bank.service';
 
 export function normalizeRoundLength(length: number): number {
-  return Math.min(60, Math.max(3, Math.round(length)));
+  return Math.min(
+    MAX_ROUND_LENGTH,
+    Math.max(MIN_ROUND_LENGTH, Math.round(length)),
+  );
 }
 
 /** Target image count when both text and picture types are selected. */

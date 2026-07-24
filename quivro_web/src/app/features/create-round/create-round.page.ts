@@ -3,6 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import {
   CATEGORIES,
+  MAX_ROUND_LENGTH,
+  MIN_ROUND_LENGTH,
   QUESTION_SECONDS_PRESETS,
   QUESTION_TYPES,
   ROUND_LENGTH_PRESETS,
@@ -202,8 +204,8 @@ function loadRoundPrefs(): RoundPrefs | null {
             <input
               class="q-input custom-input"
               type="number"
-              min="3"
-              max="60"
+              [min]="minRoundLength"
+              [max]="maxRoundLength"
               [ngModel]="customLength()"
               (ngModelChange)="onCustom($event)"
             />
@@ -282,6 +284,8 @@ export class CreateRoundPage {
   readonly questionTypes = QUESTION_TYPES;
   readonly presets = ROUND_LENGTH_PRESETS;
   readonly timerPresets = QUESTION_SECONDS_PRESETS;
+  readonly minRoundLength = MIN_ROUND_LENGTH;
+  readonly maxRoundLength = MAX_ROUND_LENGTH;
 
   private readonly saved = loadRoundPrefs();
   readonly selected = signal<CategoryId[]>(this.saved?.categories ?? [...CATEGORIES]);
@@ -367,7 +371,9 @@ export class CreateRoundPage {
 
   onCustom(value: number | string): void {
     this.customMode.set(true);
-    this.customLength.set(Number(value) || 3);
+    this.customLength.set(
+      normalizeRoundLength(Number(value) || MIN_ROUND_LENGTH),
+    );
   }
 
   async create(): Promise<void> {

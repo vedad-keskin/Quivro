@@ -10,11 +10,14 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { interval } from 'rxjs';
 import {
   CATEGORIES,
+  MAX_ROUND_LENGTH,
+  MIN_ROUND_LENGTH,
   QUESTION_SECONDS_PRESETS,
   QUESTION_TYPES,
   REVEAL_MS,
@@ -44,7 +47,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
 
 @Component({
   selector: 'app-play',
-  imports: [AnswerGrid, Leaderboard, TimerRing],
+  imports: [AnswerGrid, FormsModule, Leaderboard, TimerRing],
   template: `
     <div class="tv" #tvRoot>
       @if (room(); as r) {
@@ -195,13 +198,35 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                     <button
                       type="button"
                       class="q-chip"
-                      [class.active]="roundLength() === n"
-                      (click)="roundLength.set(n)"
+                      [class.active]="!customMode() && length() === n"
+                      (click)="pickPreset(n)"
                     >
                       {{ n }}
                     </button>
                   }
+                  <button
+                    type="button"
+                    class="q-chip"
+                    [class.active]="customMode()"
+                    (click)="customMode.set(true)"
+                  >
+                    {{ lang.t().custom }}
+                  </button>
                 </div>
+                @if (customMode()) {
+                  <input
+                    class="q-input custom-input"
+                    type="number"
+                    [min]="minRoundLength"
+                    [max]="maxRoundLength"
+                    [ngModel]="customLength()"
+                    (ngModelChange)="onCustom($event)"
+                  />
+                }
+                <p class="hint">
+                  {{ effectiveLength() }} {{ lang.t().questions }}
+                  · {{ lang.t().difficultyMix }}
+                </p>
               </section>
 
               <div class="final-actions">
@@ -748,6 +773,15 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       gap: 0.5rem;
       margin-top: 0.35rem;
     }
+    .hint {
+      margin: 0.65rem 0 0;
+      color: var(--q-muted);
+      font-weight: 700;
+    }
+    .custom-input {
+      margin-top: 0.75rem;
+      max-width: 10rem;
+    }
     .cats-disabled {
       opacity: 0.45;
     }
@@ -825,10 +859,14 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly questionTypes = QUESTION_TYPES;
   readonly presets = ROUND_LENGTH_PRESETS;
   readonly timerPresets = QUESTION_SECONDS_PRESETS;
+  readonly minRoundLength = MIN_ROUND_LENGTH;
+  readonly maxRoundLength = MAX_ROUND_LENGTH;
   readonly selectedCats = signal<CategoryId[]>([...CATEGORIES]);
   readonly selectedTypes = signal<QuestionType[]>([...QUESTION_TYPES]);
   readonly categoryMemory = signal<CategoryId[]>([...CATEGORIES]);
-  readonly roundLength = signal(10);
+  readonly length = signal(10);
+  readonly customMode = signal(false);
+  readonly customLength = signal(10);
   readonly scoringMode = signal<ScoringMode>('timed');
   readonly questionSeconds = signal(15);
   readonly rematching = signal(false);
@@ -905,6 +943,9 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly needsCategories = computed(() =>
     this.selectedTypes().includes('mcq'),
   );
+  readonly effectiveLength = computed(() =>
+    normalizeRoundLength(this.customMode() ? this.customLength() : this.length()),
+  );
   readonly canRematch = computed(
     () =>
       this.selectedTypes().length > 0 &&
@@ -928,7 +969,17 @@ export class PlayPage implements OnInit, OnDestroy {
         );
         if (cats.length > 0) this.categoryMemory.set(cats);
         this.selectedTypes.set([...r.config.questionTypes]);
-        this.roundLength.set(normalizeRoundLength(r.config.roundLength));
+        const normalized = normalizeRoundLength(r.config.roundLength);
+        const lengthIsPreset = (ROUND_LENGTH_PRESETS as readonly number[]).includes(
+          normalized,
+        );
+        if (lengthIsPreset) {
+          this.customMode.set(false);
+          this.length.set(normalized);
+        } else {
+          this.customMode.set(true);
+          this.customLength.set(normalized);
+        }
         this.scoringMode.set(r.config.scoringMode === 'standard' ? 'standard' : 'timed');
         this.questionSeconds.set(clampQuestionSeconds(r.config.questionSeconds ?? 15));
         this.knownRematchReady = new Set(
@@ -1112,6 +1163,18 @@ export class PlayPage implements OnInit, OnDestroy {
     return t === 'mcq' ? this.lang.t().mcq : this.lang.t().imageMcq;
   }
 
+  pickPreset(n: number): void {
+    this.customMode.set(false);
+    this.length.set(n);
+  }
+
+  onCustom(value: number | string): void {
+    this.customMode.set(true);
+    this.customLength.set(
+      normalizeRoundLength(Number(value) || MIN_ROUND_LENGTH),
+    );
+  }
+
   toggleCategory(cat: CategoryId): void {
     if (!this.needsCategories()) return;
     const cur = this.selectedCats();
@@ -1177,7 +1240,7 @@ export class PlayPage implements OnInit, OnDestroy {
       const nextConfig: RoomConfig = {
         categories: this.selectedCats(),
         questionTypes: this.selectedTypes(),
-        roundLength: normalizeRoundLength(this.roundLength()),
+        roundLength: this.effectiveLength(),
         language: room?.config.language ?? this.lang.lang(),
         scoringMode: this.scoringMode(),
         questionSeconds: clampQuestionSeconds(this.questionSeconds()),
