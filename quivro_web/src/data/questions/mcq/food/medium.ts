@@ -58,16 +58,16 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'What is marzipan mainly made from?',
-      bs: 'Od čega se uglavnom pravi marcipan?',
+      en: 'Ratatouille originated in which country?',
+      bs: 'Iz koje zemlje potiče ratatouille?',
     },
     options: [
-      { en: 'Hazelnuts and sugar', bs: 'Lješnjaka i šećera' },
-      { en: 'Walnuts and honey', bs: 'Oraha i meda' },
-      { en: 'Peanuts and cocoa', bs: 'Kikirikija i kakaa' },
-      { en: 'Almonds and sugar', bs: 'Badema i šećera' },
+      { en: 'Italy', bs: 'Italija' },
+      { en: 'France', bs: 'Francuska' },
+      { en: 'Spain', bs: 'Španija' },
+      { en: 'Belgium', bs: 'Belgija' },
     ],
-    correctIndex: 3,
+    correctIndex: 1,
   },
   {
     id: 'food-med-005',
