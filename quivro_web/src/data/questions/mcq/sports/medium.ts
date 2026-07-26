@@ -1581,4 +1581,21 @@ export const sportsMedium: Question[] = [
     ],
     correctIndex: 0,
   },
+  {
+    id: 'sport-med-101',
+    type: 'mcq',
+    category: 'sports',
+    difficulty: 'medium',
+    prompt: {
+      en: 'Whose silhouette inspired the famous NBA logo design?',
+      bs: 'Čija silueta je inspirisala poznati dizajn NBA logotipa?',
+    },
+    options: [
+      { en: 'Jerry West', bs: 'Jerry West' },
+      { en: 'LeBron James', bs: 'LeBron James' },
+      { en: 'Michael Jordan', bs: 'Michael Jordan' },
+      { en: 'Shaquille O’Neal', bs: 'Shaquille O’Neal' },
+    ],
+    correctIndex: 0,
+  },
 ];
