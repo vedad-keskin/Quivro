@@ -436,13 +436,15 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: { en: 'Despite which disabilities did Helen Keller become a worldwide inspiration?', 
-              bs: 'Uprkos kojim invaliditetima je Helen Keller postala inspiracija širom svijeta?' },
+    prompt: {
+      en: 'Which disabilities did Helen Keller overcome to become an inspiration to people around the world?',
+      bs: 'Koje je invaliditete Helen Keller prevazišla i postala inspiracija ljudima širom svijeta?'
+    },
     options: [
-      { en: 'Deaf and blind', bs: 'Gluha i slijepa' },
-      { en: 'Unable to speak multiple languages', bs: 'Nije mogla govoriti više jezika' },
-      { en: 'Unable to walk from childhood', bs: 'Nije mogla hodati od djetinjstva' },
-      { en: 'Born without hearing only', bs: 'Rođena bez sluha' },
+      { en: 'Deafness and blindness', bs: 'Gluhoću i sljepoću' },
+      { en: 'Inability to walk and speak', bs: 'Nemogućnost hodanja i govora' },
+      { en: 'Loss of hearing and one arm', bs: 'Gubitak sluha i jedne ruke' },
+      { en: 'Blindness and inability to walk', bs: 'Sljepoću i nemogućnost hodanja' },
     ],
     correctIndex: 0,
   },
@@ -1365,15 +1367,15 @@ export const famousEasy: Question[] = [
     type: 'mcq',
     category: 'famous',
     difficulty: 'easy',
-    prompt: { 
-      en: 'What was unusual about Agatha Christie’s writing career?',
-      bs: 'Šta je bilo posebno neobično u spisateljskoj karijeri Agathe Christie?'
+    prompt: {
+      en: 'What happened to Agatha Christie in 1926 that caused a nationwide search for her?',
+      bs: 'Šta se dogodilo Agathi Christie 1926. godine zbog čega je za njom pokrenuta potraga širom zemlje?'
     },
     options: [
-      { en: 'She wrote the most detective novels of any author', bs: 'Napisala je najviše detektivskih romana od svih autora' },
-      { en: 'She never used a typewriter', bs: 'Nikada nije koristila pisaću mašinu' },
-      { en: 'She only wrote one book', bs: 'Napisala je samo jednu knjigu' },
-      { en: 'She wrote books without characters', bs: 'Pisala je knjige bez likova' },
+      { en: 'She mysteriously disappeared for 11 days', bs: 'Misteriozno je nestala na 11 dana' },
+      { en: 'She was kidnapped while travelling abroad', bs: 'Oteta je tokom putovanja u inostranstvo' },
+      { en: 'She became stranded on a remote island', bs: 'Ostala je zarobljena na udaljenom ostrvu' },
+      { en: 'She disappeared after a train accident', bs: 'Nestala je nakon željezničke nesreće' },
     ],
     correctIndex: 0,
   },

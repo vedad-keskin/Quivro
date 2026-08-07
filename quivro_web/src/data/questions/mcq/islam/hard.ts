@@ -1705,14 +1705,14 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'How many rakahs of night prayer did Aisha, radiallahu anha, mention that the Prophet usually prayed?',
-      bs: 'Koliko rekata noćnog namaza je Aiša, radijallahu anha, spomenula da je Poslanik obično klanjao?'
+      en: 'According to a narration from Aisha, how many rakahs did the Prophet usually pray at night?',
+      bs: 'Prema predaji Aiše, koliko je rekata Poslanik, sallallahu alejhi ve sellem, obično klanjao tokom noći?'
     },
     options: [
       { en: 'Eleven rakahs', bs: 'Jedanaest rekata' },
       { en: 'Eight rakahs', bs: 'Osam rekata' },
-      { en: 'Twenty rakahs', bs: 'Dvadeset rekata' },
-      { en: 'Three rakahs only', bs: 'Samo tri rekata' }
+      { en: 'Thirteen rakahs', bs: 'Trinaest rekata' },
+      { en: 'Twenty rakahs', bs: 'Dvadeset rekata' }
     ],
     correctIndex: 0
   },

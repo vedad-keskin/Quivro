@@ -1333,14 +1333,14 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'What gives traditional Belgian waffles their distinctive deep pockets?',
-      bs: 'Šta belgijskim vaflama daje karakteristične duboke rupe?',
+      en: 'What ingredient helps give traditional Belgian waffles their characteristic deep pockets?',
+      bs: 'Koji sastojak tradicionalnim belgijskim vaflima daje njihove karakteristične duboke rupice?'
     },
     options: [
-      { en: 'A yeast-based batter', bs: 'Tijesto na bazi kvasca' },
+      { en: 'Yeast', bs: 'Kvasac' },
       { en: 'Extra baking soda', bs: 'Dodatna soda bikarbona' },
       { en: 'Whipped egg whites', bs: 'Umućeni bjelanci' },
-      { en: 'The iron\'s deep grid design alone', bs: 'Samo dizajn kalupa' },
+      { en: 'Cornstarch', bs: 'Kukuruzni škrob' },
     ],
     correctIndex: 0,
   },

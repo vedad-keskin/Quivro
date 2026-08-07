@@ -126,14 +126,14 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Why is authentic Kobe beef considered a luxury food?',
-      bs: 'Zašto se prava Kobe govedina smatra luksuznom hranom?'
+      en: 'What makes authentic Kobe beef a highly prized delicacy?',
+      bs: 'Šta pravu Kobe govedinu čini posebno cijenjenom delicijom?'
     },
     options: [
       { en: 'It is always served raw', bs: 'Uvijek se služi sirova' },
-      { en: 'It comes only from wild cattle', bs: 'Dolazi samo od divlje stoke' },
-      { en: 'It contains no fat at all', bs: 'Uopće ne sadrži mast' },
-      { en: 'It has exceptional marbling and comes from carefully raised Tajima cattle', bs: 'Ima izuzetnu mramoriranost i dolazi od pažljivo uzgojenog Tajima goveda' },
+      { en: 'It comes from wild cattle', bs: 'Dolazi od divlje stoke' },
+      { en: 'It contains almost no fat', bs: 'Gotovo da ne sadrži masnoću' },
+      { en: 'Its exceptional marbling and strict production standards', bs: 'Izuzetna mramoriranost i strogi standardi proizvodnje' },
     ],
     correctIndex: 3,
   },
@@ -177,14 +177,14 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'What makes a sparkling wine legally eligible to be called "Champagne"?',
-      bs: 'Šta čini pjenušavo vino pravno prihvatljivim da se naziva "Champagne"?'
+      en: 'What gives blue cheese its characteristic blue-green veins?',
+      bs: 'Šta plavom siru daje karakteristične plavo-zelene šare?'
     },
     options: [
-      { en: 'It must come from the Champagne region of France', bs: 'Mora dolaziti iz regije Champagne u Francuskoj' },
-      { en: 'It must be the sweetest type of sparkling wine', bs: 'Mora biti najslađa vrsta pjenušavog vina' },
-      { en: 'It must be produced in Europe', bs: 'Mora biti proizvedeno u Evropi' },
-      { en: 'It must contain only white grapes', bs: 'Mora sadržavati samo bijelo grožđe' },
+      { en: 'Mold cultures', bs: 'Kulture plijesni' },
+      { en: 'Food coloring', bs: 'Prehrambene boje' },
+      { en: 'Aged herbs', bs: 'Odležano bilje' },
+      { en: 'Sea salt crystals', bs: 'Kristali morske soli' },
     ],
     correctIndex: 0,
   },
@@ -194,16 +194,16 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which spirit tradition is closely linked to Scottish monasteries and distilleries?',
-      bs: 'Koja tradicija alkohola je usko povezana sa škotskim samostanima i destilerijama?',
+      en: 'Why does freshly cut apple often turn brown when exposed to air?',
+      bs: 'Zašto svježe prerezana jabuka često posmeđi kada je izložena zraku?'
     },
     options: [
-      { en: 'Tequila', bs: 'Tequila' },
-      { en: 'Rum', bs: 'Rum' },
-      { en: 'Vodka', bs: 'Vodka' },
-      { en: 'Whisky', bs: 'Whisky' },
+      { en: 'An enzyme reacts with oxygen', bs: 'Enzim reaguje s kisikom' },
+      { en: 'The apple absorbs brown pigments from the air', bs: 'Jabuka upija smeđe pigmente iz zraka' },
+      { en: 'Sugar crystallizes on the surface', bs: 'Šećer kristalizira na površini' },
+      { en: 'The fruit loses all of its water instantly', bs: 'Voće odmah izgubi svu vodu' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
     id: 'food-hard-013',
@@ -704,14 +704,14 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'What are Chinese century eggs traditionally preserved in for weeks or months?',
-      bs: 'U čemu se tradicionalno sedmicama ili mjesecima konzerviraju kineska "stogodišnja" jaja?',
+      en: 'What mixture is traditionally used to preserve Chinese century eggs for several weeks or months?',
+      bs: 'Koja se mješavina tradicionalno koristi za konzerviranje kineskih „stogodišnjih“ jaja tokom nekoliko sedmica ili mjeseci?'
     },
     options: [
-      { en: 'Honey and salt only', bs: 'Samo med i so' },
-      { en: 'Olive oil', bs: 'Maslinovo ulje' },
-      { en: 'Sugar syrup', bs: 'Šećerni sirup' },
-      { en: 'A mixture of clay, ash, salt, and lime', bs: 'Mješavina gline, pepela, soli i kreča' },
+      { en: 'Honey and salt', bs: 'Med i so' },
+      { en: 'Olive oil and herbs', bs: 'Maslinovo ulje i začinsko bilje' },
+      { en: 'Sugar syrup and vinegar', bs: 'Šećerni sirup i sirće' },
+      { en: 'Clay, ash, salt, and lime', bs: 'Glina, pepeo, so i kreč' },
     ],
     correctIndex: 3,
   },

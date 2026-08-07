@@ -177,15 +177,17 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Who was the first emperor of a unified China?',
-              bs: 'Ko je bio prvi car ujedinjene Kine?' },
+    prompt: {
+      en: 'Who was the first emperor to unify China under a single imperial rule?',
+      bs: 'Ko je bio prvi car koji je ujedinio Kinu pod jednom carskom vlašću?'
+    },
     options: [
-      { en: 'Kublai Khan', bs: 'Kublaj-kan' },
-      { en: 'Emperor Wu of Han', bs: 'Car Wu iz dinastije Han' },
+      { en: 'Liu Bang', bs: 'Liu Bang' },
       { en: 'Qin Shi Huang', bs: 'Qin Shi Huang' },
-      { en: 'Sun Yat-sen', bs: 'Sun Yat-sen' },
+      { en: 'Emperor Wu', bs: 'Car Wu' },
+      { en: 'Kublai Khan', bs: 'Kublaj-kan' },
     ],
-    correctIndex: 2,
+    correctIndex: 1,
   },
   {
     id: 'hist-hard-013',
