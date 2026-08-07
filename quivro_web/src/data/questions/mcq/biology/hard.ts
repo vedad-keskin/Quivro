@@ -557,17 +557,17 @@ export const biologyHard: Question[] = [
     type: 'mcq',
     category: 'biology',
     difficulty: 'hard',
-    prompt: {
-      en: 'Which bird is considered the fastest animal on Earth during a hunting dive (stoop)?',
-      bs: 'Koja ptica se smatra najbržom životinjom na Zemlji tokom lovačkog obrušavanja?',
-    },
-    options: [
-      { en: 'Peregrine falcon', bs: 'Sivi soko' },
-      { en: 'Golden eagle', bs: 'Suri orao' },
-      { en: 'White-throated needletail', bs: 'Bijelogrli čiopa' },
-      { en: 'Gyrfalcon', bs: 'Lovački soko' },
-    ],
-    correctIndex: 0,
+prompt: {
+  en: 'Which bird is considered the fastest animal on Earth during a hunting dive (stoop)?',
+  bs: 'Koja se ptica smatra najbržom životinjom na Zemlji tokom lovačkog obrušavanja?',
+},
+options: [
+  { en: 'Peregrine falcon', bs: 'Sivi soko' },
+  { en: 'Golden eagle', bs: 'Suri orao' },
+  { en: 'White-throated needletail', bs: 'Bijelogrla čiopa' },
+  { en: 'Gyrfalcon', bs: 'Lovački soko' },
+],
+correctIndex: 0,
   },
   {
     id: 'bio-hard-039',

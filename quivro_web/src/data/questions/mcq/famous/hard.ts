@@ -1718,4 +1718,38 @@ export const famousHard: Question[] = [
     ],
     correctIndex: 0,
   },
+  {
+    id: 'fam-hard-102',
+    type: 'mcq',
+    category: 'famous',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which popular trading card game was created by Kazuki Takahashi?',
+      bs: 'Koju je popularnu kartašku igru osmislio Kazuki Takahashi?',
+    },
+    options: [
+      { en: 'Yu-Gi-Oh!', bs: 'Yu-Gi-Oh!' },
+      { en: 'Pokémon Trading Card Game', bs: 'Pokémon kartašku igru' },
+      { en: 'Magic: The Gathering', bs: 'Magic: The Gathering' },
+      { en: 'Cardfight!! Vanguard', bs: 'Cardfight!! Vanguard' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'fam-hard-103',
+    type: 'mcq',
+    category: 'famous',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which video game series was created by Satoshi Tajiri?',
+      bs: 'Koji je serijal videoigara osmislio Satoshi Tajiri?',
+    },
+    options: [
+      { en: 'Digimon', bs: 'Digimon' },
+      { en: 'Pokémon', bs: 'Pokémon' },
+      { en: 'Yu-Gi-Oh!', bs: 'Yu-Gi-Oh!' },
+      { en: 'Beyblade', bs: 'Beyblade' },
+    ],
+    correctIndex: 1,
+  },
 ];
