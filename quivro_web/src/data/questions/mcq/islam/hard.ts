@@ -2056,4 +2056,38 @@ export const islamHard: Question[] = [
     ],
     correctIndex: 0,
   },
+  {
+    id: 'islam-hard-125',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Who introduced the practice of giving the Friday prayer adhan before the prayer time as an announcement?',
+      bs: 'Ko je uveo praksu učenja ezana prije nastupanja vremena džuma-namaza radi obavještavanja ljudi?'
+    },
+    options: [
+      { en: 'Uthman ibn Affan', bs: 'Osman ibn Affan' },
+      { en: 'Abu Bakr as-Siddiq', bs: 'Ebu Bekr es-Siddik' },
+      { en: 'Umar ibn al-Khattab', bs: 'Omer ibn el-Hattab' },
+      { en: 'Ali ibn Abi Talib', bs: 'Alija ibn Ebu Talib' }
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'islam-hard-126',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'It is known that Abdullah ibn Zayd, may Allah be pleased with him, saw the words of the adhan in a dream. Who else saw the same dream?',
+      bs: 'Poznato je da je Abdullah b. Zejd, radijallahu anhu, usnio riječi ezana. Ko je još usnio isti san?'
+    },
+    options: [
+      { en: 'Umar ibn al-Khattab', bs: 'Omer ibn el-Hattab' },
+      { en: 'Abu Bakr as-Siddiq', bs: 'Ebu Bekr es-Siddik' },
+      { en: 'Ali ibn Abi Talib', bs: 'Alija ibn Ebu Talib' },
+      { en: 'Uthman ibn Affan', bs: 'Osman ibn Affan' }
+    ],
+    correctIndex: 0,
+  },
 ];

@@ -1109,15 +1109,15 @@ export const islamMedium: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'medium',
-    prompt: { 
-      en: 'Isra refers to the Prophet’s journey from Mecca to:',
-      bs: 'Isra označava putovanje Poslanika ﷺ iz Meke u:'
+    prompt: {
+      en: 'The Isra was the Prophet’s ﷺ miraculous night journey from Mecca to which city?',
+      bs: 'Isra je bilo čudesno noćno putovanje Poslanika ﷺ iz Meke u koji grad?'
     },
     options: [
       { en: 'Jerusalem', bs: 'Jerusalem' },
-      { en: 'Medina', bs: 'Medinu' },
+      { en: 'Medina', bs: 'Medina' },
       { en: 'Taif', bs: 'Taif' },
-      { en: 'Abyssinia', bs: 'Abesiniju' },
+      { en: 'Abyssinia', bs: 'Abesinija' },
     ],
     correctIndex: 0,
   },
@@ -2064,6 +2064,23 @@ export const islamMedium: Question[] = [
       { en: 'Muharram', bs: 'Muharrem' },
       { en: 'Dhu al-Hijjah', bs: 'Zul-hidždže' },
       { en: 'Rajab', bs: 'Redžeb' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'islam-med-125',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'medium',
+    prompt: {
+      en: 'What is the name of the sajdah performed upon encountering a verse of sajdah while reciting the Qur’an?',
+      bs: 'Kako se naziva sedžda koja se čini kada se prilikom učenja Kur’ana naiđe na ajet sedžde?'
+    },
+    options: [
+      { en: 'Sajdah at-Tilawah', bs: 'Sedžda tilaveta' },
+      { en: 'Sajdah ash-Shukr', bs: 'Sedžda zahvalnosti' },
+      { en: 'Sajdah as-Sahw', bs: 'Sehvi sedžda' },
+      { en: 'Sajdah al-Fard', bs: 'Sedžda farza' },
     ],
     correctIndex: 0,
   },
