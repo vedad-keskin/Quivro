@@ -2090,4 +2090,21 @@ export const islamHard: Question[] = [
     ],
     correctIndex: 0,
   },
+  {
+    id: 'islam-hard-127',
+    type: 'mcq',
+    category: 'islam',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Who fought alongside Hamza ibn Abd al-Muttalib and Ali ibn Abi Talib in the opening duels of the Battle of Badr?',
+      bs: 'Ko se, pored Hamze b. Abdulmuttaliba i Alije b. Ebi Taliba, borio u početnim dvobojima Bitke na Bedru?'
+    },
+    options: [
+      { en: 'Ubayda ibn al-Harith', bs: 'Ubejde b. Haris' },
+      { en: 'Abu Bakr as-Siddiq', bs: 'Ebu Bekr es-Siddik' },
+      { en: 'Umar ibn al-Khattab', bs: 'Omer b. el-Hattab' },
+      { en: 'Sa\'d ibn Abi Waqqas', bs: 'Sa\'d b. Ebi Vekkas' },
+    ],
+    correctIndex: 0,
+  },
 ];
