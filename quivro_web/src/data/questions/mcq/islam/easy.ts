@@ -348,9 +348,9 @@ export const islamEasy: Question[] = [
     difficulty: 'easy',
     prompt: { en: 'Which monk recognized signs of prophethood on a trade trip?', bs: 'Koji je monah prepoznao znakove poslanstva na trgovačkom putu?' },
     options: [
-      { en: 'Bahira (Bahira) at Busra', bs: 'Behira u Busri' },
+      { en: 'Bahira at Busra', bs: 'Behira u Busri' },
       { en: 'Waraqah in Medina', bs: 'Vereka u Medini' },
-      { en: 'Heraclius in Rome', bs: 'Iraklije u Rimu' },
+      { en: 'Heraclius in Rome', bs: 'Heraklo u Rimu' },
       { en: 'Salman in Persia', bs: 'Salman u Perziji' },
     ],
     correctIndex: 0,
