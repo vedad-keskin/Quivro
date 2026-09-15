@@ -92,4 +92,21 @@ export const bs: UiStrings = {
     'Ova soba se već vodi u drugom tabu. Koristi taj tab ili ga prvo zatvori.',
   themeDay: 'Dan',
   themeNight: 'Noć',
+  descGeography: 'Karte, zastave, glavni gradovi i svaki kutak svijeta.',
+  descBiology: 'Ćelije, životinje i ljudsko tijelo — život pod mikroskopom.',
+  descTechnology: 'Računari, tehnologija, igre i inovacije koje mijenjaju svijet.',
+  descHistory: 'Carstva, ratovi i trenuci koji su nas oblikovali.',
+  descSports: 'Golovi, rekordi i legende sporta.',
+  descMovies: 'Hitovi, serije i poznate scene.',
+  descFamous: 'Ikone, lideri i zvijezde koje svi znaju.',
+  descIslam: 'Vjera, historija i tradicija islama.',
+  descFood: 'Jela, pića i okusi iz cijelog svijeta.',
+  descTextQ: 'Klasična pitanja sa četiri opcije. Što su teža, više vrijede.',
+  descPictureQ: 'Pogodi šta je na slici prije nego istekne vrijeme.',
+  descScoringStandard: 'Svaki tačan odgovor vrijedi tačno +1. Čisto znanje, bez žurbe.',
+  descScoringTimed:
+    'Tačno i brzo donosi najviše — osvoji 40% do 100% bodova ovisno o brzini.',
+  descQuestionTime: 'Koliko vremena svaka ekipa ima da zaključa odgovor.',
+  descRoundLength:
+    'Koliko pitanja u rundi, automatski izmiješano lako/srednje/teško. Prilagođeno: 3–100.',
 };

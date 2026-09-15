@@ -10,6 +10,7 @@ import {
   type CategoryId,
   type QuestionType,
 } from '../../../data/questions/types';
+import type { UiStrings } from '../../../i18n/en';
 import { GameRoomService } from '../../core/game-room.service';
 import { LanguageService } from '../../core/language.service';
 import {
@@ -109,15 +110,24 @@ function loadRoundPrefs(): RoundPrefs | null {
           <label class="q-label">{{ lang.t().categories }}</label>
           <div class="chips">
             @for (cat of categories; track cat) {
-              <button
-                type="button"
-                class="q-chip"
-                [class.active]="selected().includes(cat)"
-                [disabled]="!needsCategories()"
-                (click)="toggleCategory(cat)"
-              >
-                {{ categoryLabel(cat) }}
-              </button>
+              <span class="hint-wrap">
+                <button
+                  type="button"
+                  class="q-chip"
+                  [class.active]="selected().includes(cat)"
+                  [disabled]="!needsCategories()"
+                  (click)="toggleCategory(cat)"
+                >
+                  {{ categoryLabel(cat) }}
+                </button>
+                <div class="preview">
+                  <div class="p-head">
+                    <span class="p-emoji">{{ categoryInfo[cat].emoji }}</span>
+                    <strong class="p-title">{{ categoryLabel(cat) }}</strong>
+                  </div>
+                  <p class="p-body">{{ categoryDesc(cat) }}</p>
+                </div>
+              </span>
             }
           </div>
           @if (needsCategories() && selected().length === 0) {
@@ -129,14 +139,26 @@ function loadRoundPrefs(): RoundPrefs | null {
           <label class="q-label">{{ lang.t().questionTypes }}</label>
           <div class="chips">
             @for (t of questionTypes; track t) {
-              <button
-                type="button"
-                class="q-chip"
-                [class.active]="types().includes(t)"
-                (click)="toggleType(t)"
-              >
-                {{ typeLabel(t) }}
-              </button>
+              <span class="hint-wrap">
+                <button
+                  type="button"
+                  class="q-chip"
+                  [class.active]="types().includes(t)"
+                  (click)="toggleType(t)"
+                >
+                  {{ typeLabel(t) }}
+                </button>
+                <div class="preview" [class.has-img]="t === 'image_mcq'">
+                  <div class="p-head">
+                    <span class="p-emoji">{{ typeInfo[t].emoji }}</span>
+                    <strong class="p-title">{{ typeLabel(t) }}</strong>
+                  </div>
+                  <p class="p-body">{{ typeDesc(t) }}</p>
+                  @if (t === 'image_mcq') {
+                    <img class="p-img" [src]="randomPreviewImage()" alt="" />
+                  }
+                </div>
+              </span>
             }
           </div>
           @if (types().length === 0) {
@@ -147,22 +169,40 @@ function loadRoundPrefs(): RoundPrefs | null {
         <section>
           <label class="q-label">{{ lang.t().scoringMode }}</label>
           <div class="chips">
-            <button
-              type="button"
-              class="q-chip"
-              [class.active]="scoringMode() === 'standard'"
-              (click)="scoringMode.set('standard')"
-            >
-              {{ lang.t().scoringStandard }}
-            </button>
-            <button
-              type="button"
-              class="q-chip"
-              [class.active]="scoringMode() === 'timed'"
-              (click)="scoringMode.set('timed')"
-            >
-              {{ lang.t().scoringTimed }}
-            </button>
+            <span class="hint-wrap">
+              <button
+                type="button"
+                class="q-chip"
+                [class.active]="scoringMode() === 'standard'"
+                (click)="scoringMode.set('standard')"
+              >
+                {{ lang.t().scoringStandard }}
+              </button>
+              <div class="preview">
+                <div class="p-head">
+                  <span class="p-emoji">{{ scoringInfo.standard.emoji }}</span>
+                  <strong class="p-title">{{ lang.t().scoringStandard }}</strong>
+                </div>
+                <p class="p-body">{{ scoringDesc('standard') }}</p>
+              </div>
+            </span>
+            <span class="hint-wrap">
+              <button
+                type="button"
+                class="q-chip"
+                [class.active]="scoringMode() === 'timed'"
+                (click)="scoringMode.set('timed')"
+              >
+                {{ lang.t().scoringTimed }}
+              </button>
+              <div class="preview">
+                <div class="p-head">
+                  <span class="p-emoji">{{ scoringInfo.timed.emoji }}</span>
+                  <strong class="p-title">{{ lang.t().scoringTimed }}</strong>
+                </div>
+                <p class="p-body">{{ scoringDesc('timed') }}</p>
+              </div>
+            </span>
           </div>
         </section>
 
@@ -170,14 +210,23 @@ function loadRoundPrefs(): RoundPrefs | null {
           <label class="q-label">{{ lang.t().questionTime }}</label>
           <div class="chips">
             @for (n of timerPresets; track n) {
-              <button
-                type="button"
-                class="q-chip"
-                [class.active]="questionSeconds() === n"
-                (click)="questionSeconds.set(n)"
-              >
-                {{ n }}{{ lang.t().seconds }}
-              </button>
+              <span class="hint-wrap">
+                <button
+                  type="button"
+                  class="q-chip"
+                  [class.active]="questionSeconds() === n"
+                  (click)="questionSeconds.set(n)"
+                >
+                  {{ n }}{{ lang.t().seconds }}
+                </button>
+                <div class="preview">
+                  <div class="p-head">
+                    <span class="p-emoji">⏱️</span>
+                    <strong class="p-title">{{ n }} {{ lang.t().seconds }}</strong>
+                  </div>
+                  <p class="p-body">{{ lang.t().descQuestionTime }}</p>
+                </div>
+              </span>
             }
           </div>
         </section>
@@ -186,23 +235,41 @@ function loadRoundPrefs(): RoundPrefs | null {
           <label class="q-label">{{ lang.t().roundLength }}</label>
           <div class="chips">
             @for (n of presets; track n) {
+              <span class="hint-wrap">
+                <button
+                  type="button"
+                  class="q-chip"
+                  [class.active]="!customMode() && length() === n"
+                  (click)="pickPreset(n)"
+                >
+                  {{ n }}
+                </button>
+                <div class="preview">
+                  <div class="p-head">
+                    <span class="p-emoji">📏</span>
+                    <strong class="p-title">{{ n }} {{ lang.t().questions }}</strong>
+                  </div>
+                  <p class="p-body">{{ lang.t().descRoundLength }}</p>
+                </div>
+              </span>
+            }
+            <span class="hint-wrap">
               <button
                 type="button"
                 class="q-chip"
-                [class.active]="!customMode() && length() === n"
-                (click)="pickPreset(n)"
+                [class.active]="customMode()"
+                (click)="customMode.set(true)"
               >
-                {{ n }}
+                {{ lang.t().custom }}
               </button>
-            }
-            <button
-              type="button"
-              class="q-chip"
-              [class.active]="customMode()"
-              (click)="customMode.set(true)"
-            >
-              {{ lang.t().custom }}
-            </button>
+              <div class="preview">
+                <div class="p-head">
+                  <span class="p-emoji">🎚️</span>
+                  <strong class="p-title">{{ lang.t().custom }}</strong>
+                </div>
+                <p class="p-body">{{ lang.t().descRoundLength }}</p>
+              </div>
+            </span>
           </div>
           @if (customMode()) {
             <input
@@ -275,6 +342,143 @@ function loadRoundPrefs(): RoundPrefs | null {
     .cats-disabled .q-chip {
       pointer-events: none;
     }
+
+    /* Fun hover preview cards */
+    .hint-wrap {
+      position: relative;
+      display: inline-flex;
+    }
+    .preview {
+      position: absolute;
+      bottom: calc(100% + 12px);
+      left: 50%;
+      width: max-content;
+      min-width: min(252px, 90vw);
+      max-width: 90vw;
+      display: grid;
+      gap: 0.3rem;
+      padding: 0.65rem 0.75rem 0.7rem;
+      text-align: left;
+      border: 2px solid transparent;
+      border-radius: 16px;
+      background:
+        linear-gradient(var(--q-card), var(--q-card)) padding-box,
+        var(--q-gradient) border-box;
+      box-shadow: var(--q-shadow);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 50;
+      transform: translateX(-50%) translateY(6px) scale(0.96);
+      transform-origin: bottom center;
+      transition:
+        opacity 0.18s ease,
+        transform 0.18s ease;
+    }
+    .preview.has-img {
+      min-width: 0;
+      grid-template-columns: max-content max-content;
+      grid-template-rows: auto auto;
+      column-gap: 0.55rem;
+      row-gap: 0.2rem;
+      align-items: start;
+      padding: 0 0 0 0.75rem;
+    }
+    .preview.has-img .p-head {
+      grid-column: 1;
+      padding-top: 0.65rem;
+    }
+    .preview.has-img .p-body {
+      grid-column: 1;
+      padding-bottom: 0.7rem;
+      padding-right: 0.15rem;
+    }
+    .preview.has-img .p-img {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      width: auto;
+      height: 128px;
+      max-width: none;
+      max-height: none;
+      margin: 0;
+      align-self: stretch;
+      justify-self: end;
+      border: none;
+      border-radius: 0 14px 14px 0;
+      object-fit: cover;
+    }
+    .hint-wrap:hover .preview,
+    .hint-wrap:focus-within .preview {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+    .preview::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      width: 14px;
+      height: 14px;
+      transform: translateX(-50%) rotate(45deg);
+      background:
+        linear-gradient(var(--q-card), var(--q-card)) padding-box,
+        var(--q-gradient) border-box;
+      border: 2px solid transparent;
+      border-radius: 0 0 3px 0;
+      z-index: 0;
+    }
+    .preview::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 22px;
+      height: 10px;
+      transform: translateX(-50%);
+      background: var(--q-card);
+      z-index: 1;
+    }
+    .p-head {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      width: max-content;
+    }
+    .p-emoji {
+      font-size: 1.15rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .p-title {
+      font-size: 0.92rem;
+      font-weight: 900;
+      color: var(--q-navy);
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+    .p-body {
+      margin: 0;
+      width: 0;
+      min-width: 100%;
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--q-muted);
+    }
+    .p-img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 118px;
+      margin: 0.15rem auto 0;
+      display: block;
+      border-radius: 10px;
+      border: 2px solid var(--q-border);
+    }
+    @media (hover: none) {
+      .preview {
+        display: none;
+      }
+    }
   `,
 })
 export class CreateRoundPage {
@@ -288,6 +492,33 @@ export class CreateRoundPage {
   readonly presets = ROUND_LENGTH_PRESETS;
   readonly timerPresets = QUESTION_SECONDS_PRESETS;
   readonly minRoundLength = MIN_ROUND_LENGTH;
+
+  /** Emoji + description key for each category hover card. */
+  readonly categoryInfo: Record<CategoryId, { emoji: string; descKey: keyof UiStrings }> = {
+    geography: { emoji: '🌍', descKey: 'descGeography' },
+    biology: { emoji: '🧬', descKey: 'descBiology' },
+    technology: { emoji: '💻', descKey: 'descTechnology' },
+    history: { emoji: '🏛️', descKey: 'descHistory' },
+    sports: { emoji: '⚽', descKey: 'descSports' },
+    movies: { emoji: '🎬', descKey: 'descMovies' },
+    famous: { emoji: '🌟', descKey: 'descFamous' },
+    islam: { emoji: '☪️', descKey: 'descIslam' },
+    food: { emoji: '🍔', descKey: 'descFood' },
+    images: { emoji: '🖼️', descKey: 'descPictureQ' },
+  };
+  readonly typeInfo: Record<QuestionType, { emoji: string; descKey: keyof UiStrings }> = {
+    mcq: { emoji: '✏️', descKey: 'descTextQ' },
+    image_mcq: { emoji: '🖼️', descKey: 'descPictureQ' },
+  };
+  readonly scoringInfo: Record<ScoringMode, { emoji: string; descKey: keyof UiStrings }> = {
+    standard: { emoji: '🎯', descKey: 'descScoringStandard' },
+    timed: { emoji: '⚡', descKey: 'descScoringTimed' },
+  };
+
+  /** Stable random image from the web pool for the picture-questions preview. */
+  readonly randomPreviewImage = signal(
+    `/questions/images/${Math.floor(Math.random() * 150) + 1}.jpg`,
+  );
 
   private readonly saved = loadRoundPrefs();
   readonly selected = signal<CategoryId[]>(this.saved?.categories ?? [...CATEGORIES]);
@@ -341,6 +572,18 @@ export class CreateRoundPage {
 
   typeLabel(t: QuestionType): string {
     return t === 'mcq' ? this.lang.t().mcq : this.lang.t().imageMcq;
+  }
+
+  categoryDesc(cat: CategoryId): string {
+    return this.lang.t()[this.categoryInfo[cat].descKey];
+  }
+
+  typeDesc(t: QuestionType): string {
+    return this.lang.t()[this.typeInfo[t].descKey];
+  }
+
+  scoringDesc(mode: ScoringMode): string {
+    return this.lang.t()[this.scoringInfo[mode].descKey];
   }
 
   toggleCategory(cat: CategoryId): void {

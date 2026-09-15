@@ -90,6 +90,23 @@ export const en = {
     'This room is already hosting in another tab. Use that tab, or close it first.',
   themeDay: 'Day',
   themeNight: 'Night',
+  descGeography: 'Maps, flags, capitals and every corner of the globe.',
+  descBiology: 'Cells, critters and the human body — life under the microscope.',
+  descTechnology: 'Gadgets, code and the gear that runs our world.',
+  descHistory: 'Empires, wars and the moments that shaped us.',
+  descSports: 'Goals, records and the legends of the game.',
+  descMovies: 'Blockbusters, binge shows and famous scenes.',
+  descFamous: 'Icons, leaders and stars everyone knows.',
+  descIslam: 'Faith, history and the traditions of Islam.',
+  descFood: 'Dishes, drinks and flavours from everywhere.',
+  descTextQ: 'Classic four-choice questions. The harder they are, the more they pay.',
+  descPictureQ: "Spot what's in the photo before the clock runs out.",
+  descScoringStandard: 'Every correct answer is worth exactly +1. Pure knowledge, no rush.',
+  descScoringTimed:
+    'Right and fast wins big — earn 40% to 100% of the points based on your speed.',
+  descQuestionTime: 'How long each team has to lock in an answer.',
+  descRoundLength:
+    'How many questions in the round, auto-mixed across easy, medium and hard. Custom: 3–100.',
 };
 
 export type UiStrings = Record<keyof typeof en, string>;
