@@ -1,10 +1,14 @@
 import { Injectable, inject, signal } from '@angular/core';
 import {
+  endAt,
   get,
   onDisconnect,
   onValue,
+  orderByChild,
+  query,
   ref,
   remove,
+  serverTimestamp,
   set,
   update,
   type OnDisconnect,
@@ -26,6 +30,8 @@ import {
   IMAGE_ANSWER_DELAY_MS,
   clampQuestionSeconds,
   rankPlayers,
+  isRoomDead,
+  ROOM_TTL_MS,
   type LastWinner,
   type PlayerAnswer,
   type PublicQuestion,
@@ -38,6 +44,9 @@ import {
 const CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 const LAST_HOSTED_CODE_KEY = 'quivro.lastHostedCode';
 const HOST_SESSION_KEY = 'quivro.hostSessionId';
+const LAST_SWEEP_KEY = 'quivro.lastSweepAt';
+/** Min gap between global sweeps per browser. */
+const SWEEP_THROTTLE_MS = 60 * 60 * 1000;
 /** Host-only rematch anti-repeat; keyed by room code. Not written to Firebase. */
 const USED_QUESTIONS_KEY_PREFIX = 'quivro.usedQuestions.';
 
@@ -75,6 +84,8 @@ export class GameRoomService {
 
   async createRoom(config: RoomConfig): Promise<string> {
     const db = this.requireDb();
+    // Opportunistic global cleanup of expired rooms (throttled, web-only).
+    void this.sweepExpiredRooms();
     await this.deletePreviousHostedRoom();
     const questions = this.generator.generate(
       config.categories,
@@ -90,11 +101,13 @@ export class GameRoomService {
       new Set(questions.map((q) => q.id)),
     );
     const hostSessionId = this.ensureTabHostSessionId();
+    const now = Date.now();
     const state: RoomState = {
       code,
       phase: 'lobby',
       config,
-      createdAt: Date.now(),
+      createdAt: now,
+      expiresAt: now + ROOM_TTL_MS,
       currentIndex: -1,
       totalQuestions: questions.length,
       currentQuestion: null,
@@ -560,9 +573,18 @@ export class GameRoomService {
   private async armHostDisconnect(code: string): Promise<void> {
     await this.cancelHostDisconnect();
     const db = this.requireDb();
-    const roomRef = ref(db, `rooms/${code}`);
-    this.disconnectOp = onDisconnect(roomRef);
-    await this.disconnectOp.remove();
+    const goneRef = ref(db, `rooms/${code}/hostGoneAt`);
+    // Host tab is active now — clear any stale disconnect marker.
+    try {
+      await remove(goneRef);
+    } catch {
+      /* room may already be gone */
+    }
+    // On disconnect, mark host-gone instead of deleting the room, so a host
+    // nap / transient drop no longer destroys an in-progress room. Expired or
+    // long-abandoned rooms are cleaned lazily on access + by the sweep.
+    this.disconnectOp = onDisconnect(goneRef);
+    await this.disconnectOp.set(serverTimestamp());
     this.hostedCode = code;
     this.hosting.set(true);
   }
@@ -702,6 +724,10 @@ export class GameRoomService {
     const snap = await get(ref(db, `rooms/${code}`));
     if (!snap.exists()) throw new Error('NOT_FOUND');
     const state = this.fromFirebase(code, snap.val());
+    if (await this.reapIfDead(code, state)) {
+      this.room.set(null);
+      throw new Error('NOT_FOUND');
+    }
     this.room.set(state);
     return state;
   }
@@ -723,8 +749,58 @@ export class GameRoomService {
       const code = this.randomCode();
       const snap = await get(ref(db, `rooms/${code}`));
       if (!snap.exists()) return code;
+      // Collided with a dead room — reap it and reuse the code.
+      const state = this.fromFirebase(code, snap.val());
+      if (await this.reapIfDead(code, state)) return code;
     }
     return this.randomCode() + this.randomCode().slice(0, 2);
+  }
+
+  /** Delete the room when expired/abandoned. Returns true if it was removed. */
+  private async reapIfDead(code: string, state: RoomState): Promise<boolean> {
+    if (!isRoomDead(state, Date.now())) return false;
+    try {
+      const db = this.requireDb();
+      await remove(ref(db, `rooms/${code}`));
+    } catch (e) {
+      console.error(e);
+    }
+    return true;
+  }
+
+  /**
+   * Web-only opportunistic cleanup: delete every expired room, even ones whose
+   * code nobody touches again. Throttled per browser via localStorage. Runs a
+   * single indexed query (see database.rules.json `.indexOn: expiresAt`).
+   */
+  async sweepExpiredRooms(): Promise<void> {
+    if (!this.isLive) return;
+    const now = Date.now();
+    try {
+      const last = Number(localStorage.getItem(LAST_SWEEP_KEY) ?? 0);
+      if (Number.isFinite(last) && now - last < SWEEP_THROTTLE_MS) return;
+      // Stamp before the query so parallel tabs do not all sweep at once.
+      localStorage.setItem(LAST_SWEEP_KEY, String(now));
+    } catch {
+      /* private mode: proceed without throttle */
+    }
+    try {
+      const db = this.requireDb();
+      const q = query(ref(db, 'rooms'), orderByChild('expiresAt'), endAt(now));
+      const snap = await get(q);
+      const jobs: Promise<void>[] = [];
+      snap.forEach((child) => {
+        // Guard: legacy rooms have no expiresAt (sort as null and match the
+        // query). Only delete rooms whose numeric expiresAt is actually due.
+        const exp = child.child('expiresAt').val();
+        if (typeof exp === 'number' && exp <= now) {
+          jobs.push(remove(ref(db, `rooms/${child.key}`)));
+        }
+      });
+      await Promise.allSettled(jobs);
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   private randomCode(): string {
@@ -740,6 +816,8 @@ export class GameRoomService {
       phase: state.phase,
       config: state.config,
       createdAt: state.createdAt,
+      expiresAt: state.expiresAt,
+      hostGoneAt: state.hostGoneAt ?? null,
       currentIndex: state.currentIndex,
       totalQuestions: state.totalQuestions,
       currentQuestion: state.currentQuestion,
@@ -830,6 +908,11 @@ export class GameRoomService {
         questionSeconds: clampQuestionSeconds(Number(configRaw['questionSeconds'] ?? 15)),
       },
       createdAt: Number(raw['createdAt'] ?? Date.now()),
+      expiresAt: Number(raw['expiresAt'] ?? 0),
+      hostGoneAt:
+        raw['hostGoneAt'] === undefined || raw['hostGoneAt'] === null
+          ? null
+          : Number(raw['hostGoneAt']),
       currentIndex: Number(raw['currentIndex'] ?? -1),
       totalQuestions: Number(raw['totalQuestions'] ?? 0),
       currentQuestion: this.normalizePublicQuestion(raw['currentQuestion']),

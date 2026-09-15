@@ -892,9 +892,6 @@ export class PlayPage implements OnInit, OnDestroy {
   /** Handle returned by setTimeout so we can cancel stale reveal-advance callbacks. */
   private revealTimeoutId: ReturnType<typeof setTimeout> | null = null;
   private knownRematchReady = new Set<string>();
-  private readonly onPageHide = () => {
-    void this.rooms.leaveHostedRoom(this.code);
-  };
 
   readonly answersOpen = computed(() => {
     this.clock();
@@ -1133,13 +1130,14 @@ export class PlayPage implements OnInit, OnDestroy {
     void this.rooms.watchRoom(this.code).catch(() => {
       this.rooms.room.set(null);
     });
-    window.addEventListener('pagehide', this.onPageHide);
   }
 
   ngOnDestroy(): void {
-    window.removeEventListener('pagehide', this.onPageHide);
+    // Implicit teardown (back nav, tab close) must NOT delete the room — a real
+    // tab close arms the host onDisconnect marker; expired/abandoned rooms are
+    // reaped lazily + by the sweep. Explicit exit uses goHome().
     this.clearImageTimers();
-    void this.rooms.leaveHostedRoom(this.code);
+    this.rooms.stopWatching();
   }
 
   async goHome(): Promise<void> {

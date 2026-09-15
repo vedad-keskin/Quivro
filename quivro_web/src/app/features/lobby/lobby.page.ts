@@ -231,9 +231,6 @@ export class LobbyPage implements OnInit, OnDestroy {
   private keepRoomAlive = false;
   private knownPlayerIds = new Set<string>();
   private playersSeeded = false;
-  private readonly onPageHide = () => {
-    void this.rooms.leaveHostedRoom(this.code);
-  };
 
   constructor() {
     effect(() => {
@@ -262,13 +259,15 @@ export class LobbyPage implements OnInit, OnDestroy {
     void this.rooms.watchRoom(this.code).catch(() => {
       this.rooms.room.set(null);
     });
-    window.addEventListener('pagehide', this.onPageHide);
   }
 
   ngOnDestroy(): void {
-    window.removeEventListener('pagehide', this.onPageHide);
+    // Implicit teardown (back nav, tab close) must NOT delete the room — a real
+    // tab close arms the host onDisconnect marker, and expired/abandoned rooms
+    // are reaped lazily + by the sweep. Explicit exit uses goHome(). Just
+    // detach this component's listener.
     if (!this.keepRoomAlive) {
-      void this.rooms.leaveHostedRoom(this.code);
+      this.rooms.stopWatching();
     }
   }
 

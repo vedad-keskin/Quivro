@@ -91,6 +91,32 @@ export interface RoomState {
   rematchReady: Record<string, boolean>;
   /** Tab-scoped host claim — only the matching sessionStorage tab may host. */
   hostSessionId?: string | null;
+  /** Epoch ms when the room expires (createdAt + ROOM_TTL_MS). */
+  expiresAt: number;
+  /** Epoch ms the host tab disconnected; cleared while host is active. */
+  hostGoneAt?: number | null;
+}
+
+/** How long a room lives from createdAt before it is considered expired. */
+export const ROOM_TTL_MS = 48 * 60 * 60 * 1000;
+/** Grace after host disconnect before an abandoned room is reap-eligible. */
+export const HOST_GONE_GRACE_MS = 30 * 60 * 1000;
+
+/**
+ * True when a room should be deleted: past its TTL, or host gone longer than
+ * the grace window. Enforced lazily on access + by the web-only sweep.
+ */
+export function isRoomDead(
+  room: Pick<RoomState, 'createdAt' | 'expiresAt' | 'hostGoneAt'>,
+  now: number,
+): boolean {
+  const expiresAt =
+    typeof room.expiresAt === 'number' && room.expiresAt > 0
+      ? room.expiresAt
+      : (room.createdAt ?? 0) + ROOM_TTL_MS;
+  if (now > expiresAt) return true;
+  if (room.hostGoneAt && now - room.hostGoneAt > HOST_GONE_GRACE_MS) return true;
+  return false;
 }
 
 /** Sort: score desc, last point desc, join order asc. Keep in sync with mobile ranked(). */

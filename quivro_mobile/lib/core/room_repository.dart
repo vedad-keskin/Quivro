@@ -36,8 +36,20 @@ class RoomRepository {
   }
 
   Future<bool> roomExists(String code) async {
-    final snap = await roomRef(code).get();
-    return snap.exists;
+    // Dead-aware: fetchRoom reaps expired/abandoned rooms and returns null.
+    final room = await fetchRoom(code);
+    return room != null;
+  }
+
+  /// Delete the room when expired/abandoned. Returns true if it was removed.
+  Future<bool> _reapIfDead(String code, RoomState room) async {
+    if (!room.isDead(nowMs())) return false;
+    try {
+      await roomRef(code).remove();
+    } catch (_) {
+      /* room may already be gone */
+    }
+    return true;
   }
 
   Future<bool> playerInRoom({
@@ -54,7 +66,10 @@ class RoomRepository {
     if (!snap.exists) return null;
     final value = snap.value;
     if (value is! Map) return null;
-    return RoomState.fromSnapshot(upper, Map<dynamic, dynamic>.from(value));
+    final room = RoomState.fromSnapshot(upper, Map<dynamic, dynamic>.from(value));
+    // Lazy cleanup: an expired/abandoned room is deleted and treated as gone.
+    if (await _reapIfDead(upper, room)) return null;
+    return room;
   }
 
   bool isSessionResumable(RoomState room, String playerId) {

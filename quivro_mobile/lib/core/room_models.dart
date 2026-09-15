@@ -187,6 +187,8 @@ class RoomState {
     this.lastWinners = const [],
     this.roundTied = false,
     this.rematchReady = const {},
+    this.expiresAt = 0,
+    this.hostGoneAt,
   });
 
   final String code;
@@ -201,6 +203,24 @@ class RoomState {
   final Map<String, RoomPlayer> players;
   final Map<String, Map<String, Map<dynamic, dynamic>>> answers;
   final Map<String, bool> rematchReady;
+  final int expiresAt;
+  final int? hostGoneAt;
+
+  /// Room lifetime from createdAt before expiry. Mirrors ROOM_TTL_MS on web.
+  static const roomTtlMs = 48 * 60 * 60 * 1000;
+
+  /// Grace after host disconnect before an abandoned room is reap-eligible.
+  /// Mirrors HOST_GONE_GRACE_MS on web.
+  static const hostGoneGraceMs = 30 * 60 * 1000;
+
+  /// True when the room should be deleted: past TTL, or host gone too long.
+  /// Web sets [expiresAt]; legacy rooms without it fall back to [createdAt] TTL.
+  bool isDead(int nowMs) {
+    final effectiveExpiry = expiresAt > 0 ? expiresAt : createdAt + roomTtlMs;
+    if (nowMs > effectiveExpiry) return true;
+    if (hostGoneAt != null && nowMs - hostGoneAt! > hostGoneGraceMs) return true;
+    return false;
+  }
 
   factory RoomState.fromSnapshot(String code, Map<dynamic, dynamic> map) {
     final playersRaw = map['players'];
@@ -257,6 +277,8 @@ class RoomState {
       players: players,
       answers: answers,
       rematchReady: rematchReady,
+      expiresAt: (map['expiresAt'] as num?)?.toInt() ?? 0,
+      hostGoneAt: (map['hostGoneAt'] as num?)?.toInt(),
     );
   }
 

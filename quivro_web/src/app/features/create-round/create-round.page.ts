@@ -318,6 +318,8 @@ export class CreateRoundPage {
   );
 
   constructor() {
+    // Web-only opportunistic cleanup of expired rooms on app entry (throttled).
+    void this.rooms.sweepExpiredRooms();
     effect(() => {
       const prefs: RoundPrefs = {
         categories: this.selected(),

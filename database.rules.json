@@ -1,12 +1,15 @@
 {
   "rules": {
     "rooms": {
+      ".indexOn": "expiresAt",
       "$code": {
         ".read": true,
         ".write": "!data.exists() || !newData.exists()",
         "phase": { ".write": true },
         "config": { ".write": true },
         "createdAt": { ".write": true },
+        "expiresAt": { ".write": true },
+        "hostGoneAt": { ".write": true },
         "currentIndex": { ".write": true },
         "totalQuestions": { ".write": true },
         "currentQuestion": { ".write": true },
