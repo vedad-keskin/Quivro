@@ -19,9 +19,11 @@ import { StudioFooter } from '../../shared/studio-footer';
           <div class="q-brand-line"></div>
         </div>
         <p class="tagline">{{ lang.t().tagline }}</p>
+        <p class="purpose">{{ lang.t().purpose }}</p>
 
         <div class="actions">
           <a routerLink="/create" class="q-btn q-btn-outline">{{ lang.t().createRound }}</a>
+          <a routerLink="/privacy" class="privacy">{{ lang.t().privacy }}</a>
         </div>
       </section>
 
@@ -73,12 +75,26 @@ import { StudioFooter } from '../../shared/studio-footer';
       font-weight: 700;
       max-width: 26rem;
     }
+    .purpose {
+      margin: 0;
+      max-width: 36rem;
+      color: var(--q-muted);
+      font-weight: 650;
+      line-height: 1.5;
+    }
     .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 0.85rem;
       justify-content: center;
+      align-items: center;
       margin-top: 0.75rem;
+    }
+    .privacy {
+      color: var(--q-muted);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
   `,
 })

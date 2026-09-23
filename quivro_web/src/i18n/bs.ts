@@ -3,6 +3,9 @@ import type { UiStrings } from './en';
 export const bs: UiStrings = {
   appName: 'Quivro',
   tagline: 'Okupi ekipu. Pokaži znanje.',
+  purpose:
+    'Quivro je kviz igra Nightfall Studija. Domaćin pokreće rundu na ovoj stranici, a igrači ulaze kodom na telefonu. Prijava putem Googlea čuva kupovinu Quivro Pro na tvom računu.',
+  privacy: 'Politika privatnosti',
   madeBy: 'Napravio',
   createRound: 'Pokreni igru',
   language: 'Jezik',
