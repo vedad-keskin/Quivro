@@ -53,6 +53,14 @@ export async function POST(request) {
     return Response.json({ message: `Ignored ${eventName}` });
   }
 
+  // The store also sells Nightfall, and Lemon Squeezy delivers every store event
+  // to every webhook in that store. Bow out of sibling products before the uid
+  // check below, otherwise each Nightfall sale would land here as a failed
+  // delivery and bury real failures in the dashboard.
+  if (event.meta?.custom_data?.app !== 'quivro') {
+    return Response.json({ message: 'Not a Quivro order' });
+  }
+
   // Without a uid there is no account to credit. 400 so it shows as failed in
   // the Lemon Squeezy dashboard rather than silently succeeding.
   if (!uid) {

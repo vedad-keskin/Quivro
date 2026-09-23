@@ -41,7 +41,7 @@ and no server call.
 | 2 | Firebase Auth on web | Done |
 | 3 | Entitlement service + `firestore.rules` | Done |
 | 4 | Paywall UI, upgrade dialog, `/unlocked`, `createRoom` clamp | Done |
-| 5 | Lemon Squeezy product + `/api/webhook` | Code done, waiting on M4-M7 |
+| 5 | Lemon Squeezy product + `/api/webhook` | Done, verified in production |
 | 6 | Legal pages (privacy, terms, refunds) | Not started |
 | 7 | Google Play release | Not started |
 | 8 | Move Pro question bank out of the browser bundle (optional) | Not started |
@@ -57,9 +57,9 @@ Things only you can do. Marked done as they are completed.
 | M3 | Enable Firestore in the `quivro-ca38a` project | 3 | Done |
 | M3b | Deploy `firestore.rules` (`firebase deploy --only firestore:rules`) | 3 | Done |
 | M4 | Create the Quivro Pro product in Lemon Squeezy | 5 | Done |
-| M5 | Create the Lemon Squeezy webhook + copy signing secret | 5 | Pending |
-| M6 | Generate a Firebase service account key | 5 | Pending |
-| M7 | Set Vercel environment variables | 5 | Pending |
+| M5 | Create the Lemon Squeezy webhook + copy signing secret | 5 | Done (secret needs replacing) |
+| M6 | Generate a Firebase service account key | 5 | Done |
+| M7 | Set Vercel environment variables | 5 | Done (Production scope) |
 | M8 | Generate the Android upload keystore | 7 | Pending |
 | M9 | Create the Play Console app and store listing | 7 | Pending |
 
@@ -90,9 +90,25 @@ The mobile app does **not** use Google Sign-In, so the `google-services.json` in
 - Price: EUR 4.99, single payment, tax category "SaaS - personal use"
 - Product is hidden from the storefront on purpose: a direct storefront purchase
   carries no `firebase_uid`, so the webhook would 400 and the buyer would get nothing.
-- Redirect URL: `https://quivro.vercel.app/unlocked`
+- Redirect: hosted checkout links have **no** separate "redirect after purchase" field.
+  Per Lemon Squeezy's docs the redirect is the **Confirmation modal -> Button link**, set to
+  `quivro.vercel.app/unlocked` (and the same for the Email receipt button). A standalone
+  `product_options.redirect_url` exists only for checkouts created through the API.
+  It is a button the buyer clicks, not an automatic redirect, which is fine: the webhook
+  records the purchase regardless of where the browser goes, and `refresh()` plus the
+  Restore link cover anyone who closes the tab.
 - Webhook URL: `https://quivro.vercel.app/api/webhook`
 - Events: `order_created` and `order_refunded`
+
+**Shared store.** Nightfall sells from the same store and has its own webhook at
+`nightfall-project.vercel.app/api/webhook`. Lemon Squeezy delivers every store event to
+every webhook in the store, so each endpoint sees the other product's orders:
+
+- Quivro's webhook checks `custom_data.app === 'quivro'` and returns 200 "Not a Quivro
+  order" for Nightfall sales, so they do not register as failed deliveries.
+- Nightfall's webhook returns `400 Missing google_uid` for Quivro sales. It bails before
+  touching Firestore so nothing is corrupted, but every Quivro sale shows as a failed
+  delivery in that webhook's log. Adding the same `app` guard there would silence it.
 
 Store slug and variant ID go into `lemonSqueezy` in both `environment.ts` and
 `environment.prod.ts`. Until they are filled in, `openCheckout()` returns `false` and the
@@ -164,6 +180,20 @@ pulled `firebase/auth` into the initial bundle and pushed main from 67 kB to 134
 transfer. `UpgradeDialogService` therefore lives in its own file so `app.ts` can hold a
 reference while `@defer (when upgrade.open())` keeps the component out of the main
 chunk. Main is back to 70 kB; Firestore only loads once a host signs in.
+
+## Production verification (Phase 5)
+
+Run against `https://quivro.vercel.app/api/webhook` after deploying:
+
+| Check | Expected |
+|---|---|
+| `GET /api/webhook` | `200` with the status JSON. Proves the function deployed, `firebase-admin` installed from the root `package.json`, and the `vercel.json` rewrite is not swallowing `/api/*` into the SPA catch-all. |
+| `POST` with a junk `x-signature` | `401 Invalid signature`. A `500 Server not configured` here means an env var is missing or the deploy predates them. |
+| `POST` correctly signed, real uid | `200 OK` plus a document at `purchases/{uid}`. This is the only check that exercises the private key, because the key is not parsed until the Firestore write. |
+
+**Document IDs matching `__…__` are reserved by Firestore.** A self-test using
+`__webhook_selftest__` returns `500 Database error`, which looks exactly like a malformed
+private key. Use an ordinary id such as `zzz-selftest-prod`, and delete it afterwards.
 
 ## Known limitation
 
