@@ -8,6 +8,7 @@ import {
   signal,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EntitlementService } from '../../core/entitlement.service';
 import { GameRoomService } from '../../core/game-room.service';
 import { LanguageService } from '../../core/language.service';
 import { avatarColor, avatarEmoji } from '../../core/room.models';
@@ -41,6 +42,10 @@ import { SettingsChips } from '../../shared/settings-chips';
             </div>
 
             <p class="waiting">{{ lang.t().waitingPlayers }}</p>
+
+            @if (ent.isPro()) {
+              <span class="pro-badge">{{ lang.t().hostedWithPro }}</span>
+            }
 
             <button
               type="button"
@@ -143,6 +148,17 @@ import { SettingsChips } from '../../shared/settings-chips';
       font-weight: 800;
       line-height: 1.35;
     }
+    .pro-badge {
+      display: inline-block;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: var(--q-gradient);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
     .start {
       margin-top: 1.25rem;
       min-width: 10rem;
@@ -212,6 +228,7 @@ import { SettingsChips } from '../../shared/settings-chips';
 export class LobbyPage implements OnInit, OnDestroy {
   readonly lang = inject(LanguageService);
   readonly rooms = inject(GameRoomService);
+  readonly ent = inject(EntitlementService);
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly snack = inject(SnackbarService);

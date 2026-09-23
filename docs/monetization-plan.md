@@ -28,6 +28,7 @@ Price: **EUR 4.99**, one-time, lifetime.
 | Scoring mode | Standard (+1 each) | Adds Timed (speed bonus) |
 | Question timer | All options (10/15/20/30, custom 5-60s) | Same |
 | Custom questions (`/admin/questions`) | Available | Same |
+| Question timer presets | All | Same |
 | Rotating free category | One Pro category free each week | n/a |
 
 The rotation flips Monday 00:00 UTC and cycles Movies, Famous, Islam, Food. It is derived
@@ -39,9 +40,9 @@ and no server call.
 | # | Phase | Status |
 |---|---|---|
 | 1 | Living plan doc | Done |
-| 2 | Firebase Auth on web | Code done, blocked on M1 + M2 |
-| 3 | Entitlement service + `firestore.rules` | Code done, blocked on M3 + M3b |
-| 4 | Paywall UI, upgrade dialog, `/unlocked`, `createRoom` clamp | Not started |
+| 2 | Firebase Auth on web | Done |
+| 3 | Entitlement service + `firestore.rules` | Done |
+| 4 | Paywall UI, upgrade dialog, `/unlocked`, `createRoom` clamp | Done |
 | 5 | Lemon Squeezy product + `/api/webhook` | Not started |
 | 6 | Legal pages (privacy, terms, refunds) | Not started |
 | 7 | Google Play release | Not started |
@@ -53,10 +54,10 @@ Things only you can do. Marked done as they are completed.
 
 | # | Task | Phase | Status |
 |---|---|---|---|
-| M1 | Enable Google sign-in provider in Firebase Console | 2 | Pending |
-| M2 | Add authorized domains in Firebase Console | 2 | Pending |
-| M3 | Enable Firestore in the `quivro-ca38a` project | 3 | Pending |
-| M3b | Deploy `firestore.rules` (`firebase deploy --only firestore:rules`) | 3 | Pending |
+| M1 | Enable Google sign-in provider in Firebase Console | 2 | Done |
+| M2 | Add authorized domains in Firebase Console | 2 | Done |
+| M3 | Enable Firestore in the `quivro-ca38a` project | 3 | Done |
+| M3b | Deploy `firestore.rules` (`firebase deploy --only firestore:rules`) | 3 | Done |
 | M4 | Create the Quivro Pro product in Lemon Squeezy | 5 | Pending |
 | M5 | Create the Lemon Squeezy webhook + copy signing secret | 5 | Pending |
 | M6 | Generate a Firebase service account key | 5 | Pending |
@@ -67,6 +68,14 @@ Things only you can do. Marked done as they are completed.
 ## Reference
 
 **Firebase project:** `quivro-ca38a` (one project, both RTDB and Firestore)
+
+- Firestore database: `(default)`, location `eur3`. The client calls `getFirestore(app)` with
+  no database name, which only ever resolves to `(default)`.
+- Production domain: `quivro.vercel.app` (authorized for Google sign-in)
+- Google sign-in consent screen name: Quivro
+
+The mobile app does **not** use Google Sign-In, so the `google-services.json` in
+`quivro_mobile` does not need regenerating when OAuth clients change.
 
 **Vercel environment variables** (Phase 5):
 
@@ -95,6 +104,20 @@ Things only you can do. Marked done as they are completed.
 | `active` | boolean |
 | `source` | string, `'lemonsqueezy'` |
 | `purchaseDate` | timestamp |
+
+## Decisions taken along the way
+
+**`/admin/questions` was deliberately left ungated.** The original plan said to put it
+behind auth. On inspection the page only writes to `localStorage` under
+`quivro.questionOverlay` and never touches Firebase, so an unauthenticated visitor can
+only add questions to their own browser. There is nothing to protect, and a login wall
+would be friction for no benefit.
+
+**The upgrade dialog is deferred, not eager.** Importing it directly into the app shell
+pulled `firebase/auth` into the initial bundle and pushed main from 67 kB to 134 kB
+transfer. `UpgradeDialogService` therefore lives in its own file so `app.ts` can hold a
+reference while `@defer (when upgrade.open())` keeps the component out of the main
+chunk. Main is back to 70 kB; Firestore only loads once a host signs in.
 
 ## Known limitation
 

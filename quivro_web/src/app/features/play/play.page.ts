@@ -8,6 +8,7 @@ import {
   OnDestroy,
   OnInit,
   signal,
+  untracked,
   viewChild,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -24,6 +25,8 @@ import {
   type CategoryId,
   type QuestionType,
 } from '../../../data/questions/types';
+import { EntitlementService } from '../../core/entitlement.service';
+import { FREE_CATEGORIES, FREE_MAX_ROUND_LENGTH } from '../../core/entitlements';
 import { GameRoomService } from '../../core/game-room.service';
 import { LanguageService } from '../../core/language.service';
 import {
@@ -46,6 +49,7 @@ import { SnackbarService } from '../../core/snackbar.service';
 import { AnswerGrid } from '../../shared/answer-grid';
 import { Leaderboard } from '../../shared/leaderboard';
 import { TimerRing } from '../../shared/timer-ring';
+import { UpgradeDialogService } from '../../shared/upgrade-dialog.service';
 
 type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
 
@@ -132,10 +136,16 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                       type="button"
                       class="q-chip"
                       [class.active]="selectedCats().includes(cat)"
+                      [class.locked]="ent.categoryLocked(cat)"
                       [disabled]="!needsCategories()"
                       (click)="toggleCategory(cat)"
                     >
                       {{ categoryLabel(cat) }}
+                      @if (ent.categoryLocked(cat)) {
+                        <span class="lock" aria-hidden="true">🔒</span>
+                      } @else if (isFreeThisWeek(cat)) {
+                        <span class="gift" aria-hidden="true">★</span>
+                      }
                     </button>
                   }
                 </div>
@@ -149,9 +159,13 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                       type="button"
                       class="q-chip"
                       [class.active]="selectedTypes().includes(t)"
+                      [class.locked]="ent.questionTypeLocked(t)"
                       (click)="toggleType(t)"
                     >
                       {{ typeLabel(t) }}
+                      @if (ent.questionTypeLocked(t)) {
+                        <span class="lock" aria-hidden="true">🔒</span>
+                      }
                     </button>
                   }
                 </div>
@@ -172,9 +186,13 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                     type="button"
                     class="q-chip"
                     [class.active]="scoringMode() === 'timed'"
-                    (click)="scoringMode.set('timed')"
+                    [class.locked]="ent.scoringModeLocked('timed')"
+                    (click)="pickScoring('timed')"
                   >
                     {{ lang.t().scoringTimed }}
+                    @if (ent.scoringModeLocked('timed')) {
+                      <span class="lock" aria-hidden="true">🔒</span>
+                    }
                   </button>
                 </div>
               </section>
@@ -203,18 +221,26 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                       type="button"
                       class="q-chip"
                       [class.active]="!customMode() && length() === n"
+                      [class.locked]="ent.roundLengthLocked(n)"
                       (click)="pickPreset(n)"
                     >
                       {{ n }}
+                      @if (ent.roundLengthLocked(n)) {
+                        <span class="lock" aria-hidden="true">🔒</span>
+                      }
                     </button>
                   }
                   <button
                     type="button"
                     class="q-chip"
                     [class.active]="customMode()"
-                    (click)="customMode.set(true)"
+                    [class.locked]="ent.customLengthLocked()"
+                    (click)="pickCustom()"
                   >
                     {{ lang.t().custom }}
+                    @if (ent.customLengthLocked()) {
+                      <span class="lock" aria-hidden="true">🔒</span>
+                    }
                   </button>
                 </div>
                 @if (customMode()) {
@@ -791,6 +817,21 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
     .cats-disabled {
       opacity: 0.45;
     }
+    .q-chip.locked {
+      opacity: 0.6;
+    }
+    .q-chip.locked:hover {
+      opacity: 0.85;
+    }
+    .lock,
+    .gift {
+      margin-left: 0.3rem;
+      font-size: 0.72em;
+      line-height: 1;
+    }
+    .gift {
+      color: #f59e0b;
+    }
     .cats-disabled .q-chip {
       pointer-events: none;
     }
@@ -849,6 +890,8 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
 export class PlayPage implements OnInit, OnDestroy {
   readonly lang = inject(LanguageService);
   readonly rooms = inject(GameRoomService);
+  readonly ent = inject(EntitlementService);
+  private readonly upgrade = inject(UpgradeDialogService);
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly snack = inject(SnackbarService);
@@ -960,6 +1003,12 @@ export class PlayPage implements OnInit, OnDestroy {
   );
 
   constructor() {
+    // The finished round may have been configured while Pro was active, so the
+    // rematch form has to be re-clamped once the entitlement resolves.
+    effect(() => {
+      const pro = this.ent.isPro();
+      if (!pro) untracked(() => this.dropLockedSelections());
+    });
     effect(() => {
       const r = this.room();
       if (!r || r.code !== this.code) return;
@@ -991,6 +1040,9 @@ export class PlayPage implements OnInit, OnDestroy {
         this.knownRematchReady = new Set(
           Object.keys(r.rematchReady ?? {}).filter((id) => r.rematchReady[id]),
         );
+        // Seeding above copies the finished round's config verbatim; re-clamp so
+        // a lapsed or signed-out host cannot carry Pro settings into a rematch.
+        if (!this.ent.isPro()) this.dropLockedSelections();
       }
       if (r.phase === 'finished') {
         const readyIds = Object.keys(r.rematchReady ?? {}).filter(
@@ -1170,9 +1222,54 @@ export class PlayPage implements OnInit, OnDestroy {
     return t === 'mcq' ? this.lang.t().mcq : this.lang.t().imageMcq;
   }
 
+  isFreeThisWeek(cat: CategoryId): boolean {
+    return !this.ent.isPro() && cat === this.ent.freeThisWeek();
+  }
+
+  /** Strips Pro-only picks from the rematch form. Mirrors the create-round page. */
+  private dropLockedSelections(): void {
+    const cats = this.selectedCats().filter((c) => !this.ent.categoryLocked(c));
+    if (cats.length !== this.selectedCats().length) {
+      this.selectedCats.set(
+        cats.length > 0 || !this.needsCategories() ? cats : [...FREE_CATEGORIES],
+      );
+    }
+    const memory = this.categoryMemory().filter((c) => !this.ent.categoryLocked(c));
+    if (memory.length !== this.categoryMemory().length) {
+      this.categoryMemory.set(memory.length > 0 ? memory : [...FREE_CATEGORIES]);
+    }
+    const types = this.selectedTypes().filter((t) => !this.ent.questionTypeLocked(t));
+    if (types.length !== this.selectedTypes().length) {
+      this.selectedTypes.set(types.length > 0 ? types : ['mcq']);
+    }
+    if (this.ent.scoringModeLocked(this.scoringMode())) this.scoringMode.set('standard');
+    if (this.customMode()) this.customMode.set(false);
+    if (this.ent.roundLengthLocked(this.length())) this.length.set(FREE_MAX_ROUND_LENGTH);
+  }
+
+  pickScoring(mode: ScoringMode): void {
+    if (this.ent.scoringModeLocked(mode)) {
+      this.upgrade.show();
+      return;
+    }
+    this.scoringMode.set(mode);
+  }
+
   pickPreset(n: number): void {
+    if (this.ent.roundLengthLocked(n)) {
+      this.upgrade.show();
+      return;
+    }
     this.customMode.set(false);
     this.length.set(n);
+  }
+
+  pickCustom(): void {
+    if (this.ent.customLengthLocked()) {
+      this.upgrade.show();
+      return;
+    }
+    this.customMode.set(true);
   }
 
   onCustom(value: number | string): void {
@@ -1190,6 +1287,10 @@ export class PlayPage implements OnInit, OnDestroy {
 
   toggleCategory(cat: CategoryId): void {
     if (!this.needsCategories()) return;
+    if (this.ent.categoryLocked(cat)) {
+      this.upgrade.show();
+      return;
+    }
     const cur = this.selectedCats();
     const next = cur.includes(cat)
       ? cur.filter((c) => c !== cat)
@@ -1199,6 +1300,10 @@ export class PlayPage implements OnInit, OnDestroy {
   }
 
   toggleType(t: QuestionType): void {
+    if (this.ent.questionTypeLocked(t)) {
+      this.upgrade.show();
+      return;
+    }
     const cur = this.selectedTypes();
     const turningOff = cur.includes(t);
     const next = turningOff ? cur.filter((x) => x !== t) : [...cur, t];
@@ -1210,7 +1315,8 @@ export class PlayPage implements OnInit, OnDestroy {
         this.selectedCats.set([]);
       } else {
         const mem = this.categoryMemory();
-        this.selectedCats.set(mem.length > 0 ? [...mem] : [...CATEGORIES]);
+        const restored = mem.length > 0 ? [...mem] : [...CATEGORIES];
+        this.selectedCats.set(restored.filter((c) => !this.ent.categoryLocked(c)));
       }
     }
 

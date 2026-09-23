@@ -19,6 +19,7 @@ import {
   DIFFICULTY_POINTS,
   IMAGE_MCQ_POINTS,
 } from '../../data/questions/types';
+import { EntitlementService } from './entitlement.service';
 import { FirebaseService } from './firebase.service';
 import { QuestionBankService } from './question-bank.service';
 import { RoundGeneratorService } from './round-generator.service';
@@ -56,6 +57,7 @@ export class GameRoomService {
   private readonly generator = inject(RoundGeneratorService);
   private readonly bank = inject(QuestionBankService);
   private readonly serverTime = inject(ServerTimeService);
+  private readonly entitlements = inject(EntitlementService);
 
   readonly room = signal<RoomState | null>(null);
   /** True when this browser tab owns host controls / teardown for the watched room. */
@@ -82,8 +84,12 @@ export class GameRoomService {
     return this.firebase.db;
   }
 
-  async createRoom(config: RoomConfig): Promise<string> {
+  async createRoom(requested: RoomConfig): Promise<string> {
     const db = this.requireDb();
+    // Single choke point for entitlements: stale or tampered UI state cannot
+    // create a Pro room. Routes through the weekly rotation, so the category
+    // that is free this week survives the clamp.
+    const config = this.entitlements.enforce(requested);
     // Opportunistic global cleanup of expired rooms (throttled, web-only).
     void this.sweepExpiredRooms();
     await this.deletePreviousHostedRoom();
@@ -275,7 +281,7 @@ export class GameRoomService {
     const room = await this.fetchFreshRoom(code);
     // Wins already applied in finishRound; keep lastWinners and reset round state.
     const config: RoomConfig = nextConfig
-      ? {
+      ? this.entitlements.enforce({
           categories: nextConfig.categories,
           questionTypes: nextConfig.questionTypes,
           roundLength: nextConfig.roundLength,
@@ -284,7 +290,7 @@ export class GameRoomService {
           questionSeconds: clampQuestionSeconds(
             nextConfig.questionSeconds ?? room.config.questionSeconds ?? 15,
           ),
-        }
+        })
       : room.config;
 
     const readyIds = new Set(

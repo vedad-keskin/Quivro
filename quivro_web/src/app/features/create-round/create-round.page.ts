@@ -1,4 +1,4 @@
-import { Component, computed, effect, inject, signal } from '@angular/core';
+import { Component, computed, effect, inject, signal, untracked } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import {
@@ -11,6 +11,8 @@ import {
   type QuestionType,
 } from '../../../data/questions/types';
 import type { UiStrings } from '../../../i18n/en';
+import { EntitlementService } from '../../core/entitlement.service';
+import { FREE_CATEGORIES, FREE_MAX_ROUND_LENGTH } from '../../core/entitlements';
 import { GameRoomService } from '../../core/game-room.service';
 import { LanguageService } from '../../core/language.service';
 import {
@@ -25,6 +27,7 @@ import {
 } from '../../core/room.models';
 import { SnackbarService } from '../../core/snackbar.service';
 import { SettingsChips } from '../../shared/settings-chips';
+import { UpgradeDialogService } from '../../shared/upgrade-dialog.service';
 
 const ROUND_PREFS_KEY = 'quivro.roundPrefs';
 
@@ -115,10 +118,16 @@ function loadRoundPrefs(): RoundPrefs | null {
                   type="button"
                   class="q-chip"
                   [class.active]="selected().includes(cat)"
+                  [class.locked]="ent.categoryLocked(cat)"
                   [disabled]="!needsCategories()"
                   (click)="toggleCategory(cat)"
                 >
                   {{ categoryLabel(cat) }}
+                  @if (ent.categoryLocked(cat)) {
+                    <span class="lock" aria-hidden="true">🔒</span>
+                  } @else if (isFreeThisWeek(cat)) {
+                    <span class="gift" aria-hidden="true">★</span>
+                  }
                 </button>
                 <div class="preview">
                   <div class="p-head">
@@ -126,6 +135,11 @@ function loadRoundPrefs(): RoundPrefs | null {
                     <strong class="p-title">{{ categoryLabel(cat) }}</strong>
                   </div>
                   <p class="p-body">{{ categoryDesc(cat) }}</p>
+                  @if (ent.categoryLocked(cat)) {
+                    <p class="p-tag">🔒 {{ lang.t().proLocked }}</p>
+                  } @else if (isFreeThisWeek(cat)) {
+                    <p class="p-tag free">★ {{ lang.t().freeThisWeek }}</p>
+                  }
                 </div>
               </span>
             }
@@ -144,9 +158,13 @@ function loadRoundPrefs(): RoundPrefs | null {
                   type="button"
                   class="q-chip"
                   [class.active]="types().includes(t)"
+                  [class.locked]="ent.questionTypeLocked(t)"
                   (click)="toggleType(t)"
                 >
                   {{ typeLabel(t) }}
+                  @if (ent.questionTypeLocked(t)) {
+                    <span class="lock" aria-hidden="true">🔒</span>
+                  }
                 </button>
                 <div class="preview" [class.has-img]="t === 'image_mcq'">
                   <div class="p-head">
@@ -154,6 +172,9 @@ function loadRoundPrefs(): RoundPrefs | null {
                     <strong class="p-title">{{ typeLabel(t) }}</strong>
                   </div>
                   <p class="p-body">{{ typeDesc(t) }}</p>
+                  @if (ent.questionTypeLocked(t)) {
+                    <p class="p-tag">🔒 {{ lang.t().proLocked }}</p>
+                  }
                   @if (t === 'image_mcq') {
                     <img class="p-img" [src]="randomPreviewImage()" alt="" />
                   }
@@ -191,9 +212,13 @@ function loadRoundPrefs(): RoundPrefs | null {
                 type="button"
                 class="q-chip"
                 [class.active]="scoringMode() === 'timed'"
-                (click)="scoringMode.set('timed')"
+                [class.locked]="ent.scoringModeLocked('timed')"
+                (click)="pickScoring('timed')"
               >
                 {{ lang.t().scoringTimed }}
+                @if (ent.scoringModeLocked('timed')) {
+                  <span class="lock" aria-hidden="true">🔒</span>
+                }
               </button>
               <div class="preview">
                 <div class="p-head">
@@ -201,6 +226,9 @@ function loadRoundPrefs(): RoundPrefs | null {
                   <strong class="p-title">{{ lang.t().scoringTimed }}</strong>
                 </div>
                 <p class="p-body">{{ scoringDesc('timed') }}</p>
+                @if (ent.scoringModeLocked('timed')) {
+                  <p class="p-tag">🔒 {{ lang.t().proLocked }}</p>
+                }
               </div>
             </span>
           </div>
@@ -240,9 +268,13 @@ function loadRoundPrefs(): RoundPrefs | null {
                   type="button"
                   class="q-chip"
                   [class.active]="!customMode() && length() === n"
+                  [class.locked]="ent.roundLengthLocked(n)"
                   (click)="pickPreset(n)"
                 >
                   {{ n }}
+                  @if (ent.roundLengthLocked(n)) {
+                    <span class="lock" aria-hidden="true">🔒</span>
+                  }
                 </button>
                 <div class="preview">
                   <div class="p-head">
@@ -250,6 +282,9 @@ function loadRoundPrefs(): RoundPrefs | null {
                     <strong class="p-title">{{ n }} {{ lang.t().questions }}</strong>
                   </div>
                   <p class="p-body">{{ lang.t().descRoundLength }}</p>
+                  @if (ent.roundLengthLocked(n)) {
+                    <p class="p-tag">🔒 {{ lang.t().proLocked }}</p>
+                  }
                 </div>
               </span>
             }
@@ -258,9 +293,13 @@ function loadRoundPrefs(): RoundPrefs | null {
                 type="button"
                 class="q-chip"
                 [class.active]="customMode()"
-                (click)="customMode.set(true)"
+                [class.locked]="ent.customLengthLocked()"
+                (click)="pickCustom()"
               >
                 {{ lang.t().custom }}
+                @if (ent.customLengthLocked()) {
+                  <span class="lock" aria-hidden="true">🔒</span>
+                }
               </button>
               <div class="preview">
                 <div class="p-head">
@@ -268,6 +307,9 @@ function loadRoundPrefs(): RoundPrefs | null {
                   <strong class="p-title">{{ lang.t().custom }}</strong>
                 </div>
                 <p class="p-body">{{ lang.t().descRoundLength }}</p>
+                @if (ent.customLengthLocked()) {
+                  <p class="p-tag">🔒 {{ lang.t().proLocked }}</p>
+                }
               </div>
             </span>
           </div>
@@ -341,6 +383,33 @@ function loadRoundPrefs(): RoundPrefs | null {
     }
     .cats-disabled .q-chip {
       pointer-events: none;
+    }
+
+    /* Locked controls stay visible and clickable — clicking opens the upgrade dialog. */
+    .q-chip.locked {
+      opacity: 0.6;
+    }
+    .q-chip.locked:hover {
+      opacity: 0.85;
+    }
+    .lock,
+    .gift {
+      margin-left: 0.3rem;
+      font-size: 0.72em;
+      line-height: 1;
+    }
+    .gift {
+      color: #f59e0b;
+    }
+    .p-tag {
+      margin: 0.15rem 0 0;
+      font-size: 0.74rem;
+      font-weight: 900;
+      color: var(--q-blue);
+      letter-spacing: 0.01em;
+    }
+    .p-tag.free {
+      color: #f59e0b;
     }
 
     /* Fun hover preview cards */
@@ -484,8 +553,10 @@ function loadRoundPrefs(): RoundPrefs | null {
 export class CreateRoundPage {
   readonly lang = inject(LanguageService);
   readonly rooms = inject(GameRoomService);
+  readonly ent = inject(EntitlementService);
   private readonly router = inject(Router);
   private readonly snack = inject(SnackbarService);
+  private readonly upgrade = inject(UpgradeDialogService);
 
   readonly categories = CATEGORIES;
   readonly questionTypes = QUESTION_TYPES;
@@ -551,6 +622,12 @@ export class CreateRoundPage {
   constructor() {
     // Web-only opportunistic cleanup of expired rooms on app entry (throttled).
     void this.rooms.sweepExpiredRooms();
+    // Saved prefs and defaults can name Pro-only options. Re-run whenever the
+    // entitlement resolves, which includes the initial Firestore round-trip.
+    effect(() => {
+      const pro = this.ent.isPro();
+      if (!pro) untracked(() => this.dropLockedSelections());
+    });
     effect(() => {
       const prefs: RoundPrefs = {
         categories: this.selected(),
@@ -586,8 +663,35 @@ export class CreateRoundPage {
     return this.lang.t()[this.scoringInfo[mode].descKey];
   }
 
+  isFreeThisWeek(cat: CategoryId): boolean {
+    return !this.ent.isPro() && cat === this.ent.freeThisWeek();
+  }
+
+  /** Strips Pro-only picks so a free host can never submit a locked config. */
+  private dropLockedSelections(): void {
+    const cats = this.selected().filter((c) => !this.ent.categoryLocked(c));
+    if (cats.length !== this.selected().length) {
+      this.selected.set(cats.length > 0 ? cats : [...FREE_CATEGORIES]);
+    }
+    const memory = this.categoryMemory().filter((c) => !this.ent.categoryLocked(c));
+    if (memory.length !== this.categoryMemory().length) {
+      this.categoryMemory.set(memory.length > 0 ? memory : [...FREE_CATEGORIES]);
+    }
+    const types = this.types().filter((t) => !this.ent.questionTypeLocked(t));
+    if (types.length !== this.types().length) {
+      this.types.set(types.length > 0 ? types : ['mcq']);
+    }
+    if (this.ent.scoringModeLocked(this.scoringMode())) this.scoringMode.set('standard');
+    if (this.customMode()) this.customMode.set(false);
+    if (this.ent.roundLengthLocked(this.length())) this.length.set(FREE_MAX_ROUND_LENGTH);
+  }
+
   toggleCategory(cat: CategoryId): void {
     if (!this.needsCategories()) return;
+    if (this.ent.categoryLocked(cat)) {
+      this.upgrade.show();
+      return;
+    }
     const cur = this.selected();
     const next = cur.includes(cat)
       ? cur.filter((c) => c !== cat)
@@ -597,6 +701,10 @@ export class CreateRoundPage {
   }
 
   toggleType(t: QuestionType): void {
+    if (this.ent.questionTypeLocked(t)) {
+      this.upgrade.show();
+      return;
+    }
     const cur = this.types();
     const turningOff = cur.includes(t);
     const next = turningOff ? cur.filter((x) => x !== t) : [...cur, t];
@@ -608,16 +716,37 @@ export class CreateRoundPage {
         this.selected.set([]);
       } else {
         const mem = this.categoryMemory();
-        this.selected.set(mem.length > 0 ? [...mem] : [...CATEGORIES]);
+        const restored = mem.length > 0 ? [...mem] : [...CATEGORIES];
+        this.selected.set(restored.filter((c) => !this.ent.categoryLocked(c)));
       }
     }
 
     this.types.set(next);
   }
 
+  pickScoring(mode: ScoringMode): void {
+    if (this.ent.scoringModeLocked(mode)) {
+      this.upgrade.show();
+      return;
+    }
+    this.scoringMode.set(mode);
+  }
+
   pickPreset(n: number): void {
+    if (this.ent.roundLengthLocked(n)) {
+      this.upgrade.show();
+      return;
+    }
     this.customMode.set(false);
     this.length.set(n);
+  }
+
+  pickCustom(): void {
+    if (this.ent.customLengthLocked()) {
+      this.upgrade.show();
+      return;
+    }
+    this.customMode.set(true);
   }
 
   onCustom(value: number | string): void {
