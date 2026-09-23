@@ -86,12 +86,10 @@ The mobile app does **not** use Google Sign-In, so the `google-services.json` in
 
 - Store slug: `nightfall-studio` (one studio store holds every product)
 - Contact email shown on receipts: `nightfall.project.info@gmail.com`
-- Live variant ID (`environment.prod.ts`): `9bf236a7-7cb7-4348-a504-2ff8ef65c902`
-- Test-mode variant ID (`environment.ts` / `ng serve`): `184b1101-86a1-4c55-8119-2f8cbb4856f2`
-  The two differ on purpose. Angular swaps files on production build, so a local
-  checkout never hits the live product. The test webhook must use the **same**
-  signing secret as live (`LEMONSQUEEZY_WEBHOOK_SECRET`), because one function
-  serves both.
+- Variant ID (live, both env files): `9bf236a7-7cb7-4348-a504-2ff8ef65c902`
+- Test-mode variant, kept for a future sandbox run: `184b1101-86a1-4c55-8119-2f8cbb4856f2`
+  Checkout is on the live product. A test purchase charges a real card. The test
+  webhook, if still enabled, must keep the same signing secret as live.
 - Price: EUR 4.99, single payment, tax category "SaaS - personal use"
 - Product is hidden from the storefront on purpose: a direct storefront purchase
   carries no `firebase_uid`, so the webhook would 400 and the buyer would get nothing.
@@ -115,9 +113,8 @@ every webhook in the store, so each endpoint sees the other product's orders:
   touching Firestore so nothing is corrupted, but every Quivro sale shows as a failed
   delivery in that webhook's log. Adding the same `app` guard there would silence it.
 
-Store slug is the same in both env files. Variant IDs are not: `environment.ts` is the
-test-mode product so `ng serve` can take the `4242` card, and `environment.prod.ts` is
-the live product. `openCheckout()` still returns `false` if the slug still contains `YOUR_`.
+Store slug and the live variant ID are the same in `environment.ts` and
+`environment.prod.ts`. `openCheckout()` still returns `false` if the slug still contains `YOUR_`.
 
 **Firestore document** written by the webhook at `purchases/{firebaseUid}`:
 
