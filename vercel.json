@@ -1,10 +1,14 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "npm install --prefix quivro_web",
+  "installCommand": "npm install && npm install --prefix quivro_web",
   "buildCommand": "npm run build --prefix quivro_web",
   "outputDirectory": "quivro_web/dist/web/browser",
   "framework": null,
   "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"

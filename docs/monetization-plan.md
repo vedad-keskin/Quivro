@@ -27,8 +27,6 @@ Price: **EUR 4.99**, one-time, lifetime.
 | Round length | 10, 20, 30 | Adds 50 and custom up to 100 |
 | Scoring mode | Standard (+1 each) | Adds Timed (speed bonus) |
 | Question timer | All options (10/15/20/30, custom 5-60s) | Same |
-| Custom questions (`/admin/questions`) | Available | Same |
-| Question timer presets | All | Same |
 | Rotating free category | One Pro category free each week | n/a |
 
 The rotation flips Monday 00:00 UTC and cycles Movies, Famous, Islam, Food. It is derived
@@ -43,7 +41,7 @@ and no server call.
 | 2 | Firebase Auth on web | Done |
 | 3 | Entitlement service + `firestore.rules` | Done |
 | 4 | Paywall UI, upgrade dialog, `/unlocked`, `createRoom` clamp | Done |
-| 5 | Lemon Squeezy product + `/api/webhook` | Not started |
+| 5 | Lemon Squeezy product + `/api/webhook` | Code done, waiting on M4-M7 |
 | 6 | Legal pages (privacy, terms, refunds) | Not started |
 | 7 | Google Play release | Not started |
 | 8 | Move Pro question bank out of the browser bundle (optional) | Not started |
@@ -58,7 +56,7 @@ Things only you can do. Marked done as they are completed.
 | M2 | Add authorized domains in Firebase Console | 2 | Done |
 | M3 | Enable Firestore in the `quivro-ca38a` project | 3 | Done |
 | M3b | Deploy `firestore.rules` (`firebase deploy --only firestore:rules`) | 3 | Done |
-| M4 | Create the Quivro Pro product in Lemon Squeezy | 5 | Pending |
+| M4 | Create the Quivro Pro product in Lemon Squeezy | 5 | Done |
 | M5 | Create the Lemon Squeezy webhook + copy signing secret | 5 | Pending |
 | M6 | Generate a Firebase service account key | 5 | Pending |
 | M7 | Set Vercel environment variables | 5 | Pending |
@@ -86,12 +84,18 @@ The mobile app does **not** use Google Sign-In, so the `google-services.json` in
 
 **Lemon Squeezy** (fill in during Phase 5):
 
-- Store slug: TBD
-- Variant ID: TBD
-- Price: TBD
-- Redirect URL: `https://<domain>/unlocked`
-- Webhook URL: `https://<domain>/api/webhook`
-- Events: `order_created` only
+- Store slug: `nightfall-project` (the store is shared with the Nightfall game)
+- Variant ID: `9bf236a7-7cb7-4348-a504-2ff8ef65c902`
+- Price: EUR 4.99, single payment, tax category "SaaS - personal use"
+- Product is hidden from the storefront on purpose: a direct storefront purchase
+  carries no `firebase_uid`, so the webhook would 400 and the buyer would get nothing.
+- Redirect URL: `https://quivro.vercel.app/unlocked`
+- Webhook URL: `https://quivro.vercel.app/api/webhook`
+- Events: `order_created` and `order_refunded`
+
+Store slug and variant ID go into `lemonSqueezy` in both `environment.ts` and
+`environment.prod.ts`. Until they are filled in, `openCheckout()` returns `false` and the
+upgrade dialog shows "not ready yet" instead of a broken link.
 
 **Firestore document** written by the webhook at `purchases/{firebaseUid}`:
 
@@ -104,14 +108,21 @@ The mobile app does **not** use Google Sign-In, so the `google-services.json` in
 | `active` | boolean |
 | `source` | string, `'lemonsqueezy'` |
 | `purchaseDate` | timestamp |
+| `updatedAt` | timestamp |
+
+A refund sets `active: false`, which revokes Pro on the next `refresh()`.
 
 ## Decisions taken along the way
 
-**`/admin/questions` was deliberately left ungated.** The original plan said to put it
-behind auth. On inspection the page only writes to `localStorage` under
-`quivro.questionOverlay` and never touches Firebase, so an unauthenticated visitor can
-only add questions to their own browser. There is nothing to protect, and a login wall
-would be friction for no benefit.
+**`/admin/questions` was removed entirely.** It was first left ungated (it only wrote to
+`localStorage` under `quivro.questionOverlay`, so there was nothing to protect), then cut
+altogether along with the localStorage overlay in `QuestionBankService` and fifteen
+admin-only i18n keys. `QuestionBankService` now just returns the seed questions.
+
+**The webhook uses the Web-standard handler signature** (`export function POST(request)`)
+rather than Node's `(req, res)`. Vercel populates `req.body` from a getter that consumes
+the stream, so the classic signature risks losing the exact bytes the HMAC covers.
+`await request.text()` is unambiguous and needs no `bodyParser` config.
 
 **The upgrade dialog is deferred, not eager.** Importing it directly into the app shell
 pulled `firebase/auth` into the initial bundle and pushed main from 67 kB to 134 kB

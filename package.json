@@ -1,0 +1,9 @@
+{
+  "name": "quivro",
+  "private": true,
+  "type": "module",
+  "description": "Root package for the Vercel serverless functions in /api. The Angular app has its own package.json in quivro_web/.",
+  "dependencies": {
+    "firebase-admin": "^13.5.0"
+  }
+}

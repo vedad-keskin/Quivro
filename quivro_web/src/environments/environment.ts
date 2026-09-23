@@ -10,7 +10,7 @@ export const environment = {
     appId: '1:880273668503:web:ab1f94cc0dfff06540ecd2',
   },
   lemonSqueezy: {
-    storeSlug: 'YOUR_LEMON_STORE_SLUG',
-    variantId: 'YOUR_LEMON_VARIANT_ID',
+    storeSlug: 'nightfall-project',
+    variantId: '9bf236a7-7cb7-4348-a504-2ff8ef65c902',
   },
 };

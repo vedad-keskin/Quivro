@@ -1,2 +1,14 @@
 # Graphify knowledge graph (regenerate with: graphify update .)
 graphify-out/
+
+# Root deps for the /api serverless functions
+/node_modules/
+
+# Vercel
+.vercel
+
+# Never commit the Firebase service account key
+serviceAccountKey.json
+*-firebase-adminsdk-*.json
+.env
+.env.local

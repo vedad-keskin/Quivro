@@ -21,9 +21,6 @@ import { SettingsChips } from '../../shared/settings-chips';
 
         <div class="actions">
           <a routerLink="/create" class="q-btn q-btn-outline">{{ lang.t().createRound }}</a>
-          <a routerLink="/admin/questions" class="q-btn q-btn-outline admin">{{
-            lang.t().addQuestions
-          }}</a>
         </div>
       </section>
     </div>
@@ -77,9 +74,6 @@ import { SettingsChips } from '../../shared/settings-chips';
       gap: 0.85rem;
       justify-content: center;
       margin-top: 0.75rem;
-    }
-    .admin {
-      border-color: var(--q-lime);
     }
   `,
 })

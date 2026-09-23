@@ -26,12 +26,5 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/unlocked/unlocked.page').then((m) => m.UnlockedPage),
   },
-  {
-    path: 'admin/questions',
-    loadComponent: () =>
-      import('./features/admin-questions/admin-questions.page').then(
-        (m) => m.AdminQuestionsPage,
-      ),
-  },
   { path: '**', redirectTo: '' },
 ];
