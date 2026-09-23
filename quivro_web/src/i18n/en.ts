@@ -107,6 +107,10 @@ export const en = {
   descQuestionTime: 'How long each team has to lock in an answer.',
   descRoundLength:
     'How many questions in the round, auto-mixed across easy, medium and hard. Custom: 3–100.',
+  signIn: 'Sign in',
+  signOut: 'Sign out',
+  signedInAs: 'Signed in as',
+  signInFailed: 'Could not sign in. Try again.',
 };
 
 export type UiStrings = Record<keyof typeof en, string>;

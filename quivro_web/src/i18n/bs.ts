@@ -109,4 +109,8 @@ export const bs: UiStrings = {
   descQuestionTime: 'Koliko vremena svaka ekipa ima da zaključa odgovor.',
   descRoundLength:
     'Koliko pitanja u rundi, automatski izmiješano lako/srednje/teško. Prilagođeno: 3–100.',
+  signIn: 'Prijavi se',
+  signOut: 'Odjavi se',
+  signedInAs: 'Prijavljen kao',
+  signInFailed: 'Prijava nije uspjela. Pokušaj ponovo.',
 };

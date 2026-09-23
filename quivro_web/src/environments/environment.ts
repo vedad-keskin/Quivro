@@ -9,4 +9,8 @@ export const environment = {
     messagingSenderId: '880273668503',
     appId: '1:880273668503:web:ab1f94cc0dfff06540ecd2',
   },
+  lemonSqueezy: {
+    storeSlug: 'YOUR_LEMON_STORE_SLUG',
+    variantId: 'YOUR_LEMON_VARIANT_ID',
+  },
 };
