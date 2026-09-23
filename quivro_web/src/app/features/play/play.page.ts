@@ -817,21 +817,6 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
     .cats-disabled {
       opacity: 0.45;
     }
-    .q-chip.locked {
-      opacity: 0.6;
-    }
-    .q-chip.locked:hover {
-      opacity: 0.85;
-    }
-    .lock,
-    .gift {
-      margin-left: 0.3rem;
-      font-size: 0.72em;
-      line-height: 1;
-    }
-    .gift {
-      color: #f59e0b;
-    }
     .cats-disabled .q-chip {
       pointer-events: none;
     }

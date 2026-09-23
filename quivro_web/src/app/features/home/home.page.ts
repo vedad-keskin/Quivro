@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { LanguageService } from '../../core/language.service';
 import { SettingsChips } from '../../shared/settings-chips';
+import { StudioFooter } from '../../shared/studio-footer';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, SettingsChips],
+  imports: [RouterLink, SettingsChips, StudioFooter],
   template: `
     <div class="q-page home">
       <header>
@@ -24,10 +25,7 @@ import { SettingsChips } from '../../shared/settings-chips';
         </div>
       </section>
 
-      <footer class="site-footer">
-        <span>{{ lang.t().madeBy }}</span>
-        <img class="studio-mark" src="/brand/nightfall-wordmark.png" alt="Nightfall Studio" />
-      </footer>
+      <app-studio-footer />
     </div>
   `,
   styles: `
@@ -81,25 +79,6 @@ import { SettingsChips } from '../../shared/settings-chips';
       gap: 0.85rem;
       justify-content: center;
       margin-top: 0.75rem;
-    }
-    .site-footer {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--q-muted);
-    }
-    .studio-mark {
-      height: 1.85rem;
-      width: auto;
-      display: block;
-      opacity: 0.78;
-    }
-    :host-context(html[data-theme='dark']) .studio-mark {
-      /* The glyphs are --q-navy, which inverts to the cream of the original art. */
-      filter: invert(1);
     }
   `,
 })

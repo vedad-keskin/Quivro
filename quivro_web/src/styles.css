@@ -183,6 +183,77 @@ img {
   background: var(--q-gradient);
 }
 
+/* Locked chips stay clickable — the click opens the upgrade dialog. */
+.q-chip.locked {
+  opacity: 0.72;
+}
+.q-chip.locked:hover {
+  opacity: 0.92;
+}
+.q-chip .lock,
+.q-chip .gift {
+  display: inline-grid;
+  place-items: center;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.q-chip .lock {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background: var(--q-gradient);
+}
+.q-chip.locked:hover .lock::after,
+.q-chip.locked:focus-visible .lock::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 80%
+  );
+  transform: translateX(-120%);
+  animation: pro-sheen 1.4s ease-in-out infinite;
+}
+.q-chip.active .lock {
+  background: rgba(255, 255, 255, 0.22);
+}
+.q-chip .gift {
+  color: #f59e0b;
+  background: color-mix(in srgb, #f59e0b 18%, transparent);
+}
+.q-chip:hover .gift,
+.q-chip:focus-visible .gift {
+  animation: week-pulse 1.4s ease-in-out infinite;
+}
+.q-chip.active .gift {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.22);
+}
+@keyframes pro-sheen {
+  to {
+    transform: translateX(120%);
+  }
+}
+@keyframes week-pulse {
+  50% {
+    opacity: 0.4;
+    transform: scale(1.18);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .q-chip .lock::after,
+  .q-chip .gift {
+    animation: none;
+  }
+}
+
 .q-input,
 .q-select,
 .q-textarea {

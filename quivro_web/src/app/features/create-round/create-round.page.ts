@@ -27,6 +27,7 @@ import {
 } from '../../core/room.models';
 import { SnackbarService } from '../../core/snackbar.service';
 import { SettingsChips } from '../../shared/settings-chips';
+import { StudioFooter } from '../../shared/studio-footer';
 import { UpgradeDialogService } from '../../shared/upgrade-dialog.service';
 
 const ROUND_PREFS_KEY = 'quivro.roundPrefs';
@@ -95,9 +96,9 @@ function loadRoundPrefs(): RoundPrefs | null {
 
 @Component({
   selector: 'app-create-round',
-  imports: [FormsModule, RouterLink, SettingsChips],
+  imports: [FormsModule, RouterLink, SettingsChips, StudioFooter],
   template: `
-    <div class="q-page">
+    <div class="q-page create">
       <header class="top">
         <a routerLink="/" class="q-btn q-btn-ghost">← {{ lang.t().back }}</a>
         <app-settings-chips />
@@ -136,9 +137,13 @@ function loadRoundPrefs(): RoundPrefs | null {
                   </div>
                   <p class="p-body">{{ categoryDesc(cat) }}</p>
                   @if (ent.categoryLocked(cat)) {
-                    <p class="p-tag">🔒 {{ lang.t().proLocked }}</p>
+                    <p class="p-banner lock-banner">
+                      <span class="mark" aria-hidden="true">🔒</span>{{ lang.t().proLocked }}
+                    </p>
                   } @else if (isFreeThisWeek(cat)) {
-                    <p class="p-tag free">★ {{ lang.t().freeThisWeek }}</p>
+                    <p class="p-banner free-banner">
+                      <span class="star" aria-hidden="true">★</span>{{ lang.t().freeThisWeek }}
+                    </p>
                   }
                 </div>
               </span>
@@ -173,7 +178,9 @@ function loadRoundPrefs(): RoundPrefs | null {
                   </div>
                   <p class="p-body">{{ typeDesc(t) }}</p>
                   @if (ent.questionTypeLocked(t)) {
-                    <p class="p-tag">🔒 {{ lang.t().proLocked }}</p>
+                    <p class="p-banner lock-banner">
+                      <span class="mark" aria-hidden="true">🔒</span>{{ lang.t().proLocked }}
+                    </p>
                   }
                   @if (t === 'image_mcq') {
                     <img class="p-img" [src]="randomPreviewImage()" alt="" />
@@ -227,7 +234,9 @@ function loadRoundPrefs(): RoundPrefs | null {
                 </div>
                 <p class="p-body">{{ scoringDesc('timed') }}</p>
                 @if (ent.scoringModeLocked('timed')) {
-                  <p class="p-tag">🔒 {{ lang.t().proLocked }}</p>
+                  <p class="p-banner lock-banner">
+                    <span class="mark" aria-hidden="true">🔒</span>{{ lang.t().proLocked }}
+                  </p>
                 }
               </div>
             </span>
@@ -283,7 +292,9 @@ function loadRoundPrefs(): RoundPrefs | null {
                   </div>
                   <p class="p-body">{{ lang.t().descRoundLength }}</p>
                   @if (ent.roundLengthLocked(n)) {
-                    <p class="p-tag">🔒 {{ lang.t().proLocked }}</p>
+                    <p class="p-banner lock-banner">
+                      <span class="mark" aria-hidden="true">🔒</span>{{ lang.t().proLocked }}
+                    </p>
                   }
                 </div>
               </span>
@@ -308,7 +319,9 @@ function loadRoundPrefs(): RoundPrefs | null {
                 </div>
                 <p class="p-body">{{ lang.t().descRoundLength }}</p>
                 @if (ent.customLengthLocked()) {
-                  <p class="p-tag">🔒 {{ lang.t().proLocked }}</p>
+                  <p class="p-banner lock-banner">
+                    <span class="mark" aria-hidden="true">🔒</span>{{ lang.t().proLocked }}
+                  </p>
                 }
               </div>
             </span>
@@ -341,9 +354,23 @@ function loadRoundPrefs(): RoundPrefs | null {
           {{ lang.t().generateCode }}
         </button>
       </div>
+
+      <app-studio-footer />
     </div>
   `,
   styles: `
+    .create {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100dvh;
+      gap: 1rem;
+      /* Home's credit lands 3.75rem above the viewport: 2.5rem from its
+         shorter page box, plus the shared 1.25rem page padding. */
+      padding-bottom: 3.75rem;
+    }
+    .create .panel {
+      align-content: start;
+    }
     .top {
       display: flex;
       justify-content: space-between;
@@ -385,33 +412,6 @@ function loadRoundPrefs(): RoundPrefs | null {
       pointer-events: none;
     }
 
-    /* Locked controls stay visible and clickable — clicking opens the upgrade dialog. */
-    .q-chip.locked {
-      opacity: 0.6;
-    }
-    .q-chip.locked:hover {
-      opacity: 0.85;
-    }
-    .lock,
-    .gift {
-      margin-left: 0.3rem;
-      font-size: 0.72em;
-      line-height: 1;
-    }
-    .gift {
-      color: #f59e0b;
-    }
-    .p-tag {
-      margin: 0.15rem 0 0;
-      font-size: 0.74rem;
-      font-weight: 900;
-      color: var(--q-blue);
-      letter-spacing: 0.01em;
-    }
-    .p-tag.free {
-      color: #f59e0b;
-    }
-
     /* Fun hover preview cards */
     .hint-wrap {
       position: relative;
@@ -445,21 +445,27 @@ function loadRoundPrefs(): RoundPrefs | null {
     }
     .preview.has-img {
       min-width: 0;
-      grid-template-columns: max-content max-content;
-      grid-template-rows: auto auto;
+      grid-template-columns: minmax(9rem, 1fr) auto;
+      grid-template-rows: auto auto auto;
       column-gap: 0.55rem;
       row-gap: 0.2rem;
       align-items: start;
-      padding: 0 0 0 0.75rem;
+      padding: 0 0 0.65rem 0.75rem;
     }
     .preview.has-img .p-head {
       grid-column: 1;
+      grid-row: 1;
       padding-top: 0.65rem;
     }
     .preview.has-img .p-body {
       grid-column: 1;
-      padding-bottom: 0.7rem;
+      grid-row: 2;
       padding-right: 0.15rem;
+    }
+    .preview.has-img .p-banner {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      margin: 0.35rem 0.75rem 0 0;
     }
     .preview.has-img .p-img {
       grid-column: 2;
@@ -472,7 +478,7 @@ function loadRoundPrefs(): RoundPrefs | null {
       align-self: stretch;
       justify-self: end;
       border: none;
-      border-radius: 0 14px 14px 0;
+      border-radius: 0 14px 0 0;
       object-fit: cover;
     }
     .hint-wrap:hover .preview,
@@ -543,9 +549,70 @@ function loadRoundPrefs(): RoundPrefs | null {
       border-radius: 10px;
       border: 2px solid var(--q-border);
     }
+    .p-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin: 0.2rem 0 0;
+      padding: 0.28rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+    .lock-banner {
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      background: var(--q-gradient);
+    }
+    .lock-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        100deg,
+        transparent 28%,
+        rgba(255, 255, 255, 0.45) 50%,
+        transparent 72%
+      );
+      transform: translateX(-120%);
+      animation: pro-sheen 2.8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .free-banner {
+      color: #b45309;
+      background: color-mix(in srgb, #f59e0b 16%, var(--q-card));
+      border: 1.5px solid #f59e0b;
+    }
+    :host-context(html[data-theme='dark']) .free-banner {
+      color: #fbbf24;
+    }
+    .free-banner .star {
+      display: inline-block;
+      animation: week-pulse 1.6s ease-in-out infinite;
+    }
+    @keyframes pro-sheen {
+      to {
+        transform: translateX(120%);
+      }
+    }
+    @keyframes week-pulse {
+      50% {
+        opacity: 0.35;
+        transform: scale(1.2);
+      }
+    }
     @media (hover: none) {
       .preview {
         display: none;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lock-banner::after,
+      .free-banner .star {
+        animation: none;
       }
     }
   `,
