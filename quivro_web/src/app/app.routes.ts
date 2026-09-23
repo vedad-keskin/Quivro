@@ -26,5 +26,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/unlocked/unlocked.page').then((m) => m.UnlockedPage),
   },
+  {
+    path: 'privacy',
+    loadComponent: () =>
+      import('./features/privacy/privacy.page').then((m) => m.PrivacyPage),
+  },
   { path: '**', redirectTo: '' },
 ];

@@ -42,7 +42,7 @@ and no server call.
 | 3 | Entitlement service + `firestore.rules` | Done |
 | 4 | Paywall UI, upgrade dialog, `/unlocked`, `createRoom` clamp | Done |
 | 5 | Lemon Squeezy product + `/api/webhook` | Done, verified in production |
-| 6 | Legal pages (privacy, terms, refunds) | Not started |
+| 6 | Legal pages (privacy, terms, refunds) | Privacy page at `/privacy`. Terms and refunds not started |
 | 7 | Google Play release | Not started |
 | 8 | Move Pro question bank out of the browser bundle (optional) | Not started |
 
@@ -71,6 +71,7 @@ Things only you can do. Marked done as they are completed.
   no database name, which only ever resolves to `(default)`.
 - Production domain: `quivro.vercel.app` (authorized for Google sign-in)
 - Google sign-in consent screen name: Quivro
+- Privacy policy URL: `https://quivro.vercel.app/privacy` (live after the next production deploy)
 
 The mobile app does **not** use Google Sign-In, so the `google-services.json` in
 `quivro_mobile` does not need regenerating when OAuth clients change.
