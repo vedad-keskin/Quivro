@@ -84,7 +84,8 @@ The mobile app does **not** use Google Sign-In, so the `google-services.json` in
 
 **Lemon Squeezy** (fill in during Phase 5):
 
-- Store slug: `nightfall-project` (the store is shared with the Nightfall game)
+- Store slug: `nightfall-studio` (one studio store holds every product)
+- Contact email shown on receipts: `nightfall.project.info@gmail.com`
 - Variant ID: `9bf236a7-7cb7-4348-a504-2ff8ef65c902`
 - Price: EUR 4.99, single payment, tax category "SaaS - personal use"
 - Product is hidden from the storefront on purpose: a direct storefront purchase
@@ -111,6 +112,40 @@ upgrade dialog shows "not ready yet" instead of a broken link.
 | `updatedAt` | timestamp |
 
 A refund sets `active: false`, which revokes Pro on the next `refresh()`.
+
+## Branding
+
+The publisher is **Nightfall Studio**, a studio brand that sits above individual games
+(Nightfall, Quivro, anything later). One Lemon Squeezy store holds every product, which
+keeps merchant onboarding, tax setup and payouts in one place.
+
+| Where | What goes there | Status |
+|---|---|---|
+| Lemon Squeezy store name | Nightfall Studio | Done |
+| Lemon Squeezy store URL | `nightfall-studio.lemonsqueezy.com` | Done |
+| Lemon Squeezy store logo | The wolf-and-moon mark | Done |
+| Lemon Squeezy currency | EUR | Done |
+| Quivro web home footer | "Made by" + wordmark PNG | Done |
+| Play Console developer name | Nightfall Studio (account-level) | Phase 7 |
+| Privacy policy / terms | Nightfall Studio as named data controller | Phase 6 |
+
+Quivro keeps its own logo and favicon. The studio brand is attribution, not app identity.
+
+### Brand assets
+
+Both source files were **JPEGs with an opaque black background** — including the one named
+`.png`, whose magic bytes are `FF D8 FF E0`. JPEG has no alpha channel, so neither could go
+on a light surface without a black box. Transparent PNGs were derived with Pillow into
+`quivro_web/public/brand/`:
+
+| File | How it was made | Used by |
+|---|---|---|
+| `nightfall-wordmark.png` (640x195) | Luminance as alpha, glyphs recoloured to `--q-navy`. A black floor of 26 discards JPEG ringing that would otherwise leave the whole canvas faintly opaque. | Home footer |
+| `nightfall-mark.png` (512x454) | Flood fill inward from all four corners. A global dark-pixel key would also have erased the tree silhouettes and the wolf's shadows, which are interior shapes. | Store logo, Play listing |
+
+The wordmark is navy so it reads on the light theme, and `filter: invert(1)` in dark mode
+turns it back to the cream of the original art — the same trick `home.page.ts` already
+uses for the Quivro logo. The full mark is light-on-dark art and suits dark surfaces only.
 
 ## Decisions taken along the way
 

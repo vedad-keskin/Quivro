@@ -1,6 +1,7 @@
 export const en = {
   appName: 'Quivro',
   tagline: 'Gather your team. Show your knowledge.',
+  madeBy: 'Made by',
   createRound: 'Start the game',
   language: 'Language',
   categories: 'Categories',

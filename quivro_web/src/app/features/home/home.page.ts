@@ -23,12 +23,20 @@ import { SettingsChips } from '../../shared/settings-chips';
           <a routerLink="/create" class="q-btn q-btn-outline">{{ lang.t().createRound }}</a>
         </div>
       </section>
+
+      <footer class="site-footer">
+        <span>{{ lang.t().madeBy }}</span>
+        <img class="studio-mark" src="/brand/nightfall-wordmark.png" alt="Nightfall Studio" />
+      </footer>
     </div>
   `,
   styles: `
     .home {
       display: grid;
-      align-content: start;
+      /* Header, hero, footer. The 1fr row lets the hero absorb the slack so the
+         footer stays on the bottom edge instead of below the fold. */
+      grid-template-rows: auto 1fr auto;
+      min-height: calc(100dvh - 2.5rem);
       gap: 1rem;
     }
     header {
@@ -36,7 +44,6 @@ import { SettingsChips } from '../../shared/settings-chips';
       justify-content: flex-end;
     }
     .hero {
-      min-height: calc(100dvh - 5rem);
       display: grid;
       place-content: center;
       justify-items: center;
@@ -74,6 +81,25 @@ import { SettingsChips } from '../../shared/settings-chips';
       gap: 0.85rem;
       justify-content: center;
       margin-top: 0.75rem;
+    }
+    .site-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--q-muted);
+    }
+    .studio-mark {
+      height: 1.85rem;
+      width: auto;
+      display: block;
+      opacity: 0.78;
+    }
+    :host-context(html[data-theme='dark']) .studio-mark {
+      /* The glyphs are --q-navy, which inverts to the cream of the original art. */
+      filter: invert(1);
     }
   `,
 })

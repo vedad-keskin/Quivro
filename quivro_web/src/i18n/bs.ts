@@ -3,6 +3,7 @@ import type { UiStrings } from './en';
 export const bs: UiStrings = {
   appName: 'Quivro',
   tagline: 'Okupi ekipu. Pokaži znanje.',
+  madeBy: 'Napravio',
   createRound: 'Pokreni igru',
   language: 'Jezik',
   categories: 'Kategorije',
