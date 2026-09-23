@@ -97,6 +97,11 @@ export const en = {
   signOut: 'Sign out',
   signedInAs: 'Signed in as',
   signInFailed: 'Could not sign in. Try again.',
+  account: 'Account',
+  claimTitle: 'Sign in to claim your purchase',
+  claimBody:
+    'Your payment is saved to the Google account you bought with. Sign in with that account and Pro unlocks here.',
+  paymentsBy: 'Payments by',
   proName: 'Quivro Pro',
   proLocked: 'Unlock with Quivro Pro',
   freeThisWeek: 'Free this week',

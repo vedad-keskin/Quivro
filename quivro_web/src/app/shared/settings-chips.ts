@@ -1,9 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, HostListener, inject, signal, viewChild } from '@angular/core';
 import { AuthService } from '../core/auth.service';
+import { EntitlementService } from '../core/entitlement.service';
 import { FirebaseService } from '../core/firebase.service';
 import { LanguageService } from '../core/language.service';
 import { SnackbarService } from '../core/snackbar.service';
 import { ThemeService } from '../core/theme.service';
+import { UpgradeDialogService } from './upgrade-dialog.service';
 
 /** Mobile-styled language + day/night chips (tap-to-toggle, no sheet). */
 @Component({
@@ -74,18 +76,42 @@ import { ThemeService } from '../core/theme.service';
 
       @if (firebase.configured && auth.ready()) {
         @if (auth.user(); as user) {
-          <button
-            type="button"
-            class="chip"
-            (click)="auth.signOut()"
-            [attr.aria-label]="lang.t().signOut"
-            [title]="lang.t().signedInAs + ' ' + (user.email ?? '')"
-          >
-            @if (user.photoURL) {
-              <img class="avatar" [src]="user.photoURL" width="18" height="18" alt="" />
+          <div class="account" #account>
+            <button
+              type="button"
+              class="chip"
+              (click)="toggleMenu()"
+              [attr.aria-expanded]="menuOpen()"
+              [attr.aria-haspopup]="'menu'"
+              [attr.aria-label]="lang.t().account"
+            >
+              @if (user.photoURL) {
+                <img class="avatar" [src]="user.photoURL" width="18" height="18" alt="" />
+              }
+              <span class="label">{{ firstName(user.displayName) }}</span>
+              <span class="caret" aria-hidden="true"></span>
+            </button>
+            @if (menuOpen()) {
+              <div class="menu" role="menu">
+                @if (user.email) {
+                  <p class="email">{{ user.email }}</p>
+                }
+                @if (ent.isPro()) {
+                  <span class="pro">{{ lang.t().proName }}</span>
+                } @else {
+                  <button type="button" class="row" role="menuitem" (click)="unlock()">
+                    {{ lang.t().upgradeTitle }}
+                  </button>
+                }
+                <button type="button" class="row" role="menuitem" (click)="restore()">
+                  {{ lang.t().upgradeRestore }}
+                </button>
+                <button type="button" class="row out" role="menuitem" (click)="signOut()">
+                  {{ lang.t().signOut }}
+                </button>
+              </div>
             }
-            <span class="label">{{ firstName(user.displayName) }}</span>
-          </button>
+          </div>
         } @else {
           <button
             type="button"
@@ -174,6 +200,71 @@ import { ThemeService } from '../core/theme.service';
       object-fit: cover;
       flex-shrink: 0;
     }
+    .caret {
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid currentColor;
+      opacity: 0.65;
+    }
+    .account {
+      position: relative;
+    }
+    .menu {
+      position: absolute;
+      top: calc(100% + 0.45rem);
+      right: 0;
+      z-index: 40;
+      width: min(260px, 72vw);
+      display: grid;
+      gap: 0.35rem;
+      padding: 0.75rem;
+      text-align: left;
+      border: 2px solid transparent;
+      border-radius: 18px;
+      background:
+        linear-gradient(var(--q-card), var(--q-card)) padding-box,
+        var(--q-gradient) border-box;
+      box-shadow: var(--q-shadow);
+    }
+    .email {
+      margin: 0 0.15rem 0.2rem;
+      color: var(--q-muted);
+      font-size: 0.75rem;
+      font-weight: 700;
+      line-height: 1.3;
+      overflow-wrap: anywhere;
+    }
+    .pro {
+      justify-self: start;
+      margin: 0.1rem 0.15rem 0.25rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: var(--q-gradient);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .row {
+      border: none;
+      background: none;
+      color: var(--q-navy);
+      text-align: left;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 0.45rem 0.35rem;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .row:hover {
+      background: color-mix(in srgb, var(--q-blue) 12%, transparent);
+    }
+    .row.out {
+      color: var(--q-muted);
+    }
   `,
 })
 export class SettingsChips {
@@ -181,10 +272,47 @@ export class SettingsChips {
   readonly theme = inject(ThemeService);
   readonly auth = inject(AuthService);
   readonly firebase = inject(FirebaseService);
+  readonly ent = inject(EntitlementService);
+  private readonly upgrade = inject(UpgradeDialogService);
   private readonly snack = inject(SnackbarService);
+  private readonly account = viewChild<ElementRef<HTMLElement>>('account');
+
+  readonly menuOpen = signal(false);
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    if (!this.menuOpen()) return;
+    const root = this.account()?.nativeElement;
+    if (!root?.contains(event.target as Node)) this.menuOpen.set(false);
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    this.menuOpen.set(false);
+  }
 
   firstName(displayName: string | null): string {
-    return displayName?.trim().split(/\s+/)[0] || this.lang.t().signOut;
+    return displayName?.trim().split(/\s+/)[0] || this.lang.t().account;
+  }
+
+  toggleMenu(): void {
+    this.menuOpen.update((open) => !open);
+  }
+
+  unlock(): void {
+    this.menuOpen.set(false);
+    this.upgrade.show();
+  }
+
+  async restore(): Promise<void> {
+    this.menuOpen.set(false);
+    if (await this.ent.refresh()) this.snack.success(this.lang.t().proRestored);
+    else this.snack.error(this.lang.t().proNotFound);
+  }
+
+  async signOut(): Promise<void> {
+    this.menuOpen.set(false);
+    await this.auth.signOut();
   }
 
   async signIn(): Promise<void> {

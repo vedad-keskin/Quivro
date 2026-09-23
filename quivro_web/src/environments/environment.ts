@@ -11,6 +11,9 @@ export const environment = {
   },
   lemonSqueezy: {
     storeSlug: 'nightfall-studio',
-    variantId: '9bf236a7-7cb7-4348-a504-2ff8ef65c902',
+    // Test-mode variant, so `ng serve` checks out against the sandbox and takes the
+    // 4242 4242 4242 4242 card. Production uses the live variant in environment.prod.ts,
+    // which angular.json swaps in via fileReplacements. The two ids differ on purpose.
+    variantId: '184b1101-86a1-4c55-8119-2f8cbb4856f2',
   },
 };

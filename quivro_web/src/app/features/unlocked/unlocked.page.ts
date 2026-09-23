@@ -1,5 +1,6 @@
-import { Component, OnDestroy, OnInit, inject, signal } from '@angular/core';
+import { Component, OnDestroy, effect, inject, signal, untracked } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../../core/auth.service';
 import { EntitlementService } from '../../core/entitlement.service';
 import { LanguageService } from '../../core/language.service';
 import { SnackbarService } from '../../core/snackbar.service';
@@ -23,7 +24,18 @@ const POLL_ATTEMPTS = 30;
       </header>
 
       <div class="panel">
-        @if (ent.isPro()) {
+        @if (!auth.ready()) {
+          <span class="emoji spin">⏳</span>
+          <h1>{{ lang.t().unlockingTitle }}</h1>
+          <p>{{ lang.t().unlockingBody }}</p>
+        } @else if (!auth.user()) {
+          <span class="emoji">🎉</span>
+          <h1>{{ lang.t().claimTitle }}</h1>
+          <p>{{ lang.t().claimBody }}</p>
+          <button type="button" class="q-btn q-btn-outline" [disabled]="busy()" (click)="claim()">
+            {{ lang.t().signIn }}
+          </button>
+        } @else if (ent.isPro()) {
           <span class="emoji">🎉</span>
           <h1>{{ lang.t().unlockedTitle }}</h1>
           <p>{{ lang.t().unlockedBody }}</p>
@@ -99,21 +111,46 @@ const POLL_ATTEMPTS = 30;
     }
   `,
 })
-export class UnlockedPage implements OnInit, OnDestroy {
+export class UnlockedPage implements OnDestroy {
   readonly lang = inject(LanguageService);
+  readonly auth = inject(AuthService);
   readonly ent = inject(EntitlementService);
   private readonly snack = inject(SnackbarService);
 
   readonly gaveUp = signal(false);
+  readonly busy = signal(false);
   private timer: number | null = null;
   private attempts = 0;
+  /** Stops a second poll from starting while the first is already running. */
+  private watching = false;
 
-  ngOnInit(): void {
-    this.poll();
+  constructor() {
+    // Poll only after auth has settled on a real user. A signed-out visit used
+    // to spin for a minute against a missing uid.
+    effect(() => {
+      const ready = this.auth.ready();
+      const signedIn = this.auth.user() !== null;
+      if (!ready || !signedIn) {
+        untracked(() => this.stop());
+        return;
+      }
+      untracked(() => void this.watchPurchase());
+    });
   }
 
   ngOnDestroy(): void {
-    if (this.timer !== null) window.clearTimeout(this.timer);
+    this.stop();
+  }
+
+  async claim(): Promise<void> {
+    this.busy.set(true);
+    try {
+      if ((await this.auth.signIn()) === 'failed') {
+        this.snack.error(this.lang.t().signInFailed);
+      }
+    } finally {
+      this.busy.set(false);
+    }
   }
 
   async retry(): Promise<void> {
@@ -125,14 +162,51 @@ export class UnlockedPage implements OnInit, OnDestroy {
     }
   }
 
-  private poll(): void {
+  private async watchPurchase(): Promise<void> {
+    if (this.watching || this.ent.isPro()) return;
+    this.watching = true;
+    this.attempts = 0;
+    this.gaveUp.set(false);
+    const active = await this.ent.refresh();
+    // Signed out (or destroyed) while the lookup was in flight.
+    if (!this.watching || !this.auth.user()) return;
+    if (active) {
+      this.watching = false;
+      return;
+    }
+    this.schedule();
+  }
+
+  private schedule(): void {
+    this.clearTimer();
     this.timer = window.setTimeout(async () => {
-      if (await this.ent.refresh()) return;
-      if (++this.attempts >= POLL_ATTEMPTS) {
-        this.gaveUp.set(true);
+      this.timer = null;
+      if (!this.auth.user()) {
+        this.watching = false;
         return;
       }
-      this.poll();
+      if (await this.ent.refresh()) {
+        this.watching = false;
+        return;
+      }
+      if (++this.attempts >= POLL_ATTEMPTS) {
+        this.gaveUp.set(true);
+        this.watching = false;
+        return;
+      }
+      this.schedule();
     }, POLL_MS);
+  }
+
+  private stop(): void {
+    this.watching = false;
+    this.clearTimer();
+  }
+
+  private clearTimer(): void {
+    if (this.timer !== null) {
+      window.clearTimeout(this.timer);
+      this.timer = null;
+    }
   }
 }

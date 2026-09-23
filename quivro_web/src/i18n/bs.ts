@@ -99,6 +99,11 @@ export const bs: UiStrings = {
   signOut: 'Odjavi se',
   signedInAs: 'Prijavljen kao',
   signInFailed: 'Prijava nije uspjela. Pokušaj ponovo.',
+  account: 'Račun',
+  claimTitle: 'Prijavi se da preuzmeš kupovinu',
+  claimBody:
+    'Uplata je sačuvana na Google račun kojim si kupio. Prijavi se tim računom i Pro se otključava ovdje.',
+  paymentsBy: 'Plaćanja preko',
   proName: 'Quivro Pro',
   proLocked: 'Otključaj uz Quivro Pro',
   freeThisWeek: 'Besplatno ove sedmice',

@@ -47,6 +47,16 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
           <button type="button" class="restore" [disabled]="busy()" (click)="restore()">
             {{ lang.t().upgradeRestore }}
           </button>
+
+          <a
+            class="powered"
+            href="https://www.lemonsqueezy.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>{{ lang.t().paymentsBy }}</span>
+            <img src="/brand/lemonsqueezy.png" alt="Lemon Squeezy" />
+          </a>
         </div>
       </div>
     }
@@ -149,6 +159,27 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
     .buy:disabled {
       opacity: 0.6;
       cursor: default;
+    }
+    .powered {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-top: 0.15rem;
+      color: var(--q-muted);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .powered img {
+      height: 22px;
+      width: auto;
+      display: block;
+      /* Official mark is white-on-transparent; a dark plate keeps it readable
+         on both the light and night cards. */
+      padding: 0.28rem 0.45rem;
+      border-radius: 6px;
+      background: #111;
     }
   `,
 })
