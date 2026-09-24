@@ -31,5 +31,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/privacy/privacy.page').then((m) => m.PrivacyPage),
   },
+  {
+    path: 'data-deletion',
+    loadComponent: () =>
+      import('./features/privacy/deletion.page').then((m) => m.DeletionPage),
+  },
   { path: '**', redirectTo: '' },
 ];

@@ -1,9 +1,8 @@
 export const en = {
   appName: 'Quivro',
   tagline: 'Gather your team. Show your knowledge.',
-  purpose:
-    'Quivro is a trivia party game by Nightfall Studio. A host starts a round on this website, and players join with a code on their phones. Sign in with Google saves a Quivro Pro purchase to your account.',
   privacy: 'Privacy policy',
+  dataDeletion: 'Data deletion',
   madeBy: 'Made by',
   createRound: 'Start the game',
   language: 'Language',
