@@ -16,6 +16,8 @@ import { LanguageService } from '../core/language.service';
         <a routerLink="/privacy">{{ lang.t().privacy }}</a>
         <span class="dot" aria-hidden="true">·</span>
         <a routerLink="/data-deletion">{{ lang.t().dataDeletion }}</a>
+        <span class="dot" aria-hidden="true">·</span>
+        <a routerLink="/terms">{{ lang.t().terms }}</a>
       </nav>
     </footer>
   `,
@@ -27,7 +29,10 @@ import { LanguageService } from '../core/language.service';
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.85rem;
+      gap: 2rem;
+      /* Page padding is 1.25rem. The rest of the bottom inset lives here so
+         both gaps stay equal. */
+      padding-bottom: 0.75rem;
       font-size: 0.82rem;
       font-weight: 600;
       color: var(--q-muted);

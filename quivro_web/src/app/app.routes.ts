@@ -36,5 +36,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/privacy/deletion.page').then((m) => m.DeletionPage),
   },
+  {
+    path: 'terms',
+    loadComponent: () =>
+      import('./features/privacy/terms.page').then((m) => m.TermsPage),
+  },
   { path: '**', redirectTo: '' },
 ];

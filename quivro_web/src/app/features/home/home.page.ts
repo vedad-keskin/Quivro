@@ -34,7 +34,6 @@ import { StudioFooter } from '../../shared/studio-footer';
       /* Header, hero, footer. The 1fr row lets the hero absorb the slack so the
          footer stays on the bottom edge instead of below the fold. */
       grid-template-rows: auto 1fr auto;
-      min-height: calc(100dvh - 2.5rem);
       gap: 1rem;
     }
     header {

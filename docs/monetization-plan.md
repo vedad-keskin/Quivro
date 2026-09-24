@@ -42,7 +42,7 @@ and no server call.
 | 3 | Entitlement service + `firestore.rules` | Done |
 | 4 | Paywall UI, upgrade dialog, `/unlocked`, `createRoom` clamp | Done |
 | 5 | Lemon Squeezy product + `/api/webhook` | Done, verified in production |
-| 6 | Legal pages (privacy, terms, refunds) | Privacy page at `/privacy`. Terms and refunds not started |
+| 6 | Legal pages (privacy, terms, refunds) | Privacy, data deletion, and terms are up. The refunds page was dropped; Lemon Squeezy still sends `order_refunded`. |
 | 7 | Google Play release | Not started |
 | 8 | Move Pro question bank out of the browser bundle (optional) | Not started |
 
@@ -71,7 +71,10 @@ Things only you can do. Marked done as they are completed.
   no database name, which only ever resolves to `(default)`.
 - Production domain: `quivro.vercel.app` (authorized for Google sign-in)
 - Google sign-in consent screen name: Quivro
-- Privacy policy URL: `https://quivro.vercel.app/privacy` (live after the next production deploy)
+- Privacy policy URL: `https://quivro.vercel.app/privacy`
+- Data deletion URL: `https://quivro.vercel.app/data-deletion`
+- Terms: `https://quivro.vercel.app/terms`
+  These three are live after the next production deploy.
 
 The mobile app does **not** use Google Sign-In, so the `google-services.json` in
 `quivro_mobile` does not need regenerating when OAuth clients change.
@@ -146,7 +149,7 @@ keeps merchant onboarding, tax setup and payouts in one place.
 | Lemon Squeezy currency | EUR | Done |
 | Quivro web home footer | "Made by" + wordmark PNG | Done |
 | Play Console developer name | Nightfall Studio (account-level) | Phase 7 |
-| Privacy policy / terms | Nightfall Studio as named data controller | Phase 6 |
+| Privacy policy / terms | Nightfall Studio as named data controller | Done |
 
 Quivro keeps its own logo and favicon. The studio brand is attribution, not app identity.
 

@@ -3,6 +3,7 @@ export const en = {
   tagline: 'Gather your team. Show your knowledge.',
   privacy: 'Privacy policy',
   dataDeletion: 'Data deletion',
+  terms: 'Terms',
   madeBy: 'Made by',
   createRound: 'Start the game',
   language: 'Language',

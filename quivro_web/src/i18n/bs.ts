@@ -5,6 +5,7 @@ export const bs: UiStrings = {
   tagline: 'Okupi ekipu. Pokaži znanje.',
   privacy: 'Politika privatnosti',
   dataDeletion: 'Brisanje podataka',
+  terms: 'Uslovi',
   madeBy: 'Napravio',
   createRound: 'Pokreni igru',
   language: 'Jezik',

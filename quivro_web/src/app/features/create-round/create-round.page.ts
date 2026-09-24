@@ -364,9 +364,6 @@ function loadRoundPrefs(): RoundPrefs | null {
       grid-template-rows: auto 1fr auto;
       min-height: 100dvh;
       gap: 1rem;
-      /* Home's credit lands 3.75rem above the viewport: 2.5rem from its
-         shorter page box, plus the shared 1.25rem page padding. */
-      padding-bottom: 3.75rem;
     }
     .create .panel {
       align-content: start;
