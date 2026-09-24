@@ -5,11 +5,12 @@ import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../core/avatars.dart';
 import '../core/strings.dart';
+import 'studio_mark.dart';
 
 const _bgColor = Color(0xFF0A0E27);
 
-/// Team credits dialog — Nightfall-style framed starfield scroller,
-/// opened via the Home version-label easter egg.
+/// Team credits. Starfield scroller on the splash navy, opened by a
+/// five-second hold on the home Nightfall mark.
 class CreditsDialog extends StatelessWidget {
   const CreditsDialog({super.key});
 
@@ -35,18 +36,6 @@ class CreditsDialog extends StatelessWidget {
     final strings = context.strings;
     final maxHeight = MediaQuery.sizeOf(context).height * 0.85;
 
-    final titleStyle = GoogleFonts.nunito(
-      color: const Color(0xFFE0E1DD),
-      fontSize: 22,
-      fontWeight: FontWeight.w900,
-      height: 1.2,
-    );
-    final subtitleStyle = GoogleFonts.nunito(
-      color: const Color(0xFF64748B),
-      fontSize: 12,
-      fontWeight: FontWeight.w800,
-      letterSpacing: 2,
-    );
     final closeStyle = GoogleFonts.nunito(
       color: const Color(0xFFE0E1DD),
       fontSize: 13,
@@ -54,137 +43,114 @@ class CreditsDialog extends StatelessWidget {
       letterSpacing: 1.2,
     );
 
+    const radius = BorderRadius.all(Radius.circular(20));
     return Dialog(
       backgroundColor: Colors.transparent,
+      elevation: 0,
+      shape: const RoundedRectangleBorder(borderRadius: radius),
+      clipBehavior: Clip.none,
       insetPadding: const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
       child: ConstrainedBox(
         constraints: BoxConstraints(maxHeight: maxHeight),
         child: Container(
-          padding: const EdgeInsets.all(4),
           decoration: BoxDecoration(
-            color: Colors.black,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.5),
-                offset: const Offset(8, 8),
-                blurRadius: 0,
-              ),
-            ],
+            borderRadius: radius,
+            border: Border.all(color: const Color(0xFFE0E1DD), width: 1.5),
           ),
-          child: Container(
-            decoration: const BoxDecoration(
-              color: Color(0xFF778DA9),
-              border: Border.symmetric(
-                vertical: BorderSide(color: Color(0xFF415A77), width: 4),
-                horizontal: BorderSide(color: Color(0xFFE0E1DD), width: 4),
-              ),
-            ),
-            padding: const EdgeInsets.all(4),
-            child: ClipRect(
-              child: Container(
-                color: _bgColor,
-                child: Stack(
-                  children: [
-                    const Positioned.fill(
-                      child: RepaintBoundary(child: _CreditsStarfield()),
+          child: ClipRRect(
+            borderRadius: const BorderRadius.all(Radius.circular(18.5)),
+            child: ColoredBox(
+              color: _bgColor,
+              child: Stack(
+                children: [
+                  const Positioned.fill(
+                    child: RepaintBoundary(child: _CreditsStarfield()),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 32,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 24,
-                        vertical: 32,
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          RepaintBoundary(
-                            child: Column(
-                              children: [
-                                Text(
-                                  'NIGHTFALL PROJECT',
-                                  style: titleStyle,
-                                  textAlign: TextAlign.center,
-                                ),
-                                const SizedBox(height: 6),
-                                Container(
-                                  height: 3,
-                                  width: 64,
-                                  decoration: BoxDecoration(
-                                    gradient: const LinearGradient(
-                                      colors: [
-                                        QuivroColors.blue,
-                                        QuivroColors.purple,
-                                      ],
-                                    ),
-                                    borderRadius: BorderRadius.circular(99),
-                                  ),
-                                ),
-                                const SizedBox(height: 10),
-                                Text(
-                                  strings.creditsTitle.toUpperCase(),
-                                  style: subtitleStyle,
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: 24),
-                          SizedBox(
-                            height: 240,
-                            child: _CreditsScroller(
-                              entries: [
-                                _CreditEntry(
-                                  label: strings.creditsLeadDev.toUpperCase(),
-                                  name: 'Vedad Keskin',
-                                  labelColor: QuivroColors.blue,
-                                ),
-                                _CreditEntry(
-                                  label: strings.creditsQuestionCurator
-                                      .toUpperCase(),
-                                  name: 'Mom',
-                                  labelColor: QuivroColors.purple,
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          RepaintBoundary(
-                            child: TextButton(
-                              onPressed: () => Navigator.of(context).pop(),
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 16,
-                                  vertical: 8,
-                                ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        RepaintBoundary(
+                          child: Column(
+                            children: [
+                              const StudioMark(forceInvert: true, height: 28),
+                              const SizedBox(height: 12),
+                              Container(
+                                height: 3,
+                                width: 64,
                                 decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: const Color(0xFFE0E1DD),
+                                  gradient: const LinearGradient(
+                                    colors: [
+                                      QuivroColors.blue,
+                                      QuivroColors.purple,
+                                    ],
                                   ),
+                                  borderRadius: BorderRadius.circular(99),
                                 ),
-                                child: Text(
-                                  strings.close.toUpperCase(),
-                                  style: closeStyle,
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 24),
+                        SizedBox(
+                          height: 240,
+                          child: _CreditsScroller(
+                            entries: [
+                              _CreditEntry(
+                                label: strings.creditsLeadDev.toUpperCase(),
+                                name: 'Vedad Keskin',
+                                labelColor: QuivroColors.blue,
+                              ),
+                              _CreditEntry(
+                                label: strings.creditsQuestionCurator
+                                    .toUpperCase(),
+                                name: strings.creditsMom,
+                                labelColor: QuivroColors.purple,
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        RepaintBoundary(
+                          child: TextButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            style: TextButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 18,
+                                vertical: 8,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(999),
+                                side: const BorderSide(
+                                  color: Color(0xFFE0E1DD),
+                                  width: 1.5,
                                 ),
                               ),
                             ),
+                            child: Text(strings.close, style: closeStyle),
                           ),
-                        ],
-                      ),
-                    ),
-                    Positioned(
-                      right: 14,
-                      bottom: 10,
-                      child: Text(
-                        'v1.0.1',
-                        style: GoogleFonts.nunito(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w700,
-                          color: const Color(0xFF64748B).withValues(alpha: 0.75),
-                          letterSpacing: 1,
                         ),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    right: 14,
+                    bottom: 10,
+                    child: Text(
+                      'v1.0.1',
+                      style: GoogleFonts.nunito(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w700,
+                        color: const Color(0xFF64748B).withValues(alpha: 0.75),
+                        letterSpacing: 1,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),

@@ -6,6 +6,7 @@ import 'settings.dart';
 class AppStrings {
   const AppStrings({
     required this.tagline,
+    required this.madeBy,
     required this.splashTaglines,
     required this.offlineContinuing,
     required this.bootErrorTitle,
@@ -66,11 +67,13 @@ class AppStrings {
     required this.creditsTitle,
     required this.creditsLeadDev,
     required this.creditsQuestionCurator,
+    required this.creditsMom,
     required this.close,
   });
 
   // Splash.
   final String tagline;
+  final String madeBy;
   final List<String> splashTaglines;
   final String offlineContinuing;
   final String bootErrorTitle;
@@ -143,6 +146,7 @@ class AppStrings {
   final String creditsTitle;
   final String creditsLeadDev;
   final String creditsQuestionCurator;
+  final String creditsMom;
   final String close;
 
   String playingAs(String name) => _playingAs.replaceAll('{name}', name);
@@ -161,6 +165,7 @@ class AppStrings {
 
   static const english = AppStrings(
     tagline: 'The party quiz game',
+    madeBy: 'Made by',
     splashTaglines: [
       'Sharpening pencils…',
       'Shuffling questions…',
@@ -227,12 +232,14 @@ class AppStrings {
     themeNight: 'Night',
     creditsTitle: 'Team Credits',
     creditsLeadDev: 'Lead Developer',
-    creditsQuestionCurator: 'Question Curator',
+    creditsQuestionCurator: 'Question editor',
+    creditsMom: 'Mom',
     close: 'Close',
   );
 
   static const bosnian = AppStrings(
     tagline: 'Kviz za cijelu ekipu',
+    madeBy: 'Napravio',
     splashTaglines: [
       'Oštrimo olovke…',
       'Miješamo pitanja…',
@@ -300,6 +307,7 @@ class AppStrings {
     creditsTitle: 'Tim',
     creditsLeadDev: 'Glavni developer',
     creditsQuestionCurator: 'Kustos pitanja',
+    creditsMom: 'Mama',
     close: 'Zatvori',
   );
 }

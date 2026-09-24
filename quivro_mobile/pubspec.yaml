@@ -104,6 +104,7 @@ flutter:
     - assets/branding/logo_only_icon.png
     - assets/branding/logo_mobile.png
     - assets/branding/logo_big.png
+    - assets/branding/nightfall-wordmark.png
     - assets/flags/en.png
     - assets/flags/bs.png
 

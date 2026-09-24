@@ -14,6 +14,7 @@ import '../widgets/credits_dialog.dart';
 import '../widgets/offline_banner.dart';
 import '../widgets/quivro_snackbar.dart';
 import '../widgets/settings_chips.dart';
+import '../widgets/studio_mark.dart';
 import '../widgets/wordmark.dart';
 
 class HomePage extends StatefulWidget {
@@ -158,36 +159,15 @@ class _HomePageState extends State<HomePage> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Row(
-                                          children: [
-                                            GestureDetector(
-                                              onLongPressStart: (_) {
-                                                _easterEggTimer?.cancel();
-                                                _easterEggTimer = Timer(
-                                                  const Duration(seconds: 1),
-                                                  () {
-                                                    if (mounted) {
-                                                      _showCredits();
-                                                    }
-                                                  },
-                                                );
-                                              },
-                                              onLongPressEnd: (_) =>
-                                                  _easterEggTimer?.cancel(),
-                                              onLongPressCancel: () =>
-                                                  _easterEggTimer?.cancel(),
-                                              child: QuivroWordmarkHero(
-                                                child: Text(
-                                                  'Quivro',
-                                                  style: GoogleFonts.nunito(
-                                                    fontSize: 36,
-                                                    fontWeight: FontWeight.w800,
-                                                    color: palette.text,
-                                                  ),
-                                                ),
-                                              ),
+                                        QuivroWordmarkHero(
+                                          child: Text(
+                                            'Quivro',
+                                            style: GoogleFonts.nunito(
+                                              fontSize: 36,
+                                              fontWeight: FontWeight.w800,
+                                              color: palette.text,
                                             ),
-                                          ],
+                                          ),
                                         ),
                                         Container(
                                           margin: const EdgeInsets.only(top: 6),
@@ -200,8 +180,9 @@ class _HomePageState extends State<HomePage> {
                                                 QuivroColors.purple,
                                               ],
                                             ),
-                                            borderRadius:
-                                                BorderRadius.circular(99),
+                                            borderRadius: BorderRadius.circular(
+                                              99,
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -280,6 +261,25 @@ class _HomePageState extends State<HomePage> {
                                     fontWeight: FontWeight.w700,
                                     color: palette.muted,
                                   ),
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Center(
+                                child: GestureDetector(
+                                  onLongPressStart: (_) {
+                                    _easterEggTimer?.cancel();
+                                    _easterEggTimer = Timer(
+                                      const Duration(seconds: 5),
+                                      () {
+                                        if (mounted) _showCredits();
+                                      },
+                                    );
+                                  },
+                                  onLongPressEnd: (_) =>
+                                      _easterEggTimer?.cancel(),
+                                  onLongPressCancel: () =>
+                                      _easterEggTimer?.cancel(),
+                                  child: const StudioMark(),
                                 ),
                               ),
                             ],

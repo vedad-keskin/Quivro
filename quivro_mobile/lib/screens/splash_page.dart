@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../core/bootstrap.dart';
 import '../core/strings.dart';
+import '../widgets/studio_mark.dart';
 import '../widgets/wordmark.dart';
 
 /// Branded animated loading screen.
@@ -213,6 +214,31 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                             ),
                           )
                           .animate(delay: 1550.ms)
+                          .fadeIn(duration: 500.ms)
+                          .slideY(
+                            begin: 0.4,
+                            end: 0,
+                            curve: Curves.easeOutCubic,
+                          ),
+                    ),
+                    const SizedBox(height: 14),
+                    _fadeOnExit(
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            context.strings.madeBy,
+                            style: GoogleFonts.nunito(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white.withValues(alpha: 0.45),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          const StudioMark(forceInvert: true),
+                        ],
+                      )
+                          .animate(delay: 1750.ms)
                           .fadeIn(duration: 500.ms)
                           .slideY(
                             begin: 0.4,
