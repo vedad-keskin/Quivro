@@ -73,10 +73,11 @@ M8 writes `quivro_mobile/android/key.properties` (already gitignored) with `stor
   no database name, which only ever resolves to `(default)`.
 - Production domain: `quivro.vercel.app` (authorized for Google sign-in)
 - Google sign-in consent screen name: Quivro
-- Privacy policy URL: `https://quivro.vercel.app/privacy`
-- Data deletion URL: `https://quivro.vercel.app/data-deletion`
+- Website privacy policy URL: `https://quivro.vercel.app/privacy`
+- Play privacy policy and data-deletion URL: `https://quivro.vercel.app/privacy-app`
+- Website data deletion URL: `https://quivro.vercel.app/data-deletion`
 - Terms: `https://quivro.vercel.app/terms`
-  These three are live after the next production deploy.
+  The Play URL is the phone-only policy. It goes live after the next production deploy.
 
 The mobile app does **not** use Google Sign-In, so the `google-services.json` in
 `quivro_mobile` does not need regenerating when OAuth clients change.

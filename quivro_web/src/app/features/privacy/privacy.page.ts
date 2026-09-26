@@ -19,7 +19,7 @@ interface PrivacyCopy {
 
 const en: PrivacyCopy = {
   title: 'Privacy policy',
-  updated: 'Last updated 24 September 2026',
+  updated: 'Last updated 26 September 2026',
   sections: [
     {
       heading: 'Who this covers',
@@ -57,8 +57,9 @@ const en: PrivacyCopy = {
     {
       heading: 'The phone app',
       paragraphs: [
-        'The Quivro app only joins a room. It does not offer sign-in, and it does not sell anything.',
+        'The Quivro phone app has its own privacy policy.',
       ],
+      link: { to: '/privacy-app', label: 'Phone app privacy policy' },
     },
     {
       heading: 'Other companies',
@@ -78,7 +79,7 @@ const en: PrivacyCopy = {
 
 const bs: PrivacyCopy = {
   title: 'Politika privatnosti',
-  updated: 'Posljednje ažuriranje 24. septembar 2026.',
+  updated: 'Posljednje ažuriranje 26. septembar 2026.',
   sections: [
     {
       heading: 'Na koga se odnosi',
@@ -116,8 +117,9 @@ const bs: PrivacyCopy = {
     {
       heading: 'Aplikacija za telefon',
       paragraphs: [
-        'Aplikacija Quivro samo ulazi u sobu. Nema prijave i ništa ne prodaje.',
+        'Aplikacija Quivro za telefon ima svoju politiku privatnosti.',
       ],
+      link: { to: '/privacy-app', label: 'Politika privatnosti aplikacije' },
     },
     {
       heading: 'Druge firme',
