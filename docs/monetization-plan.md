@@ -43,7 +43,7 @@ and no server call.
 | 4 | Paywall UI, upgrade dialog, `/unlocked`, `createRoom` clamp | Done |
 | 5 | Lemon Squeezy product + `/api/webhook` | Done, verified in production |
 | 6 | Legal pages (privacy, terms, refunds) | Privacy, data deletion, and terms are up. The refunds page was dropped; Lemon Squeezy still sends `order_refunded`. |
-| 7 | Google Play release | Not started |
+| 7 | Google Play release | In progress. Description set, `targetSdk`/`compileSdk` pinned to 36. Release signing reads `android/key.properties` when that file exists. Keystore and Play listing still pending |
 | 8 | Move Pro question bank out of the browser bundle (optional) | Not started |
 
 ## Manual tasks
@@ -62,6 +62,8 @@ Things only you can do. Marked done as they are completed.
 | M7 | Set Vercel environment variables | 5 | Done (Production scope) |
 | M8 | Generate the Android upload keystore | 7 | Pending |
 | M9 | Create the Play Console app and store listing | 7 | Pending |
+
+M8 writes `quivro_mobile/android/key.properties` (already gitignored) with `storePassword`, `keyPassword`, `keyAlias`, and `storeFile`. `storeFile` is a path relative to `android/app/`. Until that file exists, release builds stay on the debug key. New Play apps must target API 36 as of 31 August 2026, which is what `compileSdk` and `targetSdk` are pinned to.
 
 ## Reference
 
