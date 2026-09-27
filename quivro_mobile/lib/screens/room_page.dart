@@ -38,6 +38,10 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
   bool _submitting = false;
   int? _picked;
   int _trackedQuestion = -1;
+  int? _pendingSlot;
+  bool _powerUpArmed = false;
+  RoomState? _latestRoom;
+  RoomState? _powerUpBaseline;
   bool _optingIn = false;
   bool _exitingClosedRoom = false;
   bool _sawRoom = false;
@@ -174,6 +178,7 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
 
   Future<void> _answer(RoomState room, int choice) async {
     if (room.phase != 'question' || _submitting) return;
+    if (room.eliminatedChoices(widget.playerId).contains(choice)) return;
     if (!AnswerSubmissionPolicy.canSubmit(
       room: room,
       playerId: widget.playerId,
@@ -208,6 +213,75 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
     } finally {
       if (mounted) setState(() => _submitting = false);
     }
+  }
+
+  Future<void> _usePowerUp(RoomState room, int slot) async {
+    if (_pendingSlot != null) return;
+    final now = _repo.nowMs();
+    if (!PowerUpRequestPolicy.canRequest(
+      room: room,
+      playerId: widget.playerId,
+      slot: slot,
+      questionIndex: room.currentIndex,
+      nowMs: now,
+    )) {
+      return;
+    }
+
+    setState(() {
+      _pendingSlot = slot;
+      _powerUpArmed = false;
+      _powerUpBaseline = null;
+    });
+    unawaited(_sfx.playFiftyFifty());
+    try {
+      await _repo.requestPowerUp(
+        code: widget.code,
+        playerId: widget.playerId,
+        slot: slot,
+        questionIndex: room.currentIndex,
+      );
+      if (!mounted) return;
+      setState(() {
+        _powerUpArmed = true;
+        _powerUpBaseline = _latestRoom;
+      });
+    } catch (_) {
+      if (!mounted) return;
+      setState(() {
+        _pendingSlot = null;
+        _powerUpArmed = false;
+        _powerUpBaseline = null;
+      });
+      showQuivroSnack(
+        context,
+        context.strings.couldNotUsePowerUp,
+        kind: QuivroSnackKind.error,
+      );
+    }
+  }
+
+  void _syncPowerUp(RoomState room) {
+    _latestRoom = room;
+    final pending = _pendingSlot;
+    if (pending == null || !_powerUpArmed) return;
+    if (identical(room, _powerUpBaseline)) return;
+
+    final req = room.powerUpRequests[widget.playerId];
+    final waiting =
+        req != null &&
+        req.slot == pending &&
+        req.questionIndex == room.currentIndex;
+    if (waiting && !room.powerUpSlotUsed(widget.playerId, pending)) return;
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || _pendingSlot != pending) return;
+      setState(() {
+        _pendingSlot = null;
+        _powerUpArmed = false;
+        _powerUpBaseline = null;
+      });
+    });
   }
 
   Future<void> _optInRematch() async {
@@ -313,9 +387,21 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
             setState(() {
               _trackedQuestion = room.currentIndex;
               _picked = room.choiceOf(widget.playerId);
+              _pendingSlot = null;
+              _powerUpArmed = false;
+              _powerUpBaseline = null;
             });
           });
         }
+
+        final hidden = room.eliminatedChoices(widget.playerId);
+        if (_picked != null && hidden.contains(_picked)) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (!mounted) return;
+            setState(() => _picked = null);
+          });
+        }
+        _syncPowerUp(room);
 
         if (room.phase == 'lobby') {
           return _LobbyView(
@@ -349,13 +435,19 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
           );
         }
 
-        final picked = _picked ?? room.choiceOf(widget.playerId);
+        final pickedRaw = _picked ?? room.choiceOf(widget.playerId);
+        final picked = pickedRaw != null && hidden.contains(pickedRaw)
+            ? null
+            : pickedRaw;
 
         return _PlayView(
           room: room,
+          playerId: widget.playerId,
           profile: _profile,
           picked: picked,
+          pendingSlot: _pendingSlot,
           onPick: (i) => _answer(room, i),
+          onUsePowerUp: (slot) => unawaited(_usePowerUp(room, slot)),
           nowMs: _repo.nowMs,
           onQuit: () => unawaited(_confirmQuitGame()),
         );
@@ -483,17 +575,23 @@ class _LobbyView extends StatelessWidget {
 class _PlayView extends StatefulWidget {
   const _PlayView({
     required this.room,
+    required this.playerId,
     required this.profile,
     required this.picked,
+    required this.pendingSlot,
     required this.onPick,
+    required this.onUsePowerUp,
     required this.nowMs,
     required this.onQuit,
   });
 
   final RoomState room;
+  final String playerId;
   final PlayerProfile profile;
   final int? picked;
+  final int? pendingSlot;
   final ValueChanged<int> onPick;
+  final ValueChanged<int> onUsePowerUp;
   final int Function() nowMs;
   final VoidCallback onQuit;
 
@@ -528,6 +626,8 @@ class _PlayViewState extends State<_PlayView> {
     final now = widget.nowMs();
     final waitingForTv = room.phase == 'question' && now < q.answerOpensAt;
     final locked = room.phase != 'question' || waitingForTv || now > q.endsAt;
+    final hidden = room.eliminatedChoices(widget.playerId);
+    final showPowerUps = room.hasPowerUps;
 
     return Scaffold(
       backgroundColor: palette.surface,
@@ -647,7 +747,8 @@ class _PlayViewState extends State<_PlayView> {
                             child: _AnswerTile(
                               index: 0,
                               selected: widget.picked == 0,
-                              enabled: !locked,
+                              eliminated: hidden.contains(0),
+                              enabled: !locked && !hidden.contains(0),
                               onTap: () => widget.onPick(0),
                             ),
                           ),
@@ -656,7 +757,8 @@ class _PlayViewState extends State<_PlayView> {
                             child: _AnswerTile(
                               index: 1,
                               selected: widget.picked == 1,
-                              enabled: !locked,
+                              eliminated: hidden.contains(1),
+                              enabled: !locked && !hidden.contains(1),
                               onTap: () => widget.onPick(1),
                             ),
                           ),
@@ -671,7 +773,8 @@ class _PlayViewState extends State<_PlayView> {
                             child: _AnswerTile(
                               index: 2,
                               selected: widget.picked == 2,
-                              enabled: !locked,
+                              eliminated: hidden.contains(2),
+                              enabled: !locked && !hidden.contains(2),
                               onTap: () => widget.onPick(2),
                             ),
                           ),
@@ -680,13 +783,24 @@ class _PlayViewState extends State<_PlayView> {
                             child: _AnswerTile(
                               index: 3,
                               selected: widget.picked == 3,
-                              enabled: !locked,
+                              eliminated: hidden.contains(3),
+                              enabled: !locked && !hidden.contains(3),
                               onTap: () => widget.onPick(3),
                             ),
                           ),
                         ],
                       ),
                     ),
+                    if (showPowerUps) ...[
+                      const SizedBox(height: 10),
+                      _PowerUpBar(
+                        room: room,
+                        playerId: widget.playerId,
+                        locked: locked || widget.pendingSlot != null,
+                        pendingSlot: widget.pendingSlot,
+                        onUse: widget.onUsePowerUp,
+                      ),
+                    ],
                   ],
                 ),
               ),
@@ -702,12 +816,14 @@ class _AnswerTile extends StatefulWidget {
   const _AnswerTile({
     required this.index,
     required this.selected,
+    required this.eliminated,
     required this.enabled,
     required this.onTap,
   });
 
   final int index;
   final bool selected;
+  final bool eliminated;
   final bool enabled;
   final VoidCallback onTap;
 
@@ -719,15 +835,20 @@ class _AnswerTileState extends State<_AnswerTile> {
   bool _pressed = false;
 
   void _setPressed(bool value) {
-    if (!widget.enabled || _pressed == value) return;
+    if (widget.eliminated || !widget.enabled || _pressed == value) return;
     setState(() => _pressed = value);
   }
 
   @override
   Widget build(BuildContext context) {
     final base = answerColors[widget.index];
-    final fill = widget.selected ? Color.lerp(base, Colors.white, 0.08)! : base;
-    final dimmed = !widget.enabled && !widget.selected;
+    final fill = widget.eliminated
+        ? const Color(0xFFB6B8C4)
+        : widget.selected
+        ? Color.lerp(base, Colors.white, 0.08)!
+        : base;
+    final dimmed = !widget.eliminated && !widget.enabled && !widget.selected;
+    final tappable = widget.enabled && !widget.eliminated;
 
     return SizedBox.expand(
       child: AnimatedScale(
@@ -735,14 +856,14 @@ class _AnswerTileState extends State<_AnswerTile> {
         duration: const Duration(milliseconds: 120),
         curve: Curves.easeOutCubic,
         child: GestureDetector(
-          onTapDown: widget.enabled ? (_) => _setPressed(true) : null,
-          onTapUp: widget.enabled
+          onTapDown: tappable ? (_) => _setPressed(true) : null,
+          onTapUp: tappable
               ? (_) {
                   _setPressed(false);
                   widget.onTap();
                 }
               : null,
-          onTapCancel: widget.enabled ? () => _setPressed(false) : null,
+          onTapCancel: tappable ? () => _setPressed(false) : null,
           child: AnimatedOpacity(
             duration: const Duration(milliseconds: 180),
             opacity: dimmed ? 0.55 : 1,
@@ -790,14 +911,20 @@ class _AnswerTileState extends State<_AnswerTile> {
                       ),
                     ),
                     Center(
-                      child: Text(
-                        answerLabels[widget.index],
-                        style: GoogleFonts.nunito(
-                          fontSize: 64,
-                          fontWeight: FontWeight.w900,
-                          color: QuivroColors.navy,
-                        ),
-                      ),
+                      child: widget.eliminated
+                          ? const Icon(
+                              Icons.close_rounded,
+                              size: 72,
+                              color: Colors.white,
+                            )
+                          : Text(
+                              answerLabels[widget.index],
+                              style: GoogleFonts.nunito(
+                                fontSize: 64,
+                                fontWeight: FontWeight.w900,
+                                color: QuivroColors.navy,
+                              ),
+                            ),
                     ),
                     Positioned(
                       right: 12,
@@ -834,6 +961,207 @@ class _AnswerTileState extends State<_AnswerTile> {
       ),
     );
   }
+}
+
+class _PowerUpBar extends StatelessWidget {
+  const _PowerUpBar({
+    required this.room,
+    required this.playerId,
+    required this.locked,
+    required this.pendingSlot,
+    required this.onUse,
+  });
+
+  final RoomState room;
+  final String playerId;
+  final bool locked;
+  final int? pendingSlot;
+  final ValueChanged<int> onUse;
+
+  @override
+  Widget build(BuildContext context) {
+    final usedOnQuestion =
+        room.powerUps[playerId]?.used.values.contains(room.currentIndex) ??
+        false;
+    return SizedBox(
+      height: 76,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          for (var i = 0; i < room.powerUpSlots.length; i++) ...[
+            if (i > 0) const SizedBox(width: 16),
+            _PowerSlot(
+              powerUpId: room.powerUpSlots[i],
+              used: room.powerUpSlotUsed(playerId, i),
+              pending: pendingSlot == i,
+              enabled: !locked &&
+                  pendingSlot == null &&
+                  !usedOnQuestion &&
+                  room.powerUpSlots[i] == powerUpFiftyFifty &&
+                  !room.powerUpSlotUsed(playerId, i),
+              onTap: () => onUse(i),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _PowerSlot extends StatefulWidget {
+  const _PowerSlot({
+    required this.powerUpId,
+    required this.used,
+    required this.pending,
+    required this.enabled,
+    required this.onTap,
+  });
+
+  final String? powerUpId;
+  final bool used;
+  final bool pending;
+  final bool enabled;
+  final VoidCallback onTap;
+
+  @override
+  State<_PowerSlot> createState() => _PowerSlotState();
+}
+
+class _PowerSlotState extends State<_PowerSlot>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _pulse;
+
+  @override
+  void initState() {
+    super.initState();
+    _pulse = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 700),
+    );
+    if (widget.pending) _pulse.repeat(reverse: true);
+  }
+
+  @override
+  void didUpdateWidget(covariant _PowerSlot oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.pending && !_pulse.isAnimating) {
+      _pulse.repeat(reverse: true);
+    } else if (!widget.pending && _pulse.isAnimating) {
+      _pulse
+        ..stop()
+        ..value = 0;
+    }
+  }
+
+  @override
+  void dispose() {
+    _pulse.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final empty = widget.powerUpId == null;
+    if (empty) {
+      return const SizedBox(
+        width: 68,
+        height: 68,
+        child: CustomPaint(painter: _DashedCirclePainter()),
+      );
+    }
+
+    return Semantics(
+      button: widget.enabled,
+      label: context.strings.fiftyFifty,
+      child: GestureDetector(
+        onTap: widget.enabled ? widget.onTap : null,
+        child: Opacity(
+          opacity: widget.enabled || widget.used || widget.pending ? 1 : 0.45,
+          child: _filledSlot(),
+        ),
+      ),
+    );
+  }
+
+  Widget _filledSlot() {
+    final image = Image.asset(
+      'assets/powerups/fifty_fifty.png',
+      width: 68,
+      height: 68,
+      fit: BoxFit.cover,
+    );
+    final shown = widget.used
+        ? ColorFiltered(
+            colorFilter: const ColorFilter.matrix(<double>[
+              0.2126, 0.7152, 0.0722, 0, 0,
+              0.2126, 0.7152, 0.0722, 0, 0,
+              0.2126, 0.7152, 0.0722, 0, 0,
+              0, 0, 0, 0.55, 0,
+            ]),
+            child: image,
+          )
+        : image;
+
+    return AnimatedBuilder(
+      animation: _pulse,
+      builder: (context, child) {
+        final scale = widget.pending ? 1 + (_pulse.value * 0.06) : 1.0;
+        return Transform.scale(scale: scale, child: child);
+      },
+      child: SizedBox(
+        width: 68,
+        height: 68,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            ClipOval(child: shown),
+            if (widget.used)
+              Container(
+                width: 26,
+                height: 26,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.close_rounded,
+                  size: 18,
+                  color: QuivroColors.navy,
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _DashedCirclePainter extends CustomPainter {
+  const _DashedCirclePainter();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = const Color(0xFF9AA0B4)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2.5
+      ..strokeCap = StrokeCap.round;
+    final path = Path()
+      ..addOval(Rect.fromLTWH(2, 2, size.width - 4, size.height - 4));
+    const dash = 5.0;
+    const gap = 4.0;
+    for (final metric in path.computeMetrics()) {
+      var dist = 0.0;
+      while (dist < metric.length) {
+        final end = (dist + dash).clamp(0.0, metric.length);
+        canvas.drawPath(metric.extractPath(dist, end), paint);
+        dist += dash + gap;
+      }
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant _DashedCirclePainter oldDelegate) => false;
 }
 
 class _Countdown extends StatefulWidget {

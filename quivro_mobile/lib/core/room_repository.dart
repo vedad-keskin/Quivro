@@ -249,6 +249,37 @@ class RoomRepository {
     await path.set({'choice': choice, 'answeredAt': now});
   }
 
+  Future<void> requestPowerUp({
+    required String code,
+    required String playerId,
+    required int slot,
+    required int questionIndex,
+  }) async {
+    final upper = code.toUpperCase();
+    final room = await fetchRoom(upper);
+    if (room == null) {
+      throw StateError('ROOM_NOT_FOUND');
+    }
+
+    final now = _serverTime.nowMs();
+    if (!PowerUpRequestPolicy.canRequest(
+      room: room,
+      playerId: playerId,
+      slot: slot,
+      questionIndex: questionIndex,
+      nowMs: now,
+    )) {
+      throw StateError('POWER_UP_REJECTED');
+    }
+
+    await roomRef(upper).child('powerUpRequests').child(playerId).set({
+      'slot': slot,
+      'type': powerUpFiftyFifty,
+      'questionIndex': questionIndex,
+      'at': now,
+    });
+  }
+
   Future<void> setRematchReady({
     required String code,
     required String playerId,

@@ -21,6 +21,7 @@ function config(overrides: Partial<RoomConfig> = {}): RoomConfig {
     language: 'en',
     scoringMode: 'standard',
     questionSeconds: 15,
+    powerUpSlots: [null, null, null],
     ...overrides,
   };
 }

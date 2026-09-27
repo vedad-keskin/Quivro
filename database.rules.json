@@ -40,6 +40,19 @@
           "$playerId": {
             ".write": "!newData.exists() || (newData.val() === true && root.child('rooms').child($code).child('players').child($playerId).exists())"
           }
+        },
+        "powerUpRequests": {
+          ".write": "!newData.exists()",
+          "$playerId": {
+            ".write": "!newData.exists() || (root.child('rooms').child($code).child('phase').val() === 'question' && root.child('rooms').child($code).child('currentIndex').val() === newData.child('questionIndex').val() && root.child('rooms').child($code).child('players').child($playerId).exists() && newData.hasChildren(['slot', 'type', 'questionIndex', 'at']) && newData.child('slot').isNumber() && newData.child('slot').val() >= 0 && newData.child('slot').val() <= 2 && newData.child('type').val() === 'fifty_fifty' && newData.child('questionIndex').isNumber() && newData.child('at').isNumber())",
+            ".validate": "!newData.exists() || (newData.child('slot').isNumber() && newData.child('type').isString() && newData.child('questionIndex').isNumber() && newData.child('at').isNumber())"
+          }
+        },
+        "powerUps": {
+          ".write": "!newData.exists()",
+          "$playerId": {
+            ".write": true
+          }
         }
       }
     }

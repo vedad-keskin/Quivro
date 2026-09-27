@@ -23,6 +23,11 @@ import {
 } from '../../core/round-generator.service';
 import {
   clampQuestionSeconds,
+  cyclePowerUpSlot,
+  EMPTY_POWER_UP_SLOTS,
+  normalizePowerUpSlots,
+  POWER_UP_CATALOG,
+  type PowerUpSlots,
   type ScoringMode,
 } from '../../core/room.models';
 import { SnackbarService } from '../../core/snackbar.service';
@@ -41,6 +46,7 @@ interface RoundPrefs {
   customLength: number;
   scoringMode: ScoringMode;
   questionSeconds: number;
+  powerUpSlots: PowerUpSlots;
 }
 
 function filterCategories(raw: unknown): CategoryId[] {
@@ -88,6 +94,7 @@ function loadRoundPrefs(): RoundPrefs | null {
       customLength: parseCustomRoundLength(Number(parsed.customLength) || 10),
       scoringMode,
       questionSeconds: clampQuestionSeconds(Number(parsed.questionSeconds) || 15),
+      powerUpSlots: normalizePowerUpSlots(parsed.powerUpSlots),
     };
   } catch {
     return null;
@@ -341,6 +348,48 @@ function loadRoundPrefs(): RoundPrefs | null {
           </p>
         </section>
 
+        <section>
+          <label class="q-label">{{ lang.t().powerUps }}</label>
+          <div class="power-slots">
+            @for (slot of powerUpSlots(); track $index) {
+              <div class="slot-reel">
+                <button
+                  type="button"
+                  class="slot-nudge"
+                  [attr.aria-label]="lang.t().powerUpNext"
+                  (click)="cycleSlot($index, 1)"
+                >
+                  <span class="chevron up" aria-hidden="true"></span>
+                </button>
+                <div class="power-slot" [class.filled]="slot">
+                  @if (slot === 'fifty_fifty') {
+                    <img [src]="fiftyFiftyIcon" alt="" />
+                  } @else {
+                    <span class="slot-plus" aria-hidden="true">+</span>
+                  }
+                </div>
+                <button
+                  type="button"
+                  class="slot-nudge"
+                  [attr.aria-label]="lang.t().powerUpPrev"
+                  (click)="cycleSlot($index, -1)"
+                >
+                  <span class="chevron down" aria-hidden="true"></span>
+                </button>
+                @if (slot === 'fifty_fifty') {
+                  <div class="preview">
+                    <div class="p-head">
+                      <strong class="p-title">{{ lang.t().powerUpFifty }}</strong>
+                    </div>
+                    <p class="p-body">{{ lang.t().descPowerUpFifty }}</p>
+                  </div>
+                }
+              </div>
+            }
+          </div>
+          <p class="hint">{{ lang.t().powerUpsHint }}</p>
+        </section>
+
         @if (!rooms.isLive) {
           <p class="hint warn">{{ lang.t().firebaseMissing }}</p>
         }
@@ -407,6 +456,76 @@ function loadRoundPrefs(): RoundPrefs | null {
     }
     .cats-disabled .q-chip {
       pointer-events: none;
+    }
+    .power-slots {
+      display: flex;
+      gap: 0.85rem;
+      margin-top: 0.35rem;
+    }
+    .slot-reel {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .slot-nudge {
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      background:
+        linear-gradient(var(--q-card), var(--q-card)) padding-box,
+        var(--q-gradient) border-box;
+      color: inherit;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+    }
+    .chevron {
+      width: 7px;
+      height: 7px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      display: block;
+    }
+    .chevron.up {
+      transform: rotate(-135deg);
+      margin-top: 3px;
+    }
+    .chevron.down {
+      transform: rotate(45deg);
+      margin-bottom: 3px;
+    }
+    .power-slot {
+      width: 76px;
+      height: 76px;
+      border-radius: 999px;
+      border: 2px dashed var(--q-border);
+      background: var(--q-card);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+    .power-slot.filled {
+      border-style: solid;
+      border-color: transparent;
+      background:
+        linear-gradient(var(--q-card), var(--q-card)) padding-box,
+        var(--q-gradient) border-box;
+    }
+    .power-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .slot-plus {
+      font-size: 1.7rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--q-muted);
     }
 
     /* Fun hover preview cards */
@@ -479,7 +598,7 @@ function loadRoundPrefs(): RoundPrefs | null {
       object-fit: cover;
     }
     .hint-wrap:hover .preview,
-    .hint-wrap:focus-within .preview {
+    .power-slot.filled:hover ~ .preview {
       opacity: 1;
       transform: translateX(-50%) translateY(0) scale(1);
     }
@@ -666,6 +785,10 @@ export class CreateRoundPage {
   readonly customLength = signal(this.saved?.customLength ?? 10);
   readonly scoringMode = signal<ScoringMode>(this.saved?.scoringMode ?? 'timed');
   readonly questionSeconds = signal(this.saved?.questionSeconds ?? 15);
+  readonly powerUpSlots = signal<PowerUpSlots>(
+    this.saved?.powerUpSlots ?? ([...EMPTY_POWER_UP_SLOTS] as PowerUpSlots),
+  );
+  readonly fiftyFiftyIcon = POWER_UP_CATALOG[0].icon;
   readonly creating = signal(false);
 
   readonly effectiveLength = computed(() =>
@@ -702,6 +825,7 @@ export class CreateRoundPage {
         customLength: this.customLength(),
         scoringMode: this.scoringMode(),
         questionSeconds: this.questionSeconds(),
+        powerUpSlots: this.powerUpSlots(),
       };
       localStorage.setItem(ROUND_PREFS_KEY, JSON.stringify(prefs));
     });
@@ -788,6 +912,12 @@ export class CreateRoundPage {
     this.types.set(next);
   }
 
+  cycleSlot(index: number, direction: number): void {
+    const next = [...this.powerUpSlots()] as PowerUpSlots;
+    next[index] = cyclePowerUpSlot(next[index], direction < 0 ? -1 : 1);
+    this.powerUpSlots.set(next);
+  }
+
   pickScoring(mode: ScoringMode): void {
     if (this.ent.scoringModeLocked(mode)) {
       this.upgrade.show();
@@ -837,6 +967,7 @@ export class CreateRoundPage {
         language: this.lang.lang(),
         scoringMode: this.scoringMode(),
         questionSeconds: clampQuestionSeconds(this.questionSeconds()),
+        powerUpSlots: this.powerUpSlots(),
       });
       await this.router.navigate(['/lobby', code]);
     } catch (e) {

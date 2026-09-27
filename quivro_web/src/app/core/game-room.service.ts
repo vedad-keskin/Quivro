@@ -30,11 +30,17 @@ import {
   AVATAR_COUNT,
   IMAGE_ANSWER_DELAY_MS,
   clampQuestionSeconds,
+  normalizePowerUpSlots,
+  parsePowerUpRequests,
+  parsePowerUps,
+  powerUpSlotsToFirebase,
   rankPlayers,
+  resolveFiftyFiftyRequest,
   isRoomDead,
   ROOM_TTL_MS,
   type LastWinner,
   type PlayerAnswer,
+  type PowerUpRequest,
   type PublicQuestion,
   type RoomConfig,
   type RoomPlayer,
@@ -72,6 +78,8 @@ export class GameRoomService {
   private revealedIndex = -1;
   /** The question index currently being shown (prevents re-entry in showQuestion). */
   private showingIndex = -1;
+  /** Player ids whose 50/50 request is already being resolved. */
+  private powerUpInFlight = new Set<string>();
 
   get isLive(): boolean {
     return this.firebase.configured;
@@ -89,7 +97,7 @@ export class GameRoomService {
     // Single choke point for entitlements: stale or tampered UI state cannot
     // create a Pro room. Routes through the weekly rotation, so the category
     // that is free this week survives the clamp.
-    const config = this.entitlements.enforce(requested);
+    const config = this.normalizeConfig(this.entitlements.enforce(requested));
     // Opportunistic global cleanup of expired rooms (throttled, web-only).
     void this.sweepExpiredRooms();
     await this.deletePreviousHostedRoom();
@@ -153,7 +161,11 @@ export class GameRoomService {
         this.room.set(null);
         return;
       }
-      this.room.set(this.fromFirebase(upper, raw));
+      const state = this.fromFirebase(upper, raw);
+      this.room.set(state);
+      if (this.isHosting && this.hostedCode === upper) {
+        void this.resolvePowerUps(upper, state);
+      }
     });
   }
 
@@ -281,16 +293,19 @@ export class GameRoomService {
     const room = await this.fetchFreshRoom(code);
     // Wins already applied in finishRound; keep lastWinners and reset round state.
     const config: RoomConfig = nextConfig
-      ? this.entitlements.enforce({
-          categories: nextConfig.categories,
-          questionTypes: nextConfig.questionTypes,
-          roundLength: nextConfig.roundLength,
-          language: nextConfig.language ?? room.config.language,
-          scoringMode: nextConfig.scoringMode ?? room.config.scoringMode ?? 'timed',
-          questionSeconds: clampQuestionSeconds(
-            nextConfig.questionSeconds ?? room.config.questionSeconds ?? 15,
-          ),
-        })
+      ? this.normalizeConfig(
+          this.entitlements.enforce({
+            categories: nextConfig.categories,
+            questionTypes: nextConfig.questionTypes,
+            roundLength: nextConfig.roundLength,
+            language: nextConfig.language ?? room.config.language,
+            scoringMode: nextConfig.scoringMode ?? room.config.scoringMode ?? 'timed',
+            questionSeconds: clampQuestionSeconds(
+              nextConfig.questionSeconds ?? room.config.questionSeconds ?? 15,
+            ),
+            powerUpSlots: nextConfig.powerUpSlots ?? room.config.powerUpSlots,
+          }),
+        )
       : room.config;
 
     const readyIds = new Set(
@@ -331,6 +346,8 @@ export class GameRoomService {
     const db = this.requireDb();
     await remove(ref(db, `rooms/${code}/answers`));
     await remove(ref(db, `rooms/${code}/rematchReady`));
+    await remove(ref(db, `rooms/${code}/powerUpRequests`));
+    await remove(ref(db, `rooms/${code}/powerUps`));
 
     await this.patch(code, {
       config,
@@ -710,6 +727,7 @@ export class GameRoomService {
       currentQuestion: publicQ,
       correctIndex: null,
       lastScoreDeltas: null,
+      powerUpRequests: null,
     });
   }
 
@@ -817,10 +835,94 @@ export class GameRoomService {
     return out;
   }
 
+  private normalizeConfig(config: RoomConfig): RoomConfig {
+    return {
+      ...config,
+      powerUpSlots: normalizePowerUpSlots(config.powerUpSlots),
+    };
+  }
+
+  private async resolvePowerUps(code: string, room: RoomState): Promise<void> {
+    const requests = room.powerUpRequests ?? {};
+    await Promise.all(
+      Object.entries(requests).map(([playerId, request]) =>
+        this.resolveOnePowerUp(code, room, playerId, request),
+      ),
+    );
+  }
+
+  private async resolveOnePowerUp(
+    code: string,
+    room: RoomState,
+    playerId: string,
+    request: PowerUpRequest,
+  ): Promise<void> {
+    if (this.powerUpInFlight.has(playerId)) return;
+    this.powerUpInFlight.add(playerId);
+    try {
+      const question = room.currentQuestion;
+      const bankQuestion = (await this.getRoundQuestions(code, room))[room.currentIndex];
+      if (!question || !bankQuestion) {
+        await this.patch(code, { [`powerUpRequests/${playerId}`]: null });
+        return;
+      }
+
+      const { displayCorrect } = shuffledOptionsForQuestion(
+        [
+          bankQuestion.options[0][room.config.language],
+          bankQuestion.options[1][room.config.language],
+          bankQuestion.options[2][room.config.language],
+          bankQuestion.options[3][room.config.language],
+        ],
+        bankQuestion.correctIndex,
+        code,
+        bankQuestion.id,
+        room.currentIndex,
+      );
+      const playerUps = room.powerUps?.[playerId];
+      const qKey = String(room.currentIndex);
+      const decision = resolveFiftyFiftyRequest({
+        phase: room.phase,
+        questionIndex: room.currentIndex,
+        answerOpensAt: question.answerOpensAt,
+        endsAt: question.endsAt,
+        now: this.serverTime.nowMs(),
+        slots: room.config.powerUpSlots,
+        request,
+        usedSlot: playerUps?.used?.[String(request.slot)] != null,
+        usedOnQuestion: Object.values(playerUps?.used ?? {}).some(
+          (q) => q === room.currentIndex,
+        ),
+        correctIndex: displayCorrect,
+        alreadyEliminated: playerUps?.eliminated?.[qKey] ?? [],
+        existingChoice: room.answers[qKey]?.[playerId]?.choice ?? null,
+      });
+
+      const updates: Record<string, unknown> = {
+        [`powerUpRequests/${playerId}`]: null,
+      };
+      if (decision) {
+        updates[`powerUps/${playerId}/used/${request.slot}`] = room.currentIndex;
+        updates[`powerUps/${playerId}/eliminated/${room.currentIndex}`] = decision.eliminated;
+        if (decision.clearAnswer) {
+          updates[`answers/${qKey}/${playerId}`] = null;
+        }
+      }
+      await this.patch(code, updates);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      this.powerUpInFlight.delete(playerId);
+    }
+  }
+
   private toFirebase(state: RoomState): Record<string, unknown> {
     return {
       phase: state.phase,
-      config: state.config,
+      config: {
+        ...state.config,
+        powerUpSlots: powerUpSlotsToFirebase(state.config.powerUpSlots),
+      },
       createdAt: state.createdAt,
       expiresAt: state.expiresAt,
       hostGoneAt: state.hostGoneAt ?? null,
@@ -912,7 +1014,10 @@ export class GameRoomService {
         language: (configRaw['language'] as RoomConfig['language']) ?? 'en',
         scoringMode,
         questionSeconds: clampQuestionSeconds(Number(configRaw['questionSeconds'] ?? 15)),
+        powerUpSlots: normalizePowerUpSlots(configRaw['powerUpSlots']),
       },
+      powerUpRequests: parsePowerUpRequests(raw['powerUpRequests']),
+      powerUps: parsePowerUps(raw['powerUps']),
       createdAt: Number(raw['createdAt'] ?? Date.now()),
       expiresAt: Number(raw['expiresAt'] ?? 0),
       hostGoneAt:

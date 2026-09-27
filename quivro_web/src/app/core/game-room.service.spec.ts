@@ -79,6 +79,7 @@ function questionRoom(overrides: Partial<RoomState> = {}): RoomState {
       language: 'en',
       scoringMode: 'timed',
       questionSeconds: 15,
+      powerUpSlots: [null, null, null],
     },
     createdAt: 1_000_000,
     currentIndex: 0,
@@ -116,7 +117,7 @@ function questionRoom(overrides: Partial<RoomState> = {}): RoomState {
     lastWinners: [],
     rematchReady: {},
     ...overrides,
-  };
+  } as RoomState;
 }
 
 function roomSnapshot(room: RoomState): Record<string, unknown> {
@@ -124,6 +125,7 @@ function roomSnapshot(room: RoomState): Record<string, unknown> {
     phase: room.phase,
     config: room.config,
     createdAt: room.createdAt,
+    expiresAt: Date.now() + 60_000,
     currentIndex: room.currentIndex,
     totalQuestions: room.totalQuestions,
     currentQuestion: room.currentQuestion,

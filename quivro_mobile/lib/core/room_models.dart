@@ -92,6 +92,143 @@ class RoomPlayer {
   }
 }
 
+const powerUpFiftyFifty = 'fifty_fifty';
+
+class PlayerPowerUps {
+  const PlayerPowerUps({
+    this.used = const <int, int>{},
+    this.eliminated = const <int, List<int>>{},
+  });
+
+  final Map<int, int> used;
+  final Map<int, List<int>> eliminated;
+}
+
+class PowerUpRequest {
+  const PowerUpRequest({
+    required this.slot,
+    required this.type,
+    required this.questionIndex,
+    required this.at,
+  });
+
+  final int slot;
+  final String type;
+  final int questionIndex;
+  final int at;
+}
+
+List<String?> parsePowerUpSlots(dynamic raw) {
+  final slots = <String?>[null, null, null];
+  void take(int i, dynamic value) {
+    if (i < 0 || i > 2) return;
+    slots[i] = value == powerUpFiftyFifty ? powerUpFiftyFifty : null;
+  }
+
+  if (raw is List) {
+    for (var i = 0; i < raw.length && i < 3; i++) {
+      take(i, raw[i]);
+    }
+  } else if (raw is Map) {
+    for (var i = 0; i < 3; i++) {
+      take(i, raw['$i'] ?? raw[i]);
+    }
+  }
+  return slots;
+}
+
+void _eachEntry(dynamic raw, void Function(String key, dynamic value) each) {
+  if (raw is Map) {
+    raw.forEach((key, value) => each('$key', value));
+  } else if (raw is List) {
+    for (var i = 0; i < raw.length; i++) {
+      if (raw[i] != null) each('$i', raw[i]);
+    }
+  }
+}
+
+List<int> _optionIndices(dynamic raw) {
+  if (raw is! List) return const [];
+  final nums = <int>[];
+  for (final n in raw) {
+    final i = n is num ? n.toInt() : int.tryParse('$n');
+    if (i != null && i >= 0 && i <= 3) nums.add(i);
+  }
+  return nums;
+}
+
+Map<String, PlayerPowerUps> parsePowerUps(dynamic raw) {
+  final out = <String, PlayerPowerUps>{};
+  _eachEntry(raw, (playerId, value) {
+    if (value is! Map) return;
+    final used = <int, int>{};
+    _eachEntry(value['used'], (slot, qIndex) {
+      final s = int.tryParse(slot);
+      final q = qIndex is num ? qIndex.toInt() : int.tryParse('$qIndex');
+      if (s != null && q != null) used[s] = q;
+    });
+    final eliminated = <int, List<int>>{};
+    _eachEntry(value['eliminated'], (qKey, indices) {
+      final q = int.tryParse(qKey);
+      final nums = _optionIndices(indices);
+      if (q != null && nums.isNotEmpty) eliminated[q] = nums;
+    });
+    out[playerId] = PlayerPowerUps(used: used, eliminated: eliminated);
+  });
+  return out;
+}
+
+Map<String, PowerUpRequest> parsePowerUpRequests(dynamic raw) {
+  final out = <String, PowerUpRequest>{};
+  if (raw is! Map) return out;
+  raw.forEach((playerId, value) {
+    if (value is! Map) return;
+    final slot = (value['slot'] as num?)?.toInt();
+    final questionIndex = (value['questionIndex'] as num?)?.toInt();
+    final at = (value['at'] as num?)?.toInt();
+    final type = value['type'];
+    if (slot == null || questionIndex == null || at == null) return;
+    if (type != powerUpFiftyFifty || slot < 0 || slot > 2) return;
+    out['$playerId'] = PowerUpRequest(
+      slot: slot,
+      type: powerUpFiftyFifty,
+      questionIndex: questionIndex,
+      at: at,
+    );
+  });
+  return out;
+}
+
+/// Whether a phone may ask the host to spend a power-up slot.
+class PowerUpRequestPolicy {
+  PowerUpRequestPolicy._();
+
+  static bool canRequest({
+    required RoomState room,
+    required String playerId,
+    required int slot,
+    required int questionIndex,
+    required int nowMs,
+  }) {
+    if (room.phase != 'question') return false;
+    if (room.player(playerId) == null) return false;
+    if (slot < 0 || slot > 2) return false;
+    if (slot >= room.powerUpSlots.length) return false;
+    if (room.powerUpSlots[slot] != powerUpFiftyFifty) return false;
+    if (room.powerUpSlotUsed(playerId, slot)) return false;
+    if (room.powerUps[playerId]?.used.values.contains(questionIndex) ?? false) {
+      return false;
+    }
+    if (room.currentIndex != questionIndex) return false;
+
+    final question = room.currentQuestion;
+    if (question == null || question.index != questionIndex) return false;
+    if (nowMs < question.answerOpensAt) return false;
+    if (nowMs > question.endsAt) return false;
+    return true;
+  }
+}
+
 class LastWinner {
   LastWinner({
     required this.playerId,
@@ -189,6 +326,9 @@ class RoomState {
     this.rematchReady = const {},
     this.expiresAt = 0,
     this.hostGoneAt,
+    this.powerUpSlots = const <String?>[null, null, null],
+    this.powerUps = const <String, PlayerPowerUps>{},
+    this.powerUpRequests = const <String, PowerUpRequest>{},
   });
 
   final String code;
@@ -205,6 +345,19 @@ class RoomState {
   final Map<String, bool> rematchReady;
   final int expiresAt;
   final int? hostGoneAt;
+  final List<String?> powerUpSlots;
+  final Map<String, PlayerPowerUps> powerUps;
+  final Map<String, PowerUpRequest> powerUpRequests;
+
+  bool get hasPowerUps => powerUpSlots.any((slot) => slot != null);
+
+  List<int> eliminatedChoices(String playerId) {
+    if (currentIndex < 0) return const [];
+    return powerUps[playerId]?.eliminated[currentIndex] ?? const [];
+  }
+
+  bool powerUpSlotUsed(String playerId, int slot) =>
+      powerUps[playerId]?.used.containsKey(slot) ?? false;
 
   /// Room lifetime from createdAt before expiry. Mirrors ROOM_TTL_MS on web.
   static const roomTtlMs = 48 * 60 * 60 * 1000;
@@ -256,6 +409,11 @@ class RoomState {
     final correct = map['correctIndex'];
     final lastWinners = _parseLastWinners(map);
 
+    final config = map['config'];
+    final powerUpSlots = parsePowerUpSlots(
+      config is Map ? config['powerUpSlots'] : null,
+    );
+
     final rematchReady = <String, bool>{};
     final rr = map['rematchReady'];
     if (rr is Map) {
@@ -279,6 +437,9 @@ class RoomState {
       rematchReady: rematchReady,
       expiresAt: (map['expiresAt'] as num?)?.toInt() ?? 0,
       hostGoneAt: (map['hostGoneAt'] as num?)?.toInt(),
+      powerUpSlots: powerUpSlots,
+      powerUps: parsePowerUps(map['powerUps']),
+      powerUpRequests: parsePowerUpRequests(map['powerUpRequests']),
     );
   }
 

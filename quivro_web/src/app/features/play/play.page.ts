@@ -39,7 +39,11 @@ import {
   avatarColor,
   avatarEmoji,
   clampQuestionSeconds,
+  cyclePowerUpSlot,
+  EMPTY_POWER_UP_SLOTS,
   IMAGE_SLIDE_MS,
+  POWER_UP_CATALOG,
+  type PowerUpSlots,
   type RoomConfig,
   type RoomPlayer,
   type ScoringMode,
@@ -256,6 +260,48 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                   {{ effectiveLength() }} {{ lang.t().questions }}
                   · {{ lang.t().difficultyMix }}
                 </p>
+              </section>
+
+              <section>
+                <label class="q-label">{{ lang.t().powerUps }}</label>
+                <div class="power-slots">
+                  @for (slot of powerUpSlots(); track $index) {
+                    <div class="slot-reel">
+                      <button
+                        type="button"
+                        class="slot-nudge"
+                        [attr.aria-label]="lang.t().powerUpNext"
+                        (click)="cycleSlot($index, 1)"
+                      >
+                        <span class="chevron up" aria-hidden="true"></span>
+                      </button>
+                      <div class="power-slot" [class.filled]="slot">
+                        @if (slot === 'fifty_fifty') {
+                          <img [src]="fiftyFiftyIcon" alt="" />
+                        } @else {
+                          <span class="slot-plus" aria-hidden="true">+</span>
+                        }
+                      </div>
+                      <button
+                        type="button"
+                        class="slot-nudge"
+                        [attr.aria-label]="lang.t().powerUpPrev"
+                        (click)="cycleSlot($index, -1)"
+                      >
+                        <span class="chevron down" aria-hidden="true"></span>
+                      </button>
+                      @if (slot === 'fifty_fifty') {
+                        <div class="preview">
+                          <div class="p-head">
+                            <strong class="p-title">{{ lang.t().powerUpFifty }}</strong>
+                          </div>
+                          <p class="p-body">{{ lang.t().descPowerUpFifty }}</p>
+                        </div>
+                      }
+                    </div>
+                  }
+                </div>
+                <p class="hint">{{ lang.t().powerUpsHint }}</p>
               </section>
 
               <div class="final-actions">
@@ -802,6 +848,118 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       gap: 0.5rem;
       margin-top: 0.35rem;
     }
+    .power-slots {
+      display: flex;
+      gap: 0.85rem;
+      margin-top: 0.35rem;
+    }
+    .slot-reel {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .slot-nudge {
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      background:
+        linear-gradient(var(--q-card), var(--q-card)) padding-box,
+        var(--q-gradient) border-box;
+      color: inherit;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+    }
+    .chevron {
+      width: 7px;
+      height: 7px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      display: block;
+    }
+    .chevron.up {
+      transform: rotate(-135deg);
+      margin-top: 3px;
+    }
+    .chevron.down {
+      transform: rotate(45deg);
+      margin-bottom: 3px;
+    }
+    .power-slot {
+      width: 76px;
+      height: 76px;
+      border-radius: 999px;
+      border: 2px dashed var(--q-border);
+      background: var(--q-card);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+    .power-slot.filled {
+      border-style: solid;
+      border-color: transparent;
+      background:
+        linear-gradient(var(--q-card), var(--q-card)) padding-box,
+        var(--q-gradient) border-box;
+    }
+    .power-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .slot-plus {
+      font-size: 1.7rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--q-muted);
+    }
+    .preview {
+      position: absolute;
+      bottom: calc(100% + 12px);
+      left: 50%;
+      width: max-content;
+      min-width: min(252px, 70vw);
+      max-width: 70vw;
+      display: grid;
+      gap: 0.3rem;
+      padding: 0.65rem 0.75rem 0.7rem;
+      text-align: left;
+      border: 2px solid transparent;
+      border-radius: 16px;
+      background:
+        linear-gradient(var(--q-card), var(--q-card)) padding-box,
+        var(--q-gradient) border-box;
+      box-shadow: var(--q-shadow);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 50;
+      transform: translateX(-50%) translateY(6px) scale(0.96);
+      transform-origin: bottom center;
+      transition:
+        opacity 0.18s ease,
+        transform 0.18s ease;
+    }
+    .power-slot.filled:hover ~ .preview {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+    .p-title {
+      font-size: 0.92rem;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+    .p-body {
+      margin: 0;
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--q-muted);
+    }
     .hint {
       margin: 0.65rem 0 0;
       color: var(--q-muted);
@@ -902,6 +1060,10 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly customLength = signal(10);
   readonly scoringMode = signal<ScoringMode>('timed');
   readonly questionSeconds = signal(15);
+  readonly powerUpSlots = signal<PowerUpSlots>(
+    [...EMPTY_POWER_UP_SLOTS] as PowerUpSlots,
+  );
+  readonly fiftyFiftyIcon = POWER_UP_CATALOG[0].icon;
   readonly rematching = signal(false);
   readonly copied = signal(false);
   readonly imagePhase = signal<ImagePhase>('idle');
@@ -1022,6 +1184,7 @@ export class PlayPage implements OnInit, OnDestroy {
         }
         this.scoringMode.set(r.config.scoringMode === 'standard' ? 'standard' : 'timed');
         this.questionSeconds.set(clampQuestionSeconds(r.config.questionSeconds ?? 15));
+        this.powerUpSlots.set([...r.config.powerUpSlots] as PowerUpSlots);
         this.knownRematchReady = new Set(
           Object.keys(r.rematchReady ?? {}).filter((id) => r.rematchReady[id]),
         );
@@ -1203,6 +1366,12 @@ export class PlayPage implements OnInit, OnDestroy {
     return this.lang.t()[key] ?? diff;
   }
 
+  cycleSlot(index: number, direction: number): void {
+    const next = [...this.powerUpSlots()] as PowerUpSlots;
+    next[index] = cyclePowerUpSlot(next[index], direction < 0 ? -1 : 1);
+    this.powerUpSlots.set(next);
+  }
+
   typeLabel(t: QuestionType): string {
     return t === 'mcq' ? this.lang.t().mcq : this.lang.t().imageMcq;
   }
@@ -1348,6 +1517,7 @@ export class PlayPage implements OnInit, OnDestroy {
         language: room?.config.language ?? this.lang.lang(),
         scoringMode: this.scoringMode(),
         questionSeconds: clampQuestionSeconds(this.questionSeconds()),
+        powerUpSlots: this.powerUpSlots(),
       };
       // Reset local reveal/fly guards for the new round.
       this.lastHandledReveal = -1;
@@ -1357,7 +1527,6 @@ export class PlayPage implements OnInit, OnDestroy {
         clearTimeout(this.revealTimeoutId);
         this.revealTimeoutId = null;
       }
-      this.configSynced = false;
       await this.rooms.rematch(this.code, nextConfig);
     } catch (e) {
       console.error(e);

@@ -38,6 +38,8 @@ class AppStrings {
     required this.leaveGameBody,
     required this.leave,
     required this.couldNotSendAnswer,
+    required this.couldNotUsePowerUp,
+    required this.fiftyFifty,
     required this.couldNotJoinRematch,
     required this._connectionError,
     required this.connecting,
@@ -113,6 +115,8 @@ class AppStrings {
   final String leaveGameBody;
   final String leave;
   final String couldNotSendAnswer;
+  final String couldNotUsePowerUp;
+  final String fiftyFifty;
   final String couldNotJoinRematch;
   final String _connectionError;
   final String connecting;
@@ -204,6 +208,8 @@ class AppStrings {
     leaveGameBody: 'You will be removed from the room.',
     leave: 'Leave',
     couldNotSendAnswer: 'Could not send answer',
+    couldNotUsePowerUp: 'Could not use power-up',
+    fiftyFifty: '50/50',
     couldNotJoinRematch: 'Could not join rematch',
     connectionError: 'Connection error: {error}',
     connecting: 'Connecting…',
@@ -278,6 +284,8 @@ class AppStrings {
     leaveGameBody: 'Bit ćeš uklonjen iz sobe.',
     leave: 'Napusti',
     couldNotSendAnswer: 'Slanje odgovora nije uspjelo',
+    couldNotUsePowerUp: 'Pojačanje nije iskorišteno',
+    fiftyFifty: '50/50',
     couldNotJoinRematch: 'Prijava za novu rundu nije uspjela',
     connectionError: 'Greška u konekciji: {error}',
     connecting: 'Povezivanje…',
