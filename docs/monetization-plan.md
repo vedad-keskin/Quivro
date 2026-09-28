@@ -71,13 +71,14 @@ M8 writes `quivro_mobile/android/key.properties` (already gitignored) with `stor
 
 - Firestore database: `(default)`, location `eur3`. The client calls `getFirestore(app)` with
   no database name, which only ever resolves to `(default)`.
-- Production domain: `quivro.vercel.app` (authorized for Google sign-in)
+- Production domain: `quivro.org` on the same Vercel project. `quivro.vercel.app` stays attached with no redirect, so sign-in and the webhook keep working if the domain lapses.
+- Website contact: `contact@quivro.org`, forwarded to `nightfall.project.info@gmail.com`. Replies still send from that Gmail address.
 - Google sign-in consent screen name: Quivro
-- Website privacy policy URL: `https://quivro.vercel.app/privacy`
-- Play privacy policy and data-deletion URL: `https://quivro.vercel.app/privacy-app`
-- Website data deletion URL: `https://quivro.vercel.app/data-deletion`
-- Terms: `https://quivro.vercel.app/terms`
-  The Play URL is the phone-only policy. It goes live after the next production deploy.
+- Website privacy policy URL: `https://quivro.org/privacy`
+- Play privacy policy and data-deletion URL: `https://quivro.org/privacy-app`
+- Website data deletion URL: `https://quivro.org/data-deletion`
+- Terms: `https://quivro.org/terms`
+  The Play URL is the phone-only policy. `quivro.org` and `www.quivro.org` still need adding under Firebase Auth authorized domains. Keep `quivro.vercel.app` there.
 
 The mobile app does **not** use Google Sign-In, so the `google-services.json` in
 `quivro_mobile` does not need regenerating when OAuth clients change.
@@ -102,7 +103,7 @@ The mobile app does **not** use Google Sign-In, so the `google-services.json` in
   carries no `firebase_uid`, so the webhook would 400 and the buyer would get nothing.
 - Redirect: hosted checkout links have **no** separate "redirect after purchase" field.
   Per Lemon Squeezy's docs the redirect is the **Confirmation modal -> Button link**, set to
-  `quivro.vercel.app/unlocked` (and the same for the Email receipt button). A standalone
+  `https://quivro.org/unlocked` (and the same for the Email receipt button). A standalone
   `product_options.redirect_url` exists only for checkouts created through the API.
   It is a button the buyer clicks, not an automatic redirect, which is fine: the webhook
   records the purchase regardless of where the browser goes, and `refresh()` plus the

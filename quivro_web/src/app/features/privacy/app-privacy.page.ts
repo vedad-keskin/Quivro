@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import { LanguageService } from '../../core/language.service';
 import { SettingsChips } from '../../shared/settings-chips';
 
-const CONTACT = 'nightfall.project.info@gmail.com';
+const CONTACT = 'contact@quivro.org';
 
 interface PrivacySection {
   heading: string;
