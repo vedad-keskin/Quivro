@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { LanguageService } from '../core/language.service';
 
+const CONTACT = 'contact@quivro.org';
+
 /** Studio credit. Shared so home and create-round stay in sync. */
 @Component({
   selector: 'app-studio-footer',
@@ -14,11 +16,10 @@ import { LanguageService } from '../core/language.service';
       </span>
       <nav class="legal">
         <a routerLink="/privacy">{{ lang.t().privacy }}</a>
-        <span class="dot" aria-hidden="true">·</span>
         <a routerLink="/data-deletion">{{ lang.t().dataDeletion }}</a>
-        <span class="dot" aria-hidden="true">·</span>
         <a routerLink="/terms">{{ lang.t().terms }}</a>
       </nav>
+      <a class="mail" [href]="'mailto:' + contact">{{ contact }}</a>
     </footer>
   `,
   styles: `
@@ -29,10 +30,11 @@ import { LanguageService } from '../core/language.service';
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 2rem;
-      /* Page padding is 1.25rem. The rest of the bottom inset lives here so
-         both gaps stay equal. */
-      padding-bottom: 0.75rem;
+      gap: 0.7rem;
+      margin-top: 0.5rem;
+      padding-top: 1.1rem;
+      padding-bottom: 0;
+      border-top: 1px solid var(--q-border);
       font-size: 0.82rem;
       font-weight: 600;
       color: var(--q-muted);
@@ -42,26 +44,26 @@ import { LanguageService } from '../core/language.service';
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 0.45rem 0.55rem;
+      gap: 0.35rem 1.15rem;
     }
-    .legal a {
+    .legal a,
+    .mail {
       color: inherit;
       text-decoration: none;
-      text-underline-offset: 3px;
     }
-    .legal a:hover {
-      text-decoration: underline;
+    .legal a:hover,
+    .mail:hover {
+      color: var(--q-navy);
     }
     .credit {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.55rem;
     }
     .studio-mark {
-      height: 1.85rem;
+      height: 2.1rem;
       width: auto;
       display: block;
-      opacity: 0.78;
     }
     :host-context(html[data-theme='dark']) .studio-mark {
       /* The glyphs are --q-navy, which inverts to the cream of the original art. */
@@ -71,4 +73,5 @@ import { LanguageService } from '../core/language.service';
 })
 export class StudioFooter {
   readonly lang = inject(LanguageService);
+  readonly contact = CONTACT;
 }

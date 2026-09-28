@@ -114,7 +114,7 @@ const bs: PrivacyCopy = {
         }
 
         <p class="contact">
-          Nightfall Studio<br />
+          <img class="studio-mark" src="/brand/nightfall-wordmark.png" alt="Nightfall Studio" />
           <a [href]="'mailto:' + contact">{{ contact }}</a>
         </p>
       </article>
@@ -148,9 +148,23 @@ const bs: PrivacyCopy = {
       margin-top: 0.35rem;
     }
     .contact {
-      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 2.5rem;
+      padding-top: 2.75rem;
+      border-top: 1px solid var(--q-border);
       color: var(--q-navy);
       font-weight: 700;
+      text-align: center;
+    }
+    .studio-mark {
+      height: 2.4rem;
+      width: auto;
+    }
+    :host-context(html[data-theme='dark']) .studio-mark {
+      filter: invert(1);
     }
     article a {
       color: var(--q-navy);
