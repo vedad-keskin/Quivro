@@ -15,6 +15,16 @@ import type { RoomConfig, ScoringMode } from './room.models';
 
 const CACHE_PREFIX = 'quivro.pro.';
 
+function purchaseIso(raw: unknown): string | null {
+  if (raw == null) return null;
+  const toDate =
+    typeof raw === 'object' && raw !== null && 'toDate' in raw
+      ? (raw as { toDate: unknown }).toDate
+      : null;
+  const date = typeof toDate === 'function' ? (toDate as () => Date).call(raw) : new Date(String(raw));
+  return Number.isNaN(date.getTime()) ? null : date.toISOString();
+}
+
 @Injectable({ providedIn: 'root' })
 export class EntitlementService {
   private readonly firebase = inject(FirebaseService);
@@ -22,6 +32,8 @@ export class EntitlementService {
 
   private readonly pro = signal(false);
   readonly isPro = this.pro.asReadonly();
+  /** ISO time from `purchases/{uid}.purchaseDate`, or null when not Pro. */
+  readonly purchaseDate = signal<string | null>(null);
   /** True while a Firestore lookup is in flight, for the upgrade dialog spinner. */
   readonly checking = signal(false);
 
@@ -32,6 +44,7 @@ export class EntitlementService {
       const uid = this.auth.uid();
       if (!uid) {
         this.pro.set(false);
+        this.purchaseDate.set(null);
         return;
       }
       // Show the cached answer immediately, then confirm against Firestore.
@@ -51,8 +64,10 @@ export class EntitlementService {
       // Lazy so the Firestore SDK never lands in the bundle of a host who never signs in.
       const { getFirestore, doc, getDoc } = await import('firebase/firestore');
       const snapshot = await getDoc(doc(getFirestore(app), 'purchases', uid));
-      const active = snapshot.exists() && snapshot.data()['active'] === true;
+      const data = snapshot.exists() ? snapshot.data() : null;
+      const active = data?.['active'] === true;
       this.pro.set(active);
+      this.purchaseDate.set(active ? purchaseIso(data?.['purchaseDate']) : null);
       localStorage.setItem(CACHE_PREFIX + uid, String(active));
       return active;
     } catch (error) {

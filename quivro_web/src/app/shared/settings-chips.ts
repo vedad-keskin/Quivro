@@ -1,16 +1,16 @@
 import { Component, ElementRef, HostListener, inject, signal, viewChild } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../core/auth.service';
 import { EntitlementService } from '../core/entitlement.service';
 import { FirebaseService } from '../core/firebase.service';
 import { LanguageService } from '../core/language.service';
-import { SnackbarService } from '../core/snackbar.service';
 import { ThemeService } from '../core/theme.service';
 import { UpgradeDialogService } from './upgrade-dialog.service';
 
 /** Mobile-styled language + day/night chips (tap-to-toggle, no sheet). */
 @Component({
   selector: 'app-settings-chips',
-  imports: [],
+  imports: [RouterLink],
   template: `
     <div class="chips">
       <button
@@ -87,25 +87,49 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
             >
               @if (user.photoURL) {
                 <img class="avatar" [src]="user.photoURL" width="18" height="18" alt="" />
+              } @else {
+                <span class="avatar fallback">{{ initial(user.displayName || user.email) }}</span>
               }
               <span class="label">{{ firstName(user.displayName) }}</span>
               <span class="caret" aria-hidden="true"></span>
             </button>
             @if (menuOpen()) {
               <div class="menu" role="menu">
-                @if (user.email) {
-                  <p class="email">{{ user.email }}</p>
-                }
-                @if (ent.isPro()) {
-                  <span class="pro">{{ lang.t().proName }}</span>
-                } @else {
+                <div class="who">
+                  @if (user.photoURL) {
+                    <img class="who-avatar" [src]="user.photoURL" alt="" />
+                  } @else {
+                    <span class="who-avatar fallback">{{ initial(user.displayName || user.email) }}</span>
+                  }
+                  <div class="who-text">
+                    <span class="name">
+                      <span class="name-text">{{ user.displayName || lang.t().account }}</span>
+                      @if (ent.isPro()) {
+                        <span class="pro-badge">
+                          <img src="/brand/pro_badge.png" width="20" height="20" alt="" />
+                        </span>
+                      }
+                    </span>
+                    @if (user.email) {
+                      <span class="email">{{ user.email }}</span>
+                    }
+                  </div>
+                </div>
+                <div class="rule" role="separator"></div>
+                <a
+                  routerLink="/profile"
+                  class="row"
+                  role="menuitem"
+                  (click)="closeMenu()"
+                >
+                  {{ lang.t().viewProfile }}
+                </a>
+                @if (!ent.isPro()) {
                   <button type="button" class="row" role="menuitem" (click)="unlock()">
                     {{ lang.t().upgradeTitle }}
                   </button>
                 }
-                <button type="button" class="row" role="menuitem" (click)="restore()">
-                  {{ lang.t().upgradeRestore }}
-                </button>
+                <div class="rule" role="separator"></div>
                 <button type="button" class="row out" role="menuitem" (click)="signOut()">
                   {{ lang.t().signOut }}
                 </button>
@@ -116,7 +140,7 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
           <button
             type="button"
             class="chip"
-            (click)="signIn()"
+            (click)="openLogin()"
             [attr.aria-label]="lang.t().signIn"
           >
             <svg class="icon" viewBox="0 0 48 48" width="15" height="15" aria-hidden="true">
@@ -153,11 +177,13 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
+      height: 36px;
+      box-sizing: border-box;
       border: 2px solid var(--q-border);
       background: var(--q-card);
       color: var(--q-navy);
       border-radius: 999px;
-      padding: 0.4rem 0.75rem;
+      padding: 0 0.75rem;
       font-size: 0.8125rem;
       font-weight: 800;
       cursor: pointer;
@@ -193,12 +219,32 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
     .icon.moon {
       color: #93c5fd;
     }
-    .avatar {
-      width: 18px;
-      height: 18px;
+    .avatar,
+    .who-avatar {
       border-radius: 999px;
       object-fit: cover;
       flex-shrink: 0;
+    }
+    .avatar {
+      width: 18px;
+      height: 18px;
+    }
+    .who-avatar {
+      width: 32px;
+      height: 32px;
+    }
+    .fallback {
+      display: grid;
+      place-items: center;
+      background: var(--q-gradient);
+      color: #fff;
+      font-weight: 900;
+    }
+    .avatar.fallback {
+      font-size: 0.65rem;
+    }
+    .who-avatar.fallback {
+      font-size: 0.85rem;
     }
     .caret {
       width: 0;
@@ -216,7 +262,7 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
       top: calc(100% + 0.45rem);
       right: 0;
       z-index: 40;
-      width: min(260px, 72vw);
+      width: min(280px, 80vw);
       display: grid;
       gap: 0.35rem;
       padding: 0.75rem;
@@ -228,31 +274,83 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
         var(--q-gradient) border-box;
       box-shadow: var(--q-shadow);
     }
+    .who {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      min-width: 0;
+      padding: 0.15rem 0.2rem 0.35rem;
+    }
+    .who-text {
+      display: grid;
+      gap: 0.1rem;
+      min-width: 0;
+    }
+    .name {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      min-width: 0;
+      font-weight: 900;
+      font-size: 0.9rem;
+      color: var(--q-navy);
+    }
+    .name-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      min-width: 0;
+    }
     .email {
-      margin: 0 0.15rem 0.2rem;
+      margin: 0;
       color: var(--q-muted);
       font-size: 0.75rem;
       font-weight: 700;
       line-height: 1.3;
-      overflow-wrap: anywhere;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
-    .pro {
-      justify-self: start;
-      margin: 0.1rem 0.15rem 0.25rem;
-      padding: 0.18rem 0.55rem;
+    .pro-badge {
+      position: relative;
+      display: inline-grid;
+      width: 20px;
+      height: 20px;
+      overflow: hidden;
       border-radius: 999px;
-      background: var(--q-gradient);
-      color: #fff;
-      font-size: 0.68rem;
-      font-weight: 900;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .pro-badge img {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+    .pro-badge::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        100deg,
+        transparent 20%,
+        rgba(255, 255, 255, 0.55) 50%,
+        transparent 80%
+      );
+      transform: translateX(-120%);
+      animation: pro-sheen 2.8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .rule {
+      height: 1px;
+      margin: 0.15rem 0.2rem;
+      background: var(--q-border);
     }
     .row {
+      display: block;
       border: none;
       background: none;
       color: var(--q-navy);
       text-align: left;
+      text-decoration: none;
       font-weight: 800;
       font-size: 0.85rem;
       padding: 0.45rem 0.35rem;
@@ -265,6 +363,11 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
     .row.out {
       color: var(--q-muted);
     }
+    @media (prefers-reduced-motion: reduce) {
+      .pro-badge::after {
+        animation: none;
+      }
+    }
   `,
 })
 export class SettingsChips {
@@ -274,7 +377,7 @@ export class SettingsChips {
   readonly firebase = inject(FirebaseService);
   readonly ent = inject(EntitlementService);
   private readonly upgrade = inject(UpgradeDialogService);
-  private readonly snack = inject(SnackbarService);
+  private readonly router = inject(Router);
   private readonly account = viewChild<ElementRef<HTMLElement>>('account');
 
   readonly menuOpen = signal(false);
@@ -295,8 +398,24 @@ export class SettingsChips {
     return displayName?.trim().split(/\s+/)[0] || this.lang.t().account;
   }
 
+  initial(value: string | null): string {
+    return (value?.trim()[0] || '?').toUpperCase();
+  }
+
   toggleMenu(): void {
     this.menuOpen.update((open) => !open);
+  }
+
+  closeMenu(): void {
+    this.menuOpen.set(false);
+  }
+
+  openLogin(): void {
+    const path = this.router.url.split('?')[0];
+    if (path === '/login') return;
+    void this.router.navigate(['/login'], {
+      queryParams: { returnUrl: this.router.url },
+    });
   }
 
   unlock(): void {
@@ -304,20 +423,10 @@ export class SettingsChips {
     this.upgrade.show();
   }
 
-  async restore(): Promise<void> {
-    this.menuOpen.set(false);
-    if (await this.ent.refresh()) this.snack.success(this.lang.t().proRestored);
-    else this.snack.error(this.lang.t().proNotFound);
-  }
-
   async signOut(): Promise<void> {
     this.menuOpen.set(false);
+    const onProfile = this.router.url.split('?')[0] === '/profile';
     await this.auth.signOut();
-  }
-
-  async signIn(): Promise<void> {
-    if ((await this.auth.signIn()) === 'failed') {
-      this.snack.error(this.lang.t().signInFailed);
-    }
+    if (onProfile) void this.router.navigateByUrl('/');
   }
 }

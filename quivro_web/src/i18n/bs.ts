@@ -139,4 +139,28 @@ export const bs: UiStrings = {
   unlockSlowBody:
     'Uplata je prošla i ništa nije izgubljeno. Probaj Vrati kupovinu ili se vrati za minutu.',
   close: 'Zatvori',
+
+  // --- Profile & auth enhancements ---
+  profile: 'Profil',
+  viewProfile: 'Pogledaj profil',
+  memberSince: 'Član od',
+  gamesHosted: 'Igara kreirano',
+  questionsPlayed: 'Pitanja odigrano',
+  manageSubscription: 'Upravljaj pretplatom',
+  freePlan: 'Besplatan plan',
+  purchasedOn: 'Kupljeno',
+  signOutConfirmTitle: 'Odjavi se?',
+  signOutConfirmBody: 'Uvijek se možeš ponovo prijaviti.',
+  signOutConfirmProWarning: 'Tvoja Pro kupovina je vezana za ovaj račun.',
+  cancel: 'Otkaži',
+  loginTitle: 'Prijavi se na Quivro',
+  loginSubtitle: 'Sačuvaj napredak i otključaj Pro mogućnosti.',
+  loginGoogle: 'Nastavi sa Google',
+  loginApple: 'Nastavi sa Apple',
+  loginGitHub: 'Nastavi sa GitHub',
+  loginEmail: 'Nastavi sa Email',
+  comingSoon: 'Uskoro',
+  subscriptionStatus: 'Pretplata',
+  accountDetails: 'Detalji računa',
+  userId: 'Korisnički ID',
 };

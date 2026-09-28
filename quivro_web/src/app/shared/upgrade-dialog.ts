@@ -1,4 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../core/auth.service';
 import { EntitlementService } from '../core/entitlement.service';
 import { PRO_PRICE } from '../core/entitlements';
@@ -188,27 +189,14 @@ export class UpgradeDialog {
   readonly lang = inject(LanguageService);
   readonly auth = inject(AuthService);
   private readonly ent = inject(EntitlementService);
+  private readonly router = inject(Router);
   private readonly snack = inject(SnackbarService);
 
   readonly price = PRO_PRICE;
   readonly busy = signal(false);
 
-  async signIn(): Promise<void> {
-    this.busy.set(true);
-    try {
-      const result = await this.auth.signIn();
-      if (result === 'failed') {
-        this.snack.error(this.lang.t().signInFailed);
-        return;
-      }
-      // A returning customer may already own Pro on this account.
-      if (result === 'ok' && (await this.ent.refresh())) {
-        this.snack.success(this.lang.t().proRestored);
-        this.dialog.close();
-      }
-    } finally {
-      this.busy.set(false);
-    }
+  signIn(): void {
+    this.goToLogin();
   }
 
   buy(): void {
@@ -220,7 +208,10 @@ export class UpgradeDialog {
   async restore(): Promise<void> {
     this.busy.set(true);
     try {
-      if (!this.auth.user() && (await this.auth.signIn()) !== 'ok') return;
+      if (!this.auth.user()) {
+        this.goToLogin();
+        return;
+      }
       if (await this.ent.refresh()) {
         this.snack.success(this.lang.t().proRestored);
         this.dialog.close();
@@ -230,5 +221,14 @@ export class UpgradeDialog {
     } finally {
       this.busy.set(false);
     }
+  }
+
+  /** Close first so the upgrade card does not sit on top of the login page. */
+  private goToLogin(): void {
+    const returnUrl = this.router.url;
+    this.dialog.close();
+    void this.router.navigate(['/login'], {
+      queryParams: { returnUrl, resume: 'upgrade' },
+    });
   }
 }

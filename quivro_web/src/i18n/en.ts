@@ -137,6 +137,30 @@ export const en = {
   unlockSlowBody:
     'Your payment went through and nothing is lost. Try Restore, or come back in a minute.',
   close: 'Close',
+
+  // --- Profile & auth enhancements ---
+  profile: 'Profile',
+  viewProfile: 'View profile',
+  memberSince: 'Member since',
+  gamesHosted: 'Games hosted',
+  questionsPlayed: 'Questions played',
+  manageSubscription: 'Manage subscription',
+  freePlan: 'Free plan',
+  purchasedOn: 'Purchased',
+  signOutConfirmTitle: 'Sign out?',
+  signOutConfirmBody: 'You can always sign back in later.',
+  signOutConfirmProWarning: 'Your Pro purchase is tied to this account.',
+  cancel: 'Cancel',
+  loginTitle: 'Sign in to Quivro',
+  loginSubtitle: 'Save your progress and unlock Pro features.',
+  loginGoogle: 'Continue with Google',
+  loginApple: 'Continue with Apple',
+  loginGitHub: 'Continue with GitHub',
+  loginEmail: 'Continue with Email',
+  comingSoon: 'Coming soon',
+  subscriptionStatus: 'Subscription',
+  accountDetails: 'Account details',
+  userId: 'User ID',
 };
 
 export type UiStrings = Record<keyof typeof en, string>;

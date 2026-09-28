@@ -1,5 +1,5 @@
 import { Component, OnDestroy, effect, inject, signal, untracked } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/auth.service';
 import { EntitlementService } from '../../core/entitlement.service';
 import { LanguageService } from '../../core/language.service';
@@ -17,95 +17,89 @@ const POLL_ATTEMPTS = 30;
   selector: 'app-unlocked',
   imports: [RouterLink, SettingsChips],
   template: `
-    <div class="q-page">
-      <header class="top">
-        <a routerLink="/" class="q-btn q-btn-ghost">← {{ lang.t().home }}</a>
+    <div class="q-page stage">
+      <header>
+        <a routerLink="/" class="back">← {{ lang.t().home }}</a>
         <app-settings-chips />
       </header>
 
-      <div class="panel">
-        @if (!auth.ready()) {
-          <span class="emoji spin">⏳</span>
-          <h1>{{ lang.t().unlockingTitle }}</h1>
-          <p>{{ lang.t().unlockingBody }}</p>
-        } @else if (!auth.user()) {
-          <span class="emoji">🎉</span>
-          <h1>{{ lang.t().claimTitle }}</h1>
-          <p>{{ lang.t().claimBody }}</p>
-          <button type="button" class="q-btn q-btn-outline" [disabled]="busy()" (click)="claim()">
-            {{ lang.t().signIn }}
-          </button>
-        } @else if (ent.isPro()) {
-          <span class="emoji">🎉</span>
-          <h1>{{ lang.t().unlockedTitle }}</h1>
-          <p>{{ lang.t().unlockedBody }}</p>
-          <a routerLink="/create" class="q-btn q-btn-outline">{{ lang.t().createRound }}</a>
-        } @else if (gaveUp()) {
-          <span class="emoji">⏳</span>
-          <h1>{{ lang.t().unlockSlowTitle }}</h1>
-          <p>{{ lang.t().unlockSlowBody }}</p>
-          <button type="button" class="q-btn q-btn-outline" (click)="retry()">
-            {{ lang.t().upgradeRestore }}
-          </button>
-        } @else {
-          <span class="emoji spin">⏳</span>
-          <h1>{{ lang.t().unlockingTitle }}</h1>
-          <p>{{ lang.t().unlockingBody }}</p>
-        }
-      </div>
+      @if (auth.user()) {
+        <section class="hero">
+          <img class="badge" src="/brand/pro_badge.png" alt="" />
+          @if (ent.isPro()) {
+            <h1>{{ lang.t().unlockedTitle }}</h1>
+            <p>{{ lang.t().unlockedBody }}</p>
+            <a routerLink="/create" class="q-btn q-btn-outline">{{ lang.t().createRound }}</a>
+          } @else if (gaveUp()) {
+            <h1>{{ lang.t().unlockSlowTitle }}</h1>
+            <p>{{ lang.t().unlockSlowBody }}</p>
+            <button type="button" class="q-btn q-btn-outline" (click)="retry()">
+              {{ lang.t().upgradeRestore }}
+            </button>
+          } @else {
+            <h1 class="wait">{{ lang.t().unlockingTitle }}</h1>
+            <p>{{ lang.t().unlockingBody }}</p>
+          }
+        </section>
+      }
     </div>
   `,
   styles: `
-    .top {
+    .stage {
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+    header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1.25rem;
     }
-    .panel {
-      max-width: 480px;
-      margin: 3rem auto 0;
-      padding: 2rem 1.5rem;
+    .back {
+      font-weight: 800;
+      font-size: 0.88rem;
+      color: var(--q-muted);
+    }
+    .back:hover {
+      color: var(--q-navy);
+    }
+    .hero {
       display: grid;
-      gap: 0.85rem;
+      place-content: center;
       justify-items: center;
       text-align: center;
-      border: 2px solid transparent;
-      border-radius: 24px;
-      background:
-        linear-gradient(var(--q-card), var(--q-card)) padding-box,
-        var(--q-gradient) border-box;
-      box-shadow: var(--q-shadow);
+      gap: 0.75rem;
     }
-    .emoji {
-      font-size: 2.75rem;
-      line-height: 1;
-    }
-    .spin {
-      animation: pulse 1.4s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      50% {
-        opacity: 0.35;
-      }
+    .badge {
+      width: 88px;
+      height: 88px;
     }
     h1 {
       margin: 0;
+      max-width: 18rem;
       font-size: clamp(1.5rem, 3vw, 2rem);
       font-weight: 900;
       color: var(--q-navy);
     }
+    .wait {
+      animation: pulse 1.4s ease-in-out infinite;
+    }
     p {
       margin: 0;
+      max-width: 26rem;
       color: var(--q-muted);
       font-weight: 700;
       line-height: 1.4;
     }
     .q-btn {
-      margin-top: 0.5rem;
+      margin-top: 0.35rem;
+    }
+    @keyframes pulse {
+      50% {
+        opacity: 0.45;
+      }
     }
     @media (prefers-reduced-motion: reduce) {
-      .spin {
+      .wait {
         animation: none;
       }
     }
@@ -116,9 +110,9 @@ export class UnlockedPage implements OnDestroy {
   readonly auth = inject(AuthService);
   readonly ent = inject(EntitlementService);
   private readonly snack = inject(SnackbarService);
+  private readonly router = inject(Router);
 
   readonly gaveUp = signal(false);
-  readonly busy = signal(false);
   private timer: number | null = null;
   private attempts = 0;
   /** Stops a second poll from starting while the first is already running. */
@@ -130,8 +124,15 @@ export class UnlockedPage implements OnDestroy {
     effect(() => {
       const ready = this.auth.ready();
       const signedIn = this.auth.user() !== null;
-      if (!ready || !signedIn) {
-        untracked(() => this.stop());
+      if (!ready) return;
+      if (!signedIn) {
+        untracked(() => {
+          this.stop();
+          void this.router.navigate(['/login'], {
+            queryParams: { returnUrl: '/unlocked' },
+            replaceUrl: true,
+          });
+        });
         return;
       }
       untracked(() => void this.watchPurchase());
@@ -140,17 +141,6 @@ export class UnlockedPage implements OnDestroy {
 
   ngOnDestroy(): void {
     this.stop();
-  }
-
-  async claim(): Promise<void> {
-    this.busy.set(true);
-    try {
-      if ((await this.auth.signIn()) === 'failed') {
-        this.snack.error(this.lang.t().signInFailed);
-      }
-    } finally {
-      this.busy.set(false);
-    }
   }
 
   async retry(): Promise<void> {

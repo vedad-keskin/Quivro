@@ -22,6 +22,16 @@ export const routes: Routes = [
       import('./features/play/play.page').then((m) => m.PlayPage),
   },
   {
+    path: 'login',
+    loadComponent: () =>
+      import('./features/login/login.page').then((m) => m.LoginPage),
+  },
+  {
+    path: 'profile',
+    loadComponent: () =>
+      import('./features/profile/profile.page').then((m) => m.ProfilePage),
+  },
+  {
     path: 'unlocked',
     loadComponent: () =>
       import('./features/unlocked/unlocked.page').then((m) => m.UnlockedPage),
