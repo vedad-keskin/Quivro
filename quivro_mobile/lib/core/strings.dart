@@ -71,6 +71,10 @@ class AppStrings {
     required this.creditsQuestionCurator,
     required this.creditsMom,
     required this.close,
+    required this.hostHintTitle,
+    required this.hostHintBody,
+    required this.hostHintGotIt,
+    required this.hostHintCopied,
   });
 
   // Splash.
@@ -152,6 +156,12 @@ class AppStrings {
   final String creditsQuestionCurator;
   final String creditsMom;
   final String close;
+
+  // Host hint on the home screen.
+  final String hostHintTitle;
+  final String hostHintBody;
+  final String hostHintGotIt;
+  final String hostHintCopied;
 
   String playingAs(String name) => _playingAs.replaceAll('{name}', name);
 
@@ -241,6 +251,10 @@ class AppStrings {
     creditsQuestionCurator: 'Question editor',
     creditsMom: 'Mom',
     close: 'Close',
+    hostHintTitle: 'Host on the big screen',
+    hostHintBody: 'Open this website on a laptop or TV to create a room.',
+    hostHintGotIt: 'Got it',
+    hostHintCopied: 'Link copied',
   );
 
   static const bosnian = AppStrings(
@@ -317,6 +331,10 @@ class AppStrings {
     creditsQuestionCurator: 'Kustos pitanja',
     creditsMom: 'Mama',
     close: 'Zatvori',
+    hostHintTitle: 'Domaćin na velikom ekranu',
+    hostHintBody: 'Otvori ovu web stranicu na laptopu ili TV-u da napraviš sobu.',
+    hostHintGotIt: 'Razumijem',
+    hostHintCopied: 'Link je kopiran',
   );
 }
 

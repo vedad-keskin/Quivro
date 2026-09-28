@@ -11,6 +11,7 @@ import '../core/strings.dart';
 import '../core/theme.dart';
 import '../widgets/avatar_widgets.dart';
 import '../widgets/credits_dialog.dart';
+import '../widgets/host_hint.dart';
 import '../widgets/offline_banner.dart';
 import '../widgets/quivro_snackbar.dart';
 import '../widgets/settings_chips.dart';
@@ -28,6 +29,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _code = TextEditingController();
+  final _hostHintKey = GlobalKey<HostHintState>();
+  final _hostChipKey = GlobalKey();
+  final _hostProgress = ValueNotifier<double>(0);
   final _repo = RoomRepository();
   final _store = ProfileStore();
   late PlayerProfile _profile;
@@ -60,6 +64,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void dispose() {
     _easterEggTimer?.cancel();
+    _hostProgress.dispose();
     _code.dispose();
     super.dispose();
   }
@@ -284,7 +289,35 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ],
                           ),
-                          const Center(child: SettingsChips()),
+                          Row(
+                            children: [
+                              ValueListenableBuilder<double>(
+                                valueListenable: _hostProgress,
+                                builder: (context, progress, _) {
+                                  return Opacity(
+                                    opacity: progress >= 1 ? 1 : 0,
+                                    child: IgnorePointer(
+                                      ignoring: progress < 1,
+                                      child: HostTvChip(
+                                        key: _hostChipKey,
+                                        onTap: () =>
+                                            _hostHintKey.currentState?.expand(),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                              const Expanded(
+                                child: Center(child: SettingsChips()),
+                              ),
+                              const IgnorePointer(
+                                child: Opacity(
+                                  opacity: 0,
+                                  child: HostTvChip(onTap: _keepChipsCentered),
+                                ),
+                              ),
+                            ],
+                          ),
                         ],
                       ),
                     ),
@@ -299,12 +332,21 @@ class _HomePageState extends State<HomePage> {
                 child: OfflineBanner(onReconnected: _onReconnected),
               ),
             ),
+            Positioned.fill(
+              child: HostHint(
+                key: _hostHintKey,
+                progress: _hostProgress,
+                anchorKey: _hostChipKey,
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+void _keepChipsCentered() {}
 
 class _UpperCaseFormatter extends TextInputFormatter {
   @override
