@@ -275,7 +275,7 @@ class HostHintState extends State<HostHint>
                     ),
                     const SizedBox(height: 12),
                     SizedBox(
-                      height: 48,
+                      height: 56,
                       width: double.infinity,
                       child: OutlinedButton(
                         onPressed: _collapse,
