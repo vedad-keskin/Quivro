@@ -294,6 +294,9 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                         <div class="preview">
                           <div class="p-head">
                             <strong class="p-title">{{ lang.t().powerUpFifty }}</strong>
+                            @if (ent.powerUpLocked('fifty_fifty')) {
+                              <span class="lock" aria-hidden="true">🔒</span>
+                            }
                           </div>
                           <p class="p-body">{{ lang.t().descPowerUpFifty }}</p>
                         </div>
@@ -302,6 +305,9 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                   }
                 </div>
                 <p class="hint">{{ lang.t().powerUpsHint }}</p>
+                @if (powerUpBlocked()) {
+                  <p class="hint warn">{{ lang.t().powerUpNeedsPro }}</p>
+                }
               </section>
 
               <div class="final-actions">
@@ -948,6 +954,23 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       opacity: 1;
       transform: translateX(-50%) translateY(0) scale(1);
     }
+    .p-head {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .preview .lock {
+      display: inline-grid;
+      place-items: center;
+      width: 1.15rem;
+      height: 1.15rem;
+      border-radius: 999px;
+      font-size: 0.62rem;
+      line-height: 1;
+      flex-shrink: 0;
+      color: #fff;
+      background: var(--q-gradient);
+    }
     .p-title {
       font-size: 0.92rem;
       font-weight: 900;
@@ -1064,6 +1087,9 @@ export class PlayPage implements OnInit, OnDestroy {
     [...EMPTY_POWER_UP_SLOTS] as PowerUpSlots,
   );
   readonly fiftyFiftyIcon = POWER_UP_CATALOG[0].icon;
+  readonly powerUpBlocked = computed(() =>
+    this.powerUpSlots().some((slot) => !!slot && this.ent.powerUpLocked(slot)),
+  );
   readonly rematching = signal(false);
   readonly copied = signal(false);
   readonly imagePhase = signal<ImagePhase>('idle');
@@ -1146,6 +1172,7 @@ export class PlayPage implements OnInit, OnDestroy {
       this.selectedTypes().length > 0 &&
       (!this.needsCategories() || this.selectedCats().length > 0) &&
       this.customLengthValid() &&
+      !this.powerUpBlocked() &&
       this.rematchReadyPlayers().length > 0,
   );
 

@@ -6,12 +6,13 @@ import { FirebaseService } from './firebase.service';
 import {
   clampToFree,
   isCategoryFree,
+  isPowerUpFree,
   isQuestionTypeFree,
   isRoundLengthFree,
   isScoringModeFree,
   rotatingFreeCategory,
 } from './entitlements';
-import type { RoomConfig, ScoringMode } from './room.models';
+import type { PowerUpId, RoomConfig, ScoringMode } from './room.models';
 
 const CACHE_PREFIX = 'quivro.pro.';
 
@@ -97,6 +98,10 @@ export class EntitlementService {
   /** Custom round length is a Pro-only control regardless of the value typed. */
   customLengthLocked(): boolean {
     return !this.pro();
+  }
+
+  powerUpLocked(id: PowerUpId): boolean {
+    return !this.pro() && !isPowerUpFree(id);
   }
 
   enforce(config: RoomConfig): RoomConfig {

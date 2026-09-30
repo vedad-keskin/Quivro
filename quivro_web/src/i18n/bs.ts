@@ -73,6 +73,7 @@ export const bs: UiStrings = {
   powerUpPrev: 'Prethodno pojačanje',
   descPowerUpFifty: 'Uklanja 2 pogrešna odgovora, ostavlja 2 na izbor.',
   descPowerUpEmpty: 'Prazan slot.',
+  powerUpNeedsPro: '50/50 je dio Quivro Pro',
   scoringTimed: 'Na vrijeme',
   scoringStandard: 'Standardno',
   questionTime: 'Vrijeme po pitanju',
@@ -98,7 +99,7 @@ export const bs: UiStrings = {
   descFamous: 'Ikone, lideri i zvijezde koje svi znaju.',
   descIslam: 'Vjera, historija i tradicija islama.',
   descFood: 'Jela, pića i okusi iz cijelog svijeta.',
-  descTextQ: 'Klasična pitanja sa četiri opcije. Jedan odgovor je tačan, ostali su pogrešni.',
+  descTextQ: 'Klasična pitanja sa četiri opcije. Ispod odabrane kategorije su povezane s ovim tipom pitanja.',
   descPictureQ: 'Pogodi šta ili ko je na slici prije nego istekne vrijeme.',
   descScoringStandard: 'Svaki tačan odgovor vrijedi 1 bod.',
   descScoringTimed:

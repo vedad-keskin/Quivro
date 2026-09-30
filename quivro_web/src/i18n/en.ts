@@ -71,6 +71,7 @@ export const en = {
   powerUpPrev: 'Previous power-up',
   descPowerUpFifty: 'Removes 2 wrong answers, leaves 2 to choose from.',
   descPowerUpEmpty: 'Empty slot.',
+  powerUpNeedsPro: '50/50 is part of Quivro Pro',
   scoringTimed: 'Timed',
   scoringStandard: 'Standard',
   questionTime: 'Time per question',
@@ -96,7 +97,7 @@ export const en = {
   descFamous: 'Icons, leaders and stars everyone knows.',
   descIslam: 'Faith, history and the traditions of Islam.',
   descFood: 'Dishes, drinks and flavours from everywhere.',
-  descTextQ: 'Classic four-choice questions. One answer is correct, rest are wrong.',
+  descTextQ: 'Classic four-choice questions. Below selected categories are connected to this question type.',
   descPictureQ: "Spot what or who is in the photo before the clock runs out.",
   descScoringStandard: 'Every correct answer is worth 1 point.',
   descScoringTimed:

@@ -1,5 +1,5 @@
 import type { CategoryId, QuestionType } from '../../data/questions/types';
-import type { RoomConfig, ScoringMode } from './room.models';
+import type { PowerUpId, PowerUpSlots, RoomConfig, ScoringMode } from './room.models';
 
 /**
  * Single source of truth for the free/Pro split. Everything that gates a
@@ -19,6 +19,8 @@ export const PRO_CATEGORIES: CategoryId[] = ['movies', 'famous', 'islam', 'food'
 
 export const FREE_QUESTION_TYPES: QuestionType[] = ['mcq'];
 export const FREE_SCORING_MODES: ScoringMode[] = ['standard'];
+/** Empty until a power-up is meant to be free. 50/50 is Pro. */
+export const FREE_POWER_UPS: PowerUpId[] = [];
 export const FREE_ROUND_LENGTH_PRESETS = [10, 20, 30] as const;
 export const FREE_MAX_ROUND_LENGTH = 30;
 
@@ -54,6 +56,10 @@ export function isRoundLengthFree(length: number): boolean {
   return (FREE_ROUND_LENGTH_PRESETS as readonly number[]).includes(length);
 }
 
+export function isPowerUpFree(id: PowerUpId): boolean {
+  return FREE_POWER_UPS.includes(id);
+}
+
 /**
  * Last line of defence before a room is written to Firebase. Forces a non-Pro
  * config down to free limits so stale or tampered UI state cannot create a Pro
@@ -70,5 +76,8 @@ export function clampToFree(config: RoomConfig, now: number = Date.now()): RoomC
     scoringMode: isScoringModeFree(config.scoringMode)
       ? config.scoringMode
       : FREE_SCORING_MODES[0],
+    powerUpSlots: config.powerUpSlots.map((slot) =>
+      slot && isPowerUpFree(slot) ? slot : null,
+    ) as PowerUpSlots,
   };
 }

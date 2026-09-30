@@ -106,6 +106,13 @@ describe('clampToFree', () => {
     expect(result.scoringMode).toBe('standard');
   });
 
+  it('strips 50/50 slots', () => {
+    expect(
+      clampToFree(config({ powerUpSlots: ['fifty_fifty', null, 'fifty_fifty'] }), now)
+        .powerUpSlots,
+    ).toEqual([null, null, null]);
+  });
+
   it('leaves an already-free config untouched', () => {
     const input = config({ roundLength: 20 });
     expect(clampToFree(input, now)).toEqual(input);

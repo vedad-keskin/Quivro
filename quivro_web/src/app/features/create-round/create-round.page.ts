@@ -12,7 +12,7 @@ import {
 } from '../../../data/questions/types';
 import type { UiStrings } from '../../../i18n/en';
 import { EntitlementService } from '../../core/entitlement.service';
-import { FREE_CATEGORIES, FREE_MAX_ROUND_LENGTH, PRO_CATEGORIES, isQuestionTypeFree, isRoundLengthFree } from '../../core/entitlements';
+import { FREE_CATEGORIES, FREE_MAX_ROUND_LENGTH, PRO_CATEGORIES, isPowerUpFree, isQuestionTypeFree, isRoundLengthFree } from '../../core/entitlements';
 import { GameRoomService } from '../../core/game-room.service';
 import { LanguageService } from '../../core/language.service';
 import {
@@ -330,20 +330,29 @@ function loadRoundPrefs(): RoundPrefs | null {
                     </svg>
                   </button>
                 </div>
-                <div class="slot-copy">
-                  <span class="slot-name">
+                <div
+                  class="slot-copy cat-copy"
+                  [class.empty]="!slot"
+                  [class.locked]="!!slot && ent.powerUpLocked(slot)"
+                >
+                  <strong>
                     {{ slot === 'fifty_fifty' ? lang.t().powerUpFifty : lang.t().descPowerUpEmpty }}
-                  </span>
+                  </strong>
                   @if (slot === 'fifty_fifty') {
-                    <p class="hint">{{ lang.t().descPowerUpFifty }}</p>
+                    <span>{{ lang.t().descPowerUpFifty }}</span>
+                  }
+                  @if (slot && !isPowerUpFree(slot)) {
+                    <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.powerUpLocked(slot))" />
                   }
                 </div>
               </div>
             }
           </div>
           <p class="hint">{{ lang.t().powerUpsHint }}</p>
+          @if (powerUpBlocked()) {
+            <p class="hint warn">{{ lang.t().powerUpNeedsPro }}</p>
+          }
         </section>
-
         @if (!rooms.isLive) {
           <p class="hint warn">{{ lang.t().firebaseMissing }}</p>
         }
@@ -442,7 +451,9 @@ function loadRoundPrefs(): RoundPrefs | null {
       line-height: 1.25;
       color: var(--q-muted);
     }
-    .token.locked .cat-copy {
+    .token.locked .cat-copy,
+    .slot-copy.locked,
+    .slot-copy.empty {
       border: 2px solid var(--q-border);
       background: var(--q-card);
     }
@@ -462,7 +473,9 @@ function loadRoundPrefs(): RoundPrefs | null {
     .token:hover .corner-badge,
     .token:focus-visible .corner-badge,
     .pill:hover .corner-badge,
-    .pill:focus-visible .corner-badge {
+    .pill:focus-visible .corner-badge,
+    .slot-reel:hover .corner-badge,
+    .slot-reel:has(:focus-visible) .corner-badge {
       transform: translate(8px, -12px) rotate(20deg);
     }
     @media (prefers-reduced-motion: reduce) {
@@ -472,7 +485,9 @@ function loadRoundPrefs(): RoundPrefs | null {
       .token:hover .corner-badge,
       .token:focus-visible .corner-badge,
       .pill:hover .corner-badge,
-      .pill:focus-visible .corner-badge {
+      .pill:focus-visible .corner-badge,
+      .slot-reel:hover .corner-badge,
+      .slot-reel:has(:focus-visible) .corner-badge {
         transform: rotate(12deg);
       }
     }
@@ -616,6 +631,7 @@ function loadRoundPrefs(): RoundPrefs | null {
       align-items: center;
       gap: 1rem;
       margin-top: 0.35rem;
+      padding-top: 1.75rem;
     }
     .slot-reel {
       display: flex;
@@ -656,13 +672,12 @@ function loadRoundPrefs(): RoundPrefs | null {
       transform: rotate(-90deg);
     }
     .slot-copy {
-      display: grid;
-      gap: 0.1rem;
+      position: relative;
+      flex: 1;
       min-width: 0;
-      text-align: left;
     }
-    .slot-copy .hint {
-      margin: 0;
+    .slot-reel .corner-badge {
+      pointer-events: auto;
     }
     .power-slot {
       width: 88px;
@@ -724,13 +739,6 @@ function loadRoundPrefs(): RoundPrefs | null {
         opacity: 1;
         transform: none;
       }
-    }
-    .slot-name {
-      font-size: 0.82rem;
-      font-weight: 900;
-      line-height: 1.15;
-      text-align: left;
-      color: var(--q-navy);
     }
     @media (max-width: 720px) {
       .tokens-cats {
@@ -800,6 +808,9 @@ export class CreateRoundPage {
     this.saved?.powerUpSlots ?? ([...EMPTY_POWER_UP_SLOTS] as PowerUpSlots),
   );
   readonly fiftyFiftyIcon = POWER_UP_CATALOG[0].icon;
+  readonly powerUpBlocked = computed(() =>
+    this.powerUpSlots().some((slot) => !!slot && this.ent.powerUpLocked(slot)),
+  );
   readonly creating = signal(false);
 
   readonly effectiveLength = computed(() =>
@@ -814,6 +825,7 @@ export class CreateRoundPage {
       this.types().length > 0 &&
       (!this.needsCategories() || this.selected().length > 0) &&
       this.customLengthValid() &&
+      !this.powerUpBlocked() &&
       this.rooms.isLive,
   );
 
@@ -863,6 +875,7 @@ export class CreateRoundPage {
   }
 
   readonly isQuestionTypeFree = isQuestionTypeFree;
+  readonly isPowerUpFree = isPowerUpFree;
   readonly isRoundLengthFree = isRoundLengthFree;
 
   isWeeklyCategory(cat: CategoryId): boolean {
