@@ -310,6 +310,7 @@ function loadRoundPrefs(): RoundPrefs | null {
                   <div
                     class="power-slot"
                     [class.filled]="slot"
+                    [class.locked]="!!slot && ent.powerUpLocked(slot)"
                     [class.from-up]="$index === slotSlide()?.index && slotSlide()?.dir === 1"
                     [class.from-down]="$index === slotSlide()?.index && slotSlide()?.dir === -1"
                   >
@@ -368,6 +369,26 @@ function loadRoundPrefs(): RoundPrefs | null {
       </div>
 
       <app-studio-footer />
+      @if (resetPrompt()) {
+        <div class="reset-backdrop" (click)="resetPrompt.set(false)">
+          <div
+            class="reset-card"
+            role="dialog"
+            aria-modal="true"
+            (click)="$event.stopPropagation()"
+          >
+            <p>{{ lang.t().powerUpReset }}</p>
+            <div class="reset-actions">
+              <button type="button" class="q-btn q-btn-ghost" (click)="resetPrompt.set(false)">
+                {{ lang.t().back }}
+              </button>
+              <button type="button" class="q-btn q-btn-outline" (click)="confirmReset()">
+                {{ lang.t().generateCode }}
+              </button>
+            </div>
+          </div>
+        </div>
+      }
     </div>
   `,
   styles: `
@@ -634,12 +655,16 @@ function loadRoundPrefs(): RoundPrefs | null {
       padding-top: 1.75rem;
     }
     .slot-reel {
+      position: relative;
       display: flex;
       flex-direction: row;
       align-items: center;
       gap: 0.65rem;
       flex: 1;
       min-width: 0;
+    }
+    .slot-reel:has(.corner-badge) {
+      z-index: 1;
     }
     .slot-switch {
       display: flex;
@@ -678,6 +703,11 @@ function loadRoundPrefs(): RoundPrefs | null {
     }
     .slot-reel .corner-badge {
       pointer-events: auto;
+      opacity: 1;
+      filter: none;
+      z-index: 2;
+      top: -58px;
+      right: -4px;
     }
     .power-slot {
       width: 88px;
@@ -705,6 +735,9 @@ function loadRoundPrefs(): RoundPrefs | null {
       height: 100%;
       object-fit: cover;
       display: block;
+    }
+    .power-slot.locked img {
+      filter: grayscale(1);
     }
     .slot-plus {
       font-size: 1.7rem;
@@ -755,6 +788,37 @@ function loadRoundPrefs(): RoundPrefs | null {
       .power-slot.from-down .slot-plus {
         animation: none;
       }
+    }
+    .reset-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+      background: rgba(6, 12, 32, 0.55);
+    }
+    .reset-card {
+      width: min(420px, 100%);
+      display: grid;
+      gap: 1rem;
+      padding: 1.25rem 1.35rem;
+      border: 2px solid transparent;
+      border-radius: 24px;
+      background:
+        linear-gradient(var(--q-card), var(--q-card)) padding-box,
+        var(--q-gradient) border-box;
+      box-shadow: var(--q-shadow);
+    }
+    .reset-card p {
+      margin: 0;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+    .reset-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.6rem;
     }
   `,
 })
@@ -812,6 +876,7 @@ export class CreateRoundPage {
     this.powerUpSlots().some((slot) => !!slot && this.ent.powerUpLocked(slot)),
   );
   readonly creating = signal(false);
+  readonly resetPrompt = signal(false);
 
   readonly effectiveLength = computed(() =>
     this.customMode() ? this.customLength() : this.length(),
@@ -825,7 +890,6 @@ export class CreateRoundPage {
       this.types().length > 0 &&
       (!this.needsCategories() || this.selected().length > 0) &&
       this.customLengthValid() &&
-      !this.powerUpBlocked() &&
       this.rooms.isLive,
   );
 
@@ -997,6 +1061,10 @@ export class CreateRoundPage {
 
   async create(): Promise<void> {
     if (!this.canCreate() || this.creating()) return;
+    if (this.powerUpBlocked()) {
+      this.resetPrompt.set(true);
+      return;
+    }
     this.creating.set(true);
     try {
       const code = await this.rooms.createRoom({
@@ -1019,5 +1087,11 @@ export class CreateRoundPage {
     } finally {
       this.creating.set(false);
     }
+  }
+
+  confirmReset(): void {
+    this.resetPrompt.set(false);
+    this.powerUpSlots.set([...EMPTY_POWER_UP_SLOTS]);
+    void this.create();
   }
 }

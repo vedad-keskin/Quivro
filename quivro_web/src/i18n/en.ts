@@ -72,6 +72,7 @@ export const en = {
   descPowerUpFifty: 'Removes 2 wrong answers, leaves 2 to choose from.',
   descPowerUpEmpty: 'Empty slot.',
   powerUpNeedsPro: '50/50 is part of Quivro Pro',
+  powerUpReset: 'Power-ups are part of Quivro Pro, so continuing will reset power-ups to none.',
   scoringTimed: 'Timed',
   scoringStandard: 'Standard',
   questionTime: 'Time per question',

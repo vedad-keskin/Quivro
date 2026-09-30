@@ -74,6 +74,7 @@ export const bs: UiStrings = {
   descPowerUpFifty: 'Uklanja 2 pogrešna odgovora, ostavlja 2 na izbor.',
   descPowerUpEmpty: 'Prazan slot.',
   powerUpNeedsPro: '50/50 je dio Quivro Pro',
+  powerUpReset: 'Pojačanja su dio Quivro Pro, ako odabrete nastavak svaki slot pojačanja će biti prazan.',
   scoringTimed: 'Na vrijeme',
   scoringStandard: 'Standardno',
   questionTime: 'Vrijeme po pitanju',

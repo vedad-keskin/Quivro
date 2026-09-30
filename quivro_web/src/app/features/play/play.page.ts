@@ -275,7 +275,11 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                       >
                         <span class="chevron up" aria-hidden="true"></span>
                       </button>
-                      <div class="power-slot" [class.filled]="slot">
+                      <div
+                        class="power-slot"
+                        [class.filled]="slot"
+                        [class.locked]="!!slot && ent.powerUpLocked(slot)"
+                      >
                         @if (slot === 'fifty_fifty') {
                           <img [src]="fiftyFiftyIcon" alt="" />
                         } @else {
@@ -453,6 +457,26 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
         }
       } @else {
         <p class="waiting">{{ lang.t().roomNotFound }}</p>
+      }
+      @if (resetPrompt()) {
+        <div class="reset-backdrop" (click)="resetPrompt.set(false)">
+          <div
+            class="reset-card"
+            role="dialog"
+            aria-modal="true"
+            (click)="$event.stopPropagation()"
+          >
+            <p>{{ lang.t().powerUpReset }}</p>
+            <div class="reset-actions">
+              <button type="button" class="q-btn q-btn-ghost" (click)="resetPrompt.set(false)">
+                {{ lang.t().back }}
+              </button>
+              <button type="button" class="q-btn q-btn-outline" (click)="confirmReset()">
+                {{ lang.t().generateCode }}
+              </button>
+            </div>
+          </div>
+        </div>
       }
     </div>
   `,
@@ -918,6 +942,9 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       object-fit: cover;
       display: block;
     }
+    .power-slot.locked img {
+      filter: grayscale(1);
+    }
     .slot-plus {
       font-size: 1.7rem;
       font-weight: 800;
@@ -1051,6 +1078,37 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
         }
       }
     }
+    .reset-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+      background: rgba(6, 12, 32, 0.55);
+    }
+    .reset-card {
+      width: min(420px, 100%);
+      display: grid;
+      gap: 1rem;
+      padding: 1.25rem 1.35rem;
+      border: 2px solid transparent;
+      border-radius: 24px;
+      background:
+        linear-gradient(var(--q-card), var(--q-card)) padding-box,
+        var(--q-gradient) border-box;
+      box-shadow: var(--q-shadow);
+    }
+    .reset-card p {
+      margin: 0;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+    .reset-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.6rem;
+    }
   `,
 })
 export class PlayPage implements OnInit, OnDestroy {
@@ -1090,6 +1148,7 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly powerUpBlocked = computed(() =>
     this.powerUpSlots().some((slot) => !!slot && this.ent.powerUpLocked(slot)),
   );
+  readonly resetPrompt = signal(false);
   readonly rematching = signal(false);
   readonly copied = signal(false);
   readonly imagePhase = signal<ImagePhase>('idle');
@@ -1172,7 +1231,6 @@ export class PlayPage implements OnInit, OnDestroy {
       this.selectedTypes().length > 0 &&
       (!this.needsCategories() || this.selectedCats().length > 0) &&
       this.customLengthValid() &&
-      !this.powerUpBlocked() &&
       this.rematchReadyPlayers().length > 0,
   );
 
@@ -1534,6 +1592,10 @@ export class PlayPage implements OnInit, OnDestroy {
 
   async rematch(): Promise<void> {
     if (!this.rooms.hosting() || !this.canRematch() || this.rematching()) return;
+    if (this.powerUpBlocked()) {
+      this.resetPrompt.set(true);
+      return;
+    }
     this.rematching.set(true);
     try {
       const room = this.room();
@@ -1567,6 +1629,12 @@ export class PlayPage implements OnInit, OnDestroy {
     } finally {
       this.rematching.set(false);
     }
+  }
+
+  confirmReset(): void {
+    this.resetPrompt.set(false);
+    this.powerUpSlots.set([...EMPTY_POWER_UP_SLOTS]);
+    void this.rematch();
   }
 
   private playCorrectSfx(): void {
