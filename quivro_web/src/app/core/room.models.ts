@@ -70,7 +70,7 @@ export const POWER_UP_CATALOG: readonly {
     id: 'fifty_fifty',
     labelKey: 'powerUpFifty',
     descKey: 'descPowerUpFifty',
-    icon: '/powerups/fifty_fifty.png',
+    icon: '/room-icons/fifty_fifty.png',
   },
 ];
 

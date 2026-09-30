@@ -5,8 +5,8 @@ export type Lang = 'en' | 'bs';
 export type CategoryId =
   | 'geography'
   | 'biology'
-  | 'technology'
   | 'history'
+  | 'technology'
   | 'sports'
   | 'movies'
   | 'famous'
@@ -32,8 +32,8 @@ export interface Question {
 export const CATEGORIES: CategoryId[] = [
   'geography',
   'biology',
-  'technology',
   'history',
+  'technology',
   'sports',
   'movies',
   'famous',

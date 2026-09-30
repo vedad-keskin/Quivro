@@ -1085,7 +1085,7 @@ class _PowerSlotState extends State<_PowerSlot>
 
   Widget _filledSlot() {
     final image = Image.asset(
-      'assets/powerups/fifty_fifty.png',
+      'assets/room-icons/fifty_fifty.png',
       width: 68,
       height: 68,
       fit: BoxFit.cover,

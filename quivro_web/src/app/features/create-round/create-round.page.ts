@@ -751,8 +751,8 @@ export class CreateRoundPage {
   readonly categoryInfo: Record<CategoryId, { emoji: string; descKey: keyof UiStrings }> = {
     geography: { emoji: '🌍', descKey: 'descGeography' },
     biology: { emoji: '🧬', descKey: 'descBiology' },
-    technology: { emoji: '💻', descKey: 'descTechnology' },
     history: { emoji: '🏛️', descKey: 'descHistory' },
+    technology: { emoji: '💻', descKey: 'descTechnology' },
     sports: { emoji: '⚽', descKey: 'descSports' },
     movies: { emoji: '🎬', descKey: 'descMovies' },
     famous: { emoji: '🌟', descKey: 'descFamous' },

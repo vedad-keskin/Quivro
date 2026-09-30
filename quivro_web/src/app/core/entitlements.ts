@@ -9,8 +9,8 @@ import type { RoomConfig, ScoringMode } from './room.models';
 export const FREE_CATEGORIES: CategoryId[] = [
   'geography',
   'biology',
-  'technology',
   'history',
+  'technology',
   'sports',
 ];
 
