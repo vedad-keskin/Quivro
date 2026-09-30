@@ -26,8 +26,16 @@ import {
   type QuestionType,
 } from '../../../data/questions/types';
 import { EntitlementService } from '../../core/entitlement.service';
-import { FREE_CATEGORIES, FREE_MAX_ROUND_LENGTH } from '../../core/entitlements';
+import {
+  FREE_CATEGORIES,
+  FREE_MAX_ROUND_LENGTH,
+  PRO_CATEGORIES,
+  isPowerUpFree,
+  isQuestionTypeFree,
+  isRoundLengthFree,
+} from '../../core/entitlements';
 import { GameRoomService } from '../../core/game-room.service';
+import type { UiStrings } from '../../../i18n/en';
 import { LanguageService } from '../../core/language.service';
 import {
   isValidRoundLength,
@@ -132,179 +140,235 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                 </div>
               </div>
 
-              <section [class.cats-disabled]="!needsCategories()">
+              <div class="pair">
+                <section class="group">
+                  <label class="q-label">{{ lang.t().questionTypes }}</label>
+                  <div class="tokens">
+                    @for (t of questionTypes; track t) {
+                      <button
+                        type="button"
+                        class="token cat"
+                        [class.on]="selectedTypes().includes(t)"
+                        [class.locked]="ent.questionTypeLocked(t)"
+                        [attr.aria-pressed]="selectedTypes().includes(t)"
+                        (click)="toggleType(t)"
+                      >
+                        <span class="token-icon">
+                          <img class="art" [src]="typeInfo[t].icon" alt="" />
+                        </span>
+                        <span class="cat-copy">
+                          <strong>{{ typeLabel(t) }}</strong>
+                          <span>{{ typeDesc(t) }}</span>
+                          @if (!isQuestionTypeFree(t)) {
+                            <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.questionTypeLocked(t))" />
+                          }
+                        </span>
+                      </button>
+                    }
+                  </div>
+                  @if (selectedTypes().length === 0) {
+                    <p class="hint warn">{{ lang.t().selectAtLeastOneType }}</p>
+                  }
+                </section>
+
+                <section class="group">
+                  <label class="q-label">{{ lang.t().scoringMode }}</label>
+                  <div class="tokens">
+                    <button
+                      type="button"
+                      class="token cat"
+                      [class.on]="scoringMode() === 'standard'"
+                      [attr.aria-pressed]="scoringMode() === 'standard'"
+                      (click)="scoringMode.set('standard')"
+                    >
+                      <span class="token-icon">
+                        <img class="art" src="/room-icons/standard.png" alt="" />
+                      </span>
+                      <span class="cat-copy">
+                        <strong>{{ lang.t().scoringStandard }}</strong>
+                        <span>{{ scoringDesc('standard') }}</span>
+                      </span>
+                    </button>
+                    <button
+                      type="button"
+                      class="token cat"
+                      [class.on]="scoringMode() === 'timed'"
+                      [class.locked]="ent.scoringModeLocked('timed')"
+                      [attr.aria-pressed]="scoringMode() === 'timed'"
+                      (click)="pickScoring('timed')"
+                    >
+                      <span class="token-icon">
+                        <img class="art" src="/room-icons/timed.png" alt="" />
+                      </span>
+                      <span class="cat-copy">
+                        <strong>{{ lang.t().scoringTimed }}</strong>
+                        <span>{{ scoringDesc('timed') }}</span>
+                        <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.scoringModeLocked('timed'))" />
+                      </span>
+                    </button>
+                  </div>
+                </section>
+              </div>
+
+              <section class="group" [class.cats-disabled]="!needsCategories()">
                 <label class="q-label">{{ lang.t().categories }}</label>
-                <div class="setting-chips">
+                <div class="tokens tokens-cats">
                   @for (cat of categories; track cat) {
                     <button
                       type="button"
-                      class="q-chip"
-                      [class.active]="selectedCats().includes(cat)"
+                      class="token cat"
+                      [class.on]="selectedCats().includes(cat)"
                       [class.locked]="ent.categoryLocked(cat)"
                       [disabled]="!needsCategories()"
+                      [attr.aria-pressed]="selectedCats().includes(cat)"
                       (click)="toggleCategory(cat)"
                     >
-                      {{ categoryLabel(cat) }}
-                      @if (ent.categoryLocked(cat)) {
-                        <span class="lock" aria-hidden="true">🔒</span>
-                      } @else if (isFreeThisWeek(cat)) {
-                        <span class="gift" aria-hidden="true">★</span>
-                      }
+                      <span class="token-icon">
+                        <img class="art" [src]="categoryInfo[cat].icon" alt="" />
+                      </span>
+                      <span class="cat-copy">
+                        <strong>{{ categoryLabel(cat) }}</strong>
+                        <span>{{ categoryDesc(cat) }}</span>
+                        @if (isWeeklyCategory(cat)) {
+                          <img class="corner-badge" src="/brand/free_rotation2.png" [alt]="lang.t().freeThisWeek" />
+                        } @else if (isProCategory(cat)) {
+                          <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.categoryLocked(cat))" />
+                        }
+                      </span>
                     </button>
                   }
                 </div>
-              </section>
-
-              <section>
-                <label class="q-label">{{ lang.t().questionTypes }}</label>
-                <div class="setting-chips">
-                  @for (t of questionTypes; track t) {
-                    <button
-                      type="button"
-                      class="q-chip"
-                      [class.active]="selectedTypes().includes(t)"
-                      [class.locked]="ent.questionTypeLocked(t)"
-                      (click)="toggleType(t)"
-                    >
-                      {{ typeLabel(t) }}
-                      @if (ent.questionTypeLocked(t)) {
-                        <span class="lock" aria-hidden="true">🔒</span>
-                      }
-                    </button>
-                  }
-                </div>
-              </section>
-
-              <section>
-                <label class="q-label">{{ lang.t().scoringMode }}</label>
-                <div class="setting-chips">
-                  <button
-                    type="button"
-                    class="q-chip"
-                    [class.active]="scoringMode() === 'standard'"
-                    (click)="scoringMode.set('standard')"
-                  >
-                    {{ lang.t().scoringStandard }}
-                  </button>
-                  <button
-                    type="button"
-                    class="q-chip"
-                    [class.active]="scoringMode() === 'timed'"
-                    [class.locked]="ent.scoringModeLocked('timed')"
-                    (click)="pickScoring('timed')"
-                  >
-                    {{ lang.t().scoringTimed }}
-                    @if (ent.scoringModeLocked('timed')) {
-                      <span class="lock" aria-hidden="true">🔒</span>
-                    }
-                  </button>
-                </div>
-              </section>
-
-              <section>
-                <label class="q-label">{{ lang.t().questionTime }}</label>
-                <div class="setting-chips">
-                  @for (n of timerPresets; track n) {
-                    <button
-                      type="button"
-                      class="q-chip"
-                      [class.active]="questionSeconds() === n"
-                      (click)="questionSeconds.set(n)"
-                    >
-                      {{ n }}{{ lang.t().seconds }}
-                    </button>
-                  }
-                </div>
-              </section>
-
-              <section>
-                <label class="q-label">{{ lang.t().roundLength }}</label>
-                <div class="setting-chips">
-                  @for (n of presets; track n) {
-                    <button
-                      type="button"
-                      class="q-chip"
-                      [class.active]="!customMode() && length() === n"
-                      [class.locked]="ent.roundLengthLocked(n)"
-                      (click)="pickPreset(n)"
-                    >
-                      {{ n }}
-                      @if (ent.roundLengthLocked(n)) {
-                        <span class="lock" aria-hidden="true">🔒</span>
-                      }
-                    </button>
-                  }
-                  <button
-                    type="button"
-                    class="q-chip"
-                    [class.active]="customMode()"
-                    [class.locked]="ent.customLengthLocked()"
-                    (click)="pickCustom()"
-                  >
-                    {{ lang.t().custom }}
-                    @if (ent.customLengthLocked()) {
-                      <span class="lock" aria-hidden="true">🔒</span>
-                    }
-                  </button>
-                </div>
-                @if (customMode()) {
-                  <input
-                    class="q-input custom-input"
-                    type="number"
-                    [min]="minRoundLength"
-                    [ngModel]="customLength()"
-                    (ngModelChange)="onCustom($event)"
-                  />
+                @if (needsCategories() && selectedCats().length === 0) {
+                  <p class="hint warn">{{ lang.t().selectAtLeastOne }}</p>
                 }
-                <p class="hint" [class.warn]="customMode() && !customLengthValid()">
-                  {{ effectiveLength() }} {{ lang.t().questions }}
-                  · {{ lang.t().difficultyMix }}
-                </p>
               </section>
 
-              <section>
+              <div class="pair">
+                <section class="group">
+                  <div class="meter-head">
+                    <img src="/room-icons/time_per_q.png" alt="" />
+                    <label class="q-label">{{ lang.t().questionTime }}</label>
+                  </div>
+                  <div class="pills">
+                    @for (n of timerPresets; track n) {
+                      <button
+                        type="button"
+                        class="pill"
+                        [class.active]="questionSeconds() === n"
+                        [attr.aria-pressed]="questionSeconds() === n"
+                        (click)="questionSeconds.set(n)"
+                      >
+                        {{ n }}{{ lang.t().seconds }}
+                      </button>
+                    }
+                  </div>
+                  <p class="hint">{{ lang.t().descQuestionTime }}</p>
+                </section>
+
+                <section class="group round">
+                  <div class="meter-head">
+                    <img src="/room-icons/round_length.png" alt="" />
+                    <label class="q-label">{{ lang.t().roundLength }}</label>
+                  </div>
+                  <div class="pills">
+                    @for (n of presets; track n) {
+                      <button
+                        type="button"
+                        class="pill"
+                        [class.active]="!customMode() && length() === n"
+                        [class.locked]="ent.roundLengthLocked(n)"
+                        [attr.aria-pressed]="!customMode() && length() === n"
+                        (click)="pickPreset(n)"
+                      >
+                        {{ n }}
+                        @if (!isRoundLengthFree(n)) {
+                          <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.roundLengthLocked(n))" />
+                        }
+                      </button>
+                    }
+                    <button
+                      type="button"
+                      class="pill"
+                      [class.active]="customMode()"
+                      [class.locked]="ent.customLengthLocked()"
+                      [attr.aria-pressed]="customMode()"
+                      (click)="pickCustom()"
+                    >
+                      {{ lang.t().custom }}
+                      <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.customLengthLocked())" />
+                    </button>
+                  </div>
+                  @if (customMode()) {
+                    <input
+                      class="q-input custom-input"
+                      type="number"
+                      [min]="minRoundLength"
+                      [ngModel]="customLength()"
+                      (ngModelChange)="onCustom($event)"
+                    />
+                  }
+                  <p class="hint" [class.warn]="customMode() && !customLengthValid()">
+                    {{ effectiveLength() }} {{ lang.t().questions }}
+                    · {{ lang.t().difficultyMix }}
+                  </p>
+                </section>
+              </div>
+
+              <section class="group">
                 <label class="q-label">{{ lang.t().powerUps }}</label>
                 <div class="power-slots">
                   @for (slot of powerUpSlots(); track $index) {
                     <div class="slot-reel">
-                      <button
-                        type="button"
-                        class="slot-nudge"
-                        [attr.aria-label]="lang.t().powerUpNext"
-                        (click)="cycleSlot($index, 1)"
-                      >
-                        <span class="chevron up" aria-hidden="true"></span>
-                      </button>
+                      <div class="slot-switch">
+                        <button
+                          type="button"
+                          class="slot-nudge"
+                          [attr.aria-label]="lang.t().powerUpNext"
+                          (click)="cycleSlot($index, 1)"
+                        >
+                          <svg class="arrow up" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                            <path d="M14.5 5.5 L8.5 12 L14.5 18.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                        </button>
+                        <div
+                          class="power-slot"
+                          [class.filled]="slot"
+                          [class.locked]="!!slot && ent.powerUpLocked(slot)"
+                          [class.from-up]="$index === slotSlide()?.index && slotSlide()?.dir === 1"
+                          [class.from-down]="$index === slotSlide()?.index && slotSlide()?.dir === -1"
+                        >
+                          @if (slot === 'fifty_fifty') {
+                            <img [src]="fiftyFiftyIcon" alt="" />
+                          } @else {
+                            <span class="slot-plus" aria-hidden="true">+</span>
+                          }
+                        </div>
+                        <button
+                          type="button"
+                          class="slot-nudge"
+                          [attr.aria-label]="lang.t().powerUpPrev"
+                          (click)="cycleSlot($index, -1)"
+                        >
+                          <svg class="arrow down" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                            <path d="M14.5 5.5 L8.5 12 L14.5 18.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                        </button>
+                      </div>
                       <div
-                        class="power-slot"
-                        [class.filled]="slot"
+                        class="slot-copy cat-copy"
+                        [class.empty]="!slot"
                         [class.locked]="!!slot && ent.powerUpLocked(slot)"
                       >
+                        <strong>
+                          {{ slot === 'fifty_fifty' ? lang.t().powerUpFifty : lang.t().descPowerUpEmpty }}
+                        </strong>
                         @if (slot === 'fifty_fifty') {
-                          <img [src]="fiftyFiftyIcon" alt="" />
-                        } @else {
-                          <span class="slot-plus" aria-hidden="true">+</span>
+                          <span>{{ lang.t().descPowerUpFifty }}</span>
+                        }
+                        @if (slot && !isPowerUpFree(slot)) {
+                          <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.powerUpLocked(slot))" />
                         }
                       </div>
-                      <button
-                        type="button"
-                        class="slot-nudge"
-                        [attr.aria-label]="lang.t().powerUpPrev"
-                        (click)="cycleSlot($index, -1)"
-                      >
-                        <span class="chevron down" aria-hidden="true"></span>
-                      </button>
-                      @if (slot === 'fifty_fifty') {
-                        <div class="preview">
-                          <div class="p-head">
-                            <strong class="p-title">{{ lang.t().powerUpFifty }}</strong>
-                            @if (ent.powerUpLocked('fifty_fifty')) {
-                              <span class="lock" aria-hidden="true">🔒</span>
-                            }
-                          </div>
-                          <p class="p-body">{{ lang.t().descPowerUpFifty }}</p>
-                        </div>
-                      }
                     </div>
                   }
                 </div>
@@ -775,7 +839,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       font-size: 0.9rem;
     }
     .final {
-      max-width: 640px;
+      max-width: 960px;
       margin: 2rem auto;
       display: grid;
       gap: 1.25rem;
@@ -872,25 +936,239 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       color: var(--q-muted);
       font-size: 0.9rem;
     }
-    .setting-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.35rem;
+    .rematch-hub .group {
+      background: var(--q-card);
+      border: 2px solid var(--q-border);
+      border-radius: 24px;
+      padding: 1rem 1.1rem 1.15rem;
     }
-    .power-slots {
-      display: flex;
-      gap: 0.85rem;
-      margin-top: 0.35rem;
+    .rematch-hub .pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      align-items: stretch;
     }
-    .slot-reel {
+    .rematch-hub .tokens {
+      display: grid;
+      gap: 0.85rem 0.35rem;
+      justify-items: center;
+    }
+    .rematch-hub .tokens-cats {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      padding-top: 1.75rem;
+      gap: 1.15rem 0.65rem;
+    }
+    .rematch-hub .token.cat {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.45rem;
+      text-align: left;
+    }
+    .rematch-hub .cat-copy {
       position: relative;
+      flex: 1;
+      min-width: 0;
+      display: grid;
+      gap: 0.12rem;
+      padding: 0.45rem 1.15rem 0.45rem 0.55rem;
+      text-align: left;
+      border-radius: 16px;
+      border: 2px solid transparent;
+      background:
+        linear-gradient(var(--q-card), var(--q-card)) padding-box,
+        var(--q-gradient) border-box;
+    }
+    .rematch-hub .cat-copy strong {
+      font-size: 0.82rem;
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--q-navy);
+    }
+    .rematch-hub .cat-copy span {
+      font-size: 0.72rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--q-muted);
+    }
+    .rematch-hub .token.locked .cat-copy,
+    .rematch-hub .slot-copy.locked,
+    .rematch-hub .slot-copy.empty {
+      border: 2px solid var(--q-border);
+      background: var(--q-card);
+    }
+    .rematch-hub .corner-badge {
+      position: absolute;
+      top: -42px;
+      right: -6px;
+      width: 72px;
+      height: 72px;
+      max-width: none;
+      max-height: none;
+      object-fit: contain;
+      pointer-events: none;
+      transform: rotate(12deg);
+      transition: transform 0.18s ease;
+    }
+    .rematch-hub .token:hover .corner-badge,
+    .rematch-hub .token:focus-visible .corner-badge,
+    .rematch-hub .pill:hover .corner-badge,
+    .rematch-hub .pill:focus-visible .corner-badge,
+    .rematch-hub .slot-reel:hover .corner-badge,
+    .rematch-hub .slot-reel:has(:focus-visible) .corner-badge {
+      transform: translate(8px, -12px) rotate(20deg);
+    }
+    .rematch-hub .pair .tokens {
+      grid-template-columns: 1fr;
+      padding-top: 1.75rem;
+    }
+    .rematch-hub .token {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0.35rem;
+      width: 100%;
+      padding: 0.2rem;
+      border: 0;
+      background: transparent;
+      color: var(--q-navy);
+      cursor: pointer;
+      opacity: 0.42;
     }
-    .slot-nudge {
+    .rematch-hub .token.on {
+      opacity: 1;
+    }
+    .rematch-hub .token:focus-visible,
+    .rematch-hub .pill:focus-visible,
+    .rematch-hub .slot-nudge:focus-visible {
+      outline: 2px solid var(--q-blue);
+      outline-offset: 2px;
+    }
+    .rematch-hub .token-icon {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      border-radius: 28px;
+      border: 4px solid transparent;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .rematch-hub .token.on .token-icon {
+      background:
+        linear-gradient(var(--q-card), var(--q-card)) padding-box,
+        var(--q-gradient) border-box;
+      box-shadow:
+        0 0 0 4px color-mix(in srgb, #7b3ff2 32%, transparent),
+        0 10px 24px color-mix(in srgb, #2f7cf6 42%, transparent);
+    }
+    .rematch-hub .token-icon .art {
+      width: 88px;
+      height: 88px;
+      object-fit: contain;
+      display: block;
+    }
+    .rematch-hub .token.locked .art {
+      filter: grayscale(1);
+    }
+    .rematch-hub .meter-head {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 0.65rem;
+    }
+    .rematch-hub .meter-head img {
+      width: 88px;
+      height: 88px;
+      object-fit: contain;
+    }
+    .rematch-hub .meter-head .q-label {
+      margin: 0;
+    }
+    .rematch-hub .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding-top: 2.4rem;
+    }
+    .rematch-hub .pill {
+      position: relative;
+      min-height: 44px;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      border: 2px solid var(--q-border);
+      background: var(--q-card);
+      color: var(--q-navy);
+      font-weight: 900;
+      cursor: pointer;
+      opacity: 0.5;
+    }
+    .rematch-hub .pill.active {
+      opacity: 1;
+      border-color: transparent;
+      color: #fff;
+      background: var(--q-gradient);
+    }
+    .rematch-hub .pill.locked {
+      opacity: 0.42;
+    }
+    .rematch-hub .pill .corner-badge {
+      top: -58px;
+      right: -4px;
+    }
+    .rematch-hub .hint {
+      margin: 0.65rem 0 0;
+      color: var(--q-muted);
+      font-weight: 700;
+      font-size: 0.82rem;
+    }
+    .rematch-hub .warn {
+      color: #db2777;
+    }
+    .rematch-hub .round {
+      position: relative;
+    }
+    .rematch-hub .custom-input {
+      position: absolute;
+      top: 0.85rem;
+      right: 1rem;
+      width: 5.25rem;
+      margin: 0;
+      padding: 0.4rem 0.55rem;
+    }
+    .rematch-hub .cats-disabled {
+      opacity: 0.45;
+    }
+    .rematch-hub .cats-disabled .token {
+      pointer-events: none;
+    }
+    .rematch-hub .power-slots {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.35rem;
+      padding-top: 1.75rem;
+    }
+    .rematch-hub .slot-reel {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.65rem;
+      flex: 1;
+      min-width: 0;
+    }
+    .rematch-hub .slot-reel:has(.corner-badge) {
+      z-index: 1;
+    }
+    .rematch-hub .slot-switch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      flex-shrink: 0;
+    }
+    .rematch-hub .slot-nudge {
       width: 28px;
       height: 28px;
       padding: 0;
@@ -904,129 +1182,116 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       display: grid;
       place-items: center;
     }
-    .chevron {
-      width: 7px;
-      height: 7px;
-      border-right: 2px solid currentColor;
-      border-bottom: 2px solid currentColor;
+    .rematch-hub .arrow {
       display: block;
     }
-    .chevron.up {
-      transform: rotate(-135deg);
-      margin-top: 3px;
+    .rematch-hub .arrow.up {
+      transform: rotate(90deg);
     }
-    .chevron.down {
-      transform: rotate(45deg);
-      margin-bottom: 3px;
+    .rematch-hub .arrow.down {
+      transform: rotate(-90deg);
     }
-    .power-slot {
-      width: 76px;
-      height: 76px;
+    .rematch-hub .slot-copy {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+    }
+    .rematch-hub .slot-reel .corner-badge {
+      pointer-events: auto;
+      opacity: 1;
+      filter: none;
+      z-index: 2;
+      top: -58px;
+      right: -4px;
+    }
+    .rematch-hub .power-slot {
+      width: 88px;
+      height: 88px;
       border-radius: 999px;
       border: 2px dashed var(--q-border);
-      background: var(--q-card);
+      background: color-mix(in srgb, var(--q-bg) 55%, var(--q-card));
       display: grid;
       place-items: center;
       overflow: hidden;
     }
-    .power-slot.filled {
+    .rematch-hub .power-slot.filled {
       border-style: solid;
+      border-width: 4px;
       border-color: transparent;
       background:
         linear-gradient(var(--q-card), var(--q-card)) padding-box,
         var(--q-gradient) border-box;
+      box-shadow:
+        0 0 0 4px color-mix(in srgb, #7b3ff2 32%, transparent),
+        0 10px 24px color-mix(in srgb, #2f7cf6 42%, transparent);
     }
-    .power-slot img {
+    .rematch-hub .power-slot img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
-    .power-slot.locked img {
+    .rematch-hub .power-slot.locked img {
       filter: grayscale(1);
     }
-    .slot-plus {
+    .rematch-hub .slot-plus {
       font-size: 1.7rem;
       font-weight: 800;
       line-height: 1;
       color: var(--q-muted);
     }
-    .preview {
-      position: absolute;
-      bottom: calc(100% + 12px);
-      left: 50%;
-      width: max-content;
-      min-width: min(252px, 70vw);
-      max-width: 70vw;
-      display: grid;
-      gap: 0.3rem;
-      padding: 0.65rem 0.75rem 0.7rem;
-      text-align: left;
-      border: 2px solid transparent;
-      border-radius: 16px;
-      background:
-        linear-gradient(var(--q-card), var(--q-card)) padding-box,
-        var(--q-gradient) border-box;
-      box-shadow: var(--q-shadow);
-      opacity: 0;
-      pointer-events: none;
-      z-index: 50;
-      transform: translateX(-50%) translateY(6px) scale(0.96);
-      transform-origin: bottom center;
-      transition:
-        opacity 0.18s ease,
-        transform 0.18s ease;
+    .rematch-hub .power-slot.from-up img,
+    .rematch-hub .power-slot.from-up .slot-plus {
+      animation: slot-from-up 0.22s ease;
     }
-    .power-slot.filled:hover ~ .preview {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0) scale(1);
+    .rematch-hub .power-slot.from-down img,
+    .rematch-hub .power-slot.from-down .slot-plus {
+      animation: slot-from-down 0.22s ease;
     }
-    .p-head {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
+    @keyframes slot-from-up {
+      from {
+        opacity: 0;
+        transform: translateY(-16px);
+      }
+      to {
+        opacity: 1;
+        transform: none;
+      }
     }
-    .preview .lock {
-      display: inline-grid;
-      place-items: center;
-      width: 1.15rem;
-      height: 1.15rem;
-      border-radius: 999px;
-      font-size: 0.62rem;
-      line-height: 1;
-      flex-shrink: 0;
-      color: #fff;
-      background: var(--q-gradient);
+    @keyframes slot-from-down {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: none;
+      }
     }
-    .p-title {
-      font-size: 0.92rem;
-      font-weight: 900;
-      line-height: 1.2;
+    @media (max-width: 720px) {
+      .rematch-hub .tokens-cats,
+      .rematch-hub .pair {
+        grid-template-columns: 1fr;
+      }
     }
-    .p-body {
-      margin: 0;
-      font-size: 0.78rem;
-      font-weight: 700;
-      line-height: 1.3;
-      color: var(--q-muted);
-    }
-    .hint {
-      margin: 0.65rem 0 0;
-      color: var(--q-muted);
-      font-weight: 700;
-    }
-    .hint.warn {
-      color: #db2777;
-    }
-    .custom-input {
-      margin-top: 0.75rem;
-      max-width: 10rem;
-    }
-    .cats-disabled {
-      opacity: 0.45;
-    }
-    .cats-disabled .q-chip {
-      pointer-events: none;
+    @media (prefers-reduced-motion: reduce) {
+      .rematch-hub .corner-badge {
+        transition: none;
+      }
+      .rematch-hub .token:hover .corner-badge,
+      .rematch-hub .token:focus-visible .corner-badge,
+      .rematch-hub .pill:hover .corner-badge,
+      .rematch-hub .pill:focus-visible .corner-badge,
+      .rematch-hub .slot-reel:hover .corner-badge,
+      .rematch-hub .slot-reel:has(:focus-visible) .corner-badge {
+        transform: rotate(12deg);
+      }
+      .rematch-hub .power-slot.from-up img,
+      .rematch-hub .power-slot.from-up .slot-plus,
+      .rematch-hub .power-slot.from-down img,
+      .rematch-hub .power-slot.from-down .slot-plus {
+        animation: none;
+      }
     }
     .final-actions {
       display: flex;
@@ -1145,6 +1410,30 @@ export class PlayPage implements OnInit, OnDestroy {
     [...EMPTY_POWER_UP_SLOTS] as PowerUpSlots,
   );
   readonly fiftyFiftyIcon = POWER_UP_CATALOG[0].icon;
+  readonly slotSlide = signal<{ index: number; dir: 1 | -1 } | null>(null);
+  readonly isQuestionTypeFree = isQuestionTypeFree;
+  readonly isPowerUpFree = isPowerUpFree;
+  readonly isRoundLengthFree = isRoundLengthFree;
+  readonly categoryInfo: Record<CategoryId, { icon: string; descKey: keyof UiStrings }> = {
+    geography: { icon: '/room-icons/geo.png', descKey: 'descGeography' },
+    biology: { icon: '/room-icons/bio.png', descKey: 'descBiology' },
+    history: { icon: '/room-icons/his.png', descKey: 'descHistory' },
+    technology: { icon: '/room-icons/tech.png', descKey: 'descTechnology' },
+    sports: { icon: '/room-icons/sports.png', descKey: 'descSports' },
+    movies: { icon: '/room-icons/movtv.png', descKey: 'descMovies' },
+    famous: { icon: '/room-icons/fam.png', descKey: 'descFamous' },
+    islam: { icon: '/room-icons/isl.png', descKey: 'descIslam' },
+    food: { icon: '/room-icons/food.png', descKey: 'descFood' },
+    images: { icon: '/room-icons/picture.png', descKey: 'descPictureQ' },
+  };
+  readonly typeInfo: Record<QuestionType, { icon: string; descKey: keyof UiStrings }> = {
+    mcq: { icon: '/room-icons/text.png', descKey: 'descTextQ' },
+    image_mcq: { icon: '/room-icons/picture.png', descKey: 'descPictureQ' },
+  };
+  readonly scoringInfo: Record<ScoringMode, { descKey: keyof UiStrings }> = {
+    standard: { descKey: 'descScoringStandard' },
+    timed: { descKey: 'descScoringTimed' },
+  };
   readonly powerUpBlocked = computed(() =>
     this.powerUpSlots().some((slot) => !!slot && this.ent.powerUpLocked(slot)),
   );
@@ -1446,14 +1735,20 @@ export class PlayPage implements OnInit, OnDestroy {
     return this.lang.t()[key] ?? cat;
   }
 
+  categoryDesc(cat: CategoryId): string {
+    return this.lang.t()[this.categoryInfo[cat].descKey];
+  }
+
   difficultyLabel(diff: string): string {
     const key = diff as 'easy' | 'medium' | 'hard';
     return this.lang.t()[key] ?? diff;
   }
 
   cycleSlot(index: number, direction: number): void {
+    const dir: 1 | -1 = direction < 0 ? -1 : 1;
+    this.slotSlide.set({ index, dir });
     const next = [...this.powerUpSlots()] as PowerUpSlots;
-    next[index] = cyclePowerUpSlot(next[index], direction < 0 ? -1 : 1);
+    next[index] = cyclePowerUpSlot(next[index], dir);
     this.powerUpSlots.set(next);
   }
 
@@ -1461,8 +1756,24 @@ export class PlayPage implements OnInit, OnDestroy {
     return t === 'mcq' ? this.lang.t().mcq : this.lang.t().imageMcq;
   }
 
-  isFreeThisWeek(cat: CategoryId): boolean {
-    return !this.ent.isPro() && cat === this.ent.freeThisWeek();
+  typeDesc(t: QuestionType): string {
+    return this.lang.t()[this.typeInfo[t].descKey];
+  }
+
+  scoringDesc(mode: ScoringMode): string {
+    return this.lang.t()[this.scoringInfo[mode].descKey];
+  }
+
+  isWeeklyCategory(cat: CategoryId): boolean {
+    return cat === this.ent.freeThisWeek();
+  }
+
+  isProCategory(cat: CategoryId): boolean {
+    return (PRO_CATEGORIES as readonly CategoryId[]).includes(cat);
+  }
+
+  proAlt(locked: boolean): string {
+    return locked ? this.lang.t().proLocked : this.lang.t().proName;
   }
 
   /** Strips Pro-only picks from the rematch form. Mirrors the create-round page. */
