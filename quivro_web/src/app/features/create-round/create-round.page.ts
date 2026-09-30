@@ -12,7 +12,7 @@ import {
 } from '../../../data/questions/types';
 import type { UiStrings } from '../../../i18n/en';
 import { EntitlementService } from '../../core/entitlement.service';
-import { FREE_CATEGORIES, FREE_MAX_ROUND_LENGTH } from '../../core/entitlements';
+import { FREE_CATEGORIES, FREE_MAX_ROUND_LENGTH, PRO_CATEGORIES, isQuestionTypeFree, isRoundLengthFree } from '../../core/entitlements';
 import { GameRoomService } from '../../core/game-room.service';
 import { LanguageService } from '../../core/language.service';
 import {
@@ -117,62 +117,28 @@ function loadRoundPrefs(): RoundPrefs | null {
           <div class="q-brand-line"></div>
         </div>
 
-        <section [class.cats-disabled]="!needsCategories()">
-          <label class="q-label">{{ lang.t().categories }}</label>
-          <div class="tiles tiles-cats">
-            @for (cat of categories; track cat) {
-              <button
-                type="button"
-                class="tile"
-                [class.active]="selected().includes(cat)"
-                [class.locked]="ent.categoryLocked(cat)"
-                [disabled]="!needsCategories()"
-                [attr.aria-pressed]="selected().includes(cat)"
-                (click)="toggleCategory(cat)"
-              >
-                <span class="tile-icon">
-                  <img class="art" [src]="categoryInfo[cat].icon" alt="" />
-                  @if (ent.categoryLocked(cat)) {
-                    <img class="stamp" src="/brand/pro_badge.png" [alt]="lang.t().proLocked" />
-                  }
-                </span>
-                <span class="tile-copy">
-                  <strong>{{ categoryLabel(cat) }}</strong>
-                  <span>{{ categoryDesc(cat) }}</span>
-                </span>
-                @if (isFreeThisWeek(cat)) {
-                  <img class="free-mark" src="/brand/free_rotation.png" [alt]="lang.t().freeThisWeek" />
-                }
-              </button>
-            }
-          </div>
-          @if (needsCategories() && selected().length === 0) {
-            <p class="hint warn">{{ lang.t().selectAtLeastOne }}</p>
-          }
-        </section>
-
         <div class="pair">
-          <section>
+          <section class="group">
             <label class="q-label">{{ lang.t().questionTypes }}</label>
-            <div class="tiles">
+            <div class="tokens">
               @for (t of questionTypes; track t) {
                 <button
                   type="button"
-                  class="tile"
-                  [class.active]="types().includes(t)"
+                  class="token cat"
+                  [class.on]="types().includes(t)"
                   [class.locked]="ent.questionTypeLocked(t)"
                   [attr.aria-pressed]="types().includes(t)"
                   (click)="toggleType(t)"
                 >
-                  <span class="tile-icon">
+                  <span class="token-icon">
                     <img class="art" [src]="typeInfo[t].icon" alt="" />
-                    @if (ent.questionTypeLocked(t)) {
-                      <img class="stamp" src="/brand/pro_badge.png" [alt]="lang.t().proLocked" />
-                    }
                   </span>
-                  <span class="tile-copy">
+                  <span class="cat-copy">
                     <strong>{{ typeLabel(t) }}</strong>
                     <span>{{ typeDesc(t) }}</span>
+                    @if (!isQuestionTypeFree(t)) {
+                      <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.questionTypeLocked(t))" />
+                    }
                   </span>
                 </button>
               }
@@ -182,49 +148,80 @@ function loadRoundPrefs(): RoundPrefs | null {
             }
           </section>
 
-          <section>
+          <section class="group">
             <label class="q-label">{{ lang.t().scoringMode }}</label>
-            <div class="tiles">
+            <div class="tokens">
               <button
                 type="button"
-                class="tile"
-                [class.active]="scoringMode() === 'standard'"
+                class="token cat"
+                [class.on]="scoringMode() === 'standard'"
                 [attr.aria-pressed]="scoringMode() === 'standard'"
                 (click)="scoringMode.set('standard')"
               >
-                <span class="tile-icon">
+                <span class="token-icon">
                   <img class="art" src="/room-icons/standard.png" alt="" />
                 </span>
-                <span class="tile-copy">
+                <span class="cat-copy">
                   <strong>{{ lang.t().scoringStandard }}</strong>
                   <span>{{ scoringDesc('standard') }}</span>
                 </span>
               </button>
               <button
                 type="button"
-                class="tile"
-                [class.active]="scoringMode() === 'timed'"
+                class="token cat"
+                [class.on]="scoringMode() === 'timed'"
                 [class.locked]="ent.scoringModeLocked('timed')"
                 [attr.aria-pressed]="scoringMode() === 'timed'"
                 (click)="pickScoring('timed')"
               >
-                <span class="tile-icon">
+                <span class="token-icon">
                   <img class="art" src="/room-icons/timed.png" alt="" />
-                  @if (ent.scoringModeLocked('timed')) {
-                    <img class="stamp" src="/brand/pro_badge.png" [alt]="lang.t().proLocked" />
-                  }
                 </span>
-                <span class="tile-copy">
+                <span class="cat-copy">
                   <strong>{{ lang.t().scoringTimed }}</strong>
                   <span>{{ scoringDesc('timed') }}</span>
+                  <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.scoringModeLocked('timed'))" />
                 </span>
               </button>
             </div>
           </section>
         </div>
 
+        <section class="group" [class.cats-disabled]="!needsCategories()">
+          <label class="q-label">{{ lang.t().categories }}</label>
+          <div class="tokens tokens-cats">
+            @for (cat of categories; track cat) {
+              <button
+                type="button"
+                class="token cat"
+                [class.on]="selected().includes(cat)"
+                [class.locked]="ent.categoryLocked(cat)"
+                [disabled]="!needsCategories()"
+                [attr.aria-pressed]="selected().includes(cat)"
+                (click)="toggleCategory(cat)"
+              >
+                <span class="token-icon">
+                  <img class="art" [src]="categoryInfo[cat].icon" alt="" />
+                </span>
+                <span class="cat-copy">
+                  <strong>{{ categoryLabel(cat) }}</strong>
+                  <span>{{ categoryDesc(cat) }}</span>
+                  @if (isWeeklyCategory(cat)) {
+                    <img class="corner-badge" src="/brand/free_rotation2.png" [alt]="lang.t().freeThisWeek" />
+                  } @else if (isProCategory(cat)) {
+                    <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.categoryLocked(cat))" />
+                  }
+                </span>
+              </button>
+            }
+          </div>
+          @if (needsCategories() && selected().length === 0) {
+            <p class="hint warn">{{ lang.t().selectAtLeastOne }}</p>
+          }
+        </section>
+
         <div class="pair">
-          <section>
+          <section class="group">
             <div class="meter-head">
               <img src="/room-icons/time_per_q.png" alt="" />
               <label class="q-label">{{ lang.t().questionTime }}</label>
@@ -245,7 +242,7 @@ function loadRoundPrefs(): RoundPrefs | null {
             <p class="hint">{{ lang.t().descQuestionTime }}</p>
           </section>
 
-          <section>
+          <section class="group round">
             <div class="meter-head">
               <img src="/room-icons/round_length.png" alt="" />
               <label class="q-label">{{ lang.t().roundLength }}</label>
@@ -261,8 +258,8 @@ function loadRoundPrefs(): RoundPrefs | null {
                   (click)="pickPreset(n)"
                 >
                   {{ n }}
-                  @if (ent.roundLengthLocked(n)) {
-                    <img class="stamp" src="/brand/pro_badge.png" [alt]="lang.t().proLocked" />
+                  @if (!isRoundLengthFree(n)) {
+                    <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.roundLengthLocked(n))" />
                   }
                 </button>
               }
@@ -275,9 +272,7 @@ function loadRoundPrefs(): RoundPrefs | null {
                 (click)="pickCustom()"
               >
                 {{ lang.t().custom }}
-                @if (ent.customLengthLocked()) {
-                  <img class="stamp" src="/brand/pro_badge.png" [alt]="lang.t().proLocked" />
-                }
+                <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.customLengthLocked())" />
               </button>
             </div>
             @if (customMode()) {
@@ -296,41 +291,57 @@ function loadRoundPrefs(): RoundPrefs | null {
           </section>
         </div>
 
-        <section>
+        <section class="group">
           <label class="q-label">{{ lang.t().powerUps }}</label>
           <div class="power-slots">
             @for (slot of powerUpSlots(); track $index) {
               <div class="slot-reel">
-                <button
-                  type="button"
-                  class="slot-nudge"
-                  [attr.aria-label]="lang.t().powerUpNext"
-                  (click)="cycleSlot($index, 1)"
-                >
-                  <span class="chevron up" aria-hidden="true"></span>
-                </button>
-                <div class="power-slot" [class.filled]="slot">
+                <div class="slot-switch">
+                  <button
+                    type="button"
+                    class="slot-nudge"
+                    [attr.aria-label]="lang.t().powerUpNext"
+                    (click)="cycleSlot($index, 1)"
+                  >
+                    <svg class="arrow up" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                      <path d="M14.5 5.5 L8.5 12 L14.5 18.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                  <div
+                    class="power-slot"
+                    [class.filled]="slot"
+                    [class.from-up]="$index === slotSlide()?.index && slotSlide()?.dir === 1"
+                    [class.from-down]="$index === slotSlide()?.index && slotSlide()?.dir === -1"
+                  >
+                    @if (slot === 'fifty_fifty') {
+                      <img [src]="fiftyFiftyIcon" alt="" />
+                    } @else {
+                      <span class="slot-plus" aria-hidden="true">+</span>
+                    }
+                  </div>
+                  <button
+                    type="button"
+                    class="slot-nudge"
+                    [attr.aria-label]="lang.t().powerUpPrev"
+                    (click)="cycleSlot($index, -1)"
+                  >
+                    <svg class="arrow down" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                      <path d="M14.5 5.5 L8.5 12 L14.5 18.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                </div>
+                <div class="slot-copy">
+                  <span class="slot-name">
+                    {{ slot === 'fifty_fifty' ? lang.t().powerUpFifty : lang.t().descPowerUpEmpty }}
+                  </span>
                   @if (slot === 'fifty_fifty') {
-                    <img [src]="fiftyFiftyIcon" alt="" />
-                  } @else {
-                    <span class="slot-plus" aria-hidden="true">+</span>
+                    <p class="hint">{{ lang.t().descPowerUpFifty }}</p>
                   }
                 </div>
-                <button
-                  type="button"
-                  class="slot-nudge"
-                  [attr.aria-label]="lang.t().powerUpPrev"
-                  (click)="cycleSlot($index, -1)"
-                >
-                  <span class="chevron down" aria-hidden="true"></span>
-                </button>
-                <span class="slot-name">
-                  {{ slot === 'fifty_fifty' ? lang.t().powerUpFifty : lang.t().descPowerUpEmpty }}
-                </span>
               </div>
             }
           </div>
-          <p class="hint">{{ lang.t().descPowerUpFifty }} {{ lang.t().powerUpsHint }}</p>
+          <p class="hint">{{ lang.t().powerUpsHint }}</p>
         </section>
 
         @if (!rooms.isLive) {
@@ -370,118 +381,173 @@ function loadRoundPrefs(): RoundPrefs | null {
       max-width: 960px;
       margin: 0 auto;
       display: grid;
-      gap: 1.15rem;
+      gap: 1.35rem;
     }
     .brand h1 {
       margin: 0;
       font-size: clamp(1.8rem, 3vw, 2.4rem);
       font-weight: 900;
     }
+    .group {
+      background: var(--q-card);
+      border: 2px solid var(--q-border);
+      border-radius: 24px;
+      padding: 1rem 1.1rem 1.15rem;
+    }
     .pair {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem 1.25rem;
-      align-items: start;
+      gap: 1.35rem;
+      align-items: stretch;
     }
-    .tiles {
+    .tokens {
       display: grid;
-      gap: 0.5rem;
+      gap: 0.85rem 0.35rem;
+      justify-items: center;
     }
-    .tiles-cats {
+    .tokens-cats {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+      padding-top: 1.75rem;
+      gap: 1.15rem 0.65rem;
     }
-    .pair .tiles {
-      grid-template-columns: 1fr 1fr;
-    }
-    .tile {
-      position: relative;
-      display: flex;
+    .token.cat {
+      flex-direction: row;
       align-items: center;
-      gap: 0.55rem;
+      gap: 0.45rem;
+      text-align: left;
+    }
+    .cat-copy {
+      position: relative;
+      flex: 1;
       min-width: 0;
-      padding: 0.4rem 0.55rem 0.4rem 0.4rem;
+      display: grid;
+      gap: 0.12rem;
+      padding: 0.45rem 1.15rem 0.45rem 0.55rem;
       text-align: left;
       border-radius: 16px;
+      border: 2px solid transparent;
+      background:
+        linear-gradient(var(--q-card), var(--q-card)) padding-box,
+        var(--q-gradient) border-box;
+    }
+    .cat-copy strong {
+      font-size: 0.82rem;
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--q-navy);
+    }
+    .cat-copy span {
+      font-size: 0.72rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--q-muted);
+    }
+    .token.locked .cat-copy {
       border: 2px solid var(--q-border);
       background: var(--q-card);
+    }
+    .corner-badge {
+      position: absolute;
+      top: -42px;
+      right: -6px;
+      width: 72px;
+      height: 72px;
+      max-width: none;
+      max-height: none;
+      object-fit: contain;
+      pointer-events: none;
+      transform: rotate(12deg);
+      transition: transform 0.18s ease;
+    }
+    .token:hover .corner-badge,
+    .token:focus-visible .corner-badge,
+    .pill:hover .corner-badge,
+    .pill:focus-visible .corner-badge {
+      transform: translate(8px, -12px) rotate(20deg);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .corner-badge {
+        transition: none;
+      }
+      .token:hover .corner-badge,
+      .token:focus-visible .corner-badge,
+      .pill:hover .corner-badge,
+      .pill:focus-visible .corner-badge {
+        transform: rotate(12deg);
+      }
+    }
+    .pair .tokens {
+      grid-template-columns: 1fr;
+      padding-top: 1.75rem;
+    }
+    .token {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      width: 100%;
+      padding: 0.2rem;
+      border: 0;
+      background: transparent;
       color: var(--q-navy);
       cursor: pointer;
+      opacity: 0.42;
     }
-    .tile:focus-visible,
+    .token.on {
+      opacity: 1;
+    }
+    .token:focus-visible,
     .pill:focus-visible,
     .slot-nudge:focus-visible {
       outline: 2px solid var(--q-blue);
       outline-offset: 2px;
     }
-    .tile-icon {
+    .token-icon {
       position: relative;
-      flex: 0 0 56px;
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
-      border: 2px solid transparent;
+      width: 96px;
+      height: 96px;
+      border-radius: 28px;
+      border: 4px solid transparent;
       display: grid;
       place-items: center;
     }
-    .tile.active .tile-icon {
+    .token.on .token-icon {
       background:
         linear-gradient(var(--q-card), var(--q-card)) padding-box,
         var(--q-gradient) border-box;
+      box-shadow:
+        0 0 0 4px color-mix(in srgb, #7b3ff2 32%, transparent),
+        0 10px 24px color-mix(in srgb, #2f7cf6 42%, transparent);
     }
-    .tile-icon .art {
-      width: 48px;
-      height: 48px;
+    .token-icon .art {
+      width: 88px;
+      height: 88px;
       object-fit: contain;
       display: block;
     }
-    .stamp {
-      position: absolute;
-      top: -8px;
-      right: -10px;
-      width: 26px;
-      height: 26px;
-      object-fit: contain;
-      pointer-events: none;
+    .token.locked .art {
+      filter: grayscale(1);
     }
-    .free-mark {
-      width: 68px;
-      height: 68px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-    .tile.locked {
-      opacity: 0.78;
-    }
-    .tile-copy {
-      min-width: 0;
-      display: grid;
-      gap: 0.1rem;
-    }
-    .tile-copy strong {
-      font-size: 0.82rem;
-      font-weight: 900;
+    .token-name {
+      font-size: 0.8rem;
+      font-weight: 800;
       line-height: 1.15;
-    }
-    .tile-copy span {
-      font-size: 0.72rem;
-      font-weight: 700;
-      line-height: 1.25;
+      text-align: center;
       color: var(--q-muted);
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      line-clamp: 2;
-      overflow: hidden;
+    }
+    .token.on .token-name {
+      color: var(--q-navy);
+      font-weight: 900;
     }
     .meter-head {
       display: flex;
       align-items: center;
-      gap: 0.45rem;
-      margin-bottom: 0.45rem;
+      gap: 0.55rem;
+      margin-bottom: 0.65rem;
     }
     .meter-head img {
-      width: 40px;
-      height: 40px;
+      width: 88px;
+      height: 88px;
       object-fit: contain;
     }
     .meter-head .q-label {
@@ -490,34 +556,36 @@ function loadRoundPrefs(): RoundPrefs | null {
     .pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.45rem;
+      gap: 0.5rem;
+      padding-top: 2.4rem;
     }
     .pill {
       position: relative;
-      padding: 0.4rem 0.8rem;
+      min-height: 44px;
+      padding: 0.55rem 1rem;
       border-radius: 999px;
       border: 2px solid var(--q-border);
       background: var(--q-card);
       color: var(--q-navy);
-      font-weight: 800;
+      font-weight: 900;
       cursor: pointer;
+      opacity: 0.5;
     }
     .pill.active {
+      opacity: 1;
       border-color: transparent;
       color: #fff;
       background: var(--q-gradient);
     }
     .pill.locked {
-      opacity: 0.78;
+      opacity: 0.42;
     }
-    .pill .stamp {
-      width: 22px;
-      height: 22px;
-      top: -9px;
-      right: -8px;
+    .pill .corner-badge {
+      top: -58px;
+      right: -4px;
     }
     .hint {
-      margin: 0.5rem 0 0;
+      margin: 0.65rem 0 0;
       color: var(--q-muted);
       font-weight: 700;
       font-size: 0.82rem;
@@ -525,43 +593,44 @@ function loadRoundPrefs(): RoundPrefs | null {
     .warn {
       color: #db2777;
     }
+    .round {
+      position: relative;
+    }
     .custom-input {
-      margin-top: 0.65rem;
-      max-width: 10rem;
+      position: absolute;
+      top: 0.85rem;
+      right: 1rem;
+      width: 5.25rem;
+      margin: 0;
+      padding: 0.4rem 0.55rem;
     }
     .cats-disabled {
       opacity: 0.45;
     }
-    .cats-disabled .tile {
+    .cats-disabled .token {
       pointer-events: none;
-    }
-    @media (max-width: 720px) {
-      .tiles-cats {
-        grid-template-columns: 1fr 1fr;
-      }
-      .tiles-cats .tile {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .free-mark {
-        width: 56px;
-        height: 56px;
-      }
-      .pair {
-        grid-template-columns: 1fr;
-      }
     }
     .power-slots {
       display: flex;
-      gap: 0.85rem;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
       margin-top: 0.35rem;
     }
     .slot-reel {
-      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.65rem;
+      flex: 1;
+      min-width: 0;
+    }
+    .slot-switch {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0.35rem;
+      flex-shrink: 0;
     }
     .slot-nudge {
       width: 28px;
@@ -577,37 +646,44 @@ function loadRoundPrefs(): RoundPrefs | null {
       display: grid;
       place-items: center;
     }
-    .chevron {
-      width: 7px;
-      height: 7px;
-      border-right: 2px solid currentColor;
-      border-bottom: 2px solid currentColor;
+    .arrow {
       display: block;
     }
-    .chevron.up {
-      transform: rotate(-135deg);
-      margin-top: 3px;
+    .arrow.up {
+      transform: rotate(90deg);
     }
-    .chevron.down {
-      transform: rotate(45deg);
-      margin-bottom: 3px;
+    .arrow.down {
+      transform: rotate(-90deg);
+    }
+    .slot-copy {
+      display: grid;
+      gap: 0.1rem;
+      min-width: 0;
+      text-align: left;
+    }
+    .slot-copy .hint {
+      margin: 0;
     }
     .power-slot {
-      width: 76px;
-      height: 76px;
+      width: 88px;
+      height: 88px;
       border-radius: 999px;
       border: 2px dashed var(--q-border);
-      background: var(--q-card);
+      background: color-mix(in srgb, var(--q-bg) 55%, var(--q-card));
       display: grid;
       place-items: center;
       overflow: hidden;
     }
     .power-slot.filled {
       border-style: solid;
+      border-width: 4px;
       border-color: transparent;
       background:
         linear-gradient(var(--q-card), var(--q-card)) padding-box,
         var(--q-gradient) border-box;
+      box-shadow:
+        0 0 0 4px color-mix(in srgb, #7b3ff2 32%, transparent),
+        0 10px 24px color-mix(in srgb, #2f7cf6 42%, transparent);
     }
     .power-slot img {
       width: 100%;
@@ -621,13 +697,56 @@ function loadRoundPrefs(): RoundPrefs | null {
       line-height: 1;
       color: var(--q-muted);
     }
+    .power-slot.from-up img,
+    .power-slot.from-up .slot-plus {
+      animation: slot-from-up 0.22s ease;
+    }
+    .power-slot.from-down img,
+    .power-slot.from-down .slot-plus {
+      animation: slot-from-down 0.22s ease;
+    }
+    @keyframes slot-from-up {
+      from {
+        opacity: 0;
+        transform: translateY(-16px);
+      }
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+    @keyframes slot-from-down {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
     .slot-name {
-      max-width: 76px;
-      font-size: 0.72rem;
-      font-weight: 800;
+      font-size: 0.82rem;
+      font-weight: 900;
       line-height: 1.15;
-      text-align: center;
-      color: var(--q-muted);
+      text-align: left;
+      color: var(--q-navy);
+    }
+    @media (max-width: 720px) {
+      .tokens-cats {
+        grid-template-columns: 1fr;
+      }
+      .pair {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .power-slot.from-up img,
+      .power-slot.from-up .slot-plus,
+      .power-slot.from-down img,
+      .power-slot.from-down .slot-plus {
+        animation: none;
+      }
     }
   `,
 })
@@ -727,12 +846,12 @@ export class CreateRoundPage {
     return this.lang.t()[cat];
   }
 
-  typeLabel(t: QuestionType): string {
-    return t === 'mcq' ? this.lang.t().mcq : this.lang.t().imageMcq;
-  }
-
   categoryDesc(cat: CategoryId): string {
     return this.lang.t()[this.categoryInfo[cat].descKey];
+  }
+
+  typeLabel(t: QuestionType): string {
+    return t === 'mcq' ? this.lang.t().mcq : this.lang.t().imageMcq;
   }
 
   typeDesc(t: QuestionType): string {
@@ -743,8 +862,19 @@ export class CreateRoundPage {
     return this.lang.t()[this.scoringInfo[mode].descKey];
   }
 
-  isFreeThisWeek(cat: CategoryId): boolean {
-    return !this.ent.isPro() && cat === this.ent.freeThisWeek();
+  readonly isQuestionTypeFree = isQuestionTypeFree;
+  readonly isRoundLengthFree = isRoundLengthFree;
+
+  isWeeklyCategory(cat: CategoryId): boolean {
+    return cat === this.ent.freeThisWeek();
+  }
+
+  isProCategory(cat: CategoryId): boolean {
+    return (PRO_CATEGORIES as readonly CategoryId[]).includes(cat);
+  }
+
+  proAlt(locked: boolean): string {
+    return locked ? this.lang.t().proLocked : this.lang.t().proName;
   }
 
   /** Strips Pro-only picks so a free host can never submit a locked config. */
@@ -804,9 +934,13 @@ export class CreateRoundPage {
     this.types.set(next);
   }
 
+  readonly slotSlide = signal<{ index: number; dir: 1 | -1 } | null>(null);
+
   cycleSlot(index: number, direction: number): void {
+    const dir: 1 | -1 = direction < 0 ? -1 : 1;
+    this.slotSlide.set({ index, dir });
     const next = [...this.powerUpSlots()] as PowerUpSlots;
-    next[index] = cyclePowerUpSlot(next[index], direction < 0 ? -1 : 1);
+    next[index] = cyclePowerUpSlot(next[index], dir);
     this.powerUpSlots.set(next);
   }
 
