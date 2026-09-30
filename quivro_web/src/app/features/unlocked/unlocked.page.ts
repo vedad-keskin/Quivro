@@ -70,8 +70,9 @@ const POLL_ATTEMPTS = 30;
       gap: 0.75rem;
     }
     .badge {
-      width: 88px;
-      height: 88px;
+      width: 112px;
+      height: 112px;
+      animation: medal-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
     }
     h1 {
       margin: 0;
@@ -98,8 +99,19 @@ const POLL_ATTEMPTS = 30;
         opacity: 0.45;
       }
     }
+    @keyframes medal-pop {
+      from {
+        opacity: 0;
+        transform: scale(0.3);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
     @media (prefers-reduced-motion: reduce) {
-      .wait {
+      .wait,
+      .badge {
         animation: none;
       }
     }

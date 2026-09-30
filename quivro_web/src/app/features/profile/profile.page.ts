@@ -1,6 +1,5 @@
 import { Component, computed, effect, inject, signal, untracked } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { environment } from '../../../environments/environment';
 import { AuthService } from '../../core/auth.service';
 import { EntitlementService } from '../../core/entitlement.service';
 import { FirebaseService } from '../../core/firebase.service';
@@ -31,7 +30,7 @@ const STAT_KEYS = ['gamesHosted', 'questionsPlayed'] as const;
 
       @if (auth.user(); as user) {
         <section class="hero">
-          <div class="ring">
+          <div class="ring" [class.pro]="ent.isPro()">
             @if (user.photoURL) {
               <img [src]="user.photoURL" alt="" />
             } @else {
@@ -49,12 +48,20 @@ const STAT_KEYS = ['gamesHosted', 'questionsPlayed'] as const;
             @if (ent.purchaseDate(); as purchased) {
               <p class="when">{{ lang.t().purchasedOn }} {{ formatDate(purchased) }}</p>
             }
-            @if (billingUrl) {
-              <a class="manage" [href]="billingUrl" target="_blank" rel="noopener noreferrer">
-                {{ lang.t().manageSubscription }}
-              </a>
-            }
           } @else {
+            <span class="badge locked">
+              <img src="/brand/pro_badge.png" alt="" />
+              <svg class="lock" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                <rect x="5" y="11" width="14" height="9" rx="2" fill="currentColor" />
+                <path
+                  d="M8 11V8a4 4 0 0 1 8 0v3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
             <p class="blurb">{{ lang.t().upgradeBlurb }}</p>
             <button type="button" class="q-btn q-btn-outline" (click)="openUpgrade()">
               {{ lang.t().upgradeTitle }}
@@ -124,6 +131,9 @@ const STAT_KEYS = ['gamesHosted', 'questionsPlayed'] as const;
       border-radius: 999px;
       background: var(--q-gradient);
     }
+    .ring.pro {
+      background: linear-gradient(135deg, #f5c542, #f59e0b);
+    }
     .ring img,
     .fallback {
       width: 100%;
@@ -156,27 +166,40 @@ const STAT_KEYS = ['gamesHosted', 'questionsPlayed'] as const;
       font-size: 0.92rem;
     }
     .badge {
-      width: 72px;
-      height: 72px;
+      width: 112px;
+      height: 112px;
       margin: 1.1rem 0 0.15rem;
+    }
+    .badge.locked {
+      position: relative;
+      display: inline-grid;
+    }
+    .badge.locked img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: grayscale(1);
+      opacity: 0.7;
+    }
+    .badge .lock {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: #f8fafc;
+      filter: drop-shadow(0 1px 2px rgba(15, 23, 42, 0.65));
+      transform: translate(-50%, -50%);
     }
     .tier {
       margin: 0;
       font-weight: 900;
-      font-size: 1.05rem;
-      color: var(--q-navy);
+      font-size: 1.2rem;
+      color: #b45309;
+    }
+    :host-context(html[data-theme='dark']) .tier {
+      color: #f5c542;
     }
     .when {
       font-size: 0.82rem;
-    }
-    .manage {
-      margin-top: 0.35rem;
-      font-weight: 800;
-      font-size: 0.82rem;
-      color: var(--q-blue);
-    }
-    .manage:hover {
-      text-decoration: underline;
     }
     .blurb {
       max-width: 22rem;
@@ -236,8 +259,6 @@ export class ProfilePage {
   private readonly snack = inject(SnackbarService);
   private readonly upgrade = inject(UpgradeDialogService);
   private readonly router = inject(Router);
-
-  readonly billingUrl = billingPortal();
 
   private readonly firestoreData = signal<Record<string, string | number> | null>(null);
   readonly stats = computed(() => {
@@ -326,10 +347,4 @@ export class ProfilePage {
       // No user doc or Firestore unavailable.
     }
   }
-}
-
-function billingPortal(): string | null {
-  const slug = environment.lemonSqueezy.storeSlug;
-  if (!slug || slug.includes('YOUR_')) return null;
-  return `https://${slug}.lemonsqueezy.com/billing`;
 }
