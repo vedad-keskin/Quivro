@@ -23,41 +23,48 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
           <button type="button" class="x" [attr.aria-label]="lang.t().close" (click)="dialog.close()">
             ×
           </button>
+          <span class="pro-badge">
+            <img src="/brand/pro_badge.png" width="88" height="88" alt="" />
+          </span>
+          <div class="banner-wrap">
+            <img class="banner" src="/brand/pro_banner.png" alt="" />
+          </div>
+          <div class="body">
+            <h2>{{ lang.t().upgradeTitle }}</h2>
+            <p class="blurb">{{ lang.t().upgradeBlurb }}</p>
 
-          <span class="badge">{{ lang.t().proName }}</span>
-          <h2>{{ lang.t().upgradeTitle }}</h2>
-          <p class="blurb">{{ lang.t().upgradeBlurb }}</p>
+            <ul class="perks">
+              <li>{{ lang.t().perkCategories }}</li>
+              <li>{{ lang.t().perkScoring }}</li>
+              <li>{{ lang.t().perkPowerUps }}</li>
+              <li>{{ lang.t().perkImages }}</li>
+              <li>{{ lang.t().perkLength }}</li>
+            </ul>
 
-          <ul class="perks">
-            <li>{{ lang.t().perkCategories }}</li>
-            <li>{{ lang.t().perkImages }}</li>
-            <li>{{ lang.t().perkLength }}</li>
-            <li>{{ lang.t().perkScoring }}</li>
-          </ul>
+            @if (auth.user()) {
+              <button type="button" class="q-btn q-btn-outline buy" [disabled]="busy()" (click)="buy()">
+                {{ lang.t().upgradeBuy }} {{ price }}
+              </button>
+            } @else {
+              <button type="button" class="q-btn q-btn-outline buy" [disabled]="busy()" (click)="signIn()">
+                {{ lang.t().upgradeSignInFirst }}
+              </button>
+            }
 
-          @if (auth.user()) {
-            <button type="button" class="q-btn q-btn-outline buy" [disabled]="busy()" (click)="buy()">
-              {{ lang.t().upgradeBuy }} {{ price }}
+            <button type="button" class="restore" [disabled]="busy()" (click)="restore()">
+              {{ lang.t().upgradeRestore }}
             </button>
-          } @else {
-            <button type="button" class="q-btn q-btn-outline buy" [disabled]="busy()" (click)="signIn()">
-              {{ lang.t().upgradeSignInFirst }}
-            </button>
-          }
 
-          <button type="button" class="restore" [disabled]="busy()" (click)="restore()">
-            {{ lang.t().upgradeRestore }}
-          </button>
-
-          <a
-            class="powered"
-            href="https://www.lemonsqueezy.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span>{{ lang.t().paymentsBy }}</span>
-            <img src="/brand/lemonsqueezy.png" alt="Lemon Squeezy" />
-          </a>
+            <a
+              class="powered"
+              href="https://www.lemonsqueezy.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>{{ lang.t().paymentsBy }}</span>
+              <img src="/brand/lemon_squeezy.png" alt="Lemon Squeezy" />
+            </a>
+          </div>
         </div>
       </div>
     }
@@ -75,10 +82,10 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
     }
     .card {
       position: relative;
+      overflow: visible;
       width: min(420px, 100%);
       display: grid;
-      gap: 0.6rem;
-      padding: 1.6rem 1.5rem 1.35rem;
+      padding: 0 0 0.85rem;
       border: 2px solid transparent;
       border-radius: 24px;
       background:
@@ -86,27 +93,70 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
         var(--q-gradient) border-box;
       box-shadow: var(--q-shadow);
     }
+    .banner-wrap {
+      overflow: hidden;
+      border-radius: 22px 22px 0 0;
+    }
+    .banner {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .body {
+      display: grid;
+      gap: 0.55rem;
+      padding: 1.1rem 1.35rem 0;
+    }
     .x {
       position: absolute;
-      top: 0.6rem;
-      right: 0.85rem;
+      top: 0.45rem;
+      right: 0.55rem;
+      z-index: 2;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
       border: none;
-      background: none;
-      color: var(--q-muted);
-      font-size: 1.6rem;
+      border-radius: 999px;
+      background: rgba(8, 12, 28, 0.55);
+      color: #fff;
+      font-size: 1.25rem;
       line-height: 1;
       cursor: pointer;
     }
-    .badge {
-      justify-self: start;
-      padding: 0.22rem 0.6rem;
-      border-radius: 999px;
-      background: var(--q-gradient);
-      color: #fff;
-      font-size: 0.7rem;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+    .pro-badge {
+      position: absolute;
+      bottom: -28px;
+      right: -16px;
+      z-index: 2;
+      display: inline-grid;
+      width: 88px;
+      height: 88px;
+      pointer-events: none;
+      transform: rotate(12deg);
+      transform-origin: center;
+      animation: pro-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+    .pro-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    @keyframes pro-pop {
+      from {
+        opacity: 0;
+        transform: scale(0.3) rotate(-20deg);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) rotate(12deg);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pro-badge {
+        animation: none;
+      }
     }
     h2 {
       margin: 0;
@@ -162,25 +212,25 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
       cursor: default;
     }
     .powered {
-      display: inline-flex;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      margin-top: 0.15rem;
+      gap: 0.3rem;
+      margin-top: 0.1rem;
       color: var(--q-muted);
       font-size: 0.7rem;
       font-weight: 700;
       text-decoration: none;
     }
     .powered img {
-      height: 22px;
+      height: 32px;
       width: auto;
       display: block;
-      /* Official mark is white-on-transparent; a dark plate keeps it readable
-         on both the light and night cards. */
-      padding: 0.28rem 0.45rem;
-      border-radius: 6px;
-      background: #111;
+      filter: invert(1) hue-rotate(180deg);
+    }
+    :host-context(html[data-theme='dark']) .powered img {
+      filter: none;
+      mix-blend-mode: screen;
     }
   `,
 })
