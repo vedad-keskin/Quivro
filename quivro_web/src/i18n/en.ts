@@ -114,8 +114,6 @@ export const en = {
     'Your payment is saved to the Google account you bought with. Sign in with that account and Pro unlocks here.',
   paymentsBy: 'Secure payments by',
   proName: 'Quivro Pro',
-  proLocked: 'Unlock with Quivro Pro',
-  freeThisWeek: 'Free this week',
   upgradeTitle: 'Unlock Quivro Pro',
   upgradeBlurb: 'One payment. Yours forever, on every device you sign in to.',
   perkCategories: 'All categories',

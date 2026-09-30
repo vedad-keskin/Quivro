@@ -116,8 +116,6 @@ export const bs: UiStrings = {
     'Uplata je sačuvana na Google račun kojim si kupio. Prijavi se tim računom i Pro se otključava ovdje.',
   paymentsBy: 'Sigurno plaćanje preko',
   proName: 'Quivro Pro',
-  proLocked: 'Otključaj uz Quivro Pro',
-  freeThisWeek: 'Besplatno ove sedmice',
   upgradeTitle: 'Otključaj Quivro Pro',
   upgradeBlurb: 'Jedna uplata. Zauvijek tvoje, na svakom uređaju gdje se prijaviš.',
   perkCategories: 'Sve kategorije',

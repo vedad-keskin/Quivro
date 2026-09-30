@@ -35,9 +35,9 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
 
             <ul class="perks">
               <li>{{ lang.t().perkCategories }}</li>
-              <li>{{ lang.t().perkScoring }}</li>
               <li>{{ lang.t().perkPowerUps }}</li>
               <li>{{ lang.t().perkImages }}</li>
+              <li>{{ lang.t().perkScoring }}</li>
               <li>{{ lang.t().perkLength }}</li>
             </ul>
 
@@ -213,10 +213,12 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
     }
     .powered {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      gap: 0.3rem;
+      justify-content: center;
+      gap: 0.45rem;
       margin-top: 0.1rem;
+      white-space: nowrap;
       color: var(--q-muted);
       font-size: 0.7rem;
       font-weight: 700;
