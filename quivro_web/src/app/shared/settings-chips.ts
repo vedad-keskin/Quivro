@@ -83,7 +83,7 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
               (click)="toggleMenu()"
               [attr.aria-expanded]="menuOpen()"
               [attr.aria-haspopup]="'menu'"
-              [attr.aria-label]="lang.t().account"
+              [attr.aria-label]="ent.isPro() ? lang.t().account + ', ' + lang.t().proName : lang.t().account"
             >
               @if (user.photoURL) {
                 <img class="avatar" [src]="user.photoURL" width="18" height="18" alt="" />
@@ -104,17 +104,31 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
                   <div class="who-text">
                     <span class="name">
                       <span class="name-text">{{ user.displayName || lang.t().account }}</span>
-                      @if (ent.isPro()) {
-                        <span class="pro-badge">
-                          <img src="/brand/pro_badge.png" width="20" height="20" alt="" />
-                        </span>
-                      }
                     </span>
                     @if (user.email) {
                       <span class="email">{{ user.email }}</span>
                     }
                   </div>
                 </div>
+                @if (ent.isPro()) {
+                  <span class="pro-badge">
+                    <img src="/brand/pro_badge.png" width="64" height="64" alt="" />
+                  </span>
+                } @else {
+                  <span class="pro-badge locked">
+                    <img src="/brand/pro_badge.png" width="64" height="64" alt="" />
+                    <svg class="lock" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                      <rect x="5" y="11" width="14" height="9" rx="2" fill="currentColor" />
+                      <path
+                        d="M8 11V8a4 4 0 0 1 8 0v3"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </span>
+                }
                 <div class="rule" role="separator"></div>
                 <a
                   routerLink="/profile"
@@ -125,7 +139,7 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
                   {{ lang.t().viewProfile }}
                 </a>
                 @if (!ent.isPro()) {
-                  <button type="button" class="row" role="menuitem" (click)="unlock()">
+                  <button type="button" class="upgrade" role="menuitem" (click)="unlock()">
                     {{ lang.t().upgradeTitle }}
                   </button>
                 }
@@ -195,6 +209,7 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
     .chip:hover {
       border-color: var(--q-blue);
     }
+
     .flag {
       width: 21px;
       height: 14px;
@@ -262,7 +277,9 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
       top: calc(100% + 0.45rem);
       right: 0;
       z-index: 40;
-      width: min(280px, 80vw);
+      width: fit-content;
+      min-width: 280px;
+      max-width: min(380px, 85vw);
       display: grid;
       gap: 0.35rem;
       padding: 0.75rem;
@@ -285,6 +302,7 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
       display: grid;
       gap: 0.1rem;
       min-width: 0;
+      flex: 1;
     }
     .name {
       display: flex;
@@ -307,37 +325,52 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
       font-size: 0.75rem;
       font-weight: 700;
       line-height: 1.3;
-      overflow: hidden;
-      text-overflow: ellipsis;
       white-space: nowrap;
     }
     .pro-badge {
-      position: relative;
+      position: absolute;
+      top: -22px;
+      right: -14px;
       display: inline-grid;
-      width: 20px;
-      height: 20px;
-      overflow: hidden;
-      border-radius: 999px;
-      flex-shrink: 0;
+      width: 64px;
+      height: 64px;
+      pointer-events: none;
+      transform: rotate(12deg);
+      transform-origin: center;
+      animation: pro-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
     }
     .pro-badge img {
-      width: 20px;
-      height: 20px;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
       display: block;
     }
-    .pro-badge::after {
-      content: '';
+    .pro-badge.locked img {
+      filter: grayscale(1);
+      opacity: 0.7;
+    }
+    .pro-badge .lock {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        100deg,
-        transparent 20%,
-        rgba(255, 255, 255, 0.55) 50%,
-        transparent 80%
-      );
-      transform: translateX(-120%);
-      animation: pro-sheen 2.8s ease-in-out infinite;
-      pointer-events: none;
+      top: 50%;
+      left: 50%;
+      color: #f8fafc;
+      filter: drop-shadow(0 1px 2px rgba(15, 23, 42, 0.65));
+      transform: translate(-50%, -50%);
+    }
+    @keyframes pro-pop {
+      from {
+        opacity: 0;
+        transform: scale(0.3) rotate(-20deg);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) rotate(12deg);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pro-badge {
+        animation: none;
+      }
     }
     .rule {
       height: 1px;
@@ -363,11 +396,23 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
     .row.out {
       color: var(--q-muted);
     }
-    @media (prefers-reduced-motion: reduce) {
-      .pro-badge::after {
-        animation: none;
-      }
+    .upgrade {
+      display: block;
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      padding: 0.5rem 0.7rem;
+      font-weight: 900;
+      font-size: 0.85rem;
+      text-align: left;
+      cursor: pointer;
+      color: #1e293b;
+      background: linear-gradient(135deg, #f5c542, #f59e0b);
     }
+    .upgrade:hover {
+      filter: brightness(1.05);
+    }
+
   `,
 })
 export class SettingsChips {
