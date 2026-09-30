@@ -71,8 +71,8 @@ export const en = {
   powerUpPrev: 'Previous power-up',
   descPowerUpFifty: 'Removes 2 wrong answers, leaves 2 to choose from.',
   descPowerUpEmpty: 'Empty slot.',
-  scoringTimed: 'Timed (speed bonus)',
-  scoringStandard: 'Standard (+1 each)',
+  scoringTimed: 'Timed',
+  scoringStandard: 'Standard',
   questionTime: 'Time per question',
   seconds: 'sec',
   firebaseMissing:
@@ -98,9 +98,9 @@ export const en = {
   descFood: 'Dishes, drinks and flavours from everywhere.',
   descTextQ: 'Classic four-choice questions. The harder they are, the more they pay.',
   descPictureQ: "Spot what's in the photo before the clock runs out.",
-  descScoringStandard: 'Every correct answer is worth exactly +1. Pure knowledge, no rush.',
+  descScoringStandard: 'Every correct answer is worth 1 point.',
   descScoringTimed:
-    'Right and fast wins big — earn 40% to 100% of the points based on your speed.',
+    'Faster correct answers earn more points.',
   descQuestionTime: 'How long each team has to lock in an answer.',
   descRoundLength:
     'How many questions in the round, auto-mixed across easy, medium and hard. Custom: 3–100.',

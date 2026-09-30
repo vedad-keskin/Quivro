@@ -119,41 +119,31 @@ function loadRoundPrefs(): RoundPrefs | null {
 
         <section [class.cats-disabled]="!needsCategories()">
           <label class="q-label">{{ lang.t().categories }}</label>
-          <div class="chips">
+          <div class="tiles tiles-cats">
             @for (cat of categories; track cat) {
-              <span class="hint-wrap">
-                <button
-                  type="button"
-                  class="q-chip"
-                  [class.active]="selected().includes(cat)"
-                  [class.locked]="ent.categoryLocked(cat)"
-                  [disabled]="!needsCategories()"
-                  (click)="toggleCategory(cat)"
-                >
-                  {{ categoryLabel(cat) }}
+              <button
+                type="button"
+                class="tile"
+                [class.active]="selected().includes(cat)"
+                [class.locked]="ent.categoryLocked(cat)"
+                [disabled]="!needsCategories()"
+                [attr.aria-pressed]="selected().includes(cat)"
+                (click)="toggleCategory(cat)"
+              >
+                <span class="tile-icon">
+                  <img class="art" [src]="categoryInfo[cat].icon" alt="" />
                   @if (ent.categoryLocked(cat)) {
-                    <span class="lock" aria-hidden="true">🔒</span>
-                  } @else if (isFreeThisWeek(cat)) {
-                    <span class="gift" aria-hidden="true">★</span>
+                    <img class="stamp" src="/brand/pro_badge.png" [alt]="lang.t().proLocked" />
                   }
-                </button>
-                <div class="preview">
-                  <div class="p-head">
-                    <span class="p-emoji">{{ categoryInfo[cat].emoji }}</span>
-                    <strong class="p-title">{{ categoryLabel(cat) }}</strong>
-                  </div>
-                  <p class="p-body">{{ categoryDesc(cat) }}</p>
-                  @if (ent.categoryLocked(cat)) {
-                    <p class="p-banner lock-banner">
-                      <span class="mark" aria-hidden="true">🔒</span>{{ lang.t().proLocked }}
-                    </p>
-                  } @else if (isFreeThisWeek(cat)) {
-                    <p class="p-banner free-banner">
-                      <span class="star" aria-hidden="true">★</span>{{ lang.t().freeThisWeek }}
-                    </p>
-                  }
-                </div>
-              </span>
+                </span>
+                <span class="tile-copy">
+                  <strong>{{ categoryLabel(cat) }}</strong>
+                  <span>{{ categoryDesc(cat) }}</span>
+                </span>
+                @if (isFreeThisWeek(cat)) {
+                  <img class="free-mark" src="/brand/free_rotation.png" [alt]="lang.t().freeThisWeek" />
+                }
+              </button>
             }
           </div>
           @if (needsCategories() && selected().length === 0) {
@@ -161,192 +151,150 @@ function loadRoundPrefs(): RoundPrefs | null {
           }
         </section>
 
-        <section>
-          <label class="q-label">{{ lang.t().questionTypes }}</label>
-          <div class="chips">
-            @for (t of questionTypes; track t) {
-              <span class="hint-wrap">
+        <div class="pair">
+          <section>
+            <label class="q-label">{{ lang.t().questionTypes }}</label>
+            <div class="tiles">
+              @for (t of questionTypes; track t) {
                 <button
                   type="button"
-                  class="q-chip"
+                  class="tile"
                   [class.active]="types().includes(t)"
                   [class.locked]="ent.questionTypeLocked(t)"
+                  [attr.aria-pressed]="types().includes(t)"
                   (click)="toggleType(t)"
                 >
-                  {{ typeLabel(t) }}
-                  @if (ent.questionTypeLocked(t)) {
-                    <span class="lock" aria-hidden="true">🔒</span>
-                  }
+                  <span class="tile-icon">
+                    <img class="art" [src]="typeInfo[t].icon" alt="" />
+                    @if (ent.questionTypeLocked(t)) {
+                      <img class="stamp" src="/brand/pro_badge.png" [alt]="lang.t().proLocked" />
+                    }
+                  </span>
+                  <span class="tile-copy">
+                    <strong>{{ typeLabel(t) }}</strong>
+                    <span>{{ typeDesc(t) }}</span>
+                  </span>
                 </button>
-                <div class="preview" [class.has-img]="t === 'image_mcq'">
-                  <div class="p-head">
-                    <span class="p-emoji">{{ typeInfo[t].emoji }}</span>
-                    <strong class="p-title">{{ typeLabel(t) }}</strong>
-                  </div>
-                  <p class="p-body">{{ typeDesc(t) }}</p>
-                  @if (ent.questionTypeLocked(t)) {
-                    <p class="p-banner lock-banner">
-                      <span class="mark" aria-hidden="true">🔒</span>{{ lang.t().proLocked }}
-                    </p>
-                  }
-                  @if (t === 'image_mcq') {
-                    <img class="p-img" [src]="randomPreviewImage()" alt="" />
-                  }
-                </div>
-              </span>
+              }
+            </div>
+            @if (types().length === 0) {
+              <p class="hint warn">{{ lang.t().selectAtLeastOneType }}</p>
             }
-          </div>
-          @if (types().length === 0) {
-            <p class="hint warn">{{ lang.t().selectAtLeastOneType }}</p>
-          }
-        </section>
+          </section>
 
-        <section>
-          <label class="q-label">{{ lang.t().scoringMode }}</label>
-          <div class="chips">
-            <span class="hint-wrap">
+          <section>
+            <label class="q-label">{{ lang.t().scoringMode }}</label>
+            <div class="tiles">
               <button
                 type="button"
-                class="q-chip"
+                class="tile"
                 [class.active]="scoringMode() === 'standard'"
+                [attr.aria-pressed]="scoringMode() === 'standard'"
                 (click)="scoringMode.set('standard')"
               >
-                {{ lang.t().scoringStandard }}
+                <span class="tile-icon">
+                  <img class="art" src="/room-icons/standard.png" alt="" />
+                </span>
+                <span class="tile-copy">
+                  <strong>{{ lang.t().scoringStandard }}</strong>
+                  <span>{{ scoringDesc('standard') }}</span>
+                </span>
               </button>
-              <div class="preview">
-                <div class="p-head">
-                  <span class="p-emoji">{{ scoringInfo.standard.emoji }}</span>
-                  <strong class="p-title">{{ lang.t().scoringStandard }}</strong>
-                </div>
-                <p class="p-body">{{ scoringDesc('standard') }}</p>
-              </div>
-            </span>
-            <span class="hint-wrap">
               <button
                 type="button"
-                class="q-chip"
+                class="tile"
                 [class.active]="scoringMode() === 'timed'"
                 [class.locked]="ent.scoringModeLocked('timed')"
+                [attr.aria-pressed]="scoringMode() === 'timed'"
                 (click)="pickScoring('timed')"
               >
-                {{ lang.t().scoringTimed }}
-                @if (ent.scoringModeLocked('timed')) {
-                  <span class="lock" aria-hidden="true">🔒</span>
-                }
+                <span class="tile-icon">
+                  <img class="art" src="/room-icons/timed.png" alt="" />
+                  @if (ent.scoringModeLocked('timed')) {
+                    <img class="stamp" src="/brand/pro_badge.png" [alt]="lang.t().proLocked" />
+                  }
+                </span>
+                <span class="tile-copy">
+                  <strong>{{ lang.t().scoringTimed }}</strong>
+                  <span>{{ scoringDesc('timed') }}</span>
+                </span>
               </button>
-              <div class="preview">
-                <div class="p-head">
-                  <span class="p-emoji">{{ scoringInfo.timed.emoji }}</span>
-                  <strong class="p-title">{{ lang.t().scoringTimed }}</strong>
-                </div>
-                <p class="p-body">{{ scoringDesc('timed') }}</p>
-                @if (ent.scoringModeLocked('timed')) {
-                  <p class="p-banner lock-banner">
-                    <span class="mark" aria-hidden="true">🔒</span>{{ lang.t().proLocked }}
-                  </p>
-                }
-              </div>
-            </span>
-          </div>
-        </section>
+            </div>
+          </section>
+        </div>
 
-        <section>
-          <label class="q-label">{{ lang.t().questionTime }}</label>
-          <div class="chips">
-            @for (n of timerPresets; track n) {
-              <span class="hint-wrap">
+        <div class="pair">
+          <section>
+            <div class="meter-head">
+              <img src="/room-icons/time_per_q.png" alt="" />
+              <label class="q-label">{{ lang.t().questionTime }}</label>
+            </div>
+            <div class="pills">
+              @for (n of timerPresets; track n) {
                 <button
                   type="button"
-                  class="q-chip"
+                  class="pill"
                   [class.active]="questionSeconds() === n"
+                  [attr.aria-pressed]="questionSeconds() === n"
                   (click)="questionSeconds.set(n)"
                 >
                   {{ n }}{{ lang.t().seconds }}
                 </button>
-                <div class="preview">
-                  <div class="p-head">
-                    <span class="p-emoji">⏱️</span>
-                    <strong class="p-title">{{ n }} {{ lang.t().seconds }}</strong>
-                  </div>
-                  <p class="p-body">{{ lang.t().descQuestionTime }}</p>
-                </div>
-              </span>
-            }
-          </div>
-        </section>
+              }
+            </div>
+            <p class="hint">{{ lang.t().descQuestionTime }}</p>
+          </section>
 
-        <section>
-          <label class="q-label">{{ lang.t().roundLength }}</label>
-          <div class="chips">
-            @for (n of presets; track n) {
-              <span class="hint-wrap">
+          <section>
+            <div class="meter-head">
+              <img src="/room-icons/round_length.png" alt="" />
+              <label class="q-label">{{ lang.t().roundLength }}</label>
+            </div>
+            <div class="pills">
+              @for (n of presets; track n) {
                 <button
                   type="button"
-                  class="q-chip"
+                  class="pill"
                   [class.active]="!customMode() && length() === n"
                   [class.locked]="ent.roundLengthLocked(n)"
+                  [attr.aria-pressed]="!customMode() && length() === n"
                   (click)="pickPreset(n)"
                 >
                   {{ n }}
                   @if (ent.roundLengthLocked(n)) {
-                    <span class="lock" aria-hidden="true">🔒</span>
+                    <img class="stamp" src="/brand/pro_badge.png" [alt]="lang.t().proLocked" />
                   }
                 </button>
-                <div class="preview">
-                  <div class="p-head">
-                    <span class="p-emoji">📏</span>
-                    <strong class="p-title">{{ n }} {{ lang.t().questions }}</strong>
-                  </div>
-                  <p class="p-body">{{ lang.t().descRoundLength }}</p>
-                  @if (ent.roundLengthLocked(n)) {
-                    <p class="p-banner lock-banner">
-                      <span class="mark" aria-hidden="true">🔒</span>{{ lang.t().proLocked }}
-                    </p>
-                  }
-                </div>
-              </span>
-            }
-            <span class="hint-wrap">
+              }
               <button
                 type="button"
-                class="q-chip"
+                class="pill"
                 [class.active]="customMode()"
                 [class.locked]="ent.customLengthLocked()"
+                [attr.aria-pressed]="customMode()"
                 (click)="pickCustom()"
               >
                 {{ lang.t().custom }}
                 @if (ent.customLengthLocked()) {
-                  <span class="lock" aria-hidden="true">🔒</span>
+                  <img class="stamp" src="/brand/pro_badge.png" [alt]="lang.t().proLocked" />
                 }
               </button>
-              <div class="preview">
-                <div class="p-head">
-                  <span class="p-emoji">🎚️</span>
-                  <strong class="p-title">{{ lang.t().custom }}</strong>
-                </div>
-                <p class="p-body">{{ lang.t().descRoundLength }}</p>
-                @if (ent.customLengthLocked()) {
-                  <p class="p-banner lock-banner">
-                    <span class="mark" aria-hidden="true">🔒</span>{{ lang.t().proLocked }}
-                  </p>
-                }
-              </div>
-            </span>
-          </div>
-          @if (customMode()) {
-            <input
-              class="q-input custom-input"
-              type="number"
-              [min]="minRoundLength"
-              [ngModel]="customLength()"
-              (ngModelChange)="onCustom($event)"
-            />
-          }
-          <p class="hint" [class.warn]="customMode() && !customLengthValid()">
-            {{ effectiveLength() }} {{ lang.t().questions }}
-            · {{ lang.t().difficultyMix }}
-          </p>
-        </section>
+            </div>
+            @if (customMode()) {
+              <input
+                class="q-input custom-input"
+                type="number"
+                [min]="minRoundLength"
+                [ngModel]="customLength()"
+                (ngModelChange)="onCustom($event)"
+              />
+            }
+            <p class="hint" [class.warn]="customMode() && !customLengthValid()">
+              {{ effectiveLength() }} {{ lang.t().questions }}
+              · {{ lang.t().difficultyMix }}
+            </p>
+          </section>
+        </div>
 
         <section>
           <label class="q-label">{{ lang.t().powerUps }}</label>
@@ -376,18 +324,13 @@ function loadRoundPrefs(): RoundPrefs | null {
                 >
                   <span class="chevron down" aria-hidden="true"></span>
                 </button>
-                @if (slot === 'fifty_fifty') {
-                  <div class="preview">
-                    <div class="p-head">
-                      <strong class="p-title">{{ lang.t().powerUpFifty }}</strong>
-                    </div>
-                    <p class="p-body">{{ lang.t().descPowerUpFifty }}</p>
-                  </div>
-                }
+                <span class="slot-name">
+                  {{ slot === 'fifty_fifty' ? lang.t().powerUpFifty : lang.t().descPowerUpEmpty }}
+                </span>
               </div>
             }
           </div>
-          <p class="hint">{{ lang.t().powerUpsHint }}</p>
+          <p class="hint">{{ lang.t().descPowerUpFifty }} {{ lang.t().powerUpsHint }}</p>
         </section>
 
         @if (!rooms.isLive) {
@@ -424,38 +367,189 @@ function loadRoundPrefs(): RoundPrefs | null {
       margin-bottom: 1.25rem;
     }
     .panel {
-      max-width: 720px;
+      max-width: 960px;
       margin: 0 auto;
       display: grid;
-      gap: 1.5rem;
+      gap: 1.15rem;
     }
     .brand h1 {
       margin: 0;
       font-size: clamp(1.8rem, 3vw, 2.4rem);
       font-weight: 900;
     }
-    .chips {
+    .pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 1.25rem;
+      align-items: start;
+    }
+    .tiles {
+      display: grid;
+      gap: 0.5rem;
+    }
+    .tiles-cats {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .pair .tiles {
+      grid-template-columns: 1fr 1fr;
+    }
+    .tile {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      min-width: 0;
+      padding: 0.4rem 0.55rem 0.4rem 0.4rem;
+      text-align: left;
+      border-radius: 16px;
+      border: 2px solid var(--q-border);
+      background: var(--q-card);
+      color: var(--q-navy);
+      cursor: pointer;
+    }
+    .tile:focus-visible,
+    .pill:focus-visible,
+    .slot-nudge:focus-visible {
+      outline: 2px solid var(--q-blue);
+      outline-offset: 2px;
+    }
+    .tile-icon {
+      position: relative;
+      flex: 0 0 56px;
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      border: 2px solid transparent;
+      display: grid;
+      place-items: center;
+    }
+    .tile.active .tile-icon {
+      background:
+        linear-gradient(var(--q-card), var(--q-card)) padding-box,
+        var(--q-gradient) border-box;
+    }
+    .tile-icon .art {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      display: block;
+    }
+    .stamp {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      pointer-events: none;
+    }
+    .free-mark {
+      width: 68px;
+      height: 68px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .tile.locked {
+      opacity: 0.78;
+    }
+    .tile-copy {
+      min-width: 0;
+      display: grid;
+      gap: 0.1rem;
+    }
+    .tile-copy strong {
+      font-size: 0.82rem;
+      font-weight: 900;
+      line-height: 1.15;
+    }
+    .tile-copy span {
+      font-size: 0.72rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--q-muted);
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      overflow: hidden;
+    }
+    .meter-head {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 0.45rem;
+    }
+    .meter-head img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+    .meter-head .q-label {
+      margin: 0;
+    }
+    .pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
+      gap: 0.45rem;
+    }
+    .pill {
+      position: relative;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      border: 2px solid var(--q-border);
+      background: var(--q-card);
+      color: var(--q-navy);
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .pill.active {
+      border-color: transparent;
+      color: #fff;
+      background: var(--q-gradient);
+    }
+    .pill.locked {
+      opacity: 0.78;
+    }
+    .pill .stamp {
+      width: 22px;
+      height: 22px;
+      top: -9px;
+      right: -8px;
     }
     .hint {
-      margin: 0.65rem 0 0;
+      margin: 0.5rem 0 0;
       color: var(--q-muted);
       font-weight: 700;
+      font-size: 0.82rem;
     }
     .warn {
       color: #db2777;
     }
     .custom-input {
-      margin-top: 0.75rem;
+      margin-top: 0.65rem;
       max-width: 10rem;
     }
     .cats-disabled {
       opacity: 0.45;
     }
-    .cats-disabled .q-chip {
+    .cats-disabled .tile {
       pointer-events: none;
+    }
+    @media (max-width: 720px) {
+      .tiles-cats {
+        grid-template-columns: 1fr 1fr;
+      }
+      .tiles-cats .tile {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .free-mark {
+        width: 56px;
+        height: 56px;
+      }
+      .pair {
+        grid-template-columns: 1fr;
+      }
     }
     .power-slots {
       display: flex;
@@ -527,209 +621,13 @@ function loadRoundPrefs(): RoundPrefs | null {
       line-height: 1;
       color: var(--q-muted);
     }
-
-    /* Fun hover preview cards */
-    .hint-wrap {
-      position: relative;
-      display: inline-flex;
-    }
-    .preview {
-      position: absolute;
-      bottom: calc(100% + 12px);
-      left: 50%;
-      width: max-content;
-      min-width: min(252px, 90vw);
-      max-width: 90vw;
-      display: grid;
-      gap: 0.3rem;
-      padding: 0.65rem 0.75rem 0.7rem;
-      text-align: left;
-      border: 2px solid transparent;
-      border-radius: 16px;
-      background:
-        linear-gradient(var(--q-card), var(--q-card)) padding-box,
-        var(--q-gradient) border-box;
-      box-shadow: var(--q-shadow);
-      opacity: 0;
-      pointer-events: none;
-      z-index: 50;
-      transform: translateX(-50%) translateY(6px) scale(0.96);
-      transform-origin: bottom center;
-      transition:
-        opacity 0.18s ease,
-        transform 0.18s ease;
-    }
-    .preview.has-img {
-      min-width: 0;
-      grid-template-columns: minmax(9rem, 1fr) auto;
-      grid-template-rows: auto auto auto;
-      column-gap: 0.55rem;
-      row-gap: 0.2rem;
-      align-items: start;
-      padding: 0 0 0.65rem 0.75rem;
-    }
-    .preview.has-img .p-head {
-      grid-column: 1;
-      grid-row: 1;
-      padding-top: 0.65rem;
-    }
-    .preview.has-img .p-body {
-      grid-column: 1;
-      grid-row: 2;
-      padding-right: 0.15rem;
-    }
-    .preview.has-img .p-banner {
-      grid-column: 1 / -1;
-      grid-row: 3;
-      margin: 0.35rem 0.75rem 0 0;
-    }
-    .preview.has-img .p-img {
-      grid-column: 2;
-      grid-row: 1 / span 2;
-      width: auto;
-      height: 128px;
-      max-width: none;
-      max-height: none;
-      margin: 0;
-      align-self: stretch;
-      justify-self: end;
-      border: none;
-      border-radius: 0 14px 0 0;
-      object-fit: cover;
-    }
-    .hint-wrap:hover .preview,
-    .power-slot.filled:hover ~ .preview {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0) scale(1);
-    }
-    .preview::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: -8px;
-      width: 14px;
-      height: 14px;
-      transform: translateX(-50%) rotate(45deg);
-      background:
-        linear-gradient(var(--q-card), var(--q-card)) padding-box,
-        var(--q-gradient) border-box;
-      border: 2px solid transparent;
-      border-radius: 0 0 3px 0;
-      z-index: 0;
-    }
-    .preview::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: 0;
-      width: 22px;
-      height: 10px;
-      transform: translateX(-50%);
-      background: var(--q-card);
-      z-index: 1;
-    }
-    .p-head {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      width: max-content;
-    }
-    .p-emoji {
-      font-size: 1.15rem;
-      line-height: 1;
-      flex-shrink: 0;
-    }
-    .p-title {
-      font-size: 0.92rem;
-      font-weight: 900;
-      color: var(--q-navy);
-      line-height: 1.2;
-      white-space: nowrap;
-    }
-    .p-body {
-      margin: 0;
-      width: 0;
-      min-width: 100%;
-      font-size: 0.78rem;
-      font-weight: 700;
-      line-height: 1.3;
-      color: var(--q-muted);
-    }
-    .p-img {
-      width: auto;
-      height: auto;
-      max-width: 100%;
-      max-height: 118px;
-      margin: 0.15rem auto 0;
-      display: block;
-      border-radius: 10px;
-      border: 2px solid var(--q-border);
-    }
-    .p-banner {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      margin: 0.2rem 0 0;
-      padding: 0.28rem 0.65rem;
-      border-radius: 999px;
+    .slot-name {
+      max-width: 76px;
       font-size: 0.72rem;
-      font-weight: 900;
-      letter-spacing: 0.01em;
-      line-height: 1.2;
-    }
-    .lock-banner {
-      position: relative;
-      overflow: hidden;
-      color: #fff;
-      background: var(--q-gradient);
-    }
-    .lock-banner::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        100deg,
-        transparent 28%,
-        rgba(255, 255, 255, 0.45) 50%,
-        transparent 72%
-      );
-      transform: translateX(-120%);
-      animation: pro-sheen 2.8s ease-in-out infinite;
-      pointer-events: none;
-    }
-    .free-banner {
-      color: #b45309;
-      background: color-mix(in srgb, #f59e0b 16%, var(--q-card));
-      border: 1.5px solid #f59e0b;
-    }
-    :host-context(html[data-theme='dark']) .free-banner {
-      color: #fbbf24;
-    }
-    .free-banner .star {
-      display: inline-block;
-      animation: week-pulse 1.6s ease-in-out infinite;
-    }
-    @keyframes pro-sheen {
-      to {
-        transform: translateX(120%);
-      }
-    }
-    @keyframes week-pulse {
-      50% {
-        opacity: 0.35;
-        transform: scale(1.2);
-      }
-    }
-    @media (hover: none) {
-      .preview {
-        display: none;
-      }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .lock-banner::after,
-      .free-banner .star {
-        animation: none;
-      }
+      font-weight: 800;
+      line-height: 1.15;
+      text-align: center;
+      color: var(--q-muted);
     }
   `,
 })
@@ -747,32 +645,26 @@ export class CreateRoundPage {
   readonly timerPresets = QUESTION_SECONDS_PRESETS;
   readonly minRoundLength = MIN_ROUND_LENGTH;
 
-  /** Emoji + description key for each category hover card. */
-  readonly categoryInfo: Record<CategoryId, { emoji: string; descKey: keyof UiStrings }> = {
-    geography: { emoji: '🌍', descKey: 'descGeography' },
-    biology: { emoji: '🧬', descKey: 'descBiology' },
-    history: { emoji: '🏛️', descKey: 'descHistory' },
-    technology: { emoji: '💻', descKey: 'descTechnology' },
-    sports: { emoji: '⚽', descKey: 'descSports' },
-    movies: { emoji: '🎬', descKey: 'descMovies' },
-    famous: { emoji: '🌟', descKey: 'descFamous' },
-    islam: { emoji: '☪️', descKey: 'descIslam' },
-    food: { emoji: '🍔', descKey: 'descFood' },
-    images: { emoji: '🖼️', descKey: 'descPictureQ' },
+  readonly categoryInfo: Record<CategoryId, { icon: string; descKey: keyof UiStrings }> = {
+    geography: { icon: '/room-icons/geo.png', descKey: 'descGeography' },
+    biology: { icon: '/room-icons/bio.png', descKey: 'descBiology' },
+    history: { icon: '/room-icons/his.png', descKey: 'descHistory' },
+    technology: { icon: '/room-icons/tech.png', descKey: 'descTechnology' },
+    sports: { icon: '/room-icons/sports.png', descKey: 'descSports' },
+    movies: { icon: '/room-icons/movtv.png', descKey: 'descMovies' },
+    famous: { icon: '/room-icons/fam.png', descKey: 'descFamous' },
+    islam: { icon: '/room-icons/isl.png', descKey: 'descIslam' },
+    food: { icon: '/room-icons/food.png', descKey: 'descFood' },
+    images: { icon: '/room-icons/picture.png', descKey: 'descPictureQ' },
   };
-  readonly typeInfo: Record<QuestionType, { emoji: string; descKey: keyof UiStrings }> = {
-    mcq: { emoji: '✏️', descKey: 'descTextQ' },
-    image_mcq: { emoji: '🖼️', descKey: 'descPictureQ' },
+  readonly typeInfo: Record<QuestionType, { icon: string; descKey: keyof UiStrings }> = {
+    mcq: { icon: '/room-icons/text.png', descKey: 'descTextQ' },
+    image_mcq: { icon: '/room-icons/picture.png', descKey: 'descPictureQ' },
   };
-  readonly scoringInfo: Record<ScoringMode, { emoji: string; descKey: keyof UiStrings }> = {
-    standard: { emoji: '🎯', descKey: 'descScoringStandard' },
-    timed: { emoji: '⚡', descKey: 'descScoringTimed' },
+  readonly scoringInfo: Record<ScoringMode, { descKey: keyof UiStrings }> = {
+    standard: { descKey: 'descScoringStandard' },
+    timed: { descKey: 'descScoringTimed' },
   };
-
-  /** Stable random image from the web pool for the picture-questions preview. */
-  readonly randomPreviewImage = signal(
-    `/questions/images/${Math.floor(Math.random() * 150) + 1}.jpg`,
-  );
 
   private readonly saved = loadRoundPrefs();
   readonly selected = signal<CategoryId[]>(this.saved?.categories ?? [...CATEGORIES]);

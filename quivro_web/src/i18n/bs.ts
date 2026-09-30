@@ -73,8 +73,8 @@ export const bs: UiStrings = {
   powerUpPrev: 'Prethodno pojačanje',
   descPowerUpFifty: 'Uklanja 2 pogrešna odgovora, ostavlja 2 na izbor.',
   descPowerUpEmpty: 'Prazan slot.',
-  scoringTimed: 'Na vrijeme (bonus za brzinu)',
-  scoringStandard: 'Standardno (+1 po tačnom)',
+  scoringTimed: 'Na vrijeme',
+  scoringStandard: 'Standardno',
   questionTime: 'Vrijeme po pitanju',
   seconds: 'sek',
   firebaseMissing:
@@ -100,9 +100,9 @@ export const bs: UiStrings = {
   descFood: 'Jela, pića i okusi iz cijelog svijeta.',
   descTextQ: 'Klasična pitanja sa četiri opcije. Što su teža, više vrijede.',
   descPictureQ: 'Pogodi šta je na slici prije nego istekne vrijeme.',
-  descScoringStandard: 'Svaki tačan odgovor vrijedi tačno +1. Čisto znanje, bez žurbe.',
+  descScoringStandard: 'Svaki tačan odgovor vrijedi 1 bod',
   descScoringTimed:
-    'Tačno i brzo donosi najviše — osvoji 40% do 100% bodova ovisno o brzini.',
+    'Brži tačan odgovor vrijedi više bodova.',
   descQuestionTime: 'Koliko vremena svaka ekipa ima da zaključa odgovor.',
   descRoundLength:
     'Koliko pitanja u rundi, automatski izmiješano lako/srednje/teško. Prilagođeno: 3–100.',
