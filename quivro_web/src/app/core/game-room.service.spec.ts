@@ -292,4 +292,31 @@ describe('GameRoomService', () => {
 
     expect(update).not.toHaveBeenCalled();
   });
+
+  it('startGame stamps the lobby language before publishing the first question', async () => {
+    const room = questionRoom({
+      phase: 'lobby',
+      currentIndex: -1,
+      currentQuestion: null,
+    });
+    claimHost(service, 'ROOM01');
+    let reads = 0;
+    vi.mocked(get).mockImplementation(async () => {
+      reads += 1;
+      const snap =
+        reads === 1
+          ? roomSnapshot(room)
+          : roomSnapshot({
+              ...room,
+              config: { ...room.config, language: 'bs' },
+            });
+      return { exists: () => true, val: () => snap } as never;
+    });
+
+    await service.startGame('ROOM01', 'bs');
+
+    const patches = vi.mocked(update).mock.calls.map((c) => c[1] as Record<string, unknown>);
+    expect(patches[0]).toEqual({ 'config/language': 'bs' });
+    expect((patches[1]['currentQuestion'] as { prompt: string }).prompt).toBe('Pitanje?');
+  });
 });

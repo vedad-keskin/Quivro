@@ -315,7 +315,7 @@ export class LobbyPage implements OnInit, OnDestroy {
     }
     this.starting.set(true);
     try {
-      await this.rooms.startGame(this.code);
+      await this.rooms.startGame(this.code, this.lang.lang());
       this.keepRoomAlive = true;
       await this.router.navigate(['/play', this.code]);
     } catch (e) {

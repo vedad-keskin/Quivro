@@ -180,11 +180,15 @@ export class GameRoomService {
     }
   }
 
-  async startGame(code: string): Promise<void> {
+  async startGame(code: string, language?: RoomConfig['language']): Promise<void> {
     this.requireHost(code);
     const room = await this.fetchFreshRoom(code);
     if (Object.keys(room.players).length === 0) {
       throw new Error('NO_PLAYERS');
+    }
+    // Lobby chip only changes the host UI. Stamp it here so questions use it.
+    if (language && language !== room.config.language) {
+      await this.patch(code, { 'config/language': language });
     }
     this.showingIndex = -1;
     await this.showQuestion(code, 0);
