@@ -43,13 +43,16 @@ import { SettingsChips } from '../../shared/settings-chips';
 
             <p class="waiting">{{ lang.t().waitingPlayers }}</p>
 
-            @if (ent.isPro()) {
-              <span class="pro-badge">{{ lang.t().hostedWithPro }}</span>
-            }
+            <img
+              class="pro-badge"
+              [class.locked]="!ent.isPro()"
+              src="/brand/pro_badge.png"
+              [alt]="ent.isPro() ? lang.t().hostedWithPro : lang.t().proLocked"
+            />
 
             <button
               type="button"
-              class="q-btn q-btn-outline start"
+              class="q-btn q-btn-primary start"
               [disabled]="!rooms.hosting() || playerList().length === 0 || starting()"
               (click)="start()"
             >
@@ -89,7 +92,7 @@ import { SettingsChips } from '../../shared/settings-chips';
       display: grid;
       grid-template-columns: 1.5fr 0.85fr;
       gap: 1.5rem;
-      align-items: start;
+      align-items: stretch;
       max-width: 1100px;
       margin: 0 auto;
     }
@@ -106,6 +109,10 @@ import { SettingsChips } from '../../shared/settings-chips';
       border-radius: 24px;
       padding: 1.5rem;
       background: var(--q-card);
+    }
+    .main {
+      position: relative;
+      padding-top: 2.25rem;
     }
     .label {
       margin: 0;
@@ -132,6 +139,7 @@ import { SettingsChips } from '../../shared/settings-chips';
       gap: 1rem;
       align-items: center;
       margin-bottom: 1rem;
+      padding-right: 4.5rem;
     }
     .waiting {
       font-size: 1.15rem;
@@ -149,17 +157,21 @@ import { SettingsChips } from '../../shared/settings-chips';
       line-height: 1.35;
     }
     .pro-badge {
-      display: inline-block;
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      background: var(--q-gradient);
-      color: #fff;
-      font-size: 0.75rem;
-      font-weight: 900;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      position: absolute;
+      top: -61px;
+      right: -9px;
+      width: 125px;
+      height: 125px;
+      object-fit: contain;
+      pointer-events: none;
+      transform: rotate(12deg);
+    }
+    .pro-badge.locked {
+      filter: grayscale(1);
+      opacity: 0.7;
     }
     .start {
+      display: block;
       margin-top: 1.25rem;
       min-width: 10rem;
     }
