@@ -429,16 +429,16 @@ function loadRoundPrefs(): RoundPrefs | null {
 
       <app-studio-footer />
       @if (resetPrompt()) {
-        <div class="reset-backdrop" (click)="resetPrompt.set(false)">
+        <div class="modal-backdrop" (click)="resetPrompt.set(false)">
           <div
-            class="reset-card"
+            class="modal"
             role="dialog"
             aria-modal="true"
             (click)="$event.stopPropagation()"
           >
             <p>{{ lang.t().powerUpReset }}</p>
-            <div class="reset-actions">
-              <button type="button" class="back" (click)="resetPrompt.set(false)">
+            <div class="modal-actions">
+              <button type="button" class="key-btn" (click)="resetPrompt.set(false)">
                 {{ lang.t().back }}
               </button>
               <button type="button" class="go go-sm" (click)="confirmReset()">
@@ -1033,34 +1033,10 @@ function loadRoundPrefs(): RoundPrefs | null {
       text-shadow: 2px 2px 0 var(--ink);
     }
 
-    .reset-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 200;
-      display: grid;
-      place-items: center;
-      padding: 1rem;
-      background: rgba(6, 12, 32, 0.55);
-    }
-    .reset-card {
-      width: min(420px, 100%);
-      display: grid;
-      gap: 1rem;
-      padding: 1.25rem 1.35rem;
-      border: 3px solid var(--ink);
-      border-radius: 18px;
-      background: var(--q-card);
-      box-shadow: 8px 8px 0 var(--ink);
-    }
-    .reset-card p {
+    .modal p {
       margin: 0;
       font-weight: 800;
       line-height: 1.35;
-    }
-    .reset-actions {
-      display: flex;
-      justify-content: flex-end;
-      gap: 0.6rem;
     }
 
     @media (max-width: 860px) {

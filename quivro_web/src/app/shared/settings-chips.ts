@@ -5,12 +5,13 @@ import { EntitlementService } from '../core/entitlement.service';
 import { FirebaseService } from '../core/firebase.service';
 import { LanguageService } from '../core/language.service';
 import { ThemeService } from '../core/theme.service';
+import { SignOutConfirm } from './sign-out-confirm';
 import { UpgradeDialogService } from './upgrade-dialog.service';
 
 /** Mobile-styled language + day/night chips (tap-to-toggle, no sheet). */
 @Component({
   selector: 'app-settings-chips',
-  imports: [RouterLink],
+  imports: [RouterLink, SignOutConfirm],
   template: `
     <div class="chips">
       <button
@@ -31,7 +32,7 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
 
       <button
         type="button"
-        class="chip"
+        class="chip theme"
         (click)="theme.toggle()"
         [attr.aria-label]="
           theme.theme() === 'dark' ? lang.t().themeNight : lang.t().themeDay
@@ -86,9 +87,9 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
               [attr.aria-label]="ent.isPro() ? lang.t().account + ', ' + lang.t().proName : lang.t().account"
             >
               @if (user.photoURL) {
-                <img class="avatar" [src]="user.photoURL" width="18" height="18" alt="" />
+                <img class="avatar" [class.pro]="ent.isPro()" [src]="user.photoURL" width="18" height="18" alt="" />
               } @else {
-                <span class="avatar fallback">{{ initial(user.displayName || user.email) }}</span>
+                <span class="avatar fallback" [class.pro]="ent.isPro()">{{ initial(user.displayName || user.email) }}</span>
               }
               <span class="label">{{ firstName(user.displayName) }}</span>
               <span class="caret" aria-hidden="true"></span>
@@ -144,12 +145,17 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
                   </button>
                 }
                 <div class="rule" role="separator"></div>
-                <button type="button" class="row out" role="menuitem" (click)="signOut()">
+                <button type="button" class="row out" role="menuitem" (click)="askSignOut()">
                   {{ lang.t().signOut }}
                 </button>
               </div>
             }
           </div>
+          <app-sign-out-confirm
+            [open]="confirmOpen()"
+            (cancelled)="confirmOpen.set(false)"
+            (confirmed)="signOut()"
+          />
         } @else {
           <button
             type="button"
@@ -413,6 +419,112 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
       filter: brightness(1.05);
     }
 
+    /* Game-show pages only; Lobby and Play keep the soft chips above. */
+    :host-context(.q-show) .chip {
+      border: 3px solid var(--ink);
+      border-radius: 12px;
+      box-shadow: 0 4px 0 var(--ink);
+      transition:
+        transform 0.1s ease,
+        box-shadow 0.1s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+    }
+    :host-context(.q-show) .chip:hover {
+      border-color: var(--ink);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 var(--ink);
+    }
+    :host-context(.q-show) .chip:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 var(--ink);
+    }
+    :host-context(.q-show) .chip:focus-visible {
+      outline: 3px solid var(--q-blue);
+      outline-offset: 3px;
+    }
+    :host-context(.q-show) .avatar {
+      box-shadow: 0 0 0 2px var(--bulb);
+    }
+    :host-context(.q-show) .avatar.pro {
+      box-shadow: 0 0 0 2px #f5a300, 0 0 6px #f5c542;
+    }
+    :host-context(.q-show) .menu {
+      border: 3px solid var(--ink);
+      border-radius: 16px;
+      background: var(--q-card);
+      box-shadow: 6px 6px 0 var(--ink);
+      transform-origin: top right;
+      animation: menu-pop 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes menu-pop {
+      from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-6px);
+      }
+    }
+    :host-context(.q-show) .who-avatar {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--ink);
+      box-shadow: 0 0 0 3px var(--bulb);
+    }
+    :host-context(.q-show) .name {
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: 1.1rem;
+    }
+    :host-context(.q-show) .rule {
+      background: color-mix(in srgb, var(--q-navy) 14%, transparent);
+    }
+    :host-context(.q-show) .row:hover {
+      background: color-mix(in srgb, var(--bulb) 28%, transparent);
+    }
+    :host-context(.q-show) .row.out {
+      color: #db2777;
+    }
+    :host-context(html[data-theme='dark'] .q-show) .row.out {
+      color: #ff5c8a;
+    }
+    :host-context(.q-show) .upgrade {
+      border: 3px solid var(--ink);
+      background: var(--bulb);
+      color: #1a1530;
+      font-family: var(--display);
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      box-shadow: 0 3px 0 var(--ink);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    :host-context(.q-show) .upgrade:hover {
+      filter: none;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 0 var(--ink);
+    }
+    :host-context(.q-show) .upgrade:active {
+      transform: translateY(3px);
+      box-shadow: 0 0 0 var(--ink);
+    }
+    :host-context(.q-show) .chip {
+      white-space: nowrap;
+    }
+    @media (max-width: 420px) {
+      :host-context(.q-show) .chips {
+        gap: 6px;
+      }
+      :host-context(.q-show) .chip {
+        padding: 0 0.55rem;
+      }
+      :host-context(.q-show) .theme .label {
+        display: none;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      :host-context(.q-show) .menu {
+        animation: none;
+      }
+    }
+
   `,
 })
 export class SettingsChips {
@@ -426,6 +538,7 @@ export class SettingsChips {
   private readonly account = viewChild<ElementRef<HTMLElement>>('account');
 
   readonly menuOpen = signal(false);
+  readonly confirmOpen = signal(false);
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
@@ -468,8 +581,13 @@ export class SettingsChips {
     this.upgrade.show();
   }
 
-  async signOut(): Promise<void> {
+  askSignOut(): void {
     this.menuOpen.set(false);
+    this.confirmOpen.set(true);
+  }
+
+  async signOut(): Promise<void> {
+    this.confirmOpen.set(false);
     const onProfile = this.router.url.split('?')[0] === '/profile';
     await this.auth.signOut();
     if (onProfile) void this.router.navigateByUrl('/');

@@ -2,7 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../core/auth.service';
 import { EntitlementService } from '../core/entitlement.service';
-import { PRO_PRICE } from '../core/entitlements';
+import { PRO_PERKS, PRO_PRICE } from '../core/entitlements';
 import { LanguageService } from '../core/language.service';
 import { SnackbarService } from '../core/snackbar.service';
 import { UpgradeDialogService } from './upgrade-dialog.service';
@@ -13,9 +13,9 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
   imports: [],
   template: `
     @if (dialog.open()) {
-      <div class="backdrop" (click)="dialog.close()">
+      <div class="q-show modal-backdrop" (click)="dialog.close()">
         <div
-          class="card"
+          class="modal card"
           role="dialog"
           aria-modal="true"
           (click)="$event.stopPropagation()"
@@ -30,23 +30,26 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
             <img class="banner" src="/brand/pro_banner.png" alt="" />
           </div>
           <div class="body">
-            <h2>{{ lang.t().upgradeTitle }}</h2>
+            <h2 class="show-title">{{ lang.t().upgradeTitle }}</h2>
             <p class="blurb">{{ lang.t().upgradeBlurb }}</p>
 
             <ul class="perks">
-              <li>{{ lang.t().perkCategories }}</li>
-              <li>{{ lang.t().perkPowerUps }}</li>
-              <li>{{ lang.t().perkImages }}</li>
-              <li>{{ lang.t().perkScoring }}</li>
-              <li>{{ lang.t().perkLength }}</li>
+              @for (p of perks; track p.key) {
+                <li>
+                  <span class="perk-mark" [style.--accent]="p.accent" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="13" height="13"><path d="M5 12.5 L10 17.5 L19 7" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                  </span>
+                  {{ lang.t()[p.key] }}
+                </li>
+              }
             </ul>
 
             @if (auth.user()) {
-              <button type="button" class="q-btn q-btn-outline buy" [disabled]="busy()" (click)="buy()">
+              <button type="button" class="go buy" [disabled]="busy()" (click)="buy()">
                 {{ lang.t().upgradeBuy }} {{ price }}
               </button>
             } @else {
-              <button type="button" class="q-btn q-btn-outline buy" [disabled]="busy()" (click)="signIn()">
+              <button type="button" class="go buy" [disabled]="busy()" (click)="signIn()">
                 {{ lang.t().upgradeSignInFirst }}
               </button>
             }
@@ -70,32 +73,18 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
     }
   `,
   styles: `
-    .backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 200;
-      display: grid;
-      place-items: center;
-      padding: 1rem;
-      background: rgba(6, 12, 32, 0.55);
+    .modal-backdrop {
       backdrop-filter: blur(3px);
     }
     .card {
-      position: relative;
-      overflow: visible;
-      width: min(420px, 100%);
-      display: grid;
+      gap: 0;
       padding: 0 0 0.85rem;
-      border: 2px solid transparent;
-      border-radius: 24px;
-      background:
-        linear-gradient(var(--q-card), var(--q-card)) padding-box,
-        var(--q-gradient) border-box;
-      box-shadow: var(--q-shadow);
+      overflow: visible;
     }
     .banner-wrap {
       overflow: hidden;
-      border-radius: 22px 22px 0 0;
+      border-bottom: 3px solid var(--ink);
+      border-radius: 15px 15px 0 0;
     }
     .banner {
       display: block;
@@ -109,20 +98,35 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
     }
     .x {
       position: absolute;
-      top: 0.45rem;
-      right: 0.55rem;
+      top: 0.55rem;
+      right: 0.6rem;
       z-index: 2;
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
       display: grid;
       place-items: center;
-      border: none;
-      border-radius: 999px;
-      background: rgba(8, 12, 28, 0.55);
-      color: #fff;
-      font-size: 1.25rem;
+      border: 3px solid var(--ink);
+      border-radius: 9px;
+      background: var(--q-card);
+      color: var(--q-navy);
+      font-size: 1.3rem;
+      font-weight: 900;
       line-height: 1;
       cursor: pointer;
+      box-shadow: 0 3px 0 var(--ink);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .x:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 0 var(--ink);
+    }
+    .x:active {
+      transform: translateY(3px);
+      box-shadow: 0 0 0 var(--ink);
+    }
+    .x:focus-visible {
+      outline: 3px solid var(--q-blue);
+      outline-offset: 2px;
     }
     .pro-badge {
       position: absolute;
@@ -159,10 +163,7 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
       }
     }
     h2 {
-      margin: 0;
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: var(--q-navy);
+      font-size: 1.7rem;
     }
     .blurb {
       margin: 0;
@@ -171,28 +172,11 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
       line-height: 1.35;
     }
     .perks {
-      margin: 0.35rem 0 0.5rem;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 0.4rem;
-    }
-    .perks li {
-      display: flex;
-      gap: 0.5rem;
-      font-weight: 800;
-      color: var(--q-navy);
-      line-height: 1.3;
-    }
-    .perks li::before {
-      content: '✓';
-      color: var(--q-blue);
-      font-weight: 900;
-      flex-shrink: 0;
+      margin: 0.35rem 0 0.6rem;
     }
     .buy {
-      width: 100%;
       margin-top: 0.25rem;
+      font-size: 1.3rem;
     }
     .restore {
       border: none;
@@ -206,8 +190,7 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
     .restore:hover:not(:disabled) {
       color: var(--q-blue);
     }
-    .restore:disabled,
-    .buy:disabled {
+    .restore:disabled {
       opacity: 0.6;
       cursor: default;
     }
@@ -245,6 +228,7 @@ export class UpgradeDialog {
   private readonly snack = inject(SnackbarService);
 
   readonly price = PRO_PRICE;
+  readonly perks = PRO_PERKS;
   readonly busy = signal(false);
 
   signIn(): void {

@@ -155,8 +155,6 @@ export const en = {
   profile: 'Profile',
   viewProfile: 'View profile',
   memberSince: 'Member since',
-  gamesHosted: 'Games hosted',
-  questionsPlayed: 'Questions played',
   freePlan: 'Free plan',
   purchasedOn: 'Purchased',
   signOutConfirmTitle: 'Sign out?',

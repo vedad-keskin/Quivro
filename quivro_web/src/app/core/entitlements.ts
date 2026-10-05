@@ -1,4 +1,5 @@
 import type { CategoryId, QuestionType } from '../../data/questions/types';
+import type { UiStrings } from '../../i18n/en';
 import type { PowerUpId, PowerUpSlots, RoomConfig, ScoringMode } from './room.models';
 
 /**
@@ -12,6 +13,15 @@ export const FREE_CATEGORIES: CategoryId[] = [
   'history',
   'technology',
   'sports',
+];
+
+/** What Pro adds, as shown on Login, Profile and the upgrade popup. */
+export const PRO_PERKS: readonly { key: keyof UiStrings; accent: string }[] = [
+  { key: 'perkCategories', accent: 'var(--q-cyan)' },
+  { key: 'perkPowerUps', accent: 'var(--q-orange)' },
+  { key: 'perkImages', accent: 'var(--q-pink)' },
+  { key: 'perkScoring', accent: 'var(--q-lime)' },
+  { key: 'perkLength', accent: 'var(--bulb)' },
 ];
 
 /** One of these is free each week — see `rotatingFreeCategory`. */

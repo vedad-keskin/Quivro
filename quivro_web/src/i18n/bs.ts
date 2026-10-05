@@ -157,8 +157,6 @@ export const bs: UiStrings = {
   profile: 'Profil',
   viewProfile: 'Pogledaj profil',
   memberSince: 'Član od',
-  gamesHosted: 'Igara kreirano',
-  questionsPlayed: 'Pitanja odigrano',
   freePlan: 'Besplatan plan',
   purchasedOn: 'Kupljeno',
   signOutConfirmTitle: 'Odjavi se?',

@@ -19,7 +19,7 @@ import { StudioFooter } from '../../shared/studio-footer';
           <span class="spark s1" aria-hidden="true"></span>
           <span class="spark s2" aria-hidden="true"></span>
           <span class="spark s3" aria-hidden="true"></span>
-          <img class="logo" src="/logo/logo.png" alt="Quivro" />
+          <img class="logo wordmark" src="/logo/logo.png" alt="Quivro" />
           <p class="tagline">{{ lang.t().tagline }}</p>
         </div>
 
@@ -72,45 +72,9 @@ import { StudioFooter } from '../../shared/studio-footer';
       display: grid;
       justify-items: center;
       padding: 3rem 1.5rem 3.6rem;
-      background:
-        radial-gradient(ellipse 60% 70% at 50% 45%, color-mix(in srgb, var(--bulb) 26%, var(--q-card)), transparent 70%),
-        repeating-conic-gradient(from 0deg at 50% 45%, color-mix(in srgb, var(--q-navy) 5%, transparent) 0 10deg, transparent 10deg 20deg),
-        var(--q-card);
-    }
-    /* The logo's three spark marks, blown up into the card corners. */
-    .spark {
-      position: absolute;
-      width: 46px;
-      height: 14px;
-      border: 3px solid var(--ink);
-      border-radius: 999px;
-    }
-    .s1 {
-      top: 18px;
-      right: 64px;
-      background: var(--q-cyan);
-      transform: rotate(-60deg);
-    }
-    .s2 {
-      top: 34px;
-      right: 22px;
-      background: var(--bulb);
-      transform: rotate(-30deg);
-    }
-    .s3 {
-      top: 70px;
-      right: 12px;
-      background: var(--q-pink);
-      transform: rotate(-8deg);
     }
     .logo {
       width: min(400px, 78vw);
-      display: block;
-      transition: filter 0.3s ease;
-    }
-    :host-context(html[data-theme='dark']) .logo {
-      /* Dark wordmark in the asset — invert + hue restore keeps the Q gradient readable. */
-      filter: invert(1) hue-rotate(180deg) brightness(1.08) saturate(1.05);
     }
     .tagline {
       position: absolute;
