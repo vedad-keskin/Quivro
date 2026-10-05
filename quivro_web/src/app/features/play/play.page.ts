@@ -1759,7 +1759,7 @@ export class PlayPage implements OnInit, OnDestroy {
         border-radius: 10px;
         background: #a3e635;
         color: #1a1530;
-        font-family: 'Lilita One', sans-serif;
+        font-family: var(--display, sans-serif);
         font-size: 1.3rem;
         pointer-events: none;
         transition: left 0.85s cubic-bezier(.2,.8,.2,1), top 0.85s cubic-bezier(.2,.8,.2,1), opacity 0.85s ease, transform 0.85s ease;
