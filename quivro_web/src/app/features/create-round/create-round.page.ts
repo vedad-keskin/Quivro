@@ -489,7 +489,7 @@ function loadRoundPrefs(): RoundPrefs | null {
     }
     :host-context(html[data-theme='dark']) .title h1 {
       color: var(--bulb);
-      text-shadow: 3px 3px 0 #e8435a;
+      text-shadow: 3px 3px 0 var(--ink);
     }
 
     /* Slot machine cabinet (tiles, keys and reels live in styles.css under .rs) */

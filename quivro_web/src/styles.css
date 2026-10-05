@@ -445,7 +445,7 @@ html[data-theme='dark'] .q-show .danger {
   background: #ff5c8a;
 }
 
-/* Lilita headline: navy on yellow by day, yellow on red at night. */
+/* Lilita headline: navy on yellow by day, yellow on ink at night. */
 .q-show .show-title {
   margin: 0;
   font-family: var(--display);
@@ -456,7 +456,7 @@ html[data-theme='dark'] .q-show .danger {
 }
 html[data-theme='dark'] .q-show .show-title {
   color: var(--bulb);
-  text-shadow: 3px 3px 0 #e8435a;
+  text-shadow: 3px 3px 0 var(--ink);
 }
 html[data-theme='dark'] .q-show .wordmark {
   /* Dark wordmark in the asset — invert + hue restore keeps the Q gradient readable. */
