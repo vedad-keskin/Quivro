@@ -4,7 +4,7 @@ import { SnackbarService } from '../core/snackbar.service';
 @Component({
   selector: 'app-snackbar-host',
   template: `
-    <div class="snacks" aria-live="polite">
+    <div class="snacks q-show" aria-live="polite">
       @for (m of snacks.messages(); track m.id) {
         <div class="snack" [class]="m.kind" (click)="snacks.dismiss(m.id)">
           <span class="bar"></span>
@@ -30,14 +30,18 @@ import { SnackbarService } from '../core/snackbar.service';
       grid-template-columns: 6px 1fr;
       gap: 0.85rem;
       align-items: center;
-      padding: 0.95rem 1.1rem;
-      border-radius: 18px;
+      padding: 0.85rem 1.05rem;
+      border: 3px solid var(--ink);
+      border-radius: 14px;
       background: var(--q-card);
-      border: 2px solid var(--q-border);
-      box-shadow: 0 14px 40px rgba(30, 41, 59, 0.14);
+      box-shadow: 6px 6px 0 var(--ink);
       cursor: pointer;
       animation: slide-in 0.28s ease;
-      font-weight: 700;
+      font-weight: 800;
+    }
+    .snack:active {
+      transform: translate(4px, 4px);
+      box-shadow: 2px 2px 0 var(--ink);
     }
     .snack p {
       margin: 0;
@@ -53,19 +57,20 @@ import { SnackbarService } from '../core/snackbar.service';
       background: #ec4899;
     }
     .success .bar {
-      background: #84cc16;
+      background: var(--q-lime);
     }
     .info .bar {
-      background: linear-gradient(180deg, #2f7cf6, #7b3ff2);
+      background: var(--q-cyan);
     }
     @keyframes slide-in {
       from {
         opacity: 0;
         transform: translateY(12px);
       }
-      to {
-        opacity: 1;
-        transform: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .snack {
+        animation: none;
       }
     }
   `,

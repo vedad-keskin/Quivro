@@ -5,6 +5,7 @@ import { EntitlementService } from '../../core/entitlement.service';
 import { LanguageService } from '../../core/language.service';
 import { SnackbarService } from '../../core/snackbar.service';
 import { SettingsChips } from '../../shared/settings-chips';
+import { StudioFooter } from '../../shared/studio-footer';
 
 const POLL_MS = 2000;
 const POLL_ATTEMPTS = 30;
@@ -15,9 +16,9 @@ const POLL_ATTEMPTS = 30;
  */
 @Component({
   selector: 'app-unlocked',
-  imports: [RouterLink, SettingsChips],
+  imports: [RouterLink, SettingsChips, StudioFooter],
   template: `
-    <div class="q-page stage">
+    <div class="q-page q-show unlock">
       <header>
         <a routerLink="/" class="back">← {{ lang.t().home }}</a>
         <app-settings-chips />
@@ -25,64 +26,71 @@ const POLL_ATTEMPTS = 30;
 
       @if (auth.user()) {
         <section class="hero">
-          <img class="badge" src="/brand/pro_badge.png" alt="" />
+          <div class="stage spotlight">
+            <span class="spark s1" aria-hidden="true"></span>
+            <span class="spark s2" aria-hidden="true"></span>
+            <span class="spark s3" aria-hidden="true"></span>
+            <img class="badge" src="/brand/pro_badge.png" alt="" />
+            @if (ent.isPro()) {
+              <h1 class="show-title">{{ lang.t().unlockedTitle }}</h1>
+              <p>{{ lang.t().unlockedBody }}</p>
+            } @else if (gaveUp()) {
+              <h1 class="show-title">{{ lang.t().unlockSlowTitle }}</h1>
+              <p>{{ lang.t().unlockSlowBody }}</p>
+            } @else {
+              <h1 class="show-title wait">{{ lang.t().unlockingTitle }}</h1>
+              <p>{{ lang.t().unlockingBody }}</p>
+            }
+          </div>
           @if (ent.isPro()) {
-            <h1>{{ lang.t().unlockedTitle }}</h1>
-            <p>{{ lang.t().unlockedBody }}</p>
-            <a routerLink="/create" class="q-btn q-btn-outline">{{ lang.t().createRound }}</a>
+            <a routerLink="/create" class="go start">
+              {{ lang.t().createRound }}
+              <span class="go-arrow" aria-hidden="true">▶</span>
+            </a>
           } @else if (gaveUp()) {
-            <h1>{{ lang.t().unlockSlowTitle }}</h1>
-            <p>{{ lang.t().unlockSlowBody }}</p>
-            <button type="button" class="q-btn q-btn-outline" (click)="retry()">
+            <button type="button" class="key-btn" (click)="retry()">
               {{ lang.t().upgradeRestore }}
             </button>
-          } @else {
-            <h1 class="wait">{{ lang.t().unlockingTitle }}</h1>
-            <p>{{ lang.t().unlockingBody }}</p>
           }
         </section>
       }
+
+      <app-studio-footer />
     </div>
   `,
   styles: `
-    .stage {
+    .unlock {
       display: grid;
-      grid-template-rows: auto 1fr;
+      grid-template-rows: auto 1fr auto;
+      gap: 1rem;
     }
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .back {
-      font-weight: 800;
-      font-size: 0.88rem;
-      color: var(--q-muted);
-    }
-    .back:hover {
-      color: var(--q-navy);
-    }
     .hero {
       display: grid;
       place-content: center;
       justify-items: center;
       text-align: center;
-      gap: 0.75rem;
+      gap: 1.1rem;
+    }
+    .spotlight {
+      width: min(420px, 100%);
+      display: grid;
+      justify-items: center;
+      gap: 0.7rem;
+      padding: 2.4rem 1.5rem 1.8rem;
     }
     .badge {
       width: 112px;
       height: 112px;
       animation: medal-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
     }
-    h1 {
-      margin: 0;
+    .show-title {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
       max-width: 18rem;
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 900;
-      color: var(--q-navy);
-    }
-    .wait {
-      animation: pulse 1.4s ease-in-out infinite;
     }
     p {
       margin: 0;
@@ -91,8 +99,11 @@ const POLL_ATTEMPTS = 30;
       font-weight: 700;
       line-height: 1.4;
     }
-    .q-btn {
-      margin-top: 0.35rem;
+    .start {
+      width: min(420px, 100%);
+    }
+    .wait {
+      animation: pulse 1.4s ease-in-out infinite;
     }
     @keyframes pulse {
       50% {
@@ -103,10 +114,6 @@ const POLL_ATTEMPTS = 30;
       from {
         opacity: 0;
         transform: scale(0.3);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
       }
     }
     @media (prefers-reduced-motion: reduce) {

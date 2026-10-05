@@ -686,9 +686,12 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       flex-direction: column;
       gap: 0.9rem;
       padding: clamp(1rem, 2vw, 1.6rem);
-      padding-bottom: 3.6rem;
+      padding-bottom: 5rem;
       height: 100%;
       overflow: hidden;
+    }
+    .qstage app-answer-grid {
+      margin-bottom: 0.6rem;
     }
     .qstage.previewing .answered-row,
     .qstage.previewing app-answer-grid {
@@ -920,6 +923,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       position: absolute;
       right: 1rem;
       bottom: 0.9rem;
+      z-index: 2;
       font-size: 0.9rem;
     }
     .waiting {
