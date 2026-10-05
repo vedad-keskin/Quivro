@@ -69,6 +69,7 @@ export const en = {
   powerUpFifty: '50/50',
   powerUpNext: 'Next power-up',
   powerUpPrev: 'Previous power-up',
+  powerUpSpin: 'Spin',
   descPowerUpFifty: 'Removes 2 wrong answers, leaves 2 to choose from.',
   descPowerUpEmpty: 'Empty slot.',
   powerUpNeedsPro: '50/50 is part of Quivro Pro',

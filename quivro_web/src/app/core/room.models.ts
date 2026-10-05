@@ -88,6 +88,11 @@ export function cyclePowerUpSlot(current: PowerUpSlot, direction: 1 | -1): Power
   return POWER_UP_ORDER[next];
 }
 
+export function randomPowerUpSlots(rand: () => number = Math.random): PowerUpSlots {
+  const pick = () => POWER_UP_ORDER[Math.floor(rand() * POWER_UP_ORDER.length)];
+  return [pick(), pick(), pick()];
+}
+
 export function isPowerUpId(value: unknown): value is PowerUpId {
   return typeof value === 'string' && POWER_UP_IDS.has(value);
 }

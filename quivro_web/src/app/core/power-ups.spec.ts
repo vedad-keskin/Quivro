@@ -4,6 +4,7 @@ import {
   EMPTY_POWER_UP_SLOTS,
   normalizePowerUpSlots,
   pickFiftyFiftyEliminations,
+  randomPowerUpSlots,
   resolveFiftyFiftyRequest,
   type PowerUpSlots,
 } from './room.models';
@@ -33,6 +34,14 @@ describe('cyclePowerUpSlot', () => {
     expect(cyclePowerUpSlot('fifty_fifty', 1)).toBe(null);
     expect(cyclePowerUpSlot(null, -1)).toBe('fifty_fifty');
     expect(cyclePowerUpSlot('fifty_fifty', -1)).toBe(null);
+  });
+});
+
+describe('randomPowerUpSlots', () => {
+  it('returns three valid slots across the whole rand range', () => {
+    expect(randomPowerUpSlots(() => 0)).toEqual([null, null, null]);
+    expect(randomPowerUpSlots(() => 0.999)).toEqual(['fifty_fifty', 'fifty_fifty', 'fifty_fifty']);
+    expect(randomPowerUpSlots()).toHaveLength(3);
   });
 });
 

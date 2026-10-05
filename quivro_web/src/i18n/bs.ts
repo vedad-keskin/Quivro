@@ -71,6 +71,7 @@ export const bs: UiStrings = {
   powerUpFifty: '50/50',
   powerUpNext: 'Sljedeće pojačanje',
   powerUpPrev: 'Prethodno pojačanje',
+  powerUpSpin: 'Zavrti',
   descPowerUpFifty: 'Uklanja 2 pogrešna odgovora, ostavlja 2 na izbor.',
   descPowerUpEmpty: 'Prazan slot.',
   powerUpNeedsPro: '50/50 je dio Quivro Pro',
