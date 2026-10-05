@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import type { UiStrings } from '../../../i18n/en';
 import { LanguageService } from '../../core/language.service';
 import { SettingsChips } from '../../shared/settings-chips';
 import { StudioFooter } from '../../shared/studio-footer';
@@ -8,21 +9,37 @@ import { StudioFooter } from '../../shared/studio-footer';
   selector: 'app-home',
   imports: [RouterLink, SettingsChips, StudioFooter],
   template: `
-    <div class="q-page home">
+    <div class="q-page q-show home">
       <header>
         <app-settings-chips />
       </header>
 
       <section class="hero">
-        <div class="brand">
+        <div class="stage spotlight">
+          <span class="spark s1" aria-hidden="true"></span>
+          <span class="spark s2" aria-hidden="true"></span>
+          <span class="spark s3" aria-hidden="true"></span>
           <img class="logo" src="/logo/logo.png" alt="Quivro" />
-          <div class="q-brand-line"></div>
+          <p class="tagline">{{ lang.t().tagline }}</p>
         </div>
-        <p class="tagline">{{ lang.t().tagline }}</p>
 
-        <div class="actions">
-          <a routerLink="/create" class="q-btn q-btn-outline">{{ lang.t().createRound }}</a>
-        </div>
+        <a routerLink="/create" class="go start">
+          {{ lang.t().createRound }}
+          <span class="go-arrow" aria-hidden="true">▶</span>
+        </a>
+
+        <section class="how">
+          <h2>{{ lang.t().howItWorks }}</h2>
+          <ol class="steps">
+            @for (s of steps; track s.title; let i = $index) {
+              <li class="stage step-card" [style.--accent]="s.accent">
+                <span class="step" aria-hidden="true">{{ i + 1 }}</span>
+                <strong>{{ lang.t()[s.title] }}</strong>
+                <span>{{ lang.t()[s.body] }}</span>
+              </li>
+            }
+          </ol>
+        </section>
       </section>
 
       <app-studio-footer />
@@ -41,20 +58,53 @@ import { StudioFooter } from '../../shared/studio-footer';
       justify-content: flex-end;
     }
     .hero {
+      width: 100%;
+      max-width: 820px;
+      margin: 0 auto;
       display: grid;
-      place-content: center;
+      align-content: center;
       justify-items: center;
+      gap: 2.4rem;
       text-align: center;
-      gap: 1.1rem;
     }
-    .brand {
+    .spotlight {
+      width: min(560px, 100%);
       display: grid;
       justify-items: center;
-      gap: 0;
+      padding: 3rem 1.5rem 3.6rem;
+      background:
+        radial-gradient(ellipse 60% 70% at 50% 45%, color-mix(in srgb, var(--bulb) 26%, var(--q-card)), transparent 70%),
+        repeating-conic-gradient(from 0deg at 50% 45%, color-mix(in srgb, var(--q-navy) 5%, transparent) 0 10deg, transparent 10deg 20deg),
+        var(--q-card);
+    }
+    /* The logo's three spark marks, blown up into the card corners. */
+    .spark {
+      position: absolute;
+      width: 46px;
+      height: 14px;
+      border: 3px solid var(--ink);
+      border-radius: 999px;
+    }
+    .s1 {
+      top: 18px;
+      right: 64px;
+      background: var(--q-cyan);
+      transform: rotate(-60deg);
+    }
+    .s2 {
+      top: 34px;
+      right: 22px;
+      background: var(--bulb);
+      transform: rotate(-30deg);
+    }
+    .s3 {
+      top: 70px;
+      right: 12px;
+      background: var(--q-pink);
+      transform: rotate(-8deg);
     }
     .logo {
-      width: min(420px, 78vw);
-      margin-top: 0.25rem;
+      width: min(400px, 78vw);
       display: block;
       transition: filter 0.3s ease;
     }
@@ -62,26 +112,95 @@ import { StudioFooter } from '../../shared/studio-footer';
       /* Dark wordmark in the asset — invert + hue restore keeps the Q gradient readable. */
       filter: invert(1) hue-rotate(180deg) brightness(1.08) saturate(1.05);
     }
-    .brand .q-brand-line {
-      margin-top: 0;
-    }
     .tagline {
+      position: absolute;
+      left: 50%;
+      bottom: -1.3rem;
       margin: 0;
-      font-size: clamp(1.05rem, 2vw, 1.3rem);
-      color: var(--q-muted);
-      font-weight: 700;
-      max-width: 26rem;
+      padding: 0.55rem 1.1rem;
+      width: max-content;
+      max-width: 90%;
+      border: 3px solid var(--ink);
+      border-radius: 12px;
+      background: var(--bulb);
+      color: #1a1530;
+      box-shadow: var(--hit);
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      font-weight: 900;
+      transform: translateX(-50%) rotate(-2deg);
     }
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.85rem;
-      justify-content: center;
-      align-items: center;
-      margin-top: 0.75rem;
+    .start {
+      max-width: 420px;
+      margin-top: 0.6rem;
+    }
+    .how {
+      width: 100%;
+      display: grid;
+      gap: 1.6rem;
+    }
+    .how h2 {
+      margin: 0;
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: 1.35rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--q-navy);
+    }
+    .steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.6rem;
+    }
+    .step-card {
+      display: grid;
+      gap: 0.3rem;
+      align-content: start;
+      padding-top: 1.4rem;
+      text-align: left;
+      background: color-mix(in srgb, var(--accent) 16%, var(--q-card));
+      box-shadow: var(--hit);
+      transform: rotate(-1deg);
+    }
+    .step-card:nth-child(even) {
+      transform: rotate(1deg);
+    }
+    .step-card .step {
+      background: var(--accent);
+    }
+    .step-card strong {
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: 1.15rem;
+      color: var(--q-navy);
+    }
+    .step-card span:not(.step) {
+      font-size: 0.85rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--q-muted);
+    }
+    @media (max-width: 720px) {
+      .steps {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .step-card,
+      .step-card:nth-child(even) {
+        transform: none;
+      }
     }
   `,
 })
 export class HomePage {
   readonly lang = inject(LanguageService);
+  readonly steps: { title: keyof UiStrings; body: keyof UiStrings; accent: string }[] = [
+    { title: 'stepHostTitle', body: 'stepHostBody', accent: 'var(--q-cyan)' },
+    { title: 'stepJoinTitle', body: 'stepJoinBody', accent: 'var(--q-orange)' },
+    { title: 'stepPlayTitle', body: 'stepPlayBody', accent: 'var(--q-pink)' },
+  ];
 }

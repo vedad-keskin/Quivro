@@ -108,7 +108,7 @@ function loadRoundPrefs(): RoundPrefs | null {
   selector: 'app-create-round',
   imports: [FormsModule, RouterLink, SettingsChips, StudioFooter],
   template: `
-    <div class="q-page create">
+    <div class="q-page q-show create">
       <header class="top">
         <a routerLink="/" class="back">← {{ lang.t().back }}</a>
         <app-settings-chips />
@@ -116,9 +116,6 @@ function loadRoundPrefs(): RoundPrefs | null {
 
       <div class="panel">
         <div class="title">
-          <span class="sticker" aria-hidden="true">
-            <img src="/logo/logo_only.png" alt="" />
-          </span>
           <h1>{{ lang.t().createRound }}</h1>
         </div>
 
@@ -303,6 +300,20 @@ function loadRoundPrefs(): RoundPrefs | null {
                 <span class="readout-num">{{ effectiveLength() }}</span>
               }
               <span class="readout-unit">{{ lang.t().questions }}</span>
+              @if (customMode()) {
+                <span class="readout-steps">
+                  <button type="button" class="nudge step-key" [attr.aria-label]="lang.t().decrease" (click)="stepCustom(-1)">
+                    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                      <path d="M6 12 H18" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" />
+                    </svg>
+                  </button>
+                  <button type="button" class="nudge step-key" [attr.aria-label]="lang.t().increase" (click)="stepCustom(1)">
+                    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                      <path d="M6 12 H18 M12 6 V18" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" />
+                    </svg>
+                  </button>
+                </span>
+              }
             </div>
             <p class="hint">{{ lang.t().difficultyMix }}</p>
           </section>
@@ -328,28 +339,33 @@ function loadRoundPrefs(): RoundPrefs | null {
                         <path d="M5.5 14.5 L12 8.5 L18.5 14.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
                       </svg>
                     </button>
-                    <div
-                      class="window"
-                      [class.locked]="!!slot && ent.powerUpLocked(slot)"
-                      [class.from-up]="$index === slotSlide()?.index && slotSlide()?.dir === 1"
-                      [class.from-down]="$index === slotSlide()?.index && slotSlide()?.dir === -1"
-                    >
-                      @if (spinning()[$index]) {
-                        <div class="strip" aria-hidden="true">
-                          @for (s of reelStrip; track $index) {
-                            <span class="strip-cell">
-                              @if (s) {
-                                <img [src]="fiftyFiftyIcon" alt="" />
-                              } @else {
-                                <span class="slot-plus">+</span>
-                              }
-                            </span>
-                          }
-                        </div>
-                      } @else if (slot === 'fifty_fifty') {
-                        <img class="reel-art" [src]="fiftyFiftyIcon" alt="" />
-                      } @else {
-                        <span class="slot-plus" aria-hidden="true">+</span>
+                    <div class="window-wrap">
+                      <div
+                        class="window"
+                        [class.locked]="!!slot && ent.powerUpLocked(slot)"
+                        [class.from-up]="$index === slotSlide()?.index && slotSlide()?.dir === 1"
+                        [class.from-down]="$index === slotSlide()?.index && slotSlide()?.dir === -1"
+                      >
+                        @if (spinning()[$index]) {
+                          <div class="strip" aria-hidden="true">
+                            @for (s of reelStrip; track $index) {
+                              <span class="strip-cell">
+                                @if (s) {
+                                  <img [src]="fiftyFiftyIcon" alt="" />
+                                } @else {
+                                  <span class="slot-plus">+</span>
+                                }
+                              </span>
+                            }
+                          </div>
+                        } @else if (slot === 'fifty_fifty') {
+                          <img class="reel-art" [src]="fiftyFiftyIcon" alt="" />
+                        } @else {
+                          <span class="slot-plus" aria-hidden="true">+</span>
+                        }
+                      </div>
+                      @if (slot && !isPowerUpFree(slot)) {
+                        <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.powerUpLocked(slot))" />
                       }
                     </div>
                     <button
@@ -371,9 +387,6 @@ function loadRoundPrefs(): RoundPrefs | null {
                         <span>{{ lang.t().descPowerUpFifty }}</span>
                       }
                     </div>
-                    @if (slot && !isPowerUpFree(slot)) {
-                      <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.powerUpLocked(slot))" />
-                    }
                   </div>
                 }
               </div>
@@ -439,19 +452,11 @@ function loadRoundPrefs(): RoundPrefs | null {
   `,
   styles: `
     .create {
-      --ink: #1a1530;
-      --bulb: #ffcc33;
-      --lcd: #0d1022;
-      --hit: 4px 4px 0 var(--ink);
-      --display: 'Lilita One', 'Nunito', system-ui, sans-serif;
       --win: 96px;
       display: grid;
       grid-template-rows: auto 1fr auto;
       min-height: 100dvh;
       gap: 1rem;
-    }
-    :host-context(html[data-theme='dark']) .create {
-      --ink: #04060d;
     }
     .top {
       display: flex;
@@ -466,26 +471,6 @@ function loadRoundPrefs(): RoundPrefs | null {
       display: grid;
       gap: 2.1rem;
       align-content: start;
-    }
-
-    /* Chunky keys */
-    .back {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.5rem 0.95rem;
-      border: 3px solid var(--ink);
-      border-radius: 12px;
-      background: var(--q-card);
-      color: var(--q-navy);
-      font-weight: 900;
-      cursor: pointer;
-      box-shadow: 0 4px 0 var(--ink);
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
-    }
-    .back:active {
-      transform: translateY(4px);
-      box-shadow: 0 0 0 var(--ink);
     }
 
     .title {
@@ -503,48 +488,9 @@ function loadRoundPrefs(): RoundPrefs | null {
       color: var(--q-navy);
       text-shadow: 3px 3px 0 var(--bulb);
     }
-    .sticker {
-      flex-shrink: 0;
-      width: 64px;
-      height: 64px;
-      display: grid;
-      place-items: center;
-      border: 3px solid var(--ink);
-      border-radius: 50%;
-      background: var(--bulb);
-      box-shadow: var(--hit);
-      transform: rotate(-10deg);
-    }
-    .sticker img {
-      width: 42px;
-      height: 42px;
-    }
-
-    /* Stage panels */
-    .stage {
-      position: relative;
-      background: var(--q-card);
-      border: 3px solid var(--ink);
-      border-radius: 18px;
-      box-shadow: 6px 6px 0 var(--ink);
-      padding: 1.25rem 1.2rem 1.25rem;
-    }
-    .step {
-      position: absolute;
-      top: -20px;
-      left: -16px;
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border: 3px solid var(--ink);
-      border-radius: 50%;
-      background: var(--bulb);
-      color: #1a1530;
-      font-family: var(--display);
-      font-size: 1.35rem;
-      box-shadow: 2px 2px 0 var(--ink);
-      transform: rotate(-8deg);
+    :host-context(html[data-theme='dark']) .title h1 {
+      color: var(--bulb);
+      text-shadow: 3px 3px 0 #e8435a;
     }
     .stage-label {
       margin: 0 0 0.9rem 1.1rem;
@@ -620,9 +566,7 @@ function loadRoundPrefs(): RoundPrefs | null {
     .tile:focus-visible,
     .key:focus-visible,
     .nudge:focus-visible,
-    .lever:focus-visible,
-    .go:focus-visible,
-    .back:focus-visible {
+    .lever:focus-visible {
       outline: 3px solid var(--q-blue);
       outline-offset: 3px;
     }
@@ -802,6 +746,25 @@ function loadRoundPrefs(): RoundPrefs | null {
       font-family: inherit;
       outline: none;
     }
+    .readout-input {
+      appearance: textfield;
+      -moz-appearance: textfield;
+    }
+    .readout-input::-webkit-inner-spin-button,
+    .readout-input::-webkit-outer-spin-button {
+      appearance: none;
+      margin: 0;
+    }
+    .readout-steps {
+      display: flex;
+      gap: 0.45rem;
+      margin-left: auto;
+      align-self: center;
+    }
+    .nudge.step-key {
+      width: 34px;
+      height: 34px;
+    }
     .readout-input:focus {
       border-bottom-style: solid;
     }
@@ -831,18 +794,7 @@ function loadRoundPrefs(): RoundPrefs | null {
       box-shadow: 6px 6px 0 var(--ink);
     }
     .marquee {
-      height: 20px;
       margin: 0 0.5rem 0.85rem;
-      border: 3px solid var(--ink);
-      border-radius: 999px;
-      background: radial-gradient(circle, var(--bulb) 0 4px, transparent 5px) 0 50% / 18px 100% repeat-x,
-        #2a1530;
-      animation: bulbs 0.9s steps(2) infinite;
-    }
-    @keyframes bulbs {
-      to {
-        background-position: 18px 50%, 0 0;
-      }
     }
     .machine-body {
       display: flex;
@@ -986,11 +938,14 @@ function loadRoundPrefs(): RoundPrefs | null {
       line-height: 1.25;
       color: var(--q-muted);
     }
-    .reel .corner-badge {
-      top: -26px;
-      right: -4px;
-      width: 50px;
-      height: 50px;
+    .window-wrap {
+      position: relative;
+    }
+    .window-wrap .corner-badge {
+      top: -14px;
+      right: -18px;
+      width: 46px;
+      height: 46px;
     }
 
     /* Lever */
@@ -1078,48 +1033,6 @@ function loadRoundPrefs(): RoundPrefs | null {
       text-shadow: 2px 2px 0 var(--ink);
     }
 
-    /* Go */
-    .go {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.7rem;
-      padding: 1rem 1.5rem;
-      border: 3px solid var(--ink);
-      border-radius: 16px;
-      background: var(--bulb);
-      color: #1a1530;
-      font-family: var(--display);
-      font-size: 1.6rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      cursor: pointer;
-      box-shadow: 0 6px 0 var(--ink);
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
-    }
-    .go:hover:not(:disabled) {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 0 var(--ink);
-    }
-    .go:active:not(:disabled) {
-      transform: translateY(6px);
-      box-shadow: 0 0 0 var(--ink);
-    }
-    .go:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-    .go-arrow {
-      font-size: 1rem;
-    }
-    .go-sm {
-      width: auto;
-      padding: 0.55rem 1.1rem;
-      font-size: 1.05rem;
-      box-shadow: 0 4px 0 var(--ink);
-    }
-
     .reset-backdrop {
       position: fixed;
       inset: 0;
@@ -1179,11 +1092,11 @@ function loadRoundPrefs(): RoundPrefs | null {
       .reel-copy span {
         display: none;
       }
-      .reel .corner-badge {
-        top: 28px;
-        right: -8px;
-        width: 36px;
-        height: 36px;
+      .window-wrap .corner-badge {
+        top: -10px;
+        right: -10px;
+        width: 34px;
+        height: 34px;
       }
       .go {
         position: sticky;
@@ -1199,7 +1112,6 @@ function loadRoundPrefs(): RoundPrefs | null {
         transform: none;
       }
       .stamp,
-      .marquee,
       .strip,
       .window > *,
       .lever.pulled .lever-stick,
@@ -1484,6 +1396,10 @@ export class CreateRoundPage {
     ) {
       this.snack.error(this.lang.t().roundLengthTooHigh);
     }
+  }
+
+  stepCustom(delta: number): void {
+    this.onCustom(this.customLength() + delta);
   }
 
   async create(): Promise<void> {
