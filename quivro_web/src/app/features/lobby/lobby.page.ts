@@ -11,7 +11,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EntitlementService } from '../../core/entitlement.service';
 import { GameRoomService } from '../../core/game-room.service';
 import { LanguageService } from '../../core/language.service';
-import { avatarColor, avatarEmoji } from '../../core/room.models';
+import {
+  avatarColor,
+  avatarEmoji,
+  POWER_UP_CATALOG,
+  type PowerUpSlot,
+} from '../../core/room.models';
+import type { QuestionType } from '../../../data/questions/types';
 import { SnackbarService } from '../../core/snackbar.service';
 import { SettingsChips } from '../../shared/settings-chips';
 
@@ -19,66 +25,132 @@ import { SettingsChips } from '../../shared/settings-chips';
   selector: 'app-lobby',
   imports: [SettingsChips],
   template: `
-    <div class="q-page lobby">
+    <div class="q-page q-show lobby">
       <header class="top">
-        <button type="button" class="q-btn q-btn-ghost" (click)="goHome()">
-          ← {{ lang.t().home }}
-        </button>
+        <button type="button" class="back" (click)="goBack()">← {{ lang.t().back }}</button>
         <app-settings-chips />
       </header>
 
       @if (room(); as r) {
         <div class="layout">
-          <section class="main">
-            @if (!rooms.hosting()) {
-              <p class="spectator-banner">{{ lang.t().alreadyHostingOtherTab }}</p>
-            }
-            <p class="label">{{ lang.t().joinCode }}</p>
-            <div class="code-row">
-              <h1 class="code">{{ r.code }}</h1>
-              <button type="button" class="q-btn q-btn-outline" (click)="copy()">
+          <div class="col">
+            <section class="stage spotlight code-stage">
+              <img
+                class="pro-sticker"
+                [class.off]="!ent.isPro()"
+                src="/brand/pro_badge.png"
+                [alt]="ent.isPro() ? lang.t().hostedWithPro : lang.t().proLocked"
+              />
+              @if (!rooms.hosting()) {
+                <p class="note">{{ lang.t().alreadyHostingOtherTab }}</p>
+              }
+              <p class="label">{{ lang.t().joinCode }}</p>
+              <h1 class="digits" [attr.aria-label]="r.code">
+                @for (ch of r.code.split(''); track $index) {
+                  <span class="digit" aria-hidden="true">{{ ch }}</span>
+                }
+              </h1>
+              <button type="button" class="key-btn" (click)="copy()">
                 {{ copied() ? lang.t().copied : lang.t().copyCode }}
               </button>
-            </div>
+              <p class="waiting">{{ lang.t().waitingPlayers }}</p>
+            </section>
 
-            <p class="waiting">{{ lang.t().waitingPlayers }}</p>
+            <section>
+              <h2 class="section-title">{{ lang.t().howToJoin }}</h2>
+              <ol class="join">
+                @for (key of joinSteps; track key) {
+                  <li class="stage">
+                    <span class="step">{{ $index + 1 }}</span>
+                    {{ lang.t()[key] }}
+                  </li>
+                }
+              </ol>
+            </section>
 
-            <img
-              class="pro-badge"
-              [class.locked]="!ent.isPro()"
-              src="/brand/pro_badge.png"
-              [alt]="ent.isPro() ? lang.t().hostedWithPro : lang.t().proLocked"
-            />
+            <section class="stage recap">
+              <h2 class="section-title">{{ lang.t().roundRecap }}</h2>
+              <ul class="cats">
+                @for (t of r.config.questionTypes; track t) {
+                  <li class="type">
+                    <img [src]="typeInfo[t].icon" alt="" />{{ lang.t()[typeInfo[t].labelKey] }}
+                  </li>
+                }
+                @for (cat of r.config.questionTypes.includes('mcq') ? r.config.categories : []; track cat) {
+                  <li [style.--accent]="accents[$index % accents.length]">{{ lang.t()[cat] }}</li>
+                }
+              </ul>
+              <div class="facts">
+                <div class="fact">
+                  <strong>{{ r.config.roundLength }}</strong>
+                  <span>{{ lang.t().questions }}</span>
+                </div>
+                <div class="fact">
+                  <strong>{{ r.config.questionSeconds }}</strong>
+                  <span>{{ lang.t().seconds }}</span>
+                </div>
+                <div class="fact">
+                  <strong class="word">{{
+                    r.config.scoringMode === 'timed' ? lang.t().scoringTimed : lang.t().scoringStandard
+                  }}</strong>
+                  <span>{{ lang.t().scoringMode }}</span>
+                </div>
+              </div>
+              <div class="reels" [attr.aria-label]="lang.t().powerUps">
+                <span class="reels-label">{{ lang.t().powerUps }}</span>
+                @for (slot of r.config.powerUpSlots; track $index) {
+                  <span class="reel">
+                    @if (powerUpIcon(slot); as icon) {
+                      <img [src]="icon" [alt]="lang.t().powerUpFifty" />
+                    } @else {
+                      <span aria-hidden="true">–</span>
+                    }
+                  </span>
+                }
+              </div>
+            </section>
+          </div>
+
+          <aside class="col">
+            <section class="stage players">
+              <header class="players-head">
+                <h2 class="section-title">{{ lang.t().players }}</h2>
+                <span class="count">{{ playerList().length }}</span>
+                <span class="live"><i></i>{{ lang.t().live }}</span>
+              </header>
+              <ul class="cards">
+                @for (p of playerList(); track p.id) {
+                  <li class="card">
+                    <span class="avatar" [style.background]="avatarColor(p.avatar)">{{
+                      avatarEmoji(p.avatar)
+                    }}</span>
+                    <span class="name">{{ p.name }}</span>
+                  </li>
+                } @empty {
+                  <li class="seat" aria-hidden="true"></li>
+                  <li class="seat" aria-hidden="true"></li>
+                  <li class="empty">{{ lang.t().noPlayersYet }}</li>
+                }
+              </ul>
+            </section>
 
             <button
               type="button"
-              class="q-btn q-btn-primary start"
+              class="go"
               [disabled]="!rooms.hosting() || playerList().length === 0 || starting()"
               (click)="start()"
             >
-              {{ lang.t().start }}
+              {{ lang.t().start }} <span class="go-arrow">▶</span>
             </button>
-          </section>
-
-          <aside class="side">
-            <h2>{{ lang.t().players }} ({{ playerList().length }})</h2>
-            <div class="q-brand-line"></div>
-            <ul>
-              @for (p of playerList(); track p.id) {
-                <li>
-                  <span class="avatar" [style.background]="avatarColor(p.avatar)">{{
-                    avatarEmoji(p.avatar)
-                  }}</span>
-                  <span class="name">{{ p.name }}</span>
-                </li>
-              } @empty {
-                <li class="empty">{{ lang.t().noPlayersYet }}</li>
-              }
-            </ul>
+            @if (rooms.hosting() && playerList().length === 0) {
+              <p class="hint">{{ lang.t().minPlayers }}</p>
+            }
           </aside>
         </div>
       } @else {
-        <p class="empty-card">{{ lang.t().roomNotFound }}</p>
+        <div class="stage missing">
+          <h1 class="show-title">{{ lang.t().roomNotFound }}</h1>
+        </div>
       }
     </div>
   `,
@@ -86,153 +158,350 @@ import { SettingsChips } from '../../shared/settings-chips';
     .top {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 1.5rem;
+      align-items: center;
+      margin-bottom: 1.8rem;
     }
     .layout {
       display: grid;
-      grid-template-columns: 1.5fr 0.85fr;
-      gap: 1.5rem;
-      align-items: stretch;
+      grid-template-columns: 1.45fr 1fr;
+      gap: 1.8rem;
+      align-items: start;
       max-width: 1100px;
-      margin: 0 auto;
+      margin: 0 auto 2rem;
     }
-    .mark {
-      width: 56px;
-      height: 56px;
-      border-radius: 14px;
-      margin-bottom: 0.75rem;
-      box-shadow: 0 8px 20px rgba(47, 124, 246, 0.2);
+    .col {
+      display: grid;
+      gap: 1.8rem;
+      min-width: 0;
     }
-    .main,
-    .side {
-      border: 2px solid var(--q-border);
-      border-radius: 24px;
-      padding: 1.5rem;
-      background: var(--q-card);
+    .section-title {
+      margin: 0;
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: 1.2rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--q-navy);
     }
-    .main {
-      position: relative;
-      padding-top: 2.25rem;
+
+    /* Code stage */
+    .code-stage {
+      display: grid;
+      justify-items: center;
+      gap: 0.9rem;
+      padding: 2rem 1.2rem 1.6rem;
+      text-align: center;
+    }
+    .pro-sticker {
+      position: absolute;
+      top: -34px;
+      right: -26px;
+      width: 104px;
+      height: 104px;
+      transform: rotate(12deg);
+      pointer-events: none;
+    }
+    .pro-sticker.off {
+      filter: grayscale(1);
+      opacity: 0.45;
+    }
+    .note {
+      margin: 0;
+      max-width: 26rem;
+      padding: 0.55rem 0.9rem;
+      border: 3px solid var(--ink);
+      border-radius: 10px;
+      background: var(--bulb);
+      color: #1a1530;
+      font-weight: 900;
+      line-height: 1.3;
+      box-shadow: 2px 2px 0 var(--ink);
+      transform: rotate(-1.5deg);
     }
     .label {
       margin: 0;
       color: var(--q-muted);
-      font-weight: 800;
+      font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       font-size: 0.85rem;
     }
-    .code {
-      margin: 0.35rem 0 0;
-      font-size: clamp(3rem, 10vw, 5.5rem);
-      letter-spacing: 0.18em;
-      background: var(--q-gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      line-height: 1.1;
-      font-weight: 900;
-    }
-    .code-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
-      margin-bottom: 1rem;
-      padding-right: 4.5rem;
-    }
     .waiting {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--q-muted);
-    }
-    .spectator-banner {
-      margin: 0 0 1rem;
-      padding: 0.85rem 1rem;
-      border-radius: 14px;
-      background: var(--q-chip-warm);
-      border: 2px solid #fdba74;
-      color: var(--q-navy);
-      font-weight: 800;
-      line-height: 1.35;
-    }
-    .pro-badge {
-      position: absolute;
-      top: -61px;
-      right: -9px;
-      width: 125px;
-      height: 125px;
-      object-fit: contain;
-      pointer-events: none;
-      transform: rotate(12deg);
-    }
-    .pro-badge.locked {
-      filter: grayscale(1);
-      opacity: 0.7;
-    }
-    .start {
-      display: block;
-      margin-top: 1.25rem;
-      min-width: 10rem;
-    }
-    .side h2 {
       margin: 0;
-      font-size: clamp(1.25rem, 2vw, 1.55rem);
-      font-weight: 900;
-      color: var(--q-navy);
+      color: var(--q-muted);
+      font-weight: 800;
     }
-    .side .q-brand-line {
-      margin: 0.45rem 0 0.95rem;
-    }
-    ul {
+
+    /* How to join */
+    .join {
+      margin: 0.9rem 0 0;
+      padding: 0;
       list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+    .join li {
+      padding: 1.3rem 0.9rem 0.9rem;
+      font-weight: 800;
+      color: var(--q-navy);
+      line-height: 1.3;
+    }
+    .join li:nth-child(1) .step {
+      background: var(--q-cyan);
+    }
+    .join li:nth-child(2) .step {
+      background: var(--q-orange);
+    }
+    .join li:nth-child(3) .step {
+      background: var(--q-pink);
+    }
+
+    /* Round recap */
+    .recap {
+      display: grid;
+      gap: 1rem;
+    }
+    .cats {
       margin: 0;
       padding: 0;
-      display: grid;
-      gap: 0.65rem;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
-    li {
+    .cats li {
+      padding: 0.3rem 0.7rem;
+      border: 3px solid var(--ink);
+      border-radius: 10px;
+      background: var(--accent);
+      color: #1a1530;
+      font-size: 0.85rem;
+      font-weight: 900;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+    .cats li.type {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--q-card);
+      color: var(--q-navy);
+    }
+    .type img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+    .fact {
+      display: grid;
+      gap: 0.15rem;
+      padding: 0.55rem 0.6rem;
+      border: 3px solid var(--ink);
+      border-radius: 12px;
+      background: var(--lcd);
+      box-shadow: inset 0 4px 0 rgba(0, 0, 0, 0.5);
+      color: var(--bulb);
+      text-align: center;
+    }
+    .fact strong {
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: 1.7rem;
+      line-height: 1;
+      text-shadow: 0 0 12px color-mix(in srgb, var(--bulb) 55%, transparent);
+    }
+    .fact strong.word {
+      font-size: 1.15rem;
+      line-height: 1.5;
+    }
+    .fact span {
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+    .reels {
       display: flex;
       align-items: center;
-      gap: 0.65rem;
-      padding: 0.7rem 0.55rem;
-      border-radius: 14px;
-      background: var(--q-surface);
+      flex-wrap: wrap;
+      gap: 0.6rem;
     }
-    .avatar {
-      width: 2.4rem;
-      height: 2.4rem;
-      border-radius: 50%;
+    .reels-label {
+      margin-right: auto;
+      font-weight: 900;
+      color: var(--q-navy);
+    }
+    .reel {
+      width: 52px;
+      height: 52px;
       display: grid;
       place-items: center;
-      font-size: 1.15rem;
+      border: 3px solid var(--ink);
+      border-radius: 10px;
+      background: linear-gradient(#fff, #e9e4f5);
+      box-shadow: inset 0 3px 0 rgba(0, 0, 0, 0.18);
+      color: #6b6485;
+      font-family: var(--display);
+      font-size: 1.5rem;
+    }
+    .reel img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+    }
+
+    /* Players */
+    .players {
+      display: grid;
+      gap: 1rem;
+    }
+    .players-head {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .count {
+      min-width: 2rem;
+      padding: 0.1rem 0.5rem;
+      border: 3px solid var(--ink);
+      border-radius: 10px;
+      background: var(--bulb);
+      color: #1a1530;
+      font-family: var(--display);
+      font-size: 1.1rem;
+      text-align: center;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+    .live {
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #e8435a;
+    }
+    .live i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #e8435a;
+      animation: live-pulse 1.4s ease-out infinite;
+    }
+    @keyframes live-pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(232, 67, 90, 0.6);
+      }
+      100% {
+        box-shadow: 0 0 0 10px rgba(232, 67, 90, 0);
+      }
+    }
+    .cards {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.75rem;
+    }
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.55rem 0.7rem;
+      border: 3px solid var(--ink);
+      border-radius: 14px;
+      background: var(--q-card);
+      box-shadow: 0 4px 0 var(--ink);
+      transform: rotate(-0.8deg);
+      animation: card-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .card:nth-child(even) {
+      transform: rotate(0.8deg);
+    }
+    @keyframes card-pop {
+      from {
+        opacity: 0;
+        transform: scale(0.6) rotate(-6deg);
+      }
+    }
+    .avatar {
+      width: 2.6rem;
+      height: 2.6rem;
       flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      font-size: 1.2rem;
     }
     .name {
-      font-weight: 800;
-      font-size: clamp(1rem, 1.5vw, 1.2rem);
-      color: var(--q-navy);
+      min-width: 0;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      min-width: 0;
+      font-family: var(--display);
+      font-size: 1.2rem;
+      color: var(--q-navy);
+    }
+    .seat {
+      height: 3.6rem;
+      border: 3px dashed color-mix(in srgb, var(--q-muted) 55%, transparent);
+      border-radius: 14px;
     }
     .empty {
       color: var(--q-muted);
-      background: transparent;
-      font-weight: 700;
+      font-weight: 800;
+      line-height: 1.35;
     }
-    .empty-card {
+    .hint {
+      margin: -0.9rem 0 0;
+      color: var(--q-muted);
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
+    .missing {
       max-width: 480px;
       margin: 2rem auto;
-      padding: 1.25rem;
-      border: 2px solid var(--q-border);
-      border-radius: 20px;
-      font-weight: 700;
+      text-align: center;
     }
+    .missing h1 {
+      font-size: 1.8rem;
+    }
+
     @media (max-width: 860px) {
       .layout {
         grid-template-columns: 1fr;
+      }
+      .pro-sticker {
+        right: -8px;
+      }
+    }
+    @media (max-width: 560px) {
+      .join {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+      }
+      .pro-sticker {
+        top: -24px;
+        right: -12px;
+        width: 72px;
+        height: 72px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .live i,
+      .card {
+        animation: none;
       }
     }
   `,
@@ -250,6 +519,22 @@ export class LobbyPage implements OnInit, OnDestroy {
   readonly starting = signal(false);
   readonly avatarColor = avatarColor;
   readonly avatarEmoji = avatarEmoji;
+  readonly joinSteps = ['joinStep1', 'joinStep2', 'joinStep3'] as const;
+  readonly typeInfo: Record<QuestionType, { icon: string; labelKey: 'mcq' | 'imageMcq' }> = {
+    mcq: { icon: '/room-icons/text.png', labelKey: 'mcq' },
+    image_mcq: { icon: '/room-icons/picture.png', labelKey: 'imageMcq' },
+  };
+  readonly accents = [
+    'var(--q-cyan)',
+    'var(--q-orange)',
+    'var(--q-pink)',
+    'var(--q-lime)',
+    'var(--bulb)',
+  ];
+
+  powerUpIcon(slot: PowerUpSlot): string | undefined {
+    return POWER_UP_CATALOG.find((p) => p.id === slot)?.icon;
+  }
 
   readonly playerList = computed(() =>
     Object.values(this.room()?.players ?? {}).sort((a, b) => a.joinedAt - b.joinedAt),
@@ -293,16 +578,16 @@ export class LobbyPage implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     // Implicit teardown (back nav, tab close) must NOT delete the room — a real
     // tab close arms the host onDisconnect marker, and expired/abandoned rooms
-    // are reaped lazily + by the sweep. Explicit exit uses goHome(). Just
+    // are reaped lazily + by the sweep. Explicit exit uses goBack(). Just
     // detach this component's listener.
     if (!this.keepRoomAlive) {
       this.rooms.stopWatching();
     }
   }
 
-  async goHome(): Promise<void> {
+  async goBack(): Promise<void> {
     await this.rooms.leaveHostedRoom(this.code);
-    await this.router.navigateByUrl('/');
+    await this.router.navigateByUrl('/create');
   }
 
   async copy(): Promise<void> {

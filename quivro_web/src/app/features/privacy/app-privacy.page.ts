@@ -2,8 +2,7 @@ import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { LanguageService } from '../../core/language.service';
 import { SettingsChips } from '../../shared/settings-chips';
-
-const CONTACT = 'contact@quivro.org';
+import { StudioFooter } from '../../shared/studio-footer';
 
 interface PrivacySection {
   heading: string;
@@ -92,91 +91,36 @@ const bs: PrivacyCopy = {
 
 @Component({
   selector: 'app-privacy-app',
-  imports: [RouterLink, SettingsChips],
+  imports: [RouterLink, SettingsChips, StudioFooter],
   template: `
-    <div class="q-page">
-      <header class="top">
-        <a routerLink="/" class="q-btn q-btn-ghost">← {{ lang.t().home }}</a>
+    <div class="q-page q-show">
+      <header class="doc-top">
+        <a routerLink="/" class="back">← {{ lang.t().home }}</a>
         <app-settings-chips />
       </header>
 
-      <article>
-        <h1>{{ copy().title }}</h1>
-        <p class="updated">{{ copy().updated }}</p>
+      <article class="doc">
+        <div class="stage spotlight doc-title">
+          <h1 class="show-title">{{ copy().title }}</h1>
+          <p class="updated">{{ copy().updated }}</p>
+        </div>
 
         @for (section of copy().sections; track section.heading) {
-          <section>
+          <section class="stage doc-section">
+            <span class="step">{{ $index + 1 }}</span>
             <h2>{{ section.heading }}</h2>
             @for (paragraph of section.paragraphs; track paragraph) {
               <p>{{ paragraph }}</p>
             }
           </section>
         }
-
-        <p class="contact">
-          <img class="studio-mark" src="/brand/nightfall-wordmark.png" alt="Nightfall Studio" />
-          <a [href]="'mailto:' + contact">{{ contact }}</a>
-        </p>
       </article>
+      <app-studio-footer />
     </div>
-  `,
-  styles: `
-    .top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
-    article {
-      max-width: 40rem;
-      margin: 0 auto 2rem;
-    }
-    h1 {
-      margin: 0;
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-    }
-    h2 {
-      margin: 1.6rem 0 0.4rem;
-      font-size: 1.15rem;
-    }
-    p {
-      margin: 0.45rem 0 0;
-      line-height: 1.55;
-      color: var(--q-muted);
-    }
-    .updated {
-      margin-top: 0.35rem;
-    }
-    .contact {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.65rem;
-      margin-top: 2.5rem;
-      padding-top: 2.75rem;
-      border-top: 1px solid var(--q-border);
-      color: var(--q-navy);
-      font-weight: 700;
-      text-align: center;
-    }
-    .studio-mark {
-      height: 2.4rem;
-      width: auto;
-    }
-    :host-context(html[data-theme='dark']) .studio-mark {
-      filter: invert(1);
-    }
-    article a {
-      color: var(--q-navy);
-      font-weight: 700;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
   `,
 })
 export class AppPrivacyPage {
   readonly lang = inject(LanguageService);
-  readonly contact = CONTACT;
 
   copy(): PrivacyCopy {
     return this.lang.lang() === 'bs' ? bs : en;

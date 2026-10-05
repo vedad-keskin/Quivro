@@ -69,100 +69,110 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
   selector: 'app-play',
   imports: [AnswerGrid, FormsModule, Leaderboard, TimerRing],
   template: `
-    <div class="tv" #tvRoot>
+    <div class="tv q-show" #tvRoot>
       @if (room(); as r) {
         @if (!rooms.hosting()) {
           <p class="spectator-banner">{{ lang.t().alreadyHostingOtherTab }}</p>
         }
         @if (r.phase === 'finished') {
           <section class="final">
-            <div class="brand">
-              <h1>{{ lang.t().finalLeaderboard }}</h1>
-              <div class="q-brand-line"></div>
-            </div>
-            @if (r.lastWinners.length === 1) {
-              <p class="winner-banner">
-                {{ lang.t().lastWinner }}:
-                <span
-                  class="avatar"
-                  [style.background]="avatarColor(r.lastWinners[0].avatar)"
-                  >{{ avatarEmoji(r.lastWinners[0].avatar) }}</span
-                >
-                <strong>{{ r.lastWinners[0].name }}</strong>
-              </p>
-            } @else if (r.lastWinners.length > 1) {
-              <p class="winner-banner co-winners">
-                {{ lang.t().roundTieWinners }}:
-                @for (w of r.lastWinners; track w.playerId) {
-                  <span class="co-winner">
-                    <span class="avatar" [style.background]="avatarColor(w.avatar)">{{
-                      avatarEmoji(w.avatar)
-                    }}</span>
-                    <strong>{{ w.name }}</strong>
-                  </span>
-                }
-              </p>
-            }
-            <app-leaderboard
-              [title]="lang.t().leaderboard"
-              [players]="players()"
-            />
-
-            <div class="rematch-hub">
-              <h2>{{ lang.t().rematchSettings }}</h2>
-
-              <div class="join-code-block">
-                <p class="label">{{ lang.t().joinCode }}</p>
-                <div class="code-row">
-                  <h3 class="code">{{ r.code }}</h3>
-                  <button type="button" class="q-btn q-btn-outline" (click)="copy()">
-                    {{ copied() ? lang.t().copied : lang.t().copyCode }}
-                  </button>
-                </div>
-              </div>
-
-              <div class="ready-block">
-                <p class="ready-label">
-                  {{ lang.t().readyForRematch }} ({{ rematchReadyPlayers().length }})
-                </p>
-                <div class="ready-chips">
-                  @for (p of rematchReadyPlayers(); track p.id) {
-                    <span
-                      class="chip"
-                      [style.background]="avatarColor(p.avatar)"
-                      [title]="p.name"
-                    >
-                      {{ avatarEmoji(p.avatar) }}
-                    </span>
-                  } @empty {
-                    <span class="ready-empty">{{ lang.t().waitingPlayers }}</span>
+            <div class="stage spotlight winner">
+              @if (!reduceMotion) {
+                <div class="confetti" aria-hidden="true">
+                  @for (c of confetti; track c) {
+                    <i [style.--i]="c"></i>
                   }
                 </div>
+              }
+              @if (r.lastWinners.length === 1) {
+                <svg class="crown" viewBox="0 0 32 22" aria-hidden="true">
+                  <path d="M3 19 L1.5 5 L9.5 11 L16 2 L22.5 11 L30.5 5 L29 19 Z" />
+                </svg>
+                <span class="avatar big" [style.background]="avatarColor(r.lastWinners[0].avatar)">{{
+                  avatarEmoji(r.lastWinners[0].avatar)
+                }}</span>
+                <p class="eyebrow">{{ lang.t().lastWinner }}</p>
+                <h1 class="show-title">{{ r.lastWinners[0].name }}</h1>
+              } @else if (r.lastWinners.length > 1) {
+                <p class="eyebrow">{{ lang.t().roundTieWinners }}</p>
+                <div class="co-winners">
+                  @for (w of r.lastWinners; track w.playerId) {
+                    <span class="co-winner">
+                      <span class="avatar" [style.background]="avatarColor(w.avatar)">{{
+                        avatarEmoji(w.avatar)
+                      }}</span>
+                      <strong class="show-title">{{ w.name }}</strong>
+                    </span>
+                  }
+                </div>
+              } @else {
+                <h1 class="show-title">{{ lang.t().finalLeaderboard }}</h1>
+              }
+            </div>
+
+            <app-leaderboard [title]="lang.t().finalLeaderboard" [players]="players()" />
+
+            <div class="rematch-hub rs">
+              <div class="pair">
+                <section class="stage code-card">
+                  <h2 class="stage-label">{{ lang.t().joinCode }}</h2>
+                  <p class="digits sm" [attr.aria-label]="r.code">
+                    @for (ch of r.code.split(''); track $index) {
+                      <span class="digit" aria-hidden="true">{{ ch }}</span>
+                    }
+                  </p>
+                  <button type="button" class="key-btn" (click)="copy()">
+                    {{ copied() ? lang.t().copied : lang.t().copyCode }}
+                  </button>
+                </section>
+                <section class="stage">
+                  <h2 class="stage-label">
+                    {{ lang.t().readyForRematch }}
+                    <span class="count">{{ rematchReadyPlayers().length }}</span>
+                  </h2>
+                  <ul class="ready">
+                    @for (p of rematchReadyPlayers(); track p.id) {
+                      <li class="card">
+                        <span class="avatar" [style.background]="avatarColor(p.avatar)">{{
+                          avatarEmoji(p.avatar)
+                        }}</span>
+                        <span class="name">{{ p.name }}</span>
+                      </li>
+                    } @empty {
+                      <li class="hint">{{ lang.t().waitingPlayers }}</li>
+                    }
+                  </ul>
+                </section>
               </div>
 
+              <h2 class="show-title hub-title">{{ lang.t().rematchSettings }}</h2>
+
               <div class="pair">
-                <section class="group">
-                  <label class="q-label">{{ lang.t().questionTypes }}</label>
-                  <div class="tokens">
+                <section class="stage">
+                  <span class="step" aria-hidden="true">1</span>
+                  <h2 class="stage-label">{{ lang.t().questionTypes }}</h2>
+                  <div class="tiles">
                     @for (t of questionTypes; track t) {
                       <button
                         type="button"
-                        class="token cat"
+                        class="tile"
+                        [style.--accent]="typeInfo[t].accent"
                         [class.on]="selectedTypes().includes(t)"
                         [class.locked]="ent.questionTypeLocked(t)"
                         [attr.aria-pressed]="selectedTypes().includes(t)"
                         (click)="toggleType(t)"
                       >
-                        <span class="token-icon">
-                          <img class="art" [src]="typeInfo[t].icon" alt="" />
-                        </span>
-                        <span class="cat-copy">
+                        <span class="plate"><img [src]="typeInfo[t].icon" alt="" /></span>
+                        <span class="tile-copy">
                           <strong>{{ typeLabel(t) }}</strong>
                           <span>{{ typeDesc(t) }}</span>
-                          @if (!isQuestionTypeFree(t)) {
-                            <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.questionTypeLocked(t))" />
-                          }
                         </span>
+                        @if (selectedTypes().includes(t)) {
+                          <span class="stamp" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12.5 L10 17.5 L19 7" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                        }
+                        @if (!isQuestionTypeFree(t)) {
+                          <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.questionTypeLocked(t))" />
+                        }
                       </button>
                     }
                   </div>
@@ -171,70 +181,78 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                   }
                 </section>
 
-                <section class="group">
-                  <label class="q-label">{{ lang.t().scoringMode }}</label>
-                  <div class="tokens">
+                <section class="stage">
+                  <span class="step" aria-hidden="true">2</span>
+                  <h2 class="stage-label">{{ lang.t().scoringMode }}</h2>
+                  <div class="tiles">
                     <button
                       type="button"
-                      class="token cat"
+                      class="tile"
+                      style="--accent: var(--q-cyan)"
                       [class.on]="scoringMode() === 'standard'"
                       [attr.aria-pressed]="scoringMode() === 'standard'"
                       (click)="scoringMode.set('standard')"
                     >
-                      <span class="token-icon">
-                        <img class="art" src="/room-icons/standard.png" alt="" />
-                      </span>
-                      <span class="cat-copy">
+                      <span class="plate"><img src="/room-icons/standard.png" alt="" /></span>
+                      <span class="tile-copy">
                         <strong>{{ lang.t().scoringStandard }}</strong>
                         <span>{{ scoringDesc('standard') }}</span>
                       </span>
+                      @if (scoringMode() === 'standard') {
+                        <span class="stamp" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12.5 L10 17.5 L19 7" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                      }
                     </button>
                     <button
                       type="button"
-                      class="token cat"
+                      class="tile"
+                      style="--accent: var(--q-orange)"
                       [class.on]="scoringMode() === 'timed'"
                       [class.locked]="ent.scoringModeLocked('timed')"
                       [attr.aria-pressed]="scoringMode() === 'timed'"
                       (click)="pickScoring('timed')"
                     >
-                      <span class="token-icon">
-                        <img class="art" src="/room-icons/timed.png" alt="" />
-                      </span>
-                      <span class="cat-copy">
+                      <span class="plate"><img src="/room-icons/timed.png" alt="" /></span>
+                      <span class="tile-copy">
                         <strong>{{ lang.t().scoringTimed }}</strong>
                         <span>{{ scoringDesc('timed') }}</span>
-                        <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.scoringModeLocked('timed'))" />
                       </span>
+                      @if (scoringMode() === 'timed') {
+                        <span class="stamp" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12.5 L10 17.5 L19 7" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                      }
+                      <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.scoringModeLocked('timed'))" />
                     </button>
                   </div>
                 </section>
               </div>
 
-              <section class="group" [class.cats-disabled]="!needsCategories()">
-                <label class="q-label">{{ lang.t().categories }}</label>
-                <div class="tokens tokens-cats">
+              <section class="stage" [class.cats-disabled]="!needsCategories()">
+                <span class="step" aria-hidden="true">3</span>
+                <h2 class="stage-label">{{ lang.t().categories }}</h2>
+                <div class="tiles tiles-cats">
                   @for (cat of categories; track cat) {
                     <button
                       type="button"
-                      class="token cat"
+                      class="tile"
+                      [style.--accent]="categoryInfo[cat].accent"
                       [class.on]="selectedCats().includes(cat)"
                       [class.locked]="ent.categoryLocked(cat)"
                       [disabled]="!needsCategories()"
                       [attr.aria-pressed]="selectedCats().includes(cat)"
                       (click)="toggleCategory(cat)"
                     >
-                      <span class="token-icon">
-                        <img class="art" [src]="categoryInfo[cat].icon" alt="" />
-                      </span>
-                      <span class="cat-copy">
+                      <span class="plate"><img [src]="categoryInfo[cat].icon" alt="" /></span>
+                      <span class="tile-copy">
                         <strong>{{ categoryLabel(cat) }}</strong>
                         <span>{{ categoryDesc(cat) }}</span>
-                        @if (isWeeklyCategory(cat)) {
-                          <img class="corner-badge" src="/brand/free_rotation2.png" [alt]="lang.t().freeThisWeek" />
-                        } @else if (isProCategory(cat)) {
-                          <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.categoryLocked(cat))" />
-                        }
                       </span>
+                      @if (selectedCats().includes(cat)) {
+                        <span class="stamp" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12.5 L10 17.5 L19 7" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                      }
+                      @if (isWeeklyCategory(cat)) {
+                        <img class="corner-badge" src="/brand/free_rotation2.png" [alt]="lang.t().freeThisWeek" />
+                      } @else if (isProCategory(cat)) {
+                        <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.categoryLocked(cat))" />
+                      }
                     </button>
                   }
                 </div>
@@ -244,38 +262,36 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
               </section>
 
               <div class="pair">
-                <section class="group">
-                  <div class="meter-head">
-                    <img src="/room-icons/time_per_q.png" alt="" />
-                    <label class="q-label">{{ lang.t().questionTime }}</label>
-                  </div>
-                  <div class="pills">
+                <section class="stage">
+                  <span class="step" aria-hidden="true">4</span>
+                  <img class="stage-art" src="/room-icons/time_per_q.png" alt="" />
+                  <h2 class="stage-label">{{ lang.t().questionTime }}</h2>
+                  <div class="keys">
                     @for (n of timerPresets; track n) {
                       <button
                         type="button"
-                        class="pill"
-                        [class.active]="questionSeconds() === n"
+                        class="key"
+                        [class.on]="questionSeconds() === n"
                         [attr.aria-pressed]="questionSeconds() === n"
                         (click)="questionSeconds.set(n)"
                       >
-                        {{ n }}{{ lang.t().seconds }}
+                        {{ n }}<small>{{ lang.t().seconds }}</small>
                       </button>
                     }
                   </div>
                   <p class="hint">{{ lang.t().descQuestionTime }}</p>
                 </section>
 
-                <section class="group round">
-                  <div class="meter-head">
-                    <img src="/room-icons/round_length.png" alt="" />
-                    <label class="q-label">{{ lang.t().roundLength }}</label>
-                  </div>
-                  <div class="pills">
+                <section class="stage">
+                  <span class="step" aria-hidden="true">5</span>
+                  <img class="stage-art" src="/room-icons/round_length.png" alt="" />
+                  <h2 class="stage-label">{{ lang.t().roundLength }}</h2>
+                  <div class="keys">
                     @for (n of presets; track n) {
                       <button
                         type="button"
-                        class="pill"
-                        [class.active]="!customMode() && length() === n"
+                        class="key"
+                        [class.on]="!customMode() && length() === n"
                         [class.locked]="ent.roundLengthLocked(n)"
                         [attr.aria-pressed]="!customMode() && length() === n"
                         (click)="pickPreset(n)"
@@ -288,8 +304,8 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                     }
                     <button
                       type="button"
-                      class="pill"
-                      [class.active]="customMode()"
+                      class="key key-word"
+                      [class.on]="customMode()"
                       [class.locked]="ent.customLengthLocked()"
                       [attr.aria-pressed]="customMode()"
                       (click)="pickCustom()"
@@ -298,75 +314,78 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                       <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.customLengthLocked())" />
                     </button>
                   </div>
-                  @if (customMode()) {
-                    <input
-                      class="q-input custom-input"
-                      type="number"
-                      [min]="minRoundLength"
-                      [ngModel]="customLength()"
-                      (ngModelChange)="onCustom($event)"
-                    />
-                  }
-                  <p class="hint" [class.warn]="customMode() && !customLengthValid()">
-                    {{ effectiveLength() }} {{ lang.t().questions }}
-                    · {{ lang.t().difficultyMix }}
-                  </p>
+                  <div class="readout" [class.bad]="customMode() && !customLengthValid()">
+                    @if (customMode()) {
+                      <input
+                        class="readout-num readout-input"
+                        type="number"
+                        [min]="minRoundLength"
+                        [attr.aria-label]="lang.t().roundLength"
+                        [ngModel]="customLength()"
+                        (ngModelChange)="onCustom($event)"
+                      />
+                    } @else {
+                      <span class="readout-num">{{ effectiveLength() }}</span>
+                    }
+                    <span class="readout-unit">{{ lang.t().questions }}</span>
+                    @if (customMode()) {
+                      <span class="readout-steps">
+                        <button type="button" class="nudge step-key" [attr.aria-label]="lang.t().decrease" (click)="onCustom(customLength() - 1)">
+                          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                            <path d="M6 12 H18" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" />
+                          </svg>
+                        </button>
+                        <button type="button" class="nudge step-key" [attr.aria-label]="lang.t().increase" (click)="onCustom(customLength() + 1)">
+                          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                            <path d="M6 12 H18 M12 6 V18" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" />
+                          </svg>
+                        </button>
+                      </span>
+                    }
+                  </div>
+                  <p class="hint">{{ lang.t().difficultyMix }}</p>
                 </section>
               </div>
 
-              <section class="group">
-                <label class="q-label">{{ lang.t().powerUps }}</label>
-                <div class="power-slots">
+              <section class="stage">
+                <span class="step" aria-hidden="true">6</span>
+                <h2 class="stage-label">{{ lang.t().powerUps }}</h2>
+                <div class="reels">
                   @for (slot of powerUpSlots(); track $index) {
-                    <div class="slot-reel">
-                      <div class="slot-switch">
-                        <button
-                          type="button"
-                          class="slot-nudge"
-                          [attr.aria-label]="lang.t().powerUpNext"
-                          (click)="cycleSlot($index, 1)"
-                        >
-                          <svg class="arrow up" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
-                            <path d="M14.5 5.5 L8.5 12 L14.5 18.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
-                          </svg>
-                        </button>
+                    <div class="reel">
+                      <button type="button" class="nudge" [attr.aria-label]="lang.t().powerUpNext" (click)="cycleSlot($index, 1)">
+                        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                          <path d="M5.5 14.5 L12 8.5 L18.5 14.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </button>
+                      <div class="window-wrap">
                         <div
-                          class="power-slot"
-                          [class.filled]="slot"
+                          class="window"
                           [class.locked]="!!slot && ent.powerUpLocked(slot)"
                           [class.from-up]="$index === slotSlide()?.index && slotSlide()?.dir === 1"
                           [class.from-down]="$index === slotSlide()?.index && slotSlide()?.dir === -1"
                         >
                           @if (slot === 'fifty_fifty') {
-                            <img [src]="fiftyFiftyIcon" alt="" />
+                            <img class="reel-art" [src]="fiftyFiftyIcon" alt="" />
                           } @else {
                             <span class="slot-plus" aria-hidden="true">+</span>
                           }
                         </div>
-                        <button
-                          type="button"
-                          class="slot-nudge"
-                          [attr.aria-label]="lang.t().powerUpPrev"
-                          (click)="cycleSlot($index, -1)"
-                        >
-                          <svg class="arrow down" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
-                            <path d="M14.5 5.5 L8.5 12 L14.5 18.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
-                          </svg>
-                        </button>
+                        @if (slot && !isPowerUpFree(slot)) {
+                          <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.powerUpLocked(slot))" />
+                        }
                       </div>
-                      <div
-                        class="slot-copy cat-copy"
-                        [class.empty]="!slot"
-                        [class.locked]="!!slot && ent.powerUpLocked(slot)"
-                      >
+                      <button type="button" class="nudge" [attr.aria-label]="lang.t().powerUpPrev" (click)="cycleSlot($index, -1)">
+                        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                          <path d="M5.5 9.5 L12 15.5 L18.5 9.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </button>
+                      <div class="reel-copy" [class.empty]="!slot" [attr.aria-live]="'polite'">
                         <strong>
                           {{ slot === 'fifty_fifty' ? lang.t().powerUpFifty : lang.t().descPowerUpEmpty }}
                         </strong>
                         @if (slot === 'fifty_fifty') {
                           <span>{{ lang.t().descPowerUpFifty }}</span>
-                        }
-                        @if (slot && !isPowerUpFree(slot)) {
-                          <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.powerUpLocked(slot))" />
                         }
                       </div>
                     </div>
@@ -379,16 +398,17 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
               </section>
 
               <div class="final-actions">
-                <button type="button" class="q-btn q-btn-outline" (click)="goHome()">
-                  {{ lang.t().home }}
+                <button type="button" class="key-btn" (click)="goHome()">
+                  ← {{ lang.t().home }}
                 </button>
                 <button
                   type="button"
-                  class="q-btn q-btn-outline start-rematch"
+                  class="go"
                   [disabled]="!rooms.hosting() || !canRematch() || rematching()"
                   (click)="rematch()"
                 >
                   {{ lang.t().startRematch }}
+                  <span class="go-arrow" aria-hidden="true">▶</span>
                 </button>
               </div>
             </div>
@@ -427,23 +447,33 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
             </div>
 
             <section
-              class="stage"
+              class="stage qstage"
               [class.previewing]="imagePhase() === 'preview' || imagePhase() === 'sliding'"
             >
               @if (r.currentQuestion; as q) {
                 <header class="meta">
-                  <div>
-                    <p class="progress">
-                      {{ lang.t().question }} {{ q.index + 1 }} {{ lang.t().of }} {{ q.total }}
+                  <div class="meta-info">
+                    <p class="counter">
+                      <span>{{ lang.t().question }}</span>
+                      <b>{{ q.index + 1 }}<small>/{{ q.total }}</small></b>
                     </p>
                     @if (imagePhase() !== 'preview' && imagePhase() !== 'sliding') {
-                      <p class="diff">
-                        @if (q.imageUrl) {
+                      @if (q.imageUrl) {
+                        <span class="cat-chip" [style.--accent]="typeInfo.image_mcq.accent">
+                          <img [src]="typeInfo.image_mcq.icon" alt="" />
                           {{ lang.t().imageMcq }}
-                        } @else {
-                          {{ categoryLabel(q.category) }} · {{ difficultyLabel(q.difficulty) }}
-                        }
-                      </p>
+                        </span>
+                      } @else {
+                        <span class="cat-chip" [style.--accent]="categoryInfo[q.category].accent">
+                          <img [src]="categoryInfo[q.category].icon" alt="" />
+                          {{ categoryLabel(q.category) }}
+                          <span class="pips" role="img" [attr.aria-label]="difficultyLabel(q.difficulty)" [title]="difficultyLabel(q.difficulty)">
+                            @for (p of pips; track p) {
+                              <i [class.on]="p <= difficultyLevel[q.difficulty]"></i>
+                            }
+                          </span>
+                        </span>
+                      }
                     }
                   </div>
                   @if (r.phase === 'question' && answersOpen()) {
@@ -453,9 +483,12 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                       (expired)="onQuestionExpired()"
                     />
                   } @else if (r.phase === 'reveal') {
-                    <span class="reveal-badge">{{ lang.t().correct }}</span>
+                    <span class="reveal-sticker">{{ lang.t().correct }}</span>
                   }
                 </header>
+                <div class="track" aria-hidden="true">
+                  <span [style.width.%]="((q.index + 1) / q.total) * 100"></span>
+                </div>
 
                 <div
                   class="prompt-block"
@@ -465,7 +498,10 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                 </div>
 
                 <div class="answered-row">
-                  <span class="answered-label">{{ lang.t().answered }}</span>
+                  <span class="answered-label">
+                    {{ lang.t().answered }}
+                    <b>{{ answeredPlayers().length }}/{{ players().length }}</b>
+                  </span>
                   <div class="chips" #answeredStrip>
                     @for (p of answeredPlayers(); track p.id) {
                       <span
@@ -510,7 +546,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
 
               <button
                 type="button"
-                class="end q-btn q-btn-ghost"
+                class="end key-btn danger"
                 [disabled]="!rooms.hosting()"
                 (click)="end()"
               >
@@ -523,19 +559,19 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
         <p class="waiting">{{ lang.t().roomNotFound }}</p>
       }
       @if (resetPrompt()) {
-        <div class="reset-backdrop" (click)="resetPrompt.set(false)">
+        <div class="modal-backdrop" (click)="resetPrompt.set(false)">
           <div
-            class="reset-card"
+            class="modal"
             role="dialog"
             aria-modal="true"
             (click)="$event.stopPropagation()"
           >
             <p>{{ lang.t().powerUpReset }}</p>
-            <div class="reset-actions">
-              <button type="button" class="q-btn q-btn-ghost" (click)="resetPrompt.set(false)">
+            <div class="modal-actions">
+              <button type="button" class="key-btn" (click)="resetPrompt.set(false)">
                 {{ lang.t().back }}
               </button>
-              <button type="button" class="q-btn q-btn-outline" (click)="confirmReset()">
+              <button type="button" class="go go-sm" (click)="confirmReset()">
                 {{ lang.t().generateCode }}
               </button>
             </div>
@@ -553,56 +589,48 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       overflow: hidden;
     }
     .spectator-banner {
-      margin: 0 0 0.75rem;
-      padding: 0.75rem 1rem;
-      border-radius: 14px;
-      background: var(--q-chip-warm);
-      border: 2px solid #fdba74;
-      color: var(--q-navy);
-      font-weight: 800;
-      line-height: 1.35;
       position: relative;
       z-index: 5;
+      margin: 0 0 0.75rem;
+      padding: 0.75rem 1rem;
+      border: 3px solid var(--ink);
+      border-radius: 14px;
+      background: var(--bulb);
+      box-shadow: 4px 4px 0 var(--ink);
+      color: #1a1530;
+      font-weight: 800;
     }
     .layout {
       display: grid;
       grid-template-columns: minmax(280px, 32%) 1fr;
-      gap: 1rem;
-      height: calc(100dvh - 1.5rem);
-      min-height: calc(100dvh - 1.5rem);
+      gap: 1.1rem;
+      height: calc(100dvh - 2.5rem);
       align-items: stretch;
     }
     .board-col {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.9rem;
       height: 100%;
       min-height: 0;
     }
     .board {
       flex: 1 1 auto;
       min-height: 0;
-      height: auto;
-      transition:
-        flex-basis 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-        flex-grow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .board-col.with-image .board {
       flex: 0 0 auto;
-      min-height: auto;
-      height: auto;
-      overflow: visible;
     }
     .image-dock {
       flex: 0 0 auto;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 2px solid var(--q-border);
-      border-radius: 28px;
       padding: 0.45rem;
-      background: var(--q-surface);
-      min-height: 0;
+      border: 3px solid var(--ink);
+      border-radius: 20px;
+      background: var(--q-card);
+      box-shadow: 6px 6px 0 var(--ink);
       max-height: 0;
       opacity: 0;
       overflow: hidden;
@@ -611,72 +639,59 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       transition:
         flex 0.45s cubic-bezier(0.22, 1, 0.36, 1),
         max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.35s ease,
-        border-color 0.35s ease;
+        opacity 0.4s ease,
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .board-col:not(.with-image) {
+      gap: 0;
+    }
+    .image-dock:not(.visible) {
+      padding: 0;
+      border-width: 0;
     }
     .image-dock.visible {
       pointer-events: auto;
       opacity: 1;
       max-height: 100%;
-      transform: translateY(0) scale(1);
+      transform: none;
     }
     .board-col.with-image .image-dock {
       flex: 1 1 0;
       min-height: 0;
     }
-    .image-dock.receiving {
-      border-color: #94a3b8;
-      box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.25);
-    }
     .image-dock.receiving .dock-image {
       opacity: 0;
     }
     .image-dock.seated {
-      border-color: var(--q-border);
-      animation: dock-settle 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .image-dock.seated .dock-image {
-      opacity: 1;
+      animation: dock-settle 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .dock-image {
-      width: auto;
-      height: auto;
       max-width: 100%;
       max-height: 100%;
       aspect-ratio: 3 / 4;
       object-fit: contain;
       object-position: center top;
-      border-radius: 22px;
+      border: 3px solid var(--ink);
+      border-radius: 14px;
       display: block;
       transition: opacity 0.2s ease;
     }
     @keyframes dock-settle {
-      0% {
-        transform: scale(0.98);
-        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.28);
-      }
-      100% {
-        transform: scale(1);
-        box-shadow: none;
+      from {
+        transform: scale(0.97);
       }
     }
-    .stage {
-      position: relative;
+    .qstage {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      border: 2px solid var(--q-border);
-      border-radius: 28px;
-      padding: clamp(1rem, 2vw, 1.75rem);
-      padding-bottom: 3rem;
+      gap: 0.9rem;
+      padding: clamp(1rem, 2vw, 1.6rem);
+      padding-bottom: 3.6rem;
       height: 100%;
-      min-height: 100%;
       overflow: hidden;
     }
-    .stage.previewing .answered-row,
-    .stage.previewing app-answer-grid {
+    .qstage.previewing .answered-row,
+    .qstage.previewing app-answer-grid {
       opacity: 0.22;
       pointer-events: none;
     }
@@ -692,7 +707,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       align-content: center;
       gap: 0.65rem;
       padding: 1rem;
-      background: color-mix(in srgb, var(--q-bg) 94%, transparent);
+      background: color-mix(in srgb, var(--q-card) 94%, transparent);
       animation: preview-in 0.35s ease;
     }
     .image-preview-overlay.sliding {
@@ -700,48 +715,32 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
     }
     .preview-hint {
       margin: 0;
-      font-weight: 900;
-      font-size: clamp(1.05rem, 1.8vw, 1.35rem);
-      color: var(--q-muted);
-      letter-spacing: 0.02em;
+      font-family: var(--display);
+      font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+      letter-spacing: 0.04em;
+      color: var(--q-navy);
     }
     .preview-image {
-      height: min(78vh, 720px);
-      width: auto;
+      height: min(74vh, 700px);
       max-width: min(100%, 540px);
       aspect-ratio: 3 / 4;
       object-fit: cover;
       object-position: center top;
-      border-radius: 28px;
-      background: #0f172a;
-      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.28);
+      border: 4px solid var(--ink);
+      border-radius: 22px;
+      background: var(--lcd);
+      box-shadow: 8px 8px 0 var(--ink);
     }
     @keyframes preview-in {
       from {
         opacity: 0;
         transform: scale(0.96);
       }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
     }
     @keyframes preview-to-dock {
       to {
         opacity: 0;
         transform: translate(-30vw, 22vh) scale(0.48);
-      }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .image-preview-overlay,
-      .image-preview-overlay.sliding,
-      .image-dock.seated {
-        animation: none;
-      }
-      .board,
-      .image-dock,
-      .dock-image {
-        transition: none;
       }
     }
     .meta {
@@ -751,26 +750,96 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       gap: 1rem;
       flex-shrink: 0;
     }
-    .progress {
-      margin: 0;
-      font-weight: 900;
-      font-size: clamp(1.1rem, 2vw, 1.4rem);
+    .meta-info {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.7rem;
     }
-    .diff {
-      margin: 0.2rem 0 0;
+    .counter {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 900;
       color: var(--q-muted);
-      font-weight: 700;
-      text-transform: capitalize;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.8rem;
+    }
+    .counter b {
+      padding: 0.15rem 0.6rem;
+      border: 3px solid var(--ink);
+      border-radius: 10px;
+      background: var(--lcd);
+      box-shadow: inset 0 3px 0 rgba(0, 0, 0, 0.5);
+      color: var(--bulb);
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+      letter-spacing: 0.04em;
+      text-shadow: 0 0 10px color-mix(in srgb, var(--bulb) 55%, transparent);
+    }
+    .counter small {
+      font-size: 0.65em;
+      opacity: 0.7;
+    }
+    .cat-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem 0.25rem 0.3rem;
+      border: 3px solid var(--ink);
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 3px 3px 0 var(--ink);
+      color: #1a1530;
+      font-weight: 900;
+    }
+    .cat-chip img {
+      width: 1.9rem;
+      height: 1.9rem;
+      object-fit: contain;
+    }
+    .pips {
+      display: inline-flex;
+      gap: 3px;
+      margin-left: 0.2rem;
+    }
+    .pips i {
+      width: 9px;
+      height: 9px;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+    }
+    .pips i.on {
+      background: var(--ink);
+    }
+    .track {
+      flex-shrink: 0;
+      height: 14px;
+      border: 3px solid var(--ink);
+      border-radius: 999px;
+      background: var(--q-track);
+      overflow: hidden;
+    }
+    .track span {
+      display: block;
+      height: 100%;
+      background:
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.35) 0 6px, transparent 6px 12px),
+        var(--bulb);
+      border-right: 3px solid var(--ink);
+      transition: width 0.4s ease;
     }
     .prompt-block {
       flex-shrink: 0;
-      display: grid;
-      gap: 0.85rem;
-      padding: 0.15rem 0 0.25rem;
     }
     .prompt {
       margin: 0;
       max-width: 42ch;
+      color: var(--q-navy);
       font-size: clamp(1.9rem, 4.2vw, 3.1rem);
       line-height: 1.15;
       font-weight: 900;
@@ -781,548 +850,249 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       align-items: center;
       gap: 0.65rem;
       flex-shrink: 0;
-      min-height: 2.2rem;
+      min-height: 2.4rem;
     }
     .answered-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
       font-weight: 800;
       color: var(--q-muted);
       font-size: 0.9rem;
+    }
+    .answered-label b {
+      padding: 0.05rem 0.45rem;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: var(--lcd);
+      color: var(--bulb);
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: 1.05rem;
     }
     .chips {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-      min-height: 2.2rem;
+    }
+    .chip,
+    .avatar {
+      flex-shrink: 0;
+      width: 2.4rem;
+      height: 2.4rem;
+      display: grid;
+      place-items: center;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      font-size: 1.1rem;
     }
     .chip {
-      width: 2.2rem;
-      height: 2.2rem;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 1rem;
-      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.12);
-      outline: 3px solid transparent;
-      transition: outline-color 0.2s ease, box-shadow 0.2s ease;
+      animation: chip-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: box-shadow 0.2s ease;
     }
     .chip.correct {
-      outline-color: #84cc16;
+      box-shadow: 0 0 0 3px var(--q-lime);
     }
-    .reveal-badge {
-      box-sizing: border-box;
-      width: 4.5rem;
-      height: 4.5rem;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      font-weight: 900;
-      font-size: 0.9rem;
-      line-height: 1.1;
-      color: var(--q-purple);
-      background: var(--q-chip-purple);
-      border: 3px solid var(--q-purple);
-      border-radius: 50%;
-      animation: fade-in 0.35s ease;
-    }
-    @keyframes fade-in {
+    @keyframes chip-pop {
       from {
-        opacity: 0.5;
+        transform: scale(0.4);
       }
-      to {
-        opacity: 1;
+    }
+    .reveal-sticker {
+      padding: 0.5rem 1rem;
+      border: 3px solid var(--ink);
+      border-radius: 14px;
+      background: var(--q-lime);
+      box-shadow: 4px 4px 0 var(--ink);
+      color: #1a1530;
+      font-family: var(--display);
+      font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+      transform: rotate(-6deg);
+      animation: sticker-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes sticker-in {
+      from {
+        opacity: 0;
+        transform: scale(1.8) rotate(-18deg);
       }
     }
     .end {
       position: absolute;
-      right: 0.75rem;
-      bottom: 0.5rem;
-      font-size: 0.9rem;
-    }
-    .final {
-      max-width: 960px;
-      margin: 2rem auto;
-      display: grid;
-      gap: 1.25rem;
-    }
-    .brand h1 {
-      margin: 0;
-      font-weight: 900;
-    }
-    .winner-banner {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 700;
-      color: var(--q-muted);
-      margin: 0;
-    }
-    .winner-banner .avatar {
-      width: 2rem;
-      height: 2rem;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-    }
-    .tie-banner {
-      margin: 0;
-      font-weight: 800;
-      color: var(--q-purple);
-    }
-    .co-winners {
-      flex-wrap: wrap;
-    }
-    .co-winner {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-    .rematch-hub {
-      display: grid;
-      gap: 1rem;
-      padding: 1.1rem 1.2rem;
-      border: 2px solid var(--q-border);
-      border-radius: 22px;
-      background: var(--q-surface);
-    }
-    .rematch-hub h2 {
-      margin: 0;
-      font-size: 1.15rem;
-      font-weight: 900;
-    }
-    .join-code-block .label {
-      margin: 0;
-      color: var(--q-muted);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.85rem;
-    }
-    .code-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
-    }
-    .code {
-      margin: 0.25rem 0 0;
-      font-size: clamp(2rem, 6vw, 3.25rem);
-      letter-spacing: 0.18em;
-      background: var(--q-gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      line-height: 1.1;
-      font-weight: 900;
-    }
-    .ready-block {
-      display: grid;
-      gap: 0.45rem;
-    }
-    .ready-label {
-      margin: 0;
-      font-weight: 800;
-      color: var(--q-muted);
-      font-size: 0.95rem;
-    }
-    .ready-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      min-height: 2.2rem;
-      align-items: center;
-    }
-    .ready-empty {
-      font-weight: 700;
-      color: var(--q-muted);
-      font-size: 0.9rem;
-    }
-    .rematch-hub .group {
-      background: var(--q-card);
-      border: 2px solid var(--q-border);
-      border-radius: 24px;
-      padding: 1rem 1.1rem 1.15rem;
-    }
-    .rematch-hub .pair {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      align-items: stretch;
-    }
-    .rematch-hub .tokens {
-      display: grid;
-      gap: 0.85rem 0.35rem;
-      justify-items: center;
-    }
-    .rematch-hub .tokens-cats {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      padding-top: 1.75rem;
-      gap: 1.15rem 0.65rem;
-    }
-    .rematch-hub .token.cat {
-      flex-direction: row;
-      align-items: center;
-      gap: 0.45rem;
-      text-align: left;
-    }
-    .rematch-hub .cat-copy {
-      position: relative;
-      flex: 1;
-      min-width: 0;
-      display: grid;
-      gap: 0.12rem;
-      padding: 0.45rem 1.15rem 0.45rem 0.55rem;
-      text-align: left;
-      border-radius: 16px;
-      border: 2px solid transparent;
-      background:
-        linear-gradient(var(--q-card), var(--q-card)) padding-box,
-        var(--q-gradient) border-box;
-    }
-    .rematch-hub .cat-copy strong {
-      font-size: 0.82rem;
-      font-weight: 900;
-      line-height: 1.15;
-      color: var(--q-navy);
-    }
-    .rematch-hub .cat-copy span {
-      font-size: 0.72rem;
-      font-weight: 700;
-      line-height: 1.25;
-      color: var(--q-muted);
-    }
-    .rematch-hub .token.locked .cat-copy,
-    .rematch-hub .slot-copy.locked,
-    .rematch-hub .slot-copy.empty {
-      border: 2px solid var(--q-border);
-      background: var(--q-card);
-    }
-    .rematch-hub .corner-badge {
-      position: absolute;
-      top: -42px;
-      right: -6px;
-      width: 72px;
-      height: 72px;
-      max-width: none;
-      max-height: none;
-      object-fit: contain;
-      pointer-events: none;
-      transform: rotate(12deg);
-      transition: transform 0.18s ease;
-    }
-    .rematch-hub .token:hover .corner-badge,
-    .rematch-hub .token:focus-visible .corner-badge,
-    .rematch-hub .pill:hover .corner-badge,
-    .rematch-hub .pill:focus-visible .corner-badge,
-    .rematch-hub .slot-reel:hover .corner-badge,
-    .rematch-hub .slot-reel:has(:focus-visible) .corner-badge {
-      transform: translate(8px, -12px) rotate(20deg);
-    }
-    .rematch-hub .pair .tokens {
-      grid-template-columns: 1fr;
-      padding-top: 1.75rem;
-    }
-    .rematch-hub .token {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.35rem;
-      width: 100%;
-      padding: 0.2rem;
-      border: 0;
-      background: transparent;
-      color: var(--q-navy);
-      cursor: pointer;
-      opacity: 0.42;
-    }
-    .rematch-hub .token.on {
-      opacity: 1;
-    }
-    .rematch-hub .token:focus-visible,
-    .rematch-hub .pill:focus-visible,
-    .rematch-hub .slot-nudge:focus-visible {
-      outline: 2px solid var(--q-blue);
-      outline-offset: 2px;
-    }
-    .rematch-hub .token-icon {
-      position: relative;
-      width: 96px;
-      height: 96px;
-      border-radius: 28px;
-      border: 4px solid transparent;
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-    }
-    .rematch-hub .token.on .token-icon {
-      background:
-        linear-gradient(var(--q-card), var(--q-card)) padding-box,
-        var(--q-gradient) border-box;
-      box-shadow:
-        0 0 0 4px color-mix(in srgb, #7b3ff2 32%, transparent),
-        0 10px 24px color-mix(in srgb, #2f7cf6 42%, transparent);
-    }
-    .rematch-hub .token-icon .art {
-      width: 88px;
-      height: 88px;
-      object-fit: contain;
-      display: block;
-    }
-    .rematch-hub .token.locked .art {
-      filter: grayscale(1);
-    }
-    .rematch-hub .meter-head {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      margin-bottom: 0.65rem;
-    }
-    .rematch-hub .meter-head img {
-      width: 88px;
-      height: 88px;
-      object-fit: contain;
-    }
-    .rematch-hub .meter-head .q-label {
-      margin: 0;
-    }
-    .rematch-hub .pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      padding-top: 2.4rem;
-    }
-    .rematch-hub .pill {
-      position: relative;
-      min-height: 44px;
-      padding: 0.55rem 1rem;
-      border-radius: 999px;
-      border: 2px solid var(--q-border);
-      background: var(--q-card);
-      color: var(--q-navy);
-      font-weight: 900;
-      cursor: pointer;
-      opacity: 0.5;
-    }
-    .rematch-hub .pill.active {
-      opacity: 1;
-      border-color: transparent;
-      color: #fff;
-      background: var(--q-gradient);
-    }
-    .rematch-hub .pill.locked {
-      opacity: 0.42;
-    }
-    .rematch-hub .pill .corner-badge {
-      top: -58px;
-      right: -4px;
-    }
-    .rematch-hub .hint {
-      margin: 0.65rem 0 0;
-      color: var(--q-muted);
-      font-weight: 700;
-      font-size: 0.82rem;
-    }
-    .rematch-hub .warn {
-      color: #db2777;
-    }
-    .rematch-hub .round {
-      position: relative;
-    }
-    .rematch-hub .custom-input {
-      position: absolute;
-      top: 0.85rem;
       right: 1rem;
-      width: 5.25rem;
-      margin: 0;
-      padding: 0.4rem 0.55rem;
-    }
-    .rematch-hub .cats-disabled {
-      opacity: 0.45;
-    }
-    .rematch-hub .cats-disabled .token {
-      pointer-events: none;
-    }
-    .rematch-hub .power-slots {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 0.35rem;
-      padding-top: 1.75rem;
-    }
-    .rematch-hub .slot-reel {
-      position: relative;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 0.65rem;
-      flex: 1;
-      min-width: 0;
-    }
-    .rematch-hub .slot-reel:has(.corner-badge) {
-      z-index: 1;
-    }
-    .rematch-hub .slot-switch {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.35rem;
-      flex-shrink: 0;
-    }
-    .rematch-hub .slot-nudge {
-      width: 28px;
-      height: 28px;
-      padding: 0;
-      border-radius: 999px;
-      border: 2px solid transparent;
-      background:
-        linear-gradient(var(--q-card), var(--q-card)) padding-box,
-        var(--q-gradient) border-box;
-      color: inherit;
-      cursor: pointer;
-      display: grid;
-      place-items: center;
-    }
-    .rematch-hub .arrow {
-      display: block;
-    }
-    .rematch-hub .arrow.up {
-      transform: rotate(90deg);
-    }
-    .rematch-hub .arrow.down {
-      transform: rotate(-90deg);
-    }
-    .rematch-hub .slot-copy {
-      position: relative;
-      flex: 1;
-      min-width: 0;
-    }
-    .rematch-hub .slot-reel .corner-badge {
-      pointer-events: auto;
-      opacity: 1;
-      filter: none;
-      z-index: 2;
-      top: -58px;
-      right: -4px;
-    }
-    .rematch-hub .power-slot {
-      width: 88px;
-      height: 88px;
-      border-radius: 999px;
-      border: 2px dashed var(--q-border);
-      background: color-mix(in srgb, var(--q-bg) 55%, var(--q-card));
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-    }
-    .rematch-hub .power-slot.filled {
-      border-style: solid;
-      border-width: 4px;
-      border-color: transparent;
-      background:
-        linear-gradient(var(--q-card), var(--q-card)) padding-box,
-        var(--q-gradient) border-box;
-      box-shadow:
-        0 0 0 4px color-mix(in srgb, #7b3ff2 32%, transparent),
-        0 10px 24px color-mix(in srgb, #2f7cf6 42%, transparent);
-    }
-    .rematch-hub .power-slot img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .rematch-hub .power-slot.locked img {
-      filter: grayscale(1);
-    }
-    .rematch-hub .slot-plus {
-      font-size: 1.7rem;
-      font-weight: 800;
-      line-height: 1;
-      color: var(--q-muted);
-    }
-    .rematch-hub .power-slot.from-up img,
-    .rematch-hub .power-slot.from-up .slot-plus {
-      animation: slot-from-up 0.22s ease;
-    }
-    .rematch-hub .power-slot.from-down img,
-    .rematch-hub .power-slot.from-down .slot-plus {
-      animation: slot-from-down 0.22s ease;
-    }
-    @keyframes slot-from-up {
-      from {
-        opacity: 0;
-        transform: translateY(-16px);
-      }
-      to {
-        opacity: 1;
-        transform: none;
-      }
-    }
-    @keyframes slot-from-down {
-      from {
-        opacity: 0;
-        transform: translateY(16px);
-      }
-      to {
-        opacity: 1;
-        transform: none;
-      }
-    }
-    @media (max-width: 720px) {
-      .rematch-hub .tokens-cats,
-      .rematch-hub .pair {
-        grid-template-columns: 1fr;
-      }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .rematch-hub .corner-badge {
-        transition: none;
-      }
-      .rematch-hub .token:hover .corner-badge,
-      .rematch-hub .token:focus-visible .corner-badge,
-      .rematch-hub .pill:hover .corner-badge,
-      .rematch-hub .pill:focus-visible .corner-badge,
-      .rematch-hub .slot-reel:hover .corner-badge,
-      .rematch-hub .slot-reel:has(:focus-visible) .corner-badge {
-        transform: rotate(12deg);
-      }
-      .rematch-hub .power-slot.from-up img,
-      .rematch-hub .power-slot.from-up .slot-plus,
-      .rematch-hub .power-slot.from-down img,
-      .rematch-hub .power-slot.from-down .slot-plus {
-        animation: none;
-      }
-    }
-    .final-actions {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-    .start-rematch {
-      border-color: var(--q-lime);
-    }
-    .start-rematch:disabled {
-      opacity: 0.55;
+      bottom: 0.9rem;
+      font-size: 0.9rem;
     }
     .waiting {
       font-weight: 800;
       color: var(--q-muted);
       padding: 2rem;
     }
+
+    /* End screen */
+    .final {
+      max-width: 1040px;
+      margin: 1.5rem auto;
+      padding-left: 0.6rem;
+      display: grid;
+      gap: 1.6rem;
+    }
+    .winner {
+      overflow: hidden;
+      display: grid;
+      justify-items: center;
+      gap: 0.4rem;
+      padding: 2rem 1.2rem 1.6rem;
+      text-align: center;
+    }
+    .winner > :not(.confetti) {
+      position: relative;
+    }
+    .winner .show-title {
+      font-size: clamp(2.2rem, 6vw, 3.6rem);
+    }
+    .winner .crown {
+      width: 64px;
+      height: 44px;
+      margin-bottom: -0.6rem;
+      fill: var(--bulb);
+      stroke: var(--ink);
+      stroke-width: 2.4;
+      stroke-linejoin: round;
+      transform: rotate(-8deg);
+    }
+    .avatar.big {
+      width: 6rem;
+      height: 6rem;
+      border-width: 4px;
+      font-size: 3rem;
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+    .eyebrow {
+      margin: 0.3rem 0 0;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.85rem;
+      color: var(--q-muted);
+    }
+    .co-winners {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem 1.6rem;
+    }
+    .co-winner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .co-winner .avatar {
+      width: 3.6rem;
+      height: 3.6rem;
+      font-size: 1.8rem;
+    }
+    .co-winner .show-title {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+    }
+    .confetti {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .confetti i {
+      position: absolute;
+      top: -20px;
+      left: calc(var(--i) * 7% + 2%);
+      width: 10px;
+      height: 16px;
+      border: 2px solid var(--ink);
+      border-radius: 3px;
+      background: var(--q-cyan);
+      animation: fall 3.2s linear infinite;
+      animation-delay: calc(var(--i) * -0.45s);
+    }
+    .confetti i:nth-child(4n + 1) {
+      background: var(--q-pink);
+    }
+    .confetti i:nth-child(4n + 2) {
+      background: var(--bulb);
+      border-radius: 50%;
+    }
+    .confetti i:nth-child(4n + 3) {
+      background: var(--q-lime);
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(420px) rotate(540deg);
+      }
+    }
+    .rematch-hub {
+      display: grid;
+      gap: 2rem;
+    }
+    .hub-title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+    }
+    .code-card {
+      display: grid;
+      justify-items: center;
+      gap: 0.8rem;
+    }
+    .count {
+      margin-left: 0.4rem;
+      padding: 0 0.5rem;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: var(--bulb);
+      color: #1a1530;
+    }
+    .ready {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.7rem 0.35rem 0.35rem;
+      border: 3px solid var(--ink);
+      border-radius: 14px;
+      background: var(--q-card);
+      box-shadow: 0 4px 0 var(--ink);
+      transform: rotate(-1deg);
+      animation: chip-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .card:nth-child(even) {
+      transform: rotate(1deg);
+    }
+    .name {
+      font-weight: 900;
+      color: var(--q-navy);
+    }
+    .final-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+    .final-actions .go {
+      flex: 1;
+      width: auto;
+    }
+    .modal p {
+      margin: 0;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
     @media (max-width: 960px) {
       .layout {
         grid-template-columns: 1fr;
         height: auto;
-        min-height: calc(100dvh - 1.5rem);
-      }
-      .board-col {
-        height: auto;
-      }
-      .board {
-        height: auto;
-      }
-      .board-col.with-image .board {
-        flex: 0 0 auto;
       }
       .board-col.with-image .image-dock {
         flex: 0 0 auto;
@@ -1332,7 +1102,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
         height: min(68vh, 560px);
         max-width: min(100%, 420px);
       }
-      .stage {
+      .qstage {
         height: auto;
         min-height: min(72dvh, 720px);
       }
@@ -1343,36 +1113,20 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
         }
       }
     }
-    .reset-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 200;
-      display: grid;
-      place-items: center;
-      padding: 1rem;
-      background: rgba(6, 12, 32, 0.55);
-    }
-    .reset-card {
-      width: min(420px, 100%);
-      display: grid;
-      gap: 1rem;
-      padding: 1.25rem 1.35rem;
-      border: 2px solid transparent;
-      border-radius: 24px;
-      background:
-        linear-gradient(var(--q-card), var(--q-card)) padding-box,
-        var(--q-gradient) border-box;
-      box-shadow: var(--q-shadow);
-    }
-    .reset-card p {
-      margin: 0;
-      font-weight: 800;
-      line-height: 1.35;
-    }
-    .reset-actions {
-      display: flex;
-      justify-content: flex-end;
-      gap: 0.6rem;
+    @media (prefers-reduced-motion: reduce) {
+      .image-preview-overlay,
+      .image-preview-overlay.sliding,
+      .image-dock.seated,
+      .chip,
+      .card,
+      .reveal-sticker {
+        animation: none;
+      }
+      .image-dock,
+      .dock-image,
+      .track span {
+        transition: none;
+      }
     }
   `,
 })
@@ -1414,22 +1168,27 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly isQuestionTypeFree = isQuestionTypeFree;
   readonly isPowerUpFree = isPowerUpFree;
   readonly isRoundLengthFree = isRoundLengthFree;
-  readonly categoryInfo: Record<CategoryId, { icon: string; descKey: keyof UiStrings }> = {
-    geography: { icon: '/room-icons/geo.png', descKey: 'descGeography' },
-    biology: { icon: '/room-icons/bio.png', descKey: 'descBiology' },
-    history: { icon: '/room-icons/his.png', descKey: 'descHistory' },
-    technology: { icon: '/room-icons/tech.png', descKey: 'descTechnology' },
-    sports: { icon: '/room-icons/sports.png', descKey: 'descSports' },
-    movies: { icon: '/room-icons/movtv.png', descKey: 'descMovies' },
-    famous: { icon: '/room-icons/fam.png', descKey: 'descFamous' },
-    islam: { icon: '/room-icons/isl.png', descKey: 'descIslam' },
-    food: { icon: '/room-icons/food.png', descKey: 'descFood' },
-    images: { icon: '/room-icons/picture.png', descKey: 'descPictureQ' },
+  readonly categoryInfo: Record<CategoryId, { icon: string; descKey: keyof UiStrings; accent: string }> = {
+    geography: { icon: '/room-icons/geo.png', descKey: 'descGeography', accent: 'var(--q-cyan)' },
+    biology: { icon: '/room-icons/bio.png', descKey: 'descBiology', accent: 'var(--q-lime)' },
+    history: { icon: '/room-icons/his.png', descKey: 'descHistory', accent: 'var(--q-orange)' },
+    technology: { icon: '/room-icons/tech.png', descKey: 'descTechnology', accent: 'var(--q-blue)' },
+    sports: { icon: '/room-icons/sports.png', descKey: 'descSports', accent: 'var(--q-pink)' },
+    movies: { icon: '/room-icons/movtv.png', descKey: 'descMovies', accent: 'var(--q-purple)' },
+    famous: { icon: '/room-icons/fam.png', descKey: 'descFamous', accent: 'var(--q-orange)' },
+    islam: { icon: '/room-icons/isl.png', descKey: 'descIslam', accent: 'var(--q-lime)' },
+    food: { icon: '/room-icons/food.png', descKey: 'descFood', accent: 'var(--q-pink)' },
+    images: { icon: '/room-icons/picture.png', descKey: 'descPictureQ', accent: 'var(--q-cyan)' },
   };
-  readonly typeInfo: Record<QuestionType, { icon: string; descKey: keyof UiStrings }> = {
-    mcq: { icon: '/room-icons/text.png', descKey: 'descTextQ' },
-    image_mcq: { icon: '/room-icons/picture.png', descKey: 'descPictureQ' },
+  readonly typeInfo: Record<QuestionType, { icon: string; descKey: keyof UiStrings; accent: string }> = {
+    mcq: { icon: '/room-icons/text.png', descKey: 'descTextQ', accent: 'var(--q-blue)' },
+    image_mcq: { icon: '/room-icons/picture.png', descKey: 'descPictureQ', accent: 'var(--q-pink)' },
   };
+  readonly pips = [1, 2, 3];
+  readonly difficultyLevel: Record<string, number> = { easy: 1, medium: 2, hard: 3 };
+  readonly confetti = Array.from({ length: 14 }, (_, i) => i);
+  readonly reduceMotion =
+    typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
   readonly scoringInfo: Record<ScoringMode, { descKey: keyof UiStrings }> = {
     standard: { descKey: 'descScoringStandard' },
     timed: { descKey: 'descScoringTimed' },
@@ -1991,11 +1750,14 @@ export class PlayPage implements OnInit, OnDestroy {
         top: ${from.top + from.height / 2}px;
         transform: translate(-50%, -50%);
         z-index: 50;
-        font-weight: 900;
-        font-size: 1.25rem;
-        color: #65a30d;
+        padding: 0.1rem 0.5rem;
+        border: 3px solid #1a1530;
+        border-radius: 10px;
+        background: #a3e635;
+        color: #1a1530;
+        font-family: 'Lilita One', sans-serif;
+        font-size: 1.3rem;
         pointer-events: none;
-        text-shadow: 0 2px 8px rgba(255,255,255,0.9);
         transition: left 0.85s cubic-bezier(.2,.8,.2,1), top 0.85s cubic-bezier(.2,.8,.2,1), opacity 0.85s ease, transform 0.85s ease;
       `;
       root.appendChild(el);

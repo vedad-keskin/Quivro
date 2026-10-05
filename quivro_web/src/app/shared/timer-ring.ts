@@ -30,8 +30,13 @@ import { ServerTimeService } from '../core/server-time.service';
   styles: `
     .timer {
       position: relative;
-      width: 4.5rem;
-      height: 4.5rem;
+      width: 5rem;
+      height: 5rem;
+      padding: 3px;
+      border: 3px solid var(--ink, #1a1530);
+      border-radius: 50%;
+      background: var(--lcd, #0d1022);
+      box-shadow: 4px 4px 0 var(--ink, #1a1530);
     }
     svg {
       width: 100%;
@@ -40,26 +45,47 @@ import { ServerTimeService } from '../core/server-time.service';
     }
     path {
       fill: none;
-      stroke-width: 3.2;
+      stroke-width: 4.6;
     }
     .bg {
-      stroke: var(--q-track);
+      stroke: rgba(255, 255, 255, 0.12);
     }
     .fg {
-      stroke: var(--q-blue);
+      stroke: var(--bulb, #ffcc33);
       stroke-linecap: round;
       transition: stroke-dasharray 0.2s linear;
     }
+    .urgent {
+      animation: shake 0.5s ease-in-out infinite;
+    }
     .urgent .fg {
-      stroke: var(--q-pink);
+      stroke: #ff4d6d;
     }
     span {
       position: absolute;
       inset: 0;
       display: grid;
       place-items: center;
-      font-weight: 800;
-      font-size: 1.25rem;
+      color: var(--bulb, #ffcc33);
+      font-family: var(--display, inherit);
+      font-size: 1.7rem;
+      text-shadow: 0 0 10px color-mix(in srgb, currentColor 55%, transparent);
+    }
+    .urgent span {
+      color: #ff4d6d;
+    }
+    @keyframes shake {
+      25% {
+        transform: rotate(-5deg);
+      }
+      75% {
+        transform: rotate(5deg);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .urgent {
+        animation: none;
+      }
     }
   `,
 })

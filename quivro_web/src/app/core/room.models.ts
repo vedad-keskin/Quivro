@@ -333,6 +333,16 @@ export function rankPlayers(players: RoomPlayer[]): RoomPlayer[] {
   return [...players].sort(comparePlayers);
 }
 
+/** Places gained (positive) or lost (negative) per id between two rankings. New ids get 0. */
+export function rankMoves(prev: string[], next: string[]): Record<string, number> {
+  const out: Record<string, number> = {};
+  next.forEach((id, i) => {
+    const before = prev.indexOf(id);
+    out[id] = before < 0 ? 0 : before - i;
+  });
+  return out;
+}
+
 export const AVATAR_COLORS = [
   '#22d3ee',
   '#f97316',

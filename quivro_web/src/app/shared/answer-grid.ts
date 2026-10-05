@@ -29,6 +29,9 @@ const MIN_FONT_PX = 14;
           (click)="pick.emit(i)"
         >
           <span class="letter">{{ LABELS[i] }}</span>
+          @if (revealed() && correctIndex() === i) {
+            <span class="check" aria-hidden="true">✓</span>
+          }
           <span class="text">
             <span class="fit">{{ option }}</span>
           </span>
@@ -79,21 +82,30 @@ const MIN_FONT_PX = 14;
       min-height: 4.5rem;
       height: 100%;
       padding: 1.1rem 1.35rem 1.5rem;
-      border: 3px solid transparent;
+      border: 3px solid var(--ink, #1a1530);
       border-radius: 20px;
-      background: var(--c);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent 40%),
+        var(--c);
       color: #0f172a;
       font-weight: 800;
       text-align: left;
       cursor: pointer;
-      box-shadow: 0 8px 18px color-mix(in srgb, var(--c) 35%, transparent);
-      transition: transform 0.15s ease, filter 0.2s ease, opacity 0.2s ease,
-        border-color 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 6px 6px 0 var(--ink, #1a1530);
+      transition: transform 0.12s ease, filter 0.2s ease, opacity 0.2s ease,
+        box-shadow 0.12s ease;
     }
     .answer:hover:not(:disabled) {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 22px color-mix(in srgb, var(--c) 45%, transparent);
-      filter: brightness(1.03);
+      transform: translate(-1px, -1px);
+      box-shadow: 7px 7px 0 var(--ink, #1a1530);
+    }
+    .answer:active:not(:disabled) {
+      transform: translate(4px, 4px);
+      box-shadow: 2px 2px 0 var(--ink, #1a1530);
+    }
+    .answer:focus-visible {
+      outline: 4px solid var(--bulb, #ffcc33);
+      outline-offset: 3px;
     }
     .letter {
       align-self: flex-start;
@@ -101,11 +113,43 @@ const MIN_FONT_PX = 14;
       place-items: center;
       width: clamp(2.75rem, 4.5vw, 3.5rem);
       height: clamp(2.75rem, 4.5vw, 3.5rem);
+      border: 3px solid var(--ink, #1a1530);
       border-radius: 14px;
-      background: rgba(255, 255, 255, 0.6);
+      background: var(--bulb, #ffcc33);
+      box-shadow: 3px 3px 0 var(--ink, #1a1530);
       flex-shrink: 0;
-      font-size: clamp(1.25rem, 2.6vw, 1.75rem);
+      color: #1a1530;
+      font-family: var(--display, inherit);
+      font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+      font-weight: 400;
+    }
+    .check {
+      position: absolute;
+      top: -0.9rem;
+      right: -0.9rem;
+      width: 3rem;
+      height: 3rem;
+      display: grid;
+      place-items: center;
+      border: 3px solid var(--ink, #1a1530);
+      border-radius: 50%;
+      background: var(--q-lime, #84cc16);
+      box-shadow: 3px 3px 0 var(--ink, #1a1530);
+      color: #1a1530;
+      font-size: 1.6rem;
       font-weight: 900;
+      animation: stamp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+    @keyframes stamp {
+      from {
+        transform: scale(2.2) rotate(-20deg);
+        opacity: 0;
+      }
+    }
+    @keyframes bounce {
+      40% {
+        transform: translateY(-8px) scale(1.02);
+      }
     }
     .text {
       flex: 1;
@@ -139,18 +183,24 @@ const MIN_FONT_PX = 14;
       display: grid;
       place-items: center;
       font-size: 0.9rem;
-      border: 2px solid #fff;
+      border: 2px solid var(--ink, #1a1530);
       margin-left: -0.5rem;
-      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.18);
     }
     .reveal .answer.wrong {
-      filter: grayscale(0.7) brightness(0.85);
-      opacity: 0.7;
+      filter: grayscale(0.75);
+      opacity: 0.45;
+      transform: translate(4px, 4px);
+      box-shadow: 2px 2px 0 var(--ink, #1a1530);
     }
     .reveal .answer.correct {
-      border-color: #fff;
-      filter: brightness(1.06);
-      box-shadow: 0 10px 24px color-mix(in srgb, var(--c) 45%, transparent);
+      z-index: 1;
+      animation: bounce 0.5s ease-out;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .check,
+      .reveal .answer.correct {
+        animation: none;
+      }
     }
     @media (max-width: 720px) {
       .answers {

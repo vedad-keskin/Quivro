@@ -114,7 +114,7 @@ function loadRoundPrefs(): RoundPrefs | null {
         <app-settings-chips />
       </header>
 
-      <div class="panel">
+      <div class="panel rs">
         <div class="title">
           <h1>{{ lang.t().createRound }}</h1>
         </div>
@@ -452,7 +452,6 @@ function loadRoundPrefs(): RoundPrefs | null {
   `,
   styles: `
     .create {
-      --win: 96px;
       display: grid;
       grid-template-rows: auto 1fr auto;
       min-height: 100dvh;
@@ -492,299 +491,8 @@ function loadRoundPrefs(): RoundPrefs | null {
       color: var(--bulb);
       text-shadow: 3px 3px 0 #e8435a;
     }
-    .stage-label {
-      margin: 0 0 0.9rem 1.1rem;
-      font-family: var(--display);
-      font-weight: 400;
-      font-size: 1.2rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--q-navy);
-    }
-    .stage-art {
-      position: absolute;
-      top: -30px;
-      right: 12px;
-      width: 76px;
-      height: 76px;
-      object-fit: contain;
-      transform: rotate(8deg);
-      pointer-events: none;
-    }
-    .pair {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.1rem 1.6rem;
-      align-items: stretch;
-    }
 
-    /* Tiles */
-    .tiles {
-      display: grid;
-      gap: 1.15rem 0.95rem;
-      padding-top: 0.9rem;
-    }
-    .tiles-cats {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-    .tile {
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      width: 100%;
-      padding: 0.5rem 0.85rem 0.5rem 0.5rem;
-      border: 3px solid color-mix(in srgb, var(--q-navy) 18%, transparent);
-      border-radius: 14px;
-      background: var(--q-card);
-      color: var(--q-navy);
-      text-align: left;
-      cursor: pointer;
-      transition:
-        transform 0.14s cubic-bezier(0.34, 1.56, 0.64, 1),
-        box-shadow 0.14s ease,
-        background-color 0.15s ease,
-        border-color 0.15s ease;
-    }
-    .tile:hover {
-      border-color: var(--ink);
-    }
-    .tile.on {
-      border-color: var(--ink);
-      background: color-mix(in srgb, var(--accent) 18%, var(--q-card));
-      box-shadow: var(--hit);
-      transform: rotate(-1.2deg);
-    }
-    .tiles > .tile.on:nth-child(even) {
-      transform: rotate(1.2deg);
-    }
-    .tile:active,
-    .tiles > .tile.on:active {
-      transform: translate(3px, 3px);
-      box-shadow: 0 0 0 var(--ink);
-    }
-    .tile:focus-visible,
-    .key:focus-visible,
-    .nudge:focus-visible,
-    .lever:focus-visible {
-      outline: 3px solid var(--q-blue);
-      outline-offset: 3px;
-    }
-    .plate {
-      flex-shrink: 0;
-      width: 68px;
-      height: 68px;
-      display: grid;
-      place-items: center;
-      border: 3px solid transparent;
-      border-radius: 12px;
-      background: color-mix(in srgb, var(--accent) 14%, var(--q-card));
-      transition: background-color 0.15s ease;
-    }
-    .tile.on .plate {
-      border-color: var(--ink);
-      background: var(--accent);
-    }
-    .plate img {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-    }
-    .tile:not(.on) .plate img {
-      filter: grayscale(0.65);
-      opacity: 0.75;
-    }
-    .tile.locked .plate img {
-      filter: grayscale(1);
-    }
-    .tile-copy {
-      display: grid;
-      gap: 0.12rem;
-      min-width: 0;
-      padding-right: 0.6rem;
-    }
-    .tile-copy strong {
-      font-size: 0.9rem;
-      font-weight: 900;
-      line-height: 1.15;
-    }
-    .tile-copy span {
-      font-size: 0.74rem;
-      font-weight: 700;
-      line-height: 1.25;
-      color: var(--q-muted);
-    }
-    .stamp {
-      position: absolute;
-      left: -11px;
-      top: -11px;
-      width: 28px;
-      height: 28px;
-      display: grid;
-      place-items: center;
-      border: 3px solid var(--ink);
-      border-radius: 50%;
-      background: var(--accent);
-      color: var(--ink);
-      animation: stamp-in 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    @keyframes stamp-in {
-      from {
-        transform: scale(0) rotate(-40deg);
-      }
-    }
-    .cats-disabled {
-      opacity: 0.45;
-    }
-    .cats-disabled .tile {
-      pointer-events: none;
-    }
-
-    /* Pro / weekly badges */
-    .corner-badge {
-      position: absolute;
-      top: -30px;
-      right: -14px;
-      width: 60px;
-      height: 60px;
-      max-width: none;
-      object-fit: contain;
-      pointer-events: none;
-      transform: rotate(12deg);
-      transition: transform 0.18s ease;
-      z-index: 1;
-    }
-    .tile:hover .corner-badge,
-    .tile:focus-visible .corner-badge,
-    .key:hover .corner-badge,
-    .key:focus-visible .corner-badge,
-    .reel:hover .corner-badge {
-      transform: translate(6px, -8px) rotate(20deg);
-    }
-
-    /* Keypads */
-    .keys {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-      padding-top: 1.5rem;
-    }
-    .key {
-      position: relative;
-      min-width: 58px;
-      height: 56px;
-      padding: 0 0.8rem;
-      border: 3px solid var(--ink);
-      border-radius: 12px;
-      background: var(--q-card);
-      color: var(--q-navy);
-      font-family: var(--display);
-      font-size: 1.4rem;
-      line-height: 1;
-      cursor: pointer;
-      box-shadow: 0 5px 0 var(--ink);
-      transition:
-        transform 0.08s ease,
-        box-shadow 0.08s ease,
-        background-color 0.15s ease;
-    }
-    .key small {
-      margin-left: 1px;
-      font-size: 0.8rem;
-    }
-    .key-word {
-      font-size: 1.05rem;
-    }
-    .key.on,
-    .key:active {
-      transform: translateY(4px);
-      box-shadow:
-        0 1px 0 var(--ink),
-        inset 0 3px 0 rgba(0, 0, 0, 0.18);
-    }
-    .key.on {
-      background: var(--bulb);
-      color: #1a1530;
-    }
-    .key.locked {
-      opacity: 0.55;
-    }
-    .key .corner-badge {
-      top: -34px;
-      right: -18px;
-      width: 50px;
-      height: 50px;
-    }
-    .readout {
-      display: flex;
-      align-items: baseline;
-      gap: 0.6rem;
-      margin-top: 1.1rem;
-      padding: 0.6rem 0.95rem;
-      border: 3px solid var(--ink);
-      border-radius: 12px;
-      background: var(--lcd);
-      box-shadow: inset 0 4px 0 rgba(0, 0, 0, 0.5);
-      color: var(--bulb);
-      font-family: var(--display);
-    }
-    .readout.bad {
-      color: #ff5c8a;
-    }
-    .readout-num {
-      font-size: 2.4rem;
-      line-height: 1;
-      text-shadow: 0 0 12px color-mix(in srgb, currentColor 55%, transparent);
-    }
-    .readout-input {
-      width: 5.5rem;
-      padding: 0;
-      border: 0;
-      border-bottom: 3px dashed currentColor;
-      background: transparent;
-      color: inherit;
-      font-family: inherit;
-      outline: none;
-    }
-    .readout-input {
-      appearance: textfield;
-      -moz-appearance: textfield;
-    }
-    .readout-input::-webkit-inner-spin-button,
-    .readout-input::-webkit-outer-spin-button {
-      appearance: none;
-      margin: 0;
-    }
-    .readout-steps {
-      display: flex;
-      gap: 0.45rem;
-      margin-left: auto;
-      align-self: center;
-    }
-    .nudge.step-key {
-      width: 34px;
-      height: 34px;
-    }
-    .readout-input:focus {
-      border-bottom-style: solid;
-    }
-    .readout-unit {
-      font-size: 0.95rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      opacity: 0.85;
-    }
-    .hint {
-      margin: 0.75rem 0 0;
-      color: var(--q-muted);
-      font-weight: 700;
-      font-size: 0.82rem;
-    }
-    .warn {
-      color: #db2777;
-    }
-
-    /* Slot machine */
+    /* Slot machine cabinet (tiles, keys and reels live in styles.css under .rs) */
     .machine {
       margin-top: 0.4rem;
       padding: 0.85rem 1rem 1.1rem;
@@ -801,65 +509,10 @@ function loadRoundPrefs(): RoundPrefs | null {
       align-items: stretch;
       gap: 0.9rem;
     }
-    .reels {
-      flex: 1;
-      min-width: 0;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.8rem;
-      padding: 1rem 0.8rem 0.9rem;
-      border: 3px solid var(--ink);
-      border-radius: 16px;
-      background: var(--q-card);
-      box-shadow: inset 0 4px 0 rgba(0, 0, 0, 0.12);
-    }
-    .reel {
-      position: relative;
-      display: grid;
-      justify-items: center;
-      align-content: start;
-      gap: 0.4rem;
-      min-width: 0;
-    }
-    .window {
-      position: relative;
-      width: var(--win);
-      height: var(--win);
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      border: 3px solid var(--ink);
-      border-radius: 14px;
-      background: var(--lcd);
-      box-shadow: inset 0 6px 10px rgba(0, 0, 0, 0.55);
-    }
-    .window::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.2),
-        transparent 40%,
-        transparent 65%,
-        rgba(0, 0, 0, 0.4)
-      );
-    }
-    .reel-art,
     .strip-cell img {
       width: calc(var(--win) - 14px);
       height: calc(var(--win) - 14px);
       object-fit: contain;
-    }
-    .window.locked .reel-art {
-      filter: grayscale(1);
-    }
-    .slot-plus {
-      font-family: var(--display);
-      font-size: 2rem;
-      line-height: 1;
-      color: rgba(255, 255, 255, 0.35);
     }
     .strip {
       position: absolute;
@@ -879,74 +532,6 @@ function loadRoundPrefs(): RoundPrefs | null {
         transform: translateY(calc(-2 * (var(--win) - 6px)));
       }
     }
-    .window.from-up > *:not(.strip) {
-      animation: slot-from-up 0.22s ease;
-    }
-    .window.from-down > *:not(.strip) {
-      animation: slot-from-down 0.22s ease;
-    }
-    @keyframes slot-from-up {
-      from {
-        opacity: 0;
-        transform: translateY(-18px);
-      }
-    }
-    @keyframes slot-from-down {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-    }
-    .nudge {
-      width: 36px;
-      height: 26px;
-      padding: 0;
-      display: grid;
-      place-items: center;
-      border: 3px solid var(--ink);
-      border-radius: 8px;
-      background: var(--bulb);
-      color: #1a1530;
-      cursor: pointer;
-      box-shadow: 0 3px 0 var(--ink);
-      transition: transform 0.08s ease, box-shadow 0.08s ease;
-    }
-    .nudge:active:not(:disabled) {
-      transform: translateY(3px);
-      box-shadow: 0 0 0 var(--ink);
-    }
-    .nudge:disabled {
-      opacity: 0.5;
-      cursor: default;
-    }
-    .reel-copy {
-      display: grid;
-      gap: 0.1rem;
-      text-align: center;
-    }
-    .reel-copy strong {
-      font-size: 0.85rem;
-      font-weight: 900;
-      color: var(--q-navy);
-    }
-    .reel-copy.empty strong {
-      color: var(--q-muted);
-    }
-    .reel-copy span {
-      font-size: 0.72rem;
-      font-weight: 700;
-      line-height: 1.25;
-      color: var(--q-muted);
-    }
-    .window-wrap {
-      position: relative;
-    }
-    .window-wrap .corner-badge {
-      top: -14px;
-      right: -18px;
-      width: 46px;
-      height: 46px;
-    }
 
     /* Lever */
     .lever {
@@ -962,6 +547,10 @@ function loadRoundPrefs(): RoundPrefs | null {
       border-radius: 12px;
       background: transparent;
       cursor: pointer;
+    }
+    .lever:focus-visible {
+      outline: 3px solid var(--q-blue);
+      outline-offset: 3px;
     }
     .lever:disabled {
       cursor: default;
@@ -1039,40 +628,15 @@ function loadRoundPrefs(): RoundPrefs | null {
       line-height: 1.35;
     }
 
-    @media (max-width: 860px) {
-      .tiles-cats {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
     @media (max-width: 720px) {
-      .create {
-        --win: 68px;
-      }
-      .tiles-cats,
-      .pair {
-        grid-template-columns: 1fr;
-      }
       .machine {
         padding: 0.7rem 0.6rem 0.8rem;
       }
       .machine-body {
         gap: 0.4rem;
       }
-      .reels {
-        gap: 0.4rem;
-        padding: 0.9rem 0.4rem 0.7rem;
-      }
       .lever {
         width: 48px;
-      }
-      .reel-copy span {
-        display: none;
-      }
-      .window-wrap .corner-badge {
-        top: -10px;
-        right: -10px;
-        width: 34px;
-        height: 34px;
       }
       .go {
         position: sticky;
@@ -1081,28 +645,10 @@ function loadRoundPrefs(): RoundPrefs | null {
       }
     }
     @media (prefers-reduced-motion: reduce) {
-      .tile,
-      .tile.on,
-      .tiles > .tile.on:nth-child(even) {
-        transition: none;
-        transform: none;
-      }
-      .stamp,
       .strip,
-      .window > *,
       .lever.pulled .lever-stick,
       .lever.pulled .lever-knob {
         animation: none !important;
-      }
-      .corner-badge {
-        transition: none;
-      }
-      .tile:hover .corner-badge,
-      .tile:focus-visible .corner-badge,
-      .key:hover .corner-badge,
-      .key:focus-visible .corner-badge,
-      .reel:hover .corner-badge {
-        transform: rotate(12deg);
       }
     }
   `,

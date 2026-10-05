@@ -2,9 +2,21 @@ import { describe, expect, it } from 'vitest';
 import {
   hashSeed,
   questionShuffleSeed,
+  rankMoves,
   shuffledOptionsForQuestion,
   shuffleWithSeed,
 } from './room.models';
+
+describe('rankMoves', () => {
+  it('reports places gained and lost', () => {
+    expect(rankMoves(['a', 'b', 'c'], ['c', 'a', 'b'])).toEqual({ c: 2, a: -1, b: -1 });
+  });
+
+  it('gives new players 0 and unchanged order all zeros', () => {
+    expect(rankMoves(['a'], ['b', 'a'])).toEqual({ b: 0, a: -1 });
+    expect(rankMoves(['a', 'b'], ['a', 'b'])).toEqual({ a: 0, b: 0 });
+  });
+});
 
 describe('room.models shuffle helpers', () => {
   it('hashSeed is stable for the same input', () => {
