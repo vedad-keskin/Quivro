@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -108,32 +109,60 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
     final strings = context.strings;
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text(
-          strings.leaveGameTitle,
-          style: GoogleFonts.nunito(fontWeight: FontWeight.w800),
-        ),
-        content: Text(
-          strings.leaveGameBody,
-          style: GoogleFonts.nunito(fontWeight: FontWeight.w600),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(false),
-            child: Text(strings.cancel),
+      builder: (ctx) {
+        final palette = ctx.palette;
+        return Dialog(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          clipBehavior: Clip.none,
+          insetPadding: const EdgeInsets.symmetric(
+            horizontal: 28,
+            vertical: 24,
           ),
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(true),
-            child: Text(
-              strings.leave,
-              style: GoogleFonts.nunito(
-                fontWeight: FontWeight.w800,
-                color: const Color(0xFFEC4899),
-              ),
+          child: Container(
+            padding: const EdgeInsets.fromLTRB(20, 22, 20, 18),
+            decoration: showPanel(
+              ink: showInk(ctx),
+              fill: palette.card,
+              radius: 18,
+              shadow: const Offset(6, 6),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  strings.leaveGameTitle,
+                  textAlign: TextAlign.center,
+                  style: showTitle(ctx, fontSize: 26),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  strings.leaveGameBody,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.nunito(
+                    fontWeight: FontWeight.w700,
+                    color: palette.muted,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                _ShowKey(
+                  label: strings.leave,
+                  fill: showBulb,
+                  foreground: showInkDay,
+                  onPressed: () => Navigator.of(ctx).pop(true),
+                ),
+                const SizedBox(height: 10),
+                _ShowKey(
+                  label: strings.cancel,
+                  fill: palette.card,
+                  foreground: palette.text,
+                  onPressed: () => Navigator.of(ctx).pop(false),
+                ),
+              ],
             ),
           ),
-        ],
-      ),
+        );
+      },
     );
     if (confirmed == true && mounted) {
       await _leaveRoomManually();
@@ -489,11 +518,7 @@ class _LobbyView extends StatelessWidget {
                         QuivroWordmarkHero(
                           child: Text(
                             'Quivro',
-                            style: GoogleFonts.nunito(
-                              fontSize: 36,
-                              fontWeight: FontWeight.w800,
-                              color: palette.text,
-                            ),
+                            style: showTitle(context, fontSize: 36),
                           ),
                         ),
                         Container(
@@ -512,7 +537,19 @@ class _LobbyView extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: onEditProfile,
-                    child: AvatarBadge(index: profile.avatar, size: 52),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: showInk(context), width: 3),
+                        boxShadow: [
+                          BoxShadow(
+                            color: showInk(context),
+                            offset: const Offset(3, 3),
+                          ),
+                        ],
+                      ),
+                      child: AvatarBadge(index: profile.avatar, size: 52),
+                    ),
                   ),
                 ],
               ),
@@ -526,30 +563,19 @@ class _LobbyView extends StatelessWidget {
               ),
               const Spacer(),
               Text(
-                strings.room,
+                strings.room.toUpperCase(),
                 textAlign: TextAlign.center,
-                style: GoogleFonts.nunito(
-                  fontWeight: FontWeight.w700,
-                  color: palette.muted,
-                ),
+                style: showDisplay(context, fontSize: 22),
               ),
-              Text(
-                code,
-                textAlign: TextAlign.center,
-                style: GoogleFonts.nunito(
-                  fontSize: 42,
-                  fontWeight: FontWeight.w800,
-                  letterSpacing: 8,
-                  color: QuivroColors.blue,
-                ),
-              ),
+              const SizedBox(height: 10),
+              _RoomCodeDigits(code: code),
               const SizedBox(height: 16),
               Text(
                 strings.waitingForHost,
                 textAlign: TextAlign.center,
                 style: GoogleFonts.nunito(
                   fontSize: 16,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w800,
                   color: palette.muted,
                 ),
               ),
@@ -557,13 +583,101 @@ class _LobbyView extends StatelessWidget {
               TextButton(
                 onPressed: onLeave,
                 child: Text(
-                  strings.leave,
-                  style: GoogleFonts.nunito(
-                    fontWeight: FontWeight.w700,
+                  strings.leave.toUpperCase(),
+                  style: showDisplay(
+                    context,
+                    fontSize: 18,
+                    letterSpacing: 1,
                     color: palette.muted,
                   ),
                 ),
               ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Scoreboard tiles for the join code, matching the web lobby digits.
+class _RoomCodeDigits extends StatelessWidget {
+  const _RoomCodeDigits({required this.code});
+
+  final String code;
+
+  static const _lcd = Color(0xFF0D1022);
+
+  @override
+  Widget build(BuildContext context) {
+    final chars = code.split('');
+    final ink = showInk(context);
+    return Semantics(
+      label: code,
+      child: ExcludeSemantics(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 6),
+          child: Row(
+            children: [
+              for (var i = 0; i < chars.length; i++)
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 3),
+                    child: Transform.rotate(
+                      angle: (i.isEven ? -1.5 : 1.5) * math.pi / 180,
+                      child: AspectRatio(
+                        aspectRatio: 0.76,
+                        child: Container(
+                          clipBehavior: Clip.antiAlias,
+                          decoration: showPanel(
+                            ink: ink,
+                            fill: _lcd,
+                            radius: 12,
+                            shadow: const Offset(0, 5),
+                          ),
+                          child: LayoutBuilder(
+                            builder: (context, constraints) {
+                              final fontSize = (constraints.maxWidth * 0.62)
+                                  .clamp(22.0, 40.0);
+                              return Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  const Positioned(
+                                    left: 5,
+                                    right: 5,
+                                    child: SizedBox(
+                                      height: 2,
+                                      child: ColoredBox(
+                                        color: Color(0x59000000),
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    chars[i],
+                                    style: showDisplay(
+                                      context,
+                                      fontSize: fontSize,
+                                      letterSpacing: 0,
+                                      color: showBulb,
+                                      shadows: [
+                                        Shadow(
+                                          color: showBulb.withValues(
+                                            alpha: 0.6,
+                                          ),
+                                          blurRadius: 14,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
             ],
           ),
         ),
@@ -629,8 +743,8 @@ class _PlayViewState extends State<_PlayView> {
     final hidden = room.eliminatedChoices(widget.playerId);
     final showPowerUps = room.hasPowerUps;
 
+    final ink = showInk(context);
     return Scaffold(
-      backgroundColor: palette.surface,
       body: SafeArea(
         child: Column(
           children: [
@@ -638,7 +752,16 @@ class _PlayViewState extends State<_PlayView> {
               padding: const EdgeInsets.fromLTRB(20, 12, 20, 8),
               child: Row(
                 children: [
-                  AvatarBadge(index: widget.profile.avatar, size: 40),
+                  Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: ink, width: 3),
+                      boxShadow: [
+                        BoxShadow(color: ink, offset: const Offset(3, 3)),
+                      ],
+                    ),
+                    child: AvatarBadge(index: widget.profile.avatar, size: 40),
+                  ),
                   const SizedBox(width: 10),
                   Expanded(
                     child: Column(
@@ -646,10 +769,7 @@ class _PlayViewState extends State<_PlayView> {
                       children: [
                         Text(
                           strings.questionCounter(q.index + 1, q.total),
-                          style: GoogleFonts.nunito(
-                            fontWeight: FontWeight.w800,
-                            fontSize: 18,
-                          ),
+                          style: showDisplay(context, fontSize: 20),
                         ),
                         Text(
                           '${q.category} · ${q.difficulty}',
@@ -670,9 +790,10 @@ class _PlayViewState extends State<_PlayView> {
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     ),
                     child: Text(
-                      strings.quit,
-                      style: GoogleFonts.nunito(
-                        fontWeight: FontWeight.w800,
+                      strings.quit.toUpperCase(),
+                      style: showDisplay(
+                        context,
+                        fontSize: 16,
                         color: palette.muted,
                       ),
                     ),
@@ -691,12 +812,12 @@ class _PlayViewState extends State<_PlayView> {
                       alignment: Alignment.center,
                       padding: const EdgeInsets.all(6),
                       decoration: BoxDecoration(
-                        color: palette.chipPurple,
-                        borderRadius: BorderRadius.circular(99),
-                        border: Border.all(
-                          color: QuivroColors.purple,
-                          width: 3,
-                        ),
+                        shape: BoxShape.circle,
+                        color: showBulb,
+                        border: Border.all(color: ink, width: 3),
+                        boxShadow: [
+                          BoxShadow(color: ink, offset: const Offset(3, 3)),
+                        ],
                       ),
                       child: FittedBox(
                         fit: BoxFit.scaleDown,
@@ -705,11 +826,11 @@ class _PlayViewState extends State<_PlayView> {
                               ? strings.tvBadge
                               : (isReveal ? strings.lockedBadge : room.phase),
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.nunito(
-                            fontWeight: FontWeight.w800,
-                            fontSize: 12,
-                            height: 1.1,
-                            color: QuivroColors.purple,
+                          style: showDisplay(
+                            context,
+                            fontSize: 14,
+                            letterSpacing: 0.4,
+                            color: showInkDay,
                           ),
                         ),
                       ),
@@ -727,11 +848,7 @@ class _PlayViewState extends State<_PlayView> {
                     : strings.answersLocked,
                 style: GoogleFonts.nunito(
                   fontWeight: FontWeight.w800,
-                  color: waitingForTv
-                      ? QuivroColors.purple
-                      : room.phase == 'question'
-                      ? QuivroColors.blue
-                      : QuivroColors.purple,
+                  color: palette.muted,
                 ),
               ),
             ),
@@ -850,110 +967,111 @@ class _AnswerTileState extends State<_AnswerTile> {
     final dimmed = !widget.eliminated && !widget.enabled && !widget.selected;
     final tappable = widget.enabled && !widget.eliminated;
 
+    final ink = showInk(context);
+    final picked = widget.selected && !widget.eliminated;
     return SizedBox.expand(
-      child: AnimatedScale(
-        scale: _pressed ? 0.97 : 1.0,
-        duration: const Duration(milliseconds: 120),
-        curve: Curves.easeOutCubic,
-        child: GestureDetector(
-          onTapDown: tappable ? (_) => _setPressed(true) : null,
-          onTapUp: tappable
-              ? (_) {
-                  _setPressed(false);
-                  widget.onTap();
-                }
-              : null,
-          onTapCancel: tappable ? () => _setPressed(false) : null,
-          child: AnimatedOpacity(
-            duration: const Duration(milliseconds: 180),
-            opacity: dimmed ? 0.55 : 1,
-            child: AnimatedContainer(
-              duration: const Duration(milliseconds: 200),
-              curve: Curves.easeOutCubic,
-              decoration: BoxDecoration(
-                color: fill,
-                borderRadius: BorderRadius.circular(24),
-                border: Border.all(
-                  width: 3,
-                  color: widget.selected ? Colors.white : Colors.transparent,
+      child: GestureDetector(
+        onTapDown: tappable ? (_) => _setPressed(true) : null,
+        onTapUp: tappable
+            ? (_) {
+                _setPressed(false);
+                widget.onTap();
+              }
+            : null,
+        onTapCancel: tappable ? () => _setPressed(false) : null,
+        child: AnimatedOpacity(
+          duration: const Duration(milliseconds: 180),
+          opacity: dimmed ? 0.55 : 1,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 80),
+            transform: Matrix4.translationValues(
+              _pressed ? 4 : 0,
+              _pressed ? 4 : 0,
+              0,
+            ),
+            decoration: BoxDecoration(
+              color: fill,
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(width: 3, color: picked ? showBulb : ink),
+              boxShadow: [
+                BoxShadow(
+                  color: ink,
+                  offset: _pressed ? const Offset(1, 1) : const Offset(5, 5),
                 ),
-                boxShadow: [
-                  BoxShadow(
-                    color: context.palette.shadow,
-                    blurRadius: 16,
-                    offset: const Offset(0, 6),
+              ],
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(17),
+              child: Stack(
+                children: [
+                  Positioned(
+                    top: 12,
+                    left: 12,
+                    child: Container(
+                      width: 36,
+                      height: 36,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: showBulb,
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: showInkDay, width: 2),
+                      ),
+                      child: Text(
+                        answerLabels[widget.index],
+                        style: showDisplay(
+                          context,
+                          fontSize: 18,
+                          letterSpacing: 0,
+                          color: showInkDay,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: widget.eliminated
+                        ? const Icon(
+                            Icons.close_rounded,
+                            size: 72,
+                            color: Colors.white,
+                          )
+                        : Text(
+                            answerLabels[widget.index],
+                            style: showDisplay(
+                              context,
+                              fontSize: 64,
+                              letterSpacing: 0,
+                              color: showInkDay,
+                            ),
+                          ),
+                  ),
+                  Positioned(
+                    right: 12,
+                    bottom: 12,
+                    child: AnimatedScale(
+                      scale: widget.selected ? 1.0 : 0.8,
+                      duration: const Duration(milliseconds: 200),
+                      curve: Curves.easeOutBack,
+                      child: AnimatedOpacity(
+                        opacity: widget.selected ? 1 : 0,
+                        duration: const Duration(milliseconds: 180),
+                        child: Container(
+                          width: 28,
+                          height: 28,
+                          decoration: BoxDecoration(
+                            color: showBulb,
+                            shape: BoxShape.circle,
+                            border: Border.all(color: showInkDay, width: 2),
+                          ),
+                          child: const Icon(
+                            Icons.check_rounded,
+                            size: 18,
+                            color: showInkDay,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ],
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(21),
-                child: Stack(
-                  children: [
-                    Positioned(
-                      top: 12,
-                      left: 12,
-                      child: Container(
-                        width: 36,
-                        height: 36,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.55),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Text(
-                          answerLabels[widget.index],
-                          style: GoogleFonts.nunito(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w900,
-                            color: QuivroColors.navy,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Center(
-                      child: widget.eliminated
-                          ? const Icon(
-                              Icons.close_rounded,
-                              size: 72,
-                              color: Colors.white,
-                            )
-                          : Text(
-                              answerLabels[widget.index],
-                              style: GoogleFonts.nunito(
-                                fontSize: 64,
-                                fontWeight: FontWeight.w900,
-                                color: QuivroColors.navy,
-                              ),
-                            ),
-                    ),
-                    Positioned(
-                      right: 12,
-                      bottom: 12,
-                      child: AnimatedScale(
-                        scale: widget.selected ? 1.0 : 0.8,
-                        duration: const Duration(milliseconds: 200),
-                        curve: Curves.easeOutBack,
-                        child: AnimatedOpacity(
-                          opacity: widget.selected ? 1 : 0,
-                          duration: const Duration(milliseconds: 180),
-                          child: Container(
-                            width: 28,
-                            height: 28,
-                            decoration: const BoxDecoration(
-                              color: Colors.white,
-                              shape: BoxShape.circle,
-                            ),
-                            child: const Icon(
-                              Icons.check_rounded,
-                              size: 18,
-                              color: QuivroColors.navy,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
               ),
             ),
           ),
@@ -984,7 +1102,7 @@ class _PowerUpBar extends StatelessWidget {
         room.powerUps[playerId]?.used.values.contains(room.currentIndex) ??
         false;
     return SizedBox(
-      height: 76,
+      height: 84,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -994,7 +1112,8 @@ class _PowerUpBar extends StatelessWidget {
               powerUpId: room.powerUpSlots[i],
               used: room.powerUpSlotUsed(playerId, i),
               pending: pendingSlot == i,
-              enabled: !locked &&
+              enabled:
+                  !locked &&
                   pendingSlot == null &&
                   !usedOnQuestion &&
                   room.powerUpSlots[i] == powerUpFiftyFifty &&
@@ -1063,10 +1182,10 @@ class _PowerSlotState extends State<_PowerSlot>
   Widget build(BuildContext context) {
     final empty = widget.powerUpId == null;
     if (empty) {
-      return const SizedBox(
+      return SizedBox(
         width: 68,
         height: 68,
-        child: CustomPaint(painter: _DashedCirclePainter()),
+        child: CustomPaint(painter: _DashedCirclePainter(showInk(context))),
       );
     }
 
@@ -1085,7 +1204,7 @@ class _PowerSlotState extends State<_PowerSlot>
 
   Widget _filledSlot() {
     final image = Image.asset(
-      'assets/room-icons/fifty_fifty.png',
+      'assets/powerups/fifty_fifty.png',
       width: 68,
       height: 68,
       fit: BoxFit.cover,
@@ -1093,10 +1212,26 @@ class _PowerSlotState extends State<_PowerSlot>
     final shown = widget.used
         ? ColorFiltered(
             colorFilter: const ColorFilter.matrix(<double>[
-              0.2126, 0.7152, 0.0722, 0, 0,
-              0.2126, 0.7152, 0.0722, 0, 0,
-              0.2126, 0.7152, 0.0722, 0, 0,
-              0, 0, 0, 0.55, 0,
+              0.2126,
+              0.7152,
+              0.0722,
+              0,
+              0,
+              0.2126,
+              0.7152,
+              0.0722,
+              0,
+              0,
+              0.2126,
+              0.7152,
+              0.0722,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0.55,
+              0,
             ]),
             child: image,
           )
@@ -1114,19 +1249,34 @@ class _PowerSlotState extends State<_PowerSlot>
         child: Stack(
           alignment: Alignment.center,
           children: [
-            ClipOval(child: shown),
+            Container(
+              width: 68,
+              height: 68,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: showInk(context), width: 3),
+                boxShadow: [
+                  BoxShadow(
+                    color: showInk(context),
+                    offset: const Offset(3, 3),
+                  ),
+                ],
+              ),
+              child: ClipOval(child: shown),
+            ),
             if (widget.used)
               Container(
                 width: 26,
                 height: 26,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
+                decoration: BoxDecoration(
+                  color: showBulb,
                   shape: BoxShape.circle,
+                  border: Border.all(color: showInkDay, width: 2),
                 ),
                 child: const Icon(
                   Icons.close_rounded,
-                  size: 18,
-                  color: QuivroColors.navy,
+                  size: 16,
+                  color: showInkDay,
                 ),
               ),
           ],
@@ -1137,12 +1287,14 @@ class _PowerSlotState extends State<_PowerSlot>
 }
 
 class _DashedCirclePainter extends CustomPainter {
-  const _DashedCirclePainter();
+  const _DashedCirclePainter(this.color);
+
+  final Color color;
 
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = const Color(0xFF9AA0B4)
+      ..color = color
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2.5
       ..strokeCap = StrokeCap.round;
@@ -1161,7 +1313,8 @@ class _DashedCirclePainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant _DashedCirclePainter oldDelegate) => false;
+  bool shouldRepaint(covariant _DashedCirclePainter oldDelegate) =>
+      oldDelegate.color != color;
 }
 
 class _Countdown extends StatefulWidget {
@@ -1213,26 +1366,25 @@ class _CountdownState extends State<_Countdown> {
 
   @override
   Widget build(BuildContext context) {
-    final palette = context.palette;
     final urgent = _left <= 5;
+    final ink = showInk(context);
     return Container(
       width: 56,
       height: 56,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: urgent ? palette.chipPink : palette.chipBlue,
-        border: Border.all(
-          color: urgent ? const Color(0xFFEC4899) : QuivroColors.blue,
-          width: 3,
-        ),
+        color: const Color(0xFF0D1022),
+        border: Border.all(color: urgent ? showBulb : ink, width: 3),
+        boxShadow: [BoxShadow(color: ink, offset: const Offset(3, 3))],
       ),
       child: Text(
         '$_left',
-        style: GoogleFonts.nunito(
-          fontWeight: FontWeight.w900,
+        style: showDisplay(
+          context,
           fontSize: 22,
-          color: urgent ? const Color(0xFFEC4899) : QuivroColors.blue,
+          letterSpacing: 0,
+          color: showBulb,
         ),
       ),
     );
@@ -1265,7 +1417,9 @@ class _FinishedView extends StatelessWidget {
     final strings = context.strings;
     final palette = context.palette;
     final ranked = room.ranked();
-    final winnerIds = room.lastWinners.map((w) => w.playerId).toSet();
+    final solo = ranked.length == 1 ? ranked.first : null;
+    final showPodium = ranked.length >= 2;
+    final listStart = showPodium ? 3 : ranked.length;
 
     return Scaffold(
       body: SafeArea(
@@ -1275,151 +1429,54 @@ class _FinishedView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
                     child: Text(
                       strings.finalLeaderboard,
-                      style: GoogleFonts.nunito(
-                        fontSize: 28,
-                        fontWeight: FontWeight.w900,
-                      ),
+                      maxLines: 2,
+                      style: showTitle(context, fontSize: 26),
                     ),
                   ),
+                  const SizedBox(width: 12),
                   GestureDetector(
                     onTap: onEditProfile,
-                    child: AvatarBadge(index: profile.avatar, size: 44),
+                    child: _InkRingAvatar(index: profile.avatar, size: 44),
                   ),
                 ],
               ),
-              if (room.lastWinners.length == 1) ...[
-                const SizedBox(height: 4),
-                Row(
+              const SizedBox(height: 12),
+              Expanded(
+                child: ListView(
+                  padding: const EdgeInsets.fromLTRB(2, 4, 6, 8),
                   children: [
-                    Text(
-                      strings.winnerPrefix,
-                      style: GoogleFonts.nunito(
-                        fontWeight: FontWeight.w700,
-                        color: palette.muted,
+                    if (room.lastWinners.isNotEmpty || solo != null) ...[
+                      _WinnerSpotlight(
+                        winners: room.lastWinners,
+                        solo: solo,
+                        winnerLabel: strings.winnerPrefix.trim(),
+                        tieLabel: strings.tiedWinners,
                       ),
-                    ),
-                    AvatarBadge(index: room.lastWinners.first.avatar, size: 28),
-                    const SizedBox(width: 8),
-                    Text(
-                      room.lastWinners.first.name,
-                      style: GoogleFonts.nunito(
-                        fontWeight: FontWeight.w800,
-                        fontSize: 16,
+                      const SizedBox(height: 16),
+                    ],
+                    if (showPodium) ...[
+                      _Podium(
+                        players: ranked.take(3).toList(),
+                        selfId: playerId,
+                        winsLabel: strings.winsShort,
                       ),
-                    ),
-                  ],
-                ),
-              ] else if (room.lastWinners.length > 1) ...[
-                const SizedBox(height: 4),
-                Text(
-                  strings.tiedWinners,
-                  style: GoogleFonts.nunito(
-                    fontWeight: FontWeight.w700,
-                    color: palette.muted,
-                  ),
-                ),
-                const SizedBox(height: 6),
-                Wrap(
-                  spacing: 12,
-                  runSpacing: 8,
-                  children: [
-                    for (final w in room.lastWinners) ...[
-                      AvatarBadge(index: w.avatar, size: 28),
-                      Text(
-                        w.name,
-                        style: GoogleFonts.nunito(
-                          fontWeight: FontWeight.w800,
-                          fontSize: 16,
-                        ),
+                      const SizedBox(height: 12),
+                    ],
+                    for (var i = listStart; i < ranked.length; i++) ...[
+                      if (i > listStart) const SizedBox(height: 10),
+                      _RankRow(
+                        place: i + 1,
+                        player: ranked[i],
+                        isSelf: ranked[i].id == playerId,
+                        winsLabel: strings.winsShort(ranked[i].wins),
                       ),
                     ],
                   ],
-                ),
-              ],
-              const SizedBox(height: 16),
-              Expanded(
-                child: ListView.separated(
-                  itemCount: ranked.length,
-                  separatorBuilder: (_, _) => const SizedBox(height: 10),
-                  itemBuilder: (context, i) {
-                    final p = ranked[i];
-                    final isSelf = p.id == playerId;
-                    final isWinner = winnerIds.contains(p.id);
-                    return Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 14,
-                        vertical: 12,
-                      ),
-                      decoration: BoxDecoration(
-                        color: isSelf
-                            ? palette.chipBlue
-                            : isWinner
-                            ? palette.chipPurple
-                            : palette.surface,
-                        borderRadius: BorderRadius.circular(16),
-                        border: Border.all(
-                          color: isSelf
-                              ? QuivroColors.blue
-                              : isWinner
-                              ? QuivroColors.purple
-                              : palette.border,
-                          width: isSelf || isWinner ? 2 : 1,
-                        ),
-                      ),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 28,
-                            child: Text(
-                              '${i + 1}',
-                              style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.w900,
-                                fontSize: 18,
-                                color: palette.muted,
-                              ),
-                            ),
-                          ),
-                          AvatarBadge(index: p.avatar, size: 40),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  p.name,
-                                  style: GoogleFonts.nunito(
-                                    fontWeight: FontWeight.w800,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                                if (p.wins > 0)
-                                  Text(
-                                    strings.winsShort(p.wins),
-                                    style: GoogleFonts.nunito(
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 12,
-                                      color: QuivroColors.purple,
-                                    ),
-                                  ),
-                              ],
-                            ),
-                          ),
-                          Text(
-                            '${p.score}',
-                            style: GoogleFonts.nunito(
-                              fontWeight: FontWeight.w900,
-                              fontSize: 20,
-                              color: QuivroColors.blue,
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
                 ),
               ),
               if (optedIn) ...[
@@ -1429,31 +1486,29 @@ class _FinishedView extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: GoogleFonts.nunito(
                     fontWeight: FontWeight.w800,
-                    color: QuivroColors.blue,
+                    color: palette.muted,
                   ),
                 ),
               ],
               const SizedBox(height: 16),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: optedIn || optingIn ? null : onPlayAgain,
-                  child: Text(
-                    optedIn
-                        ? strings.ready
-                        : optingIn
-                        ? strings.joiningRematch
-                        : strings.playAgain,
-                  ),
-                ),
+              _ShowKey(
+                label: optedIn
+                    ? strings.ready
+                    : optingIn
+                    ? strings.joiningRematch
+                    : strings.playAgain,
+                icon: optedIn ? Icons.check_rounded : null,
+                enabled: !optedIn && !optingIn,
+                fill: showBulb,
+                foreground: showInkDay,
+                onPressed: onPlayAgain,
               ),
               const SizedBox(height: 10),
-              SizedBox(
-                width: double.infinity,
-                child: OutlinedButton(
-                  onPressed: onHome,
-                  child: Text(strings.home),
-                ),
+              _ShowKey(
+                label: strings.home,
+                fill: palette.card,
+                foreground: palette.text,
+                onPressed: onHome,
               ),
             ],
           ),
@@ -1461,4 +1516,640 @@ class _FinishedView extends StatelessWidget {
       ),
     );
   }
+}
+
+class _WinnerSpotlight extends StatelessWidget {
+  const _WinnerSpotlight({
+    required this.winners,
+    required this.solo,
+    required this.winnerLabel,
+    required this.tieLabel,
+  });
+
+  final List<LastWinner> winners;
+  final RoomPlayer? solo;
+  final String winnerLabel;
+  final String tieLabel;
+
+  @override
+  Widget build(BuildContext context) {
+    final palette = context.palette;
+    final people = winners.isNotEmpty
+        ? winners
+        : [
+            if (solo != null)
+              LastWinner(
+                playerId: solo!.id,
+                name: solo!.name,
+                avatar: solo!.avatar,
+              ),
+          ];
+    final single = people.length == 1;
+    final score = solo?.score;
+
+    return Container(
+      padding: const EdgeInsets.fromLTRB(16, 18, 16, 16),
+      decoration: showPanel(
+        ink: showInk(context),
+        fill: palette.card,
+        radius: 18,
+        shadow: const Offset(6, 6),
+      ),
+      child: single
+          ? Column(
+              children: [
+                if (winners.length == 1) ...[
+                  Transform.rotate(
+                    angle: -8 * math.pi / 180,
+                    child: const _CrownMark(width: 52),
+                  ),
+                  const SizedBox(height: 4),
+                ],
+                _InkRingAvatar(index: people.first.avatar, size: 72),
+                if (winners.isNotEmpty) ...[
+                  const SizedBox(height: 8),
+                  Text(
+                    winnerLabel,
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.nunito(
+                      fontWeight: FontWeight.w900,
+                      fontSize: 13,
+                      letterSpacing: 1.2,
+                      color: palette.muted,
+                    ),
+                  ),
+                ],
+                const SizedBox(height: 4),
+                Text(
+                  people.first.name,
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: showTitle(context, fontSize: 32),
+                ),
+                if (score != null) ...[
+                  const SizedBox(height: 8),
+                  _ScoreLcd(score: score, fontSize: 22),
+                ],
+              ],
+            )
+          : Column(
+              children: [
+                Text(
+                  tieLabel,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.nunito(
+                    fontWeight: FontWeight.w900,
+                    fontSize: 13,
+                    letterSpacing: 1.2,
+                    color: palette.muted,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Wrap(
+                  alignment: WrapAlignment.center,
+                  spacing: 16,
+                  runSpacing: 12,
+                  children: [
+                    for (final person in people)
+                      SizedBox(
+                        width: 120,
+                        child: Column(
+                          children: [
+                            _InkRingAvatar(index: person.avatar, size: 48),
+                            const SizedBox(height: 4),
+                            Text(
+                              person.name,
+                              textAlign: TextAlign.center,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: showTitle(context, fontSize: 18),
+                            ),
+                          ],
+                        ),
+                      ),
+                  ],
+                ),
+                if (score != null) ...[
+                  const SizedBox(height: 10),
+                  _ScoreLcd(score: score, fontSize: 22),
+                ],
+              ],
+            ),
+    );
+  }
+}
+
+class _Podium extends StatelessWidget {
+  const _Podium({
+    required this.players,
+    required this.selfId,
+    required this.winsLabel,
+  });
+
+  final List<RoomPlayer> players;
+  final String selfId;
+  final String Function(int wins) winsLabel;
+
+  @override
+  Widget build(BuildContext context) {
+    final slots = _podiumSlots(players);
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        for (final slot in slots)
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: _PodiumSpot(
+                key: ValueKey(slot.player.id),
+                place: slot.place,
+                player: slot.player,
+                isSelf: slot.player.id == selfId,
+                winsLabel: winsLabel(slot.player.wins),
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+
+  static List<({int place, RoomPlayer player})> _podiumSlots(
+    List<RoomPlayer> top,
+  ) {
+    if (top.length <= 1) {
+      return [for (final player in top) (place: 1, player: player)];
+    }
+    if (top.length == 2) {
+      return [(place: 1, player: top[0]), (place: 2, player: top[1])];
+    }
+    return [
+      (place: 2, player: top[1]),
+      (place: 1, player: top[0]),
+      (place: 3, player: top[2]),
+    ];
+  }
+}
+
+class _PodiumSpot extends StatefulWidget {
+  const _PodiumSpot({
+    super.key,
+    required this.place,
+    required this.player,
+    required this.isSelf,
+    required this.winsLabel,
+  });
+
+  final int place;
+  final RoomPlayer player;
+  final bool isSelf;
+  final String winsLabel;
+
+  @override
+  State<_PodiumSpot> createState() => _PodiumSpotState();
+}
+
+class _PodiumSpotState extends State<_PodiumSpot>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _rise;
+  bool _queued = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _rise = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_queued) return;
+    _queued = true;
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _rise.value = 1;
+      return;
+    }
+    final delay = switch (widget.place) {
+      2 => const Duration(milliseconds: 80),
+      3 => const Duration(milliseconds: 160),
+      _ => Duration.zero,
+    };
+    Future<void>.delayed(delay, () {
+      if (mounted) _rise.forward();
+    });
+  }
+
+  @override
+  void dispose() {
+    _rise.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final palette = context.palette;
+    final place = widget.place;
+    final player = widget.player;
+    final tone = widget.isSelf ? showBulb : _podiumTone(place);
+    final height = switch (place) {
+      1 => 112.0,
+      2 => 96.0,
+      _ => 80.0,
+    };
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        if (place == 1) ...[
+          const _CrownMark(width: 30),
+          const SizedBox(height: 2),
+        ],
+        _InkRingAvatar(index: player.avatar, size: place == 1 ? 48 : 40),
+        const SizedBox(height: 4),
+        Text(
+          player.name,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          textAlign: TextAlign.center,
+          style: showDisplay(
+            context,
+            fontSize: place == 1 ? 16 : 14,
+            color: palette.text,
+          ),
+        ),
+        if (player.wins > 0) ...[
+          const SizedBox(height: 4),
+          _WinsSticker(label: widget.winsLabel),
+        ],
+        const SizedBox(height: 6),
+        AnimatedBuilder(
+          animation: _rise,
+          builder: (context, child) {
+            final curved = Curves.easeOutBack.transform(_rise.value);
+            final scaleY = 0.2 + (0.8 * curved);
+            return Transform(
+              alignment: Alignment.bottomCenter,
+              transform: Matrix4.diagonal3Values(1, scaleY, 1),
+              child: Opacity(opacity: _rise.value, child: child),
+            );
+          },
+          child: Container(
+            height: height,
+            width: double.infinity,
+            padding: const EdgeInsets.fromLTRB(4, 8, 4, 6),
+            decoration: showPanel(
+              ink: showInk(context),
+              fill: tone,
+              radius: 12,
+              shadow: const Offset(3, 3),
+            ),
+            child: Column(
+              children: [
+                _ScoreLcd(score: player.score, fontSize: place == 1 ? 18 : 16),
+                const Spacer(),
+                Text(
+                  '$place',
+                  style: showDisplay(
+                    context,
+                    fontSize: place == 1 ? 32 : 26,
+                    letterSpacing: 0,
+                    color: showInkDay,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  static Color _podiumTone(int place) => switch (place) {
+    1 => showBulb,
+    2 => const Color(0xFFCFD6E4),
+    _ => const Color(0xFFE0A066),
+  };
+}
+
+class _RankRow extends StatelessWidget {
+  const _RankRow({
+    required this.place,
+    required this.player,
+    required this.isSelf,
+    required this.winsLabel,
+  });
+
+  final int place;
+  final RoomPlayer player;
+  final bool isSelf;
+  final String winsLabel;
+
+  @override
+  Widget build(BuildContext context) {
+    final palette = context.palette;
+    final ink = showInk(context);
+    final nameColor = isSelf ? showInkDay : palette.text;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      decoration: showPanel(
+        ink: ink,
+        fill: isSelf ? showBulb : palette.card,
+        radius: 12,
+        shadow: const Offset(0, 3),
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 30,
+            height: 30,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: isSelf ? showInkDay : palette.surface,
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: isSelf ? showInkDay : ink, width: 2),
+            ),
+            child: Text(
+              '$place',
+              style: showDisplay(
+                context,
+                fontSize: 16,
+                letterSpacing: 0,
+                color: isSelf ? showBulb : palette.text,
+              ),
+            ),
+          ),
+          const SizedBox(width: 10),
+          _InkRingAvatar(index: player.avatar, size: 36),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  player.name,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: showDisplay(context, fontSize: 18, color: nameColor),
+                ),
+                if (player.wins > 0) ...[
+                  const SizedBox(height: 4),
+                  _WinsSticker(label: winsLabel),
+                ],
+              ],
+            ),
+          ),
+          const SizedBox(width: 8),
+          _ScoreLcd(score: player.score),
+        ],
+      ),
+    );
+  }
+}
+
+class _WinsSticker extends StatelessWidget {
+  const _WinsSticker({required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+      decoration: BoxDecoration(
+        color: showBulb,
+        borderRadius: BorderRadius.circular(6),
+        border: Border.all(color: showInkDay, width: 2),
+      ),
+      child: Text(
+        label,
+        style: showDisplay(
+          context,
+          fontSize: 11,
+          letterSpacing: 0,
+          color: showInkDay,
+        ),
+      ),
+    );
+  }
+}
+
+class _ScoreLcd extends StatelessWidget {
+  const _ScoreLcd({required this.score, this.fontSize = 18});
+
+  final int score;
+  final double fontSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      constraints: const BoxConstraints(minWidth: 36),
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+        color: const Color(0xFF0D1022),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: showInk(context), width: 2),
+      ),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          const Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: SizedBox(
+              height: 3,
+              child: ColoredBox(color: Color(0x80000000)),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(8, 5, 8, 3),
+            child: Text(
+              '$score',
+              textAlign: TextAlign.center,
+              style: showDisplay(
+                context,
+                fontSize: fontSize,
+                letterSpacing: 0,
+                color: showBulb,
+                shadows: [
+                  Shadow(
+                    color: showBulb.withValues(alpha: 0.55),
+                    blurRadius: 10,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _InkRingAvatar extends StatelessWidget {
+  const _InkRingAvatar({required this.index, required this.size});
+
+  final int index;
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    final ink = showInk(context);
+    return Container(
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(color: ink, width: 3),
+        boxShadow: [BoxShadow(color: ink, offset: const Offset(3, 3))],
+      ),
+      child: AvatarBadge(index: index, size: size),
+    );
+  }
+}
+
+class _CrownMark extends StatelessWidget {
+  const _CrownMark({required this.width});
+
+  final double width;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      size: Size(width, width * 22 / 32),
+      painter: _CrownPainter(fill: showBulb, stroke: showInk(context)),
+    );
+  }
+}
+
+class _CrownPainter extends CustomPainter {
+  const _CrownPainter({required this.fill, required this.stroke});
+
+  final Color fill;
+  final Color stroke;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final path = Path()
+      ..moveTo(3, 19)
+      ..lineTo(1.5, 5)
+      ..lineTo(9.5, 11)
+      ..lineTo(16, 2)
+      ..lineTo(22.5, 11)
+      ..lineTo(30.5, 5)
+      ..lineTo(29, 19)
+      ..close();
+    canvas.save();
+    canvas.scale(size.width / 32, size.height / 22);
+    canvas.drawPath(path, Paint()..color = fill);
+    canvas.drawPath(
+      path,
+      Paint()
+        ..color = stroke
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 2.4
+        ..strokeJoin = StrokeJoin.round,
+    );
+    canvas.restore();
+  }
+
+  @override
+  bool shouldRepaint(covariant _CrownPainter oldDelegate) =>
+      oldDelegate.fill != fill || oldDelegate.stroke != stroke;
+}
+
+class _ShowKey extends StatefulWidget {
+  const _ShowKey({
+    required this.label,
+    required this.fill,
+    required this.foreground,
+    required this.onPressed,
+    this.icon,
+    this.enabled = true,
+  });
+
+  final String label;
+  final Color fill;
+  final Color foreground;
+  final VoidCallback onPressed;
+  final IconData? icon;
+  final bool enabled;
+
+  @override
+  State<_ShowKey> createState() => _ShowKeyState();
+}
+
+class _ShowKeyState extends State<_ShowKey> {
+  bool _down = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final pressed = _down && widget.enabled;
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTapDown: widget.enabled ? (_) => setState(() => _down = true) : null,
+      onTapUp: widget.enabled
+          ? (_) {
+              setState(() => _down = false);
+              widget.onPressed();
+            }
+          : null,
+      onTapCancel: () => setState(() => _down = false),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 80),
+        height: 56,
+        transform: Matrix4.translationValues(0, pressed ? 6 : 0, 0),
+        alignment: Alignment.center,
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        decoration: showPanel(
+          ink: showInk(context),
+          fill: widget.fill,
+          radius: 16,
+          shadow: Offset(0, pressed ? 0 : 6),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Flexible(
+              child: Text(
+                widget.label.toUpperCase(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: showDisplay(
+                  context,
+                  fontSize: 22,
+                  letterSpacing: 1,
+                  color: widget.foreground,
+                ),
+              ),
+            ),
+            if (widget.icon != null) ...[
+              const SizedBox(width: 8),
+              Icon(widget.icon, color: widget.foreground, size: 22),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Finished-board harness for widget tests. Not used by the app.
+@visibleForTesting
+Widget finishedLeaderboardPreview({
+  required RoomState room,
+  required String playerId,
+  required PlayerProfile profile,
+}) {
+  return _FinishedView(
+    room: room,
+    playerId: playerId,
+    profile: profile,
+    optedIn: false,
+    optingIn: false,
+    onPlayAgain: () {},
+    onHome: () {},
+    onEditProfile: () {},
+  );
 }

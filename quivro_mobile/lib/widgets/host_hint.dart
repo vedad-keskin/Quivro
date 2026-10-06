@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../core/avatars.dart';
 import '../core/settings.dart';
 import '../core/strings.dart';
 import '../core/theme.dart';
@@ -30,15 +29,16 @@ class HostTvChip extends StatelessWidget {
         onTap: onTap,
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-          decoration: BoxDecoration(
-            color: palette.card,
-            borderRadius: BorderRadius.circular(99),
-            border: Border.all(color: palette.border, width: 2),
+          decoration: showPanel(
+            ink: showInk(context),
+            fill: palette.card,
+            radius: 12,
+            shadow: const Offset(0, 4),
           ),
           child: Icon(
             Icons.tv,
             size: 16,
-            color: context.settings.isNight ? Colors.white : Colors.black,
+            color: context.settings.isNight ? Colors.white : showInkDay,
           ),
         ),
       ),
@@ -154,13 +154,15 @@ class HostHintState extends State<HostHint>
         }
         final cardLeft = (constraints.maxWidth - cardW) / 2;
         final cardTop = (constraints.maxHeight - cardH) / 2;
+        // Sit inside the photo, clear of the 3px stroke.
+        const chipInset = 18.0;
         final iconLeft = lerpDouble(
-          cardLeft + cardW - 10 - chipWidth,
+          cardLeft + cardW - chipInset - chipWidth,
           anchor?.left ?? rowInset,
           t,
         )!;
         final iconTop = lerpDouble(
-          cardTop + 10,
+          cardTop + chipInset,
           anchor?.top ?? constraints.maxHeight - rowInset - chipHeight,
           t,
         )!;
@@ -203,88 +205,90 @@ class HostHintState extends State<HostHint>
   }
 
   Widget _card(AppStrings strings, QuivroPalette palette) {
-    return Material(
-      color: palette.card,
-      elevation: 10,
-      shadowColor: palette.shadow,
-      borderRadius: BorderRadius.circular(22),
-      clipBehavior: Clip.antiAlias,
-      child: Stack(
-        fit: StackFit.expand,
+    final ink = showInk(context);
+    return Container(
+      decoration: showPanel(ink: ink, fill: palette.card, radius: 22),
+      padding: const EdgeInsets.all(3),
+      child: Column(
         children: [
-          Image.asset(
-            'assets/branding/intro.png',
-            fit: BoxFit.cover,
-            alignment: Alignment.center,
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: ColoredBox(
-              color: palette.card.withValues(alpha: 0.88),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      strings.hostHintTitle,
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.nunito(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w800,
-                        color: palette.text,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      strings.hostHintBody,
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.nunito(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                        height: 1.35,
-                        color: palette.muted,
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    InkWell(
-                      onTap: _copy,
-                      borderRadius: BorderRadius.circular(12),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 4),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'quivro.org',
-                              style: GoogleFonts.nunito(
-                                fontSize: 28,
-                                fontWeight: FontWeight.w800,
-                                color: QuivroColors.blue,
-                              ),
-                            ),
-                            const SizedBox(width: 8),
-                            const Icon(
-                              Icons.copy_rounded,
-                              color: QuivroColors.blue,
-                              size: 22,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    SizedBox(
-                      height: 56,
-                      width: double.infinity,
-                      child: OutlinedButton(
-                        onPressed: _collapse,
-                        child: Text(strings.hostHintGotIt),
-                      ),
-                    ),
-                  ],
-                ),
+          Expanded(
+            child: ClipRRect(
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(16),
               ),
+              child: Image.asset(
+                'assets/branding/intro.png',
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: double.infinity,
+                alignment: Alignment.center,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(17, 16, 17, 13),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  strings.hostHintTitle.toUpperCase(),
+                  textAlign: TextAlign.center,
+                  style: showDisplay(context, fontSize: 22),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  strings.hostHintBody,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.nunito(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    height: 1.35,
+                    color: palette.muted,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                InkWell(
+                  onTap: _copy,
+                  borderRadius: BorderRadius.circular(12),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 4),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'quivro.org',
+                          style: showDisplay(context, fontSize: 26),
+                        ),
+                        const SizedBox(width: 8),
+                        Icon(Icons.copy_rounded, color: ink, size: 22),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                GestureDetector(
+                  onTap: _collapse,
+                  child: Container(
+                    width: double.infinity,
+                    height: 56,
+                    alignment: Alignment.center,
+                    decoration: showPanel(
+                      ink: ink,
+                      fill: showBulb,
+                      radius: 14,
+                      shadow: const Offset(0, 4),
+                    ),
+                    child: Text(
+                      strings.hostHintGotIt.toUpperCase(),
+                      style: showDisplay(
+                        context,
+                        fontSize: 22,
+                        color: showInkDay,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],

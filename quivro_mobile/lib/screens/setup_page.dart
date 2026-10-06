@@ -31,8 +31,10 @@ class SetupPage extends StatefulWidget {
 
 class _SetupPageState extends State<SetupPage> {
   late final TextEditingController _nick;
+  final _nickFocus = FocusNode();
   late int _avatar;
   bool _saving = false;
+  bool _continueDown = false;
   final _store = ProfileStore();
   final _repo = RoomRepository();
 
@@ -41,10 +43,14 @@ class _SetupPageState extends State<SetupPage> {
     super.initState();
     _nick = TextEditingController(text: widget.existing?.nickname ?? '');
     _avatar = widget.existing?.avatar ?? 0;
+    _nickFocus.addListener(() {
+      if (mounted) setState(() {});
+    });
   }
 
   @override
   void dispose() {
+    _nickFocus.dispose();
     _nick.dispose();
     super.dispose();
   }
@@ -111,11 +117,7 @@ class _SetupPageState extends State<SetupPage> {
                       child: QuivroWordmarkHero(
                         child: Text(
                           'Quivro',
-                          style: GoogleFonts.nunito(
-                            fontSize: 40,
-                            fontWeight: FontWeight.w800,
-                            color: palette.text,
-                          ),
+                          style: showTitle(context, fontSize: 40),
                         ),
                       ),
                     ),
@@ -161,21 +163,48 @@ class _SetupPageState extends State<SetupPage> {
                 ),
               ),
               Text(
-                strings.chooseNicknameAvatar,
-                style: GoogleFonts.nunito(
+                strings.chooseNicknameAvatar.toUpperCase(),
+                style: showDisplay(
+                  context,
                   fontSize: 18,
-                  fontWeight: FontWeight.w700,
                   color: palette.muted,
                 ),
               ),
               const SizedBox(height: 24),
-              TextField(
-                controller: _nick,
-                textCapitalization: TextCapitalization.words,
-                maxLength: 16,
-                decoration: InputDecoration(
-                  labelText: strings.nickname,
-                  counterText: '',
+              Container(
+                decoration: showPanel(
+                  ink: _nickFocus.hasFocus ? showBulb : showInk(context),
+                  fill: palette.card,
+                  radius: 18,
+                  shadow: const Offset(4, 4),
+                ),
+                child: TextField(
+                  controller: _nick,
+                  focusNode: _nickFocus,
+                  textCapitalization: TextCapitalization.words,
+                  maxLength: 16,
+                  cursorColor: showBulb,
+                  style: GoogleFonts.nunito(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w800,
+                    color: palette.text,
+                  ),
+                  decoration: InputDecoration(
+                    labelText: strings.nickname,
+                    counterText: '',
+                    filled: false,
+                    border: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 12,
+                    ),
+                    labelStyle: GoogleFonts.nunito(
+                      fontWeight: FontWeight.w700,
+                      color: palette.muted,
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
@@ -186,11 +215,43 @@ class _SetupPageState extends State<SetupPage> {
                 ),
               ),
               const SizedBox(height: 12),
-              SizedBox(
-                width: double.infinity,
-                child: OutlinedButton(
-                  onPressed: _saving ? null : _save,
-                  child: Text(_saving ? strings.saving : strings.continueLabel),
+              GestureDetector(
+                onTapDown: _saving
+                    ? null
+                    : (_) => setState(() => _continueDown = true),
+                onTapUp: (_) {
+                  setState(() => _continueDown = false);
+                  if (!_saving) _save();
+                },
+                onTapCancel: () => setState(() => _continueDown = false),
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 80),
+                  height: 56,
+                  width: double.infinity,
+                  transform: Matrix4.translationValues(
+                    0,
+                    _continueDown && !_saving ? 6 : 0,
+                    0,
+                  ),
+                  alignment: Alignment.center,
+                  decoration: showPanel(
+                    ink: showInk(context),
+                    fill: _saving
+                        ? showBulb.withValues(alpha: 0.5)
+                        : showBulb,
+                    radius: 16,
+                    shadow: Offset(0, _continueDown && !_saving ? 0 : 6),
+                  ),
+                  child: Text(
+                    (_saving ? strings.saving : strings.continueLabel)
+                        .toUpperCase(),
+                    style: showDisplay(
+                      context,
+                      fontSize: 24,
+                      letterSpacing: 1,
+                      color: showInkDay,
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(height: 14),

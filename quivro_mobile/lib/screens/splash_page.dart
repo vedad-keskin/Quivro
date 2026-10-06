@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../core/bootstrap.dart';
 import '../core/strings.dart';
+import '../core/theme.dart';
 import '../widgets/studio_mark.dart';
 import '../widgets/wordmark.dart';
 
@@ -31,8 +32,6 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   /// Brief pause before intro SFX so it sits closer to the wordmark reveal.
   static const _introSoundDelay = Duration(milliseconds: 200);
   static const _bg = Color(0xFF0A0E27);
-  static const _blue = Color(0xFF2F7CF6);
-  static const _purple = Color(0xFF7B3FF2);
   static const _logoAsset = 'assets/branding/logo_big.png';
 
   /// Slow ambient loop driving the aurora blobs, particles and shimmer bar.
@@ -209,8 +208,8 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                             style: GoogleFonts.nunito(
                               fontSize: 15,
                               fontWeight: FontWeight.w700,
-                              color: Colors.white.withValues(alpha: 0.45),
-                              letterSpacing: 0.4,
+                              color: Colors.white.withValues(alpha: 0.72),
+                              letterSpacing: 0.3,
                             ),
                           )
                           .animate(delay: 1550.ms)
@@ -317,35 +316,31 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
   Widget _buildWordmark() {
     const word = 'Quivro';
-    return ShaderMask(
-      shaderCallback: (bounds) => const LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [Colors.white, Color(0xFFB9C6FF)],
-      ).createShader(bounds),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          for (var i = 0; i < word.length; i++)
-            Text(
-                  word[i],
-                  style: GoogleFonts.nunito(
-                    fontSize: 44,
-                    fontWeight: FontWeight.w800,
-                    color: Colors.white,
-                    height: 1.0,
-                  ),
-                )
-                .animate(delay: (1000 + i * 80).ms)
-                .fadeIn(duration: 350.ms)
-                .slideY(
-                  begin: 0.6,
-                  end: 0,
-                  duration: 450.ms,
-                  curve: Curves.easeOutCubic,
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        for (var i = 0; i < word.length; i++)
+          Text(
+                word[i],
+                style: showDisplay(
+                  context,
+                  fontSize: 44,
+                  letterSpacing: 0,
+                  color: showBulb,
+                  shadows: const [
+                    Shadow(color: showInkNight, offset: Offset(3, 3)),
+                  ],
                 ),
-        ],
-      ),
+              )
+              .animate(delay: (1000 + i * 80).ms)
+              .fadeIn(duration: 350.ms)
+              .slideY(
+                begin: 0.6,
+                end: 0,
+                duration: 450.ms,
+                curve: Curves.easeOutCubic,
+              ),
+      ],
     );
   }
 
@@ -355,14 +350,19 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         // Shimmer progress bar.
-        ClipRRect(
-          borderRadius: BorderRadius.circular(99),
-          child: SizedBox(
-            width: 168,
-            height: 4,
+        Container(
+          width: 168,
+          height: 12,
+          padding: const EdgeInsets.all(2),
+          decoration: BoxDecoration(
+            color: Colors.white.withValues(alpha: 0.08),
+            borderRadius: BorderRadius.circular(99),
+            border: Border.all(color: showInkNight, width: 2),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(99),
             child: Stack(
               children: [
-                Container(color: Colors.white.withValues(alpha: 0.10)),
                 AnimatedBuilder(
                   animation: _ambient,
                   builder: (context, _) {
@@ -372,13 +372,8 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                       alignment: Alignment(-1.6 + 3.2 * t, 0),
                       child: Container(
                         width: 72,
-                        height: 4,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(99),
-                          gradient: const LinearGradient(
-                            colors: [_blue, _purple],
-                          ),
-                        ),
+                        height: 12,
+                        color: showBulb,
                       ),
                     );
                   },
@@ -455,12 +450,31 @@ class _BootErrorCard extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 14),
-        ElevatedButton.icon(
-          onPressed: onRetry,
-          icon: const Icon(Icons.refresh_rounded, size: 20),
-          label: Text(context.strings.tryAgain),
-          style: ElevatedButton.styleFrom(
+        GestureDetector(
+          onTap: onRetry,
+          child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            decoration: showPanel(
+              ink: showInkNight,
+              fill: showBulb,
+              radius: 14,
+              shadow: const Offset(0, 4),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.refresh_rounded, size: 20, color: showInkDay),
+                const SizedBox(width: 8),
+                Text(
+                  context.strings.tryAgain,
+                  style: showDisplay(
+                    context,
+                    fontSize: 18,
+                    color: showInkDay,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],
@@ -475,7 +489,6 @@ class _AmbientPainter extends CustomPainter {
 
   final double t;
 
-  static const _blue = Color(0xFF2F7CF6);
   static const _purple = Color(0xFF7B3FF2);
   static const _pink = Color(0xFFEC4899);
 
@@ -490,7 +503,7 @@ class _AmbientPainter extends CustomPainter {
         size.height * (0.20 + 0.05 * math.cos(angle * 0.8)),
       ),
       size.width * 0.62,
-      _blue.withValues(alpha: 0.16),
+      showBulb.withValues(alpha: 0.16),
     );
     _blob(
       canvas,

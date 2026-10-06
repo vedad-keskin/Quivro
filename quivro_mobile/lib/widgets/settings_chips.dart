@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import '../core/avatars.dart';
 import '../core/settings.dart';
 import '../core/strings.dart';
 import '../core/theme.dart';
@@ -35,9 +33,9 @@ class _LanguageChip extends StatelessWidget {
           const SizedBox(width: 7),
           Text(
             language.name.toUpperCase(),
-            style: GoogleFonts.nunito(
-              fontSize: 13,
-              fontWeight: FontWeight.w800,
+            style: showDisplay(
+              context,
+              fontSize: 14,
               color: context.palette.text,
             ),
           ),
@@ -72,7 +70,7 @@ class _LanguageChip extends StatelessWidget {
                   width: 40,
                   height: 4,
                   decoration: BoxDecoration(
-                    color: sheetContext.palette.border,
+                    color: showInk(sheetContext),
                     borderRadius: BorderRadius.circular(99),
                   ),
                 ),
@@ -81,11 +79,7 @@ class _LanguageChip extends StatelessWidget {
               Text(
                 sheetContext.strings.chooseLanguage,
                 textAlign: TextAlign.center,
-                style: GoogleFonts.nunito(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w800,
-                  color: sheetContext.palette.text,
-                ),
+                style: showTitle(sheetContext, fontSize: 26),
               ),
               const SizedBox(height: 16),
               for (final option in AppLanguage.values) ...[
@@ -110,6 +104,7 @@ class _LanguageOption extends StatelessWidget {
   Widget build(BuildContext context) {
     final selected = context.settings.language == option;
     final palette = context.palette;
+    final ink = showInk(context);
     return GestureDetector(
       onTap: () {
         HapticFeedback.lightImpact();
@@ -119,13 +114,11 @@ class _LanguageOption extends StatelessWidget {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 180),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        decoration: BoxDecoration(
-          color: selected ? palette.chipBlue : palette.surface,
-          borderRadius: BorderRadius.circular(18),
-          border: Border.all(
-            color: selected ? QuivroColors.blue : palette.border,
-            width: 2,
-          ),
+        decoration: showPanel(
+          ink: ink,
+          fill: selected ? showBulb : palette.card,
+          radius: 14,
+          shadow: const Offset(3, 3),
         ),
         child: Row(
           children: [
@@ -134,10 +127,10 @@ class _LanguageOption extends StatelessWidget {
             Expanded(
               child: Text(
                 option.nativeName,
-                style: GoogleFonts.nunito(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w800,
-                  color: palette.text,
+                style: showDisplay(
+                  context,
+                  fontSize: 18,
+                  color: selected ? showInkDay : palette.text,
                 ),
               ),
             ),
@@ -147,16 +140,15 @@ class _LanguageOption extends StatelessWidget {
               child: Container(
                 width: 24,
                 height: 24,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  gradient: LinearGradient(
-                    colors: [QuivroColors.blue, QuivroColors.purple],
-                  ),
+                  color: showBulb,
+                  border: Border.all(color: showInkDay, width: 2),
                 ),
                 child: const Icon(
                   Icons.check_rounded,
                   size: 16,
-                  color: Colors.white,
+                  color: showInkDay,
                 ),
               ),
             ),
@@ -193,15 +185,15 @@ class _ThemeChip extends StatelessWidget {
               night ? Icons.nightlight_round : Icons.wb_sunny_rounded,
               key: ValueKey(night),
               size: 16,
-              color: night ? const Color(0xFF93C5FD) : const Color(0xFFF59E0B),
+              color: showBulb,
             ),
           ),
           const SizedBox(width: 6),
           Text(
             night ? strings.themeNight : strings.themeDay,
-            style: GoogleFonts.nunito(
-              fontSize: 13,
-              fontWeight: FontWeight.w800,
+            style: showDisplay(
+              context,
+              fontSize: 14,
               color: context.palette.text,
             ),
           ),
@@ -211,25 +203,40 @@ class _ThemeChip extends StatelessWidget {
   }
 }
 
-class _Chip extends StatelessWidget {
+class _Chip extends StatefulWidget {
   const _Chip({required this.onTap, required this.child});
 
   final VoidCallback onTap;
   final Widget child;
 
   @override
+  State<_Chip> createState() => _ChipState();
+}
+
+class _ChipState extends State<_Chip> {
+  bool _down = false;
+
+  @override
   Widget build(BuildContext context) {
-    final palette = context.palette;
+    final pressed = _down;
     return GestureDetector(
-      onTap: onTap,
-      child: Container(
+      onTapDown: (_) => setState(() => _down = true),
+      onTapUp: (_) {
+        setState(() => _down = false);
+        widget.onTap();
+      },
+      onTapCancel: () => setState(() => _down = false),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 80),
+        transform: Matrix4.translationValues(0, pressed ? 4 : 0, 0),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        decoration: BoxDecoration(
-          color: palette.card,
-          borderRadius: BorderRadius.circular(99),
-          border: Border.all(color: palette.border, width: 2),
+        decoration: showPanel(
+          ink: showInk(context),
+          fill: context.palette.card,
+          radius: 12,
+          shadow: Offset(0, pressed ? 0 : 4),
         ),
-        child: child,
+        child: widget.child,
       ),
     );
   }

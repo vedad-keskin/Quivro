@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../core/avatars.dart';
+import '../core/theme.dart';
 
 /// Shared Hero wrapper for the "Quivro" wordmark so it morphs smoothly
 /// between the splash screen and the in-app headers instead of popping.
@@ -41,11 +41,11 @@ class _FlightWordmark extends StatelessWidget {
           ).createShader(bounds),
           child: Text(
             'Quivro',
-            style: GoogleFonts.nunito(
+            style: showDisplay(
+              context,
               fontSize: 44,
-              fontWeight: FontWeight.w800,
+              letterSpacing: 0.4,
               color: Colors.white,
-              height: 1.0,
             ),
           ),
         ),

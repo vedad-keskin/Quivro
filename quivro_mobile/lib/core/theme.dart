@@ -121,6 +121,63 @@ extension QuivroPaletteX on BuildContext {
   QuivroPalette get palette => Theme.of(this).extension<QuivroPalette>()!;
 }
 
+/// Game-show ink. Near-black at night so the hard shadow still reads.
+const showBulb = Color(0xFFFFCC33);
+const showInkDay = Color(0xFF1A1530);
+const showInkNight = Color(0xFF04060D);
+
+Color showInk(BuildContext context) =>
+    Theme.of(context).brightness == Brightness.dark ? showInkNight : showInkDay;
+
+BoxDecoration showPanel({
+  required Color ink,
+  required Color fill,
+  double radius = 18,
+  Offset shadow = const Offset(6, 6),
+}) {
+  return BoxDecoration(
+    color: fill,
+    borderRadius: BorderRadius.circular(radius),
+    border: Border.all(color: ink, width: 3),
+    boxShadow: [BoxShadow(color: ink, offset: shadow, blurRadius: 0)],
+  );
+}
+
+/// Lilita for headlines. Paytone covers č, ć, š, ž, đ, which Lilita does not draw.
+TextStyle showDisplay(
+  BuildContext context, {
+  double fontSize = 22,
+  Color? color,
+  double letterSpacing = 0.6,
+  List<Shadow>? shadows,
+}) {
+  final paytone = GoogleFonts.paytoneOne().fontFamily;
+  final nunito = GoogleFonts.nunito().fontFamily;
+  return GoogleFonts.lilitaOne(
+    fontSize: fontSize,
+    letterSpacing: letterSpacing,
+    height: 1.05,
+    color: color ?? context.palette.text,
+  ).copyWith(fontFamilyFallback: [?paytone, ?nunito], shadows: shadows);
+}
+
+/// Navy on a yellow shadow by day, yellow on an ink shadow at night.
+TextStyle showTitle(BuildContext context, {double fontSize = 36}) {
+  final night = Theme.of(context).brightness == Brightness.dark;
+  return showDisplay(
+    context,
+    fontSize: fontSize,
+    letterSpacing: 0.4,
+    color: night ? showBulb : showInkDay,
+    shadows: [
+      Shadow(
+        color: night ? showInkNight : showBulb,
+        offset: const Offset(3, 3),
+      ),
+    ],
+  );
+}
+
 ThemeData buildQuivroTheme() => _buildTheme(
   brightness: Brightness.light,
   palette: QuivroPalette.light,

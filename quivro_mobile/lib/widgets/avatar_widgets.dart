@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../core/avatars.dart';
+import '../core/theme.dart';
 
 class AvatarBadge extends StatelessWidget {
   const AvatarBadge({super.key, required this.index, this.size = 48});
@@ -53,9 +54,14 @@ class AvatarPicker extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(
-                color: isSelected ? QuivroColors.blue : Colors.transparent,
+                color: isSelected ? showInk(context) : Colors.transparent,
                 width: 3,
               ),
+              boxShadow: isSelected
+                  ? const [
+                      BoxShadow(color: showBulb, offset: Offset(3, 3)),
+                    ]
+                  : null,
             ),
             child: Center(child: AvatarBadge(index: i, size: 52)),
           ),

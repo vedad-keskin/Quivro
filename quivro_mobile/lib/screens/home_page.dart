@@ -29,6 +29,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _code = TextEditingController();
+  final _codeFocus = FocusNode();
   final _hostHintKey = GlobalKey<HostHintState>();
   final _hostChipKey = GlobalKey();
   final _hostProgress = ValueNotifier<double>(0);
@@ -36,6 +37,7 @@ class _HomePageState extends State<HomePage> {
   final _store = ProfileStore();
   late PlayerProfile _profile;
   bool _joining = false;
+  bool _joinDown = false;
   bool _resumingSession = false;
   Timer? _easterEggTimer;
 
@@ -43,6 +45,9 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _profile = widget.profile;
+    _codeFocus.addListener(() {
+      if (mounted) setState(() {});
+    });
     _reloadProfile();
   }
 
@@ -65,6 +70,7 @@ class _HomePageState extends State<HomePage> {
   void dispose() {
     _easterEggTimer?.cancel();
     _hostProgress.dispose();
+    _codeFocus.dispose();
     _code.dispose();
     super.dispose();
   }
@@ -143,6 +149,7 @@ class _HomePageState extends State<HomePage> {
                 builder: (context, constraints) {
                   final bottomInset = MediaQuery.viewInsetsOf(context).bottom;
                   return SingleChildScrollView(
+                    clipBehavior: Clip.none,
                     padding: EdgeInsets.only(bottom: bottomInset),
                     keyboardDismissBehavior:
                         ScrollViewKeyboardDismissBehavior.onDrag,
@@ -167,11 +174,7 @@ class _HomePageState extends State<HomePage> {
                                         QuivroWordmarkHero(
                                           child: Text(
                                             'Quivro',
-                                            style: GoogleFonts.nunito(
-                                              fontSize: 36,
-                                              fontWeight: FontWeight.w800,
-                                              color: palette.text,
-                                            ),
+                                            style: showTitle(context, fontSize: 36),
                                           ),
                                         ),
                                         Container(
@@ -196,9 +199,24 @@ class _HomePageState extends State<HomePage> {
                                   GestureDetector(
                                     onTap: () =>
                                         context.go('/setup', extra: _profile),
-                                    child: AvatarBadge(
-                                      index: _profile.avatar,
-                                      size: 52,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                          color: showInk(context),
+                                          width: 3,
+                                        ),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: showInk(context),
+                                            offset: const Offset(3, 3),
+                                          ),
+                                        ],
+                                      ),
+                                      child: AvatarBadge(
+                                        index: _profile.avatar,
+                                        size: 52,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -217,42 +235,112 @@ class _HomePageState extends State<HomePage> {
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               Text(
-                                strings.joinARoom,
+                                strings.joinARoom.toUpperCase(),
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.nunito(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w800,
-                                ),
+                                style: showDisplay(context, fontSize: 26),
                               ),
                               const SizedBox(height: 16),
-                              TextField(
-                                controller: _code,
-                                textAlign: TextAlign.center,
-                                textCapitalization:
-                                    TextCapitalization.characters,
-                                style: GoogleFonts.nunito(
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.w800,
-                                  letterSpacing: 8,
+                              Container(
+                                decoration: showPanel(
+                                  ink: _codeFocus.hasFocus
+                                      ? showBulb
+                                      : showInk(context),
+                                  fill: palette.card,
+                                  radius: 18,
+                                  shadow: const Offset(4, 4),
                                 ),
-                                inputFormatters: [
-                                  FilteringTextInputFormatter.allow(
-                                    RegExp(r'[A-Za-z0-9]'),
+                                child: TextField(
+                                  controller: _code,
+                                  focusNode: _codeFocus,
+                                  textAlign: TextAlign.center,
+                                  textCapitalization:
+                                      TextCapitalization.characters,
+                                  cursorColor: showBulb,
+                                  style: showDisplay(
+                                    context,
+                                    fontSize: 28,
+                                    letterSpacing: 8,
                                   ),
-                                  LengthLimitingTextInputFormatter(6),
-                                  _UpperCaseFormatter(),
-                                ],
-                                decoration: InputDecoration(
-                                  hintText: strings.codeHint,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                      RegExp(r'[A-Za-z0-9]'),
+                                    ),
+                                    LengthLimitingTextInputFormatter(6),
+                                    _UpperCaseFormatter(),
+                                  ],
+                                  decoration: InputDecoration(
+                                    hintText: strings.codeHint,
+                                    filled: false,
+                                    border: InputBorder.none,
+                                    enabledBorder: InputBorder.none,
+                                    focusedBorder: InputBorder.none,
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 14,
+                                    ),
+                                    hintStyle: showDisplay(
+                                      context,
+                                      fontSize: 28,
+                                      letterSpacing: 8,
+                                      color: palette.muted,
+                                    ),
+                                  ),
                                 ),
                               ),
                               const SizedBox(height: 20),
-                              SizedBox(
-                                height: 56,
-                                child: OutlinedButton(
-                                  onPressed: _joining ? null : _join,
-                                  child: Text(
-                                    _joining ? strings.joining : strings.join,
+                              GestureDetector(
+                                onTapDown: _joining
+                                    ? null
+                                    : (_) => setState(() => _joinDown = true),
+                                onTapUp: (_) {
+                                  setState(() => _joinDown = false);
+                                  if (!_joining) _join();
+                                },
+                                onTapCancel: () =>
+                                    setState(() => _joinDown = false),
+                                child: AnimatedContainer(
+                                  duration: const Duration(milliseconds: 80),
+                                  height: 56,
+                                  transform: Matrix4.translationValues(
+                                    0,
+                                    _joinDown && !_joining ? 6 : 0,
+                                    0,
+                                  ),
+                                  alignment: Alignment.center,
+                                  decoration: showPanel(
+                                    ink: showInk(context),
+                                    fill: _joining
+                                        ? showBulb.withValues(alpha: 0.5)
+                                        : showBulb,
+                                    radius: 16,
+                                    shadow: Offset(
+                                      0,
+                                      _joinDown && !_joining ? 0 : 6,
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        (_joining
+                                                ? strings.joining
+                                                : strings.join)
+                                            .toUpperCase(),
+                                        style: showDisplay(
+                                          context,
+                                          fontSize: 24,
+                                          letterSpacing: 1,
+                                          color: showInkDay,
+                                        ),
+                                      ),
+                                      if (!_joining) ...[
+                                        const SizedBox(width: 8),
+                                        const Icon(
+                                          Icons.play_arrow,
+                                          color: showInkDay,
+                                          size: 22,
+                                        ),
+                                      ],
+                                    ],
                                   ),
                                 ),
                               ),
