@@ -708,11 +708,47 @@ html[data-theme='dark'] .q-show .wordmark {
     transform: scale(0) rotate(-40deg);
   }
 }
-.q-show .rs .cats-disabled {
-  opacity: 0.45;
+/* Categories only apply to text questions. The card fades, then the space folds shut. */
+.q-show .rs .cat-fold {
+  --cat-gap: 2rem;
+  display: grid;
+  grid-template-rows: 0fr;
+  min-height: 0;
+  margin-bottom: calc(var(--cat-gap) * -1);
+  transition:
+    grid-template-rows 0.28s ease 0.12s,
+    margin-bottom 0.28s ease 0.12s;
 }
-.q-show .rs .cats-disabled .tile {
-  pointer-events: none;
+.q-show .panel.rs .cat-fold {
+  --cat-gap: 2.1rem;
+}
+.q-show .rs .cat-fold.open {
+  grid-template-rows: 1fr;
+  margin-bottom: 0;
+  transition:
+    grid-template-rows 0.28s ease,
+    margin-bottom 0.28s ease;
+}
+.q-show .rs .cat-fold-inner {
+  overflow: hidden;
+  min-height: 0;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+  transition:
+    opacity 0.12s ease,
+    padding 0s linear 0.12s,
+    margin 0s linear 0.12s;
+}
+.q-show .rs .cat-fold.open .cat-fold-inner {
+  opacity: 1;
+  /* Room for the step badge and the hard shadow while the card is open. */
+  padding: 24px 10px 10px 22px;
+  margin: -24px -10px -10px -22px;
+  transition:
+    opacity 0.16s ease 0.12s,
+    padding 0s linear,
+    margin 0s linear;
 }
 .q-show .rs .corner-badge {
   position: absolute;
@@ -1020,6 +1056,10 @@ html[data-theme='dark'] .q-show .wordmark {
   .q-show .rs .corner-badge {
     transition: none;
     transform: rotate(12deg) !important;
+  }
+  .q-show .rs .cat-fold,
+  .q-show .rs .cat-fold-inner {
+    transition: none;
   }
 }
 

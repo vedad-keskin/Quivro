@@ -197,7 +197,9 @@ function loadRoundPrefs(): RoundPrefs | null {
           </section>
         </div>
 
-        <section class="stage" [class.cats-disabled]="!needsCategories()">
+        <div class="cat-fold" [class.open]="needsCategories()">
+          <div class="cat-fold-inner" [attr.inert]="needsCategories() ? null : ''">
+        <section class="stage">
           <span class="step" aria-hidden="true">3</span>
           <h2 class="stage-label">{{ lang.t().categories }}</h2>
           <div class="tiles tiles-cats">
@@ -232,10 +234,12 @@ function loadRoundPrefs(): RoundPrefs | null {
             <p class="hint warn">{{ lang.t().selectAtLeastOne }}</p>
           }
         </section>
+          </div>
+        </div>
 
         <div class="pair">
           <section class="stage">
-            <span class="step" aria-hidden="true">4</span>
+            <span class="step" aria-hidden="true">{{ needsCategories() ? 4 : 3 }}</span>
             <img class="stage-art" src="/room-icons/time_per_q.png" alt="" />
             <h2 class="stage-label">{{ lang.t().questionTime }}</h2>
             <div class="keys">
@@ -255,7 +259,7 @@ function loadRoundPrefs(): RoundPrefs | null {
           </section>
 
           <section class="stage">
-            <span class="step" aria-hidden="true">5</span>
+            <span class="step" aria-hidden="true">{{ needsCategories() ? 5 : 4 }}</span>
             <img class="stage-art" src="/room-icons/round_length.png" alt="" />
             <h2 class="stage-label">{{ lang.t().roundLength }}</h2>
             <div class="keys">
@@ -320,7 +324,7 @@ function loadRoundPrefs(): RoundPrefs | null {
         </div>
 
         <section class="stage">
-          <span class="step" aria-hidden="true">6</span>
+          <span class="step" aria-hidden="true">{{ needsCategories() ? 6 : 5 }}</span>
           <h2 class="stage-label">{{ lang.t().powerUps }}</h2>
           <div class="machine">
             <div class="marquee" aria-hidden="true"></div>
@@ -467,7 +471,8 @@ function loadRoundPrefs(): RoundPrefs | null {
       width: 100%;
       max-width: 980px;
       margin: 0 auto;
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: 2.1rem;
       align-content: start;
     }

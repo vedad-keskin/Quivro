@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../core/avatars.dart';
 import '../core/theme.dart';
 
 enum QuivroSnackKind { info, error, success }
@@ -17,10 +16,15 @@ void showQuivroSnack(
       behavior: SnackBarBehavior.floating,
       backgroundColor: Colors.transparent,
       elevation: 0,
+      clipBehavior: Clip.none,
+      shape: const RoundedRectangleBorder(side: BorderSide.none),
       margin: const EdgeInsets.fromLTRB(16, 0, 16, 16),
       padding: EdgeInsets.zero,
       duration: const Duration(seconds: 3),
-      content: _QuivroSnackCard(message: message, kind: kind),
+      content: Padding(
+        padding: const EdgeInsets.only(right: 6, bottom: 6),
+        child: _QuivroSnackCard(message: message, kind: kind),
+      ),
     ),
   );
 }
@@ -34,37 +38,34 @@ class _QuivroSnackCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final palette = context.palette;
-    return Container(
-      decoration: BoxDecoration(
-        color: palette.card,
-        borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: palette.border, width: 2),
-        boxShadow: [
-          BoxShadow(
-            color: palette.shadow,
-            blurRadius: 40,
-            offset: const Offset(0, 14),
-          ),
-        ],
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          _AccentBar(kind: kind),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Text(
-              message,
-              style: GoogleFonts.nunito(
-                fontWeight: FontWeight.w700,
-                fontSize: 15,
-                height: 1.35,
-                color: palette.text,
+    return GestureDetector(
+      onTap: () => ScaffoldMessenger.of(context).hideCurrentSnackBar(),
+      child: Container(
+        decoration: showPanel(
+          ink: showInk(context),
+          fill: palette.card,
+          radius: 14,
+          shadow: const Offset(6, 6),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            _AccentBar(kind: kind),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Text(
+                message,
+                style: GoogleFonts.nunito(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 15,
+                  height: 1.35,
+                  color: palette.text,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -87,11 +88,7 @@ class _AccentBar extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(99)),
       ),
       QuivroSnackKind.info => const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [QuivroColors.blue, QuivroColors.purple],
-        ),
+        color: Color(0xFF22D3EE),
         borderRadius: BorderRadius.all(Radius.circular(99)),
       ),
     };

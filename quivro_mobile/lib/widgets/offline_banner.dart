@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../core/net_probe.dart';
 import '../core/strings.dart';
 import '../core/theme.dart';
@@ -278,13 +277,16 @@ class _OfflineBannerState extends State<OfflineBanner> {
         _BannerState.offline => _Pill(
           key: const ValueKey('offline'),
           icon: Icons.wifi_off_rounded,
-          color: const Color(0xFFFFB020),
+          fill: showBulb,
+          foreground: showInkDay,
           text: context.strings.offline,
         ),
         _BannerState.backOnline => _Pill(
           key: const ValueKey('online'),
           icon: Icons.wifi_rounded,
-          color: const Color(0xFF84CC16),
+          fill: context.palette.card,
+          iconColor: showBulb,
+          foreground: context.palette.text,
           text: context.strings.online,
         ),
       },
@@ -298,41 +300,40 @@ class _Pill extends StatelessWidget {
   const _Pill({
     super.key,
     required this.icon,
-    required this.color,
+    required this.fill,
+    required this.foreground,
     required this.text,
+    this.iconColor,
   });
 
   final IconData icon;
-  final Color color;
+  final Color fill;
+  final Color foreground;
+  final Color? iconColor;
   final String text;
 
   @override
   Widget build(BuildContext context) {
-    final palette = context.palette;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-      decoration: BoxDecoration(
-        color: palette.pill,
-        borderRadius: BorderRadius.circular(99),
-        boxShadow: [
-          BoxShadow(
-            color: palette.shadow,
-            blurRadius: 16,
-            offset: const Offset(0, 6),
-          ),
-        ],
+      decoration: showPanel(
+        ink: showInk(context),
+        fill: fill,
+        radius: 12,
+        shadow: const Offset(0, 4),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 14, color: color),
+          Icon(icon, size: 14, color: iconColor ?? foreground),
           const SizedBox(width: 6),
           Text(
             text,
-            style: GoogleFonts.nunito(
-              fontSize: 12,
-              fontWeight: FontWeight.w800,
-              color: Colors.white,
+            style: showDisplay(
+              context,
+              fontSize: 13,
+              letterSpacing: 0.4,
+              color: foreground,
             ),
           ),
         ],

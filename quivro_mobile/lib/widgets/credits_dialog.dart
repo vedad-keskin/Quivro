@@ -5,6 +5,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../core/avatars.dart';
 import '../core/strings.dart';
+import '../core/theme.dart';
 import 'studio_mark.dart';
 
 const _bgColor = Color(0xFF0A0E27);
@@ -36,29 +37,19 @@ class CreditsDialog extends StatelessWidget {
     final strings = context.strings;
     final maxHeight = MediaQuery.sizeOf(context).height * 0.85;
 
-    final closeStyle = GoogleFonts.nunito(
-      color: const Color(0xFFE0E1DD),
-      fontSize: 13,
-      fontWeight: FontWeight.w800,
-      letterSpacing: 1.2,
-    );
-
-    const radius = BorderRadius.all(Radius.circular(20));
+    const radius = 20.0;
+    final ink = showInk(context);
     return Dialog(
       backgroundColor: Colors.transparent,
       elevation: 0,
-      shape: const RoundedRectangleBorder(borderRadius: radius),
-      clipBehavior: Clip.none,
       insetPadding: const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
       child: ConstrainedBox(
         constraints: BoxConstraints(maxHeight: maxHeight),
         child: Container(
-          decoration: BoxDecoration(
-            borderRadius: radius,
-            border: Border.all(color: const Color(0xFFE0E1DD), width: 1.5),
-          ),
+          decoration: showPanel(ink: ink, fill: _bgColor, radius: radius),
+          padding: const EdgeInsets.all(3),
           child: ClipRRect(
-            borderRadius: const BorderRadius.all(Radius.circular(18.5)),
+            borderRadius: BorderRadius.circular(radius - 6),
             child: ColoredBox(
               color: _bgColor,
               child: Stack(
@@ -103,35 +94,38 @@ class CreditsDialog extends StatelessWidget {
                               _CreditEntry(
                                 label: strings.creditsLeadDev.toUpperCase(),
                                 name: 'Vedad Keskin',
-                                labelColor: QuivroColors.blue,
+                                labelColor: const Color(0xFF22D3EE),
                               ),
                               _CreditEntry(
                                 label: strings.creditsQuestionCurator
                                     .toUpperCase(),
                                 name: strings.creditsMom,
-                                labelColor: QuivroColors.purple,
+                                labelColor: const Color(0xFFEC4899),
                               ),
                             ],
                           ),
                         ),
                         const SizedBox(height: 10),
-                        RepaintBoundary(
-                          child: TextButton(
-                            onPressed: () => Navigator.of(context).pop(),
-                            style: TextButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 18,
-                                vertical: 8,
-                              ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(999),
-                                side: const BorderSide(
-                                  color: Color(0xFFE0E1DD),
-                                  width: 1.5,
-                                ),
+                        GestureDetector(
+                          onTap: () => Navigator.of(context).pop(),
+                          child: Container(
+                            height: 48,
+                            padding: const EdgeInsets.symmetric(horizontal: 28),
+                            alignment: Alignment.center,
+                            decoration: showPanel(
+                              ink: ink,
+                              fill: showBulb,
+                              radius: 14,
+                              shadow: const Offset(0, 4),
+                            ),
+                            child: Text(
+                              strings.close.toUpperCase(),
+                              style: showDisplay(
+                                context,
+                                fontSize: 20,
+                                color: showInkDay,
                               ),
                             ),
-                            child: Text(strings.close, style: closeStyle),
                           ),
                         ),
                       ],
@@ -141,7 +135,7 @@ class CreditsDialog extends StatelessWidget {
                     right: 14,
                     bottom: 10,
                     child: Text(
-                      'v1.0.2',
+                      'v1.0.4',
                       style: GoogleFonts.nunito(
                         fontSize: 11,
                         fontWeight: FontWeight.w700,
@@ -161,26 +155,15 @@ class CreditsDialog extends StatelessWidget {
 }
 
 class _CreditEntry {
-  _CreditEntry({
+  const _CreditEntry({
     required this.label,
     required this.name,
-    required Color labelColor,
-  }) : labelStyle = GoogleFonts.nunito(
-         color: labelColor,
-         fontSize: 11,
-         fontWeight: FontWeight.w800,
-         letterSpacing: 1.4,
-       ),
-       nameStyle = GoogleFonts.nunito(
-         color: Colors.white,
-         fontSize: 22,
-         fontWeight: FontWeight.w800,
-       );
+    required this.labelColor,
+  });
 
   final String label;
   final String name;
-  final TextStyle labelStyle;
-  final TextStyle nameStyle;
+  final Color labelColor;
 }
 
 class _CreditsScroller extends StatefulWidget {
@@ -382,9 +365,25 @@ class _CreditsScrollerState extends State<_CreditsScroller>
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(credit.label, style: credit.labelStyle),
+        Text(
+          credit.label,
+          style: GoogleFonts.nunito(
+            color: credit.labelColor,
+            fontSize: 11,
+            fontWeight: FontWeight.w800,
+            letterSpacing: 1.4,
+          ),
+        ),
         const SizedBox(height: 8),
-        Text(credit.name, style: credit.nameStyle),
+        Text(
+          credit.name,
+          style: showDisplay(
+            context,
+            fontSize: 22,
+            letterSpacing: 0.4,
+            color: Colors.white,
+          ),
+        ),
       ],
     );
   }
@@ -424,6 +423,7 @@ class _CreditsStarfieldState extends State<_CreditsStarfield>
   void initState() {
     super.initState();
 
+    const tints = [Color(0xFF22D3EE), showBulb, Color(0xFFEC4899)];
     for (var i = 0; i < 50; i++) {
       _stars.add(
         _Star(
@@ -431,7 +431,7 @@ class _CreditsStarfieldState extends State<_CreditsStarfield>
           y: _random.nextDouble(),
           size: _random.nextBool() ? 2 : 3,
           speed: 0.02 + _random.nextDouble() * 0.05,
-          tint: _random.nextBool() ? QuivroColors.blue : QuivroColors.purple,
+          tint: tints[_random.nextInt(tints.length)],
         ),
       );
     }

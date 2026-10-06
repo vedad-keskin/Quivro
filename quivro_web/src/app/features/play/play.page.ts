@@ -225,7 +225,9 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                 </section>
               </div>
 
-              <section class="stage" [class.cats-disabled]="!needsCategories()">
+              <div class="cat-fold" [class.open]="needsCategories()">
+                <div class="cat-fold-inner" [attr.inert]="needsCategories() ? null : ''">
+              <section class="stage">
                 <span class="step" aria-hidden="true">3</span>
                 <h2 class="stage-label">{{ lang.t().categories }}</h2>
                 <div class="tiles tiles-cats">
@@ -260,10 +262,12 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                   <p class="hint warn">{{ lang.t().selectAtLeastOne }}</p>
                 }
               </section>
+                </div>
+              </div>
 
               <div class="pair">
                 <section class="stage">
-                  <span class="step" aria-hidden="true">4</span>
+                  <span class="step" aria-hidden="true">{{ needsCategories() ? 4 : 3 }}</span>
                   <img class="stage-art" src="/room-icons/time_per_q.png" alt="" />
                   <h2 class="stage-label">{{ lang.t().questionTime }}</h2>
                   <div class="keys">
@@ -283,7 +287,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                 </section>
 
                 <section class="stage">
-                  <span class="step" aria-hidden="true">5</span>
+                  <span class="step" aria-hidden="true">{{ needsCategories() ? 5 : 4 }}</span>
                   <img class="stage-art" src="/room-icons/round_length.png" alt="" />
                   <h2 class="stage-label">{{ lang.t().roundLength }}</h2>
                   <div class="keys">
@@ -348,7 +352,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
               </div>
 
               <section class="stage">
-                <span class="step" aria-hidden="true">6</span>
+                <span class="step" aria-hidden="true">{{ needsCategories() ? 6 : 5 }}</span>
                 <h2 class="stage-label">{{ lang.t().powerUps }}</h2>
                 <div class="reels">
                   @for (slot of powerUpSlots(); track $index) {
@@ -1031,7 +1035,8 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       }
     }
     .rematch-hub {
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: 2rem;
     }
     .hub-title {
