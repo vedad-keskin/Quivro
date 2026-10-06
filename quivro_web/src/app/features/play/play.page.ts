@@ -1083,14 +1083,31 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       color: var(--q-navy);
     }
     .final-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
       gap: 1rem;
     }
+    .final-actions .key-btn,
     .final-actions .go {
-      flex: 1;
-      width: auto;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 1rem 1.5rem;
+      border-radius: 16px;
+      font-family: var(--display);
+      font-size: clamp(1.05rem, 2.2vw, 1.6rem);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      box-shadow: 0 6px 0 var(--ink);
+    }
+    .final-actions .key-btn:hover:not(:disabled),
+    .final-actions .go:hover:not(:disabled) {
+      box-shadow: 0 8px 0 var(--ink);
+    }
+    .final-actions .key-btn:active:not(:disabled),
+    .final-actions .go:active:not(:disabled) {
+      box-shadow: 0 0 0 var(--ink);
     }
     .modal p {
       margin: 0;
