@@ -164,14 +164,11 @@ class _SetupPageState extends State<SetupPage> {
               ),
               Text(
                 strings.chooseNicknameAvatar.toUpperCase(),
-                style: showDisplay(
-                  context,
-                  fontSize: 18,
-                  color: palette.muted,
-                ),
+                style: showDisplay(context, fontSize: 18, color: palette.muted),
               ),
               const SizedBox(height: 24),
               Container(
+                margin: const EdgeInsets.only(right: 6, bottom: 6),
                 decoration: showPanel(
                   ink: _nickFocus.hasFocus ? showBulb : showInk(context),
                   fill: palette.card,
@@ -228,6 +225,7 @@ class _SetupPageState extends State<SetupPage> {
                   duration: const Duration(milliseconds: 80),
                   height: 56,
                   width: double.infinity,
+                  margin: const EdgeInsets.only(right: 6, bottom: 6),
                   transform: Matrix4.translationValues(
                     0,
                     _continueDown && !_saving ? 6 : 0,
@@ -236,9 +234,7 @@ class _SetupPageState extends State<SetupPage> {
                   alignment: Alignment.center,
                   decoration: showPanel(
                     ink: showInk(context),
-                    fill: _saving
-                        ? showBulb.withValues(alpha: 0.5)
-                        : showBulb,
+                    fill: _saving ? showBulb.withValues(alpha: 0.5) : showBulb,
                     radius: 16,
                     shadow: Offset(0, _continueDown && !_saving ? 0 : 6),
                   ),

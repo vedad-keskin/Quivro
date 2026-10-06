@@ -36,7 +36,8 @@ class AvatarPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: const EdgeInsets.only(bottom: 8),
+      clipBehavior: Clip.none,
+      padding: const EdgeInsets.fromLTRB(2, 2, 8, 12),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 4,
         mainAxisSpacing: 12,
@@ -58,9 +59,7 @@ class AvatarPicker extends StatelessWidget {
                 width: 3,
               ),
               boxShadow: isSelected
-                  ? const [
-                      BoxShadow(color: showBulb, offset: Offset(3, 3)),
-                    ]
+                  ? const [BoxShadow(color: showBulb, offset: Offset(3, 3))]
                   : null,
             ),
             child: Center(child: AvatarBadge(index: i, size: 52)),
