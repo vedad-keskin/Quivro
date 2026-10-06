@@ -31,7 +31,9 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
           </div>
           <div class="body">
             <h2 class="show-title">{{ lang.t().upgradeTitle }}</h2>
-            <p class="blurb">{{ lang.t().upgradeBlurb }}</p>
+            @if (auth.user()) {
+              <p class="blurb">{{ lang.t().upgradeBlurb }}</p>
+            }
 
             <ul class="perks">
               @for (p of perks; track p.key) {
@@ -48,25 +50,23 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
               <button type="button" class="go buy" [disabled]="busy()" (click)="buy()">
                 {{ lang.t().upgradeBuy }} {{ price }}
               </button>
+              <button type="button" class="restore" [disabled]="busy()" (click)="restore()">
+                {{ lang.t().upgradeRestore }}
+              </button>
+              <a
+                class="powered"
+                href="https://www.lemonsqueezy.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>{{ lang.t().paymentsBy }}</span>
+                <img src="/brand/lemon_squeezy.png" alt="Lemon Squeezy" />
+              </a>
             } @else {
               <button type="button" class="go buy" [disabled]="busy()" (click)="signIn()">
                 {{ lang.t().upgradeSignInFirst }}
               </button>
             }
-
-            <button type="button" class="restore" [disabled]="busy()" (click)="restore()">
-              {{ lang.t().upgradeRestore }}
-            </button>
-
-            <a
-              class="powered"
-              href="https://www.lemonsqueezy.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>{{ lang.t().paymentsBy }}</span>
-              <img src="/brand/lemon_squeezy.png" alt="Lemon Squeezy" />
-            </a>
           </div>
         </div>
       </div>
