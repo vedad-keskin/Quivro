@@ -544,7 +544,8 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
           );
         }
 
-        final pickedRaw = _picked ?? room.choiceOf(widget.playerId);
+        final stored = room.choiceOf(widget.playerId);
+        final pickedRaw = _checked != null ? _picked : (_picked ?? stored);
         final picked = pickedRaw != null && hidden.contains(pickedRaw)
             ? null
             : pickedRaw;
