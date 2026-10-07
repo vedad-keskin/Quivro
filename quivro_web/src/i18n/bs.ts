@@ -86,12 +86,15 @@ export const bs: UiStrings = {
   powerUpNone: 'Prazno',
   powerUpFifty: '50/50',
   powerUpSecond: 'Druga šansa',
+  powerUpLock: 'Zaključaj',
   powerUpNext: 'Sljedeće pojačanje',
   powerUpPrev: 'Prethodno pojačanje',
   powerUpSpin: 'Zavrti',
   descPowerUpFifty: 'Uklanja 2 pogrešna odgovora, ostavlja 2 na izbor.',
   descPowerUpSecond:
   'Provjeri jedan odgovor i saznaj je li tačan ili netačan.',
+  descPowerUpLock:
+    'Zaključaj svoj odgovor i zamrzni jednog drugog igrača.',
   descPowerUpEmpty: 'Prazan slot.',
   powerUpNeedsPro: 'Pojačanja su dio Quivro Pro',
   powerUpReset: 'Pojačanja su dio Quivro Pro, ako odabrete nastavak svaki slot pojačanja će biti prazan.',

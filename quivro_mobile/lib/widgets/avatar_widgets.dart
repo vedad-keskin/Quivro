@@ -36,8 +36,8 @@ class AvatarPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      clipBehavior: Clip.none,
-      padding: const EdgeInsets.fromLTRB(2, 2, 8, 12),
+      clipBehavior: Clip.hardEdge,
+      padding: const EdgeInsets.fromLTRB(6, 6, 10, 12),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 4,
         mainAxisSpacing: 12,

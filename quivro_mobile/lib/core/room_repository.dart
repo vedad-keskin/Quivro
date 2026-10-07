@@ -302,13 +302,17 @@ class RoomRepository {
             room.eliminatedChoices(playerId).contains(choice))) {
       throw StateError('POWER_UP_REJECTED');
     }
+    if (type == powerUpLockUp &&
+        (choice == null || room.choiceOf(playerId) != choice)) {
+      throw StateError('POWER_UP_REJECTED');
+    }
 
     await roomRef(upper).child('powerUpRequests').child(playerId).set({
       'slot': slot,
       'type': type,
       'questionIndex': questionIndex,
       'at': now,
-      if (type == powerUpSecondChance) 'choice': choice,
+      if (type == powerUpSecondChance || type == powerUpLockUp) 'choice': choice,
     });
   }
 

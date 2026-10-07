@@ -9,6 +9,8 @@ class Sfx {
   final AudioPlayer _second = AudioPlayer();
   final AudioPlayer _secondCorrect = AudioPlayer();
   final AudioPlayer _secondWrong = AudioPlayer();
+  final AudioPlayer _lock = AudioPlayer();
+  final AudioPlayer _locked = AudioPlayer();
   bool _ready = false;
 
   Future<void> preload() async {
@@ -23,6 +25,10 @@ class Sfx {
     await _secondCorrect.setSource(AssetSource('sounds/second_chance_correct.mp3'));
     await _secondWrong.setReleaseMode(ReleaseMode.stop);
     await _secondWrong.setSource(AssetSource('sounds/second_chance_incorrect.mp3'));
+    await _lock.setReleaseMode(ReleaseMode.stop);
+    await _lock.setSource(AssetSource('sounds/lock_up.mp3'));
+    await _locked.setReleaseMode(ReleaseMode.stop);
+    await _locked.setSource(AssetSource('sounds/lock_up_player.mp3'));
     _ready = true;
   }
 
@@ -46,6 +52,14 @@ class Sfx {
     await _play(_secondWrong);
   }
 
+  Future<void> playLockUp() async {
+    await _play(_lock);
+  }
+
+  Future<void> playLockedOut() async {
+    await _play(_locked);
+  }
+
   Future<void> _play(AudioPlayer player) async {
     try {
       if (!_ready) await preload();
@@ -63,5 +77,7 @@ class Sfx {
     await _second.dispose();
     await _secondCorrect.dispose();
     await _secondWrong.dispose();
+    await _lock.dispose();
+    await _locked.dispose();
   }
 }

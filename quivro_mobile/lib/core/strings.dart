@@ -41,6 +41,7 @@ class AppStrings {
     required this.couldNotUsePowerUp,
     required this.fiftyFifty,
     required this.secondChance,
+    required this.lockUp,
     required this.couldNotJoinRematch,
     required this._connectionError,
     required this.connecting,
@@ -55,6 +56,8 @@ class AppStrings {
     required this.tapToChange,
     required this.tapToCheck,
     required this.tapToLock,
+    required this.lockedGuess,
+    required this.lockedOut,
     required this.answersLocked,
     required this.finalLeaderboard,
     required this.winnerPrefix,
@@ -125,6 +128,7 @@ class AppStrings {
   final String couldNotUsePowerUp;
   final String fiftyFifty;
   final String secondChance;
+  final String lockUp;
   final String couldNotJoinRematch;
   final String _connectionError;
   final String connecting;
@@ -139,6 +143,8 @@ class AppStrings {
   final String tapToChange;
   final String tapToCheck;
   final String tapToLock;
+  final String lockedGuess;
+  final String lockedOut;
   final String answersLocked;
   final String finalLeaderboard;
   final String winnerPrefix;
@@ -227,6 +233,7 @@ class AppStrings {
     couldNotUsePowerUp: 'Could not use power-up',
     fiftyFifty: '50/50',
     secondChance: 'Second Chance',
+    lockUp: 'Lock Up',
     couldNotJoinRematch: 'Could not join rematch',
     connectionError: 'Connection error: {error}',
     connecting: 'Connecting…',
@@ -241,6 +248,8 @@ class AppStrings {
     tapToChange: 'Tap another answer to change',
     tapToCheck: 'Tap an answer to check it',
     tapToLock: 'Tap again to lock it in',
+    lockedGuess: 'Answer locked',
+    lockedOut: "You can't answer",
     answersLocked: 'Answers locked',
     finalLeaderboard: 'Final leaderboard',
     winnerPrefix: 'Winner: ',
@@ -310,6 +319,7 @@ class AppStrings {
     couldNotUsePowerUp: 'Pojačanje nije iskorišteno',
     fiftyFifty: '50/50',
     secondChance: 'Druga šansa',
+    lockUp: 'Lock Up',
     couldNotJoinRematch: 'Prijava za novu rundu nije uspjela',
     connectionError: 'Greška u konekciji: {error}',
     connecting: 'Povezivanje…',
@@ -324,6 +334,8 @@ class AppStrings {
     tapToChange: 'Dodirni drugi odgovor za promjenu',
     tapToCheck: 'Dodirni odgovor da ga provjeriš',
     tapToLock: 'Dodirni ponovo da zaključaš',
+    lockedGuess: 'Odgovor je zaključan',
+    lockedOut: 'Ne možeš odgovoriti',
     answersLocked: 'Odgovori su zaključani',
     finalLeaderboard: 'Konačna rang lista',
     winnerPrefix: 'Pobjednik: ',

@@ -534,7 +534,7 @@ function loadRoundPrefs(): RoundPrefs | null {
     }
     @keyframes reel-spin {
       to {
-        transform: translateY(calc(-3 * (var(--win) - 6px)));
+        transform: translateY(calc(-4 * (var(--win) - 6px)));
       }
     }
 

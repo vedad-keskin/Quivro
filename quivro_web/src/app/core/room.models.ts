@@ -56,14 +56,14 @@ export interface PlayerAnswer {
 
 export type ScoringMode = 'timed' | 'standard';
 
-export type PowerUpId = 'fifty_fifty' | 'second_chance';
+export type PowerUpId = 'fifty_fifty' | 'second_chance' | 'lock_up';
 export type PowerUpSlot = PowerUpId | null;
 export type PowerUpSlots = [PowerUpSlot, PowerUpSlot, PowerUpSlot];
 
 export const POWER_UP_CATALOG: readonly {
   id: PowerUpId;
-  labelKey: 'powerUpFifty' | 'powerUpSecond';
-  descKey: 'descPowerUpFifty' | 'descPowerUpSecond';
+  labelKey: 'powerUpFifty' | 'powerUpSecond' | 'powerUpLock';
+  descKey: 'descPowerUpFifty' | 'descPowerUpSecond' | 'descPowerUpLock';
   icon: string;
 }[] = [
   {
@@ -77,6 +77,12 @@ export const POWER_UP_CATALOG: readonly {
     labelKey: 'powerUpSecond',
     descKey: 'descPowerUpSecond',
     icon: '/room-icons/second_chance.png',
+  },
+  {
+    id: 'lock_up',
+    labelKey: 'powerUpLock',
+    descKey: 'descPowerUpLock',
+    icon: '/room-icons/lock_up.png',
   },
 ];
 
@@ -162,6 +168,12 @@ export interface PowerUpProbe {
   correct: boolean;
 }
 
+export interface AnswerLock {
+  choice?: number;
+  answeredAt?: number;
+  blank?: boolean;
+}
+
 export interface PlayerPowerUpState {
   /** Slot index → question index it was spent on. */
   used: Record<string, number>;
@@ -169,6 +181,8 @@ export interface PlayerPowerUpState {
   eliminated: Record<string, number[]>;
   /** Question index → the checked option and whether it was right. */
   probes: Record<string, PowerUpProbe>;
+  /** Question index → frozen guess, or a blank lock. */
+  locked: Record<string, AnswerLock>;
 }
 
 export interface FiftyFiftyDecision {
@@ -269,6 +283,79 @@ export function answersFromUnconfirmedProbes(input: {
   return filled;
 }
 
+export function pickLockVictim(
+  playerIds: readonly string[],
+  casterId: string,
+  alreadyLocked: ReadonlySet<string>,
+  rand: () => number = Math.random,
+): string | null {
+  const pool = playerIds.filter((id) => id !== casterId && !alreadyLocked.has(id));
+  if (pool.length === 0) return null;
+  return pool[Math.floor(rand() * pool.length)];
+}
+
+export interface LockUpDecision {
+  self: { choice: number; answeredAt: number };
+  victimId: string | null;
+  victim: AnswerLock | null;
+}
+
+/** Host gate for Lock Up. Null means reject and do not spend the slot. */
+export function resolveLockUpRequest(input: {
+  phase: string;
+  questionIndex: number;
+  answerOpensAt: number;
+  endsAt: number;
+  now: number;
+  slots: PowerUpSlots;
+  request: { slot: number; type: string; questionIndex: number; choice?: number };
+  usedSlot: boolean;
+  usedOnQuestion: boolean;
+  casterLocked: boolean;
+  existingChoice: number | null;
+  existingAnsweredAt: number | null;
+  playerIds: readonly string[];
+  casterId: string;
+  alreadyLocked: ReadonlySet<string>;
+  victimAnswer: (id: string) => { choice: number; answeredAt: number } | null;
+  rand?: () => number;
+}): LockUpDecision | null {
+  if (input.phase !== 'question') return null;
+  if (input.now < input.answerOpensAt || input.now > input.endsAt) return null;
+  if (input.request.questionIndex !== input.questionIndex) return null;
+  if (input.request.type !== 'lock_up') return null;
+  const slot = input.request.slot;
+  if (!Number.isInteger(slot) || slot < 0 || slot > 2) return null;
+  if (input.slots[slot] !== 'lock_up') return null;
+  if (input.usedSlot || input.usedOnQuestion || input.casterLocked) return null;
+  const choice = input.request.choice;
+  if (choice == null || choice !== input.existingChoice) return null;
+  if (input.existingAnsweredAt == null) return null;
+  const victimId = pickLockVictim(
+    input.playerIds,
+    input.casterId,
+    input.alreadyLocked,
+    input.rand,
+  );
+  const victimAnswer = victimId ? input.victimAnswer(victimId) : null;
+  return {
+    self: { choice, answeredAt: input.existingAnsweredAt },
+    victimId,
+    victim: victimId
+      ? victimAnswer
+        ? { choice: victimAnswer.choice, answeredAt: victimAnswer.answeredAt }
+        : { blank: true }
+      : null,
+  };
+}
+
+/** True when nobody can still submit: each player has an answer or a blank freeze. */
+export function questionSettled(
+  players: readonly { hasAnswer: boolean; blankLocked: boolean }[],
+): boolean {
+  return players.length > 0 && players.every((player) => player.hasAnswer || player.blankLocked);
+}
+
 export function parsePowerUpRequests(value: unknown): Record<string, PowerUpRequest> {
   if (!value || typeof value !== 'object') return {};
   const out: Record<string, PowerUpRequest> = {};
@@ -289,6 +376,7 @@ export function parsePowerUpRequests(value: unknown): Record<string, PowerUpRequ
       else if (req['type'] === 'second_chance') continue;
     }
     if (req['type'] === 'second_chance' && choice == null) continue;
+    if (req['type'] === 'lock_up' && choice == null) continue;
     out[playerId] = {
       slot,
       type: req['type'],
@@ -337,7 +425,24 @@ export function parsePowerUps(value: unknown): Record<string, PlayerPowerUpState
         probes[qIndex] = { choice, correct: probe['correct'] };
       }
     }
-    out[playerId] = { used, eliminated, probes };
+    const locked: Record<string, AnswerLock> = {};
+    const lockRaw = node['locked'];
+    if (lockRaw && typeof lockRaw === 'object') {
+      for (const [qIndex, raw] of Object.entries(lockRaw as Record<string, unknown>)) {
+        if (!raw || typeof raw !== 'object') continue;
+        const lock = raw as Record<string, unknown>;
+        if (lock['blank'] === true) {
+          locked[qIndex] = { blank: true };
+          continue;
+        }
+        const choice = Number(lock['choice']);
+        const answeredAt = Number(lock['answeredAt']);
+        if (!Number.isInteger(choice) || choice < 0 || choice > 3) continue;
+        if (!Number.isFinite(answeredAt)) continue;
+        locked[qIndex] = { choice, answeredAt };
+      }
+    }
+    out[playerId] = { used, eliminated, probes, locked };
   }
   return out;
 }

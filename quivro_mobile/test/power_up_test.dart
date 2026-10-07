@@ -221,4 +221,119 @@ void main() {
       isTrue,
     );
   });
+
+  test('lock up needs a stored guess and a freeze blocks another power-up', () {
+    final open = RoomState.fromSnapshot('ABC123', {
+      'phase': 'question',
+      'createdAt': 1_000_000,
+      'currentIndex': 0,
+      'totalQuestions': 1,
+      'config': {
+        'powerUpSlots': {'0': 'lock_up'},
+      },
+      'currentQuestion': {
+        'id': 'q1',
+        'type': 'mcq',
+        'options': ['A', 'B', 'C', 'D'],
+        'endsAt': 2_000_000,
+        'durationMs': 15_000,
+        'index': 0,
+        'total': 1,
+      },
+      'players': {
+        'p1': {'id': 'p1', 'name': 'Ana', 'score': 0, 'avatar': 0, 'joinedAt': 1},
+      },
+      'answers': {},
+    });
+    expect(
+      PowerUpRequestPolicy.canRequest(
+        room: open,
+        playerId: 'p1',
+        slot: 0,
+        questionIndex: 0,
+        nowMs: 1_990_000,
+      ),
+      isFalse,
+    );
+
+    final guessed = RoomState.fromSnapshot('ABC123', {
+      'phase': 'question',
+      'createdAt': 1_000_000,
+      'currentIndex': 0,
+      'totalQuestions': 1,
+      'config': {
+        'powerUpSlots': {'0': 'lock_up'},
+      },
+      'currentQuestion': {
+        'id': 'q1',
+        'type': 'mcq',
+        'options': ['A', 'B', 'C', 'D'],
+        'endsAt': 2_000_000,
+        'durationMs': 15_000,
+        'index': 0,
+        'total': 1,
+      },
+      'players': {
+        'p1': {'id': 'p1', 'name': 'Ana', 'score': 0, 'avatar': 0, 'joinedAt': 1},
+        'p2': {'id': 'p2', 'name': 'Ben', 'score': 0, 'avatar': 1, 'joinedAt': 2},
+      },
+      'answers': {
+        '0': {
+          'p1': {'choice': 2, 'answeredAt': 1_990_000},
+          'p2': {'choice': 1, 'answeredAt': 1_980_000},
+        },
+      },
+      'powerUps': {
+        'p2': {
+          'locked': {
+            '0': {'blank': true},
+          },
+        },
+      },
+    });
+    expect(guessed.lockFor('p2')?.blank, isTrue);
+    expect(
+      PowerUpRequestPolicy.canRequest(
+        room: guessed,
+        playerId: 'p1',
+        slot: 0,
+        questionIndex: 0,
+        nowMs: 1_990_000,
+      ),
+      isTrue,
+    );
+    expect(
+      PowerUpRequestPolicy.canRequest(
+        room: guessed,
+        playerId: 'p2',
+        slot: 0,
+        questionIndex: 0,
+        nowMs: 1_990_000,
+      ),
+      isFalse,
+    );
+  });
+
+  test('a list-shaped answers node still counts as a guess', () {
+    final room = RoomState.fromSnapshot('ABC123', {
+      'phase': 'question',
+      'createdAt': 1,
+      'currentIndex': 1,
+      'totalQuestions': 10,
+      'players': {
+        'p1': {'id': 'p1', 'name': 'Ana', 'score': 0, 'avatar': 0, 'joinedAt': 1},
+      },
+      'answers': [
+        {
+          'p1': {'choice': 0, 'answeredAt': 1},
+        },
+        {
+          'p1': {'choice': 3, 'answeredAt': 2},
+        },
+      ],
+    });
+
+    expect(room.hasAnswered('p1'), isTrue);
+    expect(room.choiceOf('p1'), 3);
+  });
 }

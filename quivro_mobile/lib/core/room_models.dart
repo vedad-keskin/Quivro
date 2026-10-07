@@ -94,6 +94,7 @@ class RoomPlayer {
 
 const powerUpFiftyFifty = 'fifty_fifty';
 const powerUpSecondChance = 'second_chance';
+const powerUpLockUp = 'lock_up';
 
 class PowerUpProbe {
   const PowerUpProbe({required this.choice, required this.correct});
@@ -102,16 +103,25 @@ class PowerUpProbe {
   final bool correct;
 }
 
+class AnswerLock {
+  const AnswerLock({this.choice, this.blank = false});
+
+  final int? choice;
+  final bool blank;
+}
+
 class PlayerPowerUps {
   const PlayerPowerUps({
     this.used = const <int, int>{},
     this.eliminated = const <int, List<int>>{},
     this.probes = const <int, PowerUpProbe>{},
+    this.locked = const <int, AnswerLock>{},
   });
 
   final Map<int, int> used;
   final Map<int, List<int>> eliminated;
   final Map<int, PowerUpProbe> probes;
+  final Map<int, AnswerLock> locked;
 }
 
 class PowerUpRequest {
@@ -134,7 +144,9 @@ List<String?> parsePowerUpSlots(dynamic raw) {
   final slots = <String?>[null, null, null];
   void take(int i, dynamic value) {
     if (i < 0 || i > 2) return;
-    if (value == powerUpFiftyFifty || value == powerUpSecondChance) {
+    if (value == powerUpFiftyFifty ||
+        value == powerUpSecondChance ||
+        value == powerUpLockUp) {
       slots[i] = value as String;
     } else {
       slots[i] = null;
@@ -198,10 +210,23 @@ Map<String, PlayerPowerUps> parsePowerUps(dynamic raw) {
       if (choice == null || choice < 0 || choice > 3 || correct is! bool) return;
       probes[q] = PowerUpProbe(choice: choice, correct: correct);
     });
+    final locked = <int, AnswerLock>{};
+    _eachEntry(value['locked'], (qKey, raw) {
+      final q = int.tryParse(qKey);
+      if (q == null || raw is! Map) return;
+      if (raw['blank'] == true) {
+        locked[q] = const AnswerLock(blank: true);
+        return;
+      }
+      final choice = (raw['choice'] as num?)?.toInt();
+      if (choice == null || choice < 0 || choice > 3) return;
+      locked[q] = AnswerLock(choice: choice);
+    });
     out[playerId] = PlayerPowerUps(
       used: used,
       eliminated: eliminated,
       probes: probes,
+      locked: locked,
     );
   });
   return out;
@@ -217,10 +242,14 @@ Map<String, PowerUpRequest> parsePowerUpRequests(dynamic raw) {
     final at = (value['at'] as num?)?.toInt();
     final type = value['type'];
     if (slot == null || questionIndex == null || at == null) return;
-    if (type != powerUpFiftyFifty && type != powerUpSecondChance) return;
+    if (type != powerUpFiftyFifty &&
+        type != powerUpSecondChance &&
+        type != powerUpLockUp) {
+      return;
+    }
     if (slot < 0 || slot > 2) return;
     int? choice;
-    if (type == powerUpSecondChance) {
+    if (type == powerUpSecondChance || type == powerUpLockUp) {
       choice = (value['choice'] as num?)?.toInt();
       if (choice == null || choice < 0 || choice > 3) return;
     }
@@ -250,10 +279,14 @@ class PowerUpRequestPolicy {
     if (room.player(playerId) == null) return false;
     if (slot < 0 || slot > 2) return false;
     if (slot >= room.powerUpSlots.length) return false;
+    if (room.lockFor(playerId) != null) return false;
     final slotId = room.powerUpSlots[slot];
-    if (slotId != powerUpFiftyFifty && slotId != powerUpSecondChance) {
+    if (slotId != powerUpFiftyFifty &&
+        slotId != powerUpSecondChance &&
+        slotId != powerUpLockUp) {
       return false;
     }
+    if (slotId == powerUpLockUp && !room.hasAnswered(playerId)) return false;
     if (room.powerUpSlotUsed(playerId, slot)) return false;
     if (room.powerUps[playerId]?.used.values.contains(questionIndex) ?? false) {
       return false;
@@ -400,6 +433,11 @@ class RoomState {
     return powerUps[playerId]?.probes[currentIndex];
   }
 
+  AnswerLock? lockFor(String playerId) {
+    if (currentIndex < 0) return null;
+    return powerUps[playerId]?.locked[currentIndex];
+  }
+
   bool powerUpSlotUsed(String playerId, int slot) =>
       powerUps[playerId]?.used.containsKey(slot) ?? false;
 
@@ -432,17 +470,13 @@ class RoomState {
 
     final answersRaw = map['answers'];
     final answers = <String, Map<String, Map<dynamic, dynamic>>>{};
-    if (answersRaw is Map) {
-      answersRaw.forEach((qKey, byPlayer) {
-        if (byPlayer is Map) {
-          final nested = <String, Map<dynamic, dynamic>>{};
-          byPlayer.forEach((pKey, ans) {
-            if (ans is Map) nested['$pKey'] = Map<dynamic, dynamic>.from(ans);
-          });
-          answers['$qKey'] = nested;
-        }
+    _eachEntry(answersRaw, (qKey, byPlayer) {
+      final nested = <String, Map<dynamic, dynamic>>{};
+      _eachEntry(byPlayer, (pKey, ans) {
+        if (ans is Map) nested[pKey] = Map<dynamic, dynamic>.from(ans);
       });
-    }
+      if (nested.isNotEmpty) answers[qKey] = nested;
+    });
 
     PublicQuestion? question;
     final cq = map['currentQuestion'];

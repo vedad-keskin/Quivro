@@ -84,12 +84,15 @@ export const en = {
   powerUpNone: 'None',
   powerUpFifty: '50/50',
   powerUpSecond: 'Second Chance',
+  powerUpLock: 'Lock Up',
   powerUpNext: 'Next power-up',
   powerUpPrev: 'Previous power-up',
   powerUpSpin: 'Spin',
   descPowerUpFifty: 'Removes 2 wrong answers, leaves 2 to choose from.',
   descPowerUpSecond:
   'Check an answer to reveal if it’s right or wrong.',
+  descPowerUpLock:
+    'Lock your answer, and freeze one other player.',
   descPowerUpEmpty: 'Empty slot.',
   powerUpNeedsPro: 'Power-ups are part of Quivro Pro',
   powerUpReset: 'Power-ups are part of Quivro Pro, so continuing will reset power-ups to none.',

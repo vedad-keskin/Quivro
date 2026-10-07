@@ -51,6 +51,7 @@ import {
   EMPTY_POWER_UP_SLOTS,
   IMAGE_SLIDE_MS,
   POWER_UP_CATALOG,
+  questionSettled,
   type PowerUpSlot,
   type PowerUpSlots,
   type RoomConfig,
@@ -1408,11 +1409,16 @@ export class PlayPage implements OnInit, OnDestroy {
         const playerCount = Object.keys(r.players).length;
         if (playerCount === 0) return;
         const opensAt = r.currentQuestion?.answerOpensAt ?? 0;
-        const bucket = r.answers[String(r.currentIndex)] ?? {};
-        const answered = Object.values(bucket).filter(
-          (a) => a.answeredAt >= opensAt,
-        ).length;
-        if (answered >= playerCount) {
+        const qKey = String(r.currentIndex);
+        const bucket = r.answers[qKey] ?? {};
+        const settled = questionSettled(
+          Object.keys(r.players).map((id) => ({
+            hasAnswer:
+              bucket[id] != null && bucket[id].answeredAt >= opensAt,
+            blankLocked: r.powerUps?.[id]?.locked?.[qKey]?.blank === true,
+          })),
+        );
+        if (settled) {
           void this.onQuestionExpired();
         }
       });

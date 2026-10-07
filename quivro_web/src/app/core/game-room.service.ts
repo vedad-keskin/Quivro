@@ -37,6 +37,7 @@ import {
   rankPlayers,
   answersFromUnconfirmedProbes,
   resolveFiftyFiftyRequest,
+  resolveLockUpRequest,
   resolveSecondChanceRequest,
   isRoomDead,
   ROOM_TTL_MS,
@@ -248,7 +249,10 @@ export class GameRoomService {
       playerIds,
       answers: storedAnswers,
       probes: Object.fromEntries(
-        playerIds.map((id) => [id, room.powerUps?.[id]?.probes?.[qKey]]),
+        playerIds.map((id) => [
+          id,
+          room.powerUps?.[id]?.locked?.[qKey] ? undefined : room.powerUps?.[id]?.probes?.[qKey],
+        ]),
       ),
       endsAt,
     });
@@ -265,7 +269,13 @@ export class GameRoomService {
       endsAt - duration;
 
     for (const [playerId, player] of Object.entries(room.players)) {
-      const ans = answers[playerId];
+      const lock = room.powerUps?.[playerId]?.locked?.[qKey];
+      let ans: { choice: number; answeredAt: number } | undefined = answers[playerId];
+      if (lock?.blank) {
+        ans = undefined;
+      } else if (typeof lock?.choice === 'number' && typeof lock.answeredAt === 'number') {
+        ans = { choice: lock.choice, answeredAt: lock.answeredAt };
+      }
       let delta = 0;
       // Ignore answers submitted before the image preview/dock finished.
       const answerValid =
@@ -920,6 +930,48 @@ export class GameRoomService {
         correctIndex: displayCorrect,
         alreadyEliminated,
       };
+
+      if (request.type === 'lock_up') {
+        const existing = room.answers[qKey]?.[playerId];
+        const alreadyLocked = new Set(
+          Object.entries(room.powerUps ?? {})
+            .filter(([, ups]) => ups.locked?.[qKey])
+            .map(([id]) => id),
+        );
+        const decision = resolveLockUpRequest({
+          phase: room.phase,
+          questionIndex: room.currentIndex,
+          answerOpensAt: question.answerOpensAt,
+          endsAt: question.endsAt,
+          now: this.serverTime.nowMs(),
+          slots: room.config.powerUpSlots,
+          request,
+          usedSlot,
+          usedOnQuestion,
+          casterLocked: alreadyLocked.has(playerId),
+          existingChoice: existing?.choice ?? null,
+          existingAnsweredAt: existing?.answeredAt ?? null,
+          playerIds: Object.keys(room.players),
+          casterId: playerId,
+          alreadyLocked,
+          victimAnswer: (id) => {
+            const ans = room.answers[qKey]?.[id];
+            return ans ? { choice: ans.choice, answeredAt: ans.answeredAt } : null;
+          },
+        });
+        const updates: Record<string, unknown> = {
+          [`powerUpRequests/${playerId}`]: null,
+        };
+        if (decision) {
+          updates[`powerUps/${playerId}/used/${request.slot}`] = room.currentIndex;
+          updates[`powerUps/${playerId}/locked/${room.currentIndex}`] = decision.self;
+          if (decision.victimId && decision.victim) {
+            updates[`powerUps/${decision.victimId}/locked/${room.currentIndex}`] = decision.victim;
+          }
+        }
+        await this.patch(code, updates);
+        return;
+      }
 
       if (request.type === 'second_chance') {
         const decision = resolveSecondChanceRequest(gate);

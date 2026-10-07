@@ -39,6 +39,8 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
   bool _submitting = false;
   int? _picked;
   int? _checked;
+  bool _selfLocked = false;
+  int? _lockSoundedFor;
   int _trackedQuestion = -1;
   int? _pendingSlot;
   int? _armedSlot;
@@ -210,6 +212,7 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
 
   Future<void> _answer(RoomState room, int choice) async {
     if (room.phase != 'question' || _submitting) return;
+    if (_selfLocked || room.lockFor(widget.playerId) != null) return;
     if (room.eliminatedChoices(widget.playerId).contains(choice)) return;
     if (!AnswerSubmissionPolicy.canSubmit(
       room: room,
@@ -305,6 +308,7 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
 
   Future<void> _usePowerUp(RoomState room, int slot) async {
     if (_pendingSlot != null || _armedSlot != null) return;
+    if (_selfLocked || room.lockFor(widget.playerId) != null) return;
     final now = _repo.nowMs();
     if (!PowerUpRequestPolicy.canRequest(
       room: room,
@@ -322,18 +326,24 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
       return;
     }
 
+    final locking = room.powerUpSlots[slot] == powerUpLockUp;
+    final lockedChoice = locking ? room.choiceOf(widget.playerId) : null;
+    if (locking && lockedChoice == null) return;
+
     setState(() {
       _pendingSlot = slot;
       _powerUpArmed = false;
       _powerUpBaseline = null;
+      if (locking) _selfLocked = true;
     });
-    unawaited(_sfx.playFiftyFifty());
+    unawaited(locking ? _sfx.playLockUp() : _sfx.playFiftyFifty());
     try {
       await _repo.requestPowerUp(
         code: widget.code,
         playerId: widget.playerId,
         slot: slot,
         questionIndex: room.currentIndex,
+        choice: lockedChoice,
       );
       if (!mounted) return;
       setState(() {
@@ -344,6 +354,7 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
       if (!mounted) return;
       setState(() {
         _pendingSlot = null;
+        _selfLocked = false;
         _powerUpArmed = false;
         _powerUpBaseline = null;
       });
@@ -386,6 +397,17 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       unawaited(correct ? _sfx.playSecondCorrect() : _sfx.playSecondWrong());
+    });
+  }
+
+  void _syncLockSound(RoomState room) {
+    if (room.lockFor(widget.playerId) == null) return;
+    if (_lockSoundedFor == room.currentIndex) return;
+    _lockSoundedFor = room.currentIndex;
+    if (_selfLocked) return;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      unawaited(_sfx.playLockedOut());
     });
   }
 
@@ -493,6 +515,8 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
               _trackedQuestion = room.currentIndex;
               _picked = room.choiceOf(widget.playerId);
               _checked = null;
+              _selfLocked = false;
+              _lockSoundedFor = null;
               _pendingSlot = null;
               _armedSlot = null;
               _probeSoundedAt = null;
@@ -511,6 +535,7 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
         }
         _syncPowerUp(room);
         _syncProbe(room);
+        _syncLockSound(room);
 
         if (room.phase == 'lobby') {
           return _LobbyView(
@@ -557,6 +582,7 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
           picked: picked,
           pendingSlot: _pendingSlot,
           armedSlot: _armedSlot,
+          selfLocked: _selfLocked,
           onPick: (i) => _answer(room, i),
           onUsePowerUp: (slot) => unawaited(_usePowerUp(room, slot)),
           nowMs: _repo.nowMs,
@@ -776,6 +802,7 @@ class _PlayView extends StatefulWidget {
     required this.picked,
     required this.pendingSlot,
     required this.armedSlot,
+    required this.selfLocked,
     required this.onPick,
     required this.onUsePowerUp,
     required this.nowMs,
@@ -788,6 +815,7 @@ class _PlayView extends StatefulWidget {
   final int? picked;
   final int? pendingSlot;
   final int? armedSlot;
+  final bool selfLocked;
   final ValueChanged<int> onPick;
   final ValueChanged<int> onUsePowerUp;
   final int Function() nowMs;
@@ -824,6 +852,9 @@ class _PlayViewState extends State<_PlayView> {
     final now = widget.nowMs();
     final waitingForTv = room.phase == 'question' && now < q.answerOpensAt;
     final locked = room.phase != 'question' || waitingForTv || now > q.endsAt;
+    final frozen =
+        widget.selfLocked || room.lockFor(widget.playerId) != null;
+    final padLocked = locked || frozen;
     final hidden = room.eliminatedChoices(widget.playerId);
     final probe = room.probeFor(widget.playerId);
     final showPowerUps = room.hasPowerUps;
@@ -930,6 +961,10 @@ class _PlayViewState extends State<_PlayView> {
               child: Text(
                 waitingForTv
                     ? strings.lookAtTv
+                    : frozen
+                    ? (widget.picked != null
+                          ? strings.lockedGuess
+                          : strings.lockedOut)
                     : room.phase == 'question'
                     ? (widget.armedSlot != null
                           ? strings.tapToCheck
@@ -960,7 +995,7 @@ class _PlayViewState extends State<_PlayView> {
                               selected: widget.picked == 0,
                               eliminated: hidden.contains(0),
                               probeCorrect: verdictFor(0),
-                              enabled: !locked && !hidden.contains(0),
+                              enabled: !padLocked && !hidden.contains(0),
                               onTap: () => widget.onPick(0),
                             ),
                           ),
@@ -971,7 +1006,7 @@ class _PlayViewState extends State<_PlayView> {
                               selected: widget.picked == 1,
                               eliminated: hidden.contains(1),
                               probeCorrect: verdictFor(1),
-                              enabled: !locked && !hidden.contains(1),
+                              enabled: !padLocked && !hidden.contains(1),
                               onTap: () => widget.onPick(1),
                             ),
                           ),
@@ -988,7 +1023,7 @@ class _PlayViewState extends State<_PlayView> {
                               selected: widget.picked == 2,
                               eliminated: hidden.contains(2),
                               probeCorrect: verdictFor(2),
-                              enabled: !locked && !hidden.contains(2),
+                              enabled: !padLocked && !hidden.contains(2),
                               onTap: () => widget.onPick(2),
                             ),
                           ),
@@ -999,7 +1034,7 @@ class _PlayViewState extends State<_PlayView> {
                               selected: widget.picked == 3,
                               eliminated: hidden.contains(3),
                               probeCorrect: verdictFor(3),
-                              enabled: !locked && !hidden.contains(3),
+                              enabled: !padLocked && !hidden.contains(3),
                               onTap: () => widget.onPick(3),
                             ),
                           ),
@@ -1011,8 +1046,9 @@ class _PlayViewState extends State<_PlayView> {
                       _PowerUpBar(
                         room: room,
                         playerId: widget.playerId,
-                        locked: locked || widget.pendingSlot != null || widget.armedSlot != null,
+                        locked: padLocked || widget.pendingSlot != null || widget.armedSlot != null,
                         pendingSlot: widget.pendingSlot ?? widget.armedSlot,
+                        hasGuess: widget.picked != null,
                         onUse: widget.onUsePowerUp,
                       ),
                     ],
@@ -1213,6 +1249,7 @@ class _PowerUpBar extends StatelessWidget {
     required this.playerId,
     required this.locked,
     required this.pendingSlot,
+    required this.hasGuess,
     required this.onUse,
   });
 
@@ -1220,6 +1257,7 @@ class _PowerUpBar extends StatelessWidget {
   final String playerId;
   final bool locked;
   final int? pendingSlot;
+  final bool hasGuess;
   final ValueChanged<int> onUse;
 
   @override
@@ -1243,7 +1281,9 @@ class _PowerUpBar extends StatelessWidget {
                   pendingSlot == null &&
                   !usedOnQuestion &&
                   (room.powerUpSlots[i] == powerUpFiftyFifty ||
-                      room.powerUpSlots[i] == powerUpSecondChance) &&
+                      room.powerUpSlots[i] == powerUpSecondChance ||
+                      (room.powerUpSlots[i] == powerUpLockUp &&
+                          (room.hasAnswered(playerId) || hasGuess))) &&
                   !room.powerUpSlotUsed(playerId, i),
               onTap: () => onUse(i),
             ),
@@ -1320,6 +1360,8 @@ class _PowerSlotState extends State<_PowerSlot>
       button: widget.enabled,
       label: widget.powerUpId == powerUpSecondChance
           ? context.strings.secondChance
+          : widget.powerUpId == powerUpLockUp
+          ? context.strings.lockUp
           : context.strings.fiftyFifty,
       child: GestureDetector(
         onTap: widget.enabled ? widget.onTap : null,
@@ -1335,6 +1377,8 @@ class _PowerSlotState extends State<_PowerSlot>
     final image = Image.asset(
       widget.powerUpId == powerUpSecondChance
           ? 'assets/powerups/second_chance.png'
+          : widget.powerUpId == powerUpLockUp
+          ? 'assets/powerups/lock_up.png'
           : 'assets/powerups/fifty_fifty.png',
       width: 68,
       height: 68,

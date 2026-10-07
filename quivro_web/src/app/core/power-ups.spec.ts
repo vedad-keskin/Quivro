@@ -6,8 +6,11 @@ import {
   normalizePowerUpSlots,
   parsePowerUps,
   pickFiftyFiftyEliminations,
+  pickLockVictim,
+  questionSettled,
   randomPowerUpSlots,
   resolveFiftyFiftyRequest,
+  resolveLockUpRequest,
   resolveSecondChanceRequest,
   type PowerUpSlots,
 } from './room.models';
@@ -35,8 +38,10 @@ describe('cyclePowerUpSlot', () => {
   it('wraps empty, 50/50, and second chance', () => {
     expect(cyclePowerUpSlot(null, 1)).toBe('fifty_fifty');
     expect(cyclePowerUpSlot('fifty_fifty', 1)).toBe('second_chance');
-    expect(cyclePowerUpSlot('second_chance', 1)).toBe(null);
-    expect(cyclePowerUpSlot(null, -1)).toBe('second_chance');
+    expect(cyclePowerUpSlot('second_chance', 1)).toBe('lock_up');
+    expect(cyclePowerUpSlot('lock_up', 1)).toBe(null);
+    expect(cyclePowerUpSlot(null, -1)).toBe('lock_up');
+    expect(cyclePowerUpSlot('lock_up', -1)).toBe('second_chance');
     expect(cyclePowerUpSlot('second_chance', -1)).toBe('fifty_fifty');
     expect(cyclePowerUpSlot('fifty_fifty', -1)).toBe(null);
   });
@@ -45,11 +50,7 @@ describe('cyclePowerUpSlot', () => {
 describe('randomPowerUpSlots', () => {
   it('returns three valid slots across the whole rand range', () => {
     expect(randomPowerUpSlots(() => 0)).toEqual([null, null, null]);
-    expect(randomPowerUpSlots(() => 0.999)).toEqual([
-      'second_chance',
-      'second_chance',
-      'second_chance',
-    ]);
+    expect(randomPowerUpSlots(() => 0.999)).toEqual(['lock_up', 'lock_up', 'lock_up']);
     expect(randomPowerUpSlots()).toHaveLength(3);
   });
 });
@@ -186,5 +187,74 @@ describe('answersFromUnconfirmedProbes', () => {
         endsAt: 5_000,
       }),
     ).toEqual({ p1: { choice: 2, answeredAt: 5_000 } });
+  });
+});
+
+describe('resolveLockUpRequest', () => {
+  const base = {
+    phase: 'question',
+    questionIndex: 0,
+    answerOpensAt: 1_000,
+    endsAt: 5_000,
+    now: 2_000,
+    slots: ['lock_up', null, null] as PowerUpSlots,
+    request: { slot: 0, type: 'lock_up', questionIndex: 0, choice: 1 },
+    usedSlot: false,
+    usedOnQuestion: false,
+    casterLocked: false,
+    existingChoice: 1 as number | null,
+    existingAnsweredAt: 1_500 as number | null,
+    playerIds: ['caster', 'other', 'blank'],
+    casterId: 'caster',
+    alreadyLocked: new Set<string>(),
+    victimAnswer: (id: string) =>
+      id === 'other' ? { choice: 3, answeredAt: 1_600 } : null,
+    rand: () => 0,
+  };
+
+  it('freezes the caster and the first eligible other player', () => {
+    const decision = resolveLockUpRequest(base);
+    expect(decision?.self).toEqual({ choice: 1, answeredAt: 1_500 });
+    expect(decision?.victimId).toBe('other');
+    expect(decision?.victim).toEqual({ choice: 3, answeredAt: 1_600 });
+  });
+
+  it('freezes a player with no answer as blank and skips people already locked', () => {
+    const decision = resolveLockUpRequest({
+      ...base,
+      alreadyLocked: new Set(['other']),
+      rand: () => 0,
+    });
+    expect(decision?.victimId).toBe('blank');
+    expect(decision?.victim).toEqual({ blank: true });
+  });
+
+  it('locks only the caster when nobody else can be frozen', () => {
+    expect(
+      resolveLockUpRequest({ ...base, playerIds: ['caster'] })?.victimId,
+    ).toBeNull();
+    expect(pickLockVictim(['caster'], 'caster', new Set())).toBeNull();
+  });
+
+  it('rejects a lock without the stored guess', () => {
+    expect(resolveLockUpRequest({ ...base, existingChoice: null })).toBeNull();
+    expect(resolveLockUpRequest({ ...base, request: { ...base.request, choice: 0 } })).toBeNull();
+  });
+});
+
+describe('questionSettled', () => {
+  it('ends when every player has an answer or a blank freeze', () => {
+    expect(
+      questionSettled([
+        { hasAnswer: true, blankLocked: false },
+        { hasAnswer: false, blankLocked: true },
+      ]),
+    ).toBe(true);
+    expect(
+      questionSettled([
+        { hasAnswer: true, blankLocked: false },
+        { hasAnswer: false, blankLocked: false },
+      ]),
+    ).toBe(false);
   });
 });
