@@ -354,16 +354,16 @@ function loadRoundPrefs(): RoundPrefs | null {
                           <div class="strip" aria-hidden="true">
                             @for (s of reelStrip; track $index) {
                               <span class="strip-cell">
-                                @if (s) {
-                                  <img [src]="fiftyFiftyIcon" alt="" />
+                                @if (powerUpOf(s); as power) {
+                                  <img [src]="power.icon" alt="" />
                                 } @else {
                                   <span class="slot-plus">+</span>
                                 }
                               </span>
                             }
                           </div>
-                        } @else if (slot === 'fifty_fifty') {
-                          <img class="reel-art" [src]="fiftyFiftyIcon" alt="" />
+                        } @else if (powerUpOf(slot); as power) {
+                          <img class="reel-art" [src]="power.icon" alt="" />
                         } @else {
                           <span class="slot-plus" aria-hidden="true">+</span>
                         }
@@ -384,11 +384,11 @@ function loadRoundPrefs(): RoundPrefs | null {
                       </svg>
                     </button>
                     <div class="reel-copy" [class.empty]="!slot" [attr.aria-live]="'polite'">
-                      <strong>
-                        {{ slot === 'fifty_fifty' ? lang.t().powerUpFifty : lang.t().descPowerUpEmpty }}
-                      </strong>
-                      @if (slot === 'fifty_fifty') {
-                        <span>{{ lang.t().descPowerUpFifty }}</span>
+                      @if (powerUpOf(slot); as power) {
+                        <strong>{{ lang.t()[power.labelKey] }}</strong>
+                        <span>{{ lang.t()[power.descKey] }}</span>
+                      } @else {
+                        <strong>{{ lang.t().descPowerUpEmpty }}</strong>
                       }
                     </div>
                   </div>
@@ -534,7 +534,7 @@ function loadRoundPrefs(): RoundPrefs | null {
     }
     @keyframes reel-spin {
       to {
-        transform: translateY(calc(-2 * (var(--win) - 6px)));
+        transform: translateY(calc(-3 * (var(--win) - 6px)));
       }
     }
 
@@ -707,9 +707,11 @@ export class CreateRoundPage {
   readonly powerUpSlots = signal<PowerUpSlots>(
     this.saved?.powerUpSlots ?? ([...EMPTY_POWER_UP_SLOTS] as PowerUpSlots),
   );
-  readonly fiftyFiftyIcon = POWER_UP_CATALOG[0].icon;
-  /** Alternating filled/empty cells; two copies so the scroll loops seamlessly. */
-  readonly reelStrip = [true, false, true, false];
+  /** One empty-then-catalog pass, repeated so the spin loop lands on the same cell. */
+  readonly reelStrip: PowerUpSlot[] = [
+    ...[null, ...POWER_UP_CATALOG.map((p) => p.id)],
+    ...[null, ...POWER_UP_CATALOG.map((p) => p.id)],
+  ];
   readonly spinning = signal<boolean[]>([false, false, false]);
   readonly isSpinning = computed(() => this.spinning().some(Boolean));
   readonly leverPulled = signal(false);
@@ -784,6 +786,10 @@ export class CreateRoundPage {
   readonly isQuestionTypeFree = isQuestionTypeFree;
   readonly isPowerUpFree = isPowerUpFree;
   readonly isRoundLengthFree = isRoundLengthFree;
+
+  powerUpOf(slot: PowerUpSlot) {
+    return POWER_UP_CATALOG.find((p) => p.id === slot);
+  }
 
   isWeeklyCategory(cat: CategoryId): boolean {
     return cat === this.ent.freeThisWeek();

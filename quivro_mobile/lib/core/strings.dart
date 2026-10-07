@@ -40,6 +40,7 @@ class AppStrings {
     required this.couldNotSendAnswer,
     required this.couldNotUsePowerUp,
     required this.fiftyFifty,
+    required this.secondChance,
     required this.couldNotJoinRematch,
     required this._connectionError,
     required this.connecting,
@@ -52,6 +53,8 @@ class AppStrings {
     required this.lockedBadge,
     required this.lookAtTv,
     required this.tapToChange,
+    required this.tapToCheck,
+    required this.tapToLock,
     required this.answersLocked,
     required this.finalLeaderboard,
     required this.winnerPrefix,
@@ -121,6 +124,7 @@ class AppStrings {
   final String couldNotSendAnswer;
   final String couldNotUsePowerUp;
   final String fiftyFifty;
+  final String secondChance;
   final String couldNotJoinRematch;
   final String _connectionError;
   final String connecting;
@@ -133,6 +137,8 @@ class AppStrings {
   final String lockedBadge;
   final String lookAtTv;
   final String tapToChange;
+  final String tapToCheck;
+  final String tapToLock;
   final String answersLocked;
   final String finalLeaderboard;
   final String winnerPrefix;
@@ -220,6 +226,7 @@ class AppStrings {
     couldNotSendAnswer: 'Could not send answer',
     couldNotUsePowerUp: 'Could not use power-up',
     fiftyFifty: '50/50',
+    secondChance: 'Second Chance',
     couldNotJoinRematch: 'Could not join rematch',
     connectionError: 'Connection error: {error}',
     connecting: 'Connecting…',
@@ -232,6 +239,8 @@ class AppStrings {
     lockedBadge: 'Locked',
     lookAtTv: 'Look at the TV…',
     tapToChange: 'Tap another answer to change',
+    tapToCheck: 'Tap an answer to check it',
+    tapToLock: 'Tap again to lock it in',
     answersLocked: 'Answers locked',
     finalLeaderboard: 'Final leaderboard',
     winnerPrefix: 'Winner: ',
@@ -300,6 +309,7 @@ class AppStrings {
     couldNotSendAnswer: 'Slanje odgovora nije uspjelo',
     couldNotUsePowerUp: 'Pojačanje nije iskorišteno',
     fiftyFifty: '50/50',
+    secondChance: 'Druga šansa',
     couldNotJoinRematch: 'Prijava za novu rundu nije uspjela',
     connectionError: 'Greška u konekciji: {error}',
     connecting: 'Povezivanje…',
@@ -312,6 +322,8 @@ class AppStrings {
     lockedBadge: 'Zaključano',
     lookAtTv: 'Pogledaj na TV…',
     tapToChange: 'Dodirni drugi odgovor za promjenu',
+    tapToCheck: 'Dodirni odgovor da ga provjeriš',
+    tapToLock: 'Dodirni ponovo da zaključaš',
     answersLocked: 'Odgovori su zaključani',
     finalLeaderboard: 'Konačna rang lista',
     winnerPrefix: 'Pobjednik: ',

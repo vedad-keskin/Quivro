@@ -29,7 +29,7 @@ export const PRO_CATEGORIES: CategoryId[] = ['movies', 'famous', 'islam', 'food'
 
 export const FREE_QUESTION_TYPES: QuestionType[] = ['mcq'];
 export const FREE_SCORING_MODES: ScoringMode[] = ['standard'];
-/** Empty until a power-up is meant to be free. 50/50 is Pro. */
+/** Empty until a power-up is meant to be free. 50/50 and Second Chance are Pro. */
 export const FREE_POWER_UPS: PowerUpId[] = [];
 export const FREE_ROUND_LENGTH_PRESETS = [10, 20, 30] as const;
 export const FREE_MAX_ROUND_LENGTH = 30;

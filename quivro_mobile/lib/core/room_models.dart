@@ -93,15 +93,25 @@ class RoomPlayer {
 }
 
 const powerUpFiftyFifty = 'fifty_fifty';
+const powerUpSecondChance = 'second_chance';
+
+class PowerUpProbe {
+  const PowerUpProbe({required this.choice, required this.correct});
+
+  final int choice;
+  final bool correct;
+}
 
 class PlayerPowerUps {
   const PlayerPowerUps({
     this.used = const <int, int>{},
     this.eliminated = const <int, List<int>>{},
+    this.probes = const <int, PowerUpProbe>{},
   });
 
   final Map<int, int> used;
   final Map<int, List<int>> eliminated;
+  final Map<int, PowerUpProbe> probes;
 }
 
 class PowerUpRequest {
@@ -110,19 +120,25 @@ class PowerUpRequest {
     required this.type,
     required this.questionIndex,
     required this.at,
+    this.choice,
   });
 
   final int slot;
   final String type;
   final int questionIndex;
   final int at;
+  final int? choice;
 }
 
 List<String?> parsePowerUpSlots(dynamic raw) {
   final slots = <String?>[null, null, null];
   void take(int i, dynamic value) {
     if (i < 0 || i > 2) return;
-    slots[i] = value == powerUpFiftyFifty ? powerUpFiftyFifty : null;
+    if (value == powerUpFiftyFifty || value == powerUpSecondChance) {
+      slots[i] = value as String;
+    } else {
+      slots[i] = null;
+    }
   }
 
   if (raw is List) {
@@ -173,7 +189,20 @@ Map<String, PlayerPowerUps> parsePowerUps(dynamic raw) {
       final nums = _optionIndices(indices);
       if (q != null && nums.isNotEmpty) eliminated[q] = nums;
     });
-    out[playerId] = PlayerPowerUps(used: used, eliminated: eliminated);
+    final probes = <int, PowerUpProbe>{};
+    _eachEntry(value['probes'], (qKey, raw) {
+      final q = int.tryParse(qKey);
+      if (q == null || raw is! Map) return;
+      final choice = (raw['choice'] as num?)?.toInt();
+      final correct = raw['correct'];
+      if (choice == null || choice < 0 || choice > 3 || correct is! bool) return;
+      probes[q] = PowerUpProbe(choice: choice, correct: correct);
+    });
+    out[playerId] = PlayerPowerUps(
+      used: used,
+      eliminated: eliminated,
+      probes: probes,
+    );
   });
   return out;
 }
@@ -188,12 +217,19 @@ Map<String, PowerUpRequest> parsePowerUpRequests(dynamic raw) {
     final at = (value['at'] as num?)?.toInt();
     final type = value['type'];
     if (slot == null || questionIndex == null || at == null) return;
-    if (type != powerUpFiftyFifty || slot < 0 || slot > 2) return;
+    if (type != powerUpFiftyFifty && type != powerUpSecondChance) return;
+    if (slot < 0 || slot > 2) return;
+    int? choice;
+    if (type == powerUpSecondChance) {
+      choice = (value['choice'] as num?)?.toInt();
+      if (choice == null || choice < 0 || choice > 3) return;
+    }
     out['$playerId'] = PowerUpRequest(
       slot: slot,
-      type: powerUpFiftyFifty,
+      type: '$type',
       questionIndex: questionIndex,
       at: at,
+      choice: choice,
     );
   });
   return out;
@@ -214,7 +250,10 @@ class PowerUpRequestPolicy {
     if (room.player(playerId) == null) return false;
     if (slot < 0 || slot > 2) return false;
     if (slot >= room.powerUpSlots.length) return false;
-    if (room.powerUpSlots[slot] != powerUpFiftyFifty) return false;
+    final slotId = room.powerUpSlots[slot];
+    if (slotId != powerUpFiftyFifty && slotId != powerUpSecondChance) {
+      return false;
+    }
     if (room.powerUpSlotUsed(playerId, slot)) return false;
     if (room.powerUps[playerId]?.used.values.contains(questionIndex) ?? false) {
       return false;
@@ -356,6 +395,11 @@ class RoomState {
     return powerUps[playerId]?.eliminated[currentIndex] ?? const [];
   }
 
+  PowerUpProbe? probeFor(String playerId) {
+    if (currentIndex < 0) return null;
+    return powerUps[playerId]?.probes[currentIndex];
+  }
+
   bool powerUpSlotUsed(String playerId, int slot) =>
       powerUps[playerId]?.used.containsKey(slot) ?? false;
 
@@ -449,6 +493,13 @@ class RoomState {
     if (currentIndex < 0) return false;
     final bucket = answers['$currentIndex'];
     return bucket != null && bucket.containsKey(playerId);
+  }
+
+  /// Same-tile confirm once the check mark is showing and this player has not locked yet.
+  bool sameTileLocksProbe(String playerId, int choice) {
+    if (hasAnswered(playerId)) return false;
+    final probe = probeFor(playerId);
+    return probe != null && probe.choice == choice;
   }
 
   int? choiceOf(String playerId) {

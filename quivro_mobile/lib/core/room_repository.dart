@@ -249,11 +249,33 @@ class RoomRepository {
     await path.set({'choice': choice, 'answeredAt': now});
   }
 
+  Future<void> clearAnswer({
+    required String code,
+    required int questionIndex,
+    required String playerId,
+  }) async {
+    final upper = code.toUpperCase();
+    final room = await fetchRoom(upper);
+    if (room == null) {
+      throw StateError('ROOM_NOT_FOUND');
+    }
+    if (room.phase != 'question' || room.currentIndex != questionIndex) {
+      throw StateError('ANSWER_REJECTED');
+    }
+    if (!room.hasAnswered(playerId)) return;
+    await roomRef(upper)
+        .child('answers')
+        .child('$questionIndex')
+        .child(playerId)
+        .remove();
+  }
+
   Future<void> requestPowerUp({
     required String code,
     required String playerId,
     required int slot,
     required int questionIndex,
+    int? choice,
   }) async {
     final upper = code.toUpperCase();
     final room = await fetchRoom(upper);
@@ -272,11 +294,21 @@ class RoomRepository {
       throw StateError('POWER_UP_REJECTED');
     }
 
+    final type = room.powerUpSlots[slot];
+    if (type == powerUpSecondChance &&
+        (choice == null ||
+            choice < 0 ||
+            choice > 3 ||
+            room.eliminatedChoices(playerId).contains(choice))) {
+      throw StateError('POWER_UP_REJECTED');
+    }
+
     await roomRef(upper).child('powerUpRequests').child(playerId).set({
       'slot': slot,
-      'type': powerUpFiftyFifty,
+      'type': type,
       'questionIndex': questionIndex,
       'at': now,
+      if (type == powerUpSecondChance) 'choice': choice,
     });
   }
 

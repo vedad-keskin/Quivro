@@ -106,10 +106,12 @@ describe('clampToFree', () => {
     expect(result.scoringMode).toBe('standard');
   });
 
-  it('strips 50/50 slots', () => {
+  it('strips pro power-up slots', () => {
     expect(
-      clampToFree(config({ powerUpSlots: ['fifty_fifty', null, 'fifty_fifty'] }), now)
-        .powerUpSlots,
+      clampToFree(
+        config({ powerUpSlots: ['fifty_fifty', 'second_chance', 'fifty_fifty'] }),
+        now,
+      ).powerUpSlots,
     ).toEqual([null, null, null]);
   });
 

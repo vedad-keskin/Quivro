@@ -6,6 +6,9 @@ class Sfx {
 
   final AudioPlayer _guess = AudioPlayer();
   final AudioPlayer _fifty = AudioPlayer();
+  final AudioPlayer _second = AudioPlayer();
+  final AudioPlayer _secondCorrect = AudioPlayer();
+  final AudioPlayer _secondWrong = AudioPlayer();
   bool _ready = false;
 
   Future<void> preload() async {
@@ -14,26 +17,41 @@ class Sfx {
     await _guess.setSource(AssetSource('sounds/guess_answer.mp3'));
     await _fifty.setReleaseMode(ReleaseMode.stop);
     await _fifty.setSource(AssetSource('sounds/50_50_power_up.mp3'));
+    await _second.setReleaseMode(ReleaseMode.stop);
+    await _second.setSource(AssetSource('sounds/second_chance.mp3'));
+    await _secondCorrect.setReleaseMode(ReleaseMode.stop);
+    await _secondCorrect.setSource(AssetSource('sounds/second_chance_correct.mp3'));
+    await _secondWrong.setReleaseMode(ReleaseMode.stop);
+    await _secondWrong.setSource(AssetSource('sounds/second_chance_incorrect.mp3'));
     _ready = true;
   }
 
   Future<void> playGuess() async {
-    try {
-      if (!_ready) await preload();
-      await _guess.stop();
-      await _guess.seek(Duration.zero);
-      await _guess.resume();
-    } catch (_) {
-      // Ignore audio failures — gameplay must continue.
-    }
+    await _play(_guess);
   }
 
   Future<void> playFiftyFifty() async {
+    await _play(_fifty);
+  }
+
+  Future<void> playSecondChance() async {
+    await _play(_second);
+  }
+
+  Future<void> playSecondCorrect() async {
+    await _play(_secondCorrect);
+  }
+
+  Future<void> playSecondWrong() async {
+    await _play(_secondWrong);
+  }
+
+  Future<void> _play(AudioPlayer player) async {
     try {
       if (!_ready) await preload();
-      await _fifty.stop();
-      await _fifty.seek(Duration.zero);
-      await _fifty.resume();
+      await player.stop();
+      await player.seek(Duration.zero);
+      await player.resume();
     } catch (_) {
       // Ignore audio failures — gameplay must continue.
     }
@@ -42,5 +60,8 @@ class Sfx {
   Future<void> dispose() async {
     await _guess.dispose();
     await _fifty.dispose();
+    await _second.dispose();
+    await _secondCorrect.dispose();
+    await _secondWrong.dispose();
   }
 }

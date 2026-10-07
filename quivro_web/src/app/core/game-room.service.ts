@@ -35,7 +35,9 @@ import {
   parsePowerUps,
   powerUpSlotsToFirebase,
   rankPlayers,
+  answersFromUnconfirmedProbes,
   resolveFiftyFiftyRequest,
+  resolveSecondChanceRequest,
   isRoomDead,
   ROOM_TTL_MS,
   type LastWinner,
@@ -235,12 +237,22 @@ export class GameRoomService {
     const correctIndex = displayCorrect;
 
     const qKey = String(room.currentIndex);
-    const answers = room.answers[qKey] ?? {};
+    const storedAnswers = room.answers[qKey] ?? {};
     const scoringMode = room.config.scoringMode ?? 'timed';
     const duration =
       room.currentQuestion?.durationMs ??
       clampQuestionSeconds(room.config.questionSeconds ?? 15) * 1000;
     const endsAt = room.currentQuestion?.endsAt ?? Date.now();
+    const playerIds = Object.keys(room.players);
+    const filled = answersFromUnconfirmedProbes({
+      playerIds,
+      answers: storedAnswers,
+      probes: Object.fromEntries(
+        playerIds.map((id) => [id, room.powerUps?.[id]?.probes?.[qKey]]),
+      ),
+      endsAt,
+    });
+    const answers = { ...storedAnswers, ...filled };
     const base =
       question.type === 'image_mcq'
         ? IMAGE_MCQ_POINTS
@@ -278,11 +290,16 @@ export class GameRoomService {
       }
     }
 
+    const answerWrites: Record<string, { choice: number; answeredAt: number }> = {};
+    for (const [playerId, ans] of Object.entries(filled)) {
+      answerWrites[`answers/${qKey}/${playerId}`] = ans;
+    }
     await this.patch(code, {
       phase: 'reveal',
       correctIndex,
       lastScoreDeltas: deltas,
       ...playerUpdates,
+      ...answerWrites,
     });
   }
 
@@ -885,7 +902,12 @@ export class GameRoomService {
       );
       const playerUps = room.powerUps?.[playerId];
       const qKey = String(room.currentIndex);
-      const decision = resolveFiftyFiftyRequest({
+      const usedSlot = playerUps?.used?.[String(request.slot)] != null;
+      const usedOnQuestion = Object.values(playerUps?.used ?? {}).some(
+        (q) => q === room.currentIndex,
+      );
+      const alreadyEliminated = playerUps?.eliminated?.[qKey] ?? [];
+      const gate = {
         phase: room.phase,
         questionIndex: room.currentIndex,
         answerOpensAt: question.answerOpensAt,
@@ -893,12 +915,30 @@ export class GameRoomService {
         now: this.serverTime.nowMs(),
         slots: room.config.powerUpSlots,
         request,
-        usedSlot: playerUps?.used?.[String(request.slot)] != null,
-        usedOnQuestion: Object.values(playerUps?.used ?? {}).some(
-          (q) => q === room.currentIndex,
-        ),
+        usedSlot,
+        usedOnQuestion,
         correctIndex: displayCorrect,
-        alreadyEliminated: playerUps?.eliminated?.[qKey] ?? [],
+        alreadyEliminated,
+      };
+
+      if (request.type === 'second_chance') {
+        const decision = resolveSecondChanceRequest(gate);
+        const updates: Record<string, unknown> = {
+          [`powerUpRequests/${playerId}`]: null,
+        };
+        if (decision) {
+          updates[`powerUps/${playerId}/used/${request.slot}`] = room.currentIndex;
+          updates[`powerUps/${playerId}/probes/${room.currentIndex}`] = {
+            choice: decision.choice,
+            correct: decision.correct,
+          };
+        }
+        await this.patch(code, updates);
+        return;
+      }
+
+      const decision = resolveFiftyFiftyRequest({
+        ...gate,
         existingChoice: room.answers[qKey]?.[playerId]?.choice ?? null,
       });
 

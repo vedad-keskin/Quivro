@@ -101,7 +101,7 @@ import { SettingsChips } from '../../shared/settings-chips';
                 @for (slot of r.config.powerUpSlots; track $index) {
                   <span class="reel">
                     @if (powerUpIcon(slot); as icon) {
-                      <img [src]="icon" [alt]="lang.t().powerUpFifty" />
+                      <img [src]="icon" [alt]="powerUpLabel(slot)" />
                     } @else {
                       <span aria-hidden="true">–</span>
                     }
@@ -534,6 +534,11 @@ export class LobbyPage implements OnInit, OnDestroy {
 
   powerUpIcon(slot: PowerUpSlot): string | undefined {
     return POWER_UP_CATALOG.find((p) => p.id === slot)?.icon;
+  }
+
+  powerUpLabel(slot: PowerUpSlot): string {
+    const item = POWER_UP_CATALOG.find((p) => p.id === slot);
+    return item ? this.lang.t()[item.labelKey] : '';
   }
 
   readonly playerList = computed(() =>

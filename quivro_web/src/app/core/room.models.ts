@@ -56,14 +56,14 @@ export interface PlayerAnswer {
 
 export type ScoringMode = 'timed' | 'standard';
 
-export type PowerUpId = 'fifty_fifty';
+export type PowerUpId = 'fifty_fifty' | 'second_chance';
 export type PowerUpSlot = PowerUpId | null;
 export type PowerUpSlots = [PowerUpSlot, PowerUpSlot, PowerUpSlot];
 
 export const POWER_UP_CATALOG: readonly {
   id: PowerUpId;
-  labelKey: 'powerUpFifty';
-  descKey: 'descPowerUpFifty';
+  labelKey: 'powerUpFifty' | 'powerUpSecond';
+  descKey: 'descPowerUpFifty' | 'descPowerUpSecond';
   icon: string;
 }[] = [
   {
@@ -71,6 +71,12 @@ export const POWER_UP_CATALOG: readonly {
     labelKey: 'powerUpFifty',
     descKey: 'descPowerUpFifty',
     icon: '/room-icons/fifty_fifty.png',
+  },
+  {
+    id: 'second_chance',
+    labelKey: 'powerUpSecond',
+    descKey: 'descPowerUpSecond',
+    icon: '/room-icons/second_chance.png',
   },
 ];
 
@@ -147,6 +153,13 @@ export interface PowerUpRequest {
   type: PowerUpId;
   questionIndex: number;
   at: number;
+  /** Set for second_chance. The option that was checked and submitted. */
+  choice?: number;
+}
+
+export interface PowerUpProbe {
+  choice: number;
+  correct: boolean;
 }
 
 export interface PlayerPowerUpState {
@@ -154,6 +167,8 @@ export interface PlayerPowerUpState {
   used: Record<string, number>;
   /** Question index → option indices hidden for that player. */
   eliminated: Record<string, number[]>;
+  /** Question index → the checked option and whether it was right. */
+  probes: Record<string, PowerUpProbe>;
 }
 
 export interface FiftyFiftyDecision {
@@ -199,6 +214,61 @@ export function resolveFiftyFiftyRequest(input: {
   };
 }
 
+export interface SecondChanceDecision {
+  choice: number;
+  correct: boolean;
+}
+
+/** Host gate for one Second Chance check. Null means reject and do not spend the slot. */
+export function resolveSecondChanceRequest(input: {
+  phase: string;
+  questionIndex: number;
+  answerOpensAt: number;
+  endsAt: number;
+  now: number;
+  slots: PowerUpSlots;
+  request: { slot: number; type: string; questionIndex: number; choice?: number };
+  usedSlot: boolean;
+  usedOnQuestion: boolean;
+  correctIndex: number;
+  alreadyEliminated: readonly number[];
+}): SecondChanceDecision | null {
+  if (input.phase !== 'question') return null;
+  if (input.now < input.answerOpensAt || input.now > input.endsAt) return null;
+  if (input.request.questionIndex !== input.questionIndex) return null;
+  if (input.request.type !== 'second_chance') return null;
+  const slot = input.request.slot;
+  if (!Number.isInteger(slot) || slot < 0 || slot > 2) return null;
+  if (input.slots[slot] !== 'second_chance') return null;
+  if (input.usedSlot || input.usedOnQuestion) return null;
+  const choice = input.request.choice;
+  if (choice == null || !Number.isInteger(choice) || choice < 0 || choice > 3) return null;
+  if (input.alreadyEliminated.includes(choice)) return null;
+  if (!Number.isInteger(input.correctIndex) || input.correctIndex < 0 || input.correctIndex > 3) {
+    return null;
+  }
+  return { choice, correct: choice === input.correctIndex };
+}
+
+/** Probes the player never locked. Host writes these at the buzzer before scoring. */
+export function answersFromUnconfirmedProbes(input: {
+  playerIds: readonly string[];
+  answers: Readonly<Record<string, { choice: number } | undefined>>;
+  probes: Readonly<Record<string, PowerUpProbe | undefined>>;
+  endsAt: number;
+}): Record<string, { choice: number; answeredAt: number }> {
+  const filled: Record<string, { choice: number; answeredAt: number }> = {};
+  for (const playerId of input.playerIds) {
+    if (input.answers[playerId]) continue;
+    const probe = input.probes[playerId];
+    if (!probe || !Number.isInteger(probe.choice) || probe.choice < 0 || probe.choice > 3) {
+      continue;
+    }
+    filled[playerId] = { choice: probe.choice, answeredAt: input.endsAt };
+  }
+  return filled;
+}
+
 export function parsePowerUpRequests(value: unknown): Record<string, PowerUpRequest> {
   if (!value || typeof value !== 'object') return {};
   const out: Record<string, PowerUpRequest> = {};
@@ -211,11 +281,20 @@ export function parsePowerUpRequests(value: unknown): Record<string, PowerUpRequ
     if (!isPowerUpId(req['type'])) continue;
     if (!Number.isInteger(slot) || slot < 0 || slot > 2) continue;
     if (!Number.isFinite(questionIndex) || !Number.isFinite(at)) continue;
+    const choiceRaw = req['choice'];
+    let choice: number | undefined;
+    if (choiceRaw != null) {
+      const n = Number(choiceRaw);
+      if (Number.isInteger(n) && n >= 0 && n <= 3) choice = n;
+      else if (req['type'] === 'second_chance') continue;
+    }
+    if (req['type'] === 'second_chance' && choice == null) continue;
     out[playerId] = {
       slot,
       type: req['type'],
       questionIndex,
       at,
+      ...(choice != null ? { choice } : {}),
     };
   }
   return out;
@@ -246,7 +325,19 @@ export function parsePowerUps(value: unknown): Record<string, PlayerPowerUpState
         if (nums.length) eliminated[qIndex] = nums;
       }
     }
-    out[playerId] = { used, eliminated };
+    const probes: Record<string, PowerUpProbe> = {};
+    const probeRaw = node['probes'];
+    if (probeRaw && typeof probeRaw === 'object') {
+      for (const [qIndex, raw] of Object.entries(probeRaw as Record<string, unknown>)) {
+        if (!raw || typeof raw !== 'object') continue;
+        const probe = raw as Record<string, unknown>;
+        const choice = Number(probe['choice']);
+        if (!Number.isInteger(choice) || choice < 0 || choice > 3) continue;
+        if (typeof probe['correct'] !== 'boolean') continue;
+        probes[qIndex] = { choice, correct: probe['correct'] };
+      }
+    }
+    out[playerId] = { used, eliminated, probes };
   }
   return out;
 }

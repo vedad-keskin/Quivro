@@ -38,8 +38,11 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
   late PlayerProfile _profile;
   bool _submitting = false;
   int? _picked;
+  int? _checked;
   int _trackedQuestion = -1;
   int? _pendingSlot;
+  int? _armedSlot;
+  int? _probeSoundedAt;
   bool _powerUpArmed = false;
   RoomState? _latestRoom;
   RoomState? _powerUpBaseline;
@@ -218,11 +221,67 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
       return;
     }
 
-    final currentChoice = _picked ?? room.choiceOf(widget.playerId);
-    setState(() => _picked = choice);
-    if (currentChoice == choice) return;
+    final armed = _armedSlot;
+    final currentChoice = _picked ?? _checked ?? room.choiceOf(widget.playerId);
+    final lockSame =
+        armed == null && room.sameTileLocksProbe(widget.playerId, choice);
+    if (armed == null && currentChoice == choice && !lockSame) return;
 
-    setState(() => _submitting = true);
+    if (armed != null) {
+      setState(() {
+        _checked = choice;
+        _picked = null;
+        _armedSlot = null;
+        _pendingSlot = armed;
+        _powerUpArmed = false;
+        _powerUpBaseline = null;
+        _submitting = true;
+      });
+      try {
+        if (room.hasAnswered(widget.playerId)) {
+          await _repo.clearAnswer(
+            code: widget.code,
+            questionIndex: room.currentIndex,
+            playerId: widget.playerId,
+          );
+        }
+        await _repo.requestPowerUp(
+          code: widget.code,
+          playerId: widget.playerId,
+          slot: armed,
+          questionIndex: room.currentIndex,
+          choice: choice,
+        );
+        if (!mounted) return;
+        setState(() {
+          _powerUpArmed = true;
+          _powerUpBaseline = _latestRoom;
+        });
+      } catch (_) {
+        if (!mounted) return;
+        setState(() {
+          _pendingSlot = null;
+          _checked = null;
+          _picked = null;
+          _powerUpArmed = false;
+          _powerUpBaseline = null;
+        });
+        showQuivroSnack(
+          context,
+          context.strings.couldNotUsePowerUp,
+          kind: QuivroSnackKind.error,
+        );
+      } finally {
+        if (mounted) setState(() => _submitting = false);
+      }
+      return;
+    }
+
+    setState(() {
+      _picked = choice;
+      _checked = null;
+      _submitting = true;
+    });
     unawaited(_sfx.playGuess());
     try {
       await _repo.submitAnswer(
@@ -245,7 +304,7 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
   }
 
   Future<void> _usePowerUp(RoomState room, int slot) async {
-    if (_pendingSlot != null) return;
+    if (_pendingSlot != null || _armedSlot != null) return;
     final now = _repo.nowMs();
     if (!PowerUpRequestPolicy.canRequest(
       room: room,
@@ -254,6 +313,12 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
       questionIndex: room.currentIndex,
       nowMs: now,
     )) {
+      return;
+    }
+
+    if (room.powerUpSlots[slot] == powerUpSecondChance) {
+      setState(() => _armedSlot = slot);
+      unawaited(_sfx.playSecondChance());
       return;
     }
 
@@ -310,6 +375,17 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
         _powerUpArmed = false;
         _powerUpBaseline = null;
       });
+    });
+  }
+
+  void _syncProbe(RoomState room) {
+    final probe = room.probeFor(widget.playerId);
+    if (probe == null || _probeSoundedAt == room.currentIndex) return;
+    _probeSoundedAt = room.currentIndex;
+    final correct = probe.correct;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      unawaited(correct ? _sfx.playSecondCorrect() : _sfx.playSecondWrong());
     });
   }
 
@@ -416,7 +492,10 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
             setState(() {
               _trackedQuestion = room.currentIndex;
               _picked = room.choiceOf(widget.playerId);
+              _checked = null;
               _pendingSlot = null;
+              _armedSlot = null;
+              _probeSoundedAt = null;
               _powerUpArmed = false;
               _powerUpBaseline = null;
             });
@@ -431,6 +510,7 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
           });
         }
         _syncPowerUp(room);
+        _syncProbe(room);
 
         if (room.phase == 'lobby') {
           return _LobbyView(
@@ -475,6 +555,7 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
           profile: _profile,
           picked: picked,
           pendingSlot: _pendingSlot,
+          armedSlot: _armedSlot,
           onPick: (i) => _answer(room, i),
           onUsePowerUp: (slot) => unawaited(_usePowerUp(room, slot)),
           nowMs: _repo.nowMs,
@@ -693,6 +774,7 @@ class _PlayView extends StatefulWidget {
     required this.profile,
     required this.picked,
     required this.pendingSlot,
+    required this.armedSlot,
     required this.onPick,
     required this.onUsePowerUp,
     required this.nowMs,
@@ -704,6 +786,7 @@ class _PlayView extends StatefulWidget {
   final PlayerProfile profile;
   final int? picked;
   final int? pendingSlot;
+  final int? armedSlot;
   final ValueChanged<int> onPick;
   final ValueChanged<int> onUsePowerUp;
   final int Function() nowMs;
@@ -741,7 +824,10 @@ class _PlayViewState extends State<_PlayView> {
     final waitingForTv = room.phase == 'question' && now < q.answerOpensAt;
     final locked = room.phase != 'question' || waitingForTv || now > q.endsAt;
     final hidden = room.eliminatedChoices(widget.playerId);
+    final probe = room.probeFor(widget.playerId);
     final showPowerUps = room.hasPowerUps;
+    bool? verdictFor(int index) =>
+        probe != null && probe.choice == index ? probe.correct : null;
 
     final ink = showInk(context);
     return Scaffold(
@@ -844,7 +930,14 @@ class _PlayViewState extends State<_PlayView> {
                 waitingForTv
                     ? strings.lookAtTv
                     : room.phase == 'question'
-                    ? strings.tapToChange
+                    ? (widget.armedSlot != null
+                          ? strings.tapToCheck
+                          : room.sameTileLocksProbe(
+                              widget.playerId,
+                              room.probeFor(widget.playerId)?.choice ?? -1,
+                            )
+                          ? strings.tapToLock
+                          : strings.tapToChange)
                     : strings.answersLocked,
                 style: GoogleFonts.nunito(
                   fontWeight: FontWeight.w800,
@@ -865,6 +958,7 @@ class _PlayViewState extends State<_PlayView> {
                               index: 0,
                               selected: widget.picked == 0,
                               eliminated: hidden.contains(0),
+                              probeCorrect: verdictFor(0),
                               enabled: !locked && !hidden.contains(0),
                               onTap: () => widget.onPick(0),
                             ),
@@ -875,6 +969,7 @@ class _PlayViewState extends State<_PlayView> {
                               index: 1,
                               selected: widget.picked == 1,
                               eliminated: hidden.contains(1),
+                              probeCorrect: verdictFor(1),
                               enabled: !locked && !hidden.contains(1),
                               onTap: () => widget.onPick(1),
                             ),
@@ -891,6 +986,7 @@ class _PlayViewState extends State<_PlayView> {
                               index: 2,
                               selected: widget.picked == 2,
                               eliminated: hidden.contains(2),
+                              probeCorrect: verdictFor(2),
                               enabled: !locked && !hidden.contains(2),
                               onTap: () => widget.onPick(2),
                             ),
@@ -901,6 +997,7 @@ class _PlayViewState extends State<_PlayView> {
                               index: 3,
                               selected: widget.picked == 3,
                               eliminated: hidden.contains(3),
+                              probeCorrect: verdictFor(3),
                               enabled: !locked && !hidden.contains(3),
                               onTap: () => widget.onPick(3),
                             ),
@@ -913,8 +1010,8 @@ class _PlayViewState extends State<_PlayView> {
                       _PowerUpBar(
                         room: room,
                         playerId: widget.playerId,
-                        locked: locked || widget.pendingSlot != null,
-                        pendingSlot: widget.pendingSlot,
+                        locked: locked || widget.pendingSlot != null || widget.armedSlot != null,
+                        pendingSlot: widget.pendingSlot ?? widget.armedSlot,
                         onUse: widget.onUsePowerUp,
                       ),
                     ],
@@ -934,6 +1031,7 @@ class _AnswerTile extends StatefulWidget {
     required this.index,
     required this.selected,
     required this.eliminated,
+    required this.probeCorrect,
     required this.enabled,
     required this.onTap,
   });
@@ -941,6 +1039,7 @@ class _AnswerTile extends StatefulWidget {
   final int index;
   final bool selected;
   final bool eliminated;
+  final bool? probeCorrect;
   final bool enabled;
   final VoidCallback onTap;
 
@@ -969,6 +1068,10 @@ class _AnswerTileState extends State<_AnswerTile> {
 
     final ink = showInk(context);
     final picked = widget.selected && !widget.eliminated;
+    final verdict = widget.probeCorrect;
+    final borderColor = verdict == null
+        ? (picked ? showBulb : ink)
+        : (verdict ? const Color(0xFF1FA85A) : const Color(0xFFD64545));
     return SizedBox.expand(
       child: GestureDetector(
         onTapDown: tappable ? (_) => _setPressed(true) : null,
@@ -992,7 +1095,7 @@ class _AnswerTileState extends State<_AnswerTile> {
             decoration: BoxDecoration(
               color: fill,
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(width: 3, color: picked ? showBulb : ink),
+              border: Border.all(width: 3, color: borderColor),
               boxShadow: [
                 BoxShadow(
                   color: ink,
@@ -1044,6 +1147,28 @@ class _AnswerTileState extends State<_AnswerTile> {
                             ),
                           ),
                   ),
+                  if (verdict != null)
+                    Positioned(
+                      top: 12,
+                      right: 12,
+                      child: Container(
+                        width: 36,
+                        height: 36,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: verdict
+                              ? const Color(0xFF1FA85A)
+                              : const Color(0xFFD64545),
+                          shape: BoxShape.circle,
+                          border: Border.all(color: showInkDay, width: 2),
+                        ),
+                        child: Icon(
+                          verdict ? Icons.check_rounded : Icons.close_rounded,
+                          size: 22,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                   Positioned(
                     right: 12,
                     bottom: 12,
@@ -1116,7 +1241,8 @@ class _PowerUpBar extends StatelessWidget {
                   !locked &&
                   pendingSlot == null &&
                   !usedOnQuestion &&
-                  room.powerUpSlots[i] == powerUpFiftyFifty &&
+                  (room.powerUpSlots[i] == powerUpFiftyFifty ||
+                      room.powerUpSlots[i] == powerUpSecondChance) &&
                   !room.powerUpSlotUsed(playerId, i),
               onTap: () => onUse(i),
             ),
@@ -1191,7 +1317,9 @@ class _PowerSlotState extends State<_PowerSlot>
 
     return Semantics(
       button: widget.enabled,
-      label: context.strings.fiftyFifty,
+      label: widget.powerUpId == powerUpSecondChance
+          ? context.strings.secondChance
+          : context.strings.fiftyFifty,
       child: GestureDetector(
         onTap: widget.enabled ? widget.onTap : null,
         child: Opacity(
@@ -1204,7 +1332,9 @@ class _PowerSlotState extends State<_PowerSlot>
 
   Widget _filledSlot() {
     final image = Image.asset(
-      'assets/powerups/fifty_fifty.png',
+      widget.powerUpId == powerUpSecondChance
+          ? 'assets/powerups/second_chance.png'
+          : 'assets/powerups/fifty_fifty.png',
       width: 68,
       height: 68,
       fit: BoxFit.cover,

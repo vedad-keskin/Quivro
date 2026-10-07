@@ -51,6 +51,7 @@ import {
   EMPTY_POWER_UP_SLOTS,
   IMAGE_SLIDE_MS,
   POWER_UP_CATALOG,
+  type PowerUpSlot,
   type PowerUpSlots,
   type RoomConfig,
   type RoomPlayer,
@@ -369,8 +370,8 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                           [class.from-up]="$index === slotSlide()?.index && slotSlide()?.dir === 1"
                           [class.from-down]="$index === slotSlide()?.index && slotSlide()?.dir === -1"
                         >
-                          @if (slot === 'fifty_fifty') {
-                            <img class="reel-art" [src]="fiftyFiftyIcon" alt="" />
+                          @if (powerUpOf(slot); as power) {
+                            <img class="reel-art" [src]="power.icon" alt="" />
                           } @else {
                             <span class="slot-plus" aria-hidden="true">+</span>
                           }
@@ -385,11 +386,11 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                         </svg>
                       </button>
                       <div class="reel-copy" [class.empty]="!slot" [attr.aria-live]="'polite'">
-                        <strong>
-                          {{ slot === 'fifty_fifty' ? lang.t().powerUpFifty : lang.t().descPowerUpEmpty }}
-                        </strong>
-                        @if (slot === 'fifty_fifty') {
-                          <span>{{ lang.t().descPowerUpFifty }}</span>
+                        @if (powerUpOf(slot); as power) {
+                          <strong>{{ lang.t()[power.labelKey] }}</strong>
+                          <span>{{ lang.t()[power.descKey] }}</span>
+                        } @else {
+                          <strong>{{ lang.t().descPowerUpEmpty }}</strong>
                         }
                       </div>
                     </div>
@@ -1189,11 +1190,14 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly powerUpSlots = signal<PowerUpSlots>(
     [...EMPTY_POWER_UP_SLOTS] as PowerUpSlots,
   );
-  readonly fiftyFiftyIcon = POWER_UP_CATALOG[0].icon;
   readonly slotSlide = signal<{ index: number; dir: 1 | -1 } | null>(null);
   readonly isQuestionTypeFree = isQuestionTypeFree;
   readonly isPowerUpFree = isPowerUpFree;
   readonly isRoundLengthFree = isRoundLengthFree;
+
+  powerUpOf(slot: PowerUpSlot) {
+    return POWER_UP_CATALOG.find((p) => p.id === slot);
+  }
   readonly categoryInfo: Record<CategoryId, { icon: string; descKey: keyof UiStrings; accent: string }> = {
     geography: { icon: '/room-icons/geo.png', descKey: 'descGeography', accent: 'var(--q-cyan)' },
     biology: { icon: '/room-icons/bio.png', descKey: 'descBiology', accent: 'var(--q-lime)' },
