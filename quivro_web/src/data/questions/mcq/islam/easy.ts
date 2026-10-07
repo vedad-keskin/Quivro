@@ -1072,7 +1072,7 @@ export const islamEasy: Question[] = [
       { en: 'Mu’amalat', bs: 'Muamelati' },
       { en: 'Aqidah', bs: 'Akida' },
       { en: 'Tafsir', bs: 'Tefsir' },
-      { en: 'Hadith studies', bs: 'Nauka o hadisu' },
+      { en: 'Hadith', bs: 'Hadis' },
     ],
     correctIndex: 0,
   },

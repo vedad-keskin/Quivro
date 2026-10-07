@@ -1439,10 +1439,10 @@ export const moviesEasy: Question[] = [
       bs: 'U Legendi o Korri, koji element Korra tek treba savladati na početku?'
     },
     options: [
-      { en: 'Airbending', bs: 'Vazduhom' },
-      { en: 'Waterbending', bs: 'Vodom' },
-      { en: 'Earthbending', bs: 'Zemljom' },
-      { en: 'Firebending', bs: 'Vatrom' },
+      { en: 'Airbending', bs: 'Vazduh' },
+      { en: 'Waterbending', bs: 'Voda' },
+      { en: 'Earthbending', bs: 'Zemlja' },
+      { en: 'Firebending', bs: 'Vatra' },
     ],
     correctIndex: 0,
   },

@@ -1166,7 +1166,7 @@ export const islamHard: Question[] = [
     },
     options: [
       { en: 'Black color', bs: 'Crnu boju' },
-      { en: 'Henna color', bs: 'Boju kane' },
+      { en: 'Blond color', bs: 'Plavu boju' },
       { en: 'Brown color', bs: 'Smeđu boju' },
       { en: 'Red color', bs: 'Crvenu boju' }
     ],
@@ -1450,14 +1450,14 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'How was the inscription arranged on the Prophet’s ﷺ ring?',
-      bs: 'Kako je bio raspoređen natpis na prstenu Poslanika ﷺ?'
+      en: 'How many lines was the inscription on the Prophet’s ﷺ ring written in?',
+      bs: 'U koliko redova je bio ispisan natpis na prstenu Poslanika ﷺ?'
     },
     options: [
-      { en: 'Three lines: Muhammad, Messenger, Allah', bs: 'Tri reda: Muhammed, Poslanik, Allah' },
-      { en: 'One single line', bs: 'Jedan red' },
-      { en: 'Two lines with his name and tribe', bs: 'Dva reda s njegovim imenom i plemenom' },
-      { en: 'Four lines with a dua', bs: 'Četiri reda s dovom' }
+      { en: 'Three lines', bs: 'Tri reda' },
+      { en: 'One line', bs: 'Jedan red' },
+      { en: 'Two lines', bs: 'Dva reda' },
+      { en: 'Four lines', bs: 'Četiri reda' }
     ],
     correctIndex: 0
   },
@@ -1739,14 +1739,14 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'How many days at the beginning of each month did the Prophet ﷺ regularly fast?',
-      bs: 'Koliko dana na početku svakog mjeseca je Poslanik ﷺ postio?'
+      en: 'How many days each month did the Prophet ﷺ regularly fast?',
+      bs: 'Koliko dana svakog mjeseca je Poslanik ﷺ redovno postio?'
     },
     options: [
       { en: 'Three days', bs: 'Tri dana' },
       { en: 'Seven days', bs: 'Sedam dana' },
       { en: 'Ten days', bs: 'Deset dana' },
-      { en: 'The whole month', bs: 'Cijeli mjesec' }
+      { en: 'Twenty days', bs: 'Dvadeset dana' }
     ],
     correctIndex: 0
   },

@@ -1269,11 +1269,14 @@ correctIndex: 0,
     type: 'mcq',
     category: 'biology',
     difficulty: 'hard',
-    prompt: { en: 'Which enlarged fins do flying fish use to glide above the water surface to escape predators?', bs: 'Koja uvećana peraja leteće ribe koriste za klizanje iznad vodene površine i bijeg od grabežljivaca?' },
+    prompt: {
+      en: 'Which fins do flying fish use to glide above the water?',
+      bs: 'Koja peraja leteće ribe koriste za klizanje iznad vode?'
+    },
     options: [
-      { en: 'Gill rakers', bs: 'Škržni trnci' },
-      { en: 'Caudal lobes', bs: 'Repni režnjevi' },
-      { en: 'Dorsal spines', bs: 'Leđne bodlje' },
+      { en: 'Gill rakers', bs: 'Škržne trnce' },
+      { en: 'Caudal fins', bs: 'Repna peraja' },
+      { en: 'Dorsal fins', bs: 'Leđna peraja' },
       { en: 'Pectoral fins', bs: 'Prsna peraja' },
     ],
     correctIndex: 3,

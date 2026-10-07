@@ -135,7 +135,7 @@ class CreditsDialog extends StatelessWidget {
                     right: 14,
                     bottom: 10,
                     child: Text(
-                      'v1.0.4',
+                      'v1.3.0',
                       style: GoogleFonts.nunito(
                         fontSize: 11,
                         fontWeight: FontWeight.w700,
@@ -187,6 +187,7 @@ class _CreditsScrollerState extends State<_CreditsScroller>
   bool _isDragging = false;
   bool _isPaused = false;
   bool _initialDelay = true;
+
 
   static const double _entryHeight = 72.0;
   static const double _entrySpacing = 20.0;

@@ -1554,8 +1554,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'Which egg dish is beaten eggs cooked in a pan, sometimes folded with fillings?',
-      bs: 'Koje jelo od jaja su umućena jaja pečena u tavi, ponekad presavijena s nadjevom?',
+      en: 'Which egg dish is made by beating eggs and cooking them in a pan, often folded with a filling?',
+      bs: 'Koje jelo od jaja se pravi tako što se umućena jaja peku u tavi i često presaviju preko nadjeva?',
     },
     options: [
       { en: 'Hard-boiled egg', bs: 'Tvrdo kuhano jaje' },

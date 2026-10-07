@@ -432,16 +432,16 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'George Washington Carver promoted crop rotation centered on which crops?',
-      bs: 'George Washington Carver je promovisao rotaciju usjeva sa fokusom na koje usjeve?',
+      en: 'Which crop did George Washington Carver famously promote for crop rotation?',
+      bs: 'Koji je usjev George Washington Carver posebno promovisao u plodoredu?',
     },
     options: [
+      { en: 'Peanuts', bs: 'Kikiriki' },
       { en: 'Sugarcane', bs: 'Šećernu trsku' },
-      { en: 'Peanuts and soil renewal', bs: 'Kikiriki i obnovu tla' },
-      { en: 'Cotton monoculture', bs: 'Monokulturu pamuka' },
-      { en: 'Rice terracing', bs: 'Rižine terase' },
+      { en: 'Rice', bs: 'Rižu' },
+      { en: 'Tobacco', bs: 'Duhan' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'fam-hard-027',
