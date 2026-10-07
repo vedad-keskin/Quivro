@@ -987,14 +987,21 @@ class _PlayViewState extends State<_PlayView> {
                 child: Column(
                   children: [
                     Expanded(
-                      child: Row(
+                      child: Stack(
+                        alignment: Alignment.center,
                         children: [
-                          Expanded(
-                            child: _AnswerTile(
-                              index: 0,
+                          Column(
+                            children: [
+                              Expanded(
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: _AnswerTile(
+                                        index: 0,
                               selected: widget.picked == 0,
                               eliminated: hidden.contains(0),
                               probeCorrect: verdictFor(0),
+                              showLock: widget.selfLocked && widget.picked == 0,
                               enabled: !padLocked && !hidden.contains(0),
                               onTap: () => widget.onPick(0),
                             ),
@@ -1006,6 +1013,7 @@ class _PlayViewState extends State<_PlayView> {
                               selected: widget.picked == 1,
                               eliminated: hidden.contains(1),
                               probeCorrect: verdictFor(1),
+                              showLock: widget.selfLocked && widget.picked == 1,
                               enabled: !padLocked && !hidden.contains(1),
                               onTap: () => widget.onPick(1),
                             ),
@@ -1023,6 +1031,7 @@ class _PlayViewState extends State<_PlayView> {
                               selected: widget.picked == 2,
                               eliminated: hidden.contains(2),
                               probeCorrect: verdictFor(2),
+                              showLock: widget.selfLocked && widget.picked == 2,
                               enabled: !padLocked && !hidden.contains(2),
                               onTap: () => widget.onPick(2),
                             ),
@@ -1034,10 +1043,18 @@ class _PlayViewState extends State<_PlayView> {
                               selected: widget.picked == 3,
                               eliminated: hidden.contains(3),
                               probeCorrect: verdictFor(3),
+                              showLock: widget.selfLocked && widget.picked == 3,
                               enabled: !padLocked && !hidden.contains(3),
                               onTap: () => widget.onPick(3),
                             ),
                           ),
+                        ],
+                      ),
+                    ),
+                            ],
+                          ),
+                          if (frozen && !widget.selfLocked)
+                            const IgnorePointer(child: _CenterLock()),
                         ],
                       ),
                     ),
@@ -1063,12 +1080,35 @@ class _PlayViewState extends State<_PlayView> {
   }
 }
 
+class _CenterLock extends StatelessWidget {
+  const _CenterLock();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 72,
+      height: 72,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: showBulb,
+        shape: BoxShape.circle,
+        border: Border.all(color: showInkDay, width: 3),
+        boxShadow: const [
+          BoxShadow(color: showInkDay, offset: Offset(3, 3)),
+        ],
+      ),
+      child: const Icon(Icons.lock_rounded, size: 40, color: showInkDay),
+    );
+  }
+}
+
 class _AnswerTile extends StatefulWidget {
   const _AnswerTile({
     required this.index,
     required this.selected,
     required this.eliminated,
     required this.probeCorrect,
+    required this.showLock,
     required this.enabled,
     required this.onTap,
   });
@@ -1077,6 +1117,7 @@ class _AnswerTile extends StatefulWidget {
   final bool selected;
   final bool eliminated;
   final bool? probeCorrect;
+  final bool showLock;
   final bool enabled;
   final VoidCallback onTap;
 
@@ -1203,6 +1244,32 @@ class _AnswerTileState extends State<_AnswerTile> {
                           verdict ? Icons.check_rounded : Icons.close_rounded,
                           size: 22,
                           color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  if (widget.showLock)
+                    Positioned(
+                      top: verdict == null ? 12 : 56,
+                      right: 12,
+                      child: Container(
+                        width: 36,
+                        height: 36,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: showBulb,
+                          shape: BoxShape.circle,
+                          border: Border.all(color: showInkDay, width: 2),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: showInkDay,
+                              offset: Offset(2, 2),
+                            ),
+                          ],
+                        ),
+                        child: const Icon(
+                          Icons.lock_rounded,
+                          size: 20,
+                          color: showInkDay,
                         ),
                       ),
                     ),
