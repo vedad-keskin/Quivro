@@ -14,6 +14,47 @@ const COLORS = ['var(--answer-a)', 'var(--answer-b)', 'var(--answer-c)', 'var(--
 const LABELS = ['A', 'B', 'C', 'D'];
 const MIN_FONT_PX = 14;
 
+/** Shrink `el`'s font so its `.fit` child stays inside `box` (defaults to `el`). */
+export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): void {
+  const inner = el.querySelector('.fit') as HTMLElement | null;
+  if (!inner) return;
+
+  el.style.fontSize = '';
+  const preferred = parseFloat(getComputedStyle(el).fontSize);
+  if (!Number.isFinite(preferred) || preferred <= 0) return;
+  if (box.clientHeight <= 0 || box.clientWidth <= 0) return;
+
+  const maxPx = preferred;
+  const floor = Math.min(minPx, maxPx);
+  const fits = () => {
+    const pad = getComputedStyle(box);
+    const padY = (parseFloat(pad.paddingTop) || 0) + (parseFloat(pad.paddingBottom) || 0);
+    return (
+      inner.offsetHeight <= box.clientHeight - padY + 1 &&
+      inner.offsetWidth <= box.clientWidth + 1
+    );
+  };
+
+  if (fits()) return;
+
+  let lo = floor;
+  let hi = maxPx;
+  let best = floor;
+
+  while (hi - lo > 0.5) {
+    const mid = (lo + hi) / 2;
+    el.style.fontSize = `${mid}px`;
+    if (fits()) {
+      best = mid;
+      lo = mid;
+    } else {
+      hi = mid;
+    }
+  }
+
+  el.style.fontSize = `${best}px`;
+}
+
 @Component({
   selector: 'app-answer-grid',
   template: `
@@ -78,10 +119,10 @@ const MIN_FONT_PX = 14;
       flex-direction: column;
       align-items: stretch;
       justify-content: flex-start;
-      gap: 0.75rem;
+      gap: 0.5rem;
       min-height: 4.5rem;
       height: 100%;
-      padding: 1.1rem 1.35rem 1.5rem;
+      padding: 0.8rem 1.1rem 0.95rem;
       border: 3px solid var(--ink, #1a1530);
       border-radius: 20px;
       background:
@@ -196,6 +237,9 @@ const MIN_FONT_PX = 14;
       z-index: 1;
       animation: bounce 0.5s ease-out;
     }
+    .reveal .text {
+      padding-bottom: 2.25rem;
+    }
     @media (prefers-reduced-motion: reduce) {
       .check,
       .reveal .answer.correct {
@@ -265,6 +309,7 @@ export class AnswerGrid {
 
     afterRenderEffect(() => {
       this.options();
+      this.revealed();
       this.scheduleFit();
     });
 
@@ -286,41 +331,7 @@ export class AnswerGrid {
   private fitAllTexts(): void {
     const texts = this.host.nativeElement.querySelectorAll('.text');
     for (const node of texts) {
-      this.fitText(node as HTMLElement);
+      fitFont(node as HTMLElement, MIN_FONT_PX);
     }
-  }
-
-  private fitText(el: HTMLElement): void {
-    const inner = el.querySelector('.fit') as HTMLElement | null;
-    if (!inner) return;
-
-    el.style.fontSize = '';
-    const preferred = parseFloat(getComputedStyle(el).fontSize);
-    if (!Number.isFinite(preferred) || preferred <= 0) return;
-
-    const maxPx = preferred;
-    const minPx = Math.min(MIN_FONT_PX, maxPx);
-    const fits = () =>
-      inner.offsetHeight <= el.clientHeight + 1 &&
-      inner.offsetWidth <= el.clientWidth + 1;
-
-    if (fits()) return;
-
-    let lo = minPx;
-    let hi = maxPx;
-    let best = minPx;
-
-    while (hi - lo > 0.5) {
-      const mid = (lo + hi) / 2;
-      el.style.fontSize = `${mid}px`;
-      if (fits()) {
-        best = mid;
-        lo = mid;
-      } else {
-        hi = mid;
-      }
-    }
-
-    el.style.fontSize = `${best}px`;
   }
 }

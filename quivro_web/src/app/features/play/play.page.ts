@@ -1,4 +1,5 @@
 import {
+  afterRenderEffect,
   Component,
   computed,
   DestroyRef,
@@ -60,7 +61,7 @@ import {
 } from '../../core/room.models';
 import { ServerTimeService } from '../../core/server-time.service';
 import { SnackbarService } from '../../core/snackbar.service';
-import { AnswerGrid } from '../../shared/answer-grid';
+import { AnswerGrid, fitFont } from '../../shared/answer-grid';
 import { Leaderboard } from '../../shared/leaderboard';
 import { TimerRing } from '../../shared/timer-ring';
 import { UpgradeDialogService } from '../../shared/upgrade-dialog.service';
@@ -498,9 +499,10 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
 
                 <div
                   class="prompt-block"
+                  #promptBlock
                   [class.dimmed]="imagePhase() === 'preview' || imagePhase() === 'sliding'"
                 >
-                  <h1 class="prompt">{{ q.prompt }}</h1>
+                  <h1 class="prompt"><span class="fit">{{ q.prompt }}</span></h1>
                 </div>
 
                 <div class="answered-row">
@@ -692,7 +694,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       flex-direction: column;
       gap: 0.9rem;
       padding: clamp(1rem, 2vw, 1.6rem);
-      padding-bottom: 5rem;
+      padding-bottom: 3.6rem;
       height: 100%;
       overflow: hidden;
     }
@@ -844,6 +846,9 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
     }
     .prompt-block {
       flex-shrink: 0;
+      max-height: min(34%, 18vh);
+      min-height: 0;
+      overflow: hidden;
     }
     .prompt {
       margin: 0;
@@ -852,6 +857,10 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       font-size: clamp(1.9rem, 4.2vw, 3.1rem);
       line-height: 1.15;
       font-weight: 900;
+    }
+    .prompt .fit {
+      display: block;
+      overflow-wrap: break-word;
     }
     .answered-row {
       display: flex;
@@ -1174,6 +1183,7 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly avatarEmoji = avatarEmoji;
   readonly answeredStrip = viewChild<ElementRef<HTMLElement>>('answeredStrip');
   readonly tvRoot = viewChild<ElementRef<HTMLElement>>('tvRoot');
+  readonly promptBlock = viewChild<ElementRef<HTMLElement>>('promptBlock');
 
   readonly categories = CATEGORIES;
   readonly questionTypes = QUESTION_TYPES;
@@ -1234,7 +1244,11 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly activeImageUrl = signal<string | null>(null);
   /** Ticks so answersOpen() / timer gate stay in sync with server time. */
   readonly clock = signal(0);
+  private readonly promptText = computed(() => this.room()?.currentQuestion?.prompt ?? null);
   private configSynced = false;
+  private promptObserver: ResizeObserver | null = null;
+  private promptStage: Element | null = null;
+  private promptFitScheduled = false;
 
   private code = '';
   /** Tracks which question index has already been sent to reveal (prevents double-fire). */
@@ -1314,6 +1328,20 @@ export class PlayPage implements OnInit, OnDestroy {
   );
 
   constructor() {
+    afterRenderEffect(() => {
+      const prompt = this.promptText();
+      const block = this.promptBlock()?.nativeElement;
+      if (!block || prompt == null) return;
+      const stage = block.closest('.qstage');
+      if (stage && this.promptStage !== stage) {
+        this.promptObserver?.disconnect();
+        this.promptObserver = new ResizeObserver(() => this.schedulePromptFit());
+        this.promptObserver.observe(stage);
+        this.promptStage = stage;
+      }
+      this.schedulePromptFit();
+    });
+
     // The finished round may have been configured while Pro was active, so the
     // rematch form has to be re-clamped once the entitlement resolves.
     effect(() => {
@@ -1424,6 +1452,19 @@ export class PlayPage implements OnInit, OnDestroy {
       });
   }
 
+  private schedulePromptFit(): void {
+    if (this.promptFitScheduled) return;
+    this.promptFitScheduled = true;
+    requestAnimationFrame(() => {
+      this.promptFitScheduled = false;
+      const block = this.promptBlock()?.nativeElement;
+      const prompt = block?.querySelector('.prompt') as HTMLElement | null;
+      if (!block || !prompt) return;
+      const rootPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+      fitFont(prompt, 1.25 * rootPx, block);
+    });
+  }
+
   private syncImagePresentation(r: {
     phase: string;
     currentQuestion: {
@@ -1502,6 +1543,9 @@ export class PlayPage implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.promptObserver?.disconnect();
+    this.promptObserver = null;
+    this.promptStage = null;
     // Implicit teardown (back nav, tab close) must NOT delete the room — a real
     // tab close arms the host onDisconnect marker; expired/abandoned rooms are
     // reaped lazily + by the sweep. Explicit exit uses goHome().
