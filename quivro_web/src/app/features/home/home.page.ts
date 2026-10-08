@@ -520,7 +520,7 @@ function pile(slides: readonly Slide[], index: number): Layer[] {
   if (!slides.length || !slides[index]) return [];
   const ahead = slides
     .map((slide, i) => ({ slide, i, n: i + 1 }))
-    .filter((layer) => layer.i > index)
+    .filter((layer) => layer.i > index && layer.i <= index + 2)
     .sort((a, b) => b.i - a.i)
     .map((layer) => ({
       slide: layer.slide,
