@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../core/settings.dart';
 import '../core/strings.dart';
 import '../core/theme.dart';
 import 'quivro_snackbar.dart';
@@ -21,7 +20,7 @@ class HostTvChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final palette = context.palette;
+    final night = Theme.of(context).brightness == Brightness.dark;
     return Semantics(
       button: true,
       label: context.strings.hostHintTitle,
@@ -31,14 +30,14 @@ class HostTvChip extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           decoration: showPanel(
             ink: showInk(context),
-            fill: palette.card,
+            fill: night ? context.palette.card : Colors.white,
             radius: 12,
             shadow: const Offset(0, 4),
           ),
           child: Icon(
             Icons.tv,
             size: 16,
-            color: context.settings.isNight ? Colors.white : showInkDay,
+            color: night ? Colors.white : showInkDay,
           ),
         ),
       ),

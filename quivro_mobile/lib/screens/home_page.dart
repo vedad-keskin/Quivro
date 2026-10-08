@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> {
   final _code = TextEditingController();
   final _codeFocus = FocusNode();
   final _hostHintKey = GlobalKey<HostHintState>();
+  final _newsKey = GlobalKey<NewsPileState>();
   final _hostChipKey = GlobalKey();
   final _hostProgress = ValueNotifier<double>(1);
   final _repo = RoomRepository();
@@ -399,11 +400,8 @@ class _HomePageState extends State<HomePage> {
                               const Expanded(
                                 child: Center(child: SettingsChips()),
                               ),
-                              const IgnorePointer(
-                                child: Opacity(
-                                  opacity: 0,
-                                  child: HostTvChip(onTap: _keepChipsCentered),
-                                ),
+                              NewsStamp(
+                                onTap: () => _newsKey.currentState?.openAll(),
                               ),
                             ],
                           ),
@@ -428,15 +426,13 @@ class _HomePageState extends State<HomePage> {
                 anchorKey: _hostChipKey,
               ),
             ),
-            const Positioned.fill(child: NewsPile()),
+            Positioned.fill(child: NewsPile(key: _newsKey)),
           ],
         ),
       ),
     );
   }
 }
-
-void _keepChipsCentered() {}
 
 class _UpperCaseFormatter extends TextInputFormatter {
   @override

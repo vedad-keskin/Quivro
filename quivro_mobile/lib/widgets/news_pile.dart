@@ -74,6 +74,16 @@ const newsDrops = <NewsDrop>[
         bodyBs:
             'Znaš odgovor i želiš prednost? Zaključaj sebe i nasumičnog protivnika iz pitanja. Ti si siguran, dok protivnik gubi mogućnost odgovaranja.',
       ),
+            NewsCard(
+        image: 'assets/powerups/lock_up.png',
+        accent: Color(0xFFEC4899),
+        titleEn: 'Lock Up is here',
+        titleBs: 'Lock Up je stigao',
+        bodyEn:
+            'Know the answer and want an advantage? Lock yourself and a random opponent out of the question. You stay safe while your opponent loses the chance to answer.',
+        bodyBs:
+            'Znaš odgovor i želiš prednost? Zaključaj sebe i nasumičnog protivnika iz pitanja. Ti si siguran, dok protivnik gubi mogućnost odgovaranja.',
+      ),
     ],
   ),
 ];
@@ -99,24 +109,44 @@ class NewsPile extends StatefulWidget {
   const NewsPile({super.key});
 
   @override
-  State<NewsPile> createState() => _NewsPileState();
+  State<NewsPile> createState() => NewsPileState();
 }
 
-class _NewsPileState extends State<NewsPile> {
+class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin {
   var _ready = false;
   var _open = false;
   var _all = false;
   var _busy = false;
-  var _leaving = false;
-  var _dragging = false;
+  var _snapping = false;
+  var _dir = 0;
   var _index = 0;
   var _drag = 0.0;
+  var _snapFrom = 0.0;
   List<String> _seen = const [];
+  late final AnimationController _commit;
 
   @override
   void initState() {
     super.initState();
+    _commit = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 240),
+    )..addListener(() {
+      if (_snapping) {
+        setState(() => _drag = _snapFrom * (1 - _commit.value));
+      } else {
+        setState(() {});
+      }
+    })..addStatusListener((status) {
+      if (status == AnimationStatus.completed) _onCommitDone();
+    });
     _load();
+  }
+
+  @override
+  void dispose() {
+    _commit.dispose();
+    super.dispose();
   }
 
   Future<void> _load() async {
@@ -144,8 +174,8 @@ class _NewsPileState extends State<NewsPile> {
 
   bool get _reduce => MediaQuery.disableAnimationsOf(context);
 
-  void _openAll() {
-    if (_open || newsDrops.isEmpty) return;
+  void openAll() {
+    if (!_ready || _open || newsDrops.isEmpty) return;
     setState(() {
       _all = true;
       _index = 0;
@@ -156,81 +186,79 @@ class _NewsPileState extends State<NewsPile> {
 
   Future<void> _close() async {
     final ids = {..._seen, ..._slides.map((slide) => slide.dropId)}.toList();
+    if (mounted) setState(() => _open = false);
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_seenKey, jsonEncode(ids));
     if (!mounted) return;
     setState(() {
       _seen = ids;
-      _open = false;
       _all = false;
       _index = 0;
       _drag = 0;
-      _leaving = false;
+      _dir = 0;
       _busy = false;
+      _snapping = false;
     });
+    _commit.value = 0;
   }
 
-  Future<void> _finish() async {
-    if (_busy) return;
+  void _onCommitDone() {
+    if (!mounted) return;
+    if (_snapping) {
+      setState(() {
+        _snapping = false;
+        _drag = 0;
+        _busy = false;
+      });
+      _commit.value = 0;
+      return;
+    }
+    final dir = _dir;
+    final done = dir > 0 && _index + 1 >= _slides.length;
+    if (done) {
+      _close();
+      return;
+    }
+    setState(() {
+      _dir = 0;
+      _drag = 0;
+      _busy = false;
+      if (dir > 0) _index += 1;
+      if (dir < 0 && _index > 0) _index -= 1;
+    });
+    _commit.value = 0;
+  }
+
+  void _snapBack() {
+    _snapFrom = _drag;
+    _snapping = true;
+    _busy = true;
+    _commit.forward(from: 0);
+  }
+
+  Future<void> _step(int delta) async {
+    if (_busy || _dir != 0) return;
+    final next = _index + delta;
+    if (next < 0) return;
     if (_reduce) {
-      await _close();
+      if (next >= _slides.length) {
+        await _close();
+      } else {
+        setState(() => _index = next);
+      }
       return;
     }
     setState(() {
       _busy = true;
-      _leaving = true;
-      _drag = 0;
+      _dir = delta > 0 ? 1 : -1;
     });
-    await Future<void>.delayed(const Duration(milliseconds: 240));
-    if (!mounted) return;
-    await _close();
-  }
-
-  Future<void> _step(int delta) async {
-    if (_busy) return;
-    final next = _index + delta;
-    if (next < 0) return;
-    if (next >= _slides.length) {
-      await _finish();
-      return;
-    }
-    if (delta > 0 && !_reduce) {
-      setState(() {
-        _busy = true;
-        _leaving = true;
-        _drag = 0;
-      });
-      await Future<void>.delayed(const Duration(milliseconds: 240));
-      if (!mounted) return;
-      setState(() {
-        _index = next;
-        _leaving = false;
-        _busy = false;
-        _drag = 0;
-      });
-      return;
-    }
-    setState(() {
-      _index = next;
-      _drag = 0;
-    });
+    _commit.forward(from: 0);
   }
 
   @override
   Widget build(BuildContext context) {
-    if (!_ready) return const SizedBox.shrink();
-    final bottom = MediaQuery.paddingOf(context).bottom;
-    return Stack(
-      children: [
-        Positioned(
-          right: 16,
-          bottom: bottom + 12,
-          child: _Stamp(onTap: _openAll),
-        ),
-        if (_open && _slides.isNotEmpty)
-          Positioned.fill(child: _sheet(context)),
-      ],
-    );
+    if (!_ready || !_open || _slides.isEmpty) return const SizedBox.shrink();
+    return _sheet(context);
   }
 
   Widget _sheet(BuildContext context) {
@@ -238,96 +266,67 @@ class _NewsPileState extends State<NewsPile> {
     final bs = Settings.of(context).language == AppLanguage.bs;
     final slides = _slides;
     final index = _index.clamp(0, slides.length - 1);
-    final slide = slides[index];
-    final ahead = <({_Slide slide, int back, int n})>[
-      for (var i = slides.length - 1; i > index; i--)
-        (slide: slides[i], back: i - index, n: i + 1),
-    ];
-    final last = index == slides.length - 1;
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        final width = math.min(400.0, constraints.maxWidth - 56);
+        const inset = 32.0;
+        const padTop = 36.0;
+        const padBottom = 16.0;
+        final width = math.min(400.0, constraints.maxWidth - inset * 2 - 24);
+        final maxHeight = constraints.maxHeight - padTop - padBottom;
+        final shown = <int>[
+          for (var i = 0; i < slides.length; i++)
+            if (_shows(i, index, slides.length)) i,
+        ]..sort((a, b) => _layerZ(a, index).compareTo(_layerZ(b, index)));
         return GestureDetector(
           onTap: _close,
           child: ColoredBox(
             color: const Color(0x99060C20),
-            child: Center(
-              child: GestureDetector(
-                onTap: () {},
-                onHorizontalDragStart: (_) => setState(() => _dragging = true),
-                onHorizontalDragUpdate: (details) {
-                  if (_busy) return;
-                  setState(() => _drag += details.delta.dx);
-                },
-                onHorizontalDragEnd: (details) {
-                  final velocity = details.primaryVelocity ?? 0;
-                  final drag = _drag;
-                  final next = drag < -72 || velocity < -500;
-                  final prev = !next && (drag > 72 || velocity > 500);
-                  if (!next && !prev) {
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(inset, padTop, inset, padBottom),
+              child: Center(
+                child: GestureDetector(
+                  onTap: () {},
+                  onHorizontalDragUpdate: (details) {
+                    if (_busy) return;
                     setState(() {
-                      _dragging = false;
-                      _drag = 0;
+                      _drag += details.delta.dx;
+                      if (index == 0 && _drag > 0) _drag = 0;
                     });
-                    return;
-                  }
-                  setState(() => _dragging = false);
-                  if (next) {
-                    _step(1);
-                  } else {
-                    _step(-1);
-                  }
-                },
-                child: SizedBox(
-                  width: width + 36,
-                  child: Stack(
-                    clipBehavior: Clip.none,
-                    children: [
-                      for (final peek in ahead)
-                        Positioned(
-                          left: peek.back * 14,
-                          top: peek.back * 12,
-                          right: 36 - peek.back * 14,
-                          bottom: -peek.back * 12,
-                          child: DecoratedBox(
-                            decoration: showPanel(
-                              ink: showInk(context),
-                              fill: Color.alphaBlend(
-                                peek.slide.card.accent.withValues(alpha: 0.24),
-                                context.palette.card,
-                              ),
-                            ),
-                          ),
-                        ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 36),
-                        child: TweenAnimationBuilder<double>(
-                          tween: Tween(
-                            end: _leaving ? -width * 1.15 : _drag,
-                          ),
-                          duration: _dragging
-                              ? Duration.zero
-                              : const Duration(milliseconds: 240),
-                          curve: Curves.easeOut,
-                          builder: (context, x, child) => Transform.translate(
-                            offset: Offset(x, 0),
-                            child: Transform.rotate(
-                              angle: -0.035,
-                              child: child,
-                            ),
-                          ),
-                          child: _card(
+                  },
+                  onHorizontalDragEnd: (details) {
+                    if (_busy) return;
+                    final velocity = details.primaryVelocity ?? 0;
+                    final drag = _drag;
+                    final next = drag < -72 || velocity < -500;
+                    final prev =
+                        index > 0 && !next && (drag > 72 || velocity > 500);
+                    if (next) {
+                      _step(1);
+                    } else if (prev) {
+                      _step(-1);
+                    } else {
+                      _snapBack();
+                    }
+                  },
+                  child: SizedBox(
+                    width: width,
+                    child: Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        for (final i in shown)
+                          _placed(
                             context,
-                            slide: slide,
-                            n: index + 1,
+                            i: i,
+                            index: index,
+                            width: width,
+                            slides: slides,
+                            maxHeight: maxHeight,
                             bs: bs,
                             strings: strings,
-                            last: last,
                           ),
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -338,13 +337,112 @@ class _NewsPileState extends State<NewsPile> {
     );
   }
 
+  bool _shows(int i, int index, int length) {
+    if (i < 0 || i >= length) return false;
+    if (i == index) return true;
+    if (i > index && i <= index + 2) return true;
+    return i == index - 1 && _dir < 0;
+  }
+
+  int _layerZ(int i, int index) {
+    if (_dir > 0 && i == index) return 100;
+    if (_dir < 0 && i == index - 1) return 90;
+    if (i == index) return 80;
+    return 20 - (i - index);
+  }
+
+  Offset _cardOffset(int i, int index, double width) {
+    final t = _dir == 0 ? 0.0 : _commit.value;
+    if (_dir > 0) {
+      if (i == index) return Offset(_mix(_drag, -width * 1.15, t), 0);
+      final back = (i - index) - t;
+      return Offset(back * 14, back * 12);
+    }
+    if (_dir < 0) {
+      if (i == index) return Offset(_mix(_drag, 14, t), _mix(0, 12, t));
+      if (i == index - 1) return Offset(_mix(-72, 0, t), 0);
+      final depth = (i - index).toDouble();
+      return Offset(_mix(_drag + depth * 14, (depth + 1) * 14, t), (depth + t) * 12);
+    }
+    if (i == index) return Offset(_drag, 0);
+    final depth = (i - index).toDouble();
+    if (_drag > 0) return Offset(_drag + depth * 14, depth * 12);
+    final pull = (-_drag / 140).clamp(0.0, 1.0);
+    final back = depth - pull;
+    return Offset(back * 14, back * 12);
+  }
+
+  double _mix(double a, double b, double t) => a + (b - a) * t;
+
+  /// Peek cards sit at a slight positive tilt. The front card rocks to a
+  /// negative tilt along the same progress as the slide.
+  double _tilt(int i, int index) {
+    const peek = 0.02;
+    const face = -0.035;
+    final t = _dir == 0 ? 0.0 : _commit.value;
+    final forwardPull = _drag < 0 ? (-_drag / 140).clamp(0.0, 1.0) : 0.0;
+    final backPull = _drag > 0 ? (_drag / 140).clamp(0.0, 1.0) : 0.0;
+    if (_dir > 0) {
+      if (i == index) return _mix(_mix(face, peek, forwardPull), peek, t);
+      if (i == index + 1) return _mix(_mix(peek, face, forwardPull), face, t);
+      return peek;
+    }
+    if (_dir < 0) {
+      if (i == index) return _mix(face, peek, t);
+      if (i == index - 1) return _mix(_mix(peek, face, backPull), face, t);
+      return peek;
+    }
+    if (i == index) return _mix(face, peek, forwardPull);
+    if (i == index + 1) return _mix(peek, face, forwardPull);
+    if (i == index - 1) return _mix(peek, face, backPull);
+    return peek;
+  }
+
+  Widget _placed(
+    BuildContext context, {
+    required int i,
+    required int index,
+    required double width,
+    required double maxHeight,
+    required List<_Slide> slides,
+    required bool bs,
+    required AppStrings strings,
+  }) {
+    final offset = _cardOffset(i, index, width);
+    final leaving = _dir > 0 && i == index;
+    final front = (i == index && _dir >= 0) || (i == index - 1 && _dir < 0);
+    final showNav = front || (_dir > 0 && i == index + 1);
+    return Transform.translate(
+      offset: offset,
+      child: Transform.rotate(
+        angle: _tilt(i, index),
+        child: Opacity(
+          opacity: leaving ? (1 - _commit.value).clamp(0.0, 1.0) : 1,
+          child: IgnorePointer(
+            ignoring: !front || _busy,
+            child: _card(
+              context,
+              slide: slides[i],
+              n: i + 1,
+              bs: bs,
+              strings: strings,
+              maxHeight: maxHeight,
+              showNav: showNav,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _card(
     BuildContext context, {
     required _Slide slide,
     required int n,
     required bool bs,
     required AppStrings strings,
-    required bool last,
+    required double maxHeight,
+    required bool showNav,
   }) {
     final ink = showInk(context);
     final palette = context.palette;
@@ -353,6 +451,7 @@ class _NewsPileState extends State<NewsPile> {
       children: [
         Container(
           width: double.infinity,
+          constraints: BoxConstraints(maxHeight: maxHeight),
           padding: const EdgeInsets.fromLTRB(18, 28, 18, 16),
           decoration: showPanel(
             ink: ink,
@@ -364,7 +463,13 @@ class _NewsPileState extends State<NewsPile> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Image.asset(slide.card.image, width: 150, height: 150),
+              Flexible(
+                child: Image.asset(
+                  slide.card.image,
+                  height: 150,
+                  fit: BoxFit.contain,
+                ),
+              ),
               const SizedBox(height: 8),
               Text(
                 slide.card.title(bs),
@@ -387,24 +492,26 @@ class _NewsPileState extends State<NewsPile> {
                   color: palette.muted,
                 ),
               ),
-              const SizedBox(height: 14),
-              Row(
-                children: [
-                  _navButton(
-                    context,
-                    label: strings.newsPrev,
-                    onTap: _index == 0 || _busy ? null : () => _step(-1),
-                    filled: false,
-                  ),
-                  const Spacer(),
-                  _navButton(
-                    context,
-                    label: last ? strings.newsGotIt : strings.newsNext,
-                    onTap: _busy ? null : () => _step(1),
-                    filled: true,
-                  ),
-                ],
-              ),
+              if (showNav) ...[
+                const SizedBox(height: 14),
+                Row(
+                  children: [
+                    _navButton(
+                      context,
+                      label: strings.newsPrev,
+                      onTap: _index == 0 || _busy ? null : () => _step(-1),
+                      filled: false,
+                    ),
+                    const Spacer(),
+                    _navButton(
+                      context,
+                      label: n == _slides.length ? strings.newsGotIt : strings.newsNext,
+                      onTap: _busy ? null : () => _step(1),
+                      filled: true,
+                    ),
+                  ],
+                ),
+              ],
             ],
           ),
         ),
@@ -506,31 +613,31 @@ class _NewsPileState extends State<NewsPile> {
   }
 }
 
-class _Stamp extends StatelessWidget {
-  const _Stamp({required this.onTap});
+class NewsStamp extends StatelessWidget {
+  const NewsStamp({super.key, required this.onTap});
 
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
+    final night = Theme.of(context).brightness == Brightness.dark;
     return Semantics(
       button: true,
       label: context.strings.newsWhatsNew,
       child: GestureDetector(
         onTap: onTap,
-        child: Transform.rotate(
-          angle: -0.14,
-          child: Container(
-            width: 56,
-            height: 56,
-            alignment: Alignment.center,
-            decoration: showPanel(
-              ink: showInk(context),
-              fill: showBulb,
-              radius: 28,
-              shadow: const Offset(2, 2),
-            ),
-            child: const Icon(Icons.campaign, size: 30, color: showInkDay),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          decoration: showPanel(
+            ink: showInk(context),
+            fill: night ? context.palette.card : Colors.white,
+            radius: 12,
+            shadow: const Offset(0, 4),
+          ),
+          child: Icon(
+            Icons.campaign,
+            size: 16,
+            color: night ? Colors.white : showInkDay,
           ),
         ),
       ),
