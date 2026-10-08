@@ -68,6 +68,7 @@ class AppStrings {
     required this.joiningRematch,
     required this.playAgain,
     required this.home,
+    required this.youBadge,
     required this.language,
     required this.chooseLanguage,
     required this.themeDay,
@@ -155,6 +156,7 @@ class AppStrings {
   final String joiningRematch;
   final String playAgain;
   final String home;
+  final String youBadge;
 
   // Settings.
   final String language;
@@ -260,6 +262,7 @@ class AppStrings {
     joiningRematch: 'Joining…',
     playAgain: 'Play again',
     home: 'Home',
+    youBadge: 'YOU',
     language: 'Language',
     chooseLanguage: 'Choose language',
     themeDay: 'Day',
@@ -346,6 +349,7 @@ class AppStrings {
     joiningRematch: 'Prijava…',
     playAgain: 'Igraj ponovo',
     home: 'Početna',
+    youBadge: 'TI',
     language: 'Jezik',
     chooseLanguage: 'Odaberi jezik',
     themeDay: 'Dan',

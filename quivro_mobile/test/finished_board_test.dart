@@ -159,4 +159,25 @@ void main() {
 
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets('second place stays silver and marks you', (tester) async {
+    await pumpBoard(
+      tester,
+      playerId: 'bea',
+      room: roomOf(
+        players: [
+          player('ada', 'Ada', 90),
+          player('bea', 'Bea', 70),
+          player('cal', 'Cal', 50),
+        ],
+      ),
+    );
+
+    expect(find.text('YOU'), findsOneWidget);
+    final block = tester.widget<Container>(
+      find.byKey(const Key('podium-self')),
+    );
+    expect((block.decoration! as BoxDecoration).color, const Color(0xFFCFD6E4));
+    expect(tester.takeException(), isNull);
+  });
 }

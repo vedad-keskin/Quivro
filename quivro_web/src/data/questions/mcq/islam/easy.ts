@@ -1172,15 +1172,17 @@ export const islamEasy: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'easy',
-    prompt: { en: 'Besides travel, is shortening the obligatory prayer (qasr) permitted in any other situation?',
-              bs: 'Osim putovanja, da li je skraćivanje farz namaza (kasr) dozvoljeno u nekoj drugoj situaciji?' },
+    prompt: {
+      en: 'When is shortening the obligatory prayer (qasr) permitted?',
+      bs: 'Kada je dozvoljeno skraćivanje farz-namaza (kasr)?'
+    },
     options: [
-      { en: 'During illness at home', bs: 'Tokom bolesti kod kuće' },
+      { en: 'During travel', bs: 'Tokom putovanja' },
+      { en: 'During illness', bs: 'Tokom bolesti' },
       { en: 'During Ramadan', bs: 'Tokom ramazana' },
-      { en: 'During difficult weather conditions', bs: 'Tokom teških vremenskih uslova' },
-      { en: 'No other situation; qasr is specifically for travel', bs: 'Skraćivanje namaza je dozvoljeno samo za putovanja' },
+      { en: 'During difficult weather', bs: 'Tokom teških vremenskih uslova' },
     ],
-    correctIndex: 3,
+    correctIndex: 0,
   },
   {
     id: 'islam-easy-081',

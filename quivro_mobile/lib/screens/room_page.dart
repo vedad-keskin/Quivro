@@ -1706,6 +1706,7 @@ class _FinishedView extends StatelessWidget {
                         players: ranked.take(3).toList(),
                         selfId: playerId,
                         winsLabel: strings.winsShort,
+                        youLabel: strings.youBadge,
                       ),
                       const SizedBox(height: 12),
                     ],
@@ -1716,6 +1717,7 @@ class _FinishedView extends StatelessWidget {
                         player: ranked[i],
                         isSelf: ranked[i].id == playerId,
                         winsLabel: strings.winsShort(ranked[i].wins),
+                        youLabel: strings.youBadge,
                       ),
                     ],
                   ],
@@ -1887,11 +1889,13 @@ class _Podium extends StatelessWidget {
     required this.players,
     required this.selfId,
     required this.winsLabel,
+    required this.youLabel,
   });
 
   final List<RoomPlayer> players;
   final String selfId;
   final String Function(int wins) winsLabel;
+  final String youLabel;
 
   @override
   Widget build(BuildContext context) {
@@ -1909,6 +1913,7 @@ class _Podium extends StatelessWidget {
                 player: slot.player,
                 isSelf: slot.player.id == selfId,
                 winsLabel: winsLabel(slot.player.wins),
+                youLabel: youLabel,
               ),
             ),
           ),
@@ -1940,12 +1945,14 @@ class _PodiumSpot extends StatefulWidget {
     required this.player,
     required this.isSelf,
     required this.winsLabel,
+    required this.youLabel,
   });
 
   final int place;
   final RoomPlayer player;
   final bool isSelf;
   final String winsLabel;
+  final String youLabel;
 
   @override
   State<_PodiumSpot> createState() => _PodiumSpotState();
@@ -1995,7 +2002,7 @@ class _PodiumSpotState extends State<_PodiumSpot>
     final palette = context.palette;
     final place = widget.place;
     final player = widget.player;
-    final tone = widget.isSelf ? showBulb : _podiumTone(place);
+    final tone = _podiumTone(place);
     final height = switch (place) {
       1 => 112.0,
       2 => 96.0,
@@ -2009,7 +2016,11 @@ class _PodiumSpotState extends State<_PodiumSpot>
           const _CrownMark(width: 30),
           const SizedBox(height: 2),
         ],
-        _InkRingAvatar(index: player.avatar, size: place == 1 ? 48 : 40),
+        _MarkedAvatar(
+          index: player.avatar,
+          size: place == 1 ? 48 : 40,
+          youLabel: widget.isSelf ? widget.youLabel : null,
+        ),
         const SizedBox(height: 4),
         Text(
           player.name,
@@ -2039,6 +2050,7 @@ class _PodiumSpotState extends State<_PodiumSpot>
             );
           },
           child: Container(
+            key: widget.isSelf ? const Key('podium-self') : null,
             height: height,
             width: double.infinity,
             padding: const EdgeInsets.fromLTRB(4, 8, 4, 6),
@@ -2082,23 +2094,24 @@ class _RankRow extends StatelessWidget {
     required this.player,
     required this.isSelf,
     required this.winsLabel,
+    required this.youLabel,
   });
 
   final int place;
   final RoomPlayer player;
   final bool isSelf;
   final String winsLabel;
+  final String youLabel;
 
   @override
   Widget build(BuildContext context) {
     final palette = context.palette;
     final ink = showInk(context);
-    final nameColor = isSelf ? showInkDay : palette.text;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: showPanel(
         ink: ink,
-        fill: isSelf ? showBulb : palette.card,
+        fill: palette.card,
         radius: 12,
         shadow: const Offset(0, 3),
       ),
@@ -2109,9 +2122,9 @@ class _RankRow extends StatelessWidget {
             height: 30,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: isSelf ? showInkDay : palette.surface,
+              color: palette.surface,
               borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: isSelf ? showInkDay : ink, width: 2),
+              border: Border.all(color: ink, width: 2),
             ),
             child: Text(
               '$place',
@@ -2119,12 +2132,16 @@ class _RankRow extends StatelessWidget {
                 context,
                 fontSize: 16,
                 letterSpacing: 0,
-                color: isSelf ? showBulb : palette.text,
+                color: palette.text,
               ),
             ),
           ),
           const SizedBox(width: 10),
-          _InkRingAvatar(index: player.avatar, size: 36),
+          _MarkedAvatar(
+            index: player.avatar,
+            size: 36,
+            youLabel: isSelf ? youLabel : null,
+          ),
           const SizedBox(width: 10),
           Expanded(
             child: Column(
@@ -2134,7 +2151,7 @@ class _RankRow extends StatelessWidget {
                   player.name,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: showDisplay(context, fontSize: 18, color: nameColor),
+                  style: showDisplay(context, fontSize: 18),
                 ),
                 if (player.wins > 0) ...[
                   const SizedBox(height: 4),
@@ -2226,6 +2243,59 @@ class _ScoreLcd extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _MarkedAvatar extends StatelessWidget {
+  const _MarkedAvatar({
+    required this.index,
+    required this.size,
+    required this.youLabel,
+  });
+
+  final int index;
+  final double size;
+  final String? youLabel;
+
+  @override
+  Widget build(BuildContext context) {
+    final avatar = _InkRingAvatar(index: index, size: size);
+    final label = youLabel;
+    if (label == null) return avatar;
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        avatar,
+        Positioned(right: -2, bottom: -2, child: _YouBadge(label: label)),
+      ],
+    );
+  }
+}
+
+class _YouBadge extends StatelessWidget {
+  const _YouBadge({required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 0),
+      decoration: BoxDecoration(
+        color: QuivroColors.blue,
+        borderRadius: BorderRadius.circular(5),
+        border: Border.all(color: showInk(context), width: 2),
+      ),
+      child: Text(
+        label,
+        style: showDisplay(
+          context,
+          fontSize: 10,
+          letterSpacing: 0,
+          color: Colors.white,
+        ),
       ),
     );
   }
