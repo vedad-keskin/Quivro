@@ -5,6 +5,7 @@ export const bs: UiStrings = {
   tagline: 'Okupi ekipu. Pokaži znanje.',
   howItWorks: 'Kako se igra',
   news: 'Novosti',
+  newsWhatsNew: 'Šta je novo?',
   newsGotIt: 'U redu',
   newsPrev: 'Prethodno',
   newsNext: 'Sljedeće',

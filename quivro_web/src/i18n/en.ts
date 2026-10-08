@@ -3,6 +3,7 @@ export const en = {
   tagline: 'Gather your team. Show your knowledge.',
   howItWorks: 'How it works',
   news: 'News',
+  newsWhatsNew: "What's new?",
   newsGotIt: 'Got it',
   newsPrev: 'Previous',
   newsNext: 'Next',

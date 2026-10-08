@@ -104,6 +104,7 @@ interface Layer {
               >
                 @if (layer.front) {
                   <span class="step" aria-hidden="true">{{ layer.n }}</span>
+                  <p class="kicker">{{ lang.t().newsWhatsNew }}</p>
                   <button type="button" class="x" [attr.aria-label]="lang.t().close" (click)="closeNews()">
                     ×
                   </button>
@@ -326,6 +327,20 @@ interface Layer {
       width: 11rem;
       height: 11rem;
       object-fit: contain;
+    }
+    .kicker {
+      position: absolute;
+      top: 0.85rem;
+      left: 2.15rem;
+      z-index: 2;
+      margin: 0;
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: 1.05rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-align: left;
+      color: var(--q-navy);
     }
     .slab.front strong {
       font-family: var(--display);
