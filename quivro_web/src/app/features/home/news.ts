@@ -15,10 +15,21 @@ export interface NewsDrop {
 /** Newest first. A new announcement is one object at the top, with a new id. */
 export const NEWS: NewsDrop[] = [
   {
-    id: 'power-ups',
+    id: 'lock-up',
     cards: [
-      { image: '/room-icons/fifty_fifty.png', accent: 'var(--q-cyan)', title: { en: '50/50 is here', bs: '50/50 je stigao' }, body: { en: 'Not sure which answer is right? Narrow down your choices and improve your odds. Two wrong answers disappear, leaving you with two answers to choose from.', bs: 'Nisi siguran koji je odgovor tačan? Suzi izbor i povećaj svoje šanse. Dva pogrešna odgovora nestaju, ostavljajući ti dva odgovora za izbor.' }, }, { image: '/room-icons/second_chance.png', accent: 'var(--q-orange)', title: { en: 'Second Chance is here', bs: 'Second Chance je stigao' }, body: { en: 'Know the answer but not completely sure? Take a shot without risking the question. Pick an answer first; if it is wrong, you get one more chance to choose.', bs: 'Znaš odgovor, ali nisi potpuno siguran? Probaj bez straha da ćeš odmah izgubiti pitanje. Odaberi odgovor, ako nije tačan, dobijaš još jednu šansu za izbor.' }, }, { image: '/room-icons/lock_up.png', accent: 'var(--q-pink)', title: { en: 'Lock Up is here', bs: 'Lock Up je stigao' }, body: { en: 'Know the answer and want an advantage? Lock yourself and a random opponent out of the question. You stay safe while your opponent loses the chance to answer.', bs: 'Znaš odgovor i želiš prednost? Zaključaj sebe i nasumičnog protivnika iz pitanja. Ti si siguran, dok protivnik gubi mogućnost odgovaranja.' }, },
-
+      { image: '/room-icons/lock_up.png', accent: 'var(--q-pink)', title: { en: 'Lock Up is here', bs: 'Lock Up je stigao' }, body: { en: 'Know the answer and want an advantage? Lock yourself and a random opponent out of the question. You stay safe while your opponent loses the chance to answer.', bs: 'Znaš odgovor i želiš prednost? Zaključaj sebe i nasumičnog protivnika iz pitanja. Ti si siguran, dok protivnik gubi mogućnost odgovaranja.' } },
+    ],
+  },
+  {
+    id: 'second-chance',
+    cards: [
+      { image: '/room-icons/second_chance.png', accent: 'var(--q-orange)', title: { en: 'Second Chance is here', bs: 'Second Chance je stigao' }, body: { en: 'Know the answer but not completely sure? Take a shot without risking the question. Pick an answer first. if it is wrong, you get one more chance to choose.', bs: 'Znaš odgovor, ali nisi potpuno siguran? Probaj bez straha da ćeš odmah izgubiti pitanje. Odaberi odgovor, ako nije tačan, dobijaš još jednu šansu za izbor.' } },
+    ],
+  },
+  {
+    id: 'fifty-fifty',
+    cards: [
+      { image: '/room-icons/fifty_fifty.png', accent: 'var(--q-cyan)', title: { en: '50/50 is here', bs: '50/50 je stigao' }, body: { en: 'Not sure which answer is right? Narrow down your choices and improve your odds. Two wrong answers disappear, leaving you with two answers to choose from.', bs: 'Nisi siguran koji je odgovor tačan? Suzi izbor i povećaj svoje šanse. Dva pogrešna odgovora nestaju, ostavljajući ti dva odgovora za izbor.' } },
     ],
   },
 ];

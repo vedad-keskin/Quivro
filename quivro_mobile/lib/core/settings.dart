@@ -25,16 +25,23 @@ class SettingsController extends ChangeNotifier {
   static const _themeKey = 'quivro.theme';
 
   AppLanguage _language = AppLanguage.en;
-  ThemeMode _themeMode = ThemeMode.light;
+  ThemeMode _themeMode = ThemeMode.system;
   bool _loaded = false;
 
   AppLanguage get language => _language;
   ThemeMode get themeMode => _themeMode;
-  bool get isNight => _themeMode == ThemeMode.dark;
+
+  /// Night when the user picked it, or when they haven't picked and the
+  /// phone is in dark mode.
+  bool get isNight =>
+      _themeMode == ThemeMode.dark ||
+      (_themeMode == ThemeMode.system &&
+          PlatformDispatcher.instance.platformBrightness == Brightness.dark);
 
   /// Restores persisted choices. When the user never explicitly picked a
   /// language, falls back to the device language: Bosnian for bs/hr/sr
-  /// locales (mutually intelligible), English otherwise.
+  /// locales (mutually intelligible), English otherwise. An unset theme
+  /// follows the phone until they toggle day or night.
   Future<void> load() async {
     if (_loaded) return;
     _loaded = true;
@@ -50,9 +57,11 @@ class SettingsController extends ChangeNotifier {
       }
     }
 
-    _themeMode = prefs.getString(_themeKey) == 'dark'
-        ? ThemeMode.dark
-        : ThemeMode.light;
+    _themeMode = switch (prefs.getString(_themeKey)) {
+      'dark' => ThemeMode.dark,
+      'light' => ThemeMode.light,
+      _ => ThemeMode.system,
+    };
     notifyListeners();
   }
 

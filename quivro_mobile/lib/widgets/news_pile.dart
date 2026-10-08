@@ -42,39 +42,9 @@ class NewsDrop {
 /// Newest first. A new announcement is one object at the top, with a new id.
 const newsDrops = <NewsDrop>[
   NewsDrop(
-    id: 'power-ups',
+    id: 'lock-up',
     cards: [
       NewsCard(
-        image: 'assets/powerups/fifty_fifty.png',
-        accent: Color(0xFF22D3EE),
-        titleEn: '50/50 is here',
-        titleBs: '50/50 je stigao',
-        bodyEn:
-            'Not sure which answer is right? Narrow down your choices and improve your odds. Two wrong answers disappear, leaving you with two answers to choose from.',
-        bodyBs:
-            'Nisi siguran koji je odgovor tačan? Suzi izbor i povećaj svoje šanse. Dva pogrešna odgovora nestaju, ostavljajući ti dva odgovora za izbor.',
-      ),
-      NewsCard(
-        image: 'assets/powerups/second_chance.png',
-        accent: Color(0xFFF97316),
-        titleEn: 'Second Chance is here',
-        titleBs: 'Second Chance je stigao',
-        bodyEn:
-            'Know the answer but not completely sure? Take a shot without risking the question. Pick an answer first; if it is wrong, you get one more chance to choose.',
-        bodyBs:
-            'Znaš odgovor, ali nisi potpuno siguran? Probaj bez straha da ćeš odmah izgubiti pitanje. Odaberi odgovor, ako nije tačan, dobijaš još jednu šansu za izbor.',
-      ),
-      NewsCard(
-        image: 'assets/powerups/lock_up.png',
-        accent: Color(0xFFEC4899),
-        titleEn: 'Lock Up is here',
-        titleBs: 'Lock Up je stigao',
-        bodyEn:
-            'Know the answer and want an advantage? Lock yourself and a random opponent out of the question. You stay safe while your opponent loses the chance to answer.',
-        bodyBs:
-            'Znaš odgovor i želiš prednost? Zaključaj sebe i nasumičnog protivnika iz pitanja. Ti si siguran, dok protivnik gubi mogućnost odgovaranja.',
-      ),
-            NewsCard(
         image: 'assets/powerups/lock_up.png',
         accent: Color(0xFFEC4899),
         titleEn: 'Lock Up is here',
@@ -86,6 +56,37 @@ const newsDrops = <NewsDrop>[
       ),
     ],
   ),
+  NewsDrop(
+    id: 'second-chance',
+    cards: [
+      NewsCard(
+        image: 'assets/powerups/second_chance.png',
+        accent: Color(0xFFF97316),
+        titleEn: 'Second Chance is here',
+        titleBs: 'Second Chance je stigao',
+        bodyEn:
+            'Know the answer but not completely sure? Take a shot without risking the question. Pick an answer first. if it is wrong, you get one more chance to choose.',
+        bodyBs:
+            'Znaš odgovor, ali nisi potpuno siguran? Probaj bez straha da ćeš odmah izgubiti pitanje. Odaberi odgovor, ako nije tačan, dobijaš još jednu šansu za izbor.',
+      ),
+    ],
+  ),
+  NewsDrop(
+    id: 'fifty-fifty',
+    cards: [
+      NewsCard(
+        image: 'assets/powerups/fifty_fifty.png',
+        accent: Color(0xFF22D3EE),
+        titleEn: '50/50 is here',
+        titleBs: '50/50 je stigao',
+        bodyEn:
+            'Not sure which answer is right? Narrow down your choices and improve your odds. Two wrong answers disappear, leaving you with two answers to choose from.',
+        bodyBs:
+            'Nisi siguran koji je odgovor tačan? Suzi izbor i povećaj svoje šanse. Dva pogrešna odgovora nestaju, ostavljajući ti dva odgovora za izbor.',
+      ),
+    ],
+  ),
+  
 ];
 
 class _Slide {
@@ -313,7 +314,26 @@ class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin 
                     width: width,
                     child: Stack(
                       clipBehavior: Clip.none,
+                      alignment: Alignment.topCenter,
                       children: [
+                        for (final slide in slides)
+                          IgnorePointer(
+                            child: Visibility(
+                              visible: false,
+                              maintainSize: true,
+                              maintainAnimation: true,
+                              maintainState: true,
+                              child: _card(
+                                context,
+                                slide: slide,
+                                n: 1,
+                                bs: bs,
+                                strings: strings,
+                                maxHeight: maxHeight,
+                                showNav: true,
+                              ),
+                            ),
+                          ),
                         for (final i in shown)
                           _placed(
                             context,
@@ -351,12 +371,15 @@ class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin 
     return 20 - (i - index);
   }
 
+  double get _t => _dir > 0 ? Curves.easeOut.transform(_commit.value) : (_dir < 0 ? _commit.value : 0);
+
   Offset _cardOffset(int i, int index, double width) {
-    final t = _dir == 0 ? 0.0 : _commit.value;
+    final t = _t;
     if (_dir > 0) {
       if (i == index) return Offset(_mix(_drag, -width * 1.15, t), 0);
-      final back = (i - index) - t;
-      return Offset(back * 14, back * 12);
+      final depth = (i - index).toDouble();
+      final from = depth - (-_drag / 140).clamp(0.0, 1.0);
+      return Offset(_mix(from * 14, (depth - 1) * 14, t), _mix(from * 12, (depth - 1) * 12, t));
     }
     if (_dir < 0) {
       if (i == index) return Offset(_mix(_drag, 14, t), _mix(0, 12, t));
@@ -379,7 +402,7 @@ class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin 
   double _tilt(int i, int index) {
     const peek = 0.02;
     const face = -0.035;
-    final t = _dir == 0 ? 0.0 : _commit.value;
+    final t = _t;
     final forwardPull = _drag < 0 ? (-_drag / 140).clamp(0.0, 1.0) : 0.0;
     final backPull = _drag > 0 ? (_drag / 140).clamp(0.0, 1.0) : 0.0;
     if (_dir > 0) {
@@ -417,7 +440,7 @@ class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin 
       child: Transform.rotate(
         angle: _tilt(i, index),
         child: Opacity(
-          opacity: leaving ? (1 - _commit.value).clamp(0.0, 1.0) : 1,
+          opacity: leaving ? (1 - _t).clamp(0.0, 1.0) : 1,
           child: IgnorePointer(
             ignoring: !front || _busy,
             child: _card(
@@ -492,26 +515,32 @@ class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin 
                   color: palette.muted,
                 ),
               ),
-              if (showNav) ...[
-                const SizedBox(height: 14),
-                Row(
-                  children: [
-                    _navButton(
-                      context,
-                      label: strings.newsPrev,
-                      onTap: _index == 0 || _busy ? null : () => _step(-1),
-                      filled: false,
-                    ),
-                    const Spacer(),
-                    _navButton(
-                      context,
-                      label: n == _slides.length ? strings.newsGotIt : strings.newsNext,
-                      onTap: _busy ? null : () => _step(1),
-                      filled: true,
-                    ),
-                  ],
+              Visibility(
+                visible: showNav,
+                maintainSize: true,
+                maintainAnimation: true,
+                maintainState: true,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 14),
+                  child: Row(
+                    children: [
+                      _navButton(
+                        context,
+                        label: strings.newsPrev,
+                        onTap: _index == 0 || _busy ? null : () => _step(-1),
+                        filled: false,
+                      ),
+                      const Spacer(),
+                      _navButton(
+                        context,
+                        label: n == _slides.length ? strings.newsGotIt : strings.newsNext,
+                        onTap: _busy ? null : () => _step(1),
+                        filled: true,
+                      ),
+                    ],
+                  ),
                 ),
-              ],
+              ),
             ],
           ),
         ),
