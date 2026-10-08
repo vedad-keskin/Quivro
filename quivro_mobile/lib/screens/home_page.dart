@@ -12,6 +12,7 @@ import '../core/theme.dart';
 import '../widgets/avatar_widgets.dart';
 import '../widgets/credits_dialog.dart';
 import '../widgets/host_hint.dart';
+import '../widgets/news_pile.dart';
 import '../widgets/offline_banner.dart';
 import '../widgets/quivro_snackbar.dart';
 import '../widgets/settings_chips.dart';
@@ -32,7 +33,7 @@ class _HomePageState extends State<HomePage> {
   final _codeFocus = FocusNode();
   final _hostHintKey = GlobalKey<HostHintState>();
   final _hostChipKey = GlobalKey();
-  final _hostProgress = ValueNotifier<double>(0);
+  final _hostProgress = ValueNotifier<double>(1);
   final _repo = RoomRepository();
   final _store = ProfileStore();
   late PlayerProfile _profile;
@@ -427,6 +428,7 @@ class _HomePageState extends State<HomePage> {
                 anchorKey: _hostChipKey,
               ),
             ),
+            const Positioned.fill(child: NewsPile()),
           ],
         ),
       ),

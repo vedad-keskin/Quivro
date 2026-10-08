@@ -61,7 +61,6 @@ class HostHint extends StatefulWidget {
 class HostHintState extends State<HostHint>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
-  var _ready = false;
   var _closing = false;
 
   @override
@@ -75,18 +74,11 @@ class HostHintState extends State<HostHint>
           widget.progress.value = _controller.value;
           setState(() {});
         });
-    _load();
+    _controller.value = 1;
+    widget.progress.value = 1;
   }
 
   void expand() => _expand();
-
-  Future<void> _load() async {
-    final prefs = await SharedPreferences.getInstance();
-    if (!mounted) return;
-    if (prefs.getBool(_seenKey) ?? false) _controller.value = 1;
-    widget.progress.value = _controller.value;
-    setState(() => _ready = true);
-  }
 
   Rect? _anchorRect() {
     final target =
@@ -132,8 +124,6 @@ class HostHintState extends State<HostHint>
 
   @override
   Widget build(BuildContext context) {
-    if (!_ready) return const SizedBox.shrink();
-
     final t = _controller.value;
     final collapsed = t > 0.85;
     final strings = context.strings;

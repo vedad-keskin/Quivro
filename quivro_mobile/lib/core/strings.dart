@@ -82,6 +82,10 @@ class AppStrings {
     required this.hostHintBody,
     required this.hostHintGotIt,
     required this.hostHintCopied,
+    required this.newsWhatsNew,
+    required this.newsPrev,
+    required this.newsNext,
+    required this.newsGotIt,
   });
 
   // Splash.
@@ -176,6 +180,10 @@ class AppStrings {
   final String hostHintBody;
   final String hostHintGotIt;
   final String hostHintCopied;
+  final String newsWhatsNew;
+  final String newsPrev;
+  final String newsNext;
+  final String newsGotIt;
 
   String playingAs(String name) => _playingAs.replaceAll('{name}', name);
 
@@ -276,6 +284,10 @@ class AppStrings {
     hostHintBody: 'Open this website on a laptop or TV to create a room.',
     hostHintGotIt: 'Got it',
     hostHintCopied: 'Link copied',
+    newsWhatsNew: "What's new",
+    newsPrev: 'Previous',
+    newsNext: 'Next',
+    newsGotIt: 'Got it',
   );
 
   static const bosnian = AppStrings(
@@ -363,6 +375,10 @@ class AppStrings {
     hostHintBody: 'Otvori ovu web stranicu na laptopu ili TV-u da napraviš sobu.',
     hostHintGotIt: 'Razumijem',
     hostHintCopied: 'Link je kopiran',
+    newsWhatsNew: 'Šta je novo',
+    newsPrev: 'Prethodno',
+    newsNext: 'Sljedeće',
+    newsGotIt: 'U redu',
   );
 }
 
