@@ -19,6 +19,7 @@ import {
 } from '../../core/room.models';
 import type { QuestionType } from '../../../data/questions/types';
 import { SnackbarService } from '../../core/snackbar.service';
+import { CATEGORY_ACCENT, SCORING_ACCENT, TYPE_ACCENT } from '../../shared/round-accents';
 import { SettingsChips } from '../../shared/settings-chips';
 
 @Component({
@@ -72,12 +73,12 @@ import { SettingsChips } from '../../shared/settings-chips';
               <h2 class="section-title">{{ lang.t().roundRecap }}</h2>
               <ul class="cats">
                 @for (t of r.config.questionTypes; track t) {
-                  <li class="type">
+                  <li class="type" [style.--accent]="TYPE_ACCENT[t]">
                     <img [src]="typeInfo[t].icon" alt="" />{{ lang.t()[typeInfo[t].labelKey] }}
                   </li>
                 }
                 @for (cat of r.config.questionTypes.includes('mcq') ? r.config.categories : []; track cat) {
-                  <li [style.--accent]="accents[$index % accents.length]">{{ lang.t()[cat] }}</li>
+                  <li [style.--accent]="CATEGORY_ACCENT[cat]">{{ lang.t()[cat] }}</li>
                 }
               </ul>
               <div class="facts">
@@ -90,7 +91,7 @@ import { SettingsChips } from '../../shared/settings-chips';
                   <span>{{ lang.t().seconds }}</span>
                 </div>
                 <div class="fact">
-                  <strong class="word">{{
+                  <strong class="word" [style.--accent]="SCORING_ACCENT[r.config.scoringMode]">{{
                     r.config.scoringMode === 'timed' ? lang.t().scoringTimed : lang.t().scoringStandard
                   }}</strong>
                   <span>{{ lang.t().scoringMode }}</span>
@@ -284,8 +285,6 @@ import { SettingsChips } from '../../shared/settings-chips';
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      background: var(--q-card);
-      color: var(--q-navy);
     }
     .type img {
       width: 20px;
@@ -318,6 +317,8 @@ import { SettingsChips } from '../../shared/settings-chips';
     .fact strong.word {
       font-size: 1.15rem;
       line-height: 1.5;
+      color: var(--accent, var(--bulb));
+      text-shadow: none;
     }
     .fact span {
       font-size: 0.7rem;
@@ -524,13 +525,9 @@ export class LobbyPage implements OnInit, OnDestroy {
     mcq: { icon: '/room-icons/text.png', labelKey: 'mcq' },
     image_mcq: { icon: '/room-icons/picture.png', labelKey: 'imageMcq' },
   };
-  readonly accents = [
-    'var(--q-cyan)',
-    'var(--q-orange)',
-    'var(--q-pink)',
-    'var(--q-lime)',
-    'var(--bulb)',
-  ];
+  readonly TYPE_ACCENT = TYPE_ACCENT;
+  readonly CATEGORY_ACCENT = CATEGORY_ACCENT;
+  readonly SCORING_ACCENT = SCORING_ACCENT;
 
   powerUpIcon(slot: PowerUpSlot): string | undefined {
     return POWER_UP_CATALOG.find((p) => p.id === slot)?.icon;

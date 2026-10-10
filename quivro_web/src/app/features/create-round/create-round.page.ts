@@ -33,6 +33,7 @@ import {
   type ScoringMode,
 } from '../../core/room.models';
 import { SnackbarService } from '../../core/snackbar.service';
+import { CATEGORY_ACCENT, SCORING_ACCENT, TYPE_ACCENT } from '../../shared/round-accents';
 import { SettingsChips } from '../../shared/settings-chips';
 import { StudioFooter } from '../../shared/studio-footer';
 import { UpgradeDialogService } from '../../shared/upgrade-dialog.service';
@@ -160,7 +161,7 @@ function loadRoundPrefs(): RoundPrefs | null {
               <button
                 type="button"
                 class="tile"
-                style="--accent: var(--q-cyan)"
+                [style.--accent]="scoringInfo.standard.accent"
                 [class.on]="scoringMode() === 'standard'"
                 [attr.aria-pressed]="scoringMode() === 'standard'"
                 (click)="scoringMode.set('standard')"
@@ -177,7 +178,7 @@ function loadRoundPrefs(): RoundPrefs | null {
               <button
                 type="button"
                 class="tile"
-                style="--accent: var(--q-orange)"
+                [style.--accent]="scoringInfo.timed.accent"
                 [class.on]="scoringMode() === 'timed'"
                 [class.locked]="ent.scoringModeLocked('timed')"
                 [attr.aria-pressed]="scoringMode() === 'timed'"
@@ -673,24 +674,24 @@ export class CreateRoundPage {
   readonly minRoundLength = MIN_ROUND_LENGTH;
 
   readonly categoryInfo: Record<CategoryId, { icon: string; descKey: keyof UiStrings; accent: string }> = {
-    geography: { icon: '/room-icons/geo.png', descKey: 'descGeography', accent: 'var(--q-cyan)' },
-    biology: { icon: '/room-icons/bio.png', descKey: 'descBiology', accent: 'var(--q-lime)' },
-    history: { icon: '/room-icons/his.png', descKey: 'descHistory', accent: 'var(--q-orange)' },
-    technology: { icon: '/room-icons/tech.png', descKey: 'descTechnology', accent: 'var(--q-blue)' },
-    sports: { icon: '/room-icons/sports.png', descKey: 'descSports', accent: 'var(--q-pink)' },
-    movies: { icon: '/room-icons/movtv.png', descKey: 'descMovies', accent: 'var(--q-purple)' },
-    famous: { icon: '/room-icons/fam.png', descKey: 'descFamous', accent: 'var(--q-orange)' },
-    islam: { icon: '/room-icons/isl.png', descKey: 'descIslam', accent: 'var(--q-lime)' },
-    food: { icon: '/room-icons/food.png', descKey: 'descFood', accent: 'var(--q-pink)' },
-    images: { icon: '/room-icons/picture.png', descKey: 'descPictureQ', accent: 'var(--q-cyan)' },
+    geography: { icon: '/room-icons/geo.png', descKey: 'descGeography', accent: CATEGORY_ACCENT.geography },
+    biology: { icon: '/room-icons/bio.png', descKey: 'descBiology', accent: CATEGORY_ACCENT.biology },
+    history: { icon: '/room-icons/his.png', descKey: 'descHistory', accent: CATEGORY_ACCENT.history },
+    technology: { icon: '/room-icons/tech.png', descKey: 'descTechnology', accent: CATEGORY_ACCENT.technology },
+    sports: { icon: '/room-icons/sports.png', descKey: 'descSports', accent: CATEGORY_ACCENT.sports },
+    movies: { icon: '/room-icons/movtv.png', descKey: 'descMovies', accent: CATEGORY_ACCENT.movies },
+    famous: { icon: '/room-icons/fam.png', descKey: 'descFamous', accent: CATEGORY_ACCENT.famous },
+    islam: { icon: '/room-icons/isl.png', descKey: 'descIslam', accent: CATEGORY_ACCENT.islam },
+    food: { icon: '/room-icons/food.png', descKey: 'descFood', accent: CATEGORY_ACCENT.food },
+    images: { icon: '/room-icons/picture.png', descKey: 'descPictureQ', accent: CATEGORY_ACCENT.images },
   };
   readonly typeInfo: Record<QuestionType, { icon: string; descKey: keyof UiStrings; accent: string }> = {
-    mcq: { icon: '/room-icons/text.png', descKey: 'descTextQ', accent: 'var(--q-blue)' },
-    image_mcq: { icon: '/room-icons/picture.png', descKey: 'descPictureQ', accent: 'var(--q-pink)' },
+    mcq: { icon: '/room-icons/text.png', descKey: 'descTextQ', accent: TYPE_ACCENT.mcq },
+    image_mcq: { icon: '/room-icons/picture.png', descKey: 'descPictureQ', accent: TYPE_ACCENT.image_mcq },
   };
-  readonly scoringInfo: Record<ScoringMode, { descKey: keyof UiStrings }> = {
-    standard: { descKey: 'descScoringStandard' },
-    timed: { descKey: 'descScoringTimed' },
+  readonly scoringInfo: Record<ScoringMode, { descKey: keyof UiStrings; accent: string }> = {
+    standard: { descKey: 'descScoringStandard', accent: SCORING_ACCENT.standard },
+    timed: { descKey: 'descScoringTimed', accent: SCORING_ACCENT.timed },
   };
 
   private readonly saved = loadRoundPrefs();
