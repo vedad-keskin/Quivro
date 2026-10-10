@@ -23,7 +23,7 @@ export const NEWS: NewsDrop[] = [
   {
     id: 'second-chance',
     cards: [
-      { image: '/room-icons/second_chance.png', accent: 'var(--q-orange)', title: { en: 'Second Chance is here', bs: 'Second Chance je stigao' }, body: { en: 'Know the answer but not completely sure? Take a shot without risking the question. Pick an answer first. if it is wrong, you get one more chance to choose.', bs: 'Znaš odgovor, ali nisi potpuno siguran? Probaj bez straha da ćeš odmah izgubiti pitanje. Odaberi odgovor, ako nije tačan, dobijaš još jednu šansu za izbor.' } },
+      { image: '/room-icons/second_chance.png', accent: 'var(--q-orange)', title: { en: 'Second Chance is here', bs: 'Second Chance je stigao' }, body: { en: 'Know the answer but not completely sure? Take a shot without risking the question. Pick an answer first. if it is wrong, you get one more chance to choose.', bs: 'Znaš odgovor, ali nisi potpuno siguran? Probaj bez straha da ćeš izgubiti bodove. Odaberi odgovor, ako nije tačan, dobijaš još jednu šansu za izbor.' } },
     ],
   },
   {

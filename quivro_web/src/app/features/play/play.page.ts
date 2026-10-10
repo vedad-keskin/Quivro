@@ -466,14 +466,14 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                     </p>
                     @if (imagePhase() !== 'preview' && imagePhase() !== 'sliding') {
                       @if (q.imageUrl) {
-                        <span class="cat-chip" [style.--accent]="typeInfo.image_mcq.accent">
+                        <span class="cat-chip current-chip" [style.--accent]="typeInfo.image_mcq.accent">
                           <img [src]="typeInfo.image_mcq.icon" alt="" />
-                          {{ lang.t().imageMcq }}
+                          <span class="cat-name">{{ lang.t().imageMcq }}</span>
                         </span>
                       } @else {
-                        <span class="cat-chip" [style.--accent]="categoryInfo[q.category].accent">
+                        <span class="cat-chip current-chip" [style.--accent]="categoryInfo[q.category].accent">
                           <img [src]="categoryInfo[q.category].icon" alt="" />
-                          {{ categoryLabel(q.category) }}
+                          <span class="cat-name">{{ categoryLabel(q.category) }}</span>
                           <span class="pips" role="img" [attr.aria-label]="difficultyLabel(q.difficulty)" [title]="difficultyLabel(q.difficulty)">
                             @for (p of pips; track p) {
                               <i [class.on]="p <= difficultyLevel[q.difficulty]"></i>
@@ -483,15 +483,37 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                       }
                     }
                   </div>
-                  @if (r.phase === 'question' && answersOpen()) {
-                    <app-timer-ring
-                      [endsAt]="q.endsAt"
-                      [durationMs]="q.durationMs"
-                      (expired)="onQuestionExpired()"
-                    />
-                  } @else if (r.phase === 'reveal') {
-                    <span class="reveal-sticker">{{ lang.t().correct }}</span>
+                  @if (rooms.nextQuestion(); as next) {
+                    <div class="next-meta">
+                      <span class="next-label">{{ lang.t().upNext }} <span aria-hidden="true">→</span></span>
+                      <span class="cat-chip" [style.--accent]="next.type === 'image_mcq' ? typeInfo.image_mcq.accent : categoryInfo[next.category].accent">
+                        <img [src]="next.type === 'image_mcq' ? typeInfo.image_mcq.icon : categoryInfo[next.category].icon" alt="" />
+                        <span class="cat-name">{{ next.type === 'image_mcq' ? lang.t().imageMcq : categoryLabel(next.category) }}</span>
+                        @if (next.type !== 'image_mcq') {
+                          <span class="pips" role="img" [attr.aria-label]="difficultyLabel(next.difficulty)" [title]="difficultyLabel(next.difficulty)">
+                            @for (p of pips; track p) {
+                              <i [class.on]="p <= difficultyLevel[next.difficulty]"></i>
+                            }
+                          </span>
+                        }
+                      </span>
+                    </div>
+                  } @else if (q.index + 1 === q.total) {
+                    <div class="next-meta final-meta">
+                      <span class="final-label">{{ lang.t().finalQuestion }}</span>
+                    </div>
                   }
+                  <div class="timer-slot">
+                    @if (r.phase === 'question' && answersOpen()) {
+                      <app-timer-ring
+                        [endsAt]="q.endsAt"
+                        [durationMs]="q.durationMs"
+                        (expired)="onQuestionExpired()"
+                      />
+                    } @else if (r.phase === 'reveal') {
+                      <span class="reveal-sticker">{{ lang.t().correct }}</span>
+                    }
+                  </div>
                 </header>
                 <div class="track" aria-hidden="true">
                   <span [style.width.%]="((q.index + 1) / q.total) * 100"></span>
@@ -690,6 +712,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       }
     }
     .qstage {
+      container-type: inline-size;
       display: flex;
       flex-direction: column;
       gap: 0.9rem;
@@ -1126,6 +1149,106 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       line-height: 1.35;
     }
 
+    .meta-info {
+      min-width: 0;
+    }
+    .next-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-left: auto;
+      min-width: 0;
+    }
+    .next-label {
+      flex-shrink: 0;
+      color: var(--q-muted);
+      font-size: 0.75rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+    .next-meta .cat-chip {
+      font-size: 0.9rem;
+    }
+    .next-meta .cat-chip img {
+      width: 1.65rem;
+      height: 1.65rem;
+    }
+    .cat-chip {
+      max-width: 100%;
+    }
+    .cat-name {
+      min-width: 0;
+    }
+    .cat-chip img,
+    .pips {
+      flex-shrink: 0;
+    }
+    .timer-slot {
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      min-width: 5rem;
+      min-height: 5rem;
+    }
+    .final-label {
+      padding: 0.3rem 0.65rem;
+      border: 3px solid var(--ink);
+      border-radius: 10px;
+      background: var(--bulb);
+      box-shadow: 3px 3px 0 var(--ink);
+      color: #1a1530;
+      font-family: var(--display);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    @container (max-width: 850px) {
+      .meta {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 0.8rem;
+      }
+      .timer-slot {
+        grid-column: 2;
+        grid-row: 1;
+      }
+      .next-meta {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        margin-left: 0;
+      }
+    }
+    @container (max-width: 420px) {
+      .meta-info {
+        display: contents;
+      }
+      .counter {
+        grid-column: 1;
+        grid-row: 1;
+        flex-wrap: wrap;
+      }
+      .current-chip {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-self: start;
+      }
+      .next-meta {
+        grid-row: 3;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        justify-self: start;
+      }
+      .next-meta .cat-chip {
+        font-size: 0.85rem;
+      }
+      .next-label {
+        font-size: 0.65rem;
+      }
+      .final-meta {
+        display: block;
+      }
+    }
     @media (max-width: 960px) {
       .layout {
         grid-template-columns: 1fr;

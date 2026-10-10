@@ -53,6 +53,8 @@ export const bs: UiStrings = {
   home: 'Početna',
   endGame: 'Završi igru',
   question: 'Pitanje',
+  upNext: 'Slijedi',
+  finalQuestion: 'Posljednje pitanje',
   of: 'od',
   easy: 'Lako',
   medium: 'Srednje',

@@ -51,6 +51,8 @@ export const en = {
   home: 'Home',
   endGame: 'End game',
   question: 'Question',
+  upNext: 'Up next',
+  finalQuestion: 'Final question',
   of: 'of',
   easy: 'Easy',
   medium: 'Medium',

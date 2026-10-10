@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { get, remove, ref, update } from 'firebase/database';
+import { get, onValue, remove, ref, set, update } from 'firebase/database';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { DIFFICULTY_POINTS } from '../../data/questions/types';
 import type { Question } from '../../data/questions/types';
@@ -58,6 +58,12 @@ const sampleQuestion: Question = {
   ],
   correctIndex: 2,
 };
+
+const upcomingQuestions: Question[] = [
+  sampleQuestion,
+  { ...sampleQuestion, id: 'sports-easy-2', category: 'sports', difficulty: 'easy' },
+  { ...sampleQuestion, id: 'image-3', type: 'image_mcq', category: 'images' },
+];
 
 function questionRoom(overrides: Partial<RoomState> = {}): RoomState {
   const endsAt = 1_015_000;
@@ -174,7 +180,13 @@ describe('GameRoomService', () => {
         },
         {
           provide: QuestionBankService,
-          useValue: { getAll: () => [sampleQuestion] },
+          useValue: {
+            getAll: () => [sampleQuestion],
+            getMetadata: (id: string) => {
+              const q = upcomingQuestions.find((q) => q.id === id);
+              return q ? { type: q.type, category: q.category, difficulty: q.difficulty } : null;
+            },
+          },
         },
         {
           provide: RoundGeneratorService,
@@ -193,6 +205,50 @@ describe('GameRoomService', () => {
   afterEach(() => {
     localStorage.clear();
     sessionStorage.clear();
+  });
+
+  it('previews the actual next ID after refresh, reveal, advancement and rematch without Firebase calls', () => {
+    const first = questionRoom({
+      totalQuestions: 3,
+      questionIds: upcomingQuestions.map((q) => q.id),
+    });
+    // No host cache is populated: this is also the refresh/spectator path.
+    service.room.set(first);
+    expect(service.nextQuestion()).toEqual({ type: 'mcq', category: 'sports', difficulty: 'easy' });
+    service.room.set({ ...first, phase: 'reveal' });
+    expect(service.nextQuestion()?.category).toBe('sports');
+
+    service.room.set({
+      ...first,
+      currentIndex: 1,
+      currentQuestion: { ...first.currentQuestion!, index: 1 },
+    });
+    expect(service.nextQuestion()).toEqual({ type: 'image_mcq', category: 'images', difficulty: 'hard' });
+
+    service.room.set({ ...first, questionIds: [sampleQuestion.id, 'image-3', 'sports-easy-2'] });
+    expect(service.nextQuestion()?.type).toBe('image_mcq');
+    expect(get).not.toHaveBeenCalled();
+    expect(set).not.toHaveBeenCalled();
+    expect(update).not.toHaveBeenCalled();
+    expect(onValue).not.toHaveBeenCalled();
+  });
+
+  it('does not guess previews for missing IDs, final questions, inactive rooms or mismatched indexes', () => {
+    const room = questionRoom({ totalQuestions: 2, questionIds: [sampleQuestion.id, 'missing'] });
+    service.room.set(room);
+    expect(service.nextQuestion()).toBeNull();
+    service.room.set({ ...room, questionIds: [sampleQuestion.id] });
+    expect(service.nextQuestion()).toBeNull();
+    service.room.set({ ...room, totalQuestions: 1, questionIds: [sampleQuestion.id, 'image-3'] });
+    expect(service.nextQuestion()).toBeNull();
+    for (const phase of ['lobby', 'finished', 'leaderboard'] as const) {
+      service.room.set({ ...room, phase, questionIds: [sampleQuestion.id, 'image-3'] });
+      expect(service.nextQuestion()).toBeNull();
+    }
+    service.room.set({ ...room, currentIndex: 1, totalQuestions: 3 });
+    expect(service.nextQuestion()).toBeNull();
+    service.room.set(null);
+    expect(service.nextQuestion()).toBeNull();
   });
 
   it('leaveHostedRoom does not delete when only lastHostedCode is set (other tab)', async () => {

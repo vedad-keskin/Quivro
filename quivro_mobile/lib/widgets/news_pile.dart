@@ -67,7 +67,7 @@ const newsDrops = <NewsDrop>[
         bodyEn:
             'Know the answer but not completely sure? Take a shot without risking the question. Pick an answer first. if it is wrong, you get one more chance to choose.',
         bodyBs:
-            'Znaš odgovor, ali nisi potpuno siguran? Probaj bez straha da ćeš odmah izgubiti pitanje. Odaberi odgovor, ako nije tačan, dobijaš još jednu šansu za izbor.',
+            'Znaš odgovor, ali nisi potpuno siguran? Probaj bez straha da ćeš izgubiti bodove. Odaberi odgovor, ako nije tačan, dobijaš još jednu šansu za izbor.',
       ),
     ],
   ),

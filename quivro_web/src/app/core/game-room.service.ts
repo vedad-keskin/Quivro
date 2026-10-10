@@ -1,4 +1,4 @@
-import { Injectable, inject, signal } from '@angular/core';
+import { Injectable, computed, inject, signal } from '@angular/core';
 import {
   endAt,
   get,
@@ -69,6 +69,23 @@ export class GameRoomService {
   private readonly entitlements = inject(EntitlementService);
 
   readonly room = signal<RoomState | null>(null);
+  /** Derived from the already-synced order; never fetch or publish preview data. */
+  readonly nextQuestion = computed(() => {
+    const room = this.room();
+    if (
+      !room ||
+      (room.phase !== 'question' && room.phase !== 'reveal') ||
+      !room.currentQuestion ||
+      room.currentQuestion.index !== room.currentIndex ||
+      room.currentIndex < 0 ||
+      room.currentIndex + 1 >= room.totalQuestions
+    ) {
+      return null;
+    }
+
+    const id = room.questionIds[room.currentIndex + 1];
+    return id ? this.bank.getMetadata(id) : null;
+  });
   /** True when this browser tab owns host controls / teardown for the watched room. */
   readonly hosting = signal(false);
 
