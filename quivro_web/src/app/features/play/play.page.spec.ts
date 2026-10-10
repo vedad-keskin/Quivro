@@ -96,6 +96,10 @@ describe('Double It presentation', () => {
     settle(150);
     expect(fixture.componentInstance.nextBoostPulse()).toBe(1);
     expect(element('.next-meta.boosted .badge')?.textContent).toContain('3 pts');
+    const nextFlames = element('.next-meta app-question-flames');
+    expect(nextFlames?.querySelector('.ignite')).not.toBeNull();
+    render();
+    expect(element('.next-meta app-question-flames')).toBe(nextFlames);
     expect(element('.boost-notice')).toBeNull();
     expect(element('.qstage > .meta + .track')).not.toBeNull();
     expect(play).toHaveBeenCalledTimes(1);
@@ -105,6 +109,8 @@ describe('Double It presentation', () => {
     render();
     expect(element('.meta-info.boosted .badge')?.textContent).toContain('3 pts');
     expect(element('.next-meta .badge')).toBeNull();
+    expect(element('.next-meta app-question-flames')).toBeNull();
+    expect(element('.meta-info app-question-flames .ignite')).not.toBeNull();
     expect(element('.boost-sweep')).toBeNull();
     expect(play).toHaveBeenCalledTimes(1);
 
@@ -113,6 +119,7 @@ describe('Double It presentation', () => {
     settle();
     expect(element('.next-meta .badge')?.textContent).toContain('×2');
     expect(element('.meta-info .badge')?.textContent).toContain('×3');
+    expect(element('.next-meta app-question-flames .ignite')).not.toBeNull();
     expect(element('.boost-notice')).toBeNull();
   });
 
@@ -127,6 +134,56 @@ describe('Double It presentation', () => {
     expect(fixture.componentInstance.nextBoostPulse()).toBe(0);
   });
 
+  it('ignites each boosted current question once, survives reveal, and clears on an unboosted question', () => {
+    expect(element('app-question-flames')).toBeNull();
+    usePower('a', 'Alex');
+    settle();
+    expect(element('.meta-info app-question-flames')).toBeNull();
+    expect(element('.next-meta app-question-flames')).not.toBeNull();
+
+    state.currentIndex = 1;
+    state.currentQuestion = { ...state.currentQuestion!, index: 1, multiplier: 2 };
+    render();
+    const first = element('app-question-flames');
+    expect(first?.getAttribute('aria-hidden')).toBe('true');
+    expect(first?.querySelector('.ignite')).not.toBeNull();
+    render();
+    expect(element('app-question-flames')).toBe(first);
+    state.phase = 'reveal';
+    render();
+    expect(element('app-question-flames')).toBe(first);
+
+    state.phase = 'question';
+    state.currentIndex = 2;
+    state.currentQuestion = { ...state.currentQuestion!, index: 2, multiplier: 3 };
+    render();
+    expect(element('app-question-flames')).not.toBe(first);
+    expect(element('app-question-flames .ignite')).not.toBeNull();
+    expect(element('.meta-info .badge')?.textContent).toContain('3 pts');
+
+    state.currentIndex = 3;
+    state.currentQuestion = { ...state.currentQuestion!, index: 3, multiplier: 1 };
+    render();
+    expect(element('app-question-flames')).toBeNull();
+  });
+
+  it('restores flames without ignition on a fresh snapshot or hidden-tab question change', () => {
+    room.set(null);
+    fixture.detectChanges();
+    state.currentQuestion = { ...state.currentQuestion!, multiplier: 2 };
+    render();
+    expect(element('app-question-flames')).not.toBeNull();
+    expect(element('app-question-flames .ignite')).toBeNull();
+    vi.spyOn(document, 'hidden', 'get').mockReturnValue(true);
+    state.currentIndex = 1;
+    state.currentQuestion = { ...state.currentQuestion!, index: 1, multiplier: 2 };
+    render();
+    vi.spyOn(document, 'hidden', 'get').mockReturnValue(false);
+    render();
+    expect(element('app-question-flames')).not.toBeNull();
+    expect(element('app-question-flames .ignite')).toBeNull();
+  });
+
   it('restores boosted state silently and cancels pending effects on teardown', () => {
     state.roundId = 'round-b';
     usePower('a', 'Alex');
@@ -134,6 +191,8 @@ describe('Double It presentation', () => {
     expect(element('.next-meta.boosted .badge')?.textContent).toContain('2 pts');
     expect(fixture.componentInstance.nextBoostPulse()).toBe(0);
     expect(play).not.toHaveBeenCalled();
+    expect(element('.next-meta app-question-flames')).not.toBeNull();
+    expect(element('.next-meta app-question-flames .ignite')).toBeNull();
     usePower('b', 'Bea');
     fixture.destroy();
     vi.advanceTimersByTime(250);

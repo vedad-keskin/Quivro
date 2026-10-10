@@ -68,13 +68,14 @@ import { CATEGORY_ACCENT, SCORING_ACCENT, TYPE_ACCENT } from '../../shared/round
 import { Leaderboard } from '../../shared/leaderboard';
 import { TimerRing } from '../../shared/timer-ring';
 import { QuestionBoost } from '../../shared/question-boost';
+import { QuestionFlames } from './question-flames';
 import { UpgradeDialogService } from '../../shared/upgrade-dialog.service';
 
 type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
 
 @Component({
   selector: 'app-play',
-  imports: [AnswerGrid, FormsModule, Leaderboard, TimerRing, QuestionBoost],
+  imports: [AnswerGrid, FormsModule, Leaderboard, TimerRing, QuestionBoost, QuestionFlames],
   template: `
     <div class="tv q-show" #tvRoot>
       @if (room(); as r) {
@@ -464,6 +465,11 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
               @if (r.currentQuestion; as q) {
                 <header class="meta">
                   <div class="meta-info" [class.boosted]="(q.multiplier ?? 1) > 1" [style.--accent]="q.imageUrl ? typeInfo.image_mcq.accent : categoryInfo[q.category].accent">
+                    @if ((q.multiplier ?? 1) > 1) {
+                      @for (questionKey of [r.roundId + ':' + q.index]; track questionKey) {
+                        <app-question-flames [ignite]="currentBoostIgnition()" />
+                      }
+                    }
                     <p class="counter">
                       <span class="current-label">{{ lang.t().currentQuestionLabel }} <span aria-hidden="true">·</span> {{ lang.t().question }}</span>
                       <b>{{ q.index + 1 }}<small>/{{ q.total }}</small></b>
@@ -490,6 +496,11 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                   </div>
                   @if (rooms.nextQuestion(); as next) {
                     <div class="next-meta" [class.boosted]="nextBoost() > 1" [style.--accent]="next.type === 'image_mcq' ? typeInfo.image_mcq.accent : categoryInfo[next.category].accent">
+                      @if (nextBoost() > 1) {
+                        @for (pulse of [r.roundId + ':' + q.index + ':' + nextBoostPulse()]; track pulse) {
+                          <app-question-flames [ignite]="nextBoostPulse() > 0" />
+                        }
+                      }
                       <app-question-boost [multiplier]="nextBoost()" [pulse]="nextBoostPulse()"
                         [timed]="r.config.scoringMode === 'timed'" />
                       <span class="next-label">{{ lang.t().upNext }} <span aria-hidden="true">→</span></span>
@@ -780,9 +791,9 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
         transform: translate(-30vw, 22vh) scale(0.48);
       }
     }
-    .meta-info.boosted, .next-meta.boosted {
-      border-color: var(--q-gold);
-      box-shadow: 3px 3px 0 var(--ink), 0 0 12px color-mix(in srgb, var(--q-gold) 15%, transparent);
+    .next-meta app-question-flames {
+      --flame-border: 2px;
+      --flame-radius: 16px;
     }
     .meta {
       display: flex;
@@ -1236,6 +1247,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       margin-left: auto;
     }
     @container (max-width: 680px) {
+      .next-meta app-question-flames { --flame-height-scale: .3; }
       .meta {
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto;
@@ -1351,6 +1363,7 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly room = this.rooms.room;
   readonly nextBoost = computed(() => this.room() ? nextQuestionMultiplier(this.room()!) : 1);
   readonly nextBoostPulse = signal(0);
+  readonly currentBoostIgnition = signal(false);
   private boostState: { round: string; index: number; next: number } | null = null;
   private boostBatchTimer: ReturnType<typeof setTimeout> | undefined;
   private boostAudio: HTMLAudioElement | null = null;
@@ -1738,6 +1751,7 @@ export class PlayPage implements OnInit, OnDestroy {
     clearTimeout(this.boostBatchTimer);
     this.boostBatchTimer = undefined;
     this.nextBoostPulse.set(0);
+    this.currentBoostIgnition.set(false);
     this.boostAudio?.pause();
     this.boostAudio = null;
   }
@@ -1751,6 +1765,9 @@ export class PlayPage implements OnInit, OnDestroy {
     if (!before || before.round !== round || before.index !== room.currentIndex ||
         (room.phase !== 'question' && room.phase !== 'reveal')) {
       this.clearBoostEffects();
+      this.currentBoostIgnition.set(!!before && before.round === round &&
+        before.index !== room.currentIndex && room.phase === 'question' &&
+        (room.currentQuestion?.multiplier ?? 1) > 1 && !document.hidden);
       return;
     }
     if (next <= before.next || document.hidden || this.boostBatchTimer != null) return;
