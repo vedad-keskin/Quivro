@@ -17,19 +17,19 @@ export const NEWS: NewsDrop[] = [
   {
     id: 'double-it',
     cards: [
-      { image: '/room-icons/double_it.png', accent: 'var(--q-gold)', title: { en: 'Double it is here', bs: 'Double it je stigao' }, body: { en: 'Want the next question to be worth more? Boost it and increase your chances of winning.', bs: 'Želiš da sljedeće pitanje vrijedi više? Pojačaj ga i povećaj svoju šansu za pobjedom.' } },
+      { image: '/room-icons/double_it.png', accent: 'var(--q-gold)', title: { en: 'Double it is here', bs: 'Double it je stigao' }, body: { en: 'Know the next category? Increase the points it’s worth for everyone. Each extra use on the same question adds even more bonus points.', bs: 'Poznaješ oblast sljedećeg pitanja? Povećaj broj bodova koje ono nosi. Svako dodatno korištenje na jednom pitanju dodatno povećava broj bodova.' } },
     ],
   },
   {
     id: 'lock-up',
     cards: [
-      { image: '/room-icons/lock_up.png', accent: 'var(--q-pink)', title: { en: 'Lock Up is here', bs: 'Lock Up je stigao' }, body: { en: 'Know the answer and want an advantage? Lock yourself and a random opponent out of the question. You stay safe while your opponent loses the chance to answer.', bs: 'Znaš odgovor i želiš prednost? Zaključaj sebe i nasumičnog protivnika iz pitanja. Ti si siguran, dok protivnik gubi mogućnost odgovaranja.' } },
+      { image: '/room-icons/lock_up.png', accent: 'var(--q-pink)', title: { en: 'Lock Up is here', bs: 'Lock Up je stigao' }, body: { en: 'Know the answer and want an advantage? Lock yourself and a random opponent out. You stay safe while your opponent loses the chance to answer.', bs: 'Znaš odgovor i želiš prednost? Zaključaj sebe i nasumičnog protivnika iz pitanja. Ti si siguran, dok protivnik gubi mogućnost odgovaranja.' } },
     ],
   },
   {
     id: 'second-chance',
     cards: [
-      { image: '/room-icons/second_chance.png', accent: 'var(--q-orange)', title: { en: 'Second Chance is here', bs: 'Second Chance je stigao' }, body: { en: 'Know the answer but not completely sure? Take a shot without risking the question. Pick an answer first. if it is wrong, you get one more chance to choose.', bs: 'Znaš odgovor, ali nisi potpuno siguran? Probaj bez straha da ćeš izgubiti bodove. Odaberi odgovor, ako nije tačan, dobijaš još jednu šansu za izbor.' } },
+      { image: '/room-icons/second_chance.png', accent: 'var(--q-orange)', title: { en: 'Second Chance is here', bs: 'Second Chance je stigao' }, body: { en: 'Know the answer but not completely sure? Take a shot without risking the question. Pick an answer first. if it is wrong, you get one more chance to choose.', bs: 'Nisi potpuno siguran u odgovor? Probaj bez straha da izgubiš bodove. Ako odgovor nije tačan, dobijaš još jednu šansu.' } },
     ],
   },
   {

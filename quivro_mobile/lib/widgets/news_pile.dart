@@ -50,9 +50,9 @@ const newsDrops = <NewsDrop>[
         titleEn: 'Double it is here',
         titleBs: 'Double it je stigao',
         bodyEn:
-            'Want the next question to be worth more? Boost it and increase your chances of winning.',
+            'Know the next category? Increase the points it’s worth for everyone. Each extra use on the same question adds even more bonus points.',
         bodyBs:
-            'Želiš da sljedeće pitanje vrijedi više bodova? Pojačaj ga i povećaj svoju šansu za pobjedom.',
+            'Poznaješ oblast sljedećeg pitanja? Povećaj broj bodova koje ono nosi. Svako dodatno korištenje na jednom pitanju dodatno povećava broj bodova.',
       ),
     ],
   ),
@@ -65,7 +65,7 @@ const newsDrops = <NewsDrop>[
         titleEn: 'Lock Up is here',
         titleBs: 'Lock Up je stigao',
         bodyEn:
-            'Know the answer and want an advantage? Lock yourself and a random opponent out of the question. You stay safe while your opponent loses the chance to answer.',
+            'Know the answer and want an advantage? Lock yourself and a random opponent out. You stay safe while your opponent loses the chance to answer.',
         bodyBs:
             'Znaš odgovor i želiš prednost? Zaključaj sebe i nasumičnog protivnika iz pitanja. Ti si siguran, dok protivnik gubi mogućnost odgovaranja.',
       ),
@@ -82,7 +82,7 @@ const newsDrops = <NewsDrop>[
         bodyEn:
             'Know the answer but not completely sure? Take a shot without risking the question. Pick an answer first. if it is wrong, you get one more chance to choose.',
         bodyBs:
-            'Znaš odgovor, ali nisi potpuno siguran? Probaj bez straha da ćeš izgubiti bodove. Odaberi odgovor, ako nije tačan, dobijaš još jednu šansu za izbor.',
+            'Nisi potpuno siguran u odgovor? Probaj bez straha da izgubiš bodove. Ako odgovor nije tačan, dobijaš još jednu šansu.',
       ),
     ],
   ),
@@ -101,7 +101,6 @@ const newsDrops = <NewsDrop>[
       ),
     ],
   ),
-  
 ];
 
 class _Slide {
@@ -128,7 +127,8 @@ class NewsPile extends StatefulWidget {
   State<NewsPile> createState() => NewsPileState();
 }
 
-class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin {
+class NewsPileState extends State<NewsPile>
+    with SingleTickerProviderStateMixin {
   var _ready = false;
   var _open = false;
   var _all = false;
@@ -136,32 +136,33 @@ class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin 
   var _snapping = false;
   var _dir = 0;
   var _index = 0;
-  var _drag = 0.0;
+  final _drag = ValueNotifier(0.0);
   var _snapFrom = 0.0;
   List<String> _seen = const [];
   late final AnimationController _commit;
+  late final Listenable _motion;
+
+  double get _dragOffset =>
+      _snapping ? _snapFrom * (1 - _commit.value) : _drag.value;
 
   @override
   void initState() {
     super.initState();
-    _commit = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 240),
-    )..addListener(() {
-      if (_snapping) {
-        setState(() => _drag = _snapFrom * (1 - _commit.value));
-      } else {
-        setState(() {});
-      }
-    })..addStatusListener((status) {
-      if (status == AnimationStatus.completed) _onCommitDone();
-    });
+    _commit =
+        AnimationController(
+          vsync: this,
+          duration: const Duration(milliseconds: 240),
+        )..addStatusListener((status) {
+          if (status == AnimationStatus.completed) _onCommitDone();
+        });
+    _motion = Listenable.merge([_commit, _drag]);
     _load();
   }
 
   @override
   void dispose() {
     _commit.dispose();
+    _drag.dispose();
     super.dispose();
   }
 
@@ -195,12 +196,13 @@ class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin 
     setState(() {
       _all = true;
       _index = 0;
-      _drag = 0;
+      _drag.value = 0;
       _open = _slides.isNotEmpty;
     });
   }
 
   Future<void> _close() async {
+    _commit.stop();
     final ids = {..._seen, ..._slides.map((slide) => slide.dropId)}.toList();
     if (mounted) setState(() => _open = false);
     final prefs = await SharedPreferences.getInstance();
@@ -210,7 +212,7 @@ class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin 
       _seen = ids;
       _all = false;
       _index = 0;
-      _drag = 0;
+      _drag.value = 0;
       _dir = 0;
       _busy = false;
       _snapping = false;
@@ -223,7 +225,7 @@ class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin 
     if (_snapping) {
       setState(() {
         _snapping = false;
-        _drag = 0;
+        _drag.value = 0;
         _busy = false;
       });
       _commit.value = 0;
@@ -237,7 +239,7 @@ class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin 
     }
     setState(() {
       _dir = 0;
-      _drag = 0;
+      _drag.value = 0;
       _busy = false;
       if (dir > 0) _index += 1;
       if (dir < 0 && _index > 0) _index -= 1;
@@ -246,9 +248,16 @@ class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin 
   }
 
   void _snapBack() {
-    _snapFrom = _drag;
-    _snapping = true;
-    _busy = true;
+    if (_busy || _drag.value == 0) return;
+    if (_reduce) {
+      _drag.value = 0;
+      return;
+    }
+    setState(() {
+      _snapFrom = _drag.value;
+      _snapping = true;
+      _busy = true;
+    });
     _commit.forward(from: 0);
   }
 
@@ -260,7 +269,10 @@ class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin 
       if (next >= _slides.length) {
         await _close();
       } else {
-        setState(() => _index = next);
+        setState(() {
+          _index = next;
+          _drag.value = 0;
+        });
       }
       return;
     }
@@ -299,21 +311,25 @@ class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin 
           child: ColoredBox(
             color: const Color(0x99060C20),
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(inset, padTop, inset, padBottom),
+              padding: const EdgeInsets.fromLTRB(
+                inset,
+                padTop,
+                inset,
+                padBottom,
+              ),
               child: Center(
                 child: GestureDetector(
                   onTap: () {},
                   onHorizontalDragUpdate: (details) {
                     if (_busy) return;
-                    setState(() {
-                      _drag += details.delta.dx;
-                      if (index == 0 && _drag > 0) _drag = 0;
-                    });
+                    final drag = _drag.value + details.delta.dx;
+                    _drag.value = index == 0 && drag > 0 ? 0 : drag;
                   },
+                  onHorizontalDragCancel: _snapBack,
                   onHorizontalDragEnd: (details) {
                     if (_busy) return;
                     final velocity = details.primaryVelocity ?? 0;
-                    final drag = _drag;
+                    final drag = _drag.value;
                     final next = drag < -72 || velocity < -500;
                     final prev =
                         index > 0 && !next && (drag > 72 || velocity > 500);
@@ -386,26 +402,35 @@ class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin 
     return 20 - (i - index);
   }
 
-  double get _t => _dir > 0 ? Curves.easeOut.transform(_commit.value) : (_dir < 0 ? _commit.value : 0);
+  double get _t => _dir > 0
+      ? Curves.easeOut.transform(_commit.value)
+      : (_dir < 0 ? _commit.value : 0);
 
   Offset _cardOffset(int i, int index, double width) {
     final t = _t;
+    final drag = _dragOffset;
     if (_dir > 0) {
-      if (i == index) return Offset(_mix(_drag, -width * 1.15, t), 0);
+      if (i == index) return Offset(_mix(drag, -width * 1.15, t), 0);
       final depth = (i - index).toDouble();
-      final from = depth - (-_drag / 140).clamp(0.0, 1.0);
-      return Offset(_mix(from * 14, (depth - 1) * 14, t), _mix(from * 12, (depth - 1) * 12, t));
+      final from = depth - (-drag / 140).clamp(0.0, 1.0);
+      return Offset(
+        _mix(from * 14, (depth - 1) * 14, t),
+        _mix(from * 12, (depth - 1) * 12, t),
+      );
     }
     if (_dir < 0) {
-      if (i == index) return Offset(_mix(_drag, 14, t), _mix(0, 12, t));
+      if (i == index) return Offset(_mix(drag, 14, t), _mix(0, 12, t));
       if (i == index - 1) return Offset(_mix(-72, 0, t), 0);
       final depth = (i - index).toDouble();
-      return Offset(_mix(_drag + depth * 14, (depth + 1) * 14, t), (depth + t) * 12);
+      return Offset(
+        _mix(drag + depth * 14, (depth + 1) * 14, t),
+        (depth + t) * 12,
+      );
     }
-    if (i == index) return Offset(_drag, 0);
+    if (i == index) return Offset(drag, 0);
     final depth = (i - index).toDouble();
-    if (_drag > 0) return Offset(_drag + depth * 14, depth * 12);
-    final pull = (-_drag / 140).clamp(0.0, 1.0);
+    if (drag > 0) return Offset(drag + depth * 14, depth * 12);
+    final pull = (-drag / 140).clamp(0.0, 1.0);
     final back = depth - pull;
     return Offset(back * 14, back * 12);
   }
@@ -418,8 +443,9 @@ class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin 
     const peek = 0.02;
     const face = -0.035;
     final t = _t;
-    final forwardPull = _drag < 0 ? (-_drag / 140).clamp(0.0, 1.0) : 0.0;
-    final backPull = _drag > 0 ? (_drag / 140).clamp(0.0, 1.0) : 0.0;
+    final drag = _dragOffset;
+    final forwardPull = drag < 0 ? (-drag / 140).clamp(0.0, 1.0) : 0.0;
+    final backPull = drag > 0 ? (drag / 140).clamp(0.0, 1.0) : 0.0;
     if (_dir > 0) {
       if (i == index) return _mix(_mix(face, peek, forwardPull), peek, t);
       if (i == index + 1) return _mix(_mix(peek, face, forwardPull), face, t);
@@ -446,27 +472,34 @@ class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin 
     required bool bs,
     required AppStrings strings,
   }) {
-    final offset = _cardOffset(i, index, width);
     final leaving = _dir > 0 && i == index;
     final front = (i == index && _dir >= 0) || (i == index - 1 && _dir < 0);
     final showNav = front || (_dir > 0 && i == index + 1);
-    return Transform.translate(
-      offset: offset,
-      child: Transform.rotate(
-        angle: _tilt(i, index),
-        child: Opacity(
-          opacity: leaving ? (1 - _t).clamp(0.0, 1.0) : 1,
-          child: IgnorePointer(
-            ignoring: !front || _busy,
-            child: _card(
-              context,
-              slide: slides[i],
-              n: i + 1,
-              bs: bs,
-              strings: strings,
-              maxHeight: maxHeight,
-              showNav: showNav,
-            ),
+    return AnimatedBuilder(
+      key: ValueKey(i),
+      animation: _motion,
+      // Only transforms and opacity change per frame; retain the painted card.
+      child: IgnorePointer(
+        ignoring: !front || _busy,
+        child: RepaintBoundary(
+          child: _card(
+            context,
+            slide: slides[i],
+            n: i + 1,
+            bs: bs,
+            strings: strings,
+            maxHeight: maxHeight,
+            showNav: showNav,
+          ),
+        ),
+      ),
+      builder: (context, child) => Transform.translate(
+        offset: _cardOffset(i, index, width),
+        child: Transform.rotate(
+          angle: _tilt(i, index),
+          child: Opacity(
+            opacity: leaving ? (1 - _t).clamp(0.0, 1.0) : 1,
+            child: child,
           ),
         ),
       ),
@@ -535,22 +568,37 @@ class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin 
                 maintainSize: true,
                 maintainAnimation: true,
                 maintainState: true,
-                child: Padding(
+                child: Container(
+                  width: double.infinity,
                   padding: const EdgeInsets.only(top: 14),
                   child: Row(
                     children: [
-                      _navButton(
-                        context,
-                        label: strings.newsPrev,
-                        onTap: _index == 0 || _busy ? null : () => _step(-1),
-                        filled: false,
+                      Flexible(
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: _navButton(
+                            context,
+                            label: strings.newsPrev,
+                            onTap: _index == 0 || _busy
+                                ? null
+                                : () => _step(-1),
+                            filled: false,
+                          ),
+                        ),
                       ),
-                      const Spacer(),
-                      _navButton(
-                        context,
-                        label: n == _slides.length ? strings.newsGotIt : strings.newsNext,
-                        onTap: _busy ? null : () => _step(1),
-                        filled: true,
+                      const SizedBox(width: 8),
+                      Flexible(
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: _navButton(
+                            context,
+                            label: n == _slides.length
+                                ? strings.newsGotIt
+                                : strings.newsNext,
+                            onTap: _busy ? null : () => _step(1),
+                            filled: true,
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -576,11 +624,7 @@ class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin 
               ),
               child: Text(
                 '$n',
-                style: showDisplay(
-                  context,
-                  fontSize: 22,
-                  color: showInkDay,
-                ),
+                style: showDisplay(context, fontSize: 22, color: showInkDay),
               ),
             ),
           ),
@@ -643,12 +687,16 @@ class NewsPileState extends State<NewsPile> with SingleTickerProviderStateMixin 
             radius: 12,
             shadow: const Offset(0, 4),
           ),
-          child: Text(
-            label.toUpperCase(),
-            style: showDisplay(
-              context,
-              fontSize: 16,
-              color: filled ? showInkDay : context.palette.text,
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              label.toUpperCase(),
+              maxLines: 1,
+              style: showDisplay(
+                context,
+                fontSize: 16,
+                color: filled ? showInkDay : context.palette.text,
+              ),
             ),
           ),
         ),

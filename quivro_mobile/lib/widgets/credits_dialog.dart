@@ -135,7 +135,7 @@ class CreditsDialog extends StatelessWidget {
                     right: 14,
                     bottom: 10,
                     child: Text(
-                      'v1.4.0',
+                      'v1.4.3',
                       style: GoogleFonts.nunito(
                         fontSize: 11,
                         fontWeight: FontWeight.w700,
