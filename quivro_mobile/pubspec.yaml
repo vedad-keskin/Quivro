@@ -108,6 +108,8 @@ flutter:
     - assets/powerups/fifty_fifty.png
     - assets/powerups/second_chance.png
     - assets/powerups/lock_up.png
+    - assets/powerups/double_it.png
+    - assets/sounds/double_up.mp3
     - assets/branding/logo.png
     - assets/branding/logo_only.png
     - assets/branding/logo_only_icon.png

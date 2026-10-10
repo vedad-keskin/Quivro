@@ -53,6 +53,8 @@ import {
   IMAGE_SLIDE_MS,
   POWER_UP_CATALOG,
   questionSettled,
+  nextQuestionMultiplier,
+  type RoomState,
   type PowerUpSlot,
   type PowerUpSlots,
   type RoomConfig,
@@ -65,13 +67,14 @@ import { AnswerGrid, fitFont } from '../../shared/answer-grid';
 import { CATEGORY_ACCENT, SCORING_ACCENT, TYPE_ACCENT } from '../../shared/round-accents';
 import { Leaderboard } from '../../shared/leaderboard';
 import { TimerRing } from '../../shared/timer-ring';
+import { QuestionBoost } from '../../shared/question-boost';
 import { UpgradeDialogService } from '../../shared/upgrade-dialog.service';
 
 type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
 
 @Component({
   selector: 'app-play',
-  imports: [AnswerGrid, FormsModule, Leaderboard, TimerRing],
+  imports: [AnswerGrid, FormsModule, Leaderboard, TimerRing, QuestionBoost],
   template: `
     <div class="tv q-show" #tvRoot>
       @if (room(); as r) {
@@ -483,9 +486,12 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                         </span>
                       }
                     }
+                    <app-question-boost [large]="true" [multiplier]="q.multiplier ?? 1" [timed]="r.config.scoringMode === 'timed'" />
                   </div>
                   @if (rooms.nextQuestion(); as next) {
                     <div class="next-meta" [style.--accent]="next.type === 'image_mcq' ? typeInfo.image_mcq.accent : categoryInfo[next.category].accent">
+                      <app-question-boost [multiplier]="nextBoost()" [pulse]="nextBoostPulse()"
+                        [timed]="r.config.scoringMode === 'timed'" />
                       <span class="next-label">{{ lang.t().upNext }} <span aria-hidden="true">→</span></span>
                       <span class="cat-chip" [style.--accent]="next.type === 'image_mcq' ? typeInfo.image_mcq.accent : categoryInfo[next.category].accent">
                         <img [src]="next.type === 'image_mcq' ? typeInfo.image_mcq.icon : categoryInfo[next.category].icon" alt="" />
@@ -709,14 +715,14 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       }
     }
     .qstage {
+      position: relative;
       container-type: inline-size;
       display: flex;
       flex-direction: column;
       gap: 0.9rem;
-      padding: clamp(1rem, 2vw, 1.6rem);
-      padding-bottom: 3.6rem;
+      padding: calc(clamp(1rem, 2vw, 1.6rem) + 12px) clamp(1rem, 2vw, 1.6rem) 3.6rem;
       height: 100%;
-      overflow: hidden;
+      overflow: visible;
     }
     .qstage app-answer-grid {
       margin-bottom: 0.6rem;
@@ -781,6 +787,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       flex-shrink: 0;
     }
     .meta-info {
+      position: relative;
       display: grid;
       grid-template-columns: auto minmax(0, 1fr);
       align-items: center;
@@ -1164,6 +1171,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
     }
 
     .next-meta {
+      position: relative;
       display: grid;
       gap: 0.3rem;
       flex: 0 1 21rem;
@@ -1320,6 +1328,11 @@ export class PlayPage implements OnInit, OnDestroy {
   private readonly serverTime = inject(ServerTimeService);
 
   readonly room = this.rooms.room;
+  readonly nextBoost = computed(() => this.room() ? nextQuestionMultiplier(this.room()!) : 1);
+  readonly nextBoostPulse = signal(0);
+  private boostState: { round: string; index: number; next: number } | null = null;
+  private boostAudio: HTMLAudioElement | null = null;
+  private lastBoostSoundAt = 0;
   readonly avatarColor = avatarColor;
   readonly avatarEmoji = avatarEmoji;
   readonly answeredStrip = viewChild<ElementRef<HTMLElement>>('answeredStrip');
@@ -1492,6 +1505,7 @@ export class PlayPage implements OnInit, OnDestroy {
     effect(() => {
       const r = this.room();
       if (!r || r.code !== this.code) return;
+      untracked(() => this.syncBoostEffects(r));
 
       if (r.phase === 'finished' && !this.configSynced) {
         this.configSynced = true;
@@ -1684,6 +1698,7 @@ export class PlayPage implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.boostAudio?.pause();
     this.promptObserver?.disconnect();
     this.promptObserver = null;
     this.promptStage = null;
@@ -1692,6 +1707,36 @@ export class PlayPage implements OnInit, OnDestroy {
     // reaped lazily + by the sweep. Explicit exit uses goHome().
     this.clearImageTimers();
     this.rooms.stopWatching();
+  }
+
+  private syncBoostEffects(room: RoomState): void {
+    const next = nextQuestionMultiplier(room);
+    const round = room.roundId ?? '';
+    const before = this.boostState;
+    this.boostState = { round, index: room.currentIndex, next };
+    // First snapshot on refresh restores state silently.
+    if (!before || before.round !== round) return;
+    const stacked = before.index === room.currentIndex && next > before.next;
+    if (stacked) this.nextBoostPulse.update((n) => n + 1);
+    if (!stacked || document.hidden) return;
+    const endsAt = room.currentQuestion?.endsAt;
+    if (room.phase === 'question' && endsAt != null && endsAt - this.serverTime.nowMs() < 5000) return;
+    if (Date.now() - this.lastBoostSoundAt < 180) return;
+    this.lastBoostSoundAt = Date.now();
+    this.boostAudio?.pause();
+    const first = before.next <= 1;
+    const audio = new Audio(first ? '/sounds/double_it_sound.mp3' : '/sounds/double_it_+1.mp3');
+    audio.volume = 0.32;
+    audio.loop = false;
+    this.boostAudio = audio;
+    const start = () => {
+      if (first && Number.isFinite(audio.duration) && audio.duration > 3) {
+        audio.currentTime = audio.duration - 3;
+      }
+      void audio.play().catch(() => { /* Visual feedback remains authoritative. */ });
+    };
+    if (first && audio.readyState < 1) audio.addEventListener('loadedmetadata', start, { once: true });
+    else start();
   }
 
   async goHome(): Promise<void> {
@@ -1914,6 +1959,7 @@ export class PlayPage implements OnInit, OnDestroy {
       if (e instanceof Error) {
         if (e.message === 'NOT_HOST') msg = this.lang.t().alreadyHostingOtherTab;
         else if (e.message === 'NO_QUESTIONS') msg = this.lang.t().noQuestions;
+        else if (e.message === 'DOUBLE_IT_UPDATE_REQUIRED') msg = this.lang.t().doubleItUpdateRequired;
         else if (e.message === 'NO_PLAYERS') msg = this.lang.t().minPlayers;
       }
       this.snack.error(msg);
@@ -1929,6 +1975,7 @@ export class PlayPage implements OnInit, OnDestroy {
   }
 
   private playCorrectSfx(): void {
+    this.boostAudio?.pause();
     try {
       const audio = new Audio('/sounds/correct_answer.mp3');
       void audio.play().catch(() => {

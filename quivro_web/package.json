@@ -13,7 +13,6 @@
   "engines": {
     "node": ">=20"
   },
-
   "dependencies": {
     "@angular/common": "^22.0.0",
     "@angular/compiler": "^22.0.0",
@@ -22,6 +21,7 @@
     "@angular/platform-browser": "^22.0.0",
     "@angular/router": "^22.0.0",
     "firebase": "^12.16.0",
+    "lottie-web": "^5.13.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

@@ -39,8 +39,10 @@ describe('cyclePowerUpSlot', () => {
     expect(cyclePowerUpSlot(null, 1)).toBe('fifty_fifty');
     expect(cyclePowerUpSlot('fifty_fifty', 1)).toBe('second_chance');
     expect(cyclePowerUpSlot('second_chance', 1)).toBe('lock_up');
-    expect(cyclePowerUpSlot('lock_up', 1)).toBe(null);
-    expect(cyclePowerUpSlot(null, -1)).toBe('lock_up');
+    expect(cyclePowerUpSlot('lock_up', 1)).toBe('double_it');
+    expect(cyclePowerUpSlot('double_it', 1)).toBe(null);
+    expect(cyclePowerUpSlot(null, -1)).toBe('double_it');
+    expect(cyclePowerUpSlot('double_it', -1)).toBe('lock_up');
     expect(cyclePowerUpSlot('lock_up', -1)).toBe('second_chance');
     expect(cyclePowerUpSlot('second_chance', -1)).toBe('fifty_fifty');
     expect(cyclePowerUpSlot('fifty_fifty', -1)).toBe(null);
@@ -50,7 +52,7 @@ describe('cyclePowerUpSlot', () => {
 describe('randomPowerUpSlots', () => {
   it('returns three valid slots across the whole rand range', () => {
     expect(randomPowerUpSlots(() => 0)).toEqual([null, null, null]);
-    expect(randomPowerUpSlots(() => 0.999)).toEqual(['lock_up', 'lock_up', 'lock_up']);
+    expect(randomPowerUpSlots(() => 0.999)).toEqual(['double_it', 'double_it', 'double_it']);
     expect(randomPowerUpSlots()).toHaveLength(3);
   });
 });

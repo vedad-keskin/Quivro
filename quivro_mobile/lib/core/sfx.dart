@@ -5,6 +5,7 @@ class Sfx {
   Sfx();
 
   final AudioPlayer _guess = AudioPlayer();
+  final AudioPlayer _double = AudioPlayer();
   final AudioPlayer _fifty = AudioPlayer();
   final AudioPlayer _second = AudioPlayer();
   final AudioPlayer _secondCorrect = AudioPlayer();
@@ -22,15 +23,23 @@ class Sfx {
     await _second.setReleaseMode(ReleaseMode.stop);
     await _second.setSource(AssetSource('sounds/second_chance.mp3'));
     await _secondCorrect.setReleaseMode(ReleaseMode.stop);
-    await _secondCorrect.setSource(AssetSource('sounds/second_chance_correct.mp3'));
+    await _secondCorrect.setSource(
+      AssetSource('sounds/second_chance_correct.mp3'),
+    );
     await _secondWrong.setReleaseMode(ReleaseMode.stop);
-    await _secondWrong.setSource(AssetSource('sounds/second_chance_incorrect.mp3'));
+    await _secondWrong.setSource(
+      AssetSource('sounds/second_chance_incorrect.mp3'),
+    );
     await _lock.setReleaseMode(ReleaseMode.stop);
     await _lock.setSource(AssetSource('sounds/lock_up.mp3'));
     await _locked.setReleaseMode(ReleaseMode.stop);
     await _locked.setSource(AssetSource('sounds/lock_up_player.mp3'));
+    await _double.setReleaseMode(ReleaseMode.stop);
+    await _double.setSource(AssetSource('sounds/double_up.mp3'));
     _ready = true;
   }
+
+  Future<void> playDoubleIt() => _play(_double);
 
   Future<void> playGuess() async {
     await _play(_guess);
@@ -72,6 +81,7 @@ class Sfx {
   }
 
   Future<void> dispose() async {
+    await _double.dispose();
     await _guess.dispose();
     await _fifty.dispose();
     await _second.dispose();

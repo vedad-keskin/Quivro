@@ -41,6 +41,7 @@ class AppStrings {
     required this.couldNotUsePowerUp,
     required this.fiftyFifty,
     required this.secondChance,
+    required this.doubleIt,
     required this.lockUp,
     required this.couldNotJoinRematch,
     required this._connectionError,
@@ -133,6 +134,7 @@ class AppStrings {
   final String couldNotUsePowerUp;
   final String fiftyFifty;
   final String secondChance;
+  final String doubleIt;
   final String lockUp;
   final String couldNotJoinRematch;
   final String _connectionError;
@@ -243,6 +245,7 @@ class AppStrings {
     couldNotUsePowerUp: 'Could not use power-up',
     fiftyFifty: '50/50',
     secondChance: 'Second Chance',
+    doubleIt: 'Double it',
     lockUp: 'Lock Up',
     couldNotJoinRematch: 'Could not join rematch',
     connectionError: 'Connection error: {error}',
@@ -334,6 +337,7 @@ class AppStrings {
     couldNotUsePowerUp: 'Pojačanje nije iskorišteno',
     fiftyFifty: '50/50',
     secondChance: 'Druga šansa',
+    doubleIt: 'Uduplaj',
     lockUp: 'Lock Up',
     couldNotJoinRematch: 'Prijava za novu rundu nije uspjela',
     connectionError: 'Greška u konekciji: {error}',
@@ -372,7 +376,8 @@ class AppStrings {
     creditsMom: 'Mama',
     close: 'Zatvori',
     hostHintTitle: 'Domaćin na velikom ekranu',
-    hostHintBody: 'Otvori ovu web stranicu na laptopu ili TV-u da napraviš sobu.',
+    hostHintBody:
+        'Otvori ovu web stranicu na laptopu ili TV-u da napraviš sobu.',
     hostHintGotIt: 'Razumijem',
     hostHintCopied: 'Link je kopiran',
     newsWhatsNew: 'Šta je novo?',

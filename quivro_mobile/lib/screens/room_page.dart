@@ -43,6 +43,8 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
   int? _lockSoundedFor;
   int _trackedQuestion = -1;
   int? _pendingSlot;
+  ({int slot, int source, String roundId})? _doublePending;
+  bool _doubleRequestWritten = false;
   int? _armedSlot;
   int? _probeSoundedAt;
   bool _powerUpArmed = false;
@@ -327,6 +329,7 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
     }
 
     final locking = room.powerUpSlots[slot] == powerUpLockUp;
+    final doubling = room.powerUpSlots[slot] == powerUpDoubleIt;
     final lockedChoice = locking ? room.choiceOf(widget.playerId) : null;
     if (locking && lockedChoice == null) return;
 
@@ -335,8 +338,22 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
       _powerUpArmed = false;
       _powerUpBaseline = null;
       if (locking) _selfLocked = true;
+      if (doubling) {
+        _doublePending = (
+          slot: slot,
+          source: room.currentIndex,
+          roundId: room.roundId!,
+        );
+        _doubleRequestWritten = false;
+      }
     });
-    unawaited(locking ? _sfx.playLockUp() : _sfx.playFiftyFifty());
+    unawaited(
+      doubling
+          ? _sfx.playDoubleIt()
+          : locking
+          ? _sfx.playLockUp()
+          : _sfx.playFiftyFifty(),
+    );
     try {
       await _repo.requestPowerUp(
         code: widget.code,
@@ -346,6 +363,13 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
         choice: lockedChoice,
       );
       if (!mounted) return;
+      if (doubling) {
+        _doubleRequestWritten = true;
+        // Acceptance may precede the write acknowledgment; reconcile fresh state.
+        final fresh = await _repo.fetchRoom(widget.code);
+        if (mounted && fresh != null) _syncDoubleIt(fresh);
+        return;
+      }
       setState(() {
         _powerUpArmed = true;
         _powerUpBaseline = _latestRoom;
@@ -353,6 +377,7 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
     } catch (_) {
       if (!mounted) return;
       setState(() {
+        if (doubling) _doublePending = null;
         _pendingSlot = null;
         _selfLocked = false;
         _powerUpArmed = false;
@@ -364,6 +389,37 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
         kind: QuivroSnackKind.error,
       );
     }
+  }
+
+  void _syncDoubleIt(RoomState room) {
+    final pending = _doublePending;
+    if (pending == null) return;
+    final accepted =
+        room.roundId == pending.roundId &&
+        room.powerUps[widget.playerId]?.used[pending.slot] == pending.source;
+    final closed =
+        room.roundId != pending.roundId ||
+        room.currentIndex != pending.source ||
+        room.phase != 'question';
+    final rejected =
+        closed ||
+        (_doubleRequestWritten &&
+            room.powerUpRequests[widget.playerId] == null);
+    if (!accepted && !rejected) return;
+    _doublePending = null;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      setState(() {
+        if (_pendingSlot == pending.slot) _pendingSlot = null;
+      });
+      if (!accepted) {
+        showQuivroSnack(
+          context,
+          context.strings.couldNotUsePowerUp,
+          kind: QuivroSnackKind.error,
+        );
+      }
+    });
   }
 
   void _syncPowerUp(RoomState room) {
@@ -533,6 +589,7 @@ class _RoomPageState extends State<RoomPage> with WidgetsBindingObserver {
             setState(() => _picked = null);
           });
         }
+        _syncDoubleIt(room);
         _syncPowerUp(room);
         _syncProbe(room);
         _syncLockSound(room);
@@ -852,8 +909,7 @@ class _PlayViewState extends State<_PlayView> {
     final now = widget.nowMs();
     final waitingForTv = room.phase == 'question' && now < q.answerOpensAt;
     final locked = room.phase != 'question' || waitingForTv || now > q.endsAt;
-    final frozen =
-        widget.selfLocked || room.lockFor(widget.playerId) != null;
+    final frozen = widget.selfLocked || room.lockFor(widget.playerId) != null;
     final padLocked = locked || frozen;
     final hidden = room.eliminatedChoices(widget.playerId);
     final probe = room.probeFor(widget.playerId);
@@ -998,59 +1054,71 @@ class _PlayViewState extends State<_PlayView> {
                                     Expanded(
                                       child: _AnswerTile(
                                         index: 0,
-                              selected: widget.picked == 0,
-                              eliminated: hidden.contains(0),
-                              probeCorrect: verdictFor(0),
-                              showLock: widget.selfLocked && widget.picked == 0,
-                              enabled: !padLocked && !hidden.contains(0),
-                              onTap: () => widget.onPick(0),
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: _AnswerTile(
-                              index: 1,
-                              selected: widget.picked == 1,
-                              eliminated: hidden.contains(1),
-                              probeCorrect: verdictFor(1),
-                              showLock: widget.selfLocked && widget.picked == 1,
-                              enabled: !padLocked && !hidden.contains(1),
-                              onTap: () => widget.onPick(1),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    Expanded(
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: _AnswerTile(
-                              index: 2,
-                              selected: widget.picked == 2,
-                              eliminated: hidden.contains(2),
-                              probeCorrect: verdictFor(2),
-                              showLock: widget.selfLocked && widget.picked == 2,
-                              enabled: !padLocked && !hidden.contains(2),
-                              onTap: () => widget.onPick(2),
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: _AnswerTile(
-                              index: 3,
-                              selected: widget.picked == 3,
-                              eliminated: hidden.contains(3),
-                              probeCorrect: verdictFor(3),
-                              showLock: widget.selfLocked && widget.picked == 3,
-                              enabled: !padLocked && !hidden.contains(3),
-                              onTap: () => widget.onPick(3),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                                        selected: widget.picked == 0,
+                                        eliminated: hidden.contains(0),
+                                        probeCorrect: verdictFor(0),
+                                        showLock:
+                                            widget.selfLocked &&
+                                            widget.picked == 0,
+                                        enabled:
+                                            !padLocked && !hidden.contains(0),
+                                        onTap: () => widget.onPick(0),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 12),
+                                    Expanded(
+                                      child: _AnswerTile(
+                                        index: 1,
+                                        selected: widget.picked == 1,
+                                        eliminated: hidden.contains(1),
+                                        probeCorrect: verdictFor(1),
+                                        showLock:
+                                            widget.selfLocked &&
+                                            widget.picked == 1,
+                                        enabled:
+                                            !padLocked && !hidden.contains(1),
+                                        onTap: () => widget.onPick(1),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(height: 12),
+                              Expanded(
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: _AnswerTile(
+                                        index: 2,
+                                        selected: widget.picked == 2,
+                                        eliminated: hidden.contains(2),
+                                        probeCorrect: verdictFor(2),
+                                        showLock:
+                                            widget.selfLocked &&
+                                            widget.picked == 2,
+                                        enabled:
+                                            !padLocked && !hidden.contains(2),
+                                        onTap: () => widget.onPick(2),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 12),
+                                    Expanded(
+                                      child: _AnswerTile(
+                                        index: 3,
+                                        selected: widget.picked == 3,
+                                        eliminated: hidden.contains(3),
+                                        probeCorrect: verdictFor(3),
+                                        showLock:
+                                            widget.selfLocked &&
+                                            widget.picked == 3,
+                                        enabled:
+                                            !padLocked && !hidden.contains(3),
+                                        onTap: () => widget.onPick(3),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ],
                           ),
                           if (frozen && !widget.selfLocked)
@@ -1063,7 +1131,10 @@ class _PlayViewState extends State<_PlayView> {
                       _PowerUpBar(
                         room: room,
                         playerId: widget.playerId,
-                        locked: padLocked || widget.pendingSlot != null || widget.armedSlot != null,
+                        locked:
+                            padLocked ||
+                            widget.pendingSlot != null ||
+                            widget.armedSlot != null,
                         pendingSlot: widget.pendingSlot ?? widget.armedSlot,
                         hasGuess: widget.picked != null,
                         onUse: widget.onUsePowerUp,
@@ -1093,9 +1164,7 @@ class _CenterLock extends StatelessWidget {
         color: showBulb,
         shape: BoxShape.circle,
         border: Border.all(color: showInkDay, width: 3),
-        boxShadow: const [
-          BoxShadow(color: showInkDay, offset: Offset(3, 3)),
-        ],
+        boxShadow: const [BoxShadow(color: showInkDay, offset: Offset(3, 3))],
       ),
       child: const Icon(Icons.lock_rounded, size: 40, color: showInkDay),
     );
@@ -1260,10 +1329,7 @@ class _AnswerTileState extends State<_AnswerTile> {
                           shape: BoxShape.circle,
                           border: Border.all(color: showInkDay, width: 2),
                           boxShadow: const [
-                            BoxShadow(
-                              color: showInkDay,
-                              offset: Offset(2, 2),
-                            ),
+                            BoxShadow(color: showInkDay, offset: Offset(2, 2)),
                           ],
                         ),
                         child: const Icon(
@@ -1348,6 +1414,9 @@ class _PowerUpBar extends StatelessWidget {
                   pendingSlot == null &&
                   !usedOnQuestion &&
                   (room.powerUpSlots[i] == powerUpFiftyFifty ||
+                      (room.powerUpSlots[i] == powerUpDoubleIt &&
+                          room.roundId != null &&
+                          room.currentIndex + 1 < room.totalQuestions) ||
                       room.powerUpSlots[i] == powerUpSecondChance ||
                       (room.powerUpSlots[i] == powerUpLockUp &&
                           (room.hasAnswered(playerId) || hasGuess))) &&
@@ -1425,7 +1494,9 @@ class _PowerSlotState extends State<_PowerSlot>
 
     return Semantics(
       button: widget.enabled,
-      label: widget.powerUpId == powerUpSecondChance
+      label: widget.powerUpId == powerUpDoubleIt
+          ? context.strings.doubleIt
+          : widget.powerUpId == powerUpSecondChance
           ? context.strings.secondChance
           : widget.powerUpId == powerUpLockUp
           ? context.strings.lockUp
@@ -1442,7 +1513,9 @@ class _PowerSlotState extends State<_PowerSlot>
 
   Widget _filledSlot() {
     final image = Image.asset(
-      widget.powerUpId == powerUpSecondChance
+      widget.powerUpId == powerUpDoubleIt
+          ? 'assets/powerups/double_it.png'
+          : widget.powerUpId == powerUpSecondChance
           ? 'assets/powerups/second_chance.png'
           : widget.powerUpId == powerUpLockUp
           ? 'assets/powerups/lock_up.png'

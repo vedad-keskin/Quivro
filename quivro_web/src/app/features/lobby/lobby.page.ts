@@ -622,6 +622,8 @@ export class LobbyPage implements OnInit, OnDestroy {
       this.keepRoomAlive = false;
       if (e instanceof Error && e.message === 'NOT_HOST') {
         this.snack.error(this.lang.t().alreadyHostingOtherTab);
+      } else if (e instanceof Error && e.message === 'DOUBLE_IT_UPDATE_REQUIRED') {
+        this.snack.error(this.lang.t().doubleItUpdateRequired);
       } else if (e instanceof Error && e.message === 'NO_PLAYERS') {
         this.snack.error(this.lang.t().minPlayers);
       } else if (e instanceof Error && e.message === 'FIREBASE_REQUIRED') {

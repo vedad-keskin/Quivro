@@ -25,6 +25,9 @@ import { QuestionBankService } from './question-bank.service';
 import { RoundGeneratorService } from './round-generator.service';
 import { ServerTimeService } from './server-time.service';
 import {
+  canUseDoubleIt,
+  parseQuestionBoosts,
+  pointMultiplier,
   shuffledOptionsForQuestion,
   stripUndefined,
   AVATAR_COUNT,
@@ -100,6 +103,36 @@ export class GameRoomService {
   private showingIndex = -1;
   /** Player ids whose 50/50 request is already being resolved. */
   private powerUpInFlight = new Set<string>();
+  private hostQueue: Promise<unknown> = Promise.resolve();
+
+  private enqueueHost<T>(work: () => Promise<T>): Promise<T> {
+    const pending = this.hostQueue.then(work);
+    this.hostQueue = pending.catch(() => undefined);
+    return pending;
+  }
+
+  /** Rules compare the revision in the same atomic update as all gameplay writes. */
+  private async commitHost(room: RoomState, changes: Record<string, unknown>, pending?: { playerId: string; request: PowerUpRequest }): Promise<void> {
+    this.requireHost(room.code);
+    await this.patch(room.code, {
+      ...changes,
+      hostCommit: {
+        previous: room.hostRevision ?? '',
+        id: crypto.randomUUID(),
+        hostSessionId: this.ensureTabHostSessionId(),
+        requestPlayer: pending?.playerId ?? '',
+        requestAt: pending?.request.at ?? 0,
+        requestSlot: pending?.request.slot ?? -1,
+        requestType: pending?.request.type ?? '',
+      },
+    });
+  }
+
+  private requireDoubleItClients(config: RoomConfig, players: RoomPlayer[]): void {
+    if (config.powerUpSlots.includes('double_it') && players.some((p) => !p.supportsDoubleIt)) {
+      throw new Error('DOUBLE_IT_UPDATE_REQUIRED');
+    }
+  }
 
   get isLive(): boolean {
     return this.firebase.configured;
@@ -138,6 +171,7 @@ export class GameRoomService {
     const now = Date.now();
     const state: RoomState = {
       code,
+      roundId: crypto.randomUUID(),
       phase: 'lobby',
       config,
       createdAt: now,
@@ -184,7 +218,9 @@ export class GameRoomService {
       const state = this.fromFirebase(upper, raw);
       this.room.set(state);
       if (this.isHosting && this.hostedCode === upper) {
-        void this.resolvePowerUps(upper, state);
+        if (Object.keys(state.powerUpRequests ?? {}).length) {
+          void this.enqueueHost(() => this.resolvePowerUps(upper, state)).catch(console.error);
+        }
       }
     });
   }
@@ -201,11 +237,16 @@ export class GameRoomService {
   }
 
   async startGame(code: string, language?: RoomConfig['language']): Promise<void> {
+    return this.enqueueHost(() => this.startGameNow(code, language));
+  }
+
+  private async startGameNow(code: string, language?: RoomConfig['language']): Promise<void> {
     this.requireHost(code);
     const room = await this.fetchFreshRoom(code);
     if (Object.keys(room.players).length === 0) {
       throw new Error('NO_PLAYERS');
     }
+    this.requireDoubleItClients(room.config, Object.values(room.players));
     // Lobby chip only changes the host UI. Stamp it here so questions use it.
     if (language && language !== room.config.language) {
       await this.patch(code, { 'config/language': language });
@@ -215,6 +256,10 @@ export class GameRoomService {
   }
 
   async nextAfterReveal(code: string): Promise<void> {
+    return this.enqueueHost(() => this.nextAfterRevealNow(code));
+  }
+
+  private async nextAfterRevealNow(code: string): Promise<void> {
     if (!this.isHosting || this.hostedCode !== code.toUpperCase()) return;
     // Always fetch fresh state from Firebase to avoid acting on stale signal data.
     const room = await this.fetchFreshRoom(code);
@@ -228,12 +273,15 @@ export class GameRoomService {
   }
 
   async reveal(code: string): Promise<void> {
+    return this.enqueueHost(() => this.revealNow(code));
+  }
+
+  private async revealNow(code: string): Promise<void> {
     if (!this.isHosting || this.hostedCode !== code.toUpperCase()) return;
     const room = await this.fetchFreshRoom(code);
     if (room.phase !== 'question') return;
     // Prevent double-reveal for the same question index (per tab).
     if (this.revealedIndex === room.currentIndex) return;
-    this.revealedIndex = room.currentIndex;
 
     const questions = await this.getRoundQuestions(code, room);
     const question = questions[room.currentIndex];
@@ -310,6 +358,7 @@ export class GameRoomService {
           delta = Math.round(base * (0.4 + 0.6 * speed));
         }
       }
+      delta *= pointMultiplier(room.currentQuestion?.multiplier);
       deltas[playerId] = delta;
       playerUpdates[`players/${playerId}/score`] = player.score + delta;
       if (delta > 0 && ans) {
@@ -321,22 +370,32 @@ export class GameRoomService {
     for (const [playerId, ans] of Object.entries(filled)) {
       answerWrites[`answers/${qKey}/${playerId}`] = ans;
     }
-    await this.patch(code, {
+    await this.commitHost(room, {
       phase: 'reveal',
+      powerUpRequests: null,
       correctIndex,
       lastScoreDeltas: deltas,
       ...playerUpdates,
       ...answerWrites,
     });
+    this.revealedIndex = room.currentIndex;
   }
 
   async endGame(code: string): Promise<void> {
+    return this.enqueueHost(() => this.endGameNow(code));
+  }
+
+  private async endGameNow(code: string): Promise<void> {
     this.requireHost(code);
     // Host quit mid-round — show finished screen without awarding a win.
     await this.finishRound(code, false);
   }
 
   async rematch(code: string, nextConfig?: RoomConfig): Promise<void> {
+    return this.enqueueHost(() => this.rematchNow(code, nextConfig));
+  }
+
+  private async rematchNow(code: string, nextConfig?: RoomConfig): Promise<void> {
     this.requireHost(code);
     const room = await this.fetchFreshRoom(code);
     // Wins already applied in finishRound; keep lastWinners and reset round state.
@@ -364,6 +423,7 @@ export class GameRoomService {
     if (readyIds.size === 0) {
       throw new Error('NO_PLAYERS');
     }
+    this.requireDoubleItClients(config, [...readyIds].map((id) => room.players[id]));
 
     // Keep only opted-in players; remove everyone else from the next round.
     const playerUpdates: Record<string, unknown> = {};
@@ -391,14 +451,13 @@ export class GameRoomService {
 
     this.roundQuestions.set(code, questions);
 
-    const db = this.requireDb();
-    await remove(ref(db, `rooms/${code}/answers`));
-    await remove(ref(db, `rooms/${code}/rematchReady`));
-    await remove(ref(db, `rooms/${code}/powerUpRequests`));
-    await remove(ref(db, `rooms/${code}/powerUps`));
-
-    await this.patch(code, {
-      config,
+    await this.commitHost(room, {
+      config: { ...config, powerUpSlots: powerUpSlotsToFirebase(config.powerUpSlots) },
+      roundId: crypto.randomUUID(),
+      answers: null,
+      powerUpRequests: null,
+      powerUps: null,
+      questionBoosts: null,
       currentIndex: -1,
       totalQuestions: questions.length,
       currentQuestion: null,
@@ -700,7 +759,7 @@ export class GameRoomService {
         updates[`players/${w.playerId}/wins`] = (current.wins ?? 0) + 1;
       }
     }
-    await this.patch(code, updates);
+    await this.commitHost(room, { ...updates, powerUpRequests: null });
   }
 
   private async showQuestion(code: string, index: number): Promise<void> {
@@ -725,7 +784,6 @@ export class GameRoomService {
       return;
     }
 
-    this.showingIndex = index;
     // Reset the reveal guard so the new question is eligible for reveal.
     this.revealedIndex = -1;
 
@@ -761,6 +819,7 @@ export class GameRoomService {
       durationMs,
       index,
       total: questions.length,
+      multiplier: 1 + Object.keys(room.questionBoosts?.[String(index)] ?? {}).length,
     };
 
     if (question.image) {
@@ -769,7 +828,7 @@ export class GameRoomService {
         : `/${question.image}`;
     }
 
-    await this.patch(code, {
+    await this.commitHost(room, {
       phase: 'question',
       currentIndex: index,
       currentQuestion: publicQ,
@@ -777,6 +836,7 @@ export class GameRoomService {
       lastScoreDeltas: null,
       powerUpRequests: null,
     });
+    this.showingIndex = index;
   }
 
   private async getRoundQuestions(code: string, room: RoomState): Promise<Question[]> {
@@ -892,11 +952,9 @@ export class GameRoomService {
 
   private async resolvePowerUps(code: string, room: RoomState): Promise<void> {
     const requests = room.powerUpRequests ?? {};
-    await Promise.all(
-      Object.entries(requests).map(([playerId, request]) =>
-        this.resolveOnePowerUp(code, room, playerId, request),
-      ),
-    );
+    for (const [playerId, request] of Object.entries(requests)) {
+      await this.resolveOnePowerUp(code, room, playerId, request);
+    }
   }
 
   private async resolveOnePowerUp(
@@ -908,10 +966,29 @@ export class GameRoomService {
     if (this.powerUpInFlight.has(playerId)) return;
     this.powerUpInFlight.add(playerId);
     try {
+      room = await this.fetchFreshRoom(code);
+      const liveRequest = room.powerUpRequests?.[playerId];
+      if (!liveRequest || JSON.stringify(liveRequest) !== JSON.stringify(request)) return;
+      const commit = (updates: Record<string, unknown>) => this.commitHost(room, updates, { playerId, request });
+      if (request.type === 'double_it') {
+        const updates: Record<string, unknown> = { [`powerUpRequests/${playerId}`]: null };
+        if (canUseDoubleIt(room, playerId, request, this.serverTime.nowMs())) {
+          updates[`powerUps/${playerId}/used/${request.slot}`] = room.currentIndex;
+          updates[`questionBoosts/${room.currentIndex + 1}/${playerId}`] = {
+            roundId: room.roundId,
+            sourceIndex: room.currentIndex,
+            slot: request.slot,
+            name: room.players[playerId].name,
+            at: this.serverTime.nowMs(),
+          };
+        }
+        await commit(updates);
+        return;
+      }
       const question = room.currentQuestion;
       const bankQuestion = (await this.getRoundQuestions(code, room))[room.currentIndex];
       if (!question || !bankQuestion) {
-        await this.patch(code, { [`powerUpRequests/${playerId}`]: null });
+        await commit({ [`powerUpRequests/${playerId}`]: null });
         return;
       }
 
@@ -930,7 +1007,7 @@ export class GameRoomService {
       const playerUps = room.powerUps?.[playerId];
       const qKey = String(room.currentIndex);
       const usedSlot = playerUps?.used?.[String(request.slot)] != null;
-      const usedOnQuestion = Object.values(playerUps?.used ?? {}).some(
+      const usedOnQuestion = !room.players[playerId] || !!playerUps?.locked?.[qKey] || Object.values(playerUps?.used ?? {}).some(
         (q) => q === room.currentIndex,
       );
       const alreadyEliminated = playerUps?.eliminated?.[qKey] ?? [];
@@ -986,7 +1063,7 @@ export class GameRoomService {
             updates[`powerUps/${decision.victimId}/locked/${room.currentIndex}`] = decision.victim;
           }
         }
-        await this.patch(code, updates);
+        await commit(updates);
         return;
       }
 
@@ -1002,7 +1079,7 @@ export class GameRoomService {
             correct: decision.correct,
           };
         }
-        await this.patch(code, updates);
+        await commit(updates);
         return;
       }
 
@@ -1021,7 +1098,7 @@ export class GameRoomService {
           updates[`answers/${qKey}/${playerId}`] = null;
         }
       }
-      await this.patch(code, updates);
+      await commit(updates);
     } catch (e) {
       console.error(e);
     } finally {
@@ -1032,6 +1109,7 @@ export class GameRoomService {
   private toFirebase(state: RoomState): Record<string, unknown> {
     return {
       phase: state.phase,
+      roundId: state.roundId ?? null,
       config: {
         ...state.config,
         powerUpSlots: powerUpSlotsToFirebase(state.config.powerUpSlots),
@@ -1066,6 +1144,7 @@ export class GameRoomService {
       joinedAt: Number(raw['joinedAt'] ?? Date.now()),
       wins: Number(raw['wins'] ?? 0),
       lastScoredAt: Number(raw['lastScoredAt'] ?? 0),
+      supportsDoubleIt: raw['supportsDoubleIt'] === true,
     };
   }
 
@@ -1097,6 +1176,7 @@ export class GameRoomService {
       durationMs,
       index: Number(q['index'] ?? 0),
       total: Number(q['total'] ?? 0),
+      multiplier: pointMultiplier(q['multiplier']),
     };
   }
 
@@ -1120,6 +1200,9 @@ export class GameRoomService {
     return {
       code,
       phase: (raw['phase'] as RoomState['phase']) ?? 'lobby',
+      roundId: typeof raw['roundId'] === 'string' ? raw['roundId'] : undefined,
+      hostRevision: (raw['hostCommit'] as { id?: string } | undefined)?.id,
+      questionBoosts: parseQuestionBoosts(raw['questionBoosts'], typeof raw['roundId'] === 'string' ? raw['roundId'] : undefined),
       config: {
         categories: (configRaw['categories'] as RoomConfig['categories']) ?? [],
         questionTypes,

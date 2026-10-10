@@ -95,6 +95,7 @@ class RoomPlayer {
 const powerUpFiftyFifty = 'fifty_fifty';
 const powerUpSecondChance = 'second_chance';
 const powerUpLockUp = 'lock_up';
+const powerUpDoubleIt = 'double_it';
 
 class PowerUpProbe {
   const PowerUpProbe({required this.choice, required this.correct});
@@ -146,7 +147,8 @@ List<String?> parsePowerUpSlots(dynamic raw) {
     if (i < 0 || i > 2) return;
     if (value == powerUpFiftyFifty ||
         value == powerUpSecondChance ||
-        value == powerUpLockUp) {
+        value == powerUpLockUp ||
+        value == powerUpDoubleIt) {
       slots[i] = value as String;
     } else {
       slots[i] = null;
@@ -207,7 +209,9 @@ Map<String, PlayerPowerUps> parsePowerUps(dynamic raw) {
       if (q == null || raw is! Map) return;
       final choice = (raw['choice'] as num?)?.toInt();
       final correct = raw['correct'];
-      if (choice == null || choice < 0 || choice > 3 || correct is! bool) return;
+      if (choice == null || choice < 0 || choice > 3 || correct is! bool) {
+        return;
+      }
       probes[q] = PowerUpProbe(choice: choice, correct: correct);
     });
     final locked = <int, AnswerLock>{};
@@ -244,7 +248,8 @@ Map<String, PowerUpRequest> parsePowerUpRequests(dynamic raw) {
     if (slot == null || questionIndex == null || at == null) return;
     if (type != powerUpFiftyFifty &&
         type != powerUpSecondChance &&
-        type != powerUpLockUp) {
+        type != powerUpLockUp &&
+        type != powerUpDoubleIt) {
       return;
     }
     if (slot < 0 || slot > 2) return;
@@ -283,7 +288,12 @@ class PowerUpRequestPolicy {
     final slotId = room.powerUpSlots[slot];
     if (slotId != powerUpFiftyFifty &&
         slotId != powerUpSecondChance &&
-        slotId != powerUpLockUp) {
+        slotId != powerUpLockUp &&
+        slotId != powerUpDoubleIt) {
+      return false;
+    }
+    if (slotId == powerUpDoubleIt &&
+        (room.roundId == null || room.currentIndex + 1 >= room.totalQuestions)) {
       return false;
     }
     if (slotId == powerUpLockUp && !room.hasAnswered(playerId)) return false;
@@ -296,7 +306,7 @@ class PowerUpRequestPolicy {
     final question = room.currentQuestion;
     if (question == null || question.index != questionIndex) return false;
     if (nowMs < question.answerOpensAt) return false;
-    if (nowMs > question.endsAt) return false;
+    if (nowMs >= question.endsAt) return false;
     return true;
   }
 }
@@ -340,7 +350,7 @@ class AnswerSubmissionPolicy {
     final question = room.currentQuestion;
     if (question == null || question.index != questionIndex) return false;
     if (nowMs < question.answerOpensAt) return false;
-    if (nowMs > question.endsAt) return false;
+    if (nowMs >= question.endsAt) return false;
 
     return true;
   }
@@ -401,6 +411,7 @@ class RoomState {
     this.powerUpSlots = const <String?>[null, null, null],
     this.powerUps = const <String, PlayerPowerUps>{},
     this.powerUpRequests = const <String, PowerUpRequest>{},
+    this.roundId,
   });
 
   final String code;
@@ -417,6 +428,7 @@ class RoomState {
   final Map<String, bool> rematchReady;
   final int expiresAt;
   final int? hostGoneAt;
+  final String? roundId;
   final List<String?> powerUpSlots;
   final Map<String, PlayerPowerUps> powerUps;
   final Map<String, PowerUpRequest> powerUpRequests;
@@ -453,7 +465,9 @@ class RoomState {
   bool isDead(int nowMs) {
     final effectiveExpiry = expiresAt > 0 ? expiresAt : createdAt + roomTtlMs;
     if (nowMs > effectiveExpiry) return true;
-    if (hostGoneAt != null && nowMs - hostGoneAt! > hostGoneGraceMs) return true;
+    if (hostGoneAt != null && nowMs - hostGoneAt! > hostGoneGraceMs) {
+      return true;
+    }
     return false;
   }
 
@@ -500,7 +514,9 @@ class RoomState {
       });
     }
 
+    final roundId = map['roundId'] is String ? map['roundId'] as String : null;
     return RoomState(
+      roundId: roundId,
       code: code,
       phase: '${map['phase'] ?? 'lobby'}',
       createdAt: (map['createdAt'] as num?)?.toInt() ?? 0,

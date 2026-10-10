@@ -5,21 +5,51 @@
       "$code": {
         ".read": true,
         ".write": "!data.exists() || !newData.exists()",
-        "phase": { ".write": true },
-        "config": { ".write": true },
-        "createdAt": { ".write": true },
-        "expiresAt": { ".write": true },
-        "hostGoneAt": { ".write": true },
-        "currentIndex": { ".write": true },
-        "totalQuestions": { ".write": true },
-        "currentQuestion": { ".write": true },
-        "correctIndex": { ".write": true },
-        "questionIds": { ".write": true },
-        "lastScoreDeltas": { ".write": true },
-        "lastWinners": { ".write": true },
-        "lastWinner": { ".write": true },
-        "roundTied": { ".write": true },
-        "hostSessionId": { ".write": true },
+        "phase": {
+          ".write": true
+        },
+        "config": {
+          ".write": true
+        },
+        "createdAt": {
+          ".write": true
+        },
+        "expiresAt": {
+          ".write": true
+        },
+        "hostGoneAt": {
+          ".write": true
+        },
+        "currentIndex": {
+          ".write": true
+        },
+        "totalQuestions": {
+          ".write": true
+        },
+        "currentQuestion": {
+          ".write": true
+        },
+        "correctIndex": {
+          ".write": true
+        },
+        "questionIds": {
+          ".write": true
+        },
+        "lastScoreDeltas": {
+          ".write": true
+        },
+        "lastWinners": {
+          ".write": true
+        },
+        "lastWinner": {
+          ".write": true
+        },
+        "roundTied": {
+          ".write": true
+        },
+        "hostSessionId": {
+          ".write": true
+        },
         "answers": {
           ".write": "!newData.exists()",
           "$qIndex": {
@@ -44,7 +74,7 @@
         "powerUpRequests": {
           ".write": "!newData.exists()",
           "$playerId": {
-            ".write": "!newData.exists() || (root.child('rooms').child($code).child('phase').val() === 'question' && root.child('rooms').child($code).child('currentIndex').val() === newData.child('questionIndex').val() && root.child('rooms').child($code).child('players').child($playerId).exists() && newData.hasChildren(['slot', 'type', 'questionIndex', 'at']) && newData.child('slot').isNumber() && newData.child('slot').val() >= 0 && newData.child('slot').val() <= 2 && (newData.child('type').val() === 'fifty_fifty' || (newData.child('type').val() === 'second_chance' && newData.child('choice').isNumber() && newData.child('choice').val() >= 0 && newData.child('choice').val() <= 3) || (newData.child('type').val() === 'lock_up' && newData.child('choice').isNumber() && newData.child('choice').val() >= 0 && newData.child('choice').val() <= 3)) && newData.child('questionIndex').isNumber() && newData.child('at').isNumber())",
+            ".write": "!newData.exists() || (root.child('rooms').child($code).child('phase').val() === 'question' && root.child('rooms').child($code).child('currentIndex').val() === newData.child('questionIndex').val() && root.child('rooms').child($code).child('players').child($playerId).exists() && newData.hasChildren(['slot', 'type', 'questionIndex', 'at']) && newData.child('slot').isNumber() && newData.child('slot').val() >= 0 && newData.child('slot').val() <= 2 && (newData.child('type').val() === 'fifty_fifty' || (newData.child('type').val() === 'double_it' && newData.child('roundId').isString() && newData.child('roundId').val() === root.child('rooms').child($code).child('roundId').val() && root.child('rooms').child($code).child('config').child('powerUpSlots').child(newData.child('slot').val() + '').val() === 'double_it' && newData.child('slot').val() % 1 === 0 && root.child('rooms').child($code).child('currentIndex').val() + 1 < root.child('rooms').child($code).child('totalQuestions').val() && now >= root.child('rooms').child($code).child('currentQuestion').child('answerOpensAt').val() && now < root.child('rooms').child($code).child('currentQuestion').child('endsAt').val() && !root.child('rooms').child($code).child('powerUps').child($playerId).child('locked').child(root.child('rooms').child($code).child('currentIndex').val() + '').exists()) || (newData.child('type').val() === 'second_chance' && newData.child('choice').isNumber() && newData.child('choice').val() >= 0 && newData.child('choice').val() <= 3) || (newData.child('type').val() === 'lock_up' && newData.child('choice').isNumber() && newData.child('choice').val() >= 0 && newData.child('choice').val() <= 3)) && newData.child('questionIndex').isNumber() && newData.child('at').isNumber())",
             ".validate": "!newData.exists() || (newData.child('slot').isNumber() && newData.child('type').isString() && newData.child('questionIndex').isNumber() && newData.child('at').isNumber())"
           }
         },
@@ -52,6 +82,23 @@
           ".write": "!newData.exists()",
           "$playerId": {
             ".write": true
+          }
+        },
+        "roundId": {
+          ".write": true,
+          ".validate": "newData.isString()"
+        },
+        "hostCommit": {
+          ".write": true,
+          ".validate": "newData.hasChildren(['id', 'previous', 'hostSessionId', 'requestPlayer', 'requestAt', 'requestSlot', 'requestType']) && newData.child('id').isString() && newData.child('id').val() !== data.child('id').val() && ((!data.exists() && newData.child('previous').val() === '') || newData.child('previous').val() === data.child('id').val()) && newData.child('hostSessionId').val() === root.child('rooms').child($code).child('hostSessionId').val() && (newData.child('requestPlayer').val() === '' || (root.child('rooms').child($code).child('powerUpRequests').child(newData.child('requestPlayer').val()).child('at').val() === newData.child('requestAt').val() && root.child('rooms').child($code).child('powerUpRequests').child(newData.child('requestPlayer').val()).child('slot').val() === newData.child('requestSlot').val() && root.child('rooms').child($code).child('powerUpRequests').child(newData.child('requestPlayer').val()).child('type').val() === newData.child('requestType').val()))"
+        },
+        "questionBoosts": {
+          ".write": "!newData.exists()",
+          "$target": {
+            "$playerId": {
+              ".write": true,
+              ".validate": "!data.exists() && root.child('rooms').child($code).child('phase').val() === 'question' && newData.hasChildren(['roundId','sourceIndex','slot','name','at']) && newData.child('roundId').val() === root.child('rooms').child($code).child('roundId').val() && newData.child('sourceIndex').val() === root.child('rooms').child($code).child('currentIndex').val() && (newData.child('sourceIndex').val() + 1) + '' === $target && newData.child('sourceIndex').val() + 1 < root.child('rooms').child($code).child('totalQuestions').val() && newData.child('slot').isNumber() && newData.child('slot').val() % 1 === 0 && newData.child('slot').val() >= 0 && newData.child('slot').val() <= 2 && root.child('rooms').child($code).child('config').child('powerUpSlots').child(newData.child('slot').val() + '').val() === 'double_it' && root.child('rooms').child($code).child('players').child($playerId).exists() && root.child('rooms').child($code).child('powerUpRequests').child($playerId).child('type').val() === 'double_it' && root.child('rooms').child($code).child('powerUpRequests').child($playerId).child('roundId').val() === newData.child('roundId').val() && root.child('rooms').child($code).child('powerUpRequests').child($playerId).child('slot').val() === newData.child('slot').val() && !root.child('rooms').child($code).child('powerUps').child($playerId).child('used').child(newData.child('slot').val() + '').exists() && !root.child('rooms').child($code).child('powerUps').child($playerId).child('locked').child(newData.child('sourceIndex').val() + '').exists() && now >= root.child('rooms').child($code).child('currentQuestion').child('answerOpensAt').val() && now < root.child('rooms').child($code).child('currentQuestion').child('endsAt').val() && newData.child('name').isString() && newData.child('at').isNumber() && root.child('rooms').child($code).child('powerUps').child($playerId).child('used').child('0').val() !== newData.child('sourceIndex').val() && root.child('rooms').child($code).child('powerUps').child($playerId).child('used').child('1').val() !== newData.child('sourceIndex').val() && root.child('rooms').child($code).child('powerUps').child($playerId).child('used').child('2').val() !== newData.child('sourceIndex').val() && newData.parent().parent().parent().child('powerUps').child($playerId).child('used').child(newData.child('slot').val() + '').val() === newData.child('sourceIndex').val() && newData.parent().parent().parent().child('hostCommit').child('id').val() !== root.child('rooms').child($code).child('hostCommit').child('id').val()"
+            }
           }
         }
       }

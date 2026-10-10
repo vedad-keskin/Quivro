@@ -18,6 +18,7 @@ export interface RoomPlayer {
   wins: number;
   /** Timestamp when this player last earned points (for tie ordering). */
   lastScoredAt?: number;
+  supportsDoubleIt?: boolean;
 }
 
 export interface LastWinner {
@@ -47,6 +48,8 @@ export interface PublicQuestion {
   durationMs: number;
   index: number;
   total: number;
+  /** Frozen when this question opens; timed scores multiply after rounding. */
+  multiplier?: number;
 }
 
 export interface PlayerAnswer {
@@ -56,14 +59,14 @@ export interface PlayerAnswer {
 
 export type ScoringMode = 'timed' | 'standard';
 
-export type PowerUpId = 'fifty_fifty' | 'second_chance' | 'lock_up';
+export type PowerUpId = 'fifty_fifty' | 'second_chance' | 'lock_up' | 'double_it';
 export type PowerUpSlot = PowerUpId | null;
 export type PowerUpSlots = [PowerUpSlot, PowerUpSlot, PowerUpSlot];
 
 export const POWER_UP_CATALOG: readonly {
   id: PowerUpId;
-  labelKey: 'powerUpFifty' | 'powerUpSecond' | 'powerUpLock';
-  descKey: 'descPowerUpFifty' | 'descPowerUpSecond' | 'descPowerUpLock';
+  labelKey: 'powerUpFifty' | 'powerUpSecond' | 'powerUpLock' | 'powerUpDouble';
+  descKey: 'descPowerUpFifty' | 'descPowerUpSecond' | 'descPowerUpLock' | 'descPowerUpDouble';
   icon: string;
 }[] = [
   {
@@ -83,6 +86,12 @@ export const POWER_UP_CATALOG: readonly {
     labelKey: 'powerUpLock',
     descKey: 'descPowerUpLock',
     icon: '/room-icons/lock_up.png',
+  },
+  {
+    id: 'double_it',
+    labelKey: 'powerUpDouble',
+    descKey: 'descPowerUpDouble',
+    icon: '/room-icons/double_it.png',
   },
 ];
 
@@ -161,6 +170,60 @@ export interface PowerUpRequest {
   at: number;
   /** Set for second_chance. The option that was checked and submitted. */
   choice?: number;
+  roundId?: string;
+}
+
+export interface DoubleItContribution {
+  roundId: string;
+  sourceIndex: number;
+  slot: number;
+  name: string;
+  at: number;
+}
+
+export type QuestionBoosts = Record<string, Record<string, DoubleItContribution>>;
+
+export function pointMultiplier(value: unknown): number {
+  return typeof value === 'number' && Number.isSafeInteger(value) && value >= 1 ? value : 1;
+}
+
+export function parseQuestionBoosts(value: unknown, roundId?: string): QuestionBoosts {
+  const out: QuestionBoosts = {};
+  if (!value || typeof value !== 'object' || !roundId) return out;
+  for (const [target, entries] of Object.entries(value)) {
+    if (!Number.isInteger(Number(target)) || Number(target) < 1 || !entries || typeof entries !== 'object') continue;
+    for (const [playerId, raw] of Object.entries(entries)) {
+      if (!raw || typeof raw !== 'object') continue;
+      const c = raw as DoubleItContribution;
+      if (c.roundId !== roundId || c.sourceIndex !== Number(target) - 1 ||
+          !Number.isInteger(c.slot) || c.slot < 0 || c.slot > 2 ||
+          typeof c.at !== 'number' || !Number.isFinite(c.at) || typeof c.name !== 'string') continue;
+      (out[target] ??= {})[playerId] = c;
+    }
+  }
+  return out;
+}
+
+export function nextQuestionMultiplier(room: Pick<RoomState, 'questionBoosts' | 'currentIndex' | 'totalQuestions'>): number {
+  if (room.currentIndex + 1 >= room.totalQuestions) return 1;
+  return 1 + Object.keys(room.questionBoosts?.[String(room.currentIndex + 1)] ?? {}).length;
+}
+
+/** Current-question restriction only: unused slots are available again on N+1. */
+export function canUseDoubleIt(room: RoomState, playerId: string, request: PowerUpRequest, now: number): boolean {
+  const q = room.currentQuestion;
+  const ups = room.powerUps?.[playerId];
+  return !!q && !!room.players[playerId] && room.phase === 'question' &&
+    !!room.roundId && request.roundId === room.roundId && request.type === 'double_it' &&
+    Number.isInteger(request.slot) && request.slot >= 0 && request.slot <= 2 &&
+    room.config.powerUpSlots[request.slot] === 'double_it' &&
+    request.questionIndex === room.currentIndex && q.index === room.currentIndex &&
+    room.currentIndex + 1 < room.totalQuestions &&
+    now >= q.answerOpensAt && now < q.endsAt &&
+    ups?.used[String(request.slot)] == null &&
+    !Object.values(ups?.used ?? {}).includes(room.currentIndex) &&
+    !ups?.locked[String(room.currentIndex)] &&
+    !room.questionBoosts?.[String(room.currentIndex + 1)]?.[playerId];
 }
 
 export interface PowerUpProbe {
@@ -383,6 +446,7 @@ export function parsePowerUpRequests(value: unknown): Record<string, PowerUpRequ
       questionIndex,
       at,
       ...(choice != null ? { choice } : {}),
+      ...(typeof req['roundId'] === 'string' ? { roundId: req['roundId'] } : {}),
     };
   }
   return out;
@@ -466,6 +530,10 @@ export function clampQuestionSeconds(value: number): number {
 
 export interface RoomState {
   code: string;
+  roundId?: string;
+  /** Compare-and-set token for host commits, checked atomically by database rules. */
+  hostRevision?: string;
+  questionBoosts?: QuestionBoosts;
   phase: RoomPhase;
   config: RoomConfig;
   createdAt: number;

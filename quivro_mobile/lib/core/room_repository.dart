@@ -66,7 +66,10 @@ class RoomRepository {
     if (!snap.exists) return null;
     final value = snap.value;
     if (value is! Map) return null;
-    final room = RoomState.fromSnapshot(upper, Map<dynamic, dynamic>.from(value));
+    final room = RoomState.fromSnapshot(
+      upper,
+      Map<dynamic, dynamic>.from(value),
+    );
     // Lazy cleanup: an expired/abandoned room is deleted and treated as gone.
     if (await _reapIfDead(upper, room)) return null;
     return room;
@@ -86,6 +89,9 @@ class RoomRepository {
       await _store.clearActiveSession();
       return null;
     }
+    await roomRef(session.code).child('players').child(session.playerId).update(
+      {'supportsDoubleIt': true},
+    );
     return session;
   }
 
@@ -142,6 +148,7 @@ class RoomRepository {
     // Rejoin same nickname in rematch lobby — keep wins.
     if (existingId != null) {
       await roomRef(upper).child('players').child(existingId).update({
+        'supportsDoubleIt': true,
         'avatar': avatar.clamp(0, avatarCount - 1),
         'name': name.trim().isEmpty ? 'Player' : name.trim(),
       });
@@ -163,6 +170,7 @@ class RoomRepository {
 
     await roomRef(upper).child('players').child(id).set({
       'id': id,
+      'supportsDoubleIt': true,
       'name': unique,
       'score': 0,
       'avatar': avatar.clamp(0, avatarCount - 1),
@@ -263,11 +271,9 @@ class RoomRepository {
       throw StateError('ANSWER_REJECTED');
     }
     if (!room.hasAnswered(playerId)) return;
-    await roomRef(upper)
-        .child('answers')
-        .child('$questionIndex')
-        .child(playerId)
-        .remove();
+    await roomRef(
+      upper,
+    ).child('answers').child('$questionIndex').child(playerId).remove();
   }
 
   Future<void> requestPowerUp({
@@ -312,7 +318,9 @@ class RoomRepository {
       'type': type,
       'questionIndex': questionIndex,
       'at': now,
-      if (type == powerUpSecondChance || type == powerUpLockUp) 'choice': choice,
+      if (type == powerUpDoubleIt) 'roundId': room.roundId,
+      if (type == powerUpSecondChance || type == powerUpLockUp)
+        'choice': choice,
     });
   }
 
