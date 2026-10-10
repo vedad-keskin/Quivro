@@ -1,0 +1,62 @@
+<div id="quivro-boost-concept" class="viz-dotted-background">
+  <style>
+    #quivro-boost-concept { padding: 30px 12px 16px; }
+    #quivro-boost-concept .q-preview {
+      --q-surface: light-dark(#f1eefb, #1c243d);
+      --q-text: light-dark(#1a1530, #f5f3ff);
+      --q-muted: light-dark(#625579, #bcb5ce);
+      --q-next: light-dark(#eee7f7, #302846);
+      --q-gold: #f4c529;
+      --q-ink: #090c1b;
+      background: var(--q-surface); color: var(--q-text);
+      padding: 20px; border: 3px solid var(--q-ink); border-radius: 22px;
+      font-family: system-ui, sans-serif;
+    }
+    #quivro-boost-concept .q-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    #quivro-boost-concept .q-question {
+      padding: 12px; border: 2px solid var(--q-ink); border-radius: 16px;
+      min-width: 0; background: #8247ee; color: var(--q-ink);
+      box-shadow: 3px 3px 0 var(--q-ink);
+    }
+    #quivro-boost-concept .q-question.q-boosted {
+      background: var(--q-next); color: var(--q-text);
+      border-color: var(--q-gold);
+      box-shadow: 0 0 0 2px var(--q-ink), 0 0 16px #f4c52918;
+    }
+    #quivro-boost-concept .q-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; min-height: 28px; }
+    #quivro-boost-concept .q-eyebrow { font-size: 11px; font-weight: 900; letter-spacing: .08em; }
+    #quivro-boost-concept .q-badge {
+      display: inline-flex; align-items: center; gap: 5px; flex-shrink: 0;
+      background: var(--q-gold); color: var(--q-ink); border: 2px solid var(--q-ink);
+      border-radius: 8px; padding: 3px 7px; font-size: 14px; font-weight: 900;
+      line-height: 18px; box-shadow: 2px 2px 0 var(--q-ink);
+    }
+    #quivro-boost-concept .q-category { display: flex; gap: 10px; align-items: center; margin-top: 12px; min-height: 40px; font-size: 21px; font-weight: 900; }
+    #quivro-boost-concept .q-count { font-size: 22px; color: var(--q-gold); background: var(--q-ink); padding: 5px 8px; border-radius: 8px; white-space: nowrap; }
+    #quivro-boost-concept .q-count small { font-size: 13px; }
+    #quivro-boost-concept .q-notice { margin-top: 20px; display: flex; gap: 9px; align-items: center; flex-wrap: wrap; font-size: 13px; }
+    #quivro-boost-concept .q-notice strong { color: var(--q-text); }
+    #quivro-boost-concept .q-notice span { color: var(--q-muted); }
+    #quivro-boost-concept .q-avatar { display: grid; place-items: center; height: 25px; width: 25px; border-radius: 50%; background: var(--q-gold); color: var(--q-ink); font-size: 12px; font-weight: 900; }
+    @media (max-width: 520px) {
+      #quivro-boost-concept .q-cards { grid-template-columns: 1fr; }
+      #quivro-boost-concept .q-preview { padding: 14px; }
+    }
+  </style>
+  <section class="q-preview" aria-label="Double It concept: next question boosted to two points">
+    <div class="q-cards">
+      <article class="q-question">
+        <div class="q-top"><span class="q-eyebrow">NOW · QUESTION</span></div>
+        <div class="q-category"><span class="q-count">2<small>/20</small></span> Movies &amp; TV</div>
+      </article>
+      <article class="q-question q-boosted">
+        <div class="q-top">
+          <span class="q-eyebrow">UP NEXT →</span>
+          <span class="q-badge"><i data-lucide="zap" aria-hidden="true"></i>2 pts</span>
+        </div>
+        <div class="q-category">Food &amp; Drinks</div>
+      </article>
+    </div>
+    <div class="q-notice"><b class="q-avatar" aria-hidden="true">A</b><strong>Alex used Double It</strong><span>Next question · 2 pts</span></div>
+  </section>
+</div>

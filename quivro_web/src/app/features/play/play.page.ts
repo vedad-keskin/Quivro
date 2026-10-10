@@ -463,7 +463,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
             >
               @if (r.currentQuestion; as q) {
                 <header class="meta">
-                  <div class="meta-info" [style.--accent]="q.imageUrl ? typeInfo.image_mcq.accent : categoryInfo[q.category].accent">
+                  <div class="meta-info" [class.boosted]="(q.multiplier ?? 1) > 1" [style.--accent]="q.imageUrl ? typeInfo.image_mcq.accent : categoryInfo[q.category].accent">
                     <p class="counter">
                       <span class="current-label">{{ lang.t().currentQuestionLabel }} <span aria-hidden="true">·</span> {{ lang.t().question }}</span>
                       <b>{{ q.index + 1 }}<small>/{{ q.total }}</small></b>
@@ -486,10 +486,10 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                         </span>
                       }
                     }
-                    <app-question-boost [large]="true" [multiplier]="q.multiplier ?? 1" [timed]="r.config.scoringMode === 'timed'" />
+                    <app-question-boost [multiplier]="q.multiplier ?? 1" [timed]="r.config.scoringMode === 'timed'" />
                   </div>
                   @if (rooms.nextQuestion(); as next) {
-                    <div class="next-meta" [style.--accent]="next.type === 'image_mcq' ? typeInfo.image_mcq.accent : categoryInfo[next.category].accent">
+                    <div class="next-meta" [class.boosted]="nextBoost() > 1" [style.--accent]="next.type === 'image_mcq' ? typeInfo.image_mcq.accent : categoryInfo[next.category].accent">
                       <app-question-boost [multiplier]="nextBoost()" [pulse]="nextBoostPulse()"
                         [timed]="r.config.scoringMode === 'timed'" />
                       <span class="next-label">{{ lang.t().upNext }} <span aria-hidden="true">→</span></span>
@@ -720,7 +720,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       display: flex;
       flex-direction: column;
       gap: 0.9rem;
-      padding: calc(clamp(1rem, 2vw, 1.6rem) + 12px) clamp(1rem, 2vw, 1.6rem) 3.6rem;
+      padding: clamp(1rem, 2vw, 1.6rem) clamp(1rem, 2vw, 1.6rem) 3.6rem;
       height: 100%;
       overflow: visible;
     }
@@ -780,6 +780,10 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
         transform: translate(-30vw, 22vh) scale(0.48);
       }
     }
+    .meta-info.boosted, .next-meta.boosted {
+      border-color: var(--q-gold);
+      box-shadow: 3px 3px 0 var(--ink), 0 0 12px color-mix(in srgb, var(--q-gold) 15%, transparent);
+    }
     .meta {
       display: flex;
       align-items: center;
@@ -789,7 +793,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
     .meta-info {
       position: relative;
       display: grid;
-      grid-template-columns: auto minmax(0, 1fr);
+      grid-template-columns: auto minmax(0, 1fr) auto;
       align-items: center;
       column-gap: 0.85rem;
       row-gap: 0.15rem;
@@ -815,7 +819,13 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       letter-spacing: 0.06em;
       font-size: 0.75rem;
       line-height: 1.3;
+      min-height: 1.875rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.25em;
     }
+    .meta-info app-question-boost { grid-column: 3; grid-row: 1; }
     .counter b {
       grid-column: 1;
       grid-row: 1 / 3;
@@ -845,7 +855,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       min-width: 0;
     }
     .current-chip {
-      grid-column: 2;
+      grid-column: 2 / -1;
       grid-row: 2;
       font-family: var(--display);
       font-weight: 400;
@@ -1173,6 +1183,8 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
     .next-meta {
       position: relative;
       display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
       gap: 0.3rem;
       flex: 0 1 21rem;
       min-width: 0;
@@ -1183,15 +1195,24 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       color: var(--q-navy);
     }
     .next-label {
+      grid-column: 1;
+      grid-row: 1;
+      min-height: 1.875rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25em;
       flex-shrink: 0;
       color: var(--q-muted);
       font-size: 0.75rem;
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      white-space: nowrap;
+      overflow-wrap: anywhere;
     }
+    .next-meta app-question-boost { grid-column: 2; grid-row: 1; }
     .next-meta .cat-chip {
+      grid-column: 1 / -1;
+      grid-row: 2;
       font-size: 1.125rem;
     }
     .next-meta .cat-chip img {
@@ -1227,22 +1248,21 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       .next-meta {
         grid-column: 1;
         grid-row: 2;
-        display: flex;
-        flex-wrap: wrap;
         gap: 0.45rem 0.75rem;
         padding: 0.5rem 0.7rem;
       }
-      .next-meta .cat-chip {
-        flex: 1 1 auto;
-      }
     }
     @container (max-width: 420px) {
+      .meta { grid-template-columns: minmax(0, 1fr); }
+      .timer-slot { grid-column: 1; grid-row: 3; }
       .meta-info {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr) auto;
         padding: 0.6rem;
         row-gap: 0.4rem;
       }
       .counter {
+        grid-column: 1;
+        grid-row: 1;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -1258,7 +1278,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
         font-size: 0.65rem;
       }
       .current-chip {
-        grid-column: 1;
+        grid-column: 1 / -1;
         grid-row: 2;
         grid-template-columns: auto minmax(0, 1fr);
         gap: 0.3rem 0.5rem;
@@ -1274,6 +1294,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       .next-meta {
         grid-column: 1 / -1;
       }
+      .meta-info app-question-boost { grid-column: 2; grid-row: 1; }
     }
     @media (max-width: 960px) {
       .layout {
@@ -1331,8 +1352,8 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly nextBoost = computed(() => this.room() ? nextQuestionMultiplier(this.room()!) : 1);
   readonly nextBoostPulse = signal(0);
   private boostState: { round: string; index: number; next: number } | null = null;
+  private boostBatchTimer: ReturnType<typeof setTimeout> | undefined;
   private boostAudio: HTMLAudioElement | null = null;
-  private lastBoostSoundAt = 0;
   readonly avatarColor = avatarColor;
   readonly avatarEmoji = avatarEmoji;
   readonly answeredStrip = viewChild<ElementRef<HTMLElement>>('answeredStrip');
@@ -1504,7 +1525,11 @@ export class PlayPage implements OnInit, OnDestroy {
     });
     effect(() => {
       const r = this.room();
-      if (!r || r.code !== this.code) return;
+      if (!r || r.code !== this.code) {
+        untracked(() => this.clearBoostEffects());
+        this.boostState = null;
+        return;
+      }
       untracked(() => this.syncBoostEffects(r));
 
       if (r.phase === 'finished' && !this.configSynced) {
@@ -1698,7 +1723,7 @@ export class PlayPage implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.boostAudio?.pause();
+    this.clearBoostEffects();
     this.promptObserver?.disconnect();
     this.promptObserver = null;
     this.promptStage = null;
@@ -1709,27 +1734,47 @@ export class PlayPage implements OnInit, OnDestroy {
     this.rooms.stopWatching();
   }
 
+  private clearBoostEffects(): void {
+    clearTimeout(this.boostBatchTimer);
+    this.boostBatchTimer = undefined;
+    this.nextBoostPulse.set(0);
+    this.boostAudio?.pause();
+    this.boostAudio = null;
+  }
+
   private syncBoostEffects(room: RoomState): void {
     const next = nextQuestionMultiplier(room);
     const round = room.roundId ?? '';
     const before = this.boostState;
     this.boostState = { round, index: room.currentIndex, next };
     // First snapshot on refresh restores state silently.
-    if (!before || before.round !== round) return;
-    const stacked = before.index === room.currentIndex && next > before.next;
-    if (stacked) this.nextBoostPulse.update((n) => n + 1);
-    if (!stacked || document.hidden) return;
+    if (!before || before.round !== round || before.index !== room.currentIndex ||
+        (room.phase !== 'question' && room.phase !== 'reveal')) {
+      this.clearBoostEffects();
+      return;
+    }
+    if (next <= before.next || document.hidden || this.boostBatchTimer != null) return;
+    // A short fixed window groups simultaneous uses without delaying a busy room indefinitely.
+    this.boostBatchTimer = setTimeout(() => {
+      this.boostBatchTimer = undefined;
+      const latest = this.room();
+      if (!latest || latest.roundId !== round || latest.currentIndex !== room.currentIndex ||
+          document.hidden || (latest.phase !== 'question' && latest.phase !== 'reveal')) return;
+      this.nextBoostPulse.update((n) => n + 1);
+      this.playBoostSound(latest, before.next === 1);
+    }, 250);
+  }
+
+  private playBoostSound(room: RoomState, first: boolean): void {
     const endsAt = room.currentQuestion?.endsAt;
-    if (room.phase === 'question' && endsAt != null && endsAt - this.serverTime.nowMs() < 5000) return;
-    if (Date.now() - this.lastBoostSoundAt < 180) return;
-    this.lastBoostSoundAt = Date.now();
+    if (room.phase !== 'question' || (endsAt != null && endsAt - this.serverTime.nowMs() < 5000)) return;
     this.boostAudio?.pause();
-    const first = before.next <= 1;
     const audio = new Audio(first ? '/sounds/double_it_sound.mp3' : '/sounds/double_it_+1.mp3');
     audio.volume = 0.32;
     audio.loop = false;
     this.boostAudio = audio;
     const start = () => {
+      if (this.boostAudio !== audio || document.hidden) return;
       if (first && Number.isFinite(audio.duration) && audio.duration > 3) {
         audio.currentTime = audio.duration - 3;
       }
@@ -1976,6 +2021,7 @@ export class PlayPage implements OnInit, OnDestroy {
 
   private playCorrectSfx(): void {
     this.boostAudio?.pause();
+    this.boostAudio = null;
     try {
       const audio = new Audio('/sounds/correct_answer.mp3');
       void audio.play().catch(() => {

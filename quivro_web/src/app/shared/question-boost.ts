@@ -1,86 +1,74 @@
-import { Component, effect, ElementRef, inject, input, viewChild } from '@angular/core';
-import lottie, { type AnimationItem } from 'lottie-web/build/player/lottie_light';
+import { Component, inject, input } from '@angular/core';
 import { LanguageService } from '../core/language.service';
 
-/** Corner flame with the boosted point value. Hidden at 1×. */
+/** Compact reward badge. Hidden for an unboosted question. */
 @Component({
   selector: 'app-question-boost',
   standalone: true,
   host: {
     '[class.on]': 'multiplier() > 1',
-    '[class.large]': 'large()',
     '[attr.role]': 'multiplier() > 1 ? "img" : null',
     '[attr.aria-label]': 'multiplier() > 1 ? valueLabel() : null',
   },
   template: `
     @if (multiplier() > 1) {
-      <div class="crop" aria-hidden="true">
-        <div class="fire" #fire></div>
-      </div>
-      <span class="label" aria-hidden="true">
-        @for (key of [pulse()]; track key) {
-          <b class="value" [class.pop]="key > 0">{{ valueLabel() }}</b>
-        }
-      </span>
+      @for (animation of [{ pulse: pulse() }]; track animation.pulse) {
+        @if (animation.pulse > 0) { <span class="boost-sweep" aria-hidden="true"></span> }
+        <span class="badge" [class.pop]="animation.pulse > 0" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="16" height="16">
+            <path d="M13 2 4 14h7l-1 8 10-12h-7z" fill="currentColor" />
+          </svg>
+          {{ valueLabel() }}
+        </span>
+      }
     }
   `,
   styles: `
-    :host.on {
-      position: absolute;
-      top: -1rem;
-      right: 0.35rem;
-      z-index: 6;
-      --boost: 1;
-      width: 3.6rem;
-      height: 3.7rem;
-      pointer-events: none;
-      transform-origin: 100% 0;
-      transform: scale(var(--boost));
-    }
-    :host.on.large { --boost: 1.1; }
+    :host { display: inline-flex; justify-self: end; border-radius: inherit; pointer-events: none; }
     :host:not(.on) { display: none; }
-    .crop {
-      position: absolute;
-      inset: 0 0 0.72rem;
-      overflow: hidden;
-      transform: translateY(-1.2rem);
-    }
-    .fire {
-      position: absolute;
-      left: 50%;
-      bottom: 0;
-      width: 4rem;
-      height: 4rem;
-      transform: translateX(-50%);
-    }
-    .label {
-      position: absolute;
-      left: 50%;
-      bottom: calc(0.05rem + 1.2rem);
-      z-index: 1;
-      transform: translateX(-50%);
-    }
-    .value {
-      display: block;
-      padding: 0.14rem 0.32rem;
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      min-height: 1.875rem;
+      padding: 0.2rem 0.45rem;
       border: 2px solid var(--ink);
       border-radius: 8px;
       background: var(--q-gold);
       color: #0a0e27;
       box-shadow: 2px 2px 0 var(--ink);
-      font-size: 0.72rem;
+      font-size: 0.875rem;
       font-weight: 900;
       line-height: 1;
-      letter-spacing: 0.01em;
       white-space: nowrap;
+      font-variant-numeric: tabular-nums;
     }
-    .pop { animation: boost-pop .6s ease-out; }
+    svg { flex-shrink: 0; }
+    .boost-sweep {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      overflow: hidden;
+    }
+    .boost-sweep::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 20%, color-mix(in srgb, var(--q-gold) 35%, transparent) 50%, transparent 80%);
+      animation: boost-sweep .6s ease-out both;
+    }
+    @keyframes boost-sweep {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(100%); }
+    }
+    .pop { animation: boost-pop .45s ease-out; }
     @keyframes boost-pop {
-      0% { transform: scale(.8); }
-      35% { transform: scale(1.12); }
+      0% { transform: scale(.92); }
+      40% { transform: scale(1.08); }
       100% { transform: scale(1); }
     }
     @media (prefers-reduced-motion: reduce) {
+      .boost-sweep { display: none; }
       .pop { animation: none; }
     }
   `,
@@ -88,29 +76,8 @@ import { LanguageService } from '../core/language.service';
 export class QuestionBoost {
   readonly lang = inject(LanguageService);
   readonly multiplier = input(1);
-  /** Current-question badge, larger than the up-next one. */
-  readonly large = input(false);
   readonly timed = input(false);
   readonly pulse = input(0);
-  private readonly fire = viewChild<ElementRef<HTMLElement>>('fire');
-
-  constructor() {
-    effect((onCleanup) => {
-      const el = this.fire()?.nativeElement;
-      if (!el) return;
-      const reduced =
-        typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const anim: AnimationItem = lottie.loadAnimation({
-        container: el,
-        renderer: 'svg',
-        loop: !reduced,
-        autoplay: !reduced,
-        path: '/animations/fire.json',
-      });
-      if (reduced) anim.addEventListener('DOMLoaded', () => anim.goToAndStop(0, true));
-      onCleanup(() => anim.destroy());
-    });
-  }
 
   valueLabel(): string {
     return this.timed()
