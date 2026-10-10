@@ -459,9 +459,9 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
             >
               @if (r.currentQuestion; as q) {
                 <header class="meta">
-                  <div class="meta-info">
+                  <div class="meta-info" [style.--accent]="q.imageUrl ? typeInfo.image_mcq.accent : categoryInfo[q.category].accent">
                     <p class="counter">
-                      <span>{{ lang.t().question }}</span>
+                      <span class="current-label">{{ lang.t().currentQuestionLabel }} <span aria-hidden="true">·</span> {{ lang.t().question }}</span>
                       <b>{{ q.index + 1 }}<small>/{{ q.total }}</small></b>
                     </p>
                     @if (imagePhase() !== 'preview' && imagePhase() !== 'sliding') {
@@ -484,7 +484,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                     }
                   </div>
                   @if (rooms.nextQuestion(); as next) {
-                    <div class="next-meta">
+                    <div class="next-meta" [style.--accent]="next.type === 'image_mcq' ? typeInfo.image_mcq.accent : categoryInfo[next.category].accent">
                       <span class="next-label">{{ lang.t().upNext }} <span aria-hidden="true">→</span></span>
                       <span class="cat-chip" [style.--accent]="next.type === 'image_mcq' ? typeInfo.image_mcq.accent : categoryInfo[next.category].accent">
                         <img [src]="next.type === 'image_mcq' ? typeInfo.image_mcq.icon : categoryInfo[next.category].icon" alt="" />
@@ -497,10 +497,6 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                           </span>
                         }
                       </span>
-                    </div>
-                  } @else if (q.index + 1 === q.total) {
-                    <div class="next-meta final-meta">
-                      <span class="final-label">{{ lang.t().finalQuestion }}</span>
                     </div>
                   }
                   <div class="timer-slot">
@@ -779,30 +775,43 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
     }
     .meta {
       display: flex;
-      justify-content: space-between;
       align-items: center;
       gap: 1rem;
       flex-shrink: 0;
     }
     .meta-info {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
       align-items: center;
-      gap: 0.7rem;
+      column-gap: 0.85rem;
+      row-gap: 0.15rem;
+      flex: 0 1 30rem;
+      min-width: 0;
+      min-height: 5.5rem;
+      padding: 0.65rem 1rem 0.65rem 0.7rem;
+      border: 3px solid var(--ink);
+      border-radius: 18px;
+      background: var(--accent);
+      color: #1a1530;
+      box-shadow: 4px 4px 0 var(--ink);
     }
     .counter {
+      display: contents;
+    }
+    .current-label {
+      grid-column: 2;
+      grid-row: 1;
       margin: 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
       font-weight: 900;
-      color: var(--q-muted);
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
+      line-height: 1.3;
     }
     .counter b {
-      padding: 0.15rem 0.6rem;
+      grid-column: 1;
+      grid-row: 1 / 3;
+      padding: 0.45rem 0.6rem;
       border: 3px solid var(--ink);
       border-radius: 10px;
       background: var(--lcd);
@@ -810,7 +819,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       color: var(--bulb);
       font-family: var(--display);
       font-weight: 400;
-      font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+      font-size: 2rem;
       letter-spacing: 0.04em;
       text-shadow: 0 0 10px color-mix(in srgb, var(--bulb) 55%, transparent);
     }
@@ -819,20 +828,24 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       opacity: 0.7;
     }
     .cat-chip {
-      display: inline-flex;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.25rem 0.7rem 0.25rem 0.3rem;
-      border: 3px solid var(--ink);
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 3px 3px 0 var(--ink);
-      color: #1a1530;
+      gap: 0.6rem;
       font-weight: 900;
+      line-height: 1.15;
+      min-width: 0;
+    }
+    .current-chip {
+      grid-column: 2;
+      grid-row: 2;
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: clamp(1.5rem, 2.1cqi, 1.75rem);
     }
     .cat-chip img {
-      width: 1.9rem;
-      height: 1.9rem;
+      width: 2.75rem;
+      height: 2.75rem;
       object-fit: contain;
     }
     .pips {
@@ -841,14 +854,14 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       margin-left: 0.2rem;
     }
     .pips i {
-      width: 9px;
-      height: 9px;
-      border: 2px solid var(--ink);
+      width: 10px;
+      height: 10px;
+      border: 2px solid currentColor;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.5);
     }
     .pips i.on {
-      background: var(--ink);
+      background: currentColor;
     }
     .track {
       flex-shrink: 0;
@@ -1149,15 +1162,16 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       line-height: 1.35;
     }
 
-    .meta-info {
-      min-width: 0;
-    }
     .next-meta {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-left: auto;
+      display: grid;
+      gap: 0.3rem;
+      flex: 0 1 21rem;
       min-width: 0;
+      padding: 0.6rem 0.85rem;
+      border: 2px solid var(--ink);
+      border-radius: 16px;
+      background: color-mix(in srgb, var(--accent) 10%, var(--q-card));
+      color: var(--q-navy);
     }
     .next-label {
       flex-shrink: 0;
@@ -1169,17 +1183,15 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       white-space: nowrap;
     }
     .next-meta .cat-chip {
-      font-size: 0.9rem;
+      font-size: 1.125rem;
     }
     .next-meta .cat-chip img {
-      width: 1.65rem;
-      height: 1.65rem;
-    }
-    .cat-chip {
-      max-width: 100%;
+      width: 2rem;
+      height: 2rem;
     }
     .cat-name {
       min-width: 0;
+      overflow-wrap: anywhere;
     }
     .cat-chip img,
     .pips {
@@ -1191,19 +1203,9 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       flex-shrink: 0;
       min-width: 5rem;
       min-height: 5rem;
+      margin-left: auto;
     }
-    .final-label {
-      padding: 0.3rem 0.65rem;
-      border: 3px solid var(--ink);
-      border-radius: 10px;
-      background: var(--bulb);
-      box-shadow: 3px 3px 0 var(--ink);
-      color: #1a1530;
-      font-family: var(--display);
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-    @container (max-width: 850px) {
+    @container (max-width: 680px) {
       .meta {
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto;
@@ -1214,39 +1216,54 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
         grid-row: 1;
       }
       .next-meta {
-        grid-column: 1 / -1;
+        grid-column: 1;
         grid-row: 2;
-        margin-left: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem 0.75rem;
+        padding: 0.5rem 0.7rem;
+      }
+      .next-meta .cat-chip {
+        flex: 1 1 auto;
       }
     }
     @container (max-width: 420px) {
       .meta-info {
-        display: contents;
+        grid-template-columns: minmax(0, 1fr);
+        padding: 0.6rem;
+        row-gap: 0.4rem;
       }
       .counter {
-        grid-column: 1;
-        grid-row: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.4rem;
+        margin: 0;
         flex-wrap: wrap;
       }
-      .current-chip {
-        grid-column: 1 / -1;
-        grid-row: 2;
-        justify-self: start;
+      .counter b {
+        font-size: 1.5rem;
+        padding: 0.2rem 0.4rem;
       }
-      .next-meta {
-        grid-row: 3;
-        display: grid;
-        grid-template-columns: auto minmax(0, 1fr);
-        justify-self: start;
-      }
-      .next-meta .cat-chip {
-        font-size: 0.85rem;
-      }
-      .next-label {
+      .current-label {
         font-size: 0.65rem;
       }
-      .final-meta {
-        display: block;
+      .current-chip {
+        grid-column: 1;
+        grid-row: 2;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 0.3rem 0.5rem;
+      }
+      .current-chip img {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+      .current-chip .pips {
+        grid-column: 2;
+        margin: 0;
+      }
+      .next-meta {
+        grid-column: 1 / -1;
       }
     }
     @media (max-width: 960px) {
