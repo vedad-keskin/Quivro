@@ -96,10 +96,10 @@ describe('Double It presentation', () => {
     settle(150);
     expect(fixture.componentInstance.nextBoostPulse()).toBe(1);
     expect(element('.next-meta.boosted .badge')?.textContent).toContain('3 pts');
-    const nextFlames = element('.next-meta app-question-flames');
-    expect(nextFlames?.querySelector('.ignite')).not.toBeNull();
+    const nextCharge = element('.next-meta app-question-charge');
+    expect(nextCharge?.querySelector('.activate')).not.toBeNull();
     render();
-    expect(element('.next-meta app-question-flames')).toBe(nextFlames);
+    expect(element('.next-meta app-question-charge')).toBe(nextCharge);
     expect(element('.boost-notice')).toBeNull();
     expect(element('.qstage > .meta + .track')).not.toBeNull();
     expect(play).toHaveBeenCalledTimes(1);
@@ -109,8 +109,8 @@ describe('Double It presentation', () => {
     render();
     expect(element('.meta-info.boosted .badge')?.textContent).toContain('3 pts');
     expect(element('.next-meta .badge')).toBeNull();
-    expect(element('.next-meta app-question-flames')).toBeNull();
-    expect(element('.meta-info app-question-flames .ignite')).not.toBeNull();
+    expect(element('.next-meta app-question-charge')).toBeNull();
+    expect(element('.meta-info app-question-charge .activate')).not.toBeNull();
     expect(element('.boost-sweep')).toBeNull();
     expect(play).toHaveBeenCalledTimes(1);
 
@@ -119,7 +119,7 @@ describe('Double It presentation', () => {
     settle();
     expect(element('.next-meta .badge')?.textContent).toContain('×2');
     expect(element('.meta-info .badge')?.textContent).toContain('×3');
-    expect(element('.next-meta app-question-flames .ignite')).not.toBeNull();
+    expect(element('.next-meta app-question-charge .activate')).not.toBeNull();
     expect(element('.boost-notice')).toBeNull();
   });
 
@@ -134,54 +134,54 @@ describe('Double It presentation', () => {
     expect(fixture.componentInstance.nextBoostPulse()).toBe(0);
   });
 
-  it('ignites each boosted current question once, survives reveal, and clears on an unboosted question', () => {
-    expect(element('app-question-flames')).toBeNull();
+  it('activates each boosted current question once, survives reveal, and clears on an unboosted question', () => {
+    expect(element('app-question-charge')).toBeNull();
     usePower('a', 'Alex');
     settle();
-    expect(element('.meta-info app-question-flames')).toBeNull();
-    expect(element('.next-meta app-question-flames')).not.toBeNull();
+    expect(element('.meta-info app-question-charge')).toBeNull();
+    expect(element('.next-meta app-question-charge')).not.toBeNull();
 
     state.currentIndex = 1;
     state.currentQuestion = { ...state.currentQuestion!, index: 1, multiplier: 2 };
     render();
-    const first = element('app-question-flames');
+    const first = element('app-question-charge');
     expect(first?.getAttribute('aria-hidden')).toBe('true');
-    expect(first?.querySelector('.ignite')).not.toBeNull();
+    expect(first?.querySelector('.activate')).not.toBeNull();
     render();
-    expect(element('app-question-flames')).toBe(first);
+    expect(element('app-question-charge')).toBe(first);
     state.phase = 'reveal';
     render();
-    expect(element('app-question-flames')).toBe(first);
+    expect(element('app-question-charge')).toBe(first);
 
     state.phase = 'question';
     state.currentIndex = 2;
     state.currentQuestion = { ...state.currentQuestion!, index: 2, multiplier: 3 };
     render();
-    expect(element('app-question-flames')).not.toBe(first);
-    expect(element('app-question-flames .ignite')).not.toBeNull();
+    expect(element('app-question-charge')).not.toBe(first);
+    expect(element('app-question-charge .activate')).not.toBeNull();
     expect(element('.meta-info .badge')?.textContent).toContain('3 pts');
 
     state.currentIndex = 3;
     state.currentQuestion = { ...state.currentQuestion!, index: 3, multiplier: 1 };
     render();
-    expect(element('app-question-flames')).toBeNull();
+    expect(element('app-question-charge')).toBeNull();
   });
 
-  it('restores flames without ignition on a fresh snapshot or hidden-tab question change', () => {
+  it('restores charge outlines without activation on a fresh snapshot or hidden-tab question change', () => {
     room.set(null);
     fixture.detectChanges();
     state.currentQuestion = { ...state.currentQuestion!, multiplier: 2 };
     render();
-    expect(element('app-question-flames')).not.toBeNull();
-    expect(element('app-question-flames .ignite')).toBeNull();
+    expect(element('app-question-charge')).not.toBeNull();
+    expect(element('app-question-charge .activate')).toBeNull();
     vi.spyOn(document, 'hidden', 'get').mockReturnValue(true);
     state.currentIndex = 1;
     state.currentQuestion = { ...state.currentQuestion!, index: 1, multiplier: 2 };
     render();
     vi.spyOn(document, 'hidden', 'get').mockReturnValue(false);
     render();
-    expect(element('app-question-flames')).not.toBeNull();
-    expect(element('app-question-flames .ignite')).toBeNull();
+    expect(element('app-question-charge')).not.toBeNull();
+    expect(element('app-question-charge .activate')).toBeNull();
   });
 
   it('restores boosted state silently and cancels pending effects on teardown', () => {
@@ -191,8 +191,8 @@ describe('Double It presentation', () => {
     expect(element('.next-meta.boosted .badge')?.textContent).toContain('2 pts');
     expect(fixture.componentInstance.nextBoostPulse()).toBe(0);
     expect(play).not.toHaveBeenCalled();
-    expect(element('.next-meta app-question-flames')).not.toBeNull();
-    expect(element('.next-meta app-question-flames .ignite')).toBeNull();
+    expect(element('.next-meta app-question-charge')).not.toBeNull();
+    expect(element('.next-meta app-question-charge .activate')).toBeNull();
     usePower('b', 'Bea');
     fixture.destroy();
     vi.advanceTimersByTime(250);

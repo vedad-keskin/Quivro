@@ -68,14 +68,14 @@ import { CATEGORY_ACCENT, SCORING_ACCENT, TYPE_ACCENT } from '../../shared/round
 import { Leaderboard } from '../../shared/leaderboard';
 import { TimerRing } from '../../shared/timer-ring';
 import { QuestionBoost } from '../../shared/question-boost';
-import { QuestionFlames } from './question-flames';
+import { QuestionCharge } from './question-charge';
 import { UpgradeDialogService } from '../../shared/upgrade-dialog.service';
 
 type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
 
 @Component({
   selector: 'app-play',
-  imports: [AnswerGrid, FormsModule, Leaderboard, TimerRing, QuestionBoost, QuestionFlames],
+  imports: [AnswerGrid, FormsModule, Leaderboard, TimerRing, QuestionBoost, QuestionCharge],
   template: `
     <div class="tv q-show" #tvRoot>
       @if (room(); as r) {
@@ -467,7 +467,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                   <div class="meta-info" [class.boosted]="(q.multiplier ?? 1) > 1" [style.--accent]="q.imageUrl ? typeInfo.image_mcq.accent : categoryInfo[q.category].accent">
                     @if ((q.multiplier ?? 1) > 1) {
                       @for (questionKey of [r.roundId + ':' + q.index]; track questionKey) {
-                        <app-question-flames [ignite]="currentBoostIgnition()" />
+                        <app-question-charge [activate]="currentBoostActivation()" />
                       }
                     }
                     <p class="counter">
@@ -498,7 +498,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                     <div class="next-meta" [class.boosted]="nextBoost() > 1" [style.--accent]="next.type === 'image_mcq' ? typeInfo.image_mcq.accent : categoryInfo[next.category].accent">
                       @if (nextBoost() > 1) {
                         @for (pulse of [r.roundId + ':' + q.index + ':' + nextBoostPulse()]; track pulse) {
-                          <app-question-flames [ignite]="nextBoostPulse() > 0" />
+                          <app-question-charge [activate]="nextBoostPulse() > 0" />
                         }
                       }
                       <app-question-boost [multiplier]="nextBoost()" [pulse]="nextBoostPulse()"
@@ -791,9 +791,9 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
         transform: translate(-30vw, 22vh) scale(0.48);
       }
     }
-    .next-meta app-question-flames {
-      --flame-border: 2px;
-      --flame-radius: 16px;
+    .next-meta app-question-charge {
+      --boost-border: 2px;
+      --boost-radius: 16px;
     }
     .meta {
       display: flex;
@@ -1247,7 +1247,6 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       margin-left: auto;
     }
     @container (max-width: 680px) {
-      .next-meta app-question-flames { --flame-height-scale: .3; }
       .meta {
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto;
@@ -1363,7 +1362,7 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly room = this.rooms.room;
   readonly nextBoost = computed(() => this.room() ? nextQuestionMultiplier(this.room()!) : 1);
   readonly nextBoostPulse = signal(0);
-  readonly currentBoostIgnition = signal(false);
+  readonly currentBoostActivation = signal(false);
   private boostState: { round: string; index: number; next: number } | null = null;
   private boostBatchTimer: ReturnType<typeof setTimeout> | undefined;
   private boostAudio: HTMLAudioElement | null = null;
@@ -1751,7 +1750,7 @@ export class PlayPage implements OnInit, OnDestroy {
     clearTimeout(this.boostBatchTimer);
     this.boostBatchTimer = undefined;
     this.nextBoostPulse.set(0);
-    this.currentBoostIgnition.set(false);
+    this.currentBoostActivation.set(false);
     this.boostAudio?.pause();
     this.boostAudio = null;
   }
@@ -1765,7 +1764,7 @@ export class PlayPage implements OnInit, OnDestroy {
     if (!before || before.round !== round || before.index !== room.currentIndex ||
         (room.phase !== 'question' && room.phase !== 'reveal')) {
       this.clearBoostEffects();
-      this.currentBoostIgnition.set(!!before && before.round === round &&
+      this.currentBoostActivation.set(!!before && before.round === round &&
         before.index !== room.currentIndex && room.phase === 'question' &&
         (room.currentQuestion?.multiplier ?? 1) > 1 && !document.hidden);
       return;
