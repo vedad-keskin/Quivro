@@ -1,6 +1,6 @@
 # End-of-day mobile release
 
-Follow this when asked to bump the mobile version.
+Follow this when asked to bump the mobile version or cut a new bundle. Finish the version edit and the release build in the same task. Do not stop after writing the version.
 
 ## What changed
 
@@ -23,13 +23,13 @@ Write the same `X.Y.Z` in both places:
 
 ## Build
 
-From `quivro_mobile`:
+From `quivro_mobile`, run the release build. Do not only print the command.
 
 ```bash
 flutter build appbundle --release
 ```
 
-The Play bundle is `quivro_mobile/build/app/outputs/bundle/release/app-release.aab`.
+The Play bundle is `quivro_mobile/build/app/outputs/bundle/release/app-release.aab`. Confirm that file exists before the reply.
 
 ## Reply
 
