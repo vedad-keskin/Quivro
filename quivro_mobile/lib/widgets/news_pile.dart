@@ -42,6 +42,21 @@ class NewsDrop {
 /// Newest first. A new announcement is one object at the top, with a new id.
 const newsDrops = <NewsDrop>[
   NewsDrop(
+    id: 'double-it',
+    cards: [
+      NewsCard(
+        image: 'assets/powerups/double_it.png',
+        accent: Color(0xFFEAB308),
+        titleEn: 'Double it is here',
+        titleBs: 'Double it je stigao',
+        bodyEn:
+            'Want the next question to be worth more? Boost it and increase your chances of winning.',
+        bodyBs:
+            'Želiš da sljedeće pitanje vrijedi više bodova? Pojačaj ga i povećaj svoju šansu za pobjedom.',
+      ),
+    ],
+  ),
+  NewsDrop(
     id: 'lock-up',
     cards: [
       NewsCard(
