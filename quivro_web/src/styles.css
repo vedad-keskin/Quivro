@@ -780,21 +780,25 @@ html[data-theme='dark'] .q-show .wordmark {
 .q-show .rs .keys {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
+  gap: 0.4rem;
   padding-top: 1.5rem;
 }
 .q-show .rs .key {
   position: relative;
-  min-width: 58px;
-  height: 56px;
-  padding: 0 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  height: 54px;
+  padding: 0 0.45rem;
   border: 3px solid var(--ink);
   border-radius: 12px;
   background: var(--q-card);
   color: var(--q-navy);
   font-family: var(--display);
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   line-height: 1;
+  white-space: nowrap;
   cursor: pointer;
   box-shadow: 0 5px 0 var(--ink);
   transition:
@@ -804,10 +808,18 @@ html[data-theme='dark'] .q-show .wordmark {
 }
 .q-show .rs .key small {
   margin-left: 1px;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
 }
 .q-show .rs .key-word {
-  font-size: 1.05rem;
+  font-size: 1rem;
+}
+@media (min-width: 721px) {
+  .q-show .rs .keys {
+    flex-wrap: nowrap;
+  }
+  .q-show .rs .key {
+    flex: 1 1 auto;
+  }
 }
 .q-show .rs .key.on,
 .q-show .rs .key:active {

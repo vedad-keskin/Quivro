@@ -413,7 +413,7 @@ export class GameRoomService {
             powerUpSlots: nextConfig.powerUpSlots ?? room.config.powerUpSlots,
           }),
         )
-      : room.config;
+      : this.normalizeConfig(this.entitlements.enforce(room.config));
 
     const readyIds = new Set(
       Object.keys(room.rematchReady ?? {}).filter(
@@ -946,6 +946,7 @@ export class GameRoomService {
   private normalizeConfig(config: RoomConfig): RoomConfig {
     return {
       ...config,
+      questionSeconds: clampQuestionSeconds(config.questionSeconds),
       powerUpSlots: normalizePowerUpSlots(config.powerUpSlots),
     };
   }

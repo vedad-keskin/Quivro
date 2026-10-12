@@ -528,6 +528,10 @@ export function clampQuestionSeconds(value: number): number {
   return Math.min(60, Math.max(5, Math.round(value) || 15));
 }
 
+export function isValidQuestionSeconds(value: number): boolean {
+  return Number.isInteger(value) && value >= 5 && value <= 60;
+}
+
 export interface RoomState {
   code: string;
   roundId?: string;

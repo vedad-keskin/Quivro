@@ -4,6 +4,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { DIFFICULTY_POINTS, IMAGE_MCQ_POINTS } from '../../data/questions/types';
 import type { Question } from '../../data/questions/types';
 import { FirebaseService } from './firebase.service';
+import { EntitlementService } from './entitlement.service';
+import { clampToFree } from './entitlements';
 import { GameRoomService } from './game-room.service';
 import { QuestionBankService } from './question-bank.service';
 import { RoundGeneratorService } from './round-generator.service';
@@ -174,7 +176,8 @@ function timedDelta(answeredAt: number, endsAt: number, durationMs: number): num
 
 vi.mock('firebase/database', () => ({
   get: vi.fn(),
-  onDisconnect: vi.fn(() => ({ remove: vi.fn(), cancel: vi.fn() })),
+  onDisconnect: vi.fn(() => ({ remove: vi.fn(), cancel: vi.fn(), set: vi.fn() })),
+  serverTimestamp: vi.fn(() => ({ '.sv': 'timestamp' })),
   onValue: vi.fn(),
   ref: vi.fn((_db: unknown, path: string) => ({ path })),
   remove: vi.fn(),
@@ -227,6 +230,28 @@ describe('GameRoomService', () => {
   afterEach(() => {
     localStorage.clear();
     sessionStorage.clear();
+  });
+
+  it.each([[true, 60, 60], [true, 999, 60], [false, 45, 15], [false, 20, 20]] as const)(
+    'createRoom enforces timer limits: Pro=%s, requested=%i, saved=%i', async (pro, seconds, expected) => {
+      vi.spyOn(TestBed.inject(EntitlementService), 'enforce').mockImplementation(config => pro ? config : clampToFree(config));
+      vi.spyOn(service, 'sweepExpiredRooms').mockResolvedValue();
+      vi.mocked(get).mockResolvedValue({ exists: () => false, val: () => null } as never);
+      await service.createRoom({ ...questionRoom().config, questionSeconds: seconds });
+      expect(vi.mocked(set).mock.calls[0][1]).toMatchObject({ config: { questionSeconds: expected } });
+    },
+  );
+
+  it.each([true, false])('rematch rechecks a free host timer with explicit config=%s', async (explicit) => {
+    const room = questionRoom({ phase: 'finished', rematchReady: { p1: true } });
+    room.config.questionSeconds = 60;
+    claimHost(service);
+    vi.spyOn(TestBed.inject(EntitlementService), 'enforce').mockImplementation(config => clampToFree(config));
+    const raw = roomSnapshot(room);
+    vi.mocked(get).mockImplementation(async () => ({ exists: () => true, val: () => raw }) as never);
+    vi.mocked(update).mockImplementation(async (_ref, changes) => { Object.assign(raw, changes); });
+    await service.rematch('ROOM01', explicit ? room.config : undefined);
+    expect(vi.mocked(update).mock.calls[0][1]).toMatchObject({ config: { questionSeconds: 15 } });
   });
 
   it('previews the actual next ID after refresh, reveal, advancement and rematch without Firebase calls', () => {
@@ -537,12 +562,13 @@ describe('GameRoomService', () => {
     expect(update).not.toHaveBeenCalled();
   });
 
-  it('startGame stamps the lobby language before publishing the first question', async () => {
+  it.each([15, 60])('startGame publishes a %i-second question with the lobby language', async (seconds) => {
     const room = questionRoom({
       phase: 'lobby',
       currentIndex: -1,
       currentQuestion: null,
     });
+    room.config.questionSeconds = seconds;
     claimHost(service, 'ROOM01');
     let reads = 0;
     vi.mocked(get).mockImplementation(async () => {
@@ -562,5 +588,8 @@ describe('GameRoomService', () => {
     const patches = vi.mocked(update).mock.calls.map((c) => c[1] as Record<string, unknown>);
     expect(patches[0]).toEqual({ 'config/language': 'bs' });
     expect((patches[1]['currentQuestion'] as { prompt: string }).prompt).toBe('Pitanje?');
+    expect(patches[1]['currentQuestion']).toMatchObject({
+      durationMs: seconds * 1000, answerOpensAt: 1_000_000, endsAt: 1_000_000 + seconds * 1000,
+    });
   });
 });

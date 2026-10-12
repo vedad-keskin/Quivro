@@ -100,6 +100,10 @@ export class EntitlementService {
     return !this.pro();
   }
 
+  customTimerLocked(): boolean {
+    return !this.pro();
+  }
+
   powerUpLocked(id: PowerUpId): boolean {
     return !this.pro() && !isPowerUpFree(id);
   }

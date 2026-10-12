@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import {
   CATEGORIES,
+  MAX_ROUND_LENGTH,
   MIN_ROUND_LENGTH,
   QUESTION_SECONDS_PRESETS,
   QUESTION_TYPES,
@@ -12,17 +13,17 @@ import {
 } from '../../../data/questions/types';
 import type { UiStrings } from '../../../i18n/en';
 import { EntitlementService } from '../../core/entitlement.service';
-import { FREE_CATEGORIES, FREE_MAX_ROUND_LENGTH, PRO_CATEGORIES, isPowerUpFree, isQuestionTypeFree, isRoundLengthFree } from '../../core/entitlements';
+import { FREE_CATEGORIES, FREE_MAX_ROUND_LENGTH, PRO_CATEGORIES, isPowerUpFree, isQuestionTimeFree, isQuestionTypeFree, isRoundLengthFree } from '../../core/entitlements';
 import { GameRoomService } from '../../core/game-room.service';
 import { LanguageService } from '../../core/language.service';
 import {
   isValidRoundLength,
   normalizeRoundLength,
   parseCustomRoundLength,
-  roundLengthIssue,
 } from '../../core/round-generator.service';
 import {
   clampQuestionSeconds,
+  isValidQuestionSeconds,
   cyclePowerUpSlot,
   EMPTY_POWER_UP_SLOTS,
   normalizePowerUpSlots,
@@ -50,6 +51,7 @@ interface RoundPrefs {
   customLength: number;
   scoringMode: ScoringMode;
   questionSeconds: number;
+  customTimerMode: boolean;
   powerUpSlots: PowerUpSlots;
 }
 
@@ -98,6 +100,7 @@ function loadRoundPrefs(): RoundPrefs | null {
       customLength: parseCustomRoundLength(Number(parsed.customLength) || 10),
       scoringMode,
       questionSeconds: clampQuestionSeconds(Number(parsed.questionSeconds) || 15),
+      customTimerMode: Boolean(parsed.customTimerMode) || !isQuestionTimeFree(clampQuestionSeconds(Number(parsed.questionSeconds) || 15)),
       powerUpSlots: normalizePowerUpSlots(parsed.powerUpSlots),
     };
   } catch {
@@ -248,15 +251,58 @@ function loadRoundPrefs(): RoundPrefs | null {
                 <button
                   type="button"
                   class="key"
-                  [class.on]="questionSeconds() === n"
-                  [attr.aria-pressed]="questionSeconds() === n"
-                  (click)="questionSeconds.set(n)"
+                  [class.on]="!customTimerMode() && questionSeconds() === n"
+                  [attr.aria-pressed]="!customTimerMode() && questionSeconds() === n"
+                  (click)="pickTimerPreset(n)"
                 >
                   {{ n }}<small>{{ lang.t().seconds }}</small>
                 </button>
               }
+              <button
+                type="button"
+                class="key key-word"
+                [class.on]="customTimerMode()"
+                [class.locked]="ent.customTimerLocked()"
+                [attr.aria-pressed]="customTimerMode()"
+                (click)="pickCustomTimer()"
+              >
+                {{ lang.t().custom }}
+                <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.customTimerLocked())" />
+              </button>
             </div>
-            <p class="hint">{{ lang.t().descQuestionTime }}</p>
+            <div class="readout" [class.bad]="customTimerMode() && !questionSecondsValid()">
+              @if (customTimerMode()) {
+                <input
+                  class="readout-num readout-input"
+                  type="number" min="5" max="60" step="1" inputmode="numeric"
+                  [attr.aria-label]="lang.t().questionTime"
+                  [attr.aria-invalid]="!questionSecondsValid()"
+                  aria-describedby="question-time-hint"
+                  [ngModel]="questionSeconds()"
+                  (ngModelChange)="questionSeconds.set($event)"
+                />
+              } @else {
+                <span class="readout-num">{{ questionSeconds() }}</span>
+              }
+              <span class="readout-unit">{{ lang.t().seconds }}</span>
+              @if (customTimerMode()) {
+                <span class="readout-steps">
+                  <button type="button" class="nudge step-key" [attr.aria-label]="lang.t().decrease" [disabled]="questionSeconds() <= 5" (click)="stepQuestionSeconds(-1)">
+                    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                      <path d="M6 12 H18" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" />
+                    </svg>
+                  </button>
+                  <button type="button" class="nudge step-key" [attr.aria-label]="lang.t().increase" [disabled]="questionSeconds() >= 60" (click)="stepQuestionSeconds(1)">
+                    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                      <path d="M6 12 H18 M12 6 V18" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" />
+                    </svg>
+                  </button>
+                </span>
+              }
+            </div>
+            <p id="question-time-hint" class="hint" [class.warn]="!questionSecondsValid()" aria-live="polite">
+              {{ questionSecondsValid() ? lang.t().descQuestionTime : lang.t().questionTimeInvalid }}
+            </p>
           </section>
 
           <section class="stage">
@@ -297,6 +343,7 @@ function loadRoundPrefs(): RoundPrefs | null {
                   class="readout-num readout-input"
                   type="number"
                   [min]="minRoundLength"
+                  [max]="maxRoundLength"
                   [attr.aria-label]="lang.t().roundLength"
                   [ngModel]="customLength()"
                   (ngModelChange)="onCustom($event)"
@@ -307,12 +354,12 @@ function loadRoundPrefs(): RoundPrefs | null {
               <span class="readout-unit">{{ lang.t().questions }}</span>
               @if (customMode()) {
                 <span class="readout-steps">
-                  <button type="button" class="nudge step-key" [attr.aria-label]="lang.t().decrease" (click)="stepCustom(-1)">
+                  <button type="button" class="nudge step-key" [attr.aria-label]="lang.t().decrease" [disabled]="customLength() <= minRoundLength" (click)="stepCustom(-1)">
                     <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
                       <path d="M6 12 H18" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" />
                     </svg>
                   </button>
-                  <button type="button" class="nudge step-key" [attr.aria-label]="lang.t().increase" (click)="stepCustom(1)">
+                  <button type="button" class="nudge step-key" [attr.aria-label]="lang.t().increase" [disabled]="customLength() >= maxRoundLength" (click)="stepCustom(1)">
                     <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
                       <path d="M6 12 H18 M12 6 V18" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" />
                     </svg>
@@ -672,6 +719,7 @@ export class CreateRoundPage {
   readonly presets = ROUND_LENGTH_PRESETS;
   readonly timerPresets = QUESTION_SECONDS_PRESETS;
   readonly minRoundLength = MIN_ROUND_LENGTH;
+  readonly maxRoundLength = MAX_ROUND_LENGTH;
 
   readonly categoryInfo: Record<CategoryId, { icon: string; descKey: keyof UiStrings; accent: string }> = {
     geography: { icon: '/room-icons/geo.png', descKey: 'descGeography', accent: CATEGORY_ACCENT.geography },
@@ -705,6 +753,8 @@ export class CreateRoundPage {
   readonly customLength = signal(this.saved?.customLength ?? 10);
   readonly scoringMode = signal<ScoringMode>(this.saved?.scoringMode ?? 'timed');
   readonly questionSeconds = signal(this.saved?.questionSeconds ?? 15);
+  readonly customTimerMode = signal(this.saved?.customTimerMode ?? false);
+  readonly questionSecondsValid = computed(() => isValidQuestionSeconds(this.questionSeconds()));
   readonly powerUpSlots = signal<PowerUpSlots>(
     this.saved?.powerUpSlots ?? ([...EMPTY_POWER_UP_SLOTS] as PowerUpSlots),
   );
@@ -735,6 +785,7 @@ export class CreateRoundPage {
       this.types().length > 0 &&
       (!this.needsCategories() || this.selected().length > 0) &&
       this.customLengthValid() &&
+      this.questionSecondsValid() &&
       this.rooms.isLive,
   );
 
@@ -758,6 +809,7 @@ export class CreateRoundPage {
         customLength: this.customLength(),
         scoringMode: this.scoringMode(),
         questionSeconds: this.questionSeconds(),
+        customTimerMode: this.customTimerMode(),
         powerUpSlots: this.powerUpSlots(),
       };
       localStorage.setItem(ROUND_PREFS_KEY, JSON.stringify(prefs));
@@ -821,6 +873,25 @@ export class CreateRoundPage {
     if (this.ent.scoringModeLocked(this.scoringMode())) this.scoringMode.set('standard');
     if (this.customMode()) this.customMode.set(false);
     if (this.ent.roundLengthLocked(this.length())) this.length.set(FREE_MAX_ROUND_LENGTH);
+    this.customTimerMode.set(false);
+    if (!isQuestionTimeFree(this.questionSeconds())) this.questionSeconds.set(15);
+  }
+
+  pickTimerPreset(seconds: number): void {
+    this.customTimerMode.set(false);
+    this.questionSeconds.set(seconds);
+  }
+
+  pickCustomTimer(): void {
+    if (this.ent.customTimerLocked()) {
+      this.upgrade.show();
+      return;
+    }
+    this.customTimerMode.set(true);
+  }
+
+  stepQuestionSeconds(delta: number): void {
+    this.questionSeconds.set(clampQuestionSeconds((this.questionSeconds() || 15) + delta));
   }
 
   toggleCategory(cat: CategoryId): void {
@@ -921,19 +992,14 @@ export class CreateRoundPage {
 
   onCustom(value: number | string): void {
     this.customMode.set(true);
-    const prev = this.customLength();
-    const next = parseCustomRoundLength(value);
-    this.customLength.set(next);
-    if (
-      roundLengthIssue(next) === 'high' &&
-      roundLengthIssue(prev) !== 'high'
-    ) {
-      this.snack.error(this.lang.t().roundLengthTooHigh);
-    }
+    const parsed = parseCustomRoundLength(value);
+    this.customLength.set(parsed > MAX_ROUND_LENGTH ? MAX_ROUND_LENGTH : parsed);
   }
 
   stepCustom(delta: number): void {
-    this.onCustom(this.customLength() + delta);
+    const next = this.customLength() + delta;
+    if (next < MIN_ROUND_LENGTH) return;
+    this.onCustom(next);
   }
 
   async create(): Promise<void> {

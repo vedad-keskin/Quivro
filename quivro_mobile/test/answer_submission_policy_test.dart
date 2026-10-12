@@ -5,6 +5,7 @@ RoomState _room({
   required String phase,
   int currentIndex = 0,
   int endsAt = 2_000_000,
+  int durationMs = 15_000,
   String playerId = 'p1',
 }) {
   return RoomState.fromSnapshot('ABC123', {
@@ -20,7 +21,7 @@ RoomState _room({
       'prompt': 'Test?',
       'options': ['A', 'B', 'C', 'D'],
       'endsAt': endsAt,
-      'durationMs': 15_000,
+      'durationMs': durationMs,
       'index': currentIndex,
       'total': 10,
     },
@@ -38,6 +39,17 @@ RoomState _room({
 }
 
 void main() {
+  test('60-second questions accept answers throughout the window and stop at expiry', () {
+    final room = _room(phase: 'question', endsAt: 2_000_000, durationMs: 60_000);
+    expect(room.currentQuestion!.durationMs, 60_000);
+    expect(room.currentQuestion!.answerOpensAt, 1_940_000);
+    for (final now in [1_940_000, 1_970_000, 1_999_999, 2_000_000]) {
+      expect(AnswerSubmissionPolicy.canSubmit(
+        room: room, playerId: 'p1', questionIndex: 0, choice: 2, nowMs: now,
+      ), now < 2_000_000);
+    }
+  });
+
   test('canSubmit allows valid in-time answers', () {
     final room = _room(phase: 'question', endsAt: 2_000_000);
 

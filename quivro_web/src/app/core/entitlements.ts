@@ -1,4 +1,5 @@
 import type { CategoryId, QuestionType } from '../../data/questions/types';
+import { QUESTION_SECONDS_PRESETS } from '../../data/questions/types';
 import type { UiStrings } from '../../i18n/en';
 import type { PowerUpId, PowerUpSlots, RoomConfig, ScoringMode } from './room.models';
 
@@ -22,6 +23,7 @@ export const PRO_PERKS: readonly { key: keyof UiStrings; accent: string }[] = [
   { key: 'perkImages', accent: 'var(--q-pink)' },
   { key: 'perkScoring', accent: 'var(--q-lime)' },
   { key: 'perkLength', accent: 'var(--bulb)' },
+  { key: 'perkTimer', accent: 'var(--bulb)' },
 ];
 
 /** One of these is free each week — see `rotatingFreeCategory`. */
@@ -66,6 +68,10 @@ export function isRoundLengthFree(length: number): boolean {
   return (FREE_ROUND_LENGTH_PRESETS as readonly number[]).includes(length);
 }
 
+export function isQuestionTimeFree(seconds: number): boolean {
+  return (QUESTION_SECONDS_PRESETS as readonly number[]).includes(seconds);
+}
+
 export function isPowerUpFree(id: PowerUpId): boolean {
   return FREE_POWER_UPS.includes(id);
 }
@@ -83,6 +89,7 @@ export function clampToFree(config: RoomConfig, now: number = Date.now()): RoomC
     categories: categories.length ? categories : [FREE_CATEGORIES[0]],
     questionTypes: questionTypes.length ? questionTypes : [...FREE_QUESTION_TYPES],
     roundLength: Math.min(config.roundLength, FREE_MAX_ROUND_LENGTH),
+    questionSeconds: isQuestionTimeFree(config.questionSeconds) ? config.questionSeconds : 15,
     scoringMode: isScoringModeFree(config.scoringMode)
       ? config.scoringMode
       : FREE_SCORING_MODES[0],

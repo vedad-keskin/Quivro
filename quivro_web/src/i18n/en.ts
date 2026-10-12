@@ -98,7 +98,7 @@ export const en = {
   powerUpNext: 'Next power-up',
   powerUpPrev: 'Previous power-up',
   powerUpSpin: 'Spin',
-  descPowerUpFifty: 'Removes 2 wrong answers, leaves 2 to choose from.',
+  descPowerUpFifty: 'Removes 2 wrong answers, leaves 2 to choose.',
   descPowerUpSecond:
   'Check an answer to reveal if it’s right or wrong.',
   descPowerUpLock:
@@ -109,6 +109,7 @@ export const en = {
   scoringTimed: 'Timed',
   scoringStandard: 'Standard',
   questionTime: 'Time per question',
+  questionTimeInvalid: 'Enter a whole number from 5 to 60 seconds.',
   seconds: 'sec',
   firebaseMissing:
     'Firebase is required. Check environment.ts and Realtime Database rules.',
@@ -158,6 +159,7 @@ export const en = {
   perkPowerUps: 'Power-ups',
   perkImages: 'Picture questions',
   perkLength: 'Custom round lengths',
+  perkTimer: 'Custom question timers up to 60 seconds',
   upgradeBuy: 'Unlock for',
   upgradeSignInFirst: 'Sign in to continue',
   upgradeRestore: 'Already bought? Restore',

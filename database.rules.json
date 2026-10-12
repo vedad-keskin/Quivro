@@ -9,7 +9,10 @@
           ".write": true
         },
         "config": {
-          ".write": true
+          ".write": true,
+          "questionSeconds": {
+            ".validate": "newData.isNumber() && newData.val() >= 5 && newData.val() <= 60 && newData.val() % 1 === 0"
+          }
         },
         "createdAt": {
           ".write": true
@@ -27,7 +30,10 @@
           ".write": true
         },
         "currentQuestion": {
-          ".write": true
+          ".write": true,
+          "durationMs": {
+            ".validate": "newData.isNumber() && newData.val() >= 5000 && newData.val() <= 60000 && newData.val() % 1000 === 0"
+          }
         },
         "correctIndex": {
           ".write": true

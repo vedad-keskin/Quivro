@@ -111,6 +111,7 @@ export const bs: UiStrings = {
   scoringTimed: 'Na vrijeme',
   scoringStandard: 'Standardno',
   questionTime: 'Vrijeme po pitanju',
+  questionTimeInvalid: 'Unesite cijeli broj od 5 do 60 sekundi.',
   seconds: 'sek',
   firebaseMissing:
     'Firebase je obavezan. Provjeri environment.ts i Realtime Database pravila.',
@@ -160,6 +161,7 @@ export const bs: UiStrings = {
   perkPowerUps: 'Pojačanja',
   perkImages: 'Pitanja sa slikama',
   perkLength: 'Prilagođene dužine rundi',
+  perkTimer: 'Prilagođeno vrijeme po pitanju do 60 sekundi',
   upgradeBuy: 'Otključaj za',
   upgradeSignInFirst: 'Prijavi se za nastavak',
   upgradeRestore: 'Već kupljeno? Vrati kupovinu',

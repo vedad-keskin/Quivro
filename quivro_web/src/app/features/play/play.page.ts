@@ -18,6 +18,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { interval } from 'rxjs';
 import {
   CATEGORIES,
+  MAX_ROUND_LENGTH,
   MIN_ROUND_LENGTH,
   QUESTION_SECONDS_PRESETS,
   QUESTION_TYPES,
@@ -32,6 +33,7 @@ import {
   FREE_MAX_ROUND_LENGTH,
   PRO_CATEGORIES,
   isPowerUpFree,
+  isQuestionTimeFree,
   isQuestionTypeFree,
   isRoundLengthFree,
 } from '../../core/entitlements';
@@ -42,12 +44,12 @@ import {
   isValidRoundLength,
   normalizeRoundLength,
   parseCustomRoundLength,
-  roundLengthIssue,
 } from '../../core/round-generator.service';
 import {
   avatarColor,
   avatarEmoji,
   clampQuestionSeconds,
+  isValidQuestionSeconds,
   cyclePowerUpSlot,
   EMPTY_POWER_UP_SLOTS,
   IMAGE_SLIDE_MS,
@@ -283,15 +285,58 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                       <button
                         type="button"
                         class="key"
-                        [class.on]="questionSeconds() === n"
-                        [attr.aria-pressed]="questionSeconds() === n"
-                        (click)="questionSeconds.set(n)"
+                        [class.on]="!customTimerMode() && questionSeconds() === n"
+                        [attr.aria-pressed]="!customTimerMode() && questionSeconds() === n"
+                        (click)="pickTimerPreset(n)"
                       >
                         {{ n }}<small>{{ lang.t().seconds }}</small>
                       </button>
                     }
+                    <button
+                      type="button"
+                      class="key key-word"
+                      [class.on]="customTimerMode()"
+                      [class.locked]="ent.customTimerLocked()"
+                      [attr.aria-pressed]="customTimerMode()"
+                      (click)="pickCustomTimer()"
+                    >
+                      {{ lang.t().custom }}
+                      <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.customTimerLocked())" />
+                    </button>
                   </div>
-                  <p class="hint">{{ lang.t().descQuestionTime }}</p>
+                  <div class="readout" [class.bad]="customTimerMode() && !questionSecondsValid()">
+                    @if (customTimerMode()) {
+                      <input
+                        class="readout-num readout-input"
+                        type="number" min="5" max="60" step="1" inputmode="numeric"
+                        [attr.aria-label]="lang.t().questionTime"
+                        [attr.aria-invalid]="!questionSecondsValid()"
+                        aria-describedby="question-time-hint"
+                        [ngModel]="questionSeconds()"
+                        (ngModelChange)="questionSeconds.set($event)"
+                      />
+                    } @else {
+                      <span class="readout-num">{{ questionSeconds() }}</span>
+                    }
+                    <span class="readout-unit">{{ lang.t().seconds }}</span>
+                    @if (customTimerMode()) {
+                      <span class="readout-steps">
+                        <button type="button" class="nudge step-key" [attr.aria-label]="lang.t().decrease" [disabled]="questionSeconds() <= 5" (click)="stepQuestionSeconds(-1)">
+                          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                            <path d="M6 12 H18" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" />
+                          </svg>
+                        </button>
+                        <button type="button" class="nudge step-key" [attr.aria-label]="lang.t().increase" [disabled]="questionSeconds() >= 60" (click)="stepQuestionSeconds(1)">
+                          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                            <path d="M6 12 H18 M12 6 V18" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" />
+                          </svg>
+                        </button>
+                      </span>
+                    }
+                  </div>
+                  <p id="question-time-hint" class="hint" [class.warn]="!questionSecondsValid()" aria-live="polite">
+                    {{ questionSecondsValid() ? lang.t().descQuestionTime : lang.t().questionTimeInvalid }}
+                  </p>
                 </section>
 
                 <section class="stage">
@@ -332,6 +377,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                         class="readout-num readout-input"
                         type="number"
                         [min]="minRoundLength"
+                        [max]="maxRoundLength"
                         [attr.aria-label]="lang.t().roundLength"
                         [ngModel]="customLength()"
                         (ngModelChange)="onCustom($event)"
@@ -342,12 +388,12 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                     <span class="readout-unit">{{ lang.t().questions }}</span>
                     @if (customMode()) {
                       <span class="readout-steps">
-                        <button type="button" class="nudge step-key" [attr.aria-label]="lang.t().decrease" (click)="onCustom(customLength() - 1)">
+                        <button type="button" class="nudge step-key" [attr.aria-label]="lang.t().decrease" [disabled]="customLength() <= minRoundLength" (click)="stepCustom(-1)">
                           <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
                             <path d="M6 12 H18" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" />
                           </svg>
                         </button>
-                        <button type="button" class="nudge step-key" [attr.aria-label]="lang.t().increase" (click)="onCustom(customLength() + 1)">
+                        <button type="button" class="nudge step-key" [attr.aria-label]="lang.t().increase" [disabled]="customLength() >= maxRoundLength" (click)="stepCustom(1)">
                           <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
                             <path d="M6 12 H18 M12 6 V18" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" />
                           </svg>
@@ -1377,6 +1423,7 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly presets = ROUND_LENGTH_PRESETS;
   readonly timerPresets = QUESTION_SECONDS_PRESETS;
   readonly minRoundLength = MIN_ROUND_LENGTH;
+  readonly maxRoundLength = MAX_ROUND_LENGTH;
   readonly selectedCats = signal<CategoryId[]>([...CATEGORIES]);
   readonly selectedTypes = signal<QuestionType[]>([...QUESTION_TYPES]);
   readonly categoryMemory = signal<CategoryId[]>([...CATEGORIES]);
@@ -1385,6 +1432,8 @@ export class PlayPage implements OnInit, OnDestroy {
   readonly customLength = signal(10);
   readonly scoringMode = signal<ScoringMode>('timed');
   readonly questionSeconds = signal(15);
+  readonly customTimerMode = signal(false);
+  readonly questionSecondsValid = computed(() => isValidQuestionSeconds(this.questionSeconds()));
   readonly powerUpSlots = signal<PowerUpSlots>(
     [...EMPTY_POWER_UP_SLOTS] as PowerUpSlots,
   );
@@ -1511,6 +1560,7 @@ export class PlayPage implements OnInit, OnDestroy {
       this.selectedTypes().length > 0 &&
       (!this.needsCategories() || this.selectedCats().length > 0) &&
       this.customLengthValid() &&
+      this.questionSecondsValid() &&
       this.rematchReadyPlayers().length > 0,
   );
 
@@ -1568,6 +1618,7 @@ export class PlayPage implements OnInit, OnDestroy {
         }
         this.scoringMode.set(r.config.scoringMode === 'standard' ? 'standard' : 'timed');
         this.questionSeconds.set(clampQuestionSeconds(r.config.questionSeconds ?? 15));
+        this.customTimerMode.set(!isQuestionTimeFree(this.questionSeconds()));
         this.powerUpSlots.set([...r.config.powerUpSlots] as PowerUpSlots);
         this.knownRematchReady = new Set(
           Object.keys(r.rematchReady ?? {}).filter((id) => r.rematchReady[id]),
@@ -1881,6 +1932,25 @@ export class PlayPage implements OnInit, OnDestroy {
     if (this.ent.scoringModeLocked(this.scoringMode())) this.scoringMode.set('standard');
     if (this.customMode()) this.customMode.set(false);
     if (this.ent.roundLengthLocked(this.length())) this.length.set(FREE_MAX_ROUND_LENGTH);
+    this.customTimerMode.set(false);
+    if (!isQuestionTimeFree(this.questionSeconds())) this.questionSeconds.set(15);
+  }
+
+  pickTimerPreset(seconds: number): void {
+    this.customTimerMode.set(false);
+    this.questionSeconds.set(seconds);
+  }
+
+  pickCustomTimer(): void {
+    if (this.ent.customTimerLocked()) {
+      this.upgrade.show();
+      return;
+    }
+    this.customTimerMode.set(true);
+  }
+
+  stepQuestionSeconds(delta: number): void {
+    this.questionSeconds.set(clampQuestionSeconds((this.questionSeconds() || 15) + delta));
   }
 
   pickScoring(mode: ScoringMode): void {
@@ -1910,15 +1980,14 @@ export class PlayPage implements OnInit, OnDestroy {
 
   onCustom(value: number | string): void {
     this.customMode.set(true);
-    const prev = this.customLength();
-    const next = parseCustomRoundLength(value);
-    this.customLength.set(next);
-    if (
-      roundLengthIssue(next) === 'high' &&
-      roundLengthIssue(prev) !== 'high'
-    ) {
-      this.snack.error(this.lang.t().roundLengthTooHigh);
-    }
+    const parsed = parseCustomRoundLength(value);
+    this.customLength.set(parsed > MAX_ROUND_LENGTH ? MAX_ROUND_LENGTH : parsed);
+  }
+
+  stepCustom(delta: number): void {
+    const next = this.customLength() + delta;
+    if (next < MIN_ROUND_LENGTH) return;
+    this.onCustom(next);
   }
 
   toggleCategory(cat: CategoryId): void {

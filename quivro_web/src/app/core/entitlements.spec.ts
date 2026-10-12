@@ -119,4 +119,13 @@ describe('clampToFree', () => {
     const input = config({ roundLength: 20 });
     expect(clampToFree(input, now)).toEqual(input);
   });
+
+  it('keeps free timer presets and resets custom or invalid timers', () => {
+    for (const questionSeconds of [10, 15, 20, 30]) {
+      expect(clampToFree(config({ questionSeconds }), now).questionSeconds).toBe(questionSeconds);
+    }
+    for (const questionSeconds of [5, 25, 45, 60, 61, 15.5, NaN]) {
+      expect(clampToFree(config({ questionSeconds }), now).questionSeconds).toBe(15);
+    }
+  });
 });
