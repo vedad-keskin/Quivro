@@ -139,7 +139,8 @@ export const bs: UiStrings = {
   descScoringTimed:
     'Brži tačan odgovor vrijedi više bodova.',
   descQuestionTime: 'Koliko vremena svaka ekipa ima da zaključa odgovor.',
-  descRoundLength: 'Koliko pitanja ima runda, kombinacija lakih, srednjih i teških pitanja.',
+  descCategories: 'Teme u rundi. Svaka tema je mješavina lakih, srednjih i teških pitanja.',
+  descRoundLength: 'Koliko pitanja se sastoji u rundi.',
   signIn: 'Prijavi se',
   signOut: 'Odjavi se',
   signedInAs: 'Prijavljen kao',

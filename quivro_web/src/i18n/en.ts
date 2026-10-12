@@ -137,7 +137,8 @@ export const en = {
   descScoringTimed:
     'Faster correct answers earn more points.',
   descQuestionTime: 'How long each team has to lock in an answer.',
-  descRoundLength: 'How many questions per round, mix of easy, medium, and hard ones.',
+  descCategories: 'Topics in the round. Each topic is a mix of easy, medium, and hard questions.',
+  descRoundLength: 'How many questions are in the round.',
   signIn: 'Sign in',
   signOut: 'Sign out',
   signedInAs: 'Signed in as',

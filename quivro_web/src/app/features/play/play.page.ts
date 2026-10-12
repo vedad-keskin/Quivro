@@ -268,6 +268,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                     </button>
                   }
                 </div>
+                <p class="hint">{{ lang.t().descCategories }}</p>
                 @if (needsCategories() && selectedCats().length === 0) {
                   <p class="hint warn">{{ lang.t().selectAtLeastOne }}</p>
                 }

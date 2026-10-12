@@ -234,6 +234,7 @@ function loadRoundPrefs(): RoundPrefs | null {
               </button>
             }
           </div>
+          <p class="hint">{{ lang.t().descCategories }}</p>
           @if (needsCategories() && selected().length === 0) {
             <p class="hint warn">{{ lang.t().selectAtLeastOne }}</p>
           }
