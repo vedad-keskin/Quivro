@@ -123,8 +123,14 @@ for (const Page of [CreateRoundPage, PlayPage]) {
         fixture.detectChanges();
       };
       set('150');
-      expect(page.customLength()).toBe(100);
+      expect(page.customLength()).toBe(150);
+      expect(ready()).toBe(false);
+      expect(input.getAttribute('aria-invalid')).toBe('true');
+      expect(stage.textContent).toContain(en.roundLengthInvalid);
       expect(stage.querySelector<HTMLButtonElement>(`button[aria-label="${en.increase}"]`)!.disabled).toBe(true);
+      page.stepCustom(-1);
+      fixture.detectChanges();
+      expect(page.customLength()).toBe(100);
       set('5');
       expect(page.customLength()).toBe(5);
       expect(ready()).toBe(true);

@@ -32,7 +32,7 @@ export function roundLengthIssue(length: number): 'high' | 'low' | null {
 }
 
 export function isValidRoundLength(length: number): boolean {
-  return roundLengthIssue(length) === null;
+  return Number.isInteger(length) && length >= MIN_ROUND_LENGTH && length <= MAX_ROUND_LENGTH;
 }
 
 /** Target image count when both text and picture types are selected. */

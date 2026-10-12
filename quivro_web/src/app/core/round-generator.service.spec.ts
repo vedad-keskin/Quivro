@@ -54,6 +54,7 @@ describe('normalizeRoundLength', () => {
     expect(roundLengthIssue(5)).toBeNull();
     expect(isValidRoundLength(50)).toBe(true);
     expect(isValidRoundLength(150)).toBe(false);
+    expect(isValidRoundLength(10.5)).toBe(false);
   });
 
   it('parses custom input without clamping', () => {

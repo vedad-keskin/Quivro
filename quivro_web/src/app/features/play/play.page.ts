@@ -43,7 +43,6 @@ import { LanguageService } from '../../core/language.service';
 import {
   isValidRoundLength,
   normalizeRoundLength,
-  parseCustomRoundLength,
 } from '../../core/round-generator.service';
 import {
   avatarColor,
@@ -379,7 +378,11 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                         type="number"
                         [min]="minRoundLength"
                         [max]="maxRoundLength"
+                        step="1"
+                        inputmode="numeric"
                         [attr.aria-label]="lang.t().roundLength"
+                        [attr.aria-invalid]="!customLengthValid()"
+                        aria-describedby="round-length-hint"
                         [ngModel]="customLength()"
                         (ngModelChange)="onCustom($event)"
                       />
@@ -402,7 +405,9 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                       </span>
                     }
                   </div>
-                  <p class="hint">{{ lang.t().descRoundLength }}</p>
+                  <p id="round-length-hint" class="hint" [class.warn]="!customLengthValid()" aria-live="polite">
+                    {{ customLengthValid() ? lang.t().descRoundLength : lang.t().roundLengthInvalid }}
+                  </p>
                 </section>
               </div>
 
@@ -1979,16 +1984,17 @@ export class PlayPage implements OnInit, OnDestroy {
     this.customMode.set(true);
   }
 
-  onCustom(value: number | string): void {
+  onCustom(value: number | string | null): void {
     this.customMode.set(true);
-    const parsed = parseCustomRoundLength(value);
-    this.customLength.set(parsed > MAX_ROUND_LENGTH ? MAX_ROUND_LENGTH : parsed);
+    const parsed = Number(value);
+    this.customLength.set(Number.isFinite(parsed) ? parsed : 0);
   }
 
   stepCustom(delta: number): void {
-    const next = this.customLength() + delta;
-    if (next < MIN_ROUND_LENGTH) return;
-    this.onCustom(next);
+    const current = Number.isFinite(this.customLength()) ? this.customLength() : MIN_ROUND_LENGTH;
+    const next = Math.min(MAX_ROUND_LENGTH, Math.max(MIN_ROUND_LENGTH, Math.round(current) + delta));
+    this.customMode.set(true);
+    this.customLength.set(next);
   }
 
   toggleCategory(cat: CategoryId): void {

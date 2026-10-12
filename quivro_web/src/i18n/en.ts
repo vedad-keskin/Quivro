@@ -109,6 +109,7 @@ export const en = {
   scoringStandard: 'Standard',
   questionTime: 'Time per question',
   questionTimeInvalid: 'Enter a whole number from 5 to 60 seconds.',
+  roundLengthInvalid: 'Enter a whole number from 5 to 100 questions.',
   seconds: 'sec',
   firebaseMissing:
     'Firebase is required. Check environment.ts and Realtime Database rules.',
@@ -138,7 +139,7 @@ export const en = {
     'Faster correct answers earn more points.',
   descQuestionTime: 'How long each team has to lock in an answer.',
   descCategories: 'Topics in the round. Each topic is a mix of easy, medium, and hard questions.',
-  descRoundLength: 'How many questions are in the round.',
+  descRoundLength: 'How many questions are in a round.',
   signIn: 'Sign in',
   signOut: 'Sign out',
   signedInAs: 'Signed in as',

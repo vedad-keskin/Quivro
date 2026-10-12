@@ -111,6 +111,7 @@ export const bs: UiStrings = {
   scoringStandard: 'Standardno',
   questionTime: 'Vrijeme po pitanju',
   questionTimeInvalid: 'Unesite cijeli broj od 5 do 60 sekundi.',
+  roundLengthInvalid: 'Unesite cijeli broj od 5 do 100 pitanja.',
   seconds: 'sek',
   firebaseMissing:
     'Firebase je obavezan. Provjeri environment.ts i Realtime Database pravila.',
@@ -140,7 +141,7 @@ export const bs: UiStrings = {
     'Brži tačan odgovor vrijedi više bodova.',
   descQuestionTime: 'Koliko vremena svaka ekipa ima da zaključa odgovor.',
   descCategories: 'Teme u rundi. Svaka tema je mješavina lakih, srednjih i teških pitanja.',
-  descRoundLength: 'Koliko pitanja se sastoji u rundi.',
+  descRoundLength: 'Koliko pitanja se sastoji u jednoj rundi.',
   signIn: 'Prijavi se',
   signOut: 'Odjavi se',
   signedInAs: 'Prijavljen kao',
