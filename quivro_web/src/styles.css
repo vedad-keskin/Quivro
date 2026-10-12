@@ -1017,13 +1017,20 @@ html[data-theme='dark'] .q-show .wordmark {
 }
 .q-show .rs .reel-copy {
   display: grid;
+  align-content: start;
   gap: 0.1rem;
+  width: 100%;
+  min-width: 0;
   text-align: center;
 }
 .q-show .rs .reel-copy strong {
   font-size: 0.85rem;
   font-weight: 900;
+  line-height: 1.2;
   color: var(--q-navy);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .q-show .rs .reel-copy.empty strong {
   color: var(--q-muted);
@@ -1033,6 +1040,14 @@ html[data-theme='dark'] .q-show .wordmark {
   font-weight: 700;
   line-height: 1.25;
   color: var(--q-muted);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+@media (min-width: 721px) {
+  .q-show .rs .reel-copy {
+    min-height: calc(0.85rem * 1.2 + 0.1rem + 0.72rem * 1.25);
+  }
 }
 @media (max-width: 860px) {
   .q-show .rs .tiles-cats {

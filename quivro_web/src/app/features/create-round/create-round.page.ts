@@ -434,7 +434,7 @@ function loadRoundPrefs(): RoundPrefs | null {
                     <div class="reel-copy" [class.empty]="!slot" [attr.aria-live]="'polite'">
                       @if (powerUpOf(slot); as power) {
                         <strong>{{ lang.t()[power.labelKey] }}</strong>
-                        <span>{{ lang.t()[power.descKey] }}</span>
+                        <span [attr.title]="lang.t()[power.descKey]">{{ lang.t()[power.descKey] }}</span>
                       } @else {
                         <strong>{{ lang.t().descPowerUpEmpty }}</strong>
                       }
