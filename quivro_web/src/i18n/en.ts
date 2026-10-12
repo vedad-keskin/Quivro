@@ -24,7 +24,6 @@ export const en = {
   questionTypes: 'Question types',
   roundLength: 'Round length',
   questions: 'questions',
-  difficultyMix: 'mix of easy, medium, and hard',
   custom: 'Custom',
   decrease: 'Decrease',
   increase: 'Increase',
@@ -138,8 +137,7 @@ export const en = {
   descScoringTimed:
     'Faster correct answers earn more points.',
   descQuestionTime: 'How long each team has to lock in an answer.',
-  descRoundLength:
-    'How many questions in the round, auto-mixed across easy, medium and hard. Custom: 3–100.',
+  descRoundLength: 'How many questions per round, mix of easy, medium, and hard ones.',
   signIn: 'Sign in',
   signOut: 'Sign out',
   signedInAs: 'Signed in as',

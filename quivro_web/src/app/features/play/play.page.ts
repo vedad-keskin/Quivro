@@ -401,7 +401,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                       </span>
                     }
                   </div>
-                  <p class="hint">{{ lang.t().difficultyMix }}</p>
+                  <p class="hint">{{ lang.t().descRoundLength }}</p>
                 </section>
               </div>
 

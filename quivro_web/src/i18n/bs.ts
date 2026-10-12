@@ -26,7 +26,6 @@ export const bs: UiStrings = {
   questionTypes: 'Tipovi pitanja',
   roundLength: 'Dužina runde',
   questions: 'pitanja',
-  difficultyMix: 'mješavina lakih, srednjih i teških',
   custom: 'Prilagođeno',
   decrease: 'Smanji',
   increase: 'Povećaj',
@@ -140,8 +139,7 @@ export const bs: UiStrings = {
   descScoringTimed:
     'Brži tačan odgovor vrijedi više bodova.',
   descQuestionTime: 'Koliko vremena svaka ekipa ima da zaključa odgovor.',
-  descRoundLength:
-    'Koliko pitanja u rundi, automatski izmiješano lako/srednje/teško. Prilagođeno: 3–100.',
+  descRoundLength: 'Koliko pitanja ima runda, kombinacija lakih, srednjih i teških pitanja.',
   signIn: 'Prijavi se',
   signOut: 'Odjavi se',
   signedInAs: 'Prijavljen kao',
