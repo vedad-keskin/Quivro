@@ -31,13 +31,13 @@ export interface Question {
 /** Category chips only — excludes the image-pool sentinel. */
 export const CATEGORIES: CategoryId[] = [
   'geography',
-  'biology',
   'history',
-  'technology',
+  'biology',
   'sports',
-  'movies',
-  'famous',
   'islam',
+  'technology',
+  'famous',
+  'movies',
   'food',
 ];
 export const DIFFICULTIES: Difficulty[] = ['easy', 'medium', 'hard'];

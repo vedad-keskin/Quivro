@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  FREE_CATEGORIES,
   FREE_MAX_ROUND_LENGTH,
   PRO_CATEGORIES,
   clampToFree,
@@ -62,6 +63,10 @@ describe('isCategoryFree', () => {
   it('allows the always-free categories', () => {
     expect(isCategoryFree('geography', now)).toBe(true);
     expect(isCategoryFree('sports', now)).toBe(true);
+    expect(isCategoryFree('islam', now)).toBe(true);
+    expect(FREE_CATEGORIES).toContain('islam');
+    expect(PRO_CATEGORIES).toContain('technology');
+    expect(PRO_CATEGORIES).not.toContain('islam');
   });
 
   it('allows this week rotating category but not the other Pro ones', () => {

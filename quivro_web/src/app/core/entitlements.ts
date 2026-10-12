@@ -10,10 +10,10 @@ import type { PowerUpId, PowerUpSlots, RoomConfig, ScoringMode } from './room.mo
 
 export const FREE_CATEGORIES: CategoryId[] = [
   'geography',
-  'biology',
   'history',
-  'technology',
+  'biology',
   'sports',
+  'islam',
 ];
 
 /** What Pro adds, as shown on Login, Profile and the upgrade popup. */
@@ -27,7 +27,7 @@ export const PRO_PERKS: readonly { key: keyof UiStrings; accent: string }[] = [
 ];
 
 /** One of these is free each week — see `rotatingFreeCategory`. */
-export const PRO_CATEGORIES: CategoryId[] = ['movies', 'famous', 'islam', 'food'];
+export const PRO_CATEGORIES: CategoryId[] = ['technology', 'famous', 'movies', 'food'];
 
 export const FREE_QUESTION_TYPES: QuestionType[] = ['mcq'];
 export const FREE_SCORING_MODES: ScoringMode[] = ['standard'];
