@@ -140,6 +140,11 @@ import { UpgradeDialogService } from '../../shared/upgrade-dialog.service';
       outline: 3px solid var(--q-blue);
       outline-offset: 3px;
     }
+    :host-context(html[data-theme='dark']) .google,
+    :host-context(html[data-theme='dark']) .g-tile {
+      background: var(--q-card);
+      color: var(--q-navy);
+    }
     .g-tile {
       width: 36px;
       height: 36px;
