@@ -159,7 +159,7 @@ export const en = {
   perkPowerUps: 'Power-ups',
   perkImages: 'Picture questions',
   perkLength: 'Custom round lengths',
-  perkTimer: 'Custom question timers up to 60 seconds',
+  perkTimer: 'Custom question timers',
   upgradeBuy: 'Unlock for',
   upgradeSignInFirst: 'Sign in to continue',
   upgradeRestore: 'Already bought? Restore',

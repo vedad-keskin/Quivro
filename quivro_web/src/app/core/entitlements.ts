@@ -23,7 +23,7 @@ export const PRO_PERKS: readonly { key: keyof UiStrings; accent: string }[] = [
   { key: 'perkImages', accent: 'var(--q-pink)' },
   { key: 'perkScoring', accent: 'var(--q-lime)' },
   { key: 'perkLength', accent: 'var(--bulb)' },
-  { key: 'perkTimer', accent: 'var(--bulb)' },
+  { key: 'perkTimer', accent: 'var(--q-purple)' },
 ];
 
 /** One of these is free each week — see `rotatingFreeCategory`. */

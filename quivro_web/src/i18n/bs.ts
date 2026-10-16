@@ -161,7 +161,7 @@ export const bs: UiStrings = {
   perkPowerUps: 'Pojačanja',
   perkImages: 'Pitanja sa slikama',
   perkLength: 'Prilagođene dužine rundi',
-  perkTimer: 'Prilagođeno vrijeme po pitanju do 60 sekundi',
+  perkTimer: 'Prilagođena vremena po pitanju',
   upgradeBuy: 'Otključaj za',
   upgradeSignInFirst: 'Prijavi se za nastavak',
   upgradeRestore: 'Već kupljeno? Vrati kupovinu',
