@@ -364,7 +364,7 @@ class _HomePageState extends State<HomePage> {
                                   onLongPressStart: (_) {
                                     _easterEggTimer?.cancel();
                                     _easterEggTimer = Timer(
-                                      const Duration(seconds: 5),
+                                      const Duration(seconds: 2),
                                       () {
                                         if (mounted) _showCredits();
                                       },

@@ -11,7 +11,7 @@ import 'studio_mark.dart';
 const _bgColor = Color(0xFF0A0E27);
 
 /// Team credits. Starfield scroller on the splash navy, opened by a
-/// five-second hold on the home Nightfall mark.
+/// two-second hold on the home Nightfall mark.
 class CreditsDialog extends StatelessWidget {
   const CreditsDialog({super.key});
 
@@ -135,7 +135,7 @@ class CreditsDialog extends StatelessWidget {
                     right: 14,
                     bottom: 10,
                     child: Text(
-                      'v1.4.3',
+                      'v1.4.4',
                       style: GoogleFonts.nunito(
                         fontSize: 11,
                         fontWeight: FontWeight.w700,
