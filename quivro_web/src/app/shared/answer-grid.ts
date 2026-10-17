@@ -153,7 +153,9 @@ export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): 
       outline-offset: 3px;
     }
     .letter {
-      align-self: flex-start;
+      position: absolute;
+      top: clamp(0.45rem, 1vh, 0.8rem);
+      left: clamp(0.65rem, 1vw, 1.1rem);
       display: grid;
       place-items: center;
       width: clamp(2.4rem, 3.5vw, 3.2rem);
@@ -204,6 +206,7 @@ export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): 
       display: flex;
       align-items: center;
       justify-content: center;
+      padding-inline: calc(clamp(2.4rem, 3.5vw, 3.2rem) + 0.3rem);
       text-align: center;
       line-height: 1.15;
       font-size: clamp(1.85rem, 4.5vw, 3.25rem);
@@ -263,6 +266,7 @@ export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): 
         border-radius: 18px;
       }
       .letter {
+        position: static;
         align-self: center;
         width: 2.4rem;
         height: 2.4rem;
