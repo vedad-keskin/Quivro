@@ -153,6 +153,7 @@ export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): 
       outline-offset: 3px;
     }
     .letter {
+      align-self: flex-start;
       display: grid;
       place-items: center;
       width: clamp(2.4rem, 3.5vw, 3.2rem);
