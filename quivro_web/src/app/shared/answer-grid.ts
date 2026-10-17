@@ -241,7 +241,7 @@ export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): 
       animation: bounce 0.5s ease-out;
     }
     .reveal .text {
-      padding-bottom: 1.75rem;
+      padding-bottom: 2.25rem;
     }
     @media (prefers-reduced-motion: reduce) {
       .check,

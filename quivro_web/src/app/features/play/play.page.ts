@@ -784,7 +784,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       display: flex;
       flex-direction: column;
       min-height: 0;
-      gap: 0.9rem;
+      gap: clamp(0.5rem, 1.3vh, 0.9rem);
       padding: clamp(1rem, 2vw, 1.6rem) clamp(1rem, 2vw, 1.6rem) 3.6rem;
       height: 100%;
       overflow: visible;
