@@ -12,7 +12,7 @@ import { avatarColor, avatarEmoji, type RoomPlayer } from '../core/room.models';
 
 const COLORS = ['var(--answer-a)', 'var(--answer-b)', 'var(--answer-c)', 'var(--answer-d)'];
 const LABELS = ['A', 'B', 'C', 'D'];
-const MIN_FONT_PX = 14;
+const MIN_FONT_PX = 12;
 
 /** Shrink `el`'s font so its `.fit` child stays inside `box` (defaults to `el`). */
 export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): void {
@@ -22,16 +22,21 @@ export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): 
   el.style.fontSize = '';
   const preferred = parseFloat(getComputedStyle(el).fontSize);
   if (!Number.isFinite(preferred) || preferred <= 0) return;
-  if (box.clientHeight <= 0 || box.clientWidth <= 0) return;
+  if (box.getBoundingClientRect().height <= 0 || box.getBoundingClientRect().width <= 0) return;
 
   const maxPx = preferred;
   const floor = Math.min(minPx, maxPx);
   const fits = () => {
-    const pad = getComputedStyle(box);
-    const padY = (parseFloat(pad.paddingTop) || 0) + (parseFloat(pad.paddingBottom) || 0);
+    const style = getComputedStyle(box);
+    const boxSize = box.getBoundingClientRect();
+    const textSize = inner.getBoundingClientRect();
+    const insetY = ['padding-top', 'padding-bottom', 'border-top-width', 'border-bottom-width']
+      .reduce((sum, side) => sum + (parseFloat(style.getPropertyValue(side)) || 0), 0);
+    const insetX = ['padding-left', 'padding-right', 'border-left-width', 'border-right-width']
+      .reduce((sum, side) => sum + (parseFloat(style.getPropertyValue(side)) || 0), 0);
     return (
-      inner.offsetHeight <= box.clientHeight - padY + 1 &&
-      inner.offsetWidth <= box.clientWidth + 1
+      textSize.height <= boxSize.height - insetY &&
+      textSize.width <= boxSize.width - insetX
     );
   };
 
@@ -105,8 +110,8 @@ export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): 
     }
     .answers {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
       gap: 1.1rem;
       flex: 1;
       width: 100%;
@@ -116,13 +121,12 @@ export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): 
     .answer {
       position: relative;
       display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      justify-content: flex-start;
-      gap: 0.5rem;
-      min-height: 4.5rem;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+      min-height: 0;
       height: 100%;
-      padding: 0.8rem 1.1rem 0.95rem;
+      padding: clamp(0.45rem, 1vh, 0.8rem) clamp(0.65rem, 1vw, 1.1rem);
       border: 3px solid var(--ink, #1a1530);
       border-radius: 20px;
       background:
@@ -149,11 +153,10 @@ export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): 
       outline-offset: 3px;
     }
     .letter {
-      align-self: flex-start;
       display: grid;
       place-items: center;
-      width: clamp(2.75rem, 4.5vw, 3.5rem);
-      height: clamp(2.75rem, 4.5vw, 3.5rem);
+      width: clamp(2.4rem, 3.5vw, 3.2rem);
+      height: clamp(2.4rem, 3.5vw, 3.2rem);
       border: 3px solid var(--ink, #1a1530);
       border-radius: 14px;
       background: var(--bulb, #ffcc33);
@@ -161,7 +164,7 @@ export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): 
       flex-shrink: 0;
       color: #1a1530;
       font-family: var(--display, inherit);
-      font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+      font-size: clamp(1.3rem, 2.3vw, 1.75rem);
       font-weight: 400;
     }
     .check {
@@ -194,12 +197,12 @@ export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): 
     }
     .text {
       flex: 1;
+      align-self: stretch;
       min-width: 0;
       min-height: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0 0.35rem;
       text-align: center;
       line-height: 1.15;
       font-size: clamp(1.85rem, 4.5vw, 3.25rem);
@@ -208,7 +211,7 @@ export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): 
     }
     .fit {
       max-width: 100%;
-      overflow-wrap: break-word;
+      overflow-wrap: anywhere;
     }
     .pickers {
       position: absolute;
@@ -238,7 +241,7 @@ export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): 
       animation: bounce 0.5s ease-out;
     }
     .reveal .text {
-      padding-bottom: 2.25rem;
+      padding-bottom: 1.75rem;
     }
     @media (prefers-reduced-motion: reduce) {
       .check,
@@ -253,8 +256,7 @@ export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): 
         gap: 0.85rem;
       }
       .answer {
-        flex-direction: row;
-        align-items: center;
+        min-height: 4.5rem;
         gap: 0.85rem;
         padding: 1rem 1.15rem;
         border-radius: 18px;

@@ -699,8 +699,9 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
     .layout {
       display: grid;
       grid-template-columns: minmax(280px, 32%) 1fr;
+      grid-template-rows: minmax(0, 1fr);
       gap: 1.1rem;
-      height: calc(100dvh - 2.5rem);
+      height: max(calc(100dvh - 2.5rem), 44rem);
       align-items: stretch;
     }
     .board-col {
@@ -782,6 +783,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
       container-type: inline-size;
       display: flex;
       flex-direction: column;
+      min-height: 0;
       gap: 0.9rem;
       padding: clamp(1rem, 2vw, 1.6rem) clamp(1rem, 2vw, 1.6rem) 3.6rem;
       height: 100%;
@@ -1362,6 +1364,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
     @media (max-width: 960px) {
       .layout {
         grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
         height: auto;
       }
       .board-col.with-image .image-dock {
