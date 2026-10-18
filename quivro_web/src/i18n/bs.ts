@@ -64,7 +64,7 @@ export const bs: UiStrings = {
   technology: 'Tehnologija',
   sports: 'Sport',
   movies: 'Film & TV',
-  cartoons: 'Crtani filmovi',
+  cartoons: 'Crtani',
   famous: 'Poznati',
   islam: 'Islam',
   food: 'Hrana i piće',

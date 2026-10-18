@@ -15,6 +15,20 @@ export interface NewsDrop {
 /** Newest first. A new announcement is one object at the top, with a new id. */
 export const NEWS: NewsDrop[] = [
   {
+    id: 'cartoons-category',
+    cards: [
+      {
+        image: '/room-icons/cartoons.png',
+        accent: 'var(--q-teal)',
+        title: { en: 'Cartoons are here', bs: 'Crtani su stigli' },
+        body: {
+          en: 'Enjoy the new Cartoons category. Explore fun questions from the world of animation and relive your childhood.',
+          bs: 'Uživajte uz novu kategoriju Crtanih filmova. Upoznajte se sa zanimljivim pitanjima animiranog svijeta i prisjetite se vašeg djetnistva.',
+        },
+      },
+    ],
+  },
+  {
     id: 'double-it',
     cards: [
       { image: '/room-icons/double_it.png', accent: 'var(--q-gold)', title: { en: 'Double it is here', bs: 'Double it je stigao' }, body: { en: 'Know the next category? Increase the points it’s worth for everyone. Each extra use on the same question adds even more bonus points.', bs: 'Poznaješ oblast sljedećeg pitanja? Povećaj broj bodova koje ono nosi. Svako dodatno korištenje na jednom pitanju dodatno povećava broj bodova.' } },
