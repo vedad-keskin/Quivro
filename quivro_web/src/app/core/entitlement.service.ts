@@ -12,6 +12,7 @@ import {
   isScoringModeFree,
   nextRotationAt,
   rotatingFreeCategory,
+  rotatingFreePowerUp,
 } from './entitlements';
 import type { PowerUpSlots, RoomConfig, ScoringMode } from './room.models';
 
@@ -43,6 +44,8 @@ export class EntitlementService {
   readonly checking = signal(false);
 
   readonly freeThisWeek = computed<CategoryId>(() => rotatingFreeCategory(this.rotationNow()));
+  readonly freePowerUpThisWeek = computed(() => rotatingFreePowerUp(this.rotationNow()));
+  readonly rotationEndsAt = computed(() => nextRotationAt(this.rotationNow()));
 
   constructor() {
     this.scheduleRotation();

@@ -345,11 +345,14 @@ import { SettingsChips } from '../../shared/settings-chips';
       place-items: center;
       border: 3px solid var(--ink);
       border-radius: 10px;
-      background: linear-gradient(#fff, #e9e4f5);
+      background: var(--lcd);
       box-shadow: inset 0 3px 0 rgba(0, 0, 0, 0.18);
-      color: #6b6485;
+      color: var(--q-muted);
       font-family: var(--display);
       font-size: 1.5rem;
+    }
+    :host-context(html:not([data-theme='dark'])) .reel {
+      background: #f4f6fb;
     }
     .reel img {
       width: 36px;

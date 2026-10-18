@@ -1,11 +1,24 @@
-import { Component, HostListener, computed, inject, signal } from '@angular/core';
+import { Component, ElementRef, HostListener, computed, effect, inject, signal, viewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import type { CategoryId } from '../../../data/questions/types';
 import type { UiStrings } from '../../../i18n/en';
 import type { LocalizedString } from '../../../i18n/types';
+import { EntitlementService } from '../../core/entitlement.service';
 import { LanguageService } from '../../core/language.service';
+import { POWER_UP_CATALOG } from '../../core/room.models';
+import { CATEGORY_ACCENT } from '../../shared/round-accents';
 import { SettingsChips } from '../../shared/settings-chips';
 import { StudioFooter } from '../../shared/studio-footer';
 import { NEWS, type NewsCard, markSeen, readSeen, unread } from './news';
+
+const FREE_WEEK_SEEN_KEY = 'quivro.free-week.seen';
+const WEEKLY_CATEGORY_ICONS: Partial<Record<CategoryId, string>> = {
+  technology: '/room-icons/tech.png',
+  famous: '/room-icons/fam.png',
+  movies: '/room-icons/movtv.png',
+  cartoons: '/room-icons/cartoons.png',
+  food: '/room-icons/food.png',
+};
 
 interface Slide {
   dropId: string;
@@ -35,6 +48,17 @@ interface Layer {
           <span class="spark s3" aria-hidden="true"></span>
           <img class="logo wordmark" src="/logo/logo.png" alt="Quivro" />
           <p class="tagline">{{ lang.t().tagline }}</p>
+          <button
+            #weekTrigger
+            type="button"
+            class="deck week-deck"
+            (click)="openWeek()"
+            [attr.aria-expanded]="weekOpen()"
+            aria-haspopup="dialog"
+            [attr.aria-label]="lang.t().weeklyRotation"
+          >
+            <img src="/brand/free_week.webp" alt="" />
+          </button>
           @if (hasNews) {
             <button
               type="button"
@@ -133,6 +157,40 @@ interface Layer {
           </div>
         </div>
       }
+      @if (weekOpen()) {
+        <div class="modal-backdrop" (click)="closeWeek()">
+          <section
+            class="modal free-week-modal"
+            role="dialog"
+            aria-modal="true"
+            [attr.aria-label]="lang.t().weeklyRotation"
+            (click)="$event.stopPropagation()"
+          >
+            <button #weekClose type="button" class="x" [attr.aria-label]="lang.t().close" (click)="closeWeek()">×</button>
+            <img class="weekly-badge" src="/brand/free_week.webp" alt="" />
+            <p class="weekly-lead">{{ lang.t().freeThisWeek }}</p>
+            <div class="weekly-items">
+              <div class="weekly-item" [style.--accent]="categoryAccent[ent.freeThisWeek()]">
+                <span class="weekly-kind">{{ lang.t().weeklyCategory }}</span>
+                <span class="weekly-art">
+                  @if (weeklyCategoryIcon(); as icon) {
+                    <img [src]="icon" alt="" />
+                  }
+                </span>
+                <strong>{{ lang.t()[ent.freeThisWeek()] }}</strong>
+              </div>
+              @if (weeklyPower(); as power) {
+                <div class="weekly-item weekly-power" style="--accent: var(--q-orange)">
+                  <span class="weekly-kind">{{ lang.t().weeklyPowerUp }}</span>
+                  <span class="weekly-art"><img [src]="power.icon" alt="" /></span>
+                  <strong>{{ lang.t()[power.labelKey] }}</strong>
+                </div>
+              }
+            </div>
+            <button #weekDone type="button" class="key-btn done" (click)="closeWeek()">{{ lang.t().newsGotIt }}</button>
+          </section>
+        </div>
+      }
     </div>
   `,
   styles: `
@@ -206,15 +264,38 @@ interface Layer {
       transform: rotate(-8deg);
       cursor: pointer;
     }
+    .week-deck {
+      left: -3.5rem;
+      right: auto;
+      width: 68px;
+      height: 68px;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+      transform: rotate(8deg);
+    }
+    .week-deck img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(2px 5px 1px var(--ink)) drop-shadow(0 0 8px rgba(31, 153, 255, 0.25));
+    }
     .mark {
       display: block;
     }
     .deck:hover {
       transform: translateY(-2px) rotate(-8deg);
     }
+    .week-deck:hover {
+      transform: translateY(-2px) rotate(8deg);
+    }
     .deck:active {
       transform: translateY(2px) rotate(-8deg);
       box-shadow: 0 0 0 var(--ink);
+    }
+    .week-deck:active {
+      transform: translateY(2px) rotate(8deg);
+      box-shadow: none;
     }
     .deck:focus-visible {
       outline: 3px solid var(--q-blue);
@@ -388,6 +469,95 @@ interface Layer {
       cursor: pointer;
       box-shadow: 0 3px 0 var(--ink);
     }
+    .free-week-modal {
+      width: min(500px, 100%);
+      justify-items: center;
+      max-height: calc(100dvh - 2rem);
+      overflow-y: auto;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .weekly-badge {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+    }
+    .weekly-lead {
+      margin: 0;
+      font-family: var(--display);
+      font-size: 1.55rem;
+      line-height: 1.1;
+      color: var(--q-navy);
+    }
+    .weekly-items {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      width: 100%;
+      padding: 0 0.3rem 0.4rem 0;
+    }
+    .weekly-item {
+      min-width: 0;
+      display: grid;
+      justify-items: center;
+      align-content: start;
+      gap: 0.7rem;
+      padding: 0.8rem 0.6rem 1rem;
+      border: 3px solid var(--ink);
+      border-radius: 16px;
+      background: color-mix(in srgb, var(--accent) 18%, var(--q-card));
+      box-shadow: 4px 4px 0 var(--ink);
+      transform: rotate(-1deg);
+    }
+    .weekly-power {
+      transform: rotate(1deg);
+    }
+    .weekly-kind {
+      justify-self: start;
+      padding: 0.25rem 0.5rem;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--accent) 28%, var(--q-card));
+      color: var(--q-navy);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .weekly-art {
+      width: min(120px, 100%);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 3px solid var(--ink);
+      border-radius: 16px;
+      background: color-mix(in srgb, var(--accent) 40%, var(--q-card));
+      box-shadow: inset 0 4px 10px rgba(255, 255, 255, 0.23), 0 4px 0 var(--ink);
+    }
+    .weekly-power .weekly-art {
+      background: var(--lcd);
+      box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.4), 0 4px 0 var(--ink);
+    }
+    .weekly-art img {
+      width: 95%;
+      height: 95%;
+      object-fit: contain;
+    }
+    .weekly-item strong {
+      display: grid;
+      align-items: center;
+      min-height: 2.5rem;
+      font-family: var(--display);
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.08;
+      color: var(--q-navy);
+    }
+    .free-week-modal .done {
+      min-width: 150px;
+      background: var(--bulb);
+      color: #1a1530;
+    }
     @media (max-width: 720px) {
       .steps {
         grid-template-columns: 1fr;
@@ -396,6 +566,10 @@ interface Layer {
         right: 0;
         bottom: auto;
         top: calc(100% + 1.5rem);
+      }
+      .week-deck {
+        left: 0;
+        right: auto;
       }
       .start {
         margin-top: 4.2rem;
@@ -423,6 +597,8 @@ interface Layer {
 })
 export class HomePage {
   readonly lang = inject(LanguageService);
+  readonly ent = inject(EntitlementService);
+  readonly categoryAccent = CATEGORY_ACCENT;
   readonly hasNews = NEWS.length > 0;
   private readonly seen = signal(readSeen());
   private readonly showAll = signal(false);
@@ -433,6 +609,25 @@ export class HomePage {
   readonly slides = computed(() => slidesFor(this.showAll() ? NEWS : unread(NEWS, this.seen())));
   readonly current = computed(() => this.slides()[this.index()] ?? null);
   readonly layers = computed(() => pile(this.slides(), this.index()));
+  private readonly seenWeek = signal(readSeenWeek());
+  readonly weekOpen = signal(false);
+  readonly weeklyCategoryIcon = computed(() => WEEKLY_CATEGORY_ICONS[this.ent.freeThisWeek()]);
+  private readonly weekTrigger = viewChild<ElementRef<HTMLButtonElement>>('weekTrigger');
+  private readonly weekClose = viewChild<ElementRef<HTMLButtonElement>>('weekClose');
+  private readonly weekDone = viewChild<ElementRef<HTMLButtonElement>>('weekDone');
+  readonly weeklyPower = computed(() =>
+    POWER_UP_CATALOG.find((power) => power.id === this.ent.freePowerUpThisWeek()),
+  );
+
+  constructor() {
+    effect(() => {
+      const week = String(this.ent.rotationEndsAt());
+      if (!this.newsOpen() && this.seenWeek() !== week) this.weekOpen.set(true);
+    });
+    effect(() => {
+      if (this.weekOpen()) this.weekClose()?.nativeElement.focus();
+    });
+  }
 
   text(value: LocalizedString): string {
     return value[this.lang.lang()];
@@ -466,6 +661,22 @@ export class HomePage {
     this.newsOpen.set(false);
   }
 
+  openWeek(): void {
+    this.weekOpen.set(true);
+  }
+
+  closeWeek(): void {
+    const week = String(this.ent.rotationEndsAt());
+    try {
+      localStorage.setItem(FREE_WEEK_SEEN_KEY, week);
+    } catch {
+      // Keep it dismissed for this visit if browser storage is unavailable.
+    }
+    this.seenWeek.set(week);
+    this.weekOpen.set(false);
+    this.weekTrigger()?.nativeElement.focus();
+  }
+
   step(delta: number): void {
     if (this.motion()) return;
     const next = this.index() + delta;
@@ -493,10 +704,24 @@ export class HomePage {
 
   @HostListener('document:keydown', ['$event'])
   onKey(event: KeyboardEvent): void {
-    if (!this.newsOpen()) return;
-    if (event.key === 'Escape') this.closeNews();
-    else if (event.key === 'ArrowRight') this.step(1);
-    else if (event.key === 'ArrowLeft') this.step(-1);
+    if (this.newsOpen()) {
+      if (event.key === 'Escape') this.closeNews();
+      else if (event.key === 'ArrowRight') this.step(1);
+      else if (event.key === 'ArrowLeft') this.step(-1);
+    } else if (this.weekOpen()) {
+      if (event.key === 'Escape') this.closeWeek();
+      else if (event.key === 'Tab') {
+        const close = this.weekClose()?.nativeElement;
+        const done = this.weekDone()?.nativeElement;
+        if (event.shiftKey && document.activeElement !== done) {
+          event.preventDefault();
+          done?.focus();
+        } else if (!event.shiftKey && document.activeElement !== close) {
+          event.preventDefault();
+          close?.focus();
+        }
+      }
+    }
   }
 
   readonly steps: { title: keyof UiStrings; body: keyof UiStrings; accent: string }[] = [
@@ -504,6 +729,14 @@ export class HomePage {
     { title: 'stepJoinTitle', body: 'stepJoinBody', accent: 'var(--q-orange)' },
     { title: 'stepPlayTitle', body: 'stepPlayBody', accent: 'var(--q-pink)' },
   ];
+}
+
+function readSeenWeek(): string | null {
+  try {
+    return localStorage.getItem(FREE_WEEK_SEEN_KEY);
+  } catch {
+    return null;
+  }
 }
 
 function slidesFor(drops: readonly (typeof NEWS)[number][]): Slide[] {
