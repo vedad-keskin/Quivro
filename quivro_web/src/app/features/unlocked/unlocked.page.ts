@@ -30,7 +30,7 @@ const POLL_ATTEMPTS = 30;
             <span class="spark s1" aria-hidden="true"></span>
             <span class="spark s2" aria-hidden="true"></span>
             <span class="spark s3" aria-hidden="true"></span>
-            <img class="badge" src="/brand/pro_badge.png" alt="" />
+            <img class="badge" src="/brand/pro_badge.webp" alt="" />
             @if (ent.isPro()) {
               <h1 class="show-title">{{ lang.t().unlockedTitle }}</h1>
               <p>{{ lang.t().unlockedBody }}</p>

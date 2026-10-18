@@ -5,9 +5,9 @@ import { DIFFICULTIES } from './types';
 describe('Movies & TV and Cartoons split', () => {
   it('keeps every question in one difficulty band with sequential IDs', () => {
     const expected = {
-      easy: { movies: 41, cartoons: 66 },
-      medium: { movies: 70, cartoons: 35 },
-      hard: { movies: 74, cartoons: 36 },
+      easy: { movies: 80, cartoons: 87 },
+      medium: { movies: 84, cartoons: 62 },
+      hard: { movies: 77, cartoons: 62 },
     } as const;
     const ids: string[] = [];
 
@@ -24,7 +24,7 @@ describe('Movies & TV and Cartoons split', () => {
       }
     }
 
-    expect(ids).toHaveLength(322);
+    expect(ids).toHaveLength(452);
     expect(new Set(ids).size).toBe(ids.length);
   });
 });

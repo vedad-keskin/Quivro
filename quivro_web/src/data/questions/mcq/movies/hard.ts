@@ -1259,4 +1259,55 @@ export const moviesHard: Question[] = [
     ],
     correctIndex: 0,
   },
+  {
+    id: 'movie-hard-075',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'hard',
+    prompt: {
+      en: 'What film format had to be specially developed for Oppenheimer\'s black-and-white large-format scenes?',
+      bs: 'Koji je filmski format morao biti posebno razvijen za crno-bijele scene velikog formata u filmu Oppenheimer?'
+    },
+    options: [
+      { en: 'Color 16 mm film', bs: 'Kolor-film od 16 mm' },
+      { en: 'Instant photographic paper', bs: 'Fotografski papir za instantne slike' },
+      { en: 'Black-and-white 65 mm film', bs: 'Crno-bijeli film od 65 mm' },
+      { en: 'Magnetic video tape', bs: 'Magnetna video-traka' },
+    ],
+    correctIndex: 2,
+  },
+  {
+    id: 'movie-hard-076',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'hard',
+    prompt: {
+      en: 'In Murder, She Wrote, what job did Jessica Fletcher have before becoming a successful author?',
+      bs: 'U seriji Murder, She Wrote, koji je posao Jessica Fletcher radila prije nego što je postala uspješna spisateljica?',
+    },
+    options: [
+      { en: 'High school English teacher', bs: 'Profesorica engleskog u srednjoj školi' },
+      { en: 'Police detective', bs: 'Policijska detektivka' },
+      { en: 'Hospital nurse', bs: 'Medicinska sestra' },
+      { en: 'Radio journalist', bs: 'Radijska novinarka' },
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 'movie-hard-077',
+    type: 'mcq',
+    category: 'movies',
+    difficulty: 'hard',
+    prompt: {
+      en: 'In CSI: Miami, which types of evidence does Eric Delko specialize in?',
+      bs: 'U seriji CSI: Miami, za koje vrste dokaza je specijalizovan Eric Delko?',
+    },
+    options: [
+      { en: 'Firearms and bullets', bs: 'Vatreno oružje i metke' },
+      { en: 'Fingerprints and drugs', bs: 'Otiske prstiju i droge' },
+      { en: 'Documents and handwriting', bs: 'Dokumente i rukopis' },
+      { en: 'Bones and teeth', bs: 'Kosti i zube' },
+    ],
+    correctIndex: 1,
+  },
 ];

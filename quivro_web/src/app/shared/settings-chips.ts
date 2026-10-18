@@ -113,11 +113,11 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
                 </div>
                 @if (ent.isPro()) {
                   <span class="pro-badge">
-                    <img src="/brand/pro_badge.png" width="64" height="64" alt="" />
+                    <img src="/brand/pro_badge.webp" width="64" height="64" alt="" />
                   </span>
                 } @else {
                   <span class="pro-badge locked">
-                    <img src="/brand/pro_badge.png" width="64" height="64" alt="" />
+                    <img src="/brand/pro_badge.webp" width="64" height="64" alt="" />
                     <svg class="lock" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
                       <rect x="5" y="11" width="14" height="9" rx="2" fill="currentColor" />
                       <path

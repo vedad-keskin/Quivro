@@ -39,7 +39,7 @@ import { SettingsChips } from '../../shared/settings-chips';
               <img
                 class="pro-sticker"
                 [class.off]="!ent.isPro()"
-                src="/brand/pro_badge.png"
+                src="/brand/pro_badge.webp"
                 [alt]="ent.isPro() ? lang.t().hostedWithPro : lang.t().proLocked"
               />
               @if (!rooms.hosting()) {

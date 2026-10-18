@@ -27,7 +27,7 @@ import { StudioFooter } from '../../shared/studio-footer';
             <img
               class="pro-sticker"
               [class.off]="!ent.isPro()"
-              src="/brand/pro_badge.png"
+              src="/brand/pro_badge.webp"
               alt=""
             />
             <div class="ring" [class.pro]="ent.isPro()">

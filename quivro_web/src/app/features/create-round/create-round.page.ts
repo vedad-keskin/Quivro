@@ -147,7 +147,7 @@ function loadRoundPrefs(): RoundPrefs | null {
                     <span class="stamp" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12.5 L10 17.5 L19 7" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
                   }
                   @if (!isQuestionTypeFree(t)) {
-                    <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.questionTypeLocked(t))" />
+                    <img class="corner-badge" src="/brand/pro_badge.webp" [alt]="proAlt(ent.questionTypeLocked(t))" />
                   }
                 </button>
               }
@@ -195,7 +195,7 @@ function loadRoundPrefs(): RoundPrefs | null {
                 @if (scoringMode() === 'timed') {
                   <span class="stamp" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12.5 L10 17.5 L19 7" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
                 }
-                <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.scoringModeLocked('timed'))" />
+                <img class="corner-badge" src="/brand/pro_badge.webp" [alt]="proAlt(ent.scoringModeLocked('timed'))" />
               </button>
             </div>
           </section>
@@ -226,9 +226,9 @@ function loadRoundPrefs(): RoundPrefs | null {
                   <span class="stamp" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12.5 L10 17.5 L19 7" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
                 }
                 @if (isWeeklyCategory(cat)) {
-                  <img class="corner-badge" src="/brand/free_rotation2.png" [alt]="lang.t().freeThisWeek" />
+                  <img class="corner-badge" src="/brand/free_week.webp" [alt]="lang.t().freeThisWeek" />
                 } @else if (isProCategory(cat)) {
-                  <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.categoryLocked(cat))" />
+                  <img class="corner-badge" src="/brand/pro_badge.webp" [alt]="proAlt(ent.categoryLocked(cat))" />
                 }
               </button>
             }
@@ -267,7 +267,7 @@ function loadRoundPrefs(): RoundPrefs | null {
                 (click)="pickCustomTimer()"
               >
                 {{ lang.t().custom }}
-                <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.customTimerLocked())" />
+                <img class="corner-badge" src="/brand/pro_badge.webp" [alt]="proAlt(ent.customTimerLocked())" />
               </button>
             </div>
             <div class="readout" [class.bad]="customTimerMode() && !questionSecondsValid()">
@@ -321,7 +321,7 @@ function loadRoundPrefs(): RoundPrefs | null {
                 >
                   {{ n }}
                   @if (!isRoundLengthFree(n)) {
-                    <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.roundLengthLocked(n))" />
+                    <img class="corner-badge" src="/brand/pro_badge.webp" [alt]="proAlt(ent.roundLengthLocked(n))" />
                   }
                 </button>
               }
@@ -334,7 +334,7 @@ function loadRoundPrefs(): RoundPrefs | null {
                 (click)="pickCustom()"
               >
                 {{ lang.t().custom }}
-                <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.customLengthLocked())" />
+                <img class="corner-badge" src="/brand/pro_badge.webp" [alt]="proAlt(ent.customLengthLocked())" />
               </button>
             </div>
             <div class="readout" [class.bad]="customMode() && !customLengthValid()">
@@ -423,7 +423,7 @@ function loadRoundPrefs(): RoundPrefs | null {
                         }
                       </div>
                       @if (slot && !isPowerUpFree(slot)) {
-                        <img class="corner-badge" src="/brand/pro_badge.png" [alt]="proAlt(ent.powerUpLocked(slot))" />
+                        <img class="corner-badge" src="/brand/pro_badge.webp" [alt]="proAlt(ent.powerUpLocked(slot))" />
                       }
                     </div>
                     <button

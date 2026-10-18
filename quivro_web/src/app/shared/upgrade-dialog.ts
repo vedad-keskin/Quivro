@@ -24,10 +24,10 @@ import { UpgradeDialogService } from './upgrade-dialog.service';
             ×
           </button>
           <span class="pro-badge">
-            <img src="/brand/pro_badge.png" width="88" height="88" alt="" />
+            <img src="/brand/pro_badge.webp" width="88" height="88" alt="" />
           </span>
           <div class="banner-wrap">
-            <img class="banner" src="/brand/pro_banner.png" alt="" />
+            <img class="banner" src="/brand/pro_banner.webp" alt="" />
           </div>
           <div class="body">
             <h2 class="show-title">{{ lang.t().upgradeTitle }}</h2>
