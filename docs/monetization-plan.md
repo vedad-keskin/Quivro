@@ -21,17 +21,19 @@ Price: **EUR 4.99**, one-time, lifetime.
 
 | Feature | Free | Pro |
 |---|---|---|
-| Categories | Geography, Biology, Technology, History, Sports | All nine |
-| Pro categories | Movies & TV, Famous People, Islam, Food & Drinks | |
+| Categories | Geography, History, Biology, Sports, Islam | All ten |
+| Pro categories | Technology, Famous People, Movies & TV, Cartoons, Food & Drinks | |
 | Image questions | Locked | Unlocked |
 | Round length | 10, 20, 30 | Adds 50 and custom up to 100 |
 | Scoring mode | Standard (+1 each) | Adds Timed (speed bonus) |
 | Question timer | All options (10/15/20/30, custom 5-60s) | Same |
 | Rotating free category | One Pro category free each week | n/a |
+| Rotating free power-up | This week's power-up in any or all three slots | All four power-ups in all three slots |
 
-The rotation flips Monday 00:00 UTC and cycles Movies, Famous, Islam, Food. It is derived
-from the UTC week number, so every host worldwide sees the same category with no storage
-and no server call.
+The rotation flips Monday 00:00 UTC. Categories cycle Technology, Famous, Movies,
+Cartoons, Food; power-ups cycle 50/50, Second Chance, Lock Up, Double It. Both use the
+same UTC week number, so every host sees the same free options without storage or a
+server call. Existing rooms keep their loadout until the next round.
 
 ## Phases
 

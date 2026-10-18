@@ -32,7 +32,7 @@ import {
   FREE_CATEGORIES,
   FREE_MAX_ROUND_LENGTH,
   PRO_CATEGORIES,
-  isPowerUpFree,
+  clampFreePowerUpSlots,
   isQuestionTimeFree,
   isQuestionTypeFree,
   isRoundLengthFree,
@@ -425,7 +425,7 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                       <div class="window-wrap">
                         <div
                           class="window"
-                          [class.locked]="!!slot && ent.powerUpLocked(slot)"
+                          [class.locked]="ent.powerUpSlotLocked(powerUpSlots(), $index)"
                           [class.from-up]="$index === slotSlide()?.index && slotSlide()?.dir === 1"
                           [class.from-down]="$index === slotSlide()?.index && slotSlide()?.dir === -1"
                         >
@@ -435,8 +435,12 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                             <span class="slot-plus" aria-hidden="true">+</span>
                           }
                         </div>
-                        @if (slot && !isPowerUpFree(slot)) {
-                          <img class="corner-badge" src="/brand/pro_badge.webp" [alt]="proAlt(ent.powerUpLocked(slot))" />
+                        @if (slot) {
+                          @if (ent.isWeeklyPowerUpSlot(powerUpSlots(), $index)) {
+                            <img class="corner-badge" src="/brand/free_week.webp" [alt]="lang.t().freeThisWeek" />
+                          } @else {
+                            <img class="corner-badge" src="/brand/pro_badge.webp" [alt]="proAlt(ent.powerUpSlotLocked(powerUpSlots(), $index))" />
+                          }
                         }
                       </div>
                       <button type="button" class="nudge" [attr.aria-label]="lang.t().powerUpPrev" (click)="cycleSlot($index, -1)">
@@ -1448,7 +1452,6 @@ export class PlayPage implements OnInit, OnDestroy {
   );
   readonly slotSlide = signal<{ index: number; dir: 1 | -1 } | null>(null);
   readonly isQuestionTypeFree = isQuestionTypeFree;
-  readonly isPowerUpFree = isPowerUpFree;
   readonly isRoundLengthFree = isRoundLengthFree;
 
   powerUpOf(slot: PowerUpSlot) {
@@ -1480,9 +1483,10 @@ export class PlayPage implements OnInit, OnDestroy {
     standard: { descKey: 'descScoringStandard', accent: SCORING_ACCENT.standard },
     timed: { descKey: 'descScoringTimed', accent: SCORING_ACCENT.timed },
   };
-  readonly powerUpBlocked = computed(() =>
-    this.powerUpSlots().some((slot) => !!slot && this.ent.powerUpLocked(slot)),
-  );
+  readonly powerUpBlocked = computed(() => {
+    const slots = this.powerUpSlots();
+    return slots.some((_, index) => this.ent.powerUpSlotLocked(slots, index));
+  });
   readonly resetPrompt = signal(false);
   readonly rematching = signal(false);
   readonly copied = signal(false);
@@ -1593,6 +1597,7 @@ export class PlayPage implements OnInit, OnDestroy {
     // rematch form has to be re-clamped once the entitlement resolves.
     effect(() => {
       const pro = this.ent.isPro();
+      this.ent.freeThisWeek();
       if (!pro) untracked(() => this.dropLockedSelections());
     });
     effect(() => {
@@ -2111,7 +2116,7 @@ export class PlayPage implements OnInit, OnDestroy {
 
   confirmReset(): void {
     this.resetPrompt.set(false);
-    this.powerUpSlots.set([...EMPTY_POWER_UP_SLOTS]);
+    this.powerUpSlots.set(clampFreePowerUpSlots(this.powerUpSlots()));
     void this.rematch();
   }
 

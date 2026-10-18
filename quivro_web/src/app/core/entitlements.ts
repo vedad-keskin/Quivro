@@ -1,7 +1,13 @@
 import type { CategoryId, QuestionType } from '../../data/questions/types';
 import { QUESTION_SECONDS_PRESETS } from '../../data/questions/types';
 import type { UiStrings } from '../../i18n/en';
-import type { PowerUpId, PowerUpSlots, RoomConfig, ScoringMode } from './room.models';
+import {
+  POWER_UP_CATALOG,
+  type PowerUpId,
+  type PowerUpSlots,
+  type RoomConfig,
+  type ScoringMode,
+} from './room.models';
 
 /**
  * Single source of truth for the free/Pro split. Everything that gates a
@@ -31,8 +37,6 @@ export const PRO_CATEGORIES: CategoryId[] = ['technology', 'famous', 'movies', '
 
 export const FREE_QUESTION_TYPES: QuestionType[] = ['mcq'];
 export const FREE_SCORING_MODES: ScoringMode[] = ['standard'];
-/** Empty until a power-up is meant to be free. 50/50 and Second Chance are Pro. */
-export const FREE_POWER_UPS: PowerUpId[] = [];
 export const FREE_ROUND_LENGTH_PRESETS = [10, 20, 30] as const;
 export const FREE_MAX_ROUND_LENGTH = 30;
 
@@ -42,14 +46,42 @@ const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 /** The epoch fell on a Thursday; shifting by 4 days makes the rotation flip Monday 00:00 UTC. */
 const MONDAY_OFFSET_MS = 4 * 24 * 60 * 60 * 1000;
 
+function rotationWeek(now: number): number {
+  return Math.floor((now - MONDAY_OFFSET_MS) / WEEK_MS);
+}
+
+export function nextRotationAt(now: number): number {
+  return (rotationWeek(now) + 1) * WEEK_MS + MONDAY_OFFSET_MS;
+}
+
 /**
  * The Pro category that is free this week. Derived from the UTC week number so
  * every host worldwide sees the same one, with no storage and no server call.
  */
 export function rotatingFreeCategory(now: number = Date.now()): CategoryId {
-  const week = Math.floor((now - MONDAY_OFFSET_MS) / WEEK_MS);
-  const index = ((week % PRO_CATEGORIES.length) + PRO_CATEGORIES.length) % PRO_CATEGORIES.length;
+  const index =
+    ((rotationWeek(now) % PRO_CATEGORIES.length) + PRO_CATEGORIES.length) %
+    PRO_CATEGORIES.length;
   return PRO_CATEGORIES[index];
+}
+
+/** One catalog power-up is free in every selected slot during the same UTC week. */
+export function rotatingFreePowerUp(now: number = Date.now()) {
+  const index =
+    ((rotationWeek(now) % POWER_UP_CATALOG.length) + POWER_UP_CATALOG.length) %
+    POWER_UP_CATALOG.length;
+  return POWER_UP_CATALOG[index].id;
+}
+
+export function isPowerUpFree(id: PowerUpId, now: number = Date.now()): boolean {
+  return id === rotatingFreePowerUp(now);
+}
+
+export function clampFreePowerUpSlots(
+  slots: PowerUpSlots,
+  now: number = Date.now(),
+): PowerUpSlots {
+  return slots.map((slot) => (slot && isPowerUpFree(slot, now) ? slot : null)) as PowerUpSlots;
 }
 
 export function isCategoryFree(category: CategoryId, now: number = Date.now()): boolean {
@@ -72,10 +104,6 @@ export function isQuestionTimeFree(seconds: number): boolean {
   return (QUESTION_SECONDS_PRESETS as readonly number[]).includes(seconds);
 }
 
-export function isPowerUpFree(id: PowerUpId): boolean {
-  return FREE_POWER_UPS.includes(id);
-}
-
 /**
  * Last line of defence before a room is written to Firebase. Forces a non-Pro
  * config down to free limits so stale or tampered UI state cannot create a Pro
@@ -93,8 +121,6 @@ export function clampToFree(config: RoomConfig, now: number = Date.now()): RoomC
     scoringMode: isScoringModeFree(config.scoringMode)
       ? config.scoringMode
       : FREE_SCORING_MODES[0],
-    powerUpSlots: config.powerUpSlots.map((slot) =>
-      slot && isPowerUpFree(slot) ? slot : null,
-    ) as PowerUpSlots,
+    powerUpSlots: clampFreePowerUpSlots(config.powerUpSlots, now),
   };
 }

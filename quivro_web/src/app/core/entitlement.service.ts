@@ -1,4 +1,4 @@
-import { Injectable, computed, effect, inject, signal } from '@angular/core';
+import { DestroyRef, Injectable, computed, effect, inject, signal } from '@angular/core';
 import { environment } from '../../environments/environment';
 import type { CategoryId, QuestionType } from '../../data/questions/types';
 import { AuthService } from './auth.service';
@@ -10,9 +10,10 @@ import {
   isQuestionTypeFree,
   isRoundLengthFree,
   isScoringModeFree,
+  nextRotationAt,
   rotatingFreeCategory,
 } from './entitlements';
-import type { PowerUpId, RoomConfig, ScoringMode } from './room.models';
+import type { PowerUpSlots, RoomConfig, ScoringMode } from './room.models';
 
 const CACHE_PREFIX = 'quivro.pro.';
 
@@ -28,8 +29,11 @@ function purchaseIso(raw: unknown): string | null {
 
 @Injectable({ providedIn: 'root' })
 export class EntitlementService {
+  private readonly destroyRef = inject(DestroyRef);
   private readonly firebase = inject(FirebaseService);
   private readonly auth = inject(AuthService);
+  private readonly rotationNow = signal(Date.now());
+  private rotationTimer?: ReturnType<typeof setTimeout>;
 
   private readonly pro = signal(false);
   readonly isPro = this.pro.asReadonly();
@@ -38,9 +42,11 @@ export class EntitlementService {
   /** True while a Firestore lookup is in flight, for the upgrade dialog spinner. */
   readonly checking = signal(false);
 
-  readonly freeThisWeek = computed<CategoryId>(() => rotatingFreeCategory());
+  readonly freeThisWeek = computed<CategoryId>(() => rotatingFreeCategory(this.rotationNow()));
 
   constructor() {
+    this.scheduleRotation();
+    this.destroyRef.onDestroy(() => clearTimeout(this.rotationTimer));
     effect(() => {
       const uid = this.auth.uid();
       if (!uid) {
@@ -52,6 +58,14 @@ export class EntitlementService {
       this.pro.set(localStorage.getItem(CACHE_PREFIX + uid) === 'true');
       void this.refresh();
     });
+  }
+
+  private scheduleRotation(): void {
+    const now = Date.now();
+    this.rotationTimer = setTimeout(() => {
+      this.rotationNow.set(Date.now());
+      this.scheduleRotation();
+    }, nextRotationAt(now) - now);
   }
 
   /** Re-reads the purchase record. Returns the fresh Pro state. */
@@ -80,7 +94,7 @@ export class EntitlementService {
   }
 
   categoryLocked(category: CategoryId): boolean {
-    return !this.pro() && !isCategoryFree(category);
+    return !this.pro() && !isCategoryFree(category, this.rotationNow());
   }
 
   questionTypeLocked(type: QuestionType): boolean {
@@ -104,8 +118,13 @@ export class EntitlementService {
     return !this.pro();
   }
 
-  powerUpLocked(id: PowerUpId): boolean {
-    return !this.pro() && !isPowerUpFree(id);
+  isWeeklyPowerUpSlot(slots: PowerUpSlots, index: number): boolean {
+    const slot = slots[index];
+    return !!slot && isPowerUpFree(slot, this.rotationNow());
+  }
+
+  powerUpSlotLocked(slots: PowerUpSlots, index: number): boolean {
+    return !this.pro() && !!slots[index] && !this.isWeeklyPowerUpSlot(slots, index);
   }
 
   enforce(config: RoomConfig): RoomConfig {

@@ -5,9 +5,11 @@ import {
   PRO_CATEGORIES,
   clampToFree,
   isCategoryFree,
+  nextRotationAt,
   rotatingFreeCategory,
+  rotatingFreePowerUp,
 } from './entitlements';
-import type { RoomConfig } from './room.models';
+import { POWER_UP_CATALOG, type RoomConfig } from './room.models';
 
 const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -79,6 +81,19 @@ describe('isCategoryFree', () => {
   });
 });
 
+describe('rotatingFreePowerUp', () => {
+  it('cycles through every power-up on Monday UTC', () => {
+    const seen = new Set(
+      POWER_UP_CATALOG.map((_, i) => rotatingFreePowerUp(MONDAY + i * WEEK_MS)),
+    );
+    expect(seen.size).toBe(POWER_UP_CATALOG.length);
+    expect(rotatingFreePowerUp(MONDAY + WEEK_MS - 1)).toBe(rotatingFreePowerUp(MONDAY));
+    expect(rotatingFreePowerUp(MONDAY + WEEK_MS)).not.toBe(rotatingFreePowerUp(MONDAY));
+    expect(nextRotationAt(MONDAY - 1)).toBe(MONDAY);
+    expect(nextRotationAt(MONDAY)).toBe(MONDAY + WEEK_MS);
+  });
+});
+
 describe('clampToFree', () => {
   const now = MONDAY;
   const lockedCategory = PRO_CATEGORIES.find((c) => c !== rotatingFreeCategory(now))!;
@@ -112,13 +127,17 @@ describe('clampToFree', () => {
     expect(result.scoringMode).toBe('standard');
   });
 
-  it('strips pro power-up slots', () => {
-    expect(
-      clampToFree(
-        config({ powerUpSlots: ['fifty_fifty', 'second_chance', 'fifty_fifty'] }),
-        now,
-      ).powerUpSlots,
-    ).toEqual([null, null, null]);
+  it('keeps the weekly power-up in every slot and strips other power-ups', () => {
+    const weekly = rotatingFreePowerUp(now);
+    const locked = POWER_UP_CATALOG.find((power) => power.id !== weekly)!.id;
+    const slots: RoomConfig['powerUpSlots'] = [locked, weekly, weekly];
+    expect(clampToFree(config({ powerUpSlots: slots }), now).powerUpSlots).toEqual([
+      null, weekly, weekly,
+    ]);
+    expect(clampToFree(config({ powerUpSlots: [weekly, weekly, weekly] }), now).powerUpSlots)
+      .toEqual([weekly, weekly, weekly]);
+    expect(clampToFree(config({ powerUpSlots: [weekly, null, null] }), now + WEEK_MS).powerUpSlots)
+      .toEqual([null, null, null]);
   });
 
   it('leaves an already-free config untouched', () => {

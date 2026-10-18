@@ -104,8 +104,8 @@ export const en = {
   descPowerUpLock:
     'Lock your answer, and freeze one other player.',
   descPowerUpEmpty: 'Empty slot.',
-  powerUpNeedsPro: 'Power-ups are part of Quivro Pro',
-  powerUpReset: 'Power-ups are part of Quivro Pro, so continuing will reset power-ups to none.',
+  powerUpNeedsPro: 'Other power-ups require Quivro Pro.',
+  powerUpReset: 'Continuing removes locked power-ups. The weekly free power-up stays in every selected slot.',
   scoringTimed: 'Timed',
   scoringStandard: 'Standard',
   questionTime: 'Time per question',

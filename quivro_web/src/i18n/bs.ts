@@ -106,8 +106,8 @@ export const bs: UiStrings = {
   descPowerUpLock:
     'Zaključaj svoj odgovor i zamrzni drugog igrača.',
   descPowerUpEmpty: 'Prazan slot.',
-  powerUpNeedsPro: 'Pojačanja su dio Quivro Pro',
-  powerUpReset: 'Pojačanja su dio Quivro Pro, ako odabrete nastavak svaki slot pojačanja će biti prazan.',
+  powerUpNeedsPro: 'Ostala pojačanja zahtijevaju Quivro Pro.',
+  powerUpReset: 'Nastavak uklanja zaključana pojačanja. Besplatno pojačanje ove sedmice ostaje u svakom odabranom slotu.',
   scoringTimed: 'Na vrijeme',
   scoringStandard: 'Standardno',
   questionTime: 'Vrijeme po pitanju',

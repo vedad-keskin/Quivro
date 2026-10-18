@@ -13,7 +13,15 @@ import {
 } from '../../../data/questions/types';
 import type { UiStrings } from '../../../i18n/en';
 import { EntitlementService } from '../../core/entitlement.service';
-import { FREE_CATEGORIES, FREE_MAX_ROUND_LENGTH, PRO_CATEGORIES, isPowerUpFree, isQuestionTimeFree, isQuestionTypeFree, isRoundLengthFree } from '../../core/entitlements';
+import {
+  FREE_CATEGORIES,
+  FREE_MAX_ROUND_LENGTH,
+  PRO_CATEGORIES,
+  clampFreePowerUpSlots,
+  isQuestionTimeFree,
+  isQuestionTypeFree,
+  isRoundLengthFree,
+} from '../../core/entitlements';
 import { GameRoomService } from '../../core/game-room.service';
 import { LanguageService } from '../../core/language.service';
 import {
@@ -400,7 +408,7 @@ function loadRoundPrefs(): RoundPrefs | null {
                     <div class="window-wrap">
                       <div
                         class="window"
-                        [class.locked]="!!slot && ent.powerUpLocked(slot)"
+                        [class.locked]="ent.powerUpSlotLocked(powerUpSlots(), $index)"
                         [class.from-up]="$index === slotSlide()?.index && slotSlide()?.dir === 1"
                         [class.from-down]="$index === slotSlide()?.index && slotSlide()?.dir === -1"
                       >
@@ -422,8 +430,12 @@ function loadRoundPrefs(): RoundPrefs | null {
                           <span class="slot-plus" aria-hidden="true">+</span>
                         }
                       </div>
-                      @if (slot && !isPowerUpFree(slot)) {
-                        <img class="corner-badge" src="/brand/pro_badge.webp" [alt]="proAlt(ent.powerUpLocked(slot))" />
+                      @if (slot) {
+                        @if (ent.isWeeklyPowerUpSlot(powerUpSlots(), $index)) {
+                          <img class="corner-badge" src="/brand/free_week.webp" [alt]="lang.t().freeThisWeek" />
+                        } @else {
+                          <img class="corner-badge" src="/brand/pro_badge.webp" [alt]="proAlt(ent.powerUpSlotLocked(powerUpSlots(), $index))" />
+                        }
                       }
                     </div>
                     <button
@@ -795,9 +807,10 @@ export class CreateRoundPage {
   readonly isSpinning = computed(() => this.spinning().some(Boolean));
   readonly leverPulled = signal(false);
   private spinTimers: ReturnType<typeof setTimeout>[] = [];
-  readonly powerUpBlocked = computed(() =>
-    this.powerUpSlots().some((slot) => !!slot && this.ent.powerUpLocked(slot)),
-  );
+  readonly powerUpBlocked = computed(() => {
+    const slots = this.powerUpSlots();
+    return slots.some((_, index) => this.ent.powerUpSlotLocked(slots, index));
+  });
   readonly creating = signal(false);
   readonly resetPrompt = signal(false);
 
@@ -825,6 +838,7 @@ export class CreateRoundPage {
     // entitlement resolves, which includes the initial Firestore round-trip.
     effect(() => {
       const pro = this.ent.isPro();
+      this.ent.freeThisWeek();
       if (!pro) untracked(() => this.dropLockedSelections());
     });
     effect(() => {
@@ -861,7 +875,6 @@ export class CreateRoundPage {
   }
 
   readonly isQuestionTypeFree = isQuestionTypeFree;
-  readonly isPowerUpFree = isPowerUpFree;
   readonly isRoundLengthFree = isRoundLengthFree;
 
   powerUpOf(slot: PowerUpSlot) {
@@ -1059,7 +1072,7 @@ export class CreateRoundPage {
 
   confirmReset(): void {
     this.resetPrompt.set(false);
-    this.powerUpSlots.set([...EMPTY_POWER_UP_SLOTS]);
+    this.powerUpSlots.set(clampFreePowerUpSlots(this.powerUpSlots()));
     void this.create();
   }
 }
