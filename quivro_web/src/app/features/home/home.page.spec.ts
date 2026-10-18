@@ -50,7 +50,14 @@ describe('HomePage weekly free dialog', () => {
       freeThisWeek.set(category);
       fixture.detectChanges();
       expect(fixture.nativeElement.querySelector('.weekly-item .weekly-art img')).not.toBeNull();
+      expect(fixture.nativeElement.querySelector('.weekly-item')?.style.getPropertyValue('--accent')).toBeTruthy();
     }
+    const powerAccents = POWER_UP_CATALOG.map(({ id }) => {
+      freePowerUpThisWeek.set(id);
+      fixture.detectChanges();
+      return fixture.nativeElement.querySelector('.weekly-power')?.style.getPropertyValue('--accent');
+    });
+    expect(new Set(powerAccents).size).toBe(POWER_UP_CATALOG.length);
 
     fixture.nativeElement.querySelector('.free-week-modal .done').click();
     fixture.detectChanges();

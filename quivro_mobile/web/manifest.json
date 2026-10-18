@@ -1,11 +1,11 @@
 {
-    "name": "quivro_mobile",
-    "short_name": "quivro_mobile",
+    "name": "Quivro",
+    "short_name": "Quivro",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#0A0E27",
+    "theme_color": "#0A0E27",
+    "description": "A trivia party game.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

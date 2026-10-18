@@ -5,7 +5,7 @@ import type { UiStrings } from '../../../i18n/en';
 import type { LocalizedString } from '../../../i18n/types';
 import { EntitlementService } from '../../core/entitlement.service';
 import { LanguageService } from '../../core/language.service';
-import { POWER_UP_CATALOG } from '../../core/room.models';
+import { POWER_UP_CATALOG, type PowerUpId } from '../../core/room.models';
 import { CATEGORY_ACCENT } from '../../shared/round-accents';
 import { SettingsChips } from '../../shared/settings-chips';
 import { StudioFooter } from '../../shared/studio-footer';
@@ -18,6 +18,12 @@ const WEEKLY_CATEGORY_ICONS: Partial<Record<CategoryId, string>> = {
   movies: '/room-icons/movtv.png',
   cartoons: '/room-icons/cartoons.png',
   food: '/room-icons/food.png',
+};
+const WEEKLY_POWER_ACCENT: Record<PowerUpId, string> = {
+  fifty_fifty: 'var(--q-cyan)',
+  second_chance: 'var(--q-blue)',
+  lock_up: 'var(--q-fuchsia)',
+  double_it: 'var(--q-purple)',
 };
 
 interface Slide {
@@ -180,7 +186,7 @@ interface Layer {
                 <strong>{{ lang.t()[ent.freeThisWeek()] }}</strong>
               </div>
               @if (weeklyPower(); as power) {
-                <div class="weekly-item weekly-power" style="--accent: var(--q-orange)">
+                <div class="weekly-item weekly-power" [style.--accent]="powerAccent[power.id]">
                   <span class="weekly-kind">{{ lang.t().weeklyPowerUp }}</span>
                   <span class="weekly-art"><img [src]="power.icon" alt="" /></span>
                   <strong>{{ lang.t()[power.labelKey] }}</strong>
@@ -265,20 +271,25 @@ interface Layer {
       cursor: pointer;
     }
     .week-deck {
-      left: -3.5rem;
+      left: -3.1rem;
       right: auto;
-      width: 68px;
-      height: 68px;
+      width: 56px;
+      height: 56px;
       border: 0;
       background: transparent;
       box-shadow: none;
-      transform: rotate(8deg);
+      transform: none;
     }
     .week-deck img {
-      width: 100%;
-      height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 70px;
+      height: 70px;
+      max-width: none;
       object-fit: contain;
-      filter: drop-shadow(2px 5px 1px var(--ink)) drop-shadow(0 0 8px rgba(31, 153, 255, 0.25));
+      transform: translate(-50%, -50%);
+      filter: drop-shadow(2px 2px 0 var(--ink));
     }
     .mark {
       display: block;
@@ -287,14 +298,14 @@ interface Layer {
       transform: translateY(-2px) rotate(-8deg);
     }
     .week-deck:hover {
-      transform: translateY(-2px) rotate(8deg);
+      transform: translateY(-2px);
     }
     .deck:active {
       transform: translateY(2px) rotate(-8deg);
       box-shadow: 0 0 0 var(--ink);
     }
     .week-deck:active {
-      transform: translateY(2px) rotate(8deg);
+      transform: translateY(2px);
       box-shadow: none;
     }
     .deck:focus-visible {
@@ -470,77 +481,110 @@ interface Layer {
       box-shadow: 0 3px 0 var(--ink);
     }
     .free-week-modal {
-      width: min(500px, 100%);
+      width: min(530px, 100%);
       justify-items: center;
       max-height: calc(100dvh - 2rem);
       overflow-y: auto;
-      padding: 1.5rem;
+      gap: 0;
+      padding: clamp(1.1rem, 3vw, 1.5rem);
       text-align: center;
+      color: #1e293b;
+      background:
+        radial-gradient(circle at 50% 27%, rgba(119, 145, 255, 0.28), transparent 35%),
+        repeating-conic-gradient(from -8deg at 50% 27%, rgba(54, 86, 170, 0.045) 0deg 14deg, transparent 14deg 29deg),
+        linear-gradient(150deg, #f7f9ff, #dce7ff 72%, #eef3ff);
+      border-color: #050916;
+      border-radius: 24px;
+      box-shadow: 8px 8px 0 #050916, 0 24px 70px rgba(0, 0, 0, 0.5);
+    }
+    .free-week-modal .x {
+      background: #f7f9ff;
+      color: #1e293b;
+      border-color: #050916;
+      box-shadow: 0 3px 0 #050916;
+    }
+    :host-context(html[data-theme='dark']) .free-week-modal {
+      color: #fff;
+      background:
+        radial-gradient(circle at 50% 27%, rgba(119, 145, 255, 0.62), transparent 35%),
+        repeating-conic-gradient(from -8deg at 50% 27%, rgba(157, 177, 255, 0.055) 0deg 14deg, transparent 14deg 29deg),
+        linear-gradient(150deg, #1c2d5c, #111e40 72%, #172c57);
+    }
+    :host-context(html[data-theme='dark']) .free-week-modal .x {
+      background: #101b37;
+      color: #fff;
     }
     .weekly-badge {
-      width: 72px;
-      height: 72px;
+      width: clamp(90px, 18vw, 115px);
+      height: clamp(90px, 18vw, 115px);
+      margin: -0.3rem 0 0.3rem;
       object-fit: contain;
+      filter: drop-shadow(5px 6px 2px var(--ink)) drop-shadow(0 0 18px rgba(114, 126, 255, 0.7));
     }
     .weekly-lead {
-      margin: 0;
+      margin: 0 0 0.9rem;
       font-family: var(--display);
-      font-size: 1.55rem;
+      font-size: clamp(1.35rem, 5vw, 2rem);
       line-height: 1.1;
-      color: var(--q-navy);
+      color: #1e293b;
+      text-shadow: 0 2px 0 #fff;
+    }
+    :host-context(html[data-theme='dark']) .weekly-lead {
+      color: #fff;
+      text-shadow: 0 3px 0 #0a1230;
     }
     .weekly-items {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.9rem;
-      width: 100%;
-      padding: 0 0.3rem 0.4rem 0;
+      gap: 0.65rem;
+      width: min(475px, 96%);
+      margin-bottom: 1rem;
     }
     .weekly-item {
       min-width: 0;
       display: grid;
       justify-items: center;
       align-content: start;
-      gap: 0.7rem;
-      padding: 0.8rem 0.6rem 1rem;
-      border: 3px solid var(--ink);
-      border-radius: 16px;
+      gap: 0.5rem;
+      padding: 0.55rem 0.5rem 0.65rem;
+      border: 4px solid #050916;
+      border-radius: 22px;
       background: color-mix(in srgb, var(--accent) 18%, var(--q-card));
-      box-shadow: 4px 4px 0 var(--ink);
-      transform: rotate(-1deg);
+      box-shadow: 4px 5px 0 #050916, inset 0 1px 0 rgba(255, 255, 255, 0.15);
     }
-    .weekly-power {
-      transform: rotate(1deg);
+    :host-context(html[data-theme='dark']) .weekly-item {
+      background: linear-gradient(145deg, color-mix(in srgb, var(--accent) 42%, #101e55), #182051);
     }
     .weekly-kind {
       justify-self: start;
-      padding: 0.25rem 0.5rem;
-      border: 2px solid var(--ink);
-      border-radius: 8px;
+      padding: 0.25rem 0.55rem;
+      border: 2px solid #050916;
+      border-radius: 9px;
       background: color-mix(in srgb, var(--accent) 28%, var(--q-card));
       color: var(--q-navy);
-      font-size: 0.72rem;
-      font-weight: 800;
+      font-family: var(--display);
+      font-size: 0.9rem;
+      font-weight: 400;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      box-shadow: 0 2px 0 #050916;
+    }
+    :host-context(html[data-theme='dark']) .weekly-kind {
+      background: color-mix(in srgb, var(--accent) 60%, #171d58);
+      text-shadow: 0 1px 2px #090e2a;
     }
     .weekly-art {
-      width: min(120px, 100%);
+      width: min(135px, 100%);
       aspect-ratio: 1;
       display: grid;
       place-items: center;
-      border: 3px solid var(--ink);
+      border: 3px solid #050916;
       border-radius: 16px;
-      background: color-mix(in srgb, var(--accent) 40%, var(--q-card));
-      box-shadow: inset 0 4px 10px rgba(255, 255, 255, 0.23), 0 4px 0 var(--ink);
-    }
-    .weekly-power .weekly-art {
-      background: var(--lcd);
-      box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.4), 0 4px 0 var(--ink);
+      background: var(--accent);
+      box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.45);
     }
     .weekly-art img {
-      width: 95%;
-      height: 95%;
+      width: 96%;
+      height: 96%;
       object-fit: contain;
     }
     .weekly-item strong {
@@ -548,15 +592,23 @@ interface Layer {
       align-items: center;
       min-height: 2.5rem;
       font-family: var(--display);
-      font-size: 1.25rem;
+      font-size: clamp(1rem, 3vw, 1.5rem);
       font-weight: 400;
       line-height: 1.08;
       color: var(--q-navy);
     }
+    :host-context(html[data-theme='dark']) .weekly-item strong {
+      text-shadow: 0 3px 0 #0a1230;
+    }
     .free-week-modal .done {
-      min-width: 150px;
+      min-width: min(270px, 100%);
+      padding: 0.55rem 1.4rem;
       background: var(--bulb);
       color: #1a1530;
+      border-color: #050916;
+      border-radius: 14px;
+      box-shadow: 0 5px 0 #050916;
+      font-size: 1.25rem;
     }
     @media (max-width: 720px) {
       .steps {
@@ -564,15 +616,11 @@ interface Layer {
       }
       .deck {
         right: 0;
-        bottom: auto;
-        top: calc(100% + 1.5rem);
+        bottom: 3.5rem;
       }
       .week-deck {
         left: 0;
         right: auto;
-      }
-      .start {
-        margin-top: 4.2rem;
       }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -599,6 +647,7 @@ export class HomePage {
   readonly lang = inject(LanguageService);
   readonly ent = inject(EntitlementService);
   readonly categoryAccent = CATEGORY_ACCENT;
+  readonly powerAccent = WEEKLY_POWER_ACCENT;
   readonly hasNews = NEWS.length > 0;
   private readonly seen = signal(readSeen());
   private readonly showAll = signal(false);
