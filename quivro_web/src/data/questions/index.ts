@@ -16,6 +16,9 @@ import { sportsMedium } from './mcq/sports/medium';
 import { moviesEasy } from './mcq/movies/easy';
 import { moviesHard } from './mcq/movies/hard';
 import { moviesMedium } from './mcq/movies/medium';
+import { cartoonsEasy } from './mcq/cartoons/easy';
+import { cartoonsHard } from './mcq/cartoons/hard';
+import { cartoonsMedium } from './mcq/cartoons/medium';
 import { famousEasy } from './mcq/famous/easy';
 import { famousHard } from './mcq/famous/hard';
 import { famousMedium } from './mcq/famous/medium';
@@ -38,6 +41,7 @@ const MCQ_BANK: Record<ContentCategoryId, Record<Difficulty, Question[]>> = {
   history: { easy: historyEasy, medium: historyMedium, hard: historyHard },
   sports: { easy: sportsEasy, medium: sportsMedium, hard: sportsHard },
   movies: { easy: moviesEasy, medium: moviesMedium, hard: moviesHard },
+  cartoons: { easy: cartoonsEasy, medium: cartoonsMedium, hard: cartoonsHard },
   famous: { easy: famousEasy, medium: famousMedium, hard: famousHard },
   islam: { easy: islamEasy, medium: islamMedium, hard: islamHard },
   food: { easy: foodEasy, medium: foodMedium, hard: foodHard },

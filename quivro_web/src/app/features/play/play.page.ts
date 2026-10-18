@@ -1461,6 +1461,7 @@ export class PlayPage implements OnInit, OnDestroy {
     technology: { icon: '/room-icons/tech.png', descKey: 'descTechnology', accent: CATEGORY_ACCENT.technology },
     sports: { icon: '/room-icons/sports.png', descKey: 'descSports', accent: CATEGORY_ACCENT.sports },
     movies: { icon: '/room-icons/movtv.png', descKey: 'descMovies', accent: CATEGORY_ACCENT.movies },
+    cartoons: { icon: '/room-icons/cartoons.png', descKey: 'descCartoons', accent: CATEGORY_ACCENT.cartoons },
     famous: { icon: '/room-icons/fam.png', descKey: 'descFamous', accent: CATEGORY_ACCENT.famous },
     islam: { icon: '/room-icons/isl.png', descKey: 'descIslam', accent: CATEGORY_ACCENT.islam },
     food: { icon: '/room-icons/food.png', descKey: 'descFood', accent: CATEGORY_ACCENT.food },

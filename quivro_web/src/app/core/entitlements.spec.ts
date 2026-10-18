@@ -66,6 +66,7 @@ describe('isCategoryFree', () => {
     expect(isCategoryFree('islam', now)).toBe(true);
     expect(FREE_CATEGORIES).toContain('islam');
     expect(PRO_CATEGORIES).toContain('technology');
+    expect(PRO_CATEGORIES).toContain('cartoons');
     expect(PRO_CATEGORIES).not.toContain('islam');
   });
 

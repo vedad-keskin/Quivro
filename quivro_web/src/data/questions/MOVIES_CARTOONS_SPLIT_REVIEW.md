@@ -1,0 +1,398 @@
+# Movies & TV / Cartoons question split - implemented
+
+Implemented from the annotated review. The full list below uses final sequential IDs; where IDs changed, the original ID is shown for tracing your comments. Question text, answers, translations and difficulty were preserved.
+
+![Cartoons icon](../../../public/room-icons/cartoons.png)
+
+## App changes
+
+- The existing `movies` category remains Movies & TV; Cartoons follows it.
+- Cartoons is in Pro and the weekly free rotation used by other Pro categories.
+- Cartoons has a distinct teal accent and its own icon in category displays.
+- The desktop create screen shows five category tiles per row, with icon and title only. Narrower screens use responsive layouts.
+- Number question IDs sequentially within each category and difficulty. Preserve answers, language text and difficulty.
+
+## Classification rule
+
+- **Cartoons**: animated films and series, including anime; questions about their studios, characters and production.
+- **Movies & TV**: live action films and series, their casts and production.
+- Cross-media questions were placed using the comments above the list; rows originally flagged for review remain marked **Review**.
+- Original IDs in the notes below identify questions before renumbering. The full list shows their final IDs.
+
+## Summary
+
+- **Easy:** 107 total - 41 Movies & TV, 66 Cartoons.
+- **Medium:** 105 total - 70 Movies & TV, 35 Cartoons.
+- **Hard:** 110 total - 74 Movies & TV, 36 Cartoons.
+- **All:** 322 total - 185 Movies & TV, 137 Cartoons; 35 marked for review.
+
+## Original borderline notes and your decisions
+
+- `movie-easy-005` - **Movies & TV**: Batman appears in live action and animation. -> go cartoon if the question is not distinctly about a batman movie
+- `movie-easy-026` - **Cartoons**: Pokemon is also a game franchise.
+- `movie-easy-027` - **Cartoons**: Aladdin has an animated film and a live action remake. -> go cartoon if the question is not distinctly about a movie
+- `movie-easy-038` - **Movies & TV**: Captain America is a comic character across media.
+- `movie-easy-045` - **Cartoons**: Beauty and the Beast has animated and live action films. -> go cartoon if the question is not distinctly about a batman movie
+- `movie-easy-052` - **Movies & TV**: Superman is a comic character across media. -> go movies if the question is not distinctly about a cartoon
+- `movie-easy-054` - **Cartoons**: Tarzan has animated and live action films. -> go cartoon if the question is not distinctly about a movie
+- `movie-easy-056` - **Cartoons**: Mulan has animated and live action films.-> go cartoon if the question is not distinctly about a movie
+- `movie-easy-058` - **Cartoons**: Snow White is a fairy tale with several adaptations. -> go cartoon if the question is not distinctly about a movie
+- `movie-easy-067` - **Movies & TV**: The Flash appears in live action and animation.
+- `movie-easy-068` - **Cartoons**: Aladdin has an animated film and a live action remake. -> go cartoon if the question is not distinctly about a movie
+- `movie-easy-070` - **Movies & TV**: Batman and Robin appear in live action and animation. -> go cartoon if the question is not distinctly about a movie
+- `movie-easy-072` - **Cartoons**: Peter Pan appears in animation, live action and literature. -> go cartoon if the question is not distinctly about a movie
+- `movie-easy-080` - **Movies & TV**: Asterix films include live action and animation. -> go cartoon if the question is not distinctly about a movie
+- `movie-easy-084` - **Cartoons**: Pinocchio has animated and live action films. -> go cartoon if the question is not distinctly about a movie
+- `movie-easy-086` - **Movies & TV**: Joker appears in live action and animation. -> go movie if the question is not distinctly about a cartoon
+- `movie-easy-087` - **Movies & TV**: Aunt May appears in comics and films. -> go cartoon if the question is not distinctly about a movie
+- `movie-easy-088` - **Cartoons**: Sleeping Beauty is a fairy tale with several adaptations. -> go cartoon if the question is not distinctly about a movie
+- `movie-easy-092` - **Cartoons**: Tinker Bell appears in animation and live action. -> go cartoon if the question is not distinctly about a movie
+- `movie-easy-094` - **Movies & TV**: Spider-Man appears in live action and animation. -> go cartoon if the question is not distinctly about a movie
+- `movie-easy-095` - **Cartoons**: Asterix originates in comics. 
+- `movie-easy-099` - **Movies & TV**: Wonder Woman appears in live action and animation.
+- `movie-easy-100` - **Cartoons**: Beauty and the Beast has animated and live action films. -> go cartoon if the question is not distinctly about a movie
+- `movie-easy-105` - **Movies & TV**: X-Men appear in live action and animation.
+- `movie-easy-106` - **Movies & TV**: X-Men appear in live action and animation.
+- `movie-easy-107` - **Movies & TV**: X-Men appear in live action and animation.
+- `movie-med-005` - **Cartoons**: Garfield appears in comics, animation and live action. 
+- `movie-med-024` - **Movies & TV**: Peter Parker appears in comics, animation and live action. -> go cartoon if the question is not distinctly about a movie
+- `movie-med-038` - **Cartoons**: Ninja Turtles appear in animation and live action.
+- `movie-med-039` - **Cartoons**: Ninja Turtles appear in animation and live action.
+- `movie-med-040` - **Cartoons**: Ninja Turtles appear in animation and live action.
+- `movie-med-041` - **Cartoons**: Ninja Turtles appear in animation and live action.
+- `movie-hard-060` - **Cartoons**: One Piece also has a live action adaptation.
+- `movie-hard-077` - **Cartoons**: Scooby-Doo also has live action films.
+- `movie-hard-078` - **Cartoons**: The Flintstones also has a live action film.
+
+## Full question list
+
+### Easy (107 questions)
+
+- [ ] `cartoon-easy-001` (was `movie-easy-001`) - **Cartoons** - What type of animal is Mickey Mouse’s pet Pluto?
+- [ ] `movie-easy-001` (was `movie-easy-002`) - **Movies & TV** - What shape is Harry Potter’s forehead scar?
+- [ ] `movie-easy-002` (was `movie-easy-003`) - **Movies & TV** - In Friends, the gang often hangs out at which café?
+- [ ] `cartoon-easy-002` (was `movie-easy-004`) - **Cartoons** - Elsa is a main character in which Disney film?
+- [ ] `cartoon-easy-003` (was `movie-easy-005`) - **Cartoons** **Review** - Which city does Batman usually protect?
+- [ ] `cartoon-easy-004` (was `movie-easy-006`) - **Cartoons** - The Simpsons live in which town?
+- [ ] `movie-easy-003` (was `movie-easy-007`) - **Movies & TV** - What did the Titanic hit that caused it to sink?
+- [ ] `cartoon-easy-005` (was `movie-easy-008`) - **Cartoons** - What is the name of the group that solves mysteries with Scooby-Doo?
+- [ ] `cartoon-easy-006` (was `movie-easy-009`) - **Cartoons** - Shrek is what kind of creature?
+- [ ] `cartoon-easy-007` (was `movie-easy-010`) - **Cartoons** - What kind of dog is Scooby-Doo?
+- [ ] `cartoon-easy-008` (was `movie-easy-011`) - **Cartoons** - Where does SpongeBob work?
+- [ ] `cartoon-easy-009` (was `movie-easy-012`) - **Cartoons** - What is SpongeBob’s pet snail called?
+- [ ] `cartoon-easy-010` (was `movie-easy-013`) - **Cartoons** - What type of fish is Nemo in Finding Nemo?
+- [ ] `cartoon-easy-011` (was `movie-easy-014`) - **Cartoons** - Who is the snowman in Frozen?
+- [ ] `cartoon-easy-012` (was `movie-easy-015`) - **Cartoons** - What is Homer Simpson's favorite food?
+- [ ] `cartoon-easy-013` (was `movie-easy-016`) - **Cartoons** - What type of toy is Woody in Toy Story?
+- [ ] `cartoon-easy-014` (was `movie-easy-017`) - **Cartoons** - What role does Buzz Lightyear play in Toy Story?
+- [ ] `cartoon-easy-015` (was `movie-easy-018`) - **Cartoons** - In which underwater city does SpongeBob live?
+- [ ] `movie-easy-004` (was `movie-easy-019`) - **Movies & TV** - In The Avengers, who can control the thunder?
+- [ ] `movie-easy-005` (was `movie-easy-020`) - **Movies & TV** - What is the name of Vin Diesel's character in the Fast & Furious franchise?
+- [ ] `cartoon-easy-016` (was `movie-easy-021`) - **Cartoons** - What fruit do the Minions love?
+- [ ] `movie-easy-006` (was `movie-easy-022`) - **Movies & TV** - What is the name of Rocky Balboa’s opponent in the first Rocky film?
+- [ ] `movie-easy-007` (was `movie-easy-023`) - **Movies & TV** - In Jumanji, what object brings the jungle dangers to life?
+- [ ] `cartoon-easy-017` (was `movie-easy-024`) - **Cartoons** - What is the name of Elsa's sister in Frozen?
+- [ ] `movie-easy-008` (was `movie-easy-025`) - **Movies & TV** - In The Office, who is the boss at the start?
+- [ ] `cartoon-easy-018` (was `movie-easy-026`) - **Cartoons** **Review** - Which franchise is Pikachu the mascot of?
+- [ ] `cartoon-easy-019` (was `movie-easy-027`) - **Cartoons** **Review** - In Aladdin, what does Aladdin find in the cave?
+- [ ] `movie-easy-009` (was `movie-easy-028`) - **Movies & TV** - In Gladiator, what is the name of Russell Crowe’s character?
+- [ ] `movie-easy-010` (was `movie-easy-029`) - **Movies & TV** - In Braveheart, which Scottish hero does Mel Gibson play?
+- [ ] `movie-easy-011` (was `movie-easy-030`) - **Movies & TV** - Which actor played Brian O'Conner in the Fast & Furious films?
+- [ ] `movie-easy-012` (was `movie-easy-031`) - **Movies & TV** - In which country is Slumdog Millionaire mainly set?
+- [ ] `cartoon-easy-020` (was `movie-easy-032`) - **Cartoons** - What is the name of the blue fish in Finding Nemo?
+- [ ] `movie-easy-013` (was `movie-easy-033`) - **Movies & TV** - What does Tom Hanks’s character name his volleyball companion in Cast Away?
+- [ ] `cartoon-easy-021` (was `movie-easy-034`) - **Cartoons** - What ancient item does Yugi Muto wear in Yu-Gi-Oh?
+- [ ] `movie-easy-014` (was `movie-easy-035`) - **Movies & TV** - What is the premise of the film Groundhog Day?
+- [ ] `cartoon-easy-022` (was `movie-easy-036`) - **Cartoons** - What animal is Scooby-Doo?
+- [ ] `movie-easy-015` (was `movie-easy-037`) - **Movies & TV** - In Prison Break, why does Michael Scofield get himself imprisoned?
+- [ ] `movie-easy-016` (was `movie-easy-038`) - **Movies & TV** **Review** - What does Captain America carry into battle?
+- [ ] `cartoon-easy-023` (was `movie-easy-039`) - **Cartoons** - Who helps Gru carry out his plans in Despicable Me?
+- [ ] `cartoon-easy-024` (was `movie-easy-040`) - **Cartoons** - What is the name of Bart Simpson's saxophone-playing sister?
+- [ ] `cartoon-easy-025` (was `movie-easy-041`) - **Cartoons** - What does Carl use to make his house fly in the movie Up?
+- [ ] `cartoon-easy-026` (was `movie-easy-042`) - **Cartoons** - What element can Aang control in the Avatar series?
+- [ ] `cartoon-easy-027` (was `movie-easy-043`) - **Cartoons** - Who is the cat that often chases Jerry?
+- [ ] `cartoon-easy-028` (was `movie-easy-044`) - **Cartoons** - What is the name of Shrek’s best friend?
+- [ ] `cartoon-easy-029` (was `movie-easy-045`) - **Cartoons** **Review** - What is the name of the Disney princess in Beauty and the Beast?
+- [ ] `cartoon-easy-030` (was `movie-easy-046`) - **Cartoons** - What color are Mickey Mouse's iconic shorts?
+- [ ] `movie-easy-017` (was `movie-easy-047`) - **Movies & TV** - What was Walter White’s profession before becoming involved in crime in Breaking Bad?
+- [ ] `cartoon-easy-031` (was `movie-easy-048`) - **Cartoons** - What kind of animal is the hero of the animated western Rango?
+- [ ] `cartoon-easy-032` (was `movie-easy-049`) - **Cartoons** - Which member of the Parr family can become invisible?
+- [ ] `movie-easy-018` (was `movie-easy-050`) - **Movies & TV** - What is Baby Yoda's real name in The Mandalorian?
+- [ ] `cartoon-easy-033` (was `movie-easy-051`) - **Cartoons** - What type of animal is Judy Hopps in Zootopia?
+- [ ] `movie-easy-019` (was `movie-easy-052`) - **Movies & TV** **Review** - What does Superman usually wear on his chest?
+- [ ] `cartoon-easy-034` (was `movie-easy-053`) - **Cartoons** - Where does most of the story of Inside Out take place?
+- [ ] `cartoon-easy-035` (was `movie-easy-054`) - **Cartoons** **Review** - In Tarzan, what kind of animal is Tarzan raised by?
+- [ ] `cartoon-easy-036` (was `movie-easy-055`) - **Cartoons** - Who is the main protagonist of the original Beyblade anime?
+- [ ] `cartoon-easy-037` (was `movie-easy-056`) - **Cartoons** **Review** - In Mulan, what does Mulan disguise herself as to join the army?
+- [ ] `cartoon-easy-038` (was `movie-easy-057`) - **Cartoons** - What is the name of the main character in Encanto?
+- [ ] `cartoon-easy-039` (was `movie-easy-058`) - **Cartoons** **Review** - What fruit does Snow White eat that puts her to sleep?
+- [ ] `cartoon-easy-040` (was `movie-easy-059`) - **Cartoons** - Who is Simba's father in The Lion King?
+- [ ] `cartoon-easy-041` (was `movie-easy-060`) - **Cartoons** - What is the name of the inflatable healthcare robot in Big Hero 6?
+- [ ] `movie-easy-020` (was `movie-easy-061`) - **Movies & TV** - What planet do the Na'vi live on in Avatar?
+- [ ] `cartoon-easy-042` (was `movie-easy-062`) - **Cartoons** - Who is the red racing car in Cars?
+- [ ] `movie-easy-021` (was `movie-easy-063`) - **Movies & TV** - What is Ross Geller's profession in Friends?
+- [ ] `movie-easy-022` (was `movie-easy-064`) - **Movies & TV** - What famous phrase is associated with E.T. wanting to contact his planet?
+- [ ] `movie-easy-023` (was `movie-easy-065`) - **Movies & TV** - In Home Alone, who does Kevin set traps for?
+- [ ] `cartoon-easy-043` (was `movie-easy-066`) - **Cartoons** - What animal is Pumbaa in The Lion King?
+- [ ] `movie-easy-024` (was `movie-easy-067`) - **Movies & TV** **Review** - What special ability does Barry Allen have in The Flash?
+- [ ] `cartoon-easy-044` (was `movie-easy-068`) - **Cartoons** **Review** - What is the name of the magical blue wish-granter in Aladdin?
+- [ ] `cartoon-easy-045` (was `movie-easy-069`) - **Cartoons** - What is the name of the famous Digimon partner of Tai?
+- [ ] `cartoon-easy-046` (was `movie-easy-070`) - **Cartoons** **Review** - Who is Batman's main sidekick?
+- [ ] `cartoon-easy-047` (was `movie-easy-071`) - **Cartoons** - Who do Mike and Sulley scare in Monsters, Inc.?
+- [ ] `cartoon-easy-048` (was `movie-easy-072`) - **Cartoons** **Review** - What is the name of the boy who never grows up?
+- [ ] `movie-easy-025` (was `movie-easy-073`) - **Movies & TV** - What is the Iron Throne made from in Game of Thrones?
+- [ ] `cartoon-easy-049` (was `movie-easy-074`) - **Cartoons** - What color is Pikachu?
+- [ ] `movie-easy-026` (was `movie-easy-075`) - **Movies & TV** - Where does Dorothy want to go in The Wizard of Oz?
+- [ ] `movie-easy-027` (was `movie-easy-076`) - **Movies & TV** - Which actor plays Dominic Toretto in Fast & Furious?
+- [ ] `movie-easy-028` (was `movie-easy-077`) - **Movies & TV** - Which fictional nation is T'Challa king of in Black Panther?
+- [ ] `cartoon-easy-050` (was `movie-easy-078`) - **Cartoons** - What is Donald Duck famous for wearing?
+- [ ] `cartoon-easy-051` (was `movie-easy-079`) - **Cartoons** - What type of dragon is Toothless in How to Train Your Dragon?
+- [ ] `cartoon-easy-052` (was `movie-easy-080`) - **Cartoons** **Review** - What gives the Gauls their superhuman strength in the Astérix films?
+- [ ] `movie-easy-029` (was `movie-easy-081`) - **Movies & TV** - What weapon is Katniss Everdeen skilled with in The Hunger Games?
+- [ ] `cartoon-easy-053` (was `movie-easy-082`) - **Cartoons** - What is the name of the blue alien family friend of Lilo?
+- [ ] `cartoon-easy-054` (was `movie-easy-083`) - **Cartoons** - Who is the protagonist of the original Yu-Gi-Oh! anime?
+- [ ] `cartoon-easy-055` (was `movie-easy-084`) - **Cartoons** **Review** - What does Pinocchio's nose do when he lies?
+- [ ] `cartoon-easy-056` (was `movie-easy-085`) - **Cartoons** - In Avatar: The Legend of Korra, what element does Korra need to still learn to master at the start?
+- [ ] `movie-easy-030` (was `movie-easy-086`) - **Movies & TV** **Review** - Who is the villain with green hair and a purple suit in Batman stories?
+- [ ] `cartoon-easy-057` (was `movie-easy-087`) - **Cartoons** **Review** - Who is Spider-Man’s aunt who raises him?
+- [ ] `cartoon-easy-058` (was `movie-easy-088`) - **Cartoons** **Review** - What is the name of the princess who sleeps for a long time?
+- [ ] `movie-easy-031` (was `movie-easy-089`) - **Movies & TV** - What choice is Neo offered in The Matrix?
+- [ ] `cartoon-easy-059` (was `movie-easy-090`) - **Cartoons** - What animal is Timon in The Lion King?
+- [ ] `movie-easy-032` (was `movie-easy-091`) - **Movies & TV** - What type of competitions do players face in Squid Game?
+- [ ] `cartoon-easy-060` (was `movie-easy-092`) - **Cartoons** **Review** - What is the name of Peter Pan's fairy companion?
+- [ ] `cartoon-easy-061` (was `movie-easy-093`) - **Cartoons** - What type of animal is Remy in Ratatouille?
+- [ ] `cartoon-easy-062` (was `movie-easy-094`) - **Cartoons** **Review** - What is Spider-Man’s real name?
+- [ ] `cartoon-easy-063` (was `movie-easy-095`) - **Cartoons** **Review** - What is the name of Astérix's large and strong best friend?
+- [ ] `cartoon-easy-064` (was `movie-easy-096`) - **Cartoons** - What does Wall-E collect and clean?
+- [ ] `movie-easy-033` (was `movie-easy-097`) - **Movies & TV** - How do the children enter the magical world in The Chronicles of Narnia?
+- [ ] `cartoon-easy-065` (was `movie-easy-098`) - **Cartoons** - What is the name of the green one-eyed monster in Monsters, Inc.?
+- [ ] `movie-easy-034` (was `movie-easy-099`) - **Movies & TV** **Review** - What is the real name of Wonder Woman?
+- [ ] `cartoon-easy-066` (was `movie-easy-100`) - **Cartoons** **Review** - What is the name of the talking teapot in Beauty and the Beast?
+- [ ] `movie-easy-035` (was `movie-easy-101`) - **Movies & TV** - In Arrow, which city does Oliver Queen protect?
+- [ ] `movie-easy-036` (was `movie-easy-102`) - **Movies & TV** - In The Flash, which city is Barry Allen from?
+- [ ] `movie-easy-037` (was `movie-easy-103`) - **Movies & TV** - The Lord of the Rings films are mainly set in which fictional world?
+- [ ] `movie-easy-038` (was `movie-easy-104`) - **Movies & TV** - In Ace Ventura: Pet Detective, who plays the title character?
+- [ ] `movie-easy-039` (was `movie-easy-105`) - **Movies & TV** **Review** - Who is the leader of the X-Men with powerful telepathic abilities?
+- [ ] `movie-easy-040` (was `movie-easy-106`) - **Movies & TV** **Review** - Which X-Men character has metal claws?
+- [ ] `movie-easy-041` (was `movie-easy-107`) - **Movies & TV** **Review** - Which metal is connected to Wolverine’s skeleton in X-Men?
+
+### Medium (105 questions)
+
+- [ ] `movie-med-001` - **Movies & TV** - In which city is Breaking Bad mainly set?
+- [ ] `movie-med-002` - **Movies & TV** - Who directed Titanic?
+- [ ] `movie-med-003` - **Movies & TV** - Which author wrote the books that Game of Thrones is based on?
+- [ ] `movie-med-004` - **Movies & TV** - What is the name of the town where Stranger Things takes place?
+- [ ] `cartoon-med-001` (was `movie-med-005`) - **Cartoons** **Review** - What food does Garfield love the most?
+- [ ] `movie-med-005` (was `movie-med-006`) - **Movies & TV** - How many Infinity Stones are there in the MCU?
+- [ ] `movie-med-006` (was `movie-med-007`) - **Movies & TV** - Who played Jack Dawson in Titanic?
+- [ ] `movie-med-007` (was `movie-med-008`) - **Movies & TV** - In Friends, what is the name of Ross’s pet monkey?
+- [ ] `movie-med-008` (was `movie-med-009`) - **Movies & TV** - In Avatar, what rare mineral are humans mining on Pandora?
+- [ ] `cartoon-med-002` (was `movie-med-010`) - **Cartoons** - What is the name of the boy who owns Buzz Lightyear and Woody in Toy Story?
+- [ ] `movie-med-009` (was `movie-med-011`) - **Movies & TV** - Which actor played Tony Stark in the Marvel Cinematic Universe?
+- [ ] `movie-med-010` (was `movie-med-012`) - **Movies & TV** - Who is the main villain in Avengers: Infinity War?
+- [ ] `movie-med-011` (was `movie-med-013`) - **Movies & TV** - What is Black Widow’s real name in the Marvel Cinematic Universe?
+- [ ] `movie-med-012` (was `movie-med-014`) - **Movies & TV** - Which actor plays Thor in the Marvel Cinematic Universe?
+- [ ] `movie-med-013` (was `movie-med-015`) - **Movies & TV** - What is Wanda Maximoff’s superhero alias in the Marvel Cinematic Universe?
+- [ ] `cartoon-med-003` (was `movie-med-016`) - **Cartoons** - What is the name of the first cartoon character to win an Academy Award?
+- [ ] `movie-med-014` (was `movie-med-017`) - **Movies & TV** - Which actor plays Spider-Man in the Marvel Cinematic Universe?
+- [ ] `movie-med-015` (was `movie-med-018`) - **Movies & TV** - Who plays Captain America in the Marvel Cinematic Universe?
+- [ ] `movie-med-016` (was `movie-med-019`) - **Movies & TV** - Who leads the Guardians of the Galaxy?
+- [ ] `movie-med-017` (was `movie-med-020`) - **Movies & TV** - Doctor Strange holds the title of Sorcerer Supreme of which planet?
+- [ ] `movie-med-018` (was `movie-med-021`) - **Movies & TV** - Who played T’Challa in Black Panther?
+- [ ] `cartoon-med-004` (was `movie-med-022`) - **Cartoons** - What was the first feature-length computer-animated movie?
+- [ ] `movie-med-019` (was `movie-med-023`) - **Movies & TV** - Which talking raccoon is a member of the Guardians of the Galaxy?
+- [ ] `cartoon-med-005` (was `movie-med-024`) - **Cartoons** **Review** - What is the name of the fictional newspaper where Peter Parker works?
+- [ ] `movie-med-020` (was `movie-med-025`) - **Movies & TV** - Which Hogwarts house is Harry Potter sorted into?
+- [ ] `cartoon-med-006` (was `movie-med-026`) - **Cartoons** - What was the original name of Mickey Mouse before it was changed?
+- [ ] `movie-med-021` (was `movie-med-027`) - **Movies & TV** - What sport do Hogwarts students play on broomsticks?
+- [ ] `movie-med-022` (was `movie-med-028`) - **Movies & TV** - What is the name of Harry Potter’s pet owl?
+- [ ] `movie-med-023` (was `movie-med-029`) - **Movies & TV** - Who is the headmaster of Hogwarts for most of the series?
+- [ ] `movie-med-024` (was `movie-med-030`) - **Movies & TV** - What is the name of the village where many witches and wizards live near Hogwarts?
+- [ ] `movie-med-025` (was `movie-med-031`) - **Movies & TV** - What is Lord Voldemort’s real name?
+- [ ] `movie-med-026` (was `movie-med-032`) - **Movies & TV** - Which spell is used to make objects levitate in Harry Potter?
+- [ ] `movie-med-027` (was `movie-med-033`) - **Movies & TV** - From which platform at King’s Cross Station do Hogwarts students board the Hogwarts Express?
+- [ ] `movie-med-028` (was `movie-med-034`) - **Movies & TV** - What creature is Buckbeak?
+- [ ] `movie-med-029` (was `movie-med-035`) - **Movies & TV** - Which Hogwarts house was Luna Lovegood sorted into?
+- [ ] `movie-med-030` (was `movie-med-036`) - **Movies & TV** - What is the name of the three-headed dog guarding the Philosopher’s Stone?
+- [ ] `movie-med-031` (was `movie-med-037`) - **Movies & TV** - What was the number of Harry Potter’s vault at Gringotts?
+- [ ] `cartoon-med-007` (was `movie-med-038`) - **Cartoons** **Review** - Which weapon does Michelangelo usually use?
+- [ ] `cartoon-med-008` (was `movie-med-039`) - **Cartoons** **Review** - What is the name of the Ninja Turtles’ main enemy?
+- [ ] `cartoon-med-009` (was `movie-med-040`) - **Cartoons** **Review** - Which Ninja Turtle is known for being the smartest?
+- [ ] `cartoon-med-010` (was `movie-med-041`) - **Cartoons** **Review** - What city do the Ninja Turtles usually protect?
+- [ ] `cartoon-med-011` (was `movie-med-042`) - **Cartoons** - What is the name of the saber-toothed tiger in Ice Age?
+- [ ] `movie-med-032` (was `movie-med-043`) - **Movies & TV** - In Back to the Future, how fast must the DeLorean travel to jump through time?
+- [ ] `movie-med-033` (was `movie-med-044`) - **Movies & TV** - In Indiana Jones, what animal does Indy famously fear?
+- [ ] `movie-med-034` (was `movie-med-045`) - **Movies & TV** - Who played the Terminator in the original 1984 film?
+- [ ] `movie-med-035` (was `movie-med-046`) - **Movies & TV** - Who directed the movie Jaws?
+- [ ] `movie-med-036` (was `movie-med-047`) - **Movies & TV** - Who directed Forrest Gump?
+- [ ] `movie-med-037` (was `movie-med-048`) - **Movies & TV** - What kind of travel does Interstellar mainly explore?
+- [ ] `movie-med-038` (was `movie-med-049`) - **Movies & TV** - What is the name of the desert planet Paul Atreides visits in the Dune series?
+- [ ] `cartoon-med-012` (was `movie-med-050`) - **Cartoons** - What is the name of the acorn-obsessed squirrel in Ice Age?
+- [ ] `cartoon-med-013` (was `movie-med-051`) - **Cartoons** - What is the name of Megamind’s superhero rival?
+- [ ] `movie-med-039` (was `movie-med-052`) - **Movies & TV** - Rocky famously runs up the steps of a museum in which city?
+- [ ] `movie-med-040` (was `movie-med-053`) - **Movies & TV** - In Jurassic Park, which company creates the dinosaur theme park?
+- [ ] `movie-med-041` (was `movie-med-054`) - **Movies & TV** - Who plays Neo in The Matrix?
+- [ ] `movie-med-042` (was `movie-med-055`) - **Movies & TV** - Who plays Captain Jack Sparrow in Pirates of the Caribbean?
+- [ ] `movie-med-043` (was `movie-med-056`) - **Movies & TV** - How does Andy escape from prison in The Shawshank Redemption?
+- [ ] `movie-med-044` (was `movie-med-057`) - **Movies & TV** - Better Call Saul is a prequel to which series?
+- [ ] `cartoon-med-014` (was `movie-med-058`) - **Cartoons** - What is the name of the city where Megamind takes place?
+- [ ] `movie-med-045` (was `movie-med-059`) - **Movies & TV** - What is The Last of Us originally based on?
+- [ ] `movie-med-046` (was `movie-med-060`) - **Movies & TV** - In Wednesday, Wednesday Addams attends which academy?
+- [ ] `movie-med-047` (was `movie-med-061`) - **Movies & TV** - Which series is House of the Dragon a prequel to?
+- [ ] `movie-med-048` (was `movie-med-062`) - **Movies & TV** - In Ted Lasso, Ted coaches which sport?
+- [ ] `cartoon-med-015` (was `movie-med-063`) - **Cartoons** - In Up, why does Carl tie thousands of balloons to his house?
+- [ ] `cartoon-med-016` (was `movie-med-064`) - **Cartoons** - In Penguins of Madagascar, what is the penguins’ leader named?
+- [ ] `cartoon-med-017` (was `movie-med-065`) - **Cartoons** - In Over the Hedge, what do the forest animals discover has been built near their home?
+- [ ] `movie-med-049` (was `movie-med-066`) - **Movies & TV** - In BBC version of Sherlock, who plays Sherlock Holmes?
+- [ ] `movie-med-050` (was `movie-med-067`) - **Movies & TV** - Peaky Blinders is set mainly in which English city?
+- [ ] `cartoon-med-018` (was `movie-med-068`) - **Cartoons** - What causes the chaos in Cloudy with a Chance of Meatballs?
+- [ ] `cartoon-med-019` (was `movie-med-069`) - **Cartoons** - In Bee Movie, what does the Barry sue humans for?
+- [ ] `movie-med-051` (was `movie-med-070`) - **Movies & TV** - Which author wrote the books that The Witcher TV series is based on?
+- [ ] `cartoon-med-020` (was `movie-med-071`) - **Cartoons** - In Wreck-It Ralph, which video game does Ralph originally live in?
+- [ ] `cartoon-med-021` (was `movie-med-072`) - **Cartoons** - In Disney’s The Lion King, whose son is Simba?
+- [ ] `cartoon-med-022` (was `movie-med-073`) - **Cartoons** - Who originally voiced Woody in Toy Story?
+- [ ] `cartoon-med-023` (was `movie-med-074`) - **Cartoons** - Where does Marlin search for his son in Finding Nemo?
+- [ ] `cartoon-med-024` (was `movie-med-075`) - **Cartoons** - What creatures do the main characters befriend in Trolls?
+- [ ] `cartoon-med-025` (was `movie-med-076`) - **Cartoons** - What does Fiona choose to remain at the end of Shrek?
+- [ ] `cartoon-med-026` (was `movie-med-077`) - **Cartoons** - What is the name of Hiccup’s dragon in How to Train Your Dragon?
+- [ ] `cartoon-med-027` (was `movie-med-078`) - **Cartoons** - Who is the main panda hero in Kung Fu Panda?
+- [ ] `cartoon-med-028` (was `movie-med-079`) - **Cartoons** - In Hotel Transylvania, which classic monster runs the hotel?
+- [ ] `cartoon-med-029` (was `movie-med-080`) - **Cartoons** - In The Simpsons, who owns the Springfield Nuclear Power Plant?
+- [ ] `cartoon-med-030` (was `movie-med-081`) - **Cartoons** - In South Park, which character often causes trouble with Cartman and Kyle?
+- [ ] `cartoon-med-031` (was `movie-med-082`) - **Cartoons** - What is Morty’s last name in Rick and Morty?
+- [ ] `cartoon-med-032` (was `movie-med-083`) - **Cartoons** - Who is the main villain in the first film of The Lion King?
+- [ ] `cartoon-med-033` (was `movie-med-084`) - **Cartoons** - Which Pixar film features a rat who wants to become a chef?
+- [ ] `movie-med-052` (was `movie-med-085`) - **Movies & TV** - What inspired the iconic mask worn by the killer in Scream?
+- [ ] `cartoon-med-034` (was `movie-med-086`) - **Cartoons** - In South Park, what famously happens to Kenny in almost every episode?
+- [ ] `cartoon-med-035` (was `movie-med-087`) - **Cartoons** - What nearly destroyed most of the completed work on Toy Story 2 during production?
+- [ ] `movie-med-053` (was `movie-med-088`) - **Movies & TV** - What is the name of the clown in IT?
+- [ ] `movie-med-054` (was `movie-med-089`) - **Movies & TV** - What is the name of the hotel in The Shining?
+- [ ] `movie-med-055` (was `movie-med-090`) - **Movies & TV** - Who played the Joker in the 2019 film Joker?
+- [ ] `movie-med-056` (was `movie-med-091`) - **Movies & TV** - Where does Freddy Krueger haunt his victims?
+- [ ] `movie-med-057` (was `movie-med-092`) - **Movies & TV** - What is the name of the masked killer in Halloween?
+- [ ] `movie-med-058` (was `movie-med-093`) - **Movies & TV** - What is the real name of the killer in Saw?
+- [ ] `movie-med-059` (was `movie-med-094`) - **Movies & TV** - In How I Met Your Mother, who does Ted tell the story of how he met their mother to?
+- [ ] `movie-med-060` (was `movie-med-095`) - **Movies & TV** - Which 1973 horror film became famous for rumors of a "cursed" production?
+- [ ] `movie-med-061` (was `movie-med-096`) - **Movies & TV** - Which movie had actors wearing heavy costumes that caused health problems during filming?
+- [ ] `movie-med-062` (was `movie-med-097`) - **Movies & TV** - In which city do the scientists in The Big Bang Theory mainly live?
+- [ ] `movie-med-063` (was `movie-med-098`) - **Movies & TV** - Which TV show had a famous coffee shop called Central Perk?
+- [ ] `movie-med-064` (was `movie-med-099`) - **Movies & TV** - Which famous movie prop was accidentally destroyed during filming of a scene?
+- [ ] `movie-med-065` (was `movie-med-100`) - **Movies & TV** - Which actor played Wolverine in the X-Men movies?
+- [ ] `movie-med-066` (was `movie-med-101`) - **Movies & TV** - In The Lord of the Rings, which hobbit is chosen to carry the One Ring?
+- [ ] `movie-med-067` (was `movie-med-102`) - **Movies & TV** - In The Lord of the Rings, which kingdom does Aragorn inherit as king?
+- [ ] `movie-med-068` (was `movie-med-103`) - **Movies & TV** - Which filmmaker is widely credited with revolutionizing modern 3D cinema?
+- [ ] `movie-med-069` (was `movie-med-104`) - **Movies & TV** - Who directed the original Pirates of the Caribbean trilogy?
+- [ ] `movie-med-070` (was `movie-med-105`) - **Movies & TV** - What was Pirates of the Caribbean originally based on?
+
+### Hard (110 questions)
+
+- [ ] `movie-hard-001` - **Movies & TV** - Which film won the first Academy Award for Best Picture?
+- [ ] `movie-hard-002` - **Movies & TV** - Which actor played both a vampire in Twilight and Batman?
+- [ ] `movie-hard-003` - **Movies & TV** - The dinosaur roars in Jurassic Park were partly created using sounds from which real animals?
+- [ ] `cartoon-hard-001` (was `movie-hard-004`) - **Cartoons** - Which song from The Lion King won the Academy Award for Best Original Song?
+- [ ] `cartoon-hard-002` (was `movie-hard-005`) - **Cartoons** - Which actor was originally cast as the voice of Shrek before passing away and being replaced by Mike Myers?
+- [ ] `cartoon-hard-003` (was `movie-hard-006`) - **Cartoons** - Hayao Miyazaki co-founded which animation studio?
+- [ ] `movie-hard-004` (was `movie-hard-007`) - **Movies & TV** - Before Avengers: Endgame overtook it, which film held the all-time box office record for over a decade?
+- [ ] `movie-hard-005` (was `movie-hard-008`) - **Movies & TV** - Who won the Oscar for Best Actress for La La Land?
+- [ ] `movie-hard-006` (was `movie-hard-009`) - **Movies & TV** - What was used to simulate blood in the famous black-and-white shower scene in Psycho?
+- [ ] `movie-hard-007` (was `movie-hard-010`) - **Movies & TV** - What candy brand became famous after being used in E.T. the Extra-Terrestrial, after M&M’s turned down the offer?
+- [ ] `cartoon-hard-004` (was `movie-hard-011`) - **Cartoons** - Which song from Frozen won the Academy Award for Best Original Song?
+- [ ] `movie-hard-008` (was `movie-hard-012`) - **Movies & TV** - What is the name of the central crime family in The Godfather?
+- [ ] `movie-hard-009` (was `movie-hard-013`) - **Movies & TV** - Which classic horror film was temporarily banned from home video release in the UK for several years?
+- [ ] `movie-hard-010` (was `movie-hard-014`) - **Movies & TV** - What famous line does Forrest Gump repeat about life?
+- [ ] `movie-hard-011` (was `movie-hard-015`) - **Movies & TV** - Who directed The Godfather?
+- [ ] `movie-hard-012` (was `movie-hard-016`) - **Movies & TV** - Whose face do the robbers’ masks resemble in Money Heist (La Casa de Papel)?
+- [ ] `movie-hard-013` (was `movie-hard-017`) - **Movies & TV** - Who created Breaking Bad?
+- [ ] `movie-hard-014` (was `movie-hard-018`) - **Movies & TV** - Vikings follows the legendary exploits of which Norse leader?
+- [ ] `movie-hard-015` (was `movie-hard-019`) - **Movies & TV** - What profession do the main characters share in Suits?
+- [ ] `cartoon-hard-005` (was `movie-hard-020`) - **Cartoons** - Who created The Simpsons?
+- [ ] `cartoon-hard-006` (was `movie-hard-021`) - **Cartoons** - Who created the animated series Rick and Morty?
+- [ ] `cartoon-hard-007` (was `movie-hard-022`) - **Cartoons** - Which Disney film was the first full-length animated feature film released by the studio?
+- [ ] `cartoon-hard-008` (was `movie-hard-023`) - **Cartoons** - In Spirited Away, what name does Yubaba give Chihiro at the bathhouse?
+- [ ] `cartoon-hard-009` (was `movie-hard-024`) - **Cartoons** - Which film was the first fully computer-animated feature released by Pixar?
+- [ ] `cartoon-hard-010` (was `movie-hard-025`) - **Cartoons** - What object causes the disaster that threatens Mitsuha’s town in Your Name?
+- [ ] `cartoon-hard-011` (was `movie-hard-026`) - **Cartoons** - Who created the animated series Family Guy?
+- [ ] `movie-hard-016` (was `movie-hard-027`) - **Movies & TV** - Riverdale is based on characters from which comic book universe?
+- [ ] `movie-hard-017` (was `movie-hard-028`) - **Movies & TV** - Narcos tells the story of which infamous drug lord?
+- [ ] `movie-hard-018` (was `movie-hard-029`) - **Movies & TV** - What kind of facility is Orange Is the New Black set inside?
+- [ ] `movie-hard-019` (was `movie-hard-030`) - **Movies & TV** - In which year was the first Harry Potter film released?
+- [ ] `movie-hard-020` (was `movie-hard-031`) - **Movies & TV** - Which actor lost a significant amount of weight and changed his appearance for the movie The Machinist?
+- [ ] `movie-hard-021` (was `movie-hard-032`) - **Movies & TV** - Which actor learned to play the piano for his role in La La Land?
+- [ ] `movie-hard-022` (was `movie-hard-033`) - **Movies & TV** - Which actor kept journals written as the Joker while preparing for The Dark Knight?
+- [ ] `movie-hard-023` (was `movie-hard-034`) - **Movies & TV** - Which actor actually had his nose broken while filming a fight scene in The Lord of the Rings?
+- [ ] `movie-hard-024` (was `movie-hard-035`) - **Movies & TV** - What was Quentin Tarantino’s first feature film?
+- [ ] `movie-hard-025` (was `movie-hard-036`) - **Movies & TV** - Which actor won an Oscar for portraying Stephen Hawking?
+- [ ] `movie-hard-026` (was `movie-hard-037`) - **Movies & TV** - For which role did Leonardo DiCaprio win his first Oscar after many previous nominations?
+- [ ] `movie-hard-027` (was `movie-hard-038`) - **Movies & TV** - Which movie became the first non-English language film to win Best Picture?
+- [ ] `cartoon-hard-012` (was `movie-hard-039`) - **Cartoons** - What is the name of Goku’s signature energy attack in Dragon Ball?
+- [ ] `cartoon-hard-013` (was `movie-hard-040`) - **Cartoons** - In South Park, the town is located in which U.S. state?
+- [ ] `cartoon-hard-014` (was `movie-hard-041`) - **Cartoons** - What is Mr. Incredible’s real name in The Incredibles?
+- [ ] `movie-hard-028` (was `movie-hard-042`) - **Movies & TV** - Which film won all 11 Oscars it was nominated for?
+- [ ] `cartoon-hard-015` (was `movie-hard-043`) - **Cartoons** - Which realm is Miguel transported to in Coco?
+- [ ] `movie-hard-029` (was `movie-hard-044`) - **Movies & TV** - Who directed The Lord of the Rings trilogy?
+- [ ] `movie-hard-030` (was `movie-hard-045`) - **Movies & TV** - Who performed Gollum through motion capture in The Lord of the Rings?
+- [ ] `movie-hard-031` (was `movie-hard-046`) - **Movies & TV** - Who directed Dune Movies?
+- [ ] `movie-hard-032` (was `movie-hard-047`) - **Movies & TV** - Which actor won a posthumous Oscar for the film Network?
+- [ ] `movie-hard-033` (was `movie-hard-048`) - **Movies & TV** - Which actor won an Oscar for a performance lasting about 16 minutes on screen?
+- [ ] `movie-hard-034` (was `movie-hard-049`) - **Movies & TV** - Which Lord of the Rings film won 11 Academy Awards?
+- [ ] `movie-hard-035` (was `movie-hard-050`) - **Movies & TV** - Which actor won an Oscar for playing a boxer in Raging Bull?
+- [ ] `movie-hard-036` (was `movie-hard-051`) - **Movies & TV** - Who played Hannibal Lecter in The Silence of the Lambs?
+- [ ] `movie-hard-037` (was `movie-hard-052`) - **Movies & TV** - Who directed The Dark Knight trilogy?
+- [ ] `movie-hard-038` (was `movie-hard-053`) - **Movies & TV** - Which actor won an Oscar for playing a Nazi hunter in Inglourious Basterds?
+- [ ] `movie-hard-039` (was `movie-hard-054`) - **Movies & TV** - Who directed the film Oppenheimer?
+- [ ] `movie-hard-040` (was `movie-hard-055`) - **Movies & TV** - Which actor finally won his first Oscar for Once Upon a Time in Hollywood?
+- [ ] `cartoon-hard-016` (was `movie-hard-056`) - **Cartoons** - In which U.S. state is the fictional town of Quahog located in Family Guy?
+- [ ] `movie-hard-041` (was `movie-hard-057`) - **Movies & TV** - Which actor won an Oscar for playing Abraham Lincoln?
+- [ ] `movie-hard-042` (was `movie-hard-058`) - **Movies & TV** - Which Marvel movie became the first to win an Oscar?
+- [ ] `movie-hard-043` (was `movie-hard-059`) - **Movies & TV** - Which actor won an Oscar for playing Freddie Mercury?
+- [ ] `cartoon-hard-017` (was `movie-hard-060`) - **Cartoons** **Review** - Who was the first member to join Luffy’s crew in One Piece?
+- [ ] `movie-hard-044` (was `movie-hard-061`) - **Movies & TV** - What condition does the protagonist suffer from in Memento?
+- [ ] `movie-hard-045` (was `movie-hard-062`) - **Movies & TV** - Which actress won an Oscar for playing Queen Elizabeth II?
+- [ ] `movie-hard-046` (was `movie-hard-063`) - **Movies & TV** - What is the name of Jon Snow’s direwolf in Game of Thrones?
+- [ ] `movie-hard-047` (was `movie-hard-064`) - **Movies & TV** - Who directed the film Inception?
+- [ ] `movie-hard-048` (was `movie-hard-065`) - **Movies & TV** - What was the name of Arya Stark’s sword in Game of Thrones?
+- [ ] `movie-hard-049` (was `movie-hard-066`) - **Movies & TV** - What was the real name of Hodor before his condition in Game of Thrones?
+- [ ] `movie-hard-050` (was `movie-hard-067`) - **Movies & TV** - Which actor played both a Game of Thrones character and a Star Wars character?
+- [ ] `movie-hard-051` (was `movie-hard-068`) - **Movies & TV** - What was the name of Ned Stark’s greatsword in Game of Thrones?
+- [ ] `movie-hard-052` (was `movie-hard-069`) - **Movies & TV** - What was the name of the giant prisoner in The Green Mile?
+- [ ] `movie-hard-053` (was `movie-hard-070`) - **Movies & TV** - Which famous author wrote the original story of The Green Mile?
+- [ ] `cartoon-hard-018` (was `movie-hard-071`) - **Cartoons** - What is the futuristic version of Tokyo called in Akira?
+- [ ] `cartoon-hard-019` (was `movie-hard-072`) - **Cartoons** - What is the name of the sleek probe robot that WALL-E meets in the movie?
+- [ ] `movie-hard-054` (was `movie-hard-073`) - **Movies & TV** - Who directed film The Shining?
+- [ ] `movie-hard-055` (was `movie-hard-074`) - **Movies & TV** - What is Will Hunting’s extraordinary talent in Good Will Hunting?
+- [ ] `movie-hard-056` (was `movie-hard-075`) - **Movies & TV** - Who won an Oscar for playing Dr. Sean Maguire in Good Will Hunting?
+- [ ] `movie-hard-057` (was `movie-hard-076`) - **Movies & TV** - Which film did Matt Damon and Ben Affleck write together that made them famous?
+- [ ] `cartoon-hard-020` (was `movie-hard-077`) - **Cartoons** **Review** - What is the name of the van the gang travels in on Scooby-Doo?
+- [ ] `cartoon-hard-021` (was `movie-hard-078`) - **Cartoons** **Review** - Where does Fred Flintstone work in The Flintstones?
+- [ ] `movie-hard-058` (was `movie-hard-079`) - **Movies & TV** - What was the name of Paul Edgecomb’s mouse in The Green Mile?
+- [ ] `cartoon-hard-022` (was `movie-hard-080`) - **Cartoons** - Who created Princess Mononoke?
+- [ ] `movie-hard-059` (was `movie-hard-081`) - **Movies & TV** - What was Jim Carrey’s first major Hollywood comedy hit?
+- [ ] `movie-hard-060` (was `movie-hard-082`) - **Movies & TV** - How much did Jim Carrey get paid for The Cable Guy?
+- [ ] `movie-hard-061` (was `movie-hard-083`) - **Movies & TV** - Which movie earned Jim Carrey his first Golden Globe nomination?
+- [ ] `movie-hard-062` (was `movie-hard-084`) - **Movies & TV** - Which actor was Jim Carrey’s co-star in Dumb and Dumber?
+- [ ] `movie-hard-063` (was `movie-hard-085`) - **Movies & TV** - Who directed Vertigo?
+- [ ] `movie-hard-064` (was `movie-hard-086`) - **Movies & TV** - Which presenter was part of the famous Top Gear trio alongside Jeremy Clarkson and Richard Hammond?
+- [ ] `movie-hard-065` (was `movie-hard-087`) - **Movies & TV** - Which famous villain did Jim Carrey play in Batman Forever?
+- [ ] `cartoon-hard-023` (was `movie-hard-088`) - **Cartoons** - What is the name of Bambi’s childhood friend who is a female deer?
+- [ ] `cartoon-hard-024` (was `movie-hard-089`) - **Cartoons** - In Ratatouille, what is the name of the restaurant where Remy helps Linguini?
+- [ ] `movie-hard-066` (was `movie-hard-090`) - **Movies & TV** - Which actress has not played Mary Jane Watson in a Spider-Man movie?
+- [ ] `movie-hard-067` (was `movie-hard-091`) - **Movies & TV** - Who played Mary Jane Watson in Sam Raimi’s Spider-Man trilogy?
+- [ ] `cartoon-hard-025` (was `movie-hard-092`) - **Cartoons** - What was the name of the sitcom that made BoJack Horseman famous?
+- [ ] `cartoon-hard-026` (was `movie-hard-093`) - **Cartoons** - What is the name of Plankton’s rival restaurant in SpongeBob SquarePants?
+- [ ] `movie-hard-068` (was `movie-hard-094`) - **Movies & TV** - Which actor has not played Peter Parker in a live-action Spider-Man movie?
+- [ ] `movie-hard-069` (was `movie-hard-095`) - **Movies & TV** - Which actor played Peter Parker in the first Spider-Man trilogy?
+- [ ] `cartoon-hard-027` (was `movie-hard-096`) - **Cartoons** - Which animation studio produced the Ice Age films?
+- [ ] `cartoon-hard-028` (was `movie-hard-097`) - **Cartoons** - Which animation studio created Shrek?
+- [ ] `cartoon-hard-029` (was `movie-hard-098`) - **Cartoons** - Which studio is behind Toy Story?
+- [ ] `cartoon-hard-030` (was `movie-hard-099`) - **Cartoons** - In which year was the first Toy Story released?
+- [ ] `movie-hard-070` (was `movie-hard-100`) - **Movies & TV** - Who composed the iconic score for The Good, the Bad and the Ugly?
+- [ ] `movie-hard-071` (was `movie-hard-101`) - **Movies & TV** - In The Lord of the Rings, what is the Elvish name of Mount Doom?
+- [ ] `movie-hard-072` (was `movie-hard-102`) - **Movies & TV** - Who played Aragorn in Peter Jackson’s Lord of the Rings films?
+- [ ] `cartoon-hard-031` (was `movie-hard-103`) - **Cartoons** - In the first Ice Age film, Ray Romano voices which main character?
+- [ ] `cartoon-hard-032` (was `movie-hard-104`) - **Cartoons** - The one-eyed weasel Buck becomes a major character starting in which Ice Age film?
+- [ ] `cartoon-hard-033` (was `movie-hard-105`) - **Cartoons** - Which studio produced Despicable Me and Minions?
+- [ ] `cartoon-hard-034` (was `movie-hard-106`) - **Cartoons** - Which studio created Ice Age?
+- [ ] `cartoon-hard-035` (was `movie-hard-107`) - **Cartoons** - Which animation studio made Spider-Man: Into the Spider-Verse?
+- [ ] `cartoon-hard-036` (was `movie-hard-108`) - **Cartoons** - Which Japanese studio created Spirited Away and Princess Mononoke?
+- [ ] `movie-hard-073` (was `movie-hard-109`) - **Movies & TV** - Besides cost, why are traditional IMAX film cameras rarely used to shoot entire movies?
+- [ ] `movie-hard-074` (was `movie-hard-110`) - **Movies & TV** - Which film became the first feature film shot entirely with IMAX film cameras?

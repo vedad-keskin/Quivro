@@ -9,6 +9,7 @@ export type CategoryId =
   | 'technology'
   | 'sports'
   | 'movies'
+  | 'cartoons'
   | 'famous'
   | 'islam'
   | 'food'
@@ -38,6 +39,7 @@ export const CATEGORIES: CategoryId[] = [
   'technology',
   'famous',
   'movies',
+  'cartoons',
   'food',
 ];
 export const DIFFICULTIES: Difficulty[] = ['easy', 'medium', 'hard'];

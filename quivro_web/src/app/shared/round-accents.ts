@@ -9,6 +9,7 @@ export const CATEGORY_ACCENT: Record<CategoryId, string> = {
   technology: 'var(--q-indigo)',
   sports: 'var(--q-coral)',
   movies: 'var(--q-purple)',
+  cartoons: 'var(--q-teal)',
   famous: 'var(--q-yellow)',
   islam: 'var(--q-green)',
   food: 'var(--q-pink)',

@@ -27,7 +27,7 @@ export const PRO_PERKS: readonly { key: keyof UiStrings; accent: string }[] = [
 ];
 
 /** One of these is free each week — see `rotatingFreeCategory`. */
-export const PRO_CATEGORIES: CategoryId[] = ['technology', 'famous', 'movies', 'food'];
+export const PRO_CATEGORIES: CategoryId[] = ['technology', 'famous', 'movies', 'cartoons', 'food'];
 
 export const FREE_QUESTION_TYPES: QuestionType[] = ['mcq'];
 export const FREE_SCORING_MODES: ScoringMode[] = ['standard'];
