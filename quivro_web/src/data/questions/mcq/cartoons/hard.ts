@@ -433,7 +433,7 @@ export const cartoonsHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'What is the name of Plankton’s rival restaurant in SpongeBob SquarePants?',
-      bs: 'Kako se zove Planktonov rival restoran u SpongeBob SquarePants?'
+      bs: 'Kako se zove Planktonov rivalski restoran u Spužva Bobu?'
     },
     options: [
       { en: 'Chum Bucket', bs: 'Chum Bucket' },
@@ -538,10 +538,10 @@ export const cartoonsHard: Question[] = [
       bs: 'Jednooki lasica Buck postaje važan lik počevši od kojeg filma Ledenog doba?'
     },
     options: [
-      { en: 'Ice Age: Dawn of the Dinosaurs', bs: 'Ledeno doba 3: Dinosaurski zor' },
-      { en: 'Ice Age', bs: 'Ledeno doba' },
-      { en: 'Ice Age: The Meltdown', bs: 'Ledeno doba 2: Topljenje' },
-      { en: 'Ice Age: Continental Drift', bs: 'Ledeno doba 4: Kontinentalno pomicanje' },
+      { en: 'Ice Age: Dawn of the Dinosaurs', bs: 'Ledeno doba 3' },
+      { en: 'Ice Age', bs: 'Ledeno doba 1' },
+      { en: 'Ice Age: The Meltdown', bs: 'Ledeno doba 2' },
+      { en: 'Ice Age: Continental Drift', bs: 'Ledeno doba 4' },
     ],
     correctIndex: 0,
   },

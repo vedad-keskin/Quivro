@@ -48,11 +48,6 @@ Each option shows **English / Bosnian**. The correct letter and a fact-check sou
   - A. Horse / Konj · B. Donkey / Magarac · C. Dog / Pas · D. Deer / Jelen
   - Correct: **A** · [Disney source](https://movies.disney.com/tangled/)
 
-- [ ] **C08 · Encanto**
-  - EN: What magical gift does Luisa have in *Encanto*?
-  - BS: Koji čarobni dar ima Luisa u filmu *Encanto*?
-  - A. Weather control / Upravljanje vremenom · B. Super hearing / Izuzetan sluh · C. Growing plants / Uzgajanje biljaka · D. Super strength / Nadljudska snaga
-  - Correct: **D** · [Disney source](https://news.disney.com/cast-of-encanto)
 
 ## Pixar
 
@@ -67,12 +62,6 @@ Each option shows **English / Bosnian**. The correct letter and a fact-check sou
   - BS: Koji instrument svira Joe Gardner u filmu *Soul*?
   - A. Drums / Bubnjevi · B. Saxophone / Saksofon · C. Piano / Klavir · D. Trumpet / Truba
   - Correct: **C** · [Pixar source](https://www.pixar.com/soul)
-
-- [ ] **C11 · Turning Red**
-  - EN: What animal does Mei transform into in *Turning Red*?
-  - BS: U koju se životinju Mei pretvara u filmu *Turning Red*?
-  - A. Red panda / Crvena panda · B. Fox / Lisica · C. Bear / Medvjed · D. Tiger / Tigar
-  - Correct: **A** · [Pixar source](https://www.pixar.com/turning-red)
 
 - [ ] **C12 · Turning Red**
   - EN: In which city does *Turning Red* take place?
@@ -110,11 +99,6 @@ Each option shows **English / Bosnian**. The correct letter and a fact-check sou
   - A. Warrior beetles / Bube ratnike · B. Circus performers / Cirkuske izvođače · C. Soldier ants / Mrave vojnike · D. Guard wasps / Ose stražare
   - Correct: **B** · [Pixar source](https://www.pixar.com/a-bugs-life)
 
-- [ ] **C18 · A Bug's Life**
-  - EN: What kind of insect is Hopper in *A Bug's Life*?
-  - BS: Koja je vrsta insekta Hopper u filmu *A Bug's Life*?
-  - A. Beetle / Buba · B. Ant / Mrav · C. Grasshopper / Skakavac · D. Wasp / Osa
-  - Correct: **C** · [Pixar source](https://www.pixar.com/a-bugs-life)
 
 - [ ] **C19 · WALL-E**
   - EN: What is the name of the spaceship carrying humans in *WALL-E*?
@@ -130,7 +114,7 @@ Each option shows **English / Bosnian**. The correct letter and a fact-check sou
 
 - [ ] **C21 · Luca**
   - EN: What is the name of Luca's sea monster friend in *Luca*?
-  - BS: Kako se zove Lucin prijatelj, morsko čudovište, u filmu *Luca*?
+  - BS: Kako se zove Lukin prijatelj, morsko čudovište, u filmu Luka?
   - A. Ercole / Ercole · B. Massimo / Massimo · C. Alberto / Alberto · D. Giulia / Giulia
   - Correct: **C** · [Pixar source](https://www.pixar.com/luca)
 
@@ -139,12 +123,6 @@ Each option shows **English / Bosnian**. The correct letter and a fact-check sou
   - BS: Kako se zove Giulijin otac u filmu *Luca*?
   - A. Ercole / Ercole · B. Massimo / Massimo · C. Lorenzo / Lorenzo · D. Ugo / Ugo
   - Correct: **B** · [Pixar source](https://www.pixar.com/luca)
-
-- [ ] **C23 · Cars**
-  - EN: What kind of vehicle is Mater in *Cars*?
-  - BS: Koja je vrsta vozila Mater u filmu *Cars*?
-  - A. Race car / Trkaći automobil · B. Fire truck / Vatrogasni kamion · C. Bus / Autobus · D. Tow truck / Kamion za vuču
-  - Correct: **D** · [Pixar source](https://www.pixar.com/cars)
 
 - [ ] **C24 · Inside Out 2**
   - EN: Which new emotion joins Riley's mind in *Inside Out 2*?
@@ -162,7 +140,7 @@ Each option shows **English / Bosnian**. The correct letter and a fact-check sou
 
 - [ ] **C26 · Shrek 2**
   - EN: Who helps Prince Charming plot against Shrek in *Shrek 2*?
-  - BS: Ko pomaže princu Charmingu u planu protiv Shreka u filmu *Shrek 2*?
+  - BS: Ko pomaže princu Šarmeru u planu protiv Shreka u filmu *Shrek 2*?
   - A. Fairy Godmother / Vila kuma · B. Dragon / Zmajica · C. Queen Lillian / Kraljica Lillian · D. Princess Fiona / Princeza Fiona
   - Correct: **A** · [DreamWorks source](https://www.dreamworks.com/movies/shrek-2)
 
@@ -171,12 +149,6 @@ Each option shows **English / Bosnian**. The correct letter and a fact-check sou
   - BS: Kako se zove Hiccupovo otočko selo u prvom filmu *How to Train Your Dragon*?
   - A. New Berk / Novi Berk · B. Berk / Berk · C. Dragon's Edge / Zmajeva granica · D. Vanaheim / Vanaheim
   - Correct: **B** · [DreamWorks source](https://www.dreamworks.com/how-to-train-your-dragon)
-
-- [ ] **C28 · How to Train Your Dragon 2**
-  - EN: Which dragon does Astrid ride in *How to Train Your Dragon 2*?
-  - BS: Kojeg zmaja jaše Astrid u filmu *How to Train Your Dragon 2*?
-  - A. Hookfang / Hookfang · B. Meatlug / Meatlug · C. Stormfly / Stormfly · D. Cloudjumper / Cloudjumper
-  - Correct: **C** · [DreamWorks source](https://tv.dreamworks.com/printables/HowToTrainYourDragon/activity/ConnectTheDots_Astrid_Stormfly.pdf)
 
 - [ ] **C29 · Kung Fu Panda 3**
   - EN: What animals does Po train to fight the villain in *Kung Fu Panda 3*?
@@ -204,29 +176,17 @@ Each option shows **English / Bosnian**. The correct letter and a fact-check sou
   - A. Trumpet / Truba · B. Flute / Flauta · C. Clarinet / Klarinet · D. Saxophone / Saksofon
   - Correct: **C** · [Nickelodeon source](https://www.nick.com/info-page/c2e5s0/squidward-j-q-tentacles)
 
-- [ ] **C33 · SpongeBob SquarePants**
-  - EN: Who owns the Krusty Krab in *SpongeBob SquarePants*?
-  - BS: Ko je vlasnik restorana Krusty Krab u seriji *SpongeBob SquarePants*?
-  - A. Plankton / Plankton · B. Mr. Krabs / Gospodin Krabs · C. Squidward / Squidward · D. Mermaid Man / Mermaid Man
-  - Correct: **B** · [Nickelodeon source](https://www.nick.com/info-page/0vq4xx/mr-krabs)
-
 - [ ] **C34 · SpongeBob SquarePants**
   - EN: What is the name of Plankton's computer partner in *SpongeBob SquarePants*?
-  - BS: Kako se zove Planktonova kompjuterska partnerica u seriji *SpongeBob SquarePants*?
+  - BS: Kako se zove Planktonova kompjuterska partnerica u seriji Spužva Bob?
   - A. Pearl / Pearl · B. Karen / Karen · C. Sandy / Sandy · D. Mrs. Puff / Gospođa Puff
   - Correct: **B** · [Nickelodeon source](https://www.nick.com/info-page/4965u5/sheldon-j-plankton)
 
 - [ ] **C35 · Avatar: The Last Airbender**
   - EN: What kind of animal is Aang's companion Appa in *Avatar: The Last Airbender*?
-  - BS: Koja je životinja Aangov saputnik Appa u seriji *Avatar: The Last Airbender*?
+  - BS: Koja je životinja Aangov saputnik Appa u seriji Avatar?
   - A. Dragon / Zmaj · B. Sky bison / Leteći bizon · C. Flying lemur / Leteći lemur · D. Polar bear / Polarni medvjed
   - Correct: **B** · [Nickelodeon source](https://www.nick.com/info-page/vltws7/appa)
-
-- [ ] **C36 · Avatar: The Last Airbender**
-  - EN: Which bending technique does Toph discover in *Avatar: The Last Airbender*?
-  - BS: Koju tehniku savijanja elemenata Toph otkriva u seriji *Avatar: The Last Airbender*?
-  - A. Bloodbending / Savijanje krvi · B. Lightning generation / Stvaranje munja · C. Metalbending / Savijanje metala · D. Lavabending / Savijanje lave
-  - Correct: **C** · [Nickelodeon source](https://www.nick.com/info-page/4tmv8o/toph)
 
 - [ ] **C37 · Phineas and Ferb**
   - EN: What is the name of Phineas and Ferb's sister in *Phineas and Ferb*?
@@ -246,17 +206,6 @@ Each option shows **English / Bosnian**. The correct letter and a fact-check sou
   - A. Mystery Shack / Mystery Shack · B. Curiosity Shop / Curiosity Shop · C. Oddities Museum / Oddities Museum · D. Haunted House / Haunted House
   - Correct: **A** · [Disney source](https://books.disney.com/book/gravity-falls-tales-of-the-strange-and-unexplained/)
 
-- [ ] **C40 · Bluey**
-  - EN: What is the name of Bluey's younger sister in *Bluey*?
-  - BS: Kako se zove mlađa sestra glavnog lika u seriji *Bluey*?
-  - A. Muffin / Muffin · B. Socks / Socks · C. Chloe / Chloe · D. Bingo / Bingo
-  - Correct: **D** · [Bluey source](https://www.bluey.tv/characters/bingo/)
-
-- [ ] **C41 · Bluey**
-  - EN: What is Bluey's father Bandit's profession in *Bluey*?
-  - BS: Koje je zanimanje Bandita, oca glavnog lika u seriji *Bluey*?
-  - A. Veterinarian / Veterinar · B. Archaeologist / Arheolog · C. Musician / Muzičar · D. Teacher / Nastavnik
-  - Correct: **B** · [Bluey source](https://www.bluey.tv/characters/bandit/)
 
 ## Anime
 
@@ -278,12 +227,6 @@ Each option shows **English / Bosnian**. The correct letter and a fact-check sou
   - A. Shinobu / Shinobu · B. Kanao / Kanao · C. Nezuko / Nezuko · D. Mitsuri / Mitsuri
   - Correct: **C** · [Crunchyroll source](https://www.crunchyroll.com/news/latest/2023/4/9/demon-slayer-kimetsu-no-yaiba-swordsmith-village-arc-anime-trailers-more)
 
-- [ ] **C45 · Demon Slayer**
-  - EN: What title is given to the Demon Slayer Corps' highest-ranking swordsmen?
-  - BS: Koju titulu nose najviše rangirani mačevaoci u animeu *Demon Slayer*?
-  - A. Hashira / Hashira · B. Kage / Kage · C. Espada / Espada · D. Captains / Kapetani
-  - Correct: **A** · [Crunchyroll source](https://www.crunchyroll.com/news/latest/2023/4/9/demon-slayer-kimetsu-no-yaiba-swordsmith-village-arc-anime-trailers-more)
-
 - [ ] **C46 · One Piece**
   - EN: Who is the navigator of Luffy's crew in *One Piece*?
   - BS: Ko je navigator Luffyjeve posade u animeu *One Piece*?
@@ -295,18 +238,6 @@ Each option shows **English / Bosnian**. The correct letter and a fact-check sou
   - BS: Koji brod Kaya poklanja Luffyjevoj posadi u animeu *One Piece*?
   - A. Thousand Sunny / Thousand Sunny · B. Red Force / Red Force · C. Going Merry / Going Merry · D. Oro Jackson / Oro Jackson
   - Correct: **C** · [One Piece source](https://one-piece.com/story/east_blue/index.html)
-
-- [ ] **C48 · Kiki's Delivery Service**
-  - EN: What is the name of Kiki's black cat in *Kiki's Delivery Service*?
-  - BS: Kako se zove Kikina crna mačka u filmu *Kiki's Delivery Service*?
-  - A. Jiji / Jiji · B. Muta / Muta · C. Moon / Moon · D. Baron / Baron
-  - Correct: **A** · [GKIDS source](https://gkids.com/films/kikis-delivery-service/)
-
-- [ ] **C49 · Ponyo**
-  - EN: What is the name of the boy who rescues Ponyo in *Ponyo*?
-  - BS: Kako se zove dječak koji spašava Ponyo u filmu *Ponyo*?
-  - A. Koichi / Koichi · B. Tombo / Tombo · C. Fujimoto / Fujimoto · D. Sosuke / Sosuke
-  - Correct: **D** · [GKIDS source](https://gkids.com/films/ponyo/)
 
 - [ ] **C50 · Spirited Away**
   - EN: Who rules the spirit bathhouse in *Spirited Away*?
