@@ -1299,14 +1299,14 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which Louisiana hot sauce brand is made mainly from aged chili peppers, vinegar, and salt?',
-      bs: 'Koji brend ljutog umaka iz Louisiane se uglavnom pravi od odležanih ljuta paprika, sirćeta i soli?',
+      en: 'Which Louisiana hot sauce is made with peppers aged in oak barrels?',
+      bs: 'Koji ljuti umak iz Louisiane pravi se od paprika odležanih u hrastovim bačvama?'
     },
     options: [
       { en: 'Sriracha', bs: 'Sriracha' },
       { en: 'Cholula', bs: 'Cholula' },
       { en: 'Tabasco', bs: 'Tabasco' },
-      { en: 'Frank\'s RedHot', bs: 'Frank\'s RedHot' },
+      { en: 'Frank’s RedHot', bs: 'Frank’s RedHot' },
     ],
     correctIndex: 2,
   },

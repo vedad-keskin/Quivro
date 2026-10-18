@@ -279,14 +279,14 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'Narcos tells the story of which infamous drug lord?',
-      bs: 'Narcos priča priču o kojem poznatom narko-bosu?'
+      en: 'Who is the main drug lord featured in the first two seasons of Netflix’s Narcos?',
+      bs: 'Koji je narko-bos u središtu prve dvije sezone Netflixove serije Narcos?'
     },
     options: [
-      { en: 'Pablo Escobar', bs: 'Pablu Escobaru' },
-      { en: 'El Chapo', bs: 'El Chapu' },
-      { en: 'Tony Montana', bs: 'Tonyju Montani' },
-      { en: 'Griselda Blanco', bs: 'Griseldi Blanco' },
+      { en: 'Pablo Escobar', bs: 'Pablo Escobar' },
+      { en: 'El Chapo', bs: 'El Chapo' },
+      { en: 'Tony Montana', bs: 'Tony Montana' },
+      { en: 'Griselda Blanco', bs: 'Griselda Blanco' },
     ],
     correctIndex: 0,
   },

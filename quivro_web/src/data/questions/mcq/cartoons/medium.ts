@@ -499,17 +499,17 @@ export const cartoonsMedium: Question[] = [
     type: 'mcq',
     category: 'cartoons',
     difficulty: 'medium',
-    prompt: {
-      en: 'In South Park, which character often causes trouble with Cartman and Kyle?',
-      bs: 'U South Parku, koji lik često pravi probleme s Cartmanom i Kyleom?'
-    },
-    options: [
-      { en: 'Stan', bs: 'Stan' },
-      { en: 'Kenny', bs: 'Kenny' },
-      { en: 'Butters', bs: 'Butters' },
-      { en: 'Wendy', bs: 'Wendy' },
-    ],
-    correctIndex: 0,
+prompt: {
+  en: 'Which South Park character is known for his orange jacket and muffled voice?',
+  bs: 'Koji lik iz South Parka je poznat po narandžastoj jakni i prigušenom glasu?'
+},
+options: [
+  { en: 'Stan', bs: 'Stan' },
+  { en: 'Kenny', bs: 'Kenny' },
+  { en: 'Butters', bs: 'Butters' },
+  { en: 'Cartman', bs: 'Cartman' },
+],
+correctIndex: 1,
   },
   {
     id: 'cartoon-med-031',

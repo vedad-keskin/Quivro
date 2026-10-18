@@ -1419,13 +1419,15 @@ export const historyMedium: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'medium',
-    prompt: { en: 'Which medieval African university city in Mali was a center of learning?',
-              bs: 'Koji srednjovjekovni afrički univerzitetski grad u Maliju bio je centar učenja?' },
+    prompt: {
+      en: 'Which city in the Mali Empire became famous for its Islamic scholarship and libraries?',
+      bs: 'Koji grad u Malijskom carstvu postao je poznat po islamskoj učenosti i bibliotekama?'
+    },
     options: [
       { en: 'Timbuktu', bs: 'Timbuktu' },
-      { en: 'Rome', bs: 'Rim' },
-      { en: 'Athens', bs: 'Atina' },
-      { en: 'London', bs: 'London' },
+      { en: 'Djenné', bs: 'Džene' },
+      { en: ' Gao', bs: 'Gao' },
+      { en: 'Niani', bs: 'Niani' },
     ],
     correctIndex: 0,
   },
