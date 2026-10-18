@@ -616,7 +616,7 @@ interface Layer {
       }
       .deck {
         right: 0;
-        bottom: 3.5rem;
+        bottom: 3.3rem;
       }
       .week-deck {
         left: 0;
