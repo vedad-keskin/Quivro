@@ -63,7 +63,7 @@ interface Layer {
             aria-haspopup="dialog"
             [attr.aria-label]="lang.t().weeklyRotation"
           >
-            <img src="/brand/free_week.webp" alt="" />
+            <img src="/brand/rotation_week.webp" alt="" />
           </button>
           @if (hasNews) {
             <button
@@ -173,7 +173,7 @@ interface Layer {
             (click)="$event.stopPropagation()"
           >
             <button #weekClose type="button" class="x" [attr.aria-label]="lang.t().close" (click)="closeWeek()">×</button>
-            <img class="weekly-badge" src="/brand/free_week.webp" alt="" />
+            <img class="weekly-badge" src="/brand/rotation_week.webp" alt="" />
             <p class="weekly-lead">{{ lang.t().freeThisWeek }}</p>
             <div class="weekly-items">
               <div class="weekly-item" [style.--accent]="categoryAccent[ent.freeThisWeek()]">

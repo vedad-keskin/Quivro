@@ -15,18 +15,29 @@ const LABELS = ['A', 'B', 'C', 'D'];
 const MIN_FONT_PX = 12;
 
 /** Shrink `el`'s font so its `.fit` child stays inside `box` (defaults to `el`). */
-export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): void {
+export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el, avoid?: HTMLElement): void {
   const inner = el.querySelector('.fit') as HTMLElement | null;
   if (!inner) return;
 
   el.style.fontSize = '';
+  inner.classList.remove('badge-cutout');
+  inner.style.transform = '';
   const preferred = parseFloat(getComputedStyle(el).fontSize);
   if (!Number.isFinite(preferred) || preferred <= 0) return;
   if (box.getBoundingClientRect().height <= 0 || box.getBoundingClientRect().width <= 0) return;
 
   const maxPx = preferred;
   const floor = Math.min(minPx, maxPx);
-  const fits = () => {
+  const badge = avoid?.getBoundingClientRect();
+  const textRange = badge ? document.createRange() : null;
+  textRange?.selectNodeContents(inner);
+  const collidingLines = () => badge && textRange
+    ? Array.from(textRange.getClientRects()).filter((line) =>
+        line.left < badge.right + 8 && line.right > badge.left - 8 &&
+        line.top < badge.bottom + 8 && line.bottom > badge.top - 8
+      )
+    : [];
+  const fitsSize = () => {
     const style = getComputedStyle(box);
     const boxSize = box.getBoundingClientRect();
     const textSize = inner.getBoundingClientRect();
@@ -36,8 +47,34 @@ export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): 
       .reduce((sum, side) => sum + (parseFloat(style.getPropertyValue(side)) || 0), 0);
     return (
       textSize.height <= boxSize.height - insetY &&
-      textSize.width <= boxSize.width - insetX
+      Math.max(textSize.width, inner.scrollWidth) <= boxSize.width - insetX + 1
     );
+  };
+  const fits = () => {
+    inner.classList.remove('badge-cutout');
+    inner.style.transform = '';
+    const lines = collidingLines();
+    if (!badge || !lines.length) return fitsSize();
+
+    const shift = badge.bottom + 8 - Math.min(...lines.map((line) => line.top));
+    const boxSize = box.getBoundingClientRect();
+    const style = getComputedStyle(box);
+    const bottomInset = (parseFloat(style.paddingBottom) || 0) + (parseFloat(style.borderBottomWidth) || 0);
+    if (inner.getBoundingClientRect().bottom + shift <= boxSize.bottom - bottomInset + 1) {
+      inner.style.transform = `translateY(${shift}px)`;
+      if (collidingLines().length === 0 && fitsSize()) return true;
+      inner.style.transform = '';
+    }
+
+    inner.style.removeProperty('--badge-cutout-width');
+    inner.style.removeProperty('--badge-cutout-height');
+    inner.classList.add('badge-cutout');
+    inner.style.setProperty('--badge-cutout-width', `${Math.max(0, badge.right + 8 - inner.getBoundingClientRect().left)}px`);
+    for (let pass = 0; pass < 3; pass++) {
+      inner.style.setProperty('--badge-cutout-height', `${Math.max(0, badge.bottom + 8 - inner.getBoundingClientRect().top)}px`);
+      if (collidingLines().length === 0) break;
+    }
+    return collidingLines().length === 0 && fitsSize();
   };
 
   if (fits()) return;
@@ -58,6 +95,7 @@ export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): 
   }
 
   el.style.fontSize = `${best}px`;
+  fits();
 }
 
 @Component({
@@ -206,7 +244,7 @@ export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): 
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-inline: calc(clamp(2.4rem, 3.5vw, 3.2rem) + 0.3rem);
+      padding-inline: 0.5rem;
       text-align: center;
       line-height: 1.15;
       font-size: clamp(1.85rem, 4.5vw, 3.25rem);
@@ -214,8 +252,16 @@ export function fitFont(el: HTMLElement, minPx: number, box: HTMLElement = el): 
       overflow: hidden;
     }
     .fit {
-      max-width: 100%;
-      overflow-wrap: anywhere;
+      width: 100%;
+      min-width: 0;
+      overflow-wrap: normal;
+      text-wrap: balance;
+    }
+    .fit.badge-cutout::before {
+      content: '';
+      float: left;
+      width: var(--badge-cutout-width);
+      height: var(--badge-cutout-height);
     }
     .pickers {
       position: absolute;
@@ -338,7 +384,9 @@ export class AnswerGrid {
   private fitAllTexts(): void {
     const texts = this.host.nativeElement.querySelectorAll('.text');
     for (const node of texts) {
-      fitFont(node as HTMLElement, MIN_FONT_PX);
+      const text = node as HTMLElement;
+      const badge = text.closest('.answer')?.querySelector('.letter') as HTMLElement | null;
+      fitFont(text, MIN_FONT_PX, text, badge ?? undefined);
     }
   }
 }

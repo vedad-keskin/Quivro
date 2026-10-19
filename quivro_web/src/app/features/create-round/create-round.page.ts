@@ -234,7 +234,7 @@ function loadRoundPrefs(): RoundPrefs | null {
                   <span class="stamp" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12.5 L10 17.5 L19 7" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
                 }
                 @if (isWeeklyCategory(cat)) {
-                  <img class="corner-badge" src="/brand/free_week.webp" [alt]="lang.t().freeThisWeek" />
+                  <img class="corner-badge" src="/brand/rotation_week.webp" [alt]="lang.t().freeThisWeek" />
                 } @else if (isProCategory(cat)) {
                   <img class="corner-badge" src="/brand/pro_badge.webp" [alt]="proAlt(ent.categoryLocked(cat))" />
                 }
@@ -432,7 +432,7 @@ function loadRoundPrefs(): RoundPrefs | null {
                       </div>
                       @if (slot) {
                         @if (ent.isWeeklyPowerUpSlot(powerUpSlots(), $index)) {
-                          <img class="corner-badge" src="/brand/free_week.webp" [alt]="lang.t().freeThisWeek" />
+                          <img class="corner-badge" src="/brand/rotation_week.webp" [alt]="lang.t().freeThisWeek" />
                         } @else {
                           <img class="corner-badge" src="/brand/pro_badge.webp" [alt]="proAlt(ent.powerUpSlotLocked(powerUpSlots(), $index))" />
                         }

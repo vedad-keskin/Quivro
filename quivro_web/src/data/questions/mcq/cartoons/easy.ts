@@ -28,7 +28,7 @@ export const cartoonsEasy: Question[] = [
       bs: 'Elsa je glavni lik u kojem Disney filmu?'
     },
     options: [
-      { en: 'Moana', bs: 'Moana' },
+      { en: 'Moana', bs: 'Vajana' },
       { en: 'Tangled', bs: 'Tangled' },
       { en: 'Frozen', bs: 'Frozen' },
       { en: 'Encanto', bs: 'Encanto' },
@@ -127,11 +127,11 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Where does SpongeBob work?',
-      bs: 'Gdje SpongeBob radi?'
+      bs: 'Gdje Spužva Bob radi?'
     },
     options: [
-      { en: 'Krusty Krab', bs: 'Krusty Krab' },
-      { en: 'Chum Bucket', bs: 'Chum Bucket' },
+      { en: 'Krusty Krab', bs: 'Rakova poslastica' },
+      { en: 'Chum Bucket', bs: 'Prijateljska kantica' },
       { en: 'Jellyfish Fields', bs: 'Polja meduza' },
       { en: 'Bikini Bottom Mall', bs: 'Tržni centar Bikini Doline' },
     ],
@@ -143,8 +143,8 @@ export const cartoonsEasy: Question[] = [
     category: 'cartoons',
     difficulty: 'easy',
     prompt: {
-      en: 'What is SpongeBob’s pet snail called?',
-      bs: 'Kako se zove SpongeBobov kućni ljubimac puž?'
+      en: 'What is the name of SpongeBob’s pet snail?',
+      bs: 'Kako se zove puž, kućni ljubimac Spužva Boba?'
     },
     options: [
       { en: 'Gary', bs: 'Gary' },
@@ -195,7 +195,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'What is Homer Simpson\'s favorite food?',
-      bs: 'Koja je Homerova omiljena hrana?'
+      bs: 'Koja je Homerova omiljena hrana u serijalu Simpsoni?'
     },
     options: [
       { en: 'Sandwiches', bs: 'Sendviči' },
@@ -212,7 +212,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'What type of toy is Woody in Toy Story?',
-      bs: 'Koja vrsta igračke je Woody u filmu Toy Story?'
+      bs: 'Koja vrsta igračke je Woody u filmu Priča o igračkama?'
     },
     options: [
       { en: 'Cowboy', bs: 'Kauboj' },
@@ -229,7 +229,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'What role does Buzz Lightyear play in Toy Story?',
-      bs: 'Koju ulogu ima Buzz Lightyear u filmu Toy Story?'
+      bs: 'Koju ulogu ima Buzz Svjetlosni u filmu Priča o igračkama?'
     },
     options: [
       { en: 'Pirate', bs: 'Gusar' },
@@ -246,7 +246,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'In which underwater city does SpongeBob live?',
-      bs: 'U kojem podvodnom gradu SpongeBob živi?'
+      bs: 'U kojem podvodnom gradu Spužva Bob živi?'
     },
     options: [
       { en: 'Bikini Bottom', bs: 'Bikini Dolina' },
@@ -314,7 +314,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'In Aladdin, what does Aladdin find in the cave?',
-      bs: 'U Aladdinu, šta Aladdin pronađe u pećini?'
+      bs: 'U Aladdinu, šta Aladdin pronalazi u pećini?'
     },
     options: [
       { en: 'A magic lamp', bs: 'Čarobnu lampu' },
@@ -382,7 +382,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Who helps Gru carry out his plans in Despicable Me?',
-      bs: 'Ko pomaže Gruu u izvršavanju planova u filmu Despicable Me?'
+      bs: 'Ko pomaže Gruu u izvršavanju planova u filmu Grozni Ja?'
     },
     options: [
       { en: 'Minions', bs: 'Minioni' },
@@ -541,7 +541,7 @@ export const cartoonsEasy: Question[] = [
       { en: 'Violet', bs: 'Violet' },
       { en: 'Dash', bs: 'Dash' },
       { en: 'Jack-Jack', bs: 'Jack-Jack' },
-      { en: 'Mr. Incredible', bs: 'Gospodin Nevjerovatni' },
+      { en: 'Mr. Incredible', bs: 'Gospodin Izbavitelj' },
     ],
     correctIndex: 0,
   },
@@ -552,7 +552,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'What type of animal is Judy Hopps in Zootopia?',
-      bs: 'Kakva je životinja Policajka Hoplić u Zootopiji?'
+      bs: 'Kakva je životinja Policajka Hoplić u Zootropoli?'
     },
     options: [
       { en: 'Fox', bs: 'Lisica' },
@@ -569,7 +569,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Where does most of the story of Inside Out take place?',
-      bs: 'Gdje se najveći dio priče u filmu Inside Out odvija?'
+      bs: 'Gdje se najveći dio priče u filmu Izvrnuto obrnuto odvija?'
     },
     options: [
       { en: 'Inside a mind', bs: 'Unutar uma' },
@@ -705,7 +705,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Who is the red racing car in Cars?',
-      bs: 'Ko je crveni trkaći auto u Carsu?'
+      bs: 'Ko je crveni trkaći auto u filmu Auti?'
     },
     options: [
       { en: 'Mater', bs: 'Šlep' },
@@ -790,7 +790,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Who do Mike and Sulley scare in Monsters, Inc.?',
-      bs: 'Koga Mike i Sulley plaše u filmu Monsters, Inc.?'
+      bs: 'Koga Mike i Sulley plaše u filmu Čudovišta iz ormara?'
     },
     options: [
       { en: 'Adults', bs: 'Odrasle' },
@@ -811,7 +811,7 @@ export const cartoonsEasy: Question[] = [
     },
     options: [
       { en: 'Peter Pan', bs: 'Peter Pan' },
-      { en: 'Pinocchio', bs: 'Pinocchio' },
+      { en: 'Pinocchio', bs: 'Pinokio' },
       { en: 'Aladdin', bs: 'Aladdin' },
       { en: 'Simba', bs: 'Simba' },
     ],
@@ -926,7 +926,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'What does Pinocchio\'s nose do when he lies?',
-      bs: 'Šta se desi Pinocchiovom nosu kad laže?'
+      bs: 'Šta se desi Pinokijevom nosu kad laže?'
     },
     options: [
       { en: 'It grows', bs: 'Raste' },
@@ -1096,7 +1096,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'What is the name of the green one-eyed monster in Monsters, Inc.?',
-      bs: 'Kako se zove zeleno čudovište s jednim okom u Monsters, Inc.?'
+      bs: 'Kako se zove zeleno čudovište s jednim okom u Čudovištima iz ormara?'
     },
     options: [
       { en: 'Mike', bs: 'Mike' },
@@ -1130,7 +1130,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'What kind of animal is Heihei in Moana?',
-      bs: 'Koja je životinja Heihei u filmu Moana?',
+      bs: 'Koja je životinja Heihei u filmu Vajana?',
     },
     options: [
       { en: 'Pig', bs: 'Svinja' },
@@ -1164,7 +1164,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'What is Dash\'s superpower in The Incredibles?',
-      bs: 'Koja je Dashova supermoć u filmu The Incredibles?',
+      bs: 'Koja je Dashova supermoć u filmu Izbavitelji?',
     },
     options: [
       { en: 'Teleportation', bs: 'Teleportacija' },
@@ -1181,11 +1181,11 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which instrument does Squidward play in SpongeBob SquarePants?',
-      bs: 'Koji instrument svira Squidward u seriji SpongeBob SquarePants?',
+      bs: 'Koji instrument svira Lignjoslav u seriji Spužva Bob?',
     },
     options: [
-      { en: 'Trumpet', bs: 'Truba' },
-      { en: 'Flute', bs: 'Flauta' },
+      { en: 'Trumpet', bs: 'Trubu' },
+      { en: 'Flute', bs: 'Frulu' },
       { en: 'Clarinet', bs: 'Klarinet' },
       { en: 'Saxophone', bs: 'Saksofon' },
     ],
@@ -1283,7 +1283,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which character hypnotizes others in Disney\'s The Jungle Book?',
-      bs: 'Koji lik hipnotiše druge u Disneyjevom filmu The Jungle Book?',
+      bs: 'Koji lik hipnotiše druge likove u Disneyjevom filmu Knjiga o džungli?',
     },
     options: [
       { en: 'Bagheera', bs: 'Bagheera' },
@@ -1304,7 +1304,7 @@ export const cartoonsEasy: Question[] = [
     },
     options: [
       { en: 'King Richard', bs: 'Kralj Richard' },
-      { en: 'Prince John', bs: 'Prince John' },
+      { en: 'Prince John', bs: 'Princ John' },
       { en: 'King Louie', bs: 'King Louie' },
       { en: 'Lord Farquaad', bs: 'Lord Farquaad' },
     ],
@@ -1476,7 +1476,7 @@ export const cartoonsEasy: Question[] = [
       { en: 'Digital World', bs: 'Digitalni svijet' },
       { en: 'Mushroom Kingdom', bs: 'Kraljevstvo gljiva' },
       { en: 'Spirit World', bs: 'Svijet duhova' },
-      { en: 'Magic Dimension', bs: 'Magična dimenzija' },
+      { en: 'Magic Dimension', bs: 'Magičnu dimenziju' },
     ],
     correctIndex: 0,
   },
