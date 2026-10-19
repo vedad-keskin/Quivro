@@ -254,7 +254,6 @@ type ImagePhase = 'idle' | 'preview' | 'sliding' | 'docked';
                       <span class="plate"><img [src]="categoryInfo[cat].icon" alt="" /></span>
                       <span class="tile-copy">
                         <strong>{{ categoryLabel(cat) }}</strong>
-                        <span>{{ categoryDesc(cat) }}</span>
                       </span>
                       @if (selectedCats().includes(cat)) {
                         <span class="stamp" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12.5 L10 17.5 L19 7" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
@@ -1457,18 +1456,18 @@ export class PlayPage implements OnInit, OnDestroy {
   powerUpOf(slot: PowerUpSlot) {
     return POWER_UP_CATALOG.find((p) => p.id === slot);
   }
-  readonly categoryInfo: Record<CategoryId, { icon: string; descKey: keyof UiStrings; accent: string }> = {
-    geography: { icon: '/room-icons/geo.png', descKey: 'descGeography', accent: CATEGORY_ACCENT.geography },
-    biology: { icon: '/room-icons/bio.png', descKey: 'descBiology', accent: CATEGORY_ACCENT.biology },
-    history: { icon: '/room-icons/his.png', descKey: 'descHistory', accent: CATEGORY_ACCENT.history },
-    technology: { icon: '/room-icons/tech.png', descKey: 'descTechnology', accent: CATEGORY_ACCENT.technology },
-    sports: { icon: '/room-icons/sports.png', descKey: 'descSports', accent: CATEGORY_ACCENT.sports },
-    movies: { icon: '/room-icons/movtv.png', descKey: 'descMovies', accent: CATEGORY_ACCENT.movies },
-    cartoons: { icon: '/room-icons/cartoons.png', descKey: 'descCartoons', accent: CATEGORY_ACCENT.cartoons },
-    famous: { icon: '/room-icons/fam.png', descKey: 'descFamous', accent: CATEGORY_ACCENT.famous },
-    islam: { icon: '/room-icons/isl.png', descKey: 'descIslam', accent: CATEGORY_ACCENT.islam },
-    food: { icon: '/room-icons/food.png', descKey: 'descFood', accent: CATEGORY_ACCENT.food },
-    images: { icon: '/room-icons/picture.png', descKey: 'descPictureQ', accent: CATEGORY_ACCENT.images },
+  readonly categoryInfo: Record<CategoryId, { icon: string; accent: string }> = {
+    geography: { icon: '/room-icons/geo.png', accent: CATEGORY_ACCENT.geography },
+    biology: { icon: '/room-icons/bio.png', accent: CATEGORY_ACCENT.biology },
+    history: { icon: '/room-icons/his.png', accent: CATEGORY_ACCENT.history },
+    technology: { icon: '/room-icons/tech.png', accent: CATEGORY_ACCENT.technology },
+    sports: { icon: '/room-icons/sports.png', accent: CATEGORY_ACCENT.sports },
+    movies: { icon: '/room-icons/movtv.png', accent: CATEGORY_ACCENT.movies },
+    cartoons: { icon: '/room-icons/cartoons.png', accent: CATEGORY_ACCENT.cartoons },
+    famous: { icon: '/room-icons/fam.png', accent: CATEGORY_ACCENT.famous },
+    islam: { icon: '/room-icons/isl.png', accent: CATEGORY_ACCENT.islam },
+    food: { icon: '/room-icons/food.png', accent: CATEGORY_ACCENT.food },
+    images: { icon: '/room-icons/picture.png', accent: CATEGORY_ACCENT.images },
   };
   readonly typeInfo: Record<QuestionType, { icon: string; descKey: keyof UiStrings; accent: string }> = {
     mcq: { icon: '/room-icons/text.png', descKey: 'descTextQ', accent: TYPE_ACCENT.mcq },
@@ -1885,10 +1884,6 @@ export class PlayPage implements OnInit, OnDestroy {
   categoryLabel(cat: string): string {
     const key = cat as CategoryId;
     return this.lang.t()[key] ?? cat;
-  }
-
-  categoryDesc(cat: CategoryId): string {
-    return this.lang.t()[this.categoryInfo[cat].descKey];
   }
 
   difficultyLabel(diff: string): string {

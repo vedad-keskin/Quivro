@@ -542,28 +542,6 @@ function loadRoundPrefs(): RoundPrefs | null {
       gap: 2.1rem;
       align-content: start;
     }
-    .create .tiles-cats {
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-    }
-    .create .tiles-cats .tile {
-      display: grid;
-      justify-items: center;
-      align-content: center;
-      gap: 0.3rem;
-      min-height: 112px;
-      padding: 0.5rem 0.3rem;
-      text-align: center;
-    }
-    .create .tiles-cats .tile-copy {
-      padding-right: 0;
-    }
-    @media (max-width: 860px) {
-      .create .tiles-cats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    }
-    @media (max-width: 520px) {
-      .create .tiles-cats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-
     .title {
       display: flex;
       align-items: center;

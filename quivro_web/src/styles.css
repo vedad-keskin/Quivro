@@ -608,7 +608,19 @@ html[data-theme='dark'] .q-show .wordmark {
   padding-top: 0.9rem;
 }
 .q-show .rs .tiles-cats {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.q-show .rs .tiles-cats .tile {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 0.3rem;
+  min-height: 112px;
+  padding: 0.5rem 0.3rem;
+  text-align: center;
+}
+.q-show .rs .tiles-cats .tile-copy {
+  padding-right: 0;
 }
 .q-show .rs .tile {
   position: relative;
@@ -1079,14 +1091,13 @@ html:not([data-theme='dark']) .q-show .rs .slot-plus {
 }
 @media (max-width: 860px) {
   .q-show .rs .tiles-cats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 @media (max-width: 720px) {
   .q-show .rs {
     --win: 68px;
   }
-  .q-show .rs .tiles-cats,
   .q-show .rs .pair {
     grid-template-columns: 1fr;
   }
@@ -1102,6 +1113,11 @@ html:not([data-theme='dark']) .q-show .rs .slot-plus {
     right: -10px;
     width: 34px;
     height: 34px;
+  }
+}
+@media (max-width: 520px) {
+  .q-show .rs .tiles-cats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 @media (prefers-reduced-motion: reduce) {
