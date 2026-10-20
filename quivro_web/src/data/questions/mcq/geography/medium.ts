@@ -967,7 +967,7 @@ export const geographyMedium: Question[] = [
     category: 'geography',
     difficulty: 'medium',
     prompt: { en: 'Table Mountain overlooks which South African city?', 
-      bs: 'Table Mountain gleda na koji južnoafrički grad?' },
+      bs: 'Iznad kojeg se južnoafričkog grada uzdiže Stolna planina (Table Mountain)?' },
     options: [
       { en: 'Johannesburg', bs: 'Johannesburg' },
       { en: 'Durban', bs: 'Durban' },
@@ -1009,7 +1009,7 @@ export const geographyMedium: Question[] = [
     type: 'mcq',
     category: 'geography',
     difficulty: 'medium',
-    prompt: { en: 'Which country is double-landlocked (surrounded only by landlocked countries)?', bs: 'Koja zemlja je dvostruko bezizlazna (okružena samo zemljama bez izlaza na more)?' },
+    prompt: { en: 'Which country is double-landlocked (surrounded only by landlocked countries)?', bs: 'Koja je zemlja okružena isključivo zemljama bez izlaza na more?' },
     options: [
       { en: 'Switzerland', bs: 'Švicarska' },
       { en: 'Austria', bs: 'Austrija' },
@@ -1127,7 +1127,7 @@ export const geographyMedium: Question[] = [
     type: 'mcq',
     category: 'geography',
     difficulty: 'medium',
-    prompt: { en: 'The Caucasus Mountains lie between which two seas?', bs: 'Kavkaske planine leže između koja dva mora?' },
+    prompt: { en: 'The Caucasus Mountains lie between which two seas?', bs: 'Koja dva mora omeđuju Kavkaske planine?' },
     options: [
       { en: 'Black Sea and Caspian Sea', bs: 'Crno more i Kaspijsko more' },
       { en: 'Mediterranean and Red Sea', bs: 'Sredozemno i Crveno more' },

@@ -47,7 +47,7 @@ export const moviesHard: Question[] = [
     options: [
       { en: 'Tortoises and baby elephants', bs: 'Kornjača i slonova' },
       { en: 'Lions and tigers', bs: 'Lavova i tigrova' },
-      { en: 'Whales and dolphins', bs: 'Kitova i dolfina' },
+      { en: 'Whales and dolphins', bs: 'Kitova i delfina' },
       { en: 'Horses and cows', bs: 'Konja i krava' },
     ],
     correctIndex: 0,
@@ -501,7 +501,7 @@ export const moviesHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Who performed Gollum through motion capture in The Lord of the Rings?',
-      bs: 'Ko je glumio Golluma kroz motion capture u Gospodaru prstenova?'
+      bs: 'Ko je glumio Golluma tehnikom snimanja pokreta u Gospodaru prstenova?'
     },
     options: [
       { en: 'Ian McKellen', bs: 'Ian McKellen' },
@@ -773,7 +773,7 @@ export const moviesHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'What is the name of Jon Snow’s direwolf in Game of Thrones?',
-      bs: 'Kako se zove strašni vuk Jona Snowa u serijalu Igra Prestolja?'
+      bs: 'Kako se zove strahovuk Jona Snowa u serijalu Igra prijestolja?'
     },
     options: [
       { en: 'Ghost', bs: 'Ghost' },
@@ -807,7 +807,7 @@ export const moviesHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'What was the name of Arya Stark’s sword in Game of Thrones?',
-      bs: 'Kako se zvao mač Arye Stark u serijalu Igra Prestolja?'
+      bs: 'Kako se zvao mač Arye Stark u serijalu Igra prijestolja?'
     },
     options: [
       { en: 'Needle', bs: 'Needle' },
@@ -841,7 +841,7 @@ export const moviesHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which actor played both a Game of Thrones character and a Star Wars character?',
-      bs: 'Koji glumac je imao ulogu u serijalu Igra Prestolja i Ratovima Zvijezda?'
+      bs: 'Koji glumac je imao ulogu u serijalima Igra prijestolja i Ratovi zvijezda?'
     },
     options: [
       { en: 'Gwendoline Christie', bs: 'Gwendoline Christie' },
@@ -858,7 +858,7 @@ export const moviesHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'What was the name of Ned Stark’s greatsword in Game of Thrones?',
-      bs: 'Kako se zvao veliki mač Neda Starka u serijalu Igra Prestolja?'
+      bs: 'Kako se zvao veliki mač Neda Starka u serijalu Igra prijestolja?'
     },
     options: [
       { en: 'Ice', bs: 'Ice' },
@@ -960,7 +960,7 @@ export const moviesHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which film did Matt Damon and Ben Affleck write together that made them famous?',
-      bs: 'Koji film su Matt Damon i Ben Affleck zajedno napisali koji ih je proslavio?'
+      bs: 'Koji su film zajedno napisali Matt Damon i Ben Affleck i njime se proslavili?'
     },
     options: [
       { en: 'Good Will Hunting', bs: 'Good Will Hunting' },

@@ -67,7 +67,7 @@ def write_report(findings, coverage):
     lines = [
         "# Prijedlozi jezičkih ispravki MCQ pitanja i odgovora",
         "",
-        "Pregledano je svih **30 datoteka**, **3.091 pitanje** i **12.364 ponuđena odgovora** na bosanskom jeziku u `quivro_web/src/data/questions/mcq/`. Ispod su prijedlozi za uočene pravopisne, gramatičke, padežne i jasno formulirane tekstualne greške. Izvorni podaci ovim pregledom nisu ispravljani.",
+        "Pregledano je svih **30 datoteka**, **3.091 pitanje** i **12.364 ponuđena odgovora** na bosanskom jeziku u `quivro_web/src/data/questions/mcq/`. Ispod su prijedlozi za uočene pravopisne i gramatičke greške, pogrešne padeže i nespretne formulacije. Izvorni podaci ovim pregledom nisu ispravljani.",
         "",
         f"**Ukupno prijedloga:** {len(findings)}. Označi kućicu uz prijedlog koji prihvataš; ID i lokacija vode do tačnog polja u izvornom kodu. Canvas prikaz omogućava pretragu i bilježenje odluke za svaki prijedlog.",
         "",

@@ -8,7 +8,7 @@ export const famousHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which scientific chart is Dmitri Mendeleev best known for creating?',
-      bs: 'Koju naučnu tabelu je Dmitri Mendelejev najpoznatiji po stvaranju?',
+      bs: 'Koju je naučnu tabelu Dmitri Mendelejev stvorio i po njoj postao poznat?',
     },
     options: [
       { en: 'Periodic table', bs: 'Periodni sistem elemenata' },
@@ -76,7 +76,7 @@ export const famousHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'I.M. Pei designed the glass pyramid entrance at which museum?',
-      bs: 'I.M. Pei je dizajnirao staklenu piramidalnu ulaznicu na kojem muzeju?',
+      bs: 'U kojem muzeju je I. M. Pei dizajnirao staklenu ulaznu piramidu?',
     },
     options: [
       { en: 'Louvre', bs: 'Louvreu' },
@@ -93,7 +93,7 @@ export const famousHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Who was the first person to climb all 14 mountains above 8,000 meters?',
-      bs: 'Ko je prvi popeo svih 14 planina viših od 8.000 metara?'
+      bs: 'Ko se prvi popeo na svih 14 planina viših od 8.000 metara?'
     },
     options: [
       { en: 'Reinhold Messner', bs: 'Reinhold Messner' },
@@ -110,7 +110,7 @@ export const famousHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Who climbed Mount Everest without bottled oxygen for the first time?',
-      bs: 'Ko je prvi popeo Mount Everest bez dodatnog kisika?'
+      bs: 'Ko se prvi popeo na Mount Everest bez dodatnog kisika?'
     },
     options: [
       { en: 'Reinhold Messner and Peter Habeler', bs: 'Reinhold Messner i Peter Habeler' },
@@ -144,7 +144,7 @@ export const famousHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Nelson Mandela spent decades opposing which system of racial segregation?',
-      bs: 'Nelson Mandela je decenijama se suprotstavljao kojem sistemu rasne segregacije?',
+      bs: 'Kojem sistemu rasne segregacije se Nelson Mandela suprotstavljao decenijama?',
     },
     options: [
       { en: 'Apartheid', bs: 'Apartheidu' },
@@ -161,7 +161,7 @@ export const famousHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'What is Johnny Knoxville best known for creating?',
-      bs: 'Po čemu je Johnny Knoxville najpoznatiji kao tvorac?',
+      bs: 'Koji je serijal proslavio Johnnyja Knoxvillea kao tvorca?',
     },
     options: [
       { en: 'Jackass', bs: 'Jackass' },
@@ -470,7 +470,7 @@ export const famousHard: Question[] = [
       bs: 'Garrett Morgan je patentirao sigurnosne uređaje uključujući ranu verziju kojeg izuma?',
     },
     options: [
-      { en: 'X-ray scanner', bs: 'X-ray skenera' },
+      { en: 'X-ray scanner', bs: 'Rendgenskog skenera' },
       { en: 'Radar receiver', bs: 'Radar prijemnika' },
       { en: 'Sonar buoy', bs: 'Sonar bove' },
       { en: 'Traffic signal', bs: 'Semafora' },
@@ -790,7 +790,7 @@ export const famousHard: Question[] = [
     difficulty: 'hard',
     prompt: { 
       en: 'Which famous scientist had a pet crow named Grip?',
-      bs: 'Koji poznati naučnik je imao gavrana po imenu Grip?'
+      bs: 'Koji poznati pisac je imao gavrana po imenu Grip?'
     },
     options: [
       { en: 'Charles Dickens', bs: 'Charles Dickens' },
@@ -1221,7 +1221,7 @@ export const famousHard: Question[] = [
       { en: 'Behistun inscription', bs: 'Behistun natpis' },
       { en: 'Phaistos disc', bs: 'Phaistos disk' },
       { en: 'Linear B tablets', bs: 'Linear B tablice' },
-      { en: 'Rosetta Stone', bs: 'Rosetta kamen' },
+      { en: 'Rosetta Stone', bs: 'Rozetski kamen' },
     ],
     correctIndex: 3,
   },
@@ -1385,7 +1385,7 @@ export const famousHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Euclid\'s Elements systematized proofs in which branch of mathematics?',
-      bs: 'Euklidovi Elements su sistematizovali dokaze u kojoj grani matematike?',
+      bs: 'Euklidovi Elementi su sistematizovali dokaze u kojoj grani matematike?',
     },
     options: [
       { en: 'Arithmetic', bs: 'Aritmetici' },
@@ -1646,7 +1646,7 @@ export const famousHard: Question[] = [
       { en: 'Ammonia', bs: 'Amonijaka' },
       { en: 'Silicon wafers', bs: 'Silicijumskih ploča' },
       { en: 'Synthetic rubber', bs: 'Sintetičke gume' },
-      { en: 'Nylon fibers', bs: 'Najlon vlakana' },
+      { en: 'Nylon fibers', bs: 'Najlonskih vlakana' },
     ],
     correctIndex: 0,
   },
@@ -1677,7 +1677,7 @@ export const famousHard: Question[] = [
       bs: 'Gertrude Ederle je bila prva žena koja je preplivala koje vodeno tijelo?',
     },
     options: [
-      { en: 'Panama Canal', bs: 'Panama kanal' },
+      { en: 'Panama Canal', bs: 'Panamski kanal' },
       { en: 'Strait of Gibraltar', bs: 'Gibraltarski moreuz' },
       { en: 'English Channel', bs: 'La Manche' },
       { en: 'Bosphorus', bs: 'Bosfor' },

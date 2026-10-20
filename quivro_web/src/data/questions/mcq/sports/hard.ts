@@ -176,7 +176,7 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: { en: 'Which Scottish manager led Manchester United to the 1999 Champions League treble?',
-              bs: 'Koji škotski trener je odveo Manchester United do triplete Lige šampiona 1999.?' },
+              bs: 'Koji je škotski trener predvodio Manchester United do trostruke krune 1999. godine?' },
     options: [
       { en: 'Kenny Dalglish', bs: 'Kenny Dalglish' },
       { en: 'Alex Ferguson', bs: 'Alex Ferguson' },
@@ -428,7 +428,7 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: { en: 'Which Argentine F1 legend won five world titles in the 1950s?',
-              bs: 'Koji argentinski F1 legendarni vozač je osvojio pet svjetskih titula 1950-ih?' },
+              bs: 'Koji je legendarni argentinski vozač Formule 1 osvojio pet svjetskih titula 1950-ih?' },
     options: [
       { en: 'Carlos Reutemann', bs: 'Carlos Reutemann' },
       { en: 'Juan Manuel Fangio', bs: 'Juan Manuel Fangio' },
@@ -1217,7 +1217,7 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: { en: 'Which English club completed the first “Invincibles” Premier League season without a loss?',
-              bs: 'Koji engleski klub je ostvario prvu „Invincibles“ Premier liga sezonu bez poraza?' },
+              bs: 'Koji je engleski klub prvi završio sezonu Premier lige bez poraza, kao „Invincibles“?' },
     options: [
       { en: 'Manchester United', bs: 'Manchester United' },
       { en: 'Arsenal', bs: 'Arsenal' },
@@ -1569,7 +1569,7 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: { en: 'Which Dutch club’s youth academy is nicknamed “De Toekomst” and produced generations of stars?',
-              bs: 'Koja holandska omladinska akademija ima nadimak „De Toekomst“ i proizvela je generacije zvijezda?' },
+              bs: 'Koji holandski klub ima omladinsku akademiju „De Toekomst“ iz koje su potekle brojne zvijezde?' },
     options: [
       { en: 'Feyenoord', bs: 'Feyenoord' },
       { en: 'Ajax', bs: 'Ajax' },
@@ -1938,7 +1938,7 @@ export const sportsHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Who scored the fastest goal in UEFA Champions League history with an assist from Hasan Salihamidžić in the 10th second?',
-      bs: 'Ko je postigao najbrži gol u historiji Lige prvaka asistencijom Hasana Salihamidžića u 10oj sekundi?'
+      bs: 'Ko je, uz asistenciju Hasana Salihamidžića, postigao najbrži gol u historiji Lige prvaka, u 10. sekundi?'
     },
     options: [
       { en: 'Roy Makaay', bs: 'Roy Makaay' },

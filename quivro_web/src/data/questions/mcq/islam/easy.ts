@@ -601,7 +601,7 @@ export const islamEasy: Question[] = [
     category: 'islam',
     difficulty: 'easy',
     prompt: { en: 'According to the famous hadith, what two things did the Prophet leave that prevent people from going astray?',
-              bs: 'Prema poznatom hadisu, koje je dvije stvari Poslanik ostavio kojih, ako se držimo, nećemo zalutati?' },
+              bs: 'Prema poznatom hadisu, koje nam je dvije stvari Poslanik ostavio da ne bismo zalutali ako ih se budemo držali?' },
     options: [
       { en: 'The Qur’an and his Sunnah', bs: 'Allahovu Knjigu i njegov sunnet' },
       { en: 'The Qur’an and scholarly opinions', bs: 'Kur’an i mišljenja učenjaka' },
@@ -1805,7 +1805,7 @@ export const islamEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which companion did the Prophet ﷺ marry to his daughter Ruqayya, and after her death also to Umm Kulthum?',
-      bs: 'Kojeg ashaba je Poslanik ﷺ oženio kćerkom Rukajjom, pa nakon njene smrti i drugom kćerkom Ummu Kulsum?',
+      bs: 'Za kojeg je ashaba Poslanik ﷺ udao kćerku Rukajju, a nakon njene smrti i kćerku Ummu Kulsum?',
     },
     options: [
       { en: 'Ali ibn Abi Talib', bs: 'Ali ibn Ebi Talib' },

@@ -37,7 +37,7 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Los Santos is a major city in which Rockstar open-world series?',
-              bs: 'Los Santos je glavni grad kojeg Rockstar open-world serijala?' },
+              bs: 'U kojem je Rockstarovom serijalu Los Santos važan grad?' },
     options: [
       { en: 'Grand Theft Auto', bs: 'Grand Theft Auto' },
       { en: 'Red Dead Redemption', bs: 'Red Dead Redemption' },
@@ -55,7 +55,7 @@ export const technologyMedium: Question[] = [
               bs: 'Koja je glavna svrha VPN-a?' },
     options: [
       { en: 'Encrypt and tunnel internet traffic', bs: 'Šifrira i tunelira internet saobraćaj' },
-      { en: 'Increase monitor refresh rate', bs: 'Povećava refresh rate monitora' },
+      { en: 'Increase monitor refresh rate', bs: 'Povećava učestalost osvježavanja monitora' },
       { en: 'Compress local hard drive files', bs: 'Kompresuje lokalne fajlove na disku' },
       { en: 'Replace a computer power supply', bs: 'Zamjenjuje napajanje računara' },
     ],
@@ -84,7 +84,7 @@ export const technologyMedium: Question[] = [
     prompt: { en: 'What is phishing in cybersecurity?',
               bs: 'Šta je phishing u sajber-sigurnosti?' },
     options: [
-      { en: 'Tricking users into revealing credentials', bs: 'Obmanjivanje korisnika da otkriju podatke' },
+      { en: 'Tricking users into revealing credentials', bs: 'Obmanjivanje korisnika da otkriju pristupne podatke' },
       { en: 'Scanning a network for open ports', bs: 'Skeniranje mreže za otvorene portove' },
       { en: 'Encrypting files with a strong cipher', bs: 'Šifriranje fajlova jakim šiframa' },
       { en: 'Blocking spam before it reaches inbox', bs: 'Blokiranje spama prije dolaska u inbox' },
@@ -102,7 +102,7 @@ export const technologyMedium: Question[] = [
       { en: 'Server database queries', bs: 'Upite na serversku bazu podataka' },
       { en: 'Styling and page layout', bs: 'Stil i raspored stranice' },
       { en: 'Hardware driver updates', bs: 'Ažuriranja hardverskih drajvera' },
-      { en: 'Network packet routing', bs: 'Usšrivanje mrežnih paketa' },
+      { en: 'Network packet routing', bs: 'Usmjeravanje mrežnih paketa' },
     ],
     correctIndex: 1,
   },
@@ -187,7 +187,7 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'What is a network firewall mainly designed to do?',
-              bs: 'Šta je mrežni firewall uglavnom dizajniran da radi?' },
+              bs: 'Šta mrežni firewall uglavnom radi?' },
     options: [
       { en: 'Filter traffic based on security rules', bs: 'Filtrira saobraćaj prema sigurnosnim pravilima' },
       { en: 'Cool the CPU during heavy loads', bs: 'Hladi CPU tokom velikog opterećenja' },
@@ -344,7 +344,7 @@ export const technologyMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which game became the first to reach 1 billion views on YouTube trailers?',
-      bs: 'Koja igra je prva dostigla 1 milijardu pregleda na YouTube trailerima?'
+      bs: 'Koja je igra prva dostigla milijardu pregleda svojih najava na YouTubeu?'
     },
     options: [
       { en: 'Minecraft', bs: 'Minecraft' },
@@ -562,7 +562,7 @@ export const technologyMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which car was the first production vehicle to use carbon fiber extensively?',
-      bs: 'Koji automobil je bio među prvim serijskim vozilima koji je u velikoj mjeri koristio karbonska vlakna?'
+      bs: 'Koji je automobil bio među prvim serijskim vozilima koja su u velikoj mjeri koristila karbonska vlakna?'
     },
     options: [
       { en: 'BMW i3', bs: 'BMW i3' },
@@ -982,7 +982,7 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'What do browser cookies commonly store?',
-              bs: 'Šta browser cookies obično pohranjuju?' },
+              bs: 'Šta obično pohranjuju kolačići preglednika?' },
     options: [
       { en: 'Site preferences and session data', bs: 'Postavke sajta i podatke sesije' },
       { en: 'CPU temperature readings', bs: 'Očitavanja temperature CPU-a' },
@@ -997,7 +997,7 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'What is two-factor authentication designed to add?',
-              bs: 'Šta je dvofaktorska autentifikacija namijenjena da doda?' },
+              bs: 'Šta dvofaktorska autentifikacija dodaje procesu prijave?' },
     options: [
       { en: 'A second password stored in plain text', bs: 'Drugu lozinku pohranjenu kao običan tekst' },
       { en: 'A backup email without verification', bs: 'Rezervni email bez verifikacije' },
@@ -1333,7 +1333,7 @@ export const technologyMedium: Question[] = [
       { en: 'Deeper blacks and higher contrast', bs: 'Dublji crni tonovi i veći kontrast' },
       { en: 'Built-in wireless charging', bs: 'Ugrađeno bežično punjenje' },
       { en: 'Unlimited outdoor brightness', bs: 'Neograničenu vanjsku svjetlinu' },
-      { en: 'Permanent zero motion blur', bs: 'Trajni nulti motion blur' },
+      { en: 'Permanent zero motion blur', bs: 'Trajno odsustvo zamućenja pokreta' },
     ],
     correctIndex: 0,
   },
@@ -1667,7 +1667,7 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'What does a heat sink primarily do in a computer?',
-              bs: 'Šta heat sink primarno radi u računaru?' },
+              bs: 'Šta hladnjak primarno radi u računaru?' },
     options: [
       { en: 'Helps dissipate heat from components', bs: 'Pomaže odvođenju toplote s komponenti' },
       { en: 'Stores backup copies of documents', bs: 'Čuva rezervne kopije dokumenata' },
@@ -1731,7 +1731,7 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Blitzcrank is best known for which signature ability?',
-              bs: 'Blitzcrank je najpoznatiji po kojoj signature sposobnosti?' },
+              bs: 'Po kojoj je sposobnosti Blitzcrank najpoznatiji?' },
     options: [
       { en: 'Rocket Grab', bs: 'Rocket Grab' },
       { en: 'Wind Wall', bs: 'Wind Wall' },
@@ -1748,10 +1748,10 @@ export const technologyMedium: Question[] = [
     prompt: { en: 'What does Yasuo\'s Wind Wall mainly block in League of Legends?',
               bs: 'Šta Yasuov Wind Wall uglavnom blokira u League of Legendsu?' },
     options: [
-      { en: 'Enemy towers', bs: 'Neprijateljske towere' },
+      { en: 'Enemy towers', bs: 'Neprijateljske tornjeve' },
       { en: 'Enemy projectiles', bs: 'Neprijateljske projektile' },
       { en: 'Ally healing', bs: 'Savezničko liječenje' },
-      { en: 'Jungle camps', bs: 'Jungle kampove' },
+      { en: 'Jungle camps', bs: 'Kampove u džungli' },
     ],
     correctIndex: 1,
   },
@@ -1764,9 +1764,9 @@ export const technologyMedium: Question[] = [
               bs: 'U operativnom sistemu, šta je kernel?' },
     options: [
       { en: 'The core that manages hardware and processes', bs: 'Jezgro koje upravlja hardverom i procesima' },
-      { en: 'A decorative desktop wallpaper pack', bs: 'Dekorativni paket wallpapera' },
+      { en: 'A decorative desktop wallpaper pack', bs: 'Paket pozadinskih slika' },
       { en: 'A type of external hard drive cable', bs: 'Vrsta kabla za eksterni hard disk' },
-      { en: 'A browser extension for passwords', bs: 'Browser ekstenzija za lozinke' },
+      { en: 'A browser extension for passwords', bs: 'Ekstenzija preglednika za lozinke' },
     ],
     correctIndex: 0,
   },
@@ -1781,7 +1781,7 @@ export const technologyMedium: Question[] = [
       { en: 'Translates source code into machine code', bs: 'Pretvara izvorni kod u mašinski kod' },
       { en: 'Cleans dust from computer fans', bs: 'Čisti prašinu iz računarskih ventilatora' },
       { en: 'Increases Wi-Fi signal strength', bs: 'Povećava snagu Wi-Fi signala' },
-      { en: 'Charges devices over USB-C', bs: 'Punjenje uređaja preko USB-C' },
+      { en: 'Charges devices over USB-C', bs: 'Puni uređaje putem USB-C-a' },
     ],
     correctIndex: 0,
   },
@@ -1886,7 +1886,7 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'What was Sega\'s color handheld rival to the Game Boy called?',
-              bs: 'Kako se zvala Segina ručna konzola u boji kojom se konkurirala Game Boyu?' },
+              bs: 'Kako se zvala Segina ručna konzola u boji koja je konkurisala Game Boyu?' },
     options: [
       { en: 'PSP', bs: 'PSP' },
       { en: 'Game Gear', bs: 'Game Gear' },
@@ -1901,7 +1901,7 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Which console did the Rumble Pak add vibration feedback to?',
-              bs: 'Na koju konzolu je Rumble Pak dodao vibracijski feedback?' },
+              bs: 'Na kojoj je konzoli Rumble Pak omogućio vibraciju?' },
     options: [
       { en: 'Dreamcast', bs: 'Dreamcast' },
       { en: 'PlayStation 1', bs: 'PlayStation 1' },
@@ -1994,7 +1994,7 @@ export const technologyMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which esport is Nikola "NiKo" Kovač, one of the greatest players in the world from Bosnia and Herzegovina, famous for?',
-      bs: 'U kojem esportu je Nikola "NiKo" Kovač, jedan od najboljih igrača svjeta iz Bosne i Hercegovine, poznat?'
+      bs: 'U kojem esportu je poznat Nikola „NiKo“ Kovač, jedan od najboljih igrača svijeta iz Bosne i Hercegovine?'
     },
     options: [
       { en: 'Counter-Strike', bs: 'Counter-Strike' },

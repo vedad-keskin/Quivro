@@ -8,7 +8,7 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which spice was once used as a symbol of wealth and traded along ancient spice routes?',
-      bs: 'Koji začin je nekada korišten kao simbol bogatstva i trgovao se drevnim putevima začina?'
+      bs: 'Koji je začin nekada korišten kao simbol bogatstva i kojim se trgovalo duž drevnih puteva začina?'
     },
     options: [
       { en: 'Cinnamon', bs: 'Cimet' },
@@ -59,7 +59,7 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which famous French blue cheese is aged in caves and developed with Penicillium mold cultures?',
-      bs: 'Koji poznati francuski plavi sir sazrijeva u pećinama i razvija uz pomoć kultura plijesni Penicillium?'
+      bs: 'Koji poznati francuski plavi sir sazrijeva u pećinama i razvija se uz pomoć kultura plijesni Penicillium?'
     },
     options: [
       { en: 'Gouda', bs: 'Gauda' },
@@ -875,7 +875,7 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'How many red stigmas does a single saffron crocus flower typically produce?',
-      bs: 'Koliko crvenih tučkova tipično daje jedan cvijet šafranove šafranike?',
+      bs: 'Koliko crvenih žigova tučka obično ima jedan cvijet šafrana?',
     },
     options: [
       { en: 'One', bs: 'Jedan' },
@@ -977,7 +977,7 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which Japanese dish consists of vinegared rice typically paired with raw fish?',
-      bs: 'Koje japansko jelo se sastoji od zakiseljene riže obično upareno sa sirovom ribom?',
+      bs: 'Koje se japansko jelo sastoji od zakiseljene riže, obično uparene sa sirovom ribom?',
     },
     options: [
       { en: 'Sashimi', bs: 'Sashimi' },
@@ -994,7 +994,7 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which plant\'s bitter compound thujone was blamed for absinthe\'s supposed madness, often exaggerated?',
-      bs: 'Koja biljka sadrži gorak spoj tujon koji se, često pretjerano krivio za navodno ludilo od absinta?',
+      bs: 'Koja biljka sadrži gorak spoj tujon koji se često pretjerano okrivljavao za navodno ludilo povezano s absintom?',
     },
     options: [
       { en: 'Wormwood', bs: 'Pelin' },
@@ -1096,7 +1096,7 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which root vegetable, orange in color, is a good source of beta-carotene and vitamin A?',
-      bs: 'Koje korjenasto povrće, narandžaste boje, je dobar izvor beta-karotena i vitamina A?',
+      bs: 'Koje je korjenasto povrće narandžaste boje dobar izvor beta-karotena i vitamina A?',
     },
     options: [
       { en: 'Carrot', bs: 'Šargarepa' },
@@ -1113,7 +1113,7 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which cooking fat, solid at room temperature, is made by churning cream?',
-      bs: 'Koja mast za kuhanje, čvrsta na sobnoj temperaturi, se pravi mućkanjem vrhnja?',
+      bs: 'Koja se masnoća za kuhanje, čvrsta na sobnoj temperaturi, pravi mućkanjem vrhnja?',
     },
     options: [
       { en: 'Butter', bs: 'Maslac' },
@@ -1130,7 +1130,7 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which Pacific clam is known for its very long siphon and is a prized sushi ingredient?',
-      bs: 'Koja pacifička školjka je poznata po vrlo dugom sifonu i cijenjen je sushi sastojak?',
+      bs: 'Koja je pacifička školjka poznata po vrlo dugom sifonu i cijenjena kao sastojak sušija?',
     },
     options: [
       { en: 'Geoduck', bs: 'Geoduck' },
@@ -1215,7 +1215,7 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which New Orleans dish is a spicy stew made with a dark roux, served over rice, often with sausage and seafood?',
-      bs: 'Koje jelo iz New Orleansa je ljuti gulaš na bazi tamnog prženog brašna, servira se preko riže, često s kobasicom i morskim plodovima?',
+      bs: 'Koje se jelo iz New Orleansa pravi s tamnom zaprškom i često poslužuje s rižom, kobasicom i morskim plodovima?',
     },
     options: [
       { en: 'Jambalaya', bs: 'Jambalaya' },
@@ -1266,7 +1266,7 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'What is the primary sugar in milk that many adults lose the ability to digest?',
-      bs: 'Koji je primarni šećer u mlijeku koji mnogi odrasli gube sposobnost probavljati?',
+      bs: 'Koji je glavni šećer u mlijeku koji mnogi odrasli više ne mogu probaviti?',
     },
     options: [
       { en: 'Lactose', bs: 'Laktoza' },
@@ -1589,7 +1589,7 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Who is widely credited with turning the döner kebab into a portable sandwich in flatbread, popularizing it in Berlin in the early 1970s?',
-      bs: 'Ko se najčešće smatra osobom koja je döner kebab pretvorila u prijenosni sendvič u tortilji, popularizujući ga u Berlinu ranih 1970-ih?',
+      bs: 'Ko se najčešće smatra osobom koja je döner kebab pretvorila u prijenosni sendvič u lepinji, popularizujući ga u Berlinu ranih 1970-ih?',
     },
     options: [
       { en: 'Kadir Nurman', bs: 'Kadir Nurman' },
@@ -1606,7 +1606,7 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which classic Turkish kebab variation, from the city of Bursa, is served on flatbread with yogurt, tomato sauce, and browned butter?',
-      bs: 'Koja klasična turska varijanta kebaba, iz grada Burse, se servira na pogačici s jogurtom, umakom od paradajza i zapečenim maslacem?',
+      bs: 'Koja se klasična turska varijanta kebaba iz Burse servira na pogačici s jogurtom, umakom od paradajza i zapečenim maslacem?',
     },
     options: [
       { en: 'İskender kebab', bs: 'İskender kebab' },

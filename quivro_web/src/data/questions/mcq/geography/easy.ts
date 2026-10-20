@@ -914,7 +914,7 @@ export const geographyEasy: Question[] = [
     options: [
       { en: 'Christ the Redeemer', bs: 'Krist Spasitelj' },
       { en: 'Machu Picchu', bs: 'Machu Picchu' },
-      { en: 'Moai statues', bs: 'Moai statue' },
+      { en: 'Moai statues', bs: 'Kipovi moai' },
       { en: 'Angkor Wat', bs: 'Angkor Wat' },
     ],
     correctIndex: 0,

@@ -97,7 +97,7 @@ export const sportsEasy: Question[] = [
     category: 'sports',
     difficulty: 'easy',
     prompt: { en: 'Which club was Lionel Messi most associated with for most of his career?',
-              bs: 'S kojim klubom je Lionel Messi bio najviše povezan veći dio svoje karijere?' },
+              bs: 'Za koji je klub Lionel Messi igrao veći dio karijere?' },
     options: [
       { en: 'Real Madrid', bs: 'Real Madrid' },
       { en: 'Barcelona', bs: 'Barselona' },
@@ -374,7 +374,7 @@ export const sportsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which trophy is awarded to the winners of the Super Bowl in American football?',
-      bs: 'Koji trofej se dodjeljuje pobjedniku Super Bowla u Američkom fudbalu?',
+      bs: 'Koji trofej se dodjeljuje pobjedniku Super Bowla u američkom fudbalu?',
     },
     options: [
       { en: 'Vince Lombardi Trophy', bs: 'Vince Lombardi Trophy' },
@@ -529,7 +529,7 @@ export const sportsEasy: Question[] = [
     category: 'sports',
     difficulty: 'easy',
     prompt: { en: 'Michael Phelps is famous for winning many Olympic medals in which sport?',
-              bs: 'Michael Phelps je poznat po mnogim olimpijskim medaljama u kojem sportu?' },
+              bs: 'U kojem je sportu Michael Phelps osvojio brojne olimpijske medalje?' },
     options: [
       { en: 'Athletics', bs: 'Atletika' },
       { en: 'Swimming', bs: 'Plivanje' },
@@ -994,7 +994,7 @@ export const sportsEasy: Question[] = [
     category: 'sports',
     difficulty: 'easy',
     prompt: { en: 'Rafael Nadal is especially famous for winning many titles on which surface?',
-              bs: 'Rafael Nadal je posebno poznat po mnogim titutama na kojoj podlozi?' },
+              bs: 'Rafael Nadal je posebno poznat po mnogim titulama na kojoj podlozi?' },
     options: [
       { en: 'Grass', bs: 'Travi' },
       { en: 'Clay', bs: 'Šljaci' },
@@ -1399,7 +1399,7 @@ export const sportsEasy: Question[] = [
     category: 'sports',
     difficulty: 'easy',
     prompt: { en: 'Which winter Olympic sport slides stones on ice toward a target?',
-              bs: 'Koji zimski olimpijski sport gura kamenje na ledu prema meti?' },
+              bs: 'U kojem se zimskom olimpijskom sportu kamenje gura po ledu prema meti?' },
     options: [
       { en: 'Ice hockey', bs: 'Hokej na ledu' },
       { en: 'Curling', bs: 'Curling' },

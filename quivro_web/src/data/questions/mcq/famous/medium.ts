@@ -25,7 +25,7 @@ export const famousMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Who was the first person to climb El Capitan in Yosemite without ropes or safety equipment?',
-      bs: 'Ko je bio prvi čovjek koji je popeo El Capitan u Yosemiteu bez užadi i zaštitne opreme?'
+      bs: 'Ko je bio prvi čovjek koji se popeo na El Capitan u Yosemiteu bez užadi i zaštitne opreme?'
     },
     options: [
       { en: 'Alex Honnold', bs: 'Alex Honnold' },
@@ -331,7 +331,7 @@ export const famousMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which ancient epic is Homer credited with writing?',
-      bs: 'Koja se drevni ep se pripisuje Homeru?',
+      bs: 'Koji se drevni ep pripisuje Homeru?',
     },
     options: [
       { en: 'Iliad', bs: 'Ilijada' },
@@ -1079,7 +1079,7 @@ export const famousMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which Formula 1 team did Lewis Hamilton drive for when he won his first championship?',
-      bs: 'Za koji Formula 1 tim je Lewis Hamilton vozio kada je osvojio svoju prvu titulu?'
+      bs: 'Za koji tim Formule 1 je Lewis Hamilton vozio kada je osvojio svoju prvu titulu?'
     },
     options: [
       { en: 'Ferrari', bs: 'Ferrari' },
@@ -1181,7 +1181,7 @@ export const famousMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'What did Mary Anning become famous for discovering?',
-      bs: 'Po čemu je Mary Anning postala poznata zbog svojih otkrića?'
+      bs: 'Otkrićima kojih fosila je Mary Anning postala poznata?'
     },
     options: [
       { en: 'Dinosaur fossils', bs: 'Fosilima dinosaurusa' },

@@ -20,7 +20,7 @@ export const islamMedium: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'medium',
-    prompt: { en: 'The Battle of Badr took place in which month and year of the Hijra?', bs: 'Bitka na Bedru se odigrala u kojem mjesecu i godini po hidžri?' },
+    prompt: { en: 'The Battle of Badr took place in which month and year of the Hijra?', bs: 'U kojem mjesecu i koje godine po hidžri se odigrala Bitka na Bedru?' },
     options: [
       { en: 'Shawwal, 1 AH', bs: 'Ševval, 1. h.g.' },
       { en: 'Ramadan, 2 AH', bs: 'Ramazan, 2. h.g.' },
@@ -72,7 +72,7 @@ export const islamMedium: Question[] = [
     options: [
       { en: 'Ayat al-Kursi', bs: 'Ajetul-kursija' },
       { en: 'The opening verse of Surah Al-Fatihah', bs: 'Prvi ajet sure El-Fatiha' },
-      { en: 'The final verse of Surah Al-Baqarah', bs: 'Zadnji ajeti sure El-Bekare' },
+      { en: 'The final verse of Surah Al-Baqarah', bs: 'Posljednji ajet sure El-Bekare' },
       { en: 'The verse about the Throne of Allah in Surah Al-Hadid', bs: 'Ajet o Allahovom Aršu u suri El-Hadid' },
     ],
     correctIndex: 0,
@@ -146,7 +146,7 @@ export const islamMedium: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'medium',
-    prompt: { en: 'What did the Prophet tell al-Abbas about Abu Talib\'s fate because of the Prophet\'s intercession?', bs: 'Šta je Poslanik rekao el-Abbasu o sudbini Ebu Taliba zbog Poslanikove zauzimanja za njega?' },
+    prompt: { en: 'What did the Prophet tell al-Abbas about Abu Talib\'s fate because of the Prophet\'s intercession?', bs: 'Šta je Poslanik rekao el-Abbasu o sudbini Ebu Taliba zbog Poslanikovog zauzimanja za njega?' },
     options: [
       { en: 'He will enter Paradise without reckoning', bs: 'Ući će u Džennet bez obračuna' },
       { en: 'He will be in the shallowest part of Hell with the lightest punishment', bs: 'Bit će u plićaku džehennema s najblažom kaznom' },
@@ -177,7 +177,7 @@ export const islamMedium: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'medium',
-    prompt: { en: 'The Prophet recommended which fasting pattern as "the fast of Dawud"?', bs: 'Poslanik ﷺ je preporučio koju vrstu posta kao „Davudov post“?' },
+    prompt: { en: 'The Prophet recommended which fasting pattern as "the fast of Dawud"?', bs: 'Koju je vrstu posta Poslanik ﷺ preporučio kao „Davudov post“?' },
     options: [
       { en: 'Fast every day without break', bs: 'Post svaki dan bez prekida' },
       { en: 'Fasting in winter', bs: 'Post zimi' },
@@ -407,7 +407,7 @@ export const islamMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which surah contains the verse that commanded Prophet Muhammad ﷺ to warn his nearest relatives, beginning the public call to Islam?',
-      bs: 'Koja sura sadrži ajet kojim je naređeno Poslaniku Muhammedu ﷺ da opominje svoju najbližu rodbinu čime počinje javno pozivanje u islam?',
+      bs: 'Koja sura sadrži ajet kojim je Poslaniku Muhammedu ﷺ naređeno da opominje svoju najbližu rodbinu, čime počinje javno pozivanje u islam?',
     },
     options: [
       { en: 'Ash-Shu’ara', bs: 'Eš-Šuara' },
@@ -607,7 +607,7 @@ export const islamMedium: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'medium',
-    prompt: { en: 'Imam Abu Hanifa is associated with which city?', bs: 'Imam Ebu Hanifa povezan je sa kojim gradom?' },
+    prompt: { en: 'Imam Abu Hanifa is associated with which city?', bs: 'S kojim je gradom povezan imam Ebu Hanifa?' },
     options: [
       { en: 'Medina', bs: 'Medinom' },
       { en: 'Kufa', bs: 'Kufom' },
@@ -975,7 +975,7 @@ export const islamMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'During the caliphate of which caliph was the Qur\'an standardized into the official Mushaf?',
-      bs: 'Za vrijeme hilafeta kojeg halife Kur\'an je ujednačen u službeni mushaf?'
+      bs: "Za vrijeme čijeg je hilafeta ujednačen službeni mushaf Kur'ana?"
     },
     options: [
       { en: 'Abu Bakr', bs: 'Ebu Bekra' },
@@ -1258,7 +1258,7 @@ export const islamMedium: Question[] = [
     difficulty: 'medium',
     prompt: { 
       en: 'The boycott against Banu Hashim in the ravine of Abu Talib lasted about?',
-      bs: 'Bojkot protiv Benu Hašima u dolini Ebu Taliba trajao je oko?'
+      bs: 'Koliko je približno trajao bojkot protiv Benu Hašima u dolini Ebu Taliba?'
     },
     options: [
       { en: 'Three years', bs: 'Tri godine' },
@@ -1717,7 +1717,7 @@ export const islamMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Who led the army that marched toward Makkah to destroy the Kaaba according to Surah Al-Fil?',
-      bs: 'Ko je predvodio vojsku koja je krenula prema Mekki da uništi Kabu prema suri El-Fil?',
+      bs: 'Ko je predvodio vojsku koja je, prema suri El-Fil, krenula prema Meki da uništi Kabu?',
     },
     options: [
       { en: 'Abraha, the ruler of Yemen', bs: 'Ebreha, vladar Jemena' },
@@ -1734,7 +1734,7 @@ export const islamMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'What was Abu Lahab\'s role in Makkah before his opposition to the Prophet ﷺ?',
-      bs: 'Koju je ulogu Ebu Leheb imao u Mekki prije svog neprijateljstva prema Poslaniku ﷺ?',
+      bs: 'Koju je ulogu Ebu Leheb imao u Meki prije svog neprijateljstva prema Poslaniku ﷺ?',
     },
     options: [
       { en: 'A respected figure connected to the religious affairs of the Kaaba', bs: 'Ugledna osoba povezana s vjerskim poslovima oko Kabe' },
@@ -1955,7 +1955,7 @@ export const islamMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'How old was the Prophet ﷺ when he also lost his grandfather?',
-      bs: 'Koliko je bilo godina Poslaniku ﷺ kada je ostao i bez djeda?',
+      bs: 'Koliko je Poslanik ﷺ imao godina kada je ostao i bez djeda?',
     },
     options: [
       { en: '6', bs: '6' },
@@ -1972,7 +1972,7 @@ export const islamMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'How old was the Prophet ﷺ when his uncle took him on a trade caravan to Sham?',
-      bs: 'Koliko godina je bilo Poslaniku ﷺ kada ga je njegov amidža poveo na trgovačku karavanu u Šam?',
+      bs: 'Koliko je Poslanik ﷺ imao godina kada ga je amidža poveo na trgovačko putovanje u Šam?',
     },
     options: [
       { en: '10', bs: '10' },

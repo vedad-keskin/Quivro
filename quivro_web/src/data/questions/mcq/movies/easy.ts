@@ -212,7 +212,7 @@ export const moviesEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'What does Tom Hanks’s character name his volleyball companion in Cast Away?',
-      bs: 'Kako lik kojeg glumi Tom Hanks nazove svoju loptu-prijatelja u Cast Away?'
+      bs: 'Kako lik kojeg glumi Tom Hanks u filmu Cast Away zove svoju loptu?'
     },
     options: [
       { en: 'Wilson', bs: 'Wilson' },
@@ -365,7 +365,7 @@ export const moviesEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'What famous phrase is associated with E.T. wanting to contact his planet?',
-      bs: 'Koja poznata rečenica je povezana s E.T.-ovom željom da kontaktira svoju planetu?'
+      bs: 'Koji je poznati izraz povezan s E.T.-ovom željom da kontaktira svoju planetu?'
     },
     options: [
       { en: 'Phone home', bs: 'Nazvati kući' },
@@ -1249,7 +1249,7 @@ export const moviesEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'In Only Murders in the Building, what shared interest brings the three neighbors together?',
-      bs: 'U seriji Only Murders in the Building, koje zajedničko zanimanje povezuje troje komšija?',
+      bs: 'Koje zajedničko interesovanje povezuje troje komšija u seriji Only Murders in the Building?',
     },
     options: [
       { en: 'Birdwatching', bs: 'Posmatranje ptica' },
@@ -1300,7 +1300,7 @@ export const moviesEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'In Murder, She Wrote, what does Jessica Fletcher write for a living?',
-      bs: 'U seriji Murder, She Wrote, šta Jessica Fletcher piše kao svoje zanimanje?',
+      bs: 'Šta Jessica Fletcher piše u seriji Murder, She Wrote?',
     },
     options: [
       { en: 'Travel guides', bs: 'Turističke vodiče' },

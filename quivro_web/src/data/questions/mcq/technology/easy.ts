@@ -174,7 +174,7 @@ export const technologyEasy: Question[] = [
     category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'What does Wi-Fi allow a device to do?',
-              bs: 'Šta Wi-Fi omogućava uređaju?' },
+              bs: 'Šta uređaj može uraditi pomoću Wi-Fi-ja?' },
     options: [
       { en: 'Connect to a network without cables', bs: 'Povezati se na mrežu bez kablova' },
       { en: 'Charge a battery faster', bs: 'Brže puniti bateriju' },
@@ -341,7 +341,7 @@ export const technologyEasy: Question[] = [
     category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'What kind of creature is Yoshi usually shown as?',
-              bs: 'Kakvo stvorenje je Yoshi obično prikazan kao?' },
+              bs: 'Kakvo je stvorenje Yoshi?' },
     options: [
       { en: 'Green dinosaur', bs: 'Zeleni dinosaur' },
       { en: 'Red dragon', bs: 'Crveni zmaj' },
@@ -580,7 +580,7 @@ export const technologyEasy: Question[] = [
     options: [
       { en: 'Health hearts', bs: 'Srcima zdravlja' },
       { en: 'Wanted stars', bs: 'Zvjezdicama potrage' },
-      { en: 'Speed arrows', bs: 'Strelama brzine' },
+      { en: 'Speed arrows', bs: 'Strijelama brzine' },
       { en: 'Money bags', bs: 'Vrećama novca' },
     ],
     correctIndex: 1,
@@ -977,7 +977,7 @@ export const technologyEasy: Question[] = [
       { en: 'Space battles', bs: 'Svemirskim borbama' },
       { en: 'Dungeon crawling', bs: 'Istraživanju tamnica' },
       { en: 'Village life', bs: 'Životu u selu' },
-      { en: 'Tank warfare', bs: 'Tenkovskim ratovanjem' },
+      { en: 'Tank warfare', bs: 'Tenkovskom ratovanju' },
     ],
     correctIndex: 2,
   },
@@ -1735,7 +1735,7 @@ export const technologyEasy: Question[] = [
     difficulty: 'easy',
     prompt: { 
       en: 'What is the name of Ferrari’s Formula 1 racing division?',
-      bs: 'Kako se zove Ferrarijev Formula 1 odjel?'
+      bs: 'Kako se zove Ferrarijev odjel Formule 1?'
     },
     options: [
       { en: 'Scuderia Ferrari', bs: 'Scuderia Ferrari' },

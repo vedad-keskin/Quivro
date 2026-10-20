@@ -195,7 +195,7 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: { en: 'Which Dutch club is famous for its orange-tinged history and plays in Amsterdam?',
-              bs: 'Koji holandski klub je poznat po istoriji povezanoj s narandžastom bojom i igra u Amsterdamu?' },
+              bs: 'Koji holandski klub je poznat po historiji povezanoj s narandžastom bojom i igra u Amsterdamu?' },
     options: [
       { en: 'PSV Eindhoven', bs: 'PSV Eindhoven' },
       { en: 'Feyenoord', bs: 'Feyenoord' },
@@ -469,7 +469,7 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: { en: 'Which Formula 1 team is based in Maranello, Italy?',
-              bs: 'Koji Formula 1 tim je baziran u Maranellu u Italiji?' },
+              bs: 'Koji tim Formule 1 ima sjedište u Maranellu u Italiji?' },
     options: [
       { en: 'Mercedes', bs: 'Mercedes' },
       { en: 'Ferrari', bs: 'Ferrari' },
@@ -550,7 +550,7 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: { en: 'An Olympic-size swimming pool is how many meters long?',
-              bs: 'Koliko metara dug je olimpijski bazen?' },
+              bs: 'Koliko je metara dug olimpijski bazen?' },
     options: [
       { en: '25', bs: '25' },
       { en: '50', bs: '50' },
@@ -748,7 +748,7 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: { en: 'In ice hockey, how many players per team (including the goalie) are usually on the ice during even strength?',
-              bs: 'U hokeju na ledu, koliko igrača po timu (uključujući golmana) je obično na ledu pri jednakom broju?' },
+              bs: 'U hokeju na ledu, koliko je igrača jednog tima, uključujući golmana, obično na ledu kada nema isključenja?' },
     options: [
       { en: '5', bs: '5' },
       { en: '6', bs: '6' },
@@ -876,7 +876,7 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: { en: 'Which sport awards the Heisman Trophy to an outstanding college player in the US?',
-              bs: 'Koji sport dodjeljuje Heisman Trophy izuzetnom univerzitetskom igraču u SAD-u?' },
+              bs: 'U kojem se sportu dodjeljuje Heismanov trofej izuzetnom univerzitetskom igraču u SAD-u?' },
     options: [
       { en: 'Basketball', bs: 'Košarka' },
       { en: 'American football', bs: 'Američki fudbal' },
@@ -1226,7 +1226,7 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: { en: 'Which football club’s home ground is the San Siro, shared historically with another Milan club?',
-              bs: 'Koji fudbalski klub ima domaći teren San Siro, istorijski dijeljen s drugim milanskim klubom?' },
+              bs: 'Koji fudbalski klub igra na San Siru, historijski dijeleći stadion s drugim milanskim klubom?' },
     options: [
       { en: 'Juventus', bs: 'Juventus' },
       { en: 'AC Milan', bs: 'AC Milan' },

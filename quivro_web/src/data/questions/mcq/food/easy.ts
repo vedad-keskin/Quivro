@@ -110,7 +110,7 @@ export const foodEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which coffee drink is a small, strong shot of coffee?',
-      bs: 'Koji napitak od kafe je mali, jak shot kafe?',
+      bs: 'Kako se zove kratka, jaka kafa?',
     },
     options: [
       { en: 'Latte', bs: 'Latte' },
@@ -195,7 +195,7 @@ export const foodEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which French pastry is flaky and crescent-shaped?',
-      bs: 'Koja francusko pecivo je lisnato i u obliku polumjeseca?',
+      bs: 'Koje francusko pecivo je lisnato i u obliku polumjeseca?',
     },
     options: [
       { en: 'Baguette', bs: 'Baguette' },
@@ -263,7 +263,7 @@ export const foodEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which breakfast item is cooked in a patterned iron mold and often served with syrup?',
-      bs: 'Koji doručak se peče u oblikovanom željeznom kalupu i često se služi sa sirupom?',
+      bs: 'Koje se jelo za doručak peče u željeznom kalupu s karakterističnim uzorkom i često služi sa sirupom?',
     },
     options: [
       { en: 'Pancake', bs: 'Palačinka' },
@@ -569,7 +569,7 @@ export const foodEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which large fruit is mostly water and often eaten in summer slices?',
-      bs: 'Koje veliko voće je uglavnom voda i često se jede u ljetnim kriškama?',
+      bs: 'Koje veliko voće sadrži mnogo vode i ljeti se često jede narezano na kriške?',
     },
     options: [
       { en: 'Melon', bs: 'Dinja' },
@@ -722,7 +722,7 @@ export const foodEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which cold drink blends ice cream or milk with flavorings until smooth?',
-      bs: 'Koji hladni napitak miješa sladoled ili mlijeko s aromama dok ne postane gladak?',
+      bs: 'Koji se hladni napitak priprema miješanjem sladoleda ili mlijeka s aromama dok ne postane kremast?',
     },
     options: [
       { en: 'Milkshake', bs: 'Milkshake' },
@@ -943,7 +943,7 @@ export const foodEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which Japanese dish is seafood or vegetables lightly battered and deep-fried?',
-      bs: 'Koje japansko jelo je morska hrana ili povrće u laganom tijestu i duboko prženo?',
+      bs: 'Koje se japansko jelo priprema od morskih plodova ili povrća obloženih laganim tijestom i prženih u dubokom ulju?',
     },
     options: [
       { en: 'Sashimi', bs: 'Sashimi' },
@@ -1096,7 +1096,7 @@ export const foodEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which spread is made by churning cream until it becomes solid?',
-      bs: 'Koji namaz nastaje miješanjem vrhnja dok ne postane čvrsto?',
+      bs: 'Koji namaz nastaje mućenjem vrhnja dok ne postane čvrsto?',
     },
     options: [
       { en: 'Mayonnaise', bs: 'Majoneza' },
@@ -1283,7 +1283,7 @@ export const foodEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which cuisine is croissants, baguettes, and crème brûlée most associated with?',
-      bs: 'S kojom se kuhinjom najviše povezuju kroasane, bageti i crème brûlée?',
+      bs: 'S kojom se kuhinjom najviše povezuju kroasani, bageti i crème brûlée?',
     },
     options: [
       { en: 'German', bs: 'Njemačka' },
@@ -1317,7 +1317,7 @@ export const foodEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which ring-shaped bread roll is often boiled before baking?',
-      bs: 'Koji pecivo u obliku prstena se često kuha prije pečenja?',
+      bs: 'Koje se pecivo u obliku prstena često kuha prije pečenja?',
     },
     options: [
       { en: 'Croissant', bs: 'Croissant' },
@@ -1368,7 +1368,7 @@ export const foodEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which Burger King sandwich is famous for its flame-grilled beef patty?',
-      bs: 'Koji Burger King sendvič je poznat po flame-grilled pljeskavici?',
+      bs: 'Koji Burger King sendvič je poznat po pljeskavici pečenoj na plamenu?',
     },
     options: [
       { en: 'Big Mac', bs: 'Big Mac' },
@@ -1385,7 +1385,7 @@ export const foodEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which fast-food chain is best known for made-to-order submarine sandwiches?',
-      bs: 'Koji lanac brze hrane je najpoznatiji po submarine sendvičima po narudžbi?',
+      bs: 'Koji lanac brze hrane je najpoznatiji po sendvičima u dugačkom pecivu koji se pripremaju po narudžbi?',
     },
     options: [
       { en: 'KFC', bs: 'KFC' },

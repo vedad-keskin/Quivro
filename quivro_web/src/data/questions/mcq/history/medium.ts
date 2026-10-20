@@ -210,7 +210,7 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { en: 'The Rosetta Stone helped scholars decipher which writing system?',
-              bs: 'Kamenu iz Rosette pomogao je naučnicima da odgonetnu koji sistem pisanja?' },
+              bs: 'Kamen iz Rosette pomogao je naučnicima da odgonetnu koji sistem pisanja?' },
     options: [
       { en: 'Egyptian hieroglyphs', bs: 'Egipatske hijeroglife' },
       { en: 'Cuneiform', bs: 'Klinasto pismo' },
@@ -536,7 +536,7 @@ export const historyMedium: Question[] = [
     prompt: { en: 'Hernán Cortés led the Spanish conquest of which empire?',
               bs: 'Hernán Cortés vodio je špansko osvajanje kojeg carstva?' },
     options: [
-      { en: 'The Aztec Empire', bs: 'Astecke imperije' },
+      { en: 'The Aztec Empire', bs: 'Astečke imperije' },
       { en: 'The Inca Empire', bs: 'Inka' },
       { en: 'The Roman Empire', bs: 'Rimskog Carstva' },
       { en: 'The Mongol Empire', bs: 'Mongolskog Carstva' },
@@ -731,7 +731,7 @@ export const historyMedium: Question[] = [
       { en: 'Franklin D. Roosevelt', bs: 'Franklin D. Roosevelt' },
       { en: 'Abraham Lincoln', bs: 'Abraham Lincoln' },
       { en: 'George Washington', bs: 'George Washington' },
-      { en: 'Theodore Roosevelt for parks', bs: 'Theodore Roosevelt za parkove' },
+      { en: 'Theodore Roosevelt for parks', bs: 'Theodore Roosevelt' },
     ],
     correctIndex: 0,
   },
@@ -759,9 +759,9 @@ export const historyMedium: Question[] = [
               bs: 'Koji grčki polis bio je poznat po vojnoj obuci i ratničkoj kulturi?' },
     options: [
       { en: 'Sparta', bs: 'Sparta' },
-      { en: 'Athens for democracy', bs: 'Atina za demokratiju' },
-      { en: 'Troy in myth', bs: 'Troja u mitu' },
-      { en: 'Corinth for trade', bs: 'Korint za trgovinu' },
+      { en: 'Athens for democracy', bs: 'Atina' },
+      { en: 'Troy in myth', bs: 'Troja' },
+      { en: 'Corinth for trade', bs: 'Korint' },
     ],
     correctIndex: 0,
   },
@@ -1136,7 +1136,7 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { en: 'Which French queen was executed during the French Revolution?',
-              bs: 'Koja francuska kraljica pogubljena je tokom Francuske revolucije?' },
+              bs: 'Koja je francuska kraljica pogubljena tokom Francuske revolucije?' },
     options: [
       { en: 'Marie Antoinette', bs: 'Marija Antoaneta' },
       { en: 'Elizabeth I', bs: 'Elizabeta I' },
@@ -1247,7 +1247,7 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { en: 'Which Russian royal family was executed in 1918 after the revolution?',
-              bs: 'Koja ruska carska porodica pogubljena je 1918. nakon revolucije?' },
+              bs: 'Koja je ruska carska porodica pogubljena 1918. nakon revolucije?' },
     options: [
       { en: 'The Romanovs', bs: 'Romanovi' },
       { en: 'The Tudors', bs: 'Tudori' },

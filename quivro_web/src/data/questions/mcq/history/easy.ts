@@ -967,7 +967,7 @@ export const historyEasy: Question[] = [
     options: [
       { en: 'Europe', bs: 'Evropi' },
       { en: 'Australia', bs: 'Australiji' },
-      { en: 'Africa', bs: 'Afriku' },
+      { en: 'Africa', bs: 'Africi' },
       { en: 'Asia', bs: 'Aziji' },
     ],
     correctIndex: 0,
@@ -1303,7 +1303,7 @@ export const historyEasy: Question[] = [
       bs: 'Koji događaj je započeo Protestantsku reformaciju 1517. godine?',
     },
     options: [
-      { en: 'Martin Luther publishing the 95 Theses', bs: 'Martin Lutherovih 95 teza' },
+      { en: 'Martin Luther publishing the 95 Theses', bs: 'Objavljivanje 95 teza Martina Luthera' },
       { en: 'Fall of Rome', bs: 'Pad Rima' },
       { en: 'Crusades', bs: 'Krstaški ratovi' },
       { en: 'French Revolution', bs: 'Francuska revolucija' },

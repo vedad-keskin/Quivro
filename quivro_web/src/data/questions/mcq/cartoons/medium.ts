@@ -76,7 +76,7 @@ export const cartoonsMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'What is the name of the fictional newspaper where Peter Parker works?',
-      bs: 'Kako se zovu novine u kojim radi Peter Parker?'
+      bs: 'Kako se zovu novine u kojima radi Peter Parker?'
     },
     options: [
       { en: 'Daily Bugle', bs: 'Daily Bugle' },
@@ -249,7 +249,7 @@ export const cartoonsMedium: Question[] = [
       bs: 'U Nebesima, zašto Carl veže hiljade balona za svoju kuću?'
     },
     options: [
-      { en: 'To fly it to South America', bs: 'Da je odleti do Južne Amerike' },
+      { en: 'To fly it to South America', bs: 'Da njome odleti do Južne Amerike' },
       { en: 'To escape a flood', bs: 'Da pobjegne od poplave' },
       { en: 'To win a contest', bs: 'Da pobijedi na takmičenju' },
       { en: 'To impress his neighbors', bs: 'Da impresionira susjede' },
@@ -365,7 +365,7 @@ export const cartoonsMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Who originally voiced Woody in Toy Story?',
-      bs: 'Ko je originalno glasovao Woodya u Priči o igračkama?'
+      bs: 'Ko je izvorno posudio glas Woodyju u Priči o igračkama?'
     },
     options: [
       { en: 'Tim Allen', bs: 'Tim Allen' },
@@ -416,7 +416,7 @@ export const cartoonsMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'What does Fiona choose to remain at the end of Shrek?',
-      bs: 'Šta Fiona odlučuje ostati na kraju Shreka?'
+      bs: 'U kojem obliku Fiona odlučuje ostati na kraju filma Shrek?'
     },
     options: [
       { en: 'Ogre', bs: 'Ogrica' },
@@ -569,7 +569,7 @@ correctIndex: 1,
     difficulty: 'medium',
     prompt: {
       en: 'In South Park, what famously happens to Kenny in almost every episode?',
-      bs: 'U South Parku, šta se poznato dešava Kennyju u skoro svakoj epizodi?'
+      bs: 'Šta se Kennyju često dešava u gotovo svakoj epizodi South Parka?'
     },
     options: [
       { en: 'He dies', bs: 'Umire' },

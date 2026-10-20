@@ -924,7 +924,7 @@ export const geographyHard: Question[] = [
     category: 'geography',
     difficulty: 'hard',
     prompt: { en: 'Besides Liechtenstein, which other country is double-landlocked?', 
-      bs: 'Pored Lihtenštajna, koja je druga zemlja dvostruko bezizlazna?' },
+      bs: 'Pored Lihtenštajna, koja je još zemlja okružena isključivo zemljama bez izlaza na more?' },
     options: [
       { en: 'Switzerland', bs: 'Švicarska' },
       { en: 'Uzbekistan', bs: 'Uzbekistan' },

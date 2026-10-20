@@ -297,7 +297,7 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which Korean dish is fermented vegetables, usually cabbage?',
-      bs: 'Koje korejsko jelo su fermentirano povrće, obično kupus?',
+      bs: 'Koje je korejsko jelo fermentirano povrće, obično kupus?',
     },
     options: [
       { en: 'Bibimbap', bs: 'Bibimbap' },
@@ -484,7 +484,7 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which Cypriot cheese is often grilled and squeaks when bitten?',
-      bs: 'Koji Kiparski sir se često peče na roštilju i škripi pri zagrizu?',
+      bs: 'Koji se kiparski sir često peče na roštilju i škripi pri zagrizu?',
     },
     options: [
       { en: 'Feta', bs: 'Feta' },
@@ -790,7 +790,7 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which Latin American pastry is a stuffed turnover of dough, often baked or fried?',
-      bs: 'Koja latinoamerička peciva je nadjevena pita od tijesta, često pečena ili pržena?',
+      bs: 'Koja je latinoamerička punjena pita često pečena ili pržena?',
     },
     options: [
       { en: 'Empanada', bs: 'Empanada' },
@@ -824,7 +824,7 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which Sicilian pastry is a fried tube filled with sweet ricotta cream?',
-      bs: 'Koja sicilijanska peciva je pržena cjevčica punjena slatkom ricotta kremom?',
+      bs: 'Koje je sicilijansko pecivo pržena cjevčica punjena slatkom kremom od ricotte?',
     },
     options: [
       { en: 'Sfogliatella', bs: 'Sfogliatella' },
@@ -943,7 +943,7 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which grilled minced meat dish, shaped into small sausages, is a staple of Balkan cuisine?',
-      bs: 'Koje jelo od mljevenog mesa pečeno na roštilju, oblikovano u male valjke, je osnova balkanske kuhinje?',
+      bs: 'Koje je balkansko jelo od mljevenog mesa oblikovano u male valjke i pečeno na roštilju?',
     },
     options: [
       { en: 'Ćevapi', bs: 'Ćevapi' },
@@ -977,7 +977,7 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which strong, unsweetened black coffee, brewed in a small copper pot, is central to Balkan hospitality?',
-      bs: 'Koja jaka, nezaslađena crna kafa, kuhana u maloj bakrenoj džezvi, je centralna u balkanskom gostoprimstvu?',
+      bs: 'Koja je jaka, nezaslađena crna kafa, kuhana u maloj bakrenoj džezvi, važan dio balkanskog gostoprimstva?',
     },
     options: [
       { en: 'Espresso', bs: 'Espresso' },
@@ -994,7 +994,7 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which Dalmatian dry-cured ham, is a specialty of the Croatian coast?',
-      bs: 'Koja dalmatinska suhomesnata šunka, je specijalitet hrvatske obale?',
+      bs: 'Koja je dalmatinska sušena šunka specijalitet hrvatske obale?',
     },
     options: [
       { en: 'Pršut', bs: 'Pršut' },
@@ -1028,7 +1028,7 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which spiced milk tea, associated with South Asia, is commonly brewed with cardamom and ginger?',
-      bs: 'Koji začinjeni čaj s mlijekom, povezan s Južnom Azijom, se obično kuha s kardamomom i đumbirom?',
+      bs: 'Koji se začinjeni čaj s mlijekom, povezan s Južnom Azijom, obično kuha s kardamomom i đumbirom?',
     },
     options: [
       { en: 'Matcha latte', bs: 'Matcha latte' },
@@ -1202,7 +1202,7 @@ export const foodMedium: Question[] = [
     },
     options: [
       { en: 'Lychee', bs: 'Liči' },
-      { en: 'Mango', bs: 'Manga' },
+      { en: 'Mango', bs: 'Mango' },
       { en: 'Papaya', bs: 'Papaja' },
       { en: 'Guava', bs: 'Guava' },
     ],
@@ -1215,7 +1215,7 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which large tropical fruit has fibrous yellow flesh that is often used as a meat substitute?',
-      bs: 'Koje veliko tropsko voće ima vlaknastu žutu unutrašnjost koje se često koristi kao zamjena za meso?',
+      bs: 'Koje veliko tropsko voće ima vlaknastu žutu unutrašnjost koja se često koristi kao zamjena za meso?',
     },
     options: [
       { en: 'Durian', bs: 'Durian' },
@@ -1436,7 +1436,7 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which North African chili paste is made with garlic, oil, and hot peppers?',
-      bs: 'Koja sjevernoafrička tjestenina od ljute paprike se pravi s bijelim lukom, uljem i ljutim paprikama?',
+      bs: 'Koja se sjevernoafrička pasta od ljutih paprika pravi s bijelim lukom i uljem?',
     },
     options: [
       { en: 'Harissa', bs: 'Harissa' },
@@ -1623,7 +1623,7 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which fermented Korean chili paste is thick, sweet-spicy, and used in many stews?',
-      bs: 'Koja fermentisana korejska tjestenina od ljute paprike je gusta, slatko-ljuta i koristi se u mnogim varivima?',
+      bs: 'Koja je fermentisana korejska pasta od ljutih paprika gusta, slatko-ljuta i koristi se u mnogim varivima?',
     },
     options: [
       { en: 'Doenjang', bs: 'Doenjang' },
@@ -1691,7 +1691,7 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which country usually holds the record for the highest annual consumption of chocolate per capita?',
-      bs: 'Koja zemlja drži uobičajno rekord po najvećoj godišnjoj potrošnji čokolade po glavi stanovnika?',
+      bs: 'Koja zemlja obično ima najveću godišnju potrošnju čokolade po glavi stanovnika?',
     },
     options: [
       { en: 'Belgium', bs: 'Belgija' },

@@ -187,7 +187,7 @@ export const biologyMedium: Question[] = [
     category: 'biology',
     difficulty: 'medium',
     prompt: { en: 'Which organ filters waste products from the blood to produce urine?',
-              bs: 'Koji organ filtrira otpadne produkte iz krvi da proizvede mokraču?' },
+              bs: 'Koji organ filtrira otpadne produkte iz krvi da proizvede urin?' },
     options: [
       { en: 'Liver', bs: 'Jetra' },
       { en: 'Kidney', bs: 'Bubreg' },
@@ -534,7 +534,7 @@ export const biologyMedium: Question[] = [
     category: 'biology',
     difficulty: 'medium',
     prompt: { en: 'Which organ is responsible for gas exchange between oxygen and carbon dioxide in humans?',
-              bs: 'Koji organ je odgovoran za razmjenu gasova između kiseonika i ugljen-dioksida kod ljudi?' },
+              bs: 'Koji organ je odgovoran za razmjenu kiseonika i ugljen-dioksida kod ljudi?' },
     options: [
       { en: 'Liver', bs: 'Jetra' },
       { en: 'Lungs', bs: 'Pluća' },
@@ -659,7 +659,7 @@ export const biologyMedium: Question[] = [
       { en: 'Multicellular eukaryotes', bs: 'Višećelijski eukarioti' },
       { en: 'Single-celled prokaryotes', bs: 'Jednoćelijski prokarioti' },
       { en: 'Colonial protists', bs: 'Kolonijalni protisti' },
-      { en: 'Acellular organisms', bs: 'Bezelijski organizmi' },
+      { en: 'Acellular organisms', bs: 'Organizmi bez ćelija' },
     ],
     correctIndex: 1,
   },
@@ -1080,7 +1080,7 @@ export const biologyMedium: Question[] = [
     prompt: { en: 'What is a food web?',
               bs: 'Šta je mreža ishrane?' },
     options: [
-      { en: 'A single linear chain of who eats whom', bs: 'Jedan linearni lanac ko koga jede' },
+      { en: 'A single linear chain of who eats whom', bs: 'Jedan linearni lanac koji prikazuje ko koga jede' },
       { en: 'A network of interconnected food chains in an ecosystem', bs: 'Mreža međusobno povezanih lanaca ishrane u ekosistemu' },
       { en: 'A diagram showing plant growth patterns', bs: 'Dijagram koji prikazuje obrasce rasta biljaka' },
       { en: 'A classification of organisms by habitat', bs: 'Klasifikacija organizama po staništu' },
@@ -1264,7 +1264,7 @@ export const biologyMedium: Question[] = [
     prompt: { en: 'Which mineral is most important for maintaining strong bones and teeth?',
               bs: 'Koji mineral je najvažniji za održavanje jakih kostiju i zuba?' },
     options: [
-      { en: 'Iron', bs: 'Željezо' },
+      { en: 'Iron', bs: 'Željezo' },
       { en: 'Calcium', bs: 'Kalcijum' },
       { en: 'Sodium', bs: 'Natrijum' },
       { en: 'Potassium', bs: 'Kalijum' },
@@ -1322,7 +1322,7 @@ export const biologyMedium: Question[] = [
     category: 'biology',
     difficulty: 'medium',
     prompt: { en: 'What is the term for a seed beginning to sprout and grow into a new plant?',
-              bs: 'Koji je termin za sjeme koje počinje klijati i rasti u novu biljku?' },
+              bs: 'Kako se naziva proces u kojem sjeme počinje klijati i rasti u novu biljku?' },
     options: [
       { en: 'Germination', bs: 'Klijanje' },
       { en: 'Dormancy', bs: 'Dormantnost' },
@@ -1566,7 +1566,7 @@ export const biologyMedium: Question[] = [
     category: 'biology',
     difficulty: 'medium',
     prompt: { en: 'Which pair of animals are both classified as invertebrates?',
-              bs: 'Koji par životinja se oba klasifikuju kao beskičmenjaci?' },
+              bs: 'Koji par čine dva beskičmenjaka?' },
     options: [
       { en: 'Jellyfish and earthworms', bs: 'Meduze i gliste' },
       { en: 'Sharks and frogs', bs: 'Ajkule i žabe' },
@@ -1584,7 +1584,7 @@ export const biologyMedium: Question[] = [
               bs: 'Kako se naziva debeli sloj masnoće ispod kože koji izoluje morske sisare u hladnoj vodi?' },
     options: [
       { en: 'Chitin', bs: 'Hitin' },
-      { en: 'Blubber', bs: 'Podkožna masnoća' },
+      { en: 'Blubber', bs: 'Potkožna masnoća' },
       { en: 'Cartilage', bs: 'Hrskavica' },
       { en: 'Keratin', bs: 'Keratin' },
     ],
@@ -1645,7 +1645,7 @@ export const biologyMedium: Question[] = [
     prompt: { en: 'Why do many bird species undertake long-distance migrations each year?',
               bs: 'Zašto mnoge vrste ptica svake godine poduzimaju migracije na velike udaljenosti?' },
     options: [
-      { en: 'To shed and regrow feathers', bs: 'Da odbace i ponovo izrastaju perje' },
+      { en: 'To shed and regrow feathers', bs: 'Da odbace staro perje i da im izraste novo' },
       { en: 'To reach better feeding or breeding grounds', bs: 'Da stignu do boljih staništa za hranu ili razmnožavanje' },
       { en: 'To escape competing insect species', bs: 'Da pobjegnu od konkurentskih vrsta insekata' },
       { en: 'To find fresh water sources', bs: 'Da pronađu izvore svježe vode' },

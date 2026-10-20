@@ -535,7 +535,7 @@ export const cartoonsHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'The one-eyed weasel Buck becomes a major character starting in which Ice Age film?',
-      bs: 'Jednooki lasica Buck postaje važan lik počevši od kojeg filma Ledenog doba?'
+      bs: 'Jednooka lasica Buck postaje važan lik počevši od kojeg filma Ledenog doba?'
     },
     options: [
       { en: 'Ice Age: Dawn of the Dinosaurs', bs: 'Ledeno doba 3' },

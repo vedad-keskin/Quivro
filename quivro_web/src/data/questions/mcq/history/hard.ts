@@ -216,7 +216,7 @@ export const historyHard: Question[] = [
     options: [
       { en: 'The Treaty of Utrecht', bs: 'Utrechtski mir' },
       { en: 'The Treaty of Versailles', bs: 'Versajski mir' },
-      { en: 'The Treaty of Trianon', bs: 'Trijanski mir' },
+      { en: 'The Treaty of Trianon', bs: 'Trianonski mir' },
       { en: 'The Treaty of Brest-Litovsk', bs: 'Brest-Litovski mir' },
     ],
     correctIndex: 1,
@@ -917,7 +917,7 @@ export const historyHard: Question[] = [
     difficulty: 'hard',
     prompt: { 
       en: 'Which war from 1853 to 1856 was fought between Russia and an alliance of Britain, France, and the Ottoman Empire?',
-      bs: 'Koji rat od 1853 do 1856. godine vođen je između Rusije i saveza Britanije, Francuske i Osmanskog carstva?'
+      bs: 'Koji je rat od 1853. do 1856. godine vođen između Rusije i saveza Britanije, Francuske i Osmanskog carstva?'
     },
     options: [
       { en: 'The Crimean War', bs: 'Krimski rat' },
@@ -1230,7 +1230,7 @@ export const historyHard: Question[] = [
     difficulty: 'hard',
     prompt: { 
       en: 'Which civilization created the famous Moai statues on Easter Island?',
-      bs: 'Koja civilizacija je izradila poznate Moai statue na Uskršnjem ostrvu?'
+      bs: 'Koja je civilizacija izradila poznate kipove moai na Uskršnjem ostrvu?'
     },
     options: [
       { en: 'Rapa Nui people', bs: 'Narod Rapa Nui' },

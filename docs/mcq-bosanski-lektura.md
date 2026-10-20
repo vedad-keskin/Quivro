@@ -1,6 +1,6 @@
 # Prijedlozi jezičkih ispravki MCQ pitanja i odgovora
 
-Pregledano je svih **30 datoteka**, **3.091 pitanje** i **12.364 ponuđena odgovora** na bosanskom jeziku u `quivro_web/src/data/questions/mcq/`. Ispod su prijedlozi za uočene pravopisne, gramatičke, padežne i jasno formulirane tekstualne greške. Izvorni podaci ovim pregledom nisu ispravljani.
+Pregledano je svih **30 datoteka**, **3.091 pitanje** i **12.364 ponuđena odgovora** na bosanskom jeziku u `quivro_web/src/data/questions/mcq/`. Ispod su prijedlozi za uočene pravopisne i gramatičke greške, pogrešne padeže i nespretne formulacije. Izvorni podaci ovim pregledom nisu ispravljani.
 
 **Ukupno prijedloga:** 243. Označi kućicu uz prijedlog koji prihvataš; ID i lokacija vode do tačnog polja u izvornom kodu. Canvas prikaz omogućava pretragu i bilježenje odluke za svaki prijedlog.
 
@@ -52,11 +52,6 @@ Pregledano je svih **30 datoteka**, **3.091 pitanje** i **12.364 ponuđena odgov
   - Izvorno: Čime se hrane većina odraslih leptira?
   - Prijedlog: Čime se hrani većina odraslih leptira?
   - Razlog: Glagol se slaže s imenicom „većina“ u jednini.
-
-- [ ] **bio-easy-060 · pitanje** ([izvor:896](../quivro_web/src/data/questions/mcq/biology/easy.ts#L896))
-  - Izvorno: Koji dio ljudskog tijela pomaže razgradnji hrane žvakanjem?
-  - Prijedlog: Koji dijelovi ljudskog tijela pomažu razgradnji hrane žvakanjem?
-  - Razlog: Odgovor „zubi“ je u množini, a pitanje traži jedan dio.
 
 - [ ] **bio-easy-062 · pitanje** ([izvor:926](../quivro_web/src/data/questions/mcq/biology/easy.ts#L926))
   - Izvorno: Koji veliki okeansko-morski grabežljivac ima karakterističnu leđnu peraju koja viri iz vode?
@@ -149,8 +144,8 @@ Pregledano je svih **30 datoteka**, **3.091 pitanje** i **12.364 ponuđena odgov
 
 - [ ] **bio-med-013 · pitanje** ([izvor:190](../quivro_web/src/data/questions/mcq/biology/medium.ts#L190))
   - Izvorno: Koji organ filtrira otpadne produkte iz krvi da proizvede mokraču?
-  - Prijedlog: Koji organ filtrira otpadne produkte iz krvi da proizvede mokraću?
-  - Razlog: Pravilno je „mokraću“, a ne „mokraču“.
+  - Prijedlog: Koji organ filtrira otpadne produkte iz krvi da proizvede urin?
+  - Razlog: Pravilno je urin, a ne „mokraču“.
 
 - [ ] **bio-med-036 · pitanje** ([izvor:537](../quivro_web/src/data/questions/mcq/biology/medium.ts#L537))
   - Izvorno: Koji organ je odgovoran za razmjenu gasova između kiseonika i ugljen-dioksida kod ljudi?
@@ -242,7 +237,7 @@ Pregledano je svih **30 datoteka**, **3.091 pitanje** i **12.364 ponuđena odgov
 
 - [ ] **cartoon-med-025 · pitanje** ([izvor:419](../quivro_web/src/data/questions/mcq/cartoons/medium.ts#L419))
   - Izvorno: Šta Fiona odlučuje ostati na kraju Shreka?
-  - Prijedlog: U kojem obliku Fiona odlučuje ostati na kraju Shreka?
+  - Prijedlog: U kojem obliku Fiona odlučuje ostati na kraju filma Shrek?
   - Razlog: „Šta odlučuje ostati“ je neprirodna konstrukcija za pitanje o Fioninom obliku.
 
 - [ ] **cartoon-med-034 · pitanje** ([izvor:572](../quivro_web/src/data/questions/mcq/cartoons/medium.ts#L572))
@@ -823,7 +818,7 @@ Pregledano je svih **30 datoteka**, **3.091 pitanje** i **12.364 ponuđena odgov
 
 - [ ] **movie-hard-046 · pitanje** ([izvor:776](../quivro_web/src/data/questions/mcq/movies/hard.ts#L776))
   - Izvorno: Kako se zove strašni vuk Jona Snowa u serijalu Igra Prestolja?
-  - Prijedlog: Kako se zove strašni vuk Jona Snowa u serijalu Igra prijestolja?
+  - Prijedlog: Kako se zove strahovuk Jona Snowa u serijalu Igra prijestolja?
   - Razlog: Bosanski naslov serijala piše se „Igra prijestolja“; drugi dio naslova malim slovom.
 
 - [ ] **movie-hard-048 · pitanje** ([izvor:810](../quivro_web/src/data/questions/mcq/movies/hard.ts#L810))
@@ -890,7 +885,7 @@ Pregledano je svih **30 datoteka**, **3.091 pitanje** i **12.364 ponuđena odgov
 
 - [ ] **movie-med-070 · pitanje** ([izvor:1184](../quivro_web/src/data/questions/mcq/movies/medium.ts#L1184))
   - Izvorno: Na čemu je originalno zasnovan film Pirati s Kariba?
-  - Prijedlog: Šta je poslužilo kao predložak za film Pirati s Kariba?
+  - Prijedlog: Šta je poslužilo kao osnova za film Pirati s Kariba?
   - Razlog: Pitanje „Na čemu“ traži lokativ, a svi ponuđeni odgovori su nominalne oznake izvora.
 
 - [ ] **movie-med-074 · pitanje** ([izvor:1252](../quivro_web/src/data/questions/mcq/movies/medium.ts#L1252))
@@ -1291,7 +1286,7 @@ Pregledano je svih **30 datoteka**, **3.091 pitanje** i **12.364 ponuđena odgov
 
 - [ ] **tech-med-113 · odgovor 4** ([izvor:1769](../quivro_web/src/data/questions/mcq/technology/medium.ts#L1769))
   - Izvorno: Browser ekstenzija za lozinke
-  - Prijedlog: Proširenje preglednika za lozinke
+  - Prijedlog: Ekstenzija preglednika za lozinke
   - Razlog: Engleski „Browser ekstenzija“ ima pogrešan red imenica.
 
 - [ ] **tech-med-114 · odgovor 4** ([izvor:1784](../quivro_web/src/data/questions/mcq/technology/medium.ts#L1784))

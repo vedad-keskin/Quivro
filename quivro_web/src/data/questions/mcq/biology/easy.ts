@@ -97,7 +97,7 @@ export const biologyEasy: Question[] = [
     category: 'biology',
     difficulty: 'easy',
     prompt: { en: 'Which type of animal lays eggs and can fly?',
-              bs: 'Koja vrsta životinja nosi jaja i može letjeti?' },
+              bs: 'Koja vrsta životinja polaže jaja i može letjeti?' },
     options: [
       { en: 'Bat', bs: 'Šišmiš' },
       { en: 'Bird', bs: 'Ptica' },
@@ -172,7 +172,7 @@ export const biologyEasy: Question[] = [
     category: 'biology',
     difficulty: 'easy',
     prompt: { en: 'What covers the outside of a tree trunk?',
-              bs: 'Šta pokriva vanjski dio stabla drveta?' },
+              bs: 'Šta pokriva vanjski dio stabla?' },
     options: [
       { en: 'Bark', bs: 'Kora' },
       { en: 'Fur', bs: 'Krzno' },
@@ -368,7 +368,7 @@ export const biologyEasy: Question[] = [
     type: 'mcq',
     category: 'biology',
     difficulty: 'easy',
-    prompt: { en: 'What color is a polar bear’s fur usually described as?', bs: 'Koje boje se obično opisuje krzno polarnog medvjeda?' },
+    prompt: { en: 'What color is a polar bear’s fur usually described as?', bs: 'Kojom se bojom obično opisuje krzno polarnog medvjeda?' },
     options: [
       { en: 'Black', bs: 'Crno' },
       { en: 'Brown', bs: 'Smeđe' },
@@ -398,7 +398,7 @@ export const biologyEasy: Question[] = [
     category: 'biology',
     difficulty: 'easy',
     prompt: { en: 'Which flightless bird lives in cold Antarctic regions?',
-              bs: 'Koja ptica koja ne leti živi u hladnim antarktičkim područjima?' },
+              bs: 'Koja ptica ne može letjeti i živi u hladnim antarktičkim područjima?' },
     options: [
       { en: 'Ostrich', bs: 'Noj' },
       { en: 'Penguin', bs: 'Pingvin' },
@@ -413,7 +413,7 @@ export const biologyEasy: Question[] = [
     category: 'biology',
     difficulty: 'easy',
     prompt: { en: 'What do frogs begin life as before they grow legs?',
-              bs: 'Kao šta žabe počinju život prije nego što im narastu noge?' },
+              bs: 'Kako se zovu žabe prije nego što im narastu noge?' },
     options: [
       { en: 'Caterpillars', bs: 'Gusjenice' },
       { en: 'Tadpoles', bs: 'Punoglavci' },
@@ -473,7 +473,7 @@ export const biologyEasy: Question[] = [
     category: 'biology',
     difficulty: 'easy',
     prompt: { en: 'What do most adult butterflies feed on?',
-              bs: 'Čime se hrane većina odraslih leptira?' },
+              bs: 'Čime se hrani većina odraslih leptira?' },
     options: [
       { en: 'Leaves', bs: 'Lišćem' },
       { en: 'Nectar from flowers', bs: 'Nektarom cvijeća' },
@@ -923,7 +923,7 @@ export const biologyEasy: Question[] = [
     category: 'biology',
     difficulty: 'easy',
     prompt: { en: 'Which large ocean predator has a distinctive dorsal fin sticking out of the water?',
-              bs: 'Koji veliki okeansko-morski grabežljivac ima karakterističnu leđnu peraju koja viri iz vode?' },
+              bs: 'Koji veliki morski grabežljivac ima karakterističnu leđnu peraju koja viri iz vode?' },
     options: [
       { en: 'Shark', bs: 'Ajkula' },
       { en: 'Dolphin', bs: 'Delfin' },
@@ -953,7 +953,7 @@ export const biologyEasy: Question[] = [
     category: 'biology',
     difficulty: 'easy',
     prompt: { en: 'Which male animal grows and sheds a set of antlers each year?',
-              bs: 'Koja muška životinja svake godine raste i gubi rogove?' },
+              bs: 'Mužjak koje životinje svake godine odbacuje stare rogove i dobija nove?' },
     options: [
       { en: 'Deer', bs: 'Jelen' },
       { en: 'Bull', bs: 'Bik' },
@@ -1238,7 +1238,7 @@ export const biologyEasy: Question[] = [
     category: 'biology',
     difficulty: 'easy',
     prompt: { en: 'Which tall wading bird has bright pink feathers?',
-              bs: 'Koja visoka barska ptica ima jarko ružičaste perje?' },
+              bs: 'Koja visoka barska ptica ima jarko ružičasto perje?' },
     options: [
       { en: 'Flamingo', bs: 'Flamingo' },
       { en: 'Heron', bs: 'Čaplja' },
@@ -1328,7 +1328,7 @@ export const biologyEasy: Question[] = [
     category: 'biology',
     difficulty: 'easy',
     prompt: { en: 'Which black-and-white ocean predator is the largest member of the dolphin family?',
-              bs: 'Koji crno-bijeli okeansko-morski grabežljivac je najveći član porodice delfina?' },
+              bs: 'Koji crno-bijeli morski grabežljivac je najveći član porodice delfina?' },
     options: [
       { en: 'Orca', bs: 'Orka' },
       { en: 'Bottlenose dolphin', bs: 'Dobri dupin' },
@@ -1463,7 +1463,7 @@ export const biologyEasy: Question[] = [
     category: 'biology',
     difficulty: 'easy',
     prompt: { en: 'Which stinging insect has a yellow and black striped body?',
-              bs: 'Koji insekt koji ubada ima žuto-crno prugasto tijelo?' },
+              bs: 'Koji insekt ima žuto-crno prugasto tijelo i može ubosti?' },
     options: [
       { en: 'Wasp', bs: 'Osa' },
       { en: 'Ladybug', bs: 'Bubamara' },
@@ -1493,7 +1493,7 @@ export const biologyEasy: Question[] = [
     category: 'biology',
     difficulty: 'easy',
     prompt: { en: 'Which slow-moving mammal hangs upside down in tropical trees and sleeps most of the day?',
-              bs: 'Koji sporo pokretni sisar visi naopačke na tropskim stablima i spava veći dio dana?' },
+              bs: 'Koji sisar se sporo kreće, visi naopačke na tropskim stablima i spava veći dio dana?' },
     options: [
       { en: 'Sloth', bs: 'Ljenivac' },
       { en: 'Koala', bs: 'Koala' },

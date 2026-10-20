@@ -13,7 +13,7 @@ export const moviesMedium: Question[] = [
     options: [
       { en: 'Los Angeles', bs: 'Los Angelesu' },
       { en: 'Albuquerque', bs: 'Albuquerqueu' },
-      { en: 'Chicago', bs: 'Chicago-u' },
+      { en: 'Chicago', bs: 'Chicagu' },
       { en: 'Miami', bs: 'Miamiu' },
     ],
     correctIndex: 1,
@@ -46,9 +46,9 @@ export const moviesMedium: Question[] = [
     },
     options: [
       { en: 'J.K. Rowling', bs: 'J.K. Rowling' },
-      { en: 'George R.R. Martin', bs: 'George R.R. Martin-a' },
-      { en: 'Tolkien', bs: 'Tolkien-a' },
-      { en: 'Stephen King', bs: 'Stephen King-a' },
+      { en: 'George R.R. Martin', bs: 'George R.R. Martin' },
+      { en: 'Tolkien', bs: 'Tolkien' },
+      { en: 'Stephen King', bs: 'Stephen King' },
     ],
     correctIndex: 1,
   },
@@ -450,7 +450,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'From which platform at King’s Cross Station do Hogwarts students board the Hogwarts Express?',
-      bs: 'Sa kojeg perona na stanici King’s Cross-a učenici Hogwartsa ulaze u Hogwarts Express?'
+      bs: 'S kojeg perona na stanici King’s Cross učenici Hogwartsa ulaze u Hogwarts Express?'
     },
     options: [
       { en: 'Platform 7¾', bs: 'Peron 7¾' },
@@ -759,8 +759,8 @@ export const moviesMedium: Question[] = [
       bs: 'Na čemu je originalno zasnovan The Last of Us?'
     },
     options: [
-      { en: 'Comic book', bs: 'Strip-u' },
-      { en: 'Video game', bs: 'Video igri' },
+      { en: 'Comic book', bs: 'Stripu' },
+      { en: 'Video game', bs: 'Videoigri' },
       { en: 'Novel from the 1950s', bs: 'Romanu iz 1950-ih' },
       { en: 'Stage play', bs: 'Pozorišnoj predstavi' },
     ],
@@ -977,7 +977,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'What is the real name of the killer in Saw?',
-      bs: 'Kako glasi pravo ime ubice iz Slagalica Strave serijala?'
+      bs: 'Kako glasi pravo ime ubice iz filmskog serijala Slagalica strave?'
     },
     options: [
       { en: 'John Kramer', bs: 'John Kramer' },
@@ -1181,7 +1181,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'What was Pirates of the Caribbean originally based on?',
-      bs: 'Na čemu je originalno zasnovan film Pirati s Kariba?',
+      bs: 'Šta je poslužilo kao osnova za film Pirati s Kariba?',
     },
     options: [
       { en: 'A Disneyland theme park ride', bs: 'Atrakcija u Disneylandu' },
@@ -1249,7 +1249,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'In The Grand Budapest Hotel, what is Zero\'s job when he meets Gustave?',
-      bs: 'U filmu The Grand Budapest Hotel, koji posao Zero radi kada upozna Gustavea?',
+      bs: 'Šta je Zero po zanimanju kada upozna Gustavea u filmu The Grand Budapest Hotel?',
     },
     options: [
       { en: 'Hotel chef', bs: 'Hotelski kuhar' },
@@ -1317,7 +1317,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'In The Sopranos, what recurring health problem does Tony experience?',
-      bs: 'U seriji The Sopranos, koji se zdravstveni problem Tonyju ponavlja?',
+      bs: 'Od čega Tony u seriji The Sopranos povremeno pati?',
     },
     options: [
       { en: 'Memory loss', bs: 'Gubitka pamćenja' },

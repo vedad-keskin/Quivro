@@ -7,7 +7,7 @@ export const famousEasy: Question[] = [
     category: 'famous',
     difficulty: 'easy',
     prompt: { en: 'J.K. Rowling is the author of which famous book series?', 
-              bs: 'J.K. Rowling je autor koje poznatog serijala knjiga?' },
+              bs: 'Koji je poznati serijal knjiga napisala J. K. Rowling?' },
     options: [
       { en: 'Harry Potter', bs: 'Harry Potter' },
       { en: 'The Lord of the Rings', bs: 'Gospodar prstenova' },
@@ -67,7 +67,7 @@ export const famousEasy: Question[] = [
     category: 'famous',
     difficulty: 'easy',
     prompt: { en: 'What kind of books is Stephen King famous for writing?', 
-              bs: 'Kakve knjige je Stephen King poznat po pisanju?' },
+              bs: 'Po pisanju kakvih knjiga je poznat Stephen King?' },
     options: [
       { en: 'Cookbooks', bs: 'Kuharica' },
       { en: 'Horror novels', bs: 'Horor romana' },
@@ -159,7 +159,7 @@ export const famousEasy: Question[] = [
     category: 'famous',
     difficulty: 'easy',
     prompt: { en: 'Which pair of companies is Elon Musk widely known for leading?', 
-              bs: 'Koji par kompanija Elon Musk je poznat po vođenju?' },
+              bs: 'Koje dvije kompanije je Elon Musk poznat po tome što ih vodi?' },
     options: [
       { en: 'Coca-Cola and Pepsi', bs: 'Coca-Cola i Pepsi' },
       { en: 'Ford and GM', bs: 'Ford i GM' },
@@ -407,7 +407,7 @@ export const famousEasy: Question[] = [
     category: 'famous',
     difficulty: 'easy',
     prompt: { en: 'What was Pablo Picasso world-famous as?', 
-              bs: 'Kao šta je Pablo Picasso bio svjetski poznat?' },
+              bs: 'Po kojem je zanimanju Pablo Picasso bio svjetski poznat?' },
     options: [
       { en: 'Chef', bs: 'Kuhar' },
       { en: 'Architect', bs: 'Arhitekta' },
@@ -623,7 +623,7 @@ export const famousEasy: Question[] = [
     options: [
       { en: 'Swimming', bs: 'Plivanja' },
       { en: 'Tennis', bs: 'Tenisa' },
-      { en: 'Ski jumping', bs: 'Skijaskog skakanja' },
+      { en: 'Ski jumping', bs: 'Skijaškog skakanja' },
       { en: 'Archery', bs: 'Streljaštva' },
     ],
     correctIndex: 1,
@@ -694,7 +694,7 @@ export const famousEasy: Question[] = [
     category: 'famous',
     difficulty: 'easy',
     prompt: { en: 'What is William Shakespeare celebrated as?', 
-              bs: 'Kao šta se William Shakespeare slavi?' },
+              bs: 'Po kojem je zanimanju slavan William Shakespeare?' },
     options: [
       { en: 'Inventor', bs: 'Izumitelj' },
       { en: 'Explorer', bs: 'Istraživač' },
@@ -777,7 +777,7 @@ export const famousEasy: Question[] = [
     category: 'famous',
     difficulty: 'easy',
     prompt: { en: 'What was Vincent van Gogh famous as?', 
-              bs: 'Kao šta je Vincent van Gogh bio poznat?' },
+              bs: 'Po kojem je zanimanju Vincent van Gogh bio poznat?' },
     options: [
       { en: 'Chef', bs: 'Kuhar' },
       { en: 'Sailor', bs: 'Mornar' },
@@ -841,7 +841,7 @@ export const famousEasy: Question[] = [
     category: 'famous',
     difficulty: 'easy',
     prompt: { en: 'Which famous building’s ceiling did Michelangelo paint?', 
-              bs: 'Plafona koje poznate građevine je oslikao Michelangelo?' },
+              bs: 'Plafon koje je poznate građevine oslikao Michelangelo?' },
     options: [
       { en: 'Louvre Museum', bs: 'Muzeja Louvre' },
       { en: 'British Museum', bs: 'Britanskog muzeja' },
@@ -856,7 +856,7 @@ export const famousEasy: Question[] = [
     category: 'famous',
     difficulty: 'easy',
     prompt: { en: 'What was Aristotle famous as in ancient Greece?', 
-              bs: 'Kao šta je Aristotel bio poznat u drevnoj Grčkoj?' },
+              bs: 'Po kojoj je ulozi Aristotel bio poznat u drevnoj Grčkoj?' },
     options: [
       { en: 'Philosopher', bs: 'Filozof' },
       { en: 'Chef', bs: 'Kuhar' },
@@ -903,7 +903,7 @@ export const famousEasy: Question[] = [
     category: 'famous',
     difficulty: 'easy',
     prompt: { en: 'What was Wolfgang Amadeus Mozart famous as?', 
-              bs: 'Kao šta je Wolfgang Amadeus Mozart bio poznat?' },
+              bs: 'Po kojem je zanimanju Wolfgang Amadeus Mozart bio poznat?' },
     options: [
       { en: 'Composer', bs: 'Kompozitor' },
       { en: 'Painter', bs: 'Slikar' },
@@ -1014,7 +1014,7 @@ export const famousEasy: Question[] = [
     category: 'famous',
     difficulty: 'easy',
     prompt: { en: 'What is Marco Polo remembered as?', 
-              bs: 'Kao šta se pamti Marco Polo?' },
+              bs: 'Po kojoj se ulozi pamti Marco Polo?' },
     options: [
       { en: 'Chef', bs: 'Kuhar' },
       { en: 'Painter', bs: 'Slikar' },
@@ -1556,7 +1556,7 @@ export const famousEasy: Question[] = [
     category: 'famous',
     difficulty: 'easy',
     prompt: { en: 'Charlie Chaplin was a legendary star of which type of cinema?', 
-              bs: 'Charlie Chaplin je bio legendarna zvijezda kojeg tipa filma?' },
+              bs: 'Charlie Chaplin je bio legendarna zvijezda kojih filmova?' },
     options: [
       { en: 'Silent films', bs: 'Nijemih filmova' },
       { en: 'Animated films', bs: 'Animiranih filmova' },

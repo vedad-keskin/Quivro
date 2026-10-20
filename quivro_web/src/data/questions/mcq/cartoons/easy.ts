@@ -25,7 +25,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Elsa is a main character in which Disney film?',
-      bs: 'Elsa je glavni lik u kojem Disney filmu?'
+      bs: 'U kojem je Disneyjevom filmu Elsa glavni lik?'
     },
     options: [
       { en: 'Moana', bs: 'Vajana' },
@@ -586,7 +586,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'In Tarzan, what kind of animal is Tarzan raised by?',
-      bs: 'Kakva životinja odgaja Tarzana?'
+      bs: 'Koje životinje odgajaju Tarzana?'
     },
     options: [
       { en: 'Gorillas', bs: 'Gorile' },
@@ -841,7 +841,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'What is Donald Duck famous for wearing?',
-      bs: 'Po čemu je Donald Duck poznat što nosi?'
+      bs: 'Koji odjevni predmet Donald Duck često nosi i po njemu je prepoznatljiv?'
     },
     options: [
       { en: 'A sailor shirt', bs: 'Mornarsku majicu' },
@@ -1368,7 +1368,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which of Pocahontas\'s friends is a playful raccoon?',
-      bs: 'Koji je Pocahontasin prijatelj razigrani rakun?',
+      bs: 'Kako se zove razigrani rakun, Pocahontasin prijatelj?',
     },
     options: [
       { en: 'Flit', bs: 'Flit' },

@@ -229,7 +229,7 @@ export const islamHard: Question[] = [
     difficulty: 'hard',
     prompt: { 
       en: 'How many fighters did the allied army bring to Medina during the Battle of the Trench?',
-      bs: 'Koliko boraca je imala savezničko neprijateljska vojska tokom Bitke na Hendeku?'
+      bs: 'Koliko je boraca imala vojska neprijateljskih saveznika tokom Bitke na Hendeku?'
     },
     options: [
       { en: 'Three thousand', bs: 'Tri hiljade' },
@@ -251,7 +251,7 @@ export const islamHard: Question[] = [
     options: [
       { en: 'Building high walls around Medina', bs: 'Gradnju visokih zidina oko Medine' },
       { en: 'Digging a trench', bs: 'Kopanje rova' },
-      { en: 'Leaving Medina completely', bs: 'Napustiti Medinu' },
+      { en: 'Leaving Medina completely', bs: 'Napuštanje Medine' },
       { en: 'Attacking at night', bs: 'Napad noću' },
     ],
     correctIndex: 1,
@@ -2046,7 +2046,7 @@ export const islamHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'The Prophet ﷺ was so pleased to have been part of the Hilf al-Fudul alliance that he said he would not exchange his participation in it even for…',
-      bs: 'Poslaniku ﷺ je bilo drago što je bio dio saveza Hilful-fudul, da je kazao da ne bi mijenjao učešće u njemu ni za…',
+      bs: 'Za šta Poslanik ﷺ, prema vlastitim riječima, ne bi mijenjao svoje učešće u savezu Hilful-fudul?',
     },
     options: [
       { en: 'A herd of red camels', bs: 'Stado crvenih deva' },
