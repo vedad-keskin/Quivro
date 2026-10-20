@@ -575,7 +575,7 @@ export const islamMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'When was the qibla changed from Jerusalem to the Kaaba?',
-      bs: 'Kada je kibla promijenjena sa Jerusalima prema Kabi?',
+      bs: 'Kada je kibla promijenjena sa Jerusalema prema Kabi?',
     },
     options: [
       { en: 'Before the migration to Madinah', bs: 'Prije hidžre u Medinu' },
@@ -946,7 +946,7 @@ export const islamMedium: Question[] = [
     options: [
       { en: 'Mecca, 10 AH', bs: 'Meki, 10. h.g.' },
       { en: 'Medina, 11 AH', bs: 'Medini, 11. h.g.' },
-      { en: 'Jerusalem, 8 AH', bs: 'Jerusalimu, 8. h.g.' },
+      { en: 'Jerusalem, 8 AH', bs: 'Jerusalemu, 8. h.g.' },
       { en: 'Taif, 5 AH', bs: 'Taifu, 5. h.g.' },
     ],
     correctIndex: 1,

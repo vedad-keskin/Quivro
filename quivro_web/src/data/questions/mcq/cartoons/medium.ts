@@ -25,7 +25,7 @@ export const cartoonsMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'What is the name of the boy who owns Buzz Lightyear and Woody in Toy Story?',
-      bs: 'Kako se zove dječak koji posjeduje Buzza Lightyeara i Woodyja u Priči o igračkama?'
+      bs: 'Kako se zove dječak koji posjeduje Buzza Svjetlosnog i Woodyja u Priči o igračkama?'
     },
     options: [
       { en: 'Andy', bs: 'Andy' },
@@ -65,7 +65,7 @@ export const cartoonsMedium: Question[] = [
       { en: 'Toy Story', bs: 'Priča o igračkama' },
       { en: 'Shrek', bs: 'Shrek' },
       { en: 'Finding Nemo', bs: 'Potraga za Nemom' },
-      { en: 'Monsters, Inc.', bs: 'Čudovišta, Inc.' },
+      { en: 'Monsters, Inc.', bs: 'Čudovišta iz ormara' },
     ],
     correctIndex: 0,
   },
@@ -199,9 +199,9 @@ export const cartoonsMedium: Question[] = [
     },
     options: [
       { en: 'Scrat', bs: 'Scrat' },
-      { en: 'Buck', bs: 'Buck' },
-      { en: 'Crash', bs: 'Crash' },
-      { en: 'Eddie', bs: 'Eddie' },
+      { en: 'Sid', bs: 'Sid' },
+      { en: 'Crash', bs: 'Krešo' },
+      { en: 'Eddie', bs: 'Edo' },
     ],
     correctIndex: 0,
   },
@@ -212,7 +212,7 @@ export const cartoonsMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'What is the name of Megamind’s superhero rival?',
-      bs: 'Kako se zove Megamindov glavni superherojski protivnik?'
+      bs: 'Kako se zove Megaumov glavni superherojski protivnik?'
     },
     options: [
       { en: 'Metro Man', bs: 'Metro Man' },
@@ -229,7 +229,7 @@ export const cartoonsMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'What is the name of the city where Megamind takes place?',
-      bs: 'Kako se zove grad u kojem se odvija radnja filma Megamind?'
+      bs: 'Kako se zove grad u kojem se odvija radnja filma Megaum?'
     },
     options: [
       { en: 'Metro City', bs: 'Metro City' },
@@ -365,7 +365,7 @@ export const cartoonsMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Who originally voiced Woody in Toy Story?',
-      bs: 'Ko je originalno glasovao Woodya u Toy Storyju?'
+      bs: 'Ko je originalno glasovao Woodya u Priči o igračkama?'
     },
     options: [
       { en: 'Tim Allen', bs: 'Tim Allen' },
@@ -586,7 +586,7 @@ correctIndex: 1,
     difficulty: 'medium',
     prompt: {
       en: 'What nearly destroyed most of the completed work on Toy Story 2 during production?',
-      bs: 'Šta je skoro uništilo veći dio urađenog posla na Toy Story 2 tokom produkcije?'
+      bs: 'Šta je skoro uništilo veći dio urađenog posla na filmu Priča o igračkama 2 tokom produkcije?'
     },
     options: [
       { en: 'An accidental file deletion', bs: 'Slučajno brisanje fajlova' },
@@ -620,7 +620,7 @@ correctIndex: 1,
     difficulty: 'medium',
     prompt: {
       en: 'What kind of animal is Rapunzel\'s friend Pascal in Tangled?',
-      bs: 'Koja je životinja Rapunzelin prijatelj Pascal u filmu Tangled?',
+      bs: 'Koja je životinja Zlatokosin prijatelj Paskal u filmu Vrlo zapetljana priča?',
     },
     options: [
       { en: 'Gecko', bs: 'Gekon' },
@@ -637,7 +637,7 @@ correctIndex: 1,
     difficulty: 'medium',
     prompt: {
       en: 'Which instrument does Joe Gardner play in Soul?',
-      bs: 'Koji instrument svira Joe Gardner u filmu Soul?',
+      bs: 'Koji instrument svira Joe Gardner u filmu Duša?',
     },
     options: [
       { en: 'Drums', bs: 'Bubnjevi' },
@@ -654,7 +654,7 @@ correctIndex: 1,
     difficulty: 'medium',
     prompt: {
       en: 'What animal does Queen Elinor become in Brave?',
-      bs: 'U koju se životinju pretvori kraljica Elinor u filmu Brave?',
+      bs: 'U koju se životinju pretvori kraljica Elenor u filmu Hrabra Merida?',
     },
     options: [
       { en: 'Wolf', bs: 'Vuk' },
@@ -671,7 +671,7 @@ correctIndex: 1,
     difficulty: 'medium',
     prompt: {
       en: 'What does Edna Mode design in The Incredibles?',
-      bs: 'Šta dizajnira Edna Mode u filmu The Incredibles?',
+      bs: 'Šta dizajnira Edna Mode u filmu Izbavitelji?',
     },
     options: [
       { en: 'Robots', bs: 'Robote' },
@@ -705,7 +705,7 @@ correctIndex: 1,
     difficulty: 'medium',
     prompt: {
       en: 'Which new emotion joins Riley\'s mind in Inside Out 2?',
-      bs: 'Koja se nova emocija pojavljuje u umu glavne junakinje filma Inside Out 2?',
+      bs: 'Koja se nova emocija pojavljuje u umu glavne junakinje filma Izvrnuto obrnuto 2?',
     },
     options: [
       { en: 'Hope', bs: 'Nada' },
@@ -756,7 +756,7 @@ correctIndex: 1,
     difficulty: 'medium',
     prompt: {
       en: 'What is the name of Hiccup\'s island village in the original How to Train Your Dragon?',
-      bs: 'Kako se zove Hiccupovo otočko selo u prvom filmu How to Train Your Dragon?',
+      bs: 'Kako se zove Štuckovo otočko selo u prvom filmu Kako istrenirati zmaja?',
     },
     options: [
       { en: 'New Berk', bs: 'Novi Berk' },
@@ -822,17 +822,17 @@ correctIndex: 1,
     type: 'mcq',
     category: 'cartoons',
     difficulty: 'medium',
-    prompt: {
-      en: 'What is the name of Tanjiro\'s sister in Demon Slayer?',
-      bs: 'Kako se zove Tanjirova sestra u animeu Demon Slayer?',
-    },
-    options: [
-      { en: 'Shinobu', bs: 'Shinobu' },
-      { en: 'Kanao', bs: 'Kanao' },
-      { en: 'Nezuko', bs: 'Nezuko' },
-      { en: 'Mitsuri', bs: 'Mitsuri' },
-    ],
-    correctIndex: 2,
+prompt: {
+  en: 'Which of these is not one of the Teenage Mutant Ninja Turtles?',
+  bs: 'Koji od navedenih likova nije jedna od Nindža kornjača?',
+},
+options: [
+  { en: 'Leonardo', bs: 'Leonardo' },
+  { en: 'Michelangelo', bs: 'Michelangelo' },
+  { en: 'Donatello', bs: 'Donatello' },
+  { en: 'Splinter', bs: 'Splinter' },
+],
+correctIndex: 3,
   },
   {
     id: 'cartoon-med-050',
@@ -841,7 +841,7 @@ correctIndex: 1,
     difficulty: 'medium',
     prompt: {
       en: 'Who is the navigator of Luffy\'s crew in One Piece?',
-      bs: 'Ko je navigator Luffyjeve posade u animeu One Piece?',
+      bs: 'Ko je navigator Luffyjeve posade u serijalu One Piece?',
     },
     options: [
       { en: 'Robin', bs: 'Robin' },
@@ -858,7 +858,7 @@ correctIndex: 1,
     difficulty: 'medium',
     prompt: {
       en: 'Who wears the captain\'s armband for Supa Strikas?',
-      bs: 'Ko nosi kapitensku traku u Supa Strikasima?',
+      bs: 'Ko nosi kapitensku traku u timu Supa Strikas u istoimenoj seriji?',
     },
     options: [
       { en: 'Big Bo', bs: 'Big Bo' },
@@ -875,7 +875,7 @@ correctIndex: 1,
     difficulty: 'medium',
     prompt: {
       en: 'Which team is described as Supa Strikas\' arch-enemy?',
-      bs: 'Koja se ekipa opisuje kao najveći rival Supa Strikasa?',
+      bs: 'Koja se ekipa opisuje kao najveći rival Supa Strikasa u istoimenoj seriji?',
     },
     options: [
       { en: 'Barka FC', bs: 'Barka FC' },
@@ -892,7 +892,7 @@ correctIndex: 1,
     difficulty: 'medium',
     prompt: {
       en: 'Which character finds Mowgli as a baby and later watches over him in The Jungle Book?',
-      bs: 'Koji lik pronalazi Mowglija kao bebu i kasnije ga čuva u filmu The Jungle Book?',
+      bs: 'Koji lik pronalazi Moglija kao bebu i kasnije ga čuva u filmu Knjiga o džungli?',
     },
     options: [
       { en: 'Baloo the bear', bs: 'Medvjed Baloo' },
@@ -909,7 +909,7 @@ correctIndex: 1,
     difficulty: 'medium',
     prompt: {
       en: 'What does King Louie want Mowgli to teach him in The Jungle Book?',
-      bs: 'Čemu King Louie želi da ga Mowgli nauči u filmu The Jungle Book?',
+      bs: 'Čemu King Louie želi da ga Mogli nauči u filmu Knjiga o džungli?',
     },
     options: [
       { en: 'How to swim', bs: 'Kako plivati' },
@@ -1045,7 +1045,7 @@ correctIndex: 1,
     difficulty: 'medium',
     prompt: {
       en: 'What is the name of the dentist\'s niece in Finding Nemo?',
-      bs: 'Kako se zove zubareva nećakinja u filmu Finding Nemo?',
+      bs: 'Kako se zove zubareva nećakinja u filmu Potraga za Nemom?',
     },
     options: [
       { en: 'Deb', bs: 'Deb' },
