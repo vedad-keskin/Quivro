@@ -331,7 +331,7 @@ export const famousHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Who co-founded Studio Ghibli and directed Spirited Away?',
-      bs: 'Ko je suosnivač Studija Ghibli i režiser filma Spirited Away?'
+      bs: 'Ko je suosnivač Studija Ghibli i režiser filma Avanture male Chihiro?'
     },
     options: [
       { en: 'Hayao Miyazaki', bs: 'Hayao Miyazaki' },

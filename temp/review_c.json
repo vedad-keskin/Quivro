@@ -1,0 +1,1132 @@
+[
+  {
+    "id": "islam-med-002",
+    "file": "quivro_web/src/data/questions/mcq/islam/medium.ts",
+    "line": 23,
+    "field": "pitanje",
+    "original": "Bitka na Bedru se odigrala u kojem mjesecu i godini po hidžri?",
+    "proposal": "U kojem mjesecu i koje godine po hidžri se odigrala Bitka na Bedru?",
+    "reason": "Upitna sintagma treba stajati na početku, a „godine“ traži oblik „koje“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "islam-med-005",
+    "file": "quivro_web/src/data/questions/mcq/islam/medium.ts",
+    "line": 75,
+    "field": "odgovor 3",
+    "original": "Zadnji ajeti sure El-Bekare",
+    "proposal": "Posljednji ajet sure El-Bekare",
+    "reason": "Pitanje traži jedan ajet; množina „ajeti“ nije usklađena ni s engleskim izvornikom.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "islam-med-010",
+    "file": "quivro_web/src/data/questions/mcq/islam/medium.ts",
+    "line": 149,
+    "field": "pitanje",
+    "original": "Šta je Poslanik rekao el-Abbasu o sudbini Ebu Taliba zbog Poslanikove zauzimanja za njega?",
+    "proposal": "Šta je Poslanik rekao el-Abbasu o sudbini Ebu Taliba zbog Poslanikovog zauzimanja za njega?",
+    "reason": "Pogrešan padež prisvojnog pridjeva: „Poslanikove zauzimanja“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "islam-med-012",
+    "file": "quivro_web/src/data/questions/mcq/islam/medium.ts",
+    "line": 180,
+    "field": "pitanje",
+    "original": "Poslanik ﷺ je preporučio koju vrstu posta kao „Davudov post“?",
+    "proposal": "Koju je vrstu posta Poslanik ﷺ preporučio kao „Davudov post“?",
+    "reason": "Neprirodan red riječi u direktnom pitanju.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "islam-med-026",
+    "file": "quivro_web/src/data/questions/mcq/islam/medium.ts",
+    "line": 410,
+    "field": "pitanje",
+    "original": "Koja sura sadrži ajet kojim je naređeno Poslaniku Muhammedu ﷺ da opominje svoju najbližu rodbinu čime počinje javno pozivanje u islam?",
+    "proposal": "Koja sura sadrži ajet kojim je Poslaniku Muhammedu ﷺ naređeno da opominje svoju najbližu rodbinu, čime počinje javno pozivanje u islam?",
+    "reason": "Nedostaje zarez ispred zavisne surečenice „čime“; red riječi dodatno otežava razumijevanje.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "islam-med-038",
+    "file": "quivro_web/src/data/questions/mcq/islam/medium.ts",
+    "line": 610,
+    "field": "pitanje",
+    "original": "Imam Ebu Hanifa povezan je sa kojim gradom?",
+    "proposal": "S kojim je gradom povezan imam Ebu Hanifa?",
+    "reason": "Neprirodan red upitnih riječi i pomoćnog glagola.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "islam-med-060",
+    "file": "quivro_web/src/data/questions/mcq/islam/medium.ts",
+    "line": 978,
+    "field": "pitanje",
+    "original": "Za vrijeme hilafeta kojeg halife Kur'an je ujednačen u službeni mushaf?",
+    "proposal": "Za vrijeme čijeg je hilafeta ujednačen službeni mushaf Kur'ana?",
+    "reason": "Nedostaje pomoćni glagol „je“ i izvorna veza „ujednačen u službeni mushaf“ nije gramatična.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "islam-med-077",
+    "file": "quivro_web/src/data/questions/mcq/islam/medium.ts",
+    "line": 1261,
+    "field": "pitanje",
+    "original": "Bojkot protiv Benu Hašima u dolini Ebu Taliba trajao je oko?",
+    "proposal": "Koliko je približno trajao bojkot protiv Benu Hašima u dolini Ebu Taliba?",
+    "reason": "Poslije „oko“ nedostaje mjera ili upitna riječ; izvorno pitanje je nedovršeno.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "islam-med-104",
+    "file": "quivro_web/src/data/questions/mcq/islam/medium.ts",
+    "line": 1720,
+    "field": "pitanje",
+    "original": "Ko je predvodio vojsku koja je krenula prema Mekki da uništi Kabu prema suri El-Fil?",
+    "proposal": "Ko je predvodio vojsku koja je, prema suri El-Fil, krenula prema Meki da uništi Kabu?",
+    "reason": "U pisanju naziva „Meka“ nije potreban dvostruki k u dativnom obliku.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "islam-med-105",
+    "file": "quivro_web/src/data/questions/mcq/islam/medium.ts",
+    "line": 1737,
+    "field": "pitanje",
+    "original": "Koju je ulogu Ebu Leheb imao u Mekki prije svog neprijateljstva prema Poslaniku ﷺ?",
+    "proposal": "Koju je ulogu Ebu Leheb imao u Meki prije svog neprijateljstva prema Poslaniku ﷺ?",
+    "reason": "U pisanju naziva „Meka“ nije potreban dvostruki k u lokativnom obliku.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "islam-med-118",
+    "file": "quivro_web/src/data/questions/mcq/islam/medium.ts",
+    "line": 1958,
+    "field": "pitanje",
+    "original": "Koliko je bilo godina Poslaniku ﷺ kada je ostao i bez djeda?",
+    "proposal": "Koliko je Poslanik ﷺ imao godina kada je ostao i bez djeda?",
+    "reason": "Nepravilno postavljen dativ u pitanju o nečijoj dobi.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "islam-med-119",
+    "file": "quivro_web/src/data/questions/mcq/islam/medium.ts",
+    "line": 1975,
+    "field": "pitanje",
+    "original": "Koliko godina je bilo Poslaniku ﷺ kada ga je njegov amidža poveo na trgovačku karavanu u Šam?",
+    "proposal": "Koliko je Poslanik ﷺ imao godina kada ga je amidža poveo na trgovačko putovanje u Šam?",
+    "reason": "Nepravilno postavljen dativ u pitanju o nečijoj dobi; „poveo na karavanu“ nije prirodna veza.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-easy-013",
+    "file": "quivro_web/src/data/questions/mcq/movies/easy.ts",
+    "line": 215,
+    "field": "pitanje",
+    "original": "Kako lik kojeg glumi Tom Hanks nazove svoju loptu-prijatelja u Cast Away?",
+    "proposal": "Kako lik kojeg glumi Tom Hanks u filmu Cast Away zove svoju loptu?",
+    "reason": "„Loptu-prijatelja“ je nepravilan i nepotreban spoj imenica.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-easy-022",
+    "file": "quivro_web/src/data/questions/mcq/movies/easy.ts",
+    "line": 368,
+    "field": "pitanje",
+    "original": "Koja poznata rečenica je povezana s E.T.-ovom željom da kontaktira svoju planetu?",
+    "proposal": "Koji je poznati izraz povezan s E.T.-ovom željom da kontaktira svoju planetu?",
+    "reason": "Ponuđeni izraz „Nazvati kući“ nije potpuna rečenica; pitanje i dalje traži poznatu E.T.-ovu frazu.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-easy-074",
+    "file": "quivro_web/src/data/questions/mcq/movies/easy.ts",
+    "line": 1252,
+    "field": "pitanje",
+    "original": "U seriji Only Murders in the Building, koje zajedničko zanimanje povezuje troje komšija?",
+    "proposal": "Koje zajedničko interesovanje povezuje troje komšija u seriji Only Murders in the Building?",
+    "reason": "„Stvarni zločini“ nisu zanimanje u značenju profesije.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-easy-077",
+    "file": "quivro_web/src/data/questions/mcq/movies/easy.ts",
+    "line": 1303,
+    "field": "pitanje",
+    "original": "U seriji Murder, She Wrote, šta Jessica Fletcher piše kao svoje zanimanje?",
+    "proposal": "Šta Jessica Fletcher piše u seriji Murder, She Wrote?",
+    "reason": "Veza „piše kao svoje zanimanje“ je nezgrapna i suvišna.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-hard-003",
+    "file": "quivro_web/src/data/questions/mcq/movies/hard.ts",
+    "line": 50,
+    "field": "odgovor 3",
+    "original": "Kitova i dolfina",
+    "proposal": "Kitova i delfina",
+    "reason": "U bosanskom se piše „delfin“, ne „dolfin“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-hard-030",
+    "file": "quivro_web/src/data/questions/mcq/movies/hard.ts",
+    "line": 504,
+    "field": "pitanje",
+    "original": "Ko je glumio Golluma kroz motion capture u Gospodaru prstenova?",
+    "proposal": "Ko je glumio Golluma tehnikom snimanja pokreta u Gospodaru prstenova?",
+    "reason": "Veza „glumio kroz motion capture“ nije prirodna na bosanskom.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-hard-046",
+    "file": "quivro_web/src/data/questions/mcq/movies/hard.ts",
+    "line": 776,
+    "field": "pitanje",
+    "original": "Kako se zove strašni vuk Jona Snowa u serijalu Igra Prestolja?",
+    "proposal": "Kako se zove strašni vuk Jona Snowa u serijalu Igra prijestolja?",
+    "reason": "Bosanski naslov serijala piše se „Igra prijestolja“; drugi dio naslova malim slovom.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-hard-048",
+    "file": "quivro_web/src/data/questions/mcq/movies/hard.ts",
+    "line": 810,
+    "field": "pitanje",
+    "original": "Kako se zvao mač Arye Stark u serijalu Igra Prestolja?",
+    "proposal": "Kako se zvao mač Arye Stark u serijalu Igra prijestolja?",
+    "reason": "Bosanski naslov serijala piše se „Igra prijestolja“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-hard-050",
+    "file": "quivro_web/src/data/questions/mcq/movies/hard.ts",
+    "line": 844,
+    "field": "pitanje",
+    "original": "Koji glumac je imao ulogu u serijalu Igra Prestolja i Ratovima Zvijezda?",
+    "proposal": "Koji glumac je imao ulogu u serijalima Igra prijestolja i Ratovi zvijezda?",
+    "reason": "Bosanski naslovi pišu se „Igra prijestolja“ i „Ratovi zvijezda“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-hard-051",
+    "file": "quivro_web/src/data/questions/mcq/movies/hard.ts",
+    "line": 861,
+    "field": "pitanje",
+    "original": "Kako se zvao veliki mač Neda Starka u serijalu Igra Prestolja?",
+    "proposal": "Kako se zvao veliki mač Neda Starka u serijalu Igra prijestolja?",
+    "reason": "Bosanski naslov serijala piše se „Igra prijestolja“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-hard-057",
+    "file": "quivro_web/src/data/questions/mcq/movies/hard.ts",
+    "line": 963,
+    "field": "pitanje",
+    "original": "Koji film su Matt Damon i Ben Affleck zajedno napisali koji ih je proslavio?",
+    "proposal": "Koji su film zajedno napisali Matt Damon i Ben Affleck i njime se proslavili?",
+    "reason": "Nedostaje pomoćni glagol „su“ poslije upitne sintagme; ponavljanje „koji ... koji“ otežava čitanje.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-med-001",
+    "file": "quivro_web/src/data/questions/mcq/movies/medium.ts",
+    "line": 16,
+    "field": "odgovor 3",
+    "original": "Chicago-u",
+    "proposal": "Chicagu",
+    "reason": "Padežni nastavak se ne odvaja crticom od naziva grada.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-med-003",
+    "file": "quivro_web/src/data/questions/mcq/movies/medium.ts",
+    "line": 49,
+    "field": "odgovor 2",
+    "original": "George R.R. Martin-a",
+    "proposal": "George R.R. Martin",
+    "reason": "Pitanje glasi „Koji autor“; nastavak „-a“ je pogrešan.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-med-003",
+    "file": "quivro_web/src/data/questions/mcq/movies/medium.ts",
+    "line": 50,
+    "field": "odgovor 3",
+    "original": "Tolkien-a",
+    "proposal": "Tolkien",
+    "reason": "Pitanje glasi „Koji autor“; nastavak „-a“ je pogrešan.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-med-003",
+    "file": "quivro_web/src/data/questions/mcq/movies/medium.ts",
+    "line": 51,
+    "field": "odgovor 4",
+    "original": "Stephen King-a",
+    "proposal": "Stephen King",
+    "reason": "Pitanje glasi „Koji autor“; nastavak „-a“ je pogrešan.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-med-027",
+    "file": "quivro_web/src/data/questions/mcq/movies/medium.ts",
+    "line": 453,
+    "field": "pitanje",
+    "original": "Sa kojeg perona na stanici King’s Cross-a učenici Hogwartsa ulaze u Hogwarts Express?",
+    "proposal": "S kojeg perona na stanici King’s Cross učenici Hogwartsa ulaze u Hogwarts Express?",
+    "reason": "Crtica s padežnim nastavkom iza stranog naziva stanice nije potrebna.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-med-045",
+    "file": "quivro_web/src/data/questions/mcq/movies/medium.ts",
+    "line": 762,
+    "field": "odgovor 1",
+    "original": "Strip-u",
+    "proposal": "Stripu",
+    "reason": "Padežni nastavak se ne odvaja crticom od domaće riječi „strip“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-med-045",
+    "file": "quivro_web/src/data/questions/mcq/movies/medium.ts",
+    "line": 763,
+    "field": "odgovor 2",
+    "original": "Video igri",
+    "proposal": "Videoigri",
+    "reason": "Bosanska složenica „videoigra“ piše se sastavljeno.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-med-058",
+    "file": "quivro_web/src/data/questions/mcq/movies/medium.ts",
+    "line": 980,
+    "field": "pitanje",
+    "original": "Kako glasi pravo ime ubice iz Slagalica Strave serijala?",
+    "proposal": "Kako glasi pravo ime ubice iz filmskog serijala Slagalica strave?",
+    "reason": "Naziv serijala ima malo slovo u drugoj riječi; izvorni red riječi je nepravilan.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-med-070",
+    "file": "quivro_web/src/data/questions/mcq/movies/medium.ts",
+    "line": 1184,
+    "field": "pitanje",
+    "original": "Na čemu je originalno zasnovan film Pirati s Kariba?",
+    "proposal": "Šta je poslužilo kao predložak za film Pirati s Kariba?",
+    "reason": "Pitanje „Na čemu“ traži lokativ, a svi ponuđeni odgovori su nominalne oznake izvora.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-med-074",
+    "file": "quivro_web/src/data/questions/mcq/movies/medium.ts",
+    "line": 1252,
+    "field": "pitanje",
+    "original": "U filmu The Grand Budapest Hotel, koji posao Zero radi kada upozna Gustavea?",
+    "proposal": "Šta je Zero po zanimanju kada upozna Gustavea u filmu The Grand Budapest Hotel?",
+    "reason": "Ponuđeni odgovori su nazivi zanimanja, pa „koji posao radi“ nije prirodna formulacija.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "movie-med-078",
+    "file": "quivro_web/src/data/questions/mcq/movies/medium.ts",
+    "line": 1320,
+    "field": "pitanje",
+    "original": "U seriji The Sopranos, koji se zdravstveni problem Tonyju ponavlja?",
+    "proposal": "Od čega Tony u seriji The Sopranos povremeno pati?",
+    "reason": "Svi ponuđeni odgovori su u genitivu, a izvorno pitanje traži nominativ.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "sport-easy-007",
+    "file": "quivro_web/src/data/questions/mcq/sports/easy.ts",
+    "line": 100,
+    "field": "pitanje",
+    "original": "S kojim klubom je Lionel Messi bio najviše povezan veći dio svoje karijere?",
+    "proposal": "Za koji je klub Lionel Messi igrao veći dio karijere?",
+    "reason": "„Najviše povezan veći dio“ je suvišno i nejasno.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "sport-easy-025",
+    "file": "quivro_web/src/data/questions/mcq/sports/easy.ts",
+    "line": 377,
+    "field": "pitanje",
+    "original": "Koji trofej se dodjeljuje pobjedniku Super Bowla u Američkom fudbalu?",
+    "proposal": "Koji trofej se dodjeljuje pobjedniku Super Bowla u američkom fudbalu?",
+    "reason": "Naziv sporta nije vlastito ime i piše se malim slovom.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "sport-easy-035",
+    "file": "quivro_web/src/data/questions/mcq/sports/easy.ts",
+    "line": 532,
+    "field": "pitanje",
+    "original": "Michael Phelps je poznat po mnogim olimpijskim medaljama u kojem sportu?",
+    "proposal": "U kojem je sportu Michael Phelps osvojio brojne olimpijske medalje?",
+    "reason": "Upitna sintagma na kraju izvornog pitanja remeti red riječi.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "sport-easy-064",
+    "file": "quivro_web/src/data/questions/mcq/sports/easy.ts",
+    "line": 997,
+    "field": "pitanje",
+    "original": "Rafael Nadal je posebno poznat po mnogim titutama na kojoj podlozi?",
+    "proposal": "Rafael Nadal je posebno poznat po mnogim titulama na kojoj podlozi?",
+    "reason": "Tipfeler: „titutama“ umjesto „titulama“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "sport-easy-089",
+    "file": "quivro_web/src/data/questions/mcq/sports/easy.ts",
+    "line": 1402,
+    "field": "pitanje",
+    "original": "Koji zimski olimpijski sport gura kamenje na ledu prema meti?",
+    "proposal": "U kojem se zimskom olimpijskom sportu kamenje gura po ledu prema meti?",
+    "reason": "Sport ne može sam „gurati kamenje“; subjekat izvorne rečenice je nepravilan.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "sport-hard-012",
+    "file": "quivro_web/src/data/questions/mcq/sports/hard.ts",
+    "line": 179,
+    "field": "pitanje",
+    "original": "Koji škotski trener je odveo Manchester United do triplete Lige šampiona 1999.?",
+    "proposal": "Koji je škotski trener predvodio Manchester United do trostruke krune 1999. godine?",
+    "reason": "„Tripleta Lige šampiona“ pogrešno označava tri različita takmičenja kao tri naslova Lige šampiona.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "sport-hard-028",
+    "file": "quivro_web/src/data/questions/mcq/sports/hard.ts",
+    "line": 431,
+    "field": "pitanje",
+    "original": "Koji argentinski F1 legendarni vozač je osvojio pet svjetskih titula 1950-ih?",
+    "proposal": "Koji je legendarni argentinski vozač Formule 1 osvojio pet svjetskih titula 1950-ih?",
+    "reason": "Pogrešan red pridjeva i skraćenica „F1“ u izvornom izrazu.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "sport-hard-077",
+    "file": "quivro_web/src/data/questions/mcq/sports/hard.ts",
+    "line": 1220,
+    "field": "pitanje",
+    "original": "Koji engleski klub je ostvario prvu „Invincibles“ Premier liga sezonu bez poraza?",
+    "proposal": "Koji je engleski klub prvi završio sezonu Premier lige bez poraza, kao „Invincibles“?",
+    "reason": "Engleski red atributa „Invincibles Premier liga sezonu“ nije gramatičan na bosanskom.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "sport-hard-099",
+    "file": "quivro_web/src/data/questions/mcq/sports/hard.ts",
+    "line": 1572,
+    "field": "pitanje",
+    "original": "Koja holandska omladinska akademija ima nadimak „De Toekomst“ i proizvela je generacije zvijezda?",
+    "proposal": "Koji holandski klub ima omladinsku akademiju „De Toekomst“ iz koje su potekle brojne zvijezde?",
+    "reason": "Ponuđeni odgovori su klubovi, a izvorno pitanje pita za akademiju.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "sport-hard-123",
+    "file": "quivro_web/src/data/questions/mcq/sports/hard.ts",
+    "line": 1941,
+    "field": "pitanje",
+    "original": "Ko je postigao najbrži gol u historiji Lige prvaka asistencijom Hasana Salihamidžića u 10oj sekundi?",
+    "proposal": "Ko je, uz asistenciju Hasana Salihamidžića, postigao najbrži gol u historiji Lige prvaka, u 10. sekundi?",
+    "reason": "Redni broj piše se s tačkom: „10.“, ne „10oj“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "sport-med-013",
+    "file": "quivro_web/src/data/questions/mcq/sports/medium.ts",
+    "line": 198,
+    "field": "pitanje",
+    "original": "Koji holandski klub je poznat po istoriji povezanoj s narandžastom bojom i igra u Amsterdamu?",
+    "proposal": "Koji holandski klub je poznat po historiji povezanoj s narandžastom bojom i igra u Amsterdamu?",
+    "reason": "Bosanski standardni oblik je „historiji“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "sport-med-031",
+    "file": "quivro_web/src/data/questions/mcq/sports/medium.ts",
+    "line": 472,
+    "field": "pitanje",
+    "original": "Koji Formula 1 tim je baziran u Maranellu u Italiji?",
+    "proposal": "Koji tim Formule 1 ima sjedište u Maranellu u Italiji?",
+    "reason": "„Formula 1 tim“ je engleski red imenica; bosanski traži „tim Formule 1“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "sport-med-036",
+    "file": "quivro_web/src/data/questions/mcq/sports/medium.ts",
+    "line": 553,
+    "field": "pitanje",
+    "original": "Koliko metara dug je olimpijski bazen?",
+    "proposal": "Koliko je metara dug olimpijski bazen?",
+    "reason": "Pomoćni glagol stoji iza upitnog „koliko“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "sport-med-048",
+    "file": "quivro_web/src/data/questions/mcq/sports/medium.ts",
+    "line": 751,
+    "field": "pitanje",
+    "original": "U hokeju na ledu, koliko igrača po timu (uključujući golmana) je obično na ledu pri jednakom broju?",
+    "proposal": "U hokeju na ledu, koliko je igrača jednog tima, uključujući golmana, obično na ledu kada nema isključenja?",
+    "reason": "Izraz „pri jednakom broju“ nema imenicu koju broj određuje i nije jasan.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "sport-med-056",
+    "file": "quivro_web/src/data/questions/mcq/sports/medium.ts",
+    "line": 879,
+    "field": "pitanje",
+    "original": "Koji sport dodjeljuje Heisman Trophy izuzetnom univerzitetskom igraču u SAD-u?",
+    "proposal": "U kojem se sportu dodjeljuje Heismanov trofej izuzetnom univerzitetskom igraču u SAD-u?",
+    "reason": "Sport sam ne „dodjeljuje“ nagradu; izvorni subjekat je nepravilan.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "sport-med-078",
+    "file": "quivro_web/src/data/questions/mcq/sports/medium.ts",
+    "line": 1229,
+    "field": "pitanje",
+    "original": "Koji fudbalski klub ima domaći teren San Siro, istorijski dijeljen s drugim milanskim klubom?",
+    "proposal": "Koji fudbalski klub igra na San Siru, historijski dijeleći stadion s drugim milanskim klubom?",
+    "reason": "Bosanski standardni oblik je „historijski“; izvorna veza „ima domaći teren San Siro“ je neprirodna.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-easy-012",
+    "file": "quivro_web/src/data/questions/mcq/technology/easy.ts",
+    "line": 177,
+    "field": "pitanje",
+    "original": "Šta Wi-Fi omogućava uređaju?",
+    "proposal": "Šta uređaj može uraditi pomoću Wi-Fi-ja?",
+    "reason": "Uz „omogućava uređaju“ ponuđeni infinitivi nisu gramatički dopunjeni.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-easy-023",
+    "file": "quivro_web/src/data/questions/mcq/technology/easy.ts",
+    "line": 344,
+    "field": "pitanje",
+    "original": "Kakvo stvorenje je Yoshi obično prikazan kao?",
+    "proposal": "Kakvo je stvorenje Yoshi?",
+    "reason": "„Kakvo stvorenje je ... prikazan kao“ miješa dvije konstrukcije.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-easy-038",
+    "file": "quivro_web/src/data/questions/mcq/technology/easy.ts",
+    "line": 583,
+    "field": "odgovor 3",
+    "original": "Strelama brzine",
+    "proposal": "Strijelama brzine",
+    "reason": "U bosanskom je „strijela“, ne „strela“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-easy-064",
+    "file": "quivro_web/src/data/questions/mcq/technology/easy.ts",
+    "line": 980,
+    "field": "odgovor 4",
+    "original": "Tenkovskim ratovanjem",
+    "proposal": "Tenkovskom ratovanju",
+    "reason": "Uz pitanje „O čemu“ treba lokativ, kao u ostalim ponuđenim odgovorima.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-easy-114",
+    "file": "quivro_web/src/data/questions/mcq/technology/easy.ts",
+    "line": 1738,
+    "field": "pitanje",
+    "original": "Kako se zove Ferrarijev Formula 1 odjel?",
+    "proposal": "Kako se zove Ferrarijev odjel Formule 1?",
+    "reason": "Engleski red imenica „Formula 1 odjel“ nije gramatičan na bosanskom.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-005",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 70,
+    "field": "pitanje",
+    "original": "Poznati Konami kod, klasična šifra korištena u mnogim igrama, počinje kojim unosima?",
+    "proposal": "Kojim nizom komandi počinje poznati Konami kod, klasična šifra korištena u mnogim igrama?",
+    "reason": "Upitni izraz „počinje kojim unosima“ stoji u neprirodnom redoslijedu.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-006",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 85,
+    "field": "pitanje",
+    "original": "Koji NES kartridž je bio među prvima s baterijski podržanim save RAM-om za napredak?",
+    "proposal": "Koji je NES kartridž bio među prvima s baterijskom memorijom za spremanje napretka u igri?",
+    "reason": "„Baterijski podržanim save RAM-om“ je doslovan, nejasan spoj engleskih i bosanskih riječi.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-044",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 655,
+    "field": "pitanje",
+    "original": "Yoko Taro je bio director kojeg filozofskog RPG serijala?",
+    "proposal": "Na kojem je filozofskom RPG serijalu Yoko Taro radio kao direktor?",
+    "reason": "Engleska riječ „director“ nije uklopljena u bosansku rečenicu.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-045",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 670,
+    "field": "pitanje",
+    "original": "Yu Suzuki je kreirao koji ambiciozni Sega adventure serijal?",
+    "proposal": "Koji je avanturistički serijal kompanije Sega kreirao Yu Suzuki?",
+    "reason": "Engleski atribut „adventure“ nije uklopljen u bosansku rečenicu.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-046",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 685,
+    "field": "pitanje",
+    "original": "Hidetaka Miyazaki je bio director kojeg FromSoftware naslova iz 2019.?",
+    "proposal": "Koji je FromSoftwareov naslov iz 2019. godine režirao Hidetaka Miyazaki?",
+    "reason": "Engleska riječ „director“ nije uklopljena u bosansku rečenicu.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-048",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 715,
+    "field": "pitanje",
+    "original": "Markus Persson je kreirao Minecraft pod kojim usernameom?",
+    "proposal": "Pod kojim je korisničkim imenom Markus Persson kreirao Minecraft?",
+    "reason": "Engleski „username“ zamjenjuje uobičajeni bosanski izraz „korisničko ime“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-054",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 809,
+    "field": "odgovor 3",
+    "original": "Nadprirodna magla",
+    "proposal": "Natprirodna magla",
+    "reason": "U bosanskom se piše „natprirodan“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-055",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 820,
+    "field": "pitanje",
+    "original": "Koja je glavna pakovna prednost Wankel rotacionog motora?",
+    "proposal": "Koja je glavna konstrukcijska prednost Wankelovog rotacionog motora?",
+    "reason": "„Pakovna prednost“ je nejasan doslovni prijevod engleskog engineering izraza.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-055",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 822,
+    "field": "odgovor 1",
+    "original": "Visok omjer snage i veličine uz manje reciprocating dijelova",
+    "proposal": "Visok omjer snage i veličine uz manje klipnih dijelova",
+    "reason": "Engleska riječ „reciprocating“ nije prevedena.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-058",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 865,
+    "field": "pitanje",
+    "original": "Koji Lamborghini model je uveo prvi moderni serijski V10 supercar brenda?",
+    "proposal": "Koji je Lamborghinijev model prvi moderni serijski superautomobil te marke s motorom V10?",
+    "reason": "„V10 supercar brenda“ je neuklopljeni engleski spoj.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-061",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 912,
+    "field": "odgovor 1",
+    "original": "Različite tipove kroz jedan interfejs",
+    "proposal": "Rad s različitim tipovima kroz jedan interfejs",
+    "reason": "Odgovoru nedostaje glavna imenica „rad“ da bi označio šta polimorfizam omogućava.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-080",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 1195,
+    "field": "pitanje",
+    "original": "Sega je izašla iz hardware biznisa nakon koje kućne konzole?",
+    "proposal": "Nakon koje se kućne konzole Sega povukla s tržišta kućnih konzola?",
+    "reason": "„Izašla iz hardware biznisa“ je neuklopljeni engleski izraz i širi pojam od kućnih konzola.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-087",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 1300,
+    "field": "pitanje",
+    "original": "Kako se zove Valveov handheld PC gaming platform?",
+    "proposal": "Kako se zove Valveov prijenosni računar za igranje?",
+    "reason": "„Handheld PC gaming platform“ je nepreveden engleski niz riječi.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-096",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 1439,
+    "field": "odgovor 3",
+    "original": "Nosiost mrežnih paketa",
+    "proposal": "Nosivost mrežnih paketa",
+    "reason": "Tipfeler: „Nosiost“ umjesto „Nosivost“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-108",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 1618,
+    "field": "odgovor 2",
+    "original": "Fighting igre",
+    "proposal": "Borilačke igre",
+    "reason": "Engleski atribut „Fighting“ nije uklopljen u bosanski odgovor.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-108",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 1620,
+    "field": "odgovor 4",
+    "original": "Racing simove",
+    "proposal": "Trkaće simulacije",
+    "reason": "Engleski „Racing simove“ nije uklopljen u bosanski odgovor.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-109",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 1630,
+    "field": "pitanje",
+    "original": "Olofboost kontroverzni glitch/exploit se dogodila na kojem CS:GO Majoru?",
+    "proposal": "Na kojem se CS:GO Major turniru dogodio kontroverzni „Olofboost“?",
+    "reason": "„Olofboost ... se dogodila“ ne slaže se u rodu, a „glitch/exploit“ je neuklopljen engleski dodatak.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-117",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 1750,
+    "field": "pitanje",
+    "original": "Koji rani handheld je bio među prvima široko prodavan s color LCD-om?",
+    "proposal": "Koji je rani prijenosni uređaj za igranje bio među prvima široko prodavanima s LCD ekranom u boji?",
+    "reason": "„Handheld“ i „color LCD-om“ su neprevedeni engleski izrazi.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-118",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 1765,
+    "field": "pitanje",
+    "original": "Šta originalni PlayStation kontroler poznato nije imao?",
+    "proposal": "Šta originalni PlayStationov kontroler nije imao?",
+    "reason": "Prilog „poznato“ u ovoj vezi nije prirodan na bosanskom.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-118",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 1767,
+    "field": "odgovor 1",
+    "original": "Face buttons",
+    "proposal": "Prednje tipke",
+    "reason": "Engleski „Face buttons“ u bosanskom odgovoru.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-118",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 1768,
+    "field": "odgovor 2",
+    "original": "Analog sticks",
+    "proposal": "Analogne palice",
+    "reason": "Engleski „Analog sticks“ u bosanskom odgovoru.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-118",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 1769,
+    "field": "odgovor 3",
+    "original": "Shoulder buttons",
+    "proposal": "Ramene tipke",
+    "reason": "Engleski „Shoulder buttons“ u bosanskom odgovoru.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-118",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 1770,
+    "field": "odgovor 4",
+    "original": "Start button",
+    "proposal": "Tipku Start",
+    "reason": "Engleski „Start button“ u bosanskom odgovoru.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-139",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 2080,
+    "field": "pitanje",
+    "original": "Koji Porsche model je poznat po stražnje postavljenom bokser šestocilindričnom motoru?",
+    "proposal": "Koji je Porscheov model poznat po pozadi smještenom bokser motoru sa šest cilindara?",
+    "reason": "„Stražnje postavljenom bokser šestocilindričnom“ ima nepravilan red atributa.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-003",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 40,
+    "field": "pitanje",
+    "original": "Los Santos je glavni grad kojeg Rockstar open-world serijala?",
+    "proposal": "U kojem je Rockstarovom serijalu Los Santos važan grad?",
+    "reason": "„Glavni grad serijala“ pogrešno pripisuje status glavnog grada; „kojeg“ i „open-world serijala“ čine nejasnu konstrukciju.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-004",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 58,
+    "field": "odgovor 2",
+    "original": "Povećava refresh rate monitora",
+    "proposal": "Povećava učestalost osvježavanja monitora",
+    "reason": "Engleski „refresh rate“ ima jasan bosanski izraz.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-006",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 87,
+    "field": "odgovor 1",
+    "original": "Obmanjivanje korisnika da otkriju podatke",
+    "proposal": "Obmanjivanje korisnika da otkriju pristupne podatke",
+    "reason": "Englesko „credentials“ preciznije se prevodi kao „pristupni podaci“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-007",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 105,
+    "field": "odgovor 4",
+    "original": "Usšrivanje mrežnih paketa",
+    "proposal": "Usmjeravanje mrežnih paketa",
+    "reason": "Tipfeler: „Usšrivanje“ je nepostojeća riječ.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-013",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 190,
+    "field": "pitanje",
+    "original": "Šta je mrežni firewall uglavnom dizajniran da radi?",
+    "proposal": "Šta mrežni firewall uglavnom radi?",
+    "reason": "„Šta je ... dizajniran da radi“ je doslovan engleski izraz, ne prirodna bosanska rečenica.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-023",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 347,
+    "field": "pitanje",
+    "original": "Koja igra je prva dostigla 1 milijardu pregleda na YouTube trailerima?",
+    "proposal": "Koja je igra prva dostigla milijardu pregleda svojih najava na YouTubeu?",
+    "reason": "„Na YouTube trailerima“ ima pogrešan red riječi i nepreveden izraz.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-037",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 565,
+    "field": "pitanje",
+    "original": "Koji automobil je bio među prvim serijskim vozilima koji je u velikoj mjeri koristio karbonska vlakna?",
+    "proposal": "Koji je automobil bio među prvim serijskim vozilima koja su u velikoj mjeri koristila karbonska vlakna?",
+    "reason": "Odnosna zamjenica i glagol moraju se slagati s množinom „vozilima“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-064",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 985,
+    "field": "pitanje",
+    "original": "Šta browser cookies obično pohranjuju?",
+    "proposal": "Šta obično pohranjuju kolačići preglednika?",
+    "reason": "Engleski „browser cookies“ ima ustaljen bosanski naziv „kolačići preglednika“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-065",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 1000,
+    "field": "pitanje",
+    "original": "Šta je dvofaktorska autentifikacija namijenjena da doda?",
+    "proposal": "Šta dvofaktorska autentifikacija dodaje procesu prijave?",
+    "reason": "„Je namijenjena da doda“ je nezgrapna pasivna konstrukcija.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-086",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 1336,
+    "field": "odgovor 4",
+    "original": "Trajni nulti motion blur",
+    "proposal": "Trajno odsustvo zamućenja pokreta",
+    "reason": "Engleski „motion blur“ je neuklopljen, a „trajni nulti“ nije prirodna veza.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-107",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 1670,
+    "field": "pitanje",
+    "original": "Šta heat sink primarno radi u računaru?",
+    "proposal": "Šta hladnjak primarno radi u računaru?",
+    "reason": "Engleski „heat sink“ ima jasan bosanski izraz u ovom kontekstu.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-111",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 1734,
+    "field": "pitanje",
+    "original": "Blitzcrank je najpoznatiji po kojoj signature sposobnosti?",
+    "proposal": "Po kojoj je sposobnosti Blitzcrank najpoznatiji?",
+    "reason": "Engleski atribut „signature“ nije uklopljen u bosansku rečenicu.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-112",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 1751,
+    "field": "odgovor 1",
+    "original": "Neprijateljske towere",
+    "proposal": "Neprijateljske tornjeve",
+    "reason": "Engleski „towere“ je nepotrebna hibridna tvorba.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-112",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 1754,
+    "field": "odgovor 4",
+    "original": "Jungle kampove",
+    "proposal": "Kampove u džungli",
+    "reason": "Engleski red imenica „Jungle kampove“ nije gramatičan na bosanskom.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-113",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 1767,
+    "field": "odgovor 2",
+    "original": "Dekorativni paket wallpapera",
+    "proposal": "Paket pozadinskih slika",
+    "reason": "Engleski „wallpapera“ je nepotreban uz uobičajeni bosanski izraz.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-113",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 1769,
+    "field": "odgovor 4",
+    "original": "Browser ekstenzija za lozinke",
+    "proposal": "Proširenje preglednika za lozinke",
+    "reason": "Engleski „Browser ekstenzija“ ima pogrešan red imenica.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-114",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 1784,
+    "field": "odgovor 4",
+    "original": "Punjenje uređaja preko USB-C",
+    "proposal": "Puni uređaje putem USB-C-a",
+    "reason": "Uz pitanje „Šta kompajler radi?“ ponuđeni odgovor treba glagolski oblik kao i ostali.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-120",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 1889,
+    "field": "pitanje",
+    "original": "Kako se zvala Segina ručna konzola u boji kojom se konkurirala Game Boyu?",
+    "proposal": "Kako se zvala Segina ručna konzola u boji koja je konkurisala Game Boyu?",
+    "reason": "„Kojom se konkurirala“ je nepravilan povratni oblik glagola.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-121",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 1904,
+    "field": "pitanje",
+    "original": "Na koju konzolu je Rumble Pak dodao vibracijski feedback?",
+    "proposal": "Na kojoj je konzoli Rumble Pak omogućio vibraciju?",
+    "reason": "Pitanje „Na koju konzolu je ... dodao“ ima neprirodnu rekciju.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-med-127",
+    "file": "quivro_web/src/data/questions/mcq/technology/medium.ts",
+    "line": 1997,
+    "field": "pitanje",
+    "original": "U kojem esportu je Nikola \"NiKo\" Kovač, jedan od najboljih igrača svjeta iz Bosne i Hercegovine, poznat?",
+    "proposal": "U kojem esportu je poznat Nikola „NiKo“ Kovač, jedan od najboljih igrača svijeta iz Bosne i Hercegovine?",
+    "reason": "Tipfeler: „svjeta“ umjesto „svijeta“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-016",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 235,
+    "field": "pitanje",
+    "original": "Koja hibridna funkcija najviše razlikuje Nintendo Switch od ranijih Nintendo handhelda?",
+    "proposal": "Koja hibridna funkcija najviše razlikuje Nintendo Switch od ranijih Nintendovih prijenosnih konzola?",
+    "reason": "Engleski „handheld“ nije uklopljen u bosansku rečenicu.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-016",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 237,
+    "field": "odgovor 1",
+    "original": "Igra na TV-u preko docka s odvojivim kontrolerima",
+    "proposal": "Igranje na televizoru preko priključne stanice s odvojivim kontrolerima",
+    "reason": "Engleski „dock“ zamijenjen je bosanskim nazivom bez promjene značenja.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-016",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 238,
+    "field": "odgovor 2",
+    "original": "Dvostruki zadnji touch paneli",
+    "proposal": "Dvije stražnje dodirne ploče",
+    "reason": "Engleski „touch paneli“ nije uklopljen u bosanski odgovor.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-016",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 240,
+    "field": "odgovor 4",
+    "original": "Uvijek-online cloud kartridži",
+    "proposal": "Kartridži u oblaku koji zahtijevaju stalnu internetsku vezu",
+    "reason": "Neuklopljeni engleski izrazi „online“ i „cloud“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-041",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 610,
+    "field": "pitanje",
+    "original": "Will Wright je najpoznatiji po kreiranju kojeg life-simulation serijala?",
+    "proposal": "Koji je serijal igara sa simulacijom života stvorio Will Wright?",
+    "reason": "Engleski atribut „life-simulation“ nije uklopljen u bosansku rečenicu.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-050",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 745,
+    "field": "pitanje",
+    "original": "Koja Porsche linija modela je uvela mid-engine raspored kao serijski sportski auto različit od 911?",
+    "proposal": "Koja je Porscheova linija modela uvela raspored s motorom u sredini u serijski sportski automobil, za razliku od modela 911?",
+    "reason": "Engleski „mid-engine“ nije preveden; „Porsche linija modela“ ima nepravilan red imenica.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-055",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 823,
+    "field": "odgovor 2",
+    "original": "Inherentna diesel multi-fuel sposobnost",
+    "proposal": "Mogućnost korištenja dizela i drugih goriva bez dodatnih prilagodbi",
+    "reason": "Engleski izraz „diesel multi-fuel“ nije preveden.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-055",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 825,
+    "field": "odgovor 4",
+    "original": "Uvijek nulte emisije pod boostom",
+    "proposal": "Uvijek nulte emisije pri povećanom pritisku punjenja",
+    "reason": "Engleski „boost“ nije uklopljen u bosanski odgovor.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-071",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 1063,
+    "field": "odgovor 2",
+    "original": "Efikasnije reloada",
+    "proposal": "Efikasnije ponovo puni oružje",
+    "reason": "Engleski glagol „reloada“ nije uklopljen u bosanski odgovor.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-096",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 1437,
+    "field": "odgovor 1",
+    "original": "Frameove niže rezolucije u viši izlaz",
+    "proposal": "Kadrove niže rezolucije za izlaz veće rezolucije",
+    "reason": "Engleski „frameove“ i izraz „viši izlaz“ zamijenjeni su jasnim bosanskim izrazima.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-096",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 1438,
+    "field": "odgovor 2",
+    "original": "Kompresovane audio bitrateove",
+    "proposal": "Brzine prijenosa komprimiranog zvuka",
+    "reason": "Engleski „bitrateove“ nije uklopljen u bosanski odgovor.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-096",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 1440,
+    "field": "odgovor 4",
+    "original": "Metapodatke save fajlova",
+    "proposal": "Metapodatke datoteka za spremanje igre",
+    "reason": "Engleski „save“ nije uklopljen u bosanski odgovor.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-115",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 1720,
+    "field": "pitanje",
+    "original": "Koji zloglasni NES dodatak je koristio motion input rukavice?",
+    "proposal": "Koji je zloglasni dodatak za NES koristio rukavicu za unos pokreta?",
+    "reason": "Engleski „motion input“ nije preveden, a „rukavice“ su u pogrešnoj vezi s glagolom.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "tech-hard-115",
+    "file": "quivro_web/src/data/questions/mcq/technology/hard.ts",
+    "line": 1724,
+    "field": "odgovor 3",
+    "original": "Guitar controller",
+    "proposal": "Kontroler u obliku gitare",
+    "reason": "Engleski naziv vrste kontrolera nije preveden.",
+    "certainty": "sigurno"
+  }
+]

@@ -1,0 +1,822 @@
+[
+  {
+    "id": "bio-easy-007",
+    "file": "quivro_web/src/data/questions/mcq/biology/easy.ts",
+    "line": 100,
+    "field": "pitanje",
+    "original": "Koja vrsta životinja nosi jaja i može letjeti?",
+    "proposal": "Koja vrsta životinja polaže jaja i može letjeti?",
+    "reason": "Ptice polažu jaja; „nose jaja“ ovdje je doslovan pogrešan prevod.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-easy-012",
+    "file": "quivro_web/src/data/questions/mcq/biology/easy.ts",
+    "line": 175,
+    "field": "pitanje",
+    "original": "Šta pokriva vanjski dio stabla drveta?",
+    "proposal": "Šta pokriva vanjski dio stabla?",
+    "reason": "Izraz „stablo drveta“ je suvišan.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-easy-025",
+    "file": "quivro_web/src/data/questions/mcq/biology/easy.ts",
+    "line": 371,
+    "field": "pitanje",
+    "original": "Koje boje se obično opisuje krzno polarnog medvjeda?",
+    "proposal": "Kojom se bojom obično opisuje krzno polarnog medvjeda?",
+    "reason": "Pogrešna konstrukcija uz „koje boje“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-easy-027",
+    "file": "quivro_web/src/data/questions/mcq/biology/easy.ts",
+    "line": 401,
+    "field": "pitanje",
+    "original": "Koja ptica koja ne leti živi u hladnim antarktičkim područjima?",
+    "proposal": "Koja ptica ne može letjeti i živi u hladnim antarktičkim područjima?",
+    "reason": "Ponavljanje „ptica koja“ otežava čitanje.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-easy-028",
+    "file": "quivro_web/src/data/questions/mcq/biology/easy.ts",
+    "line": 416,
+    "field": "pitanje",
+    "original": "Kao šta žabe počinju život prije nego što im narastu noge?",
+    "proposal": "Kako se zovu žabe prije nego što im narastu noge?",
+    "reason": "„Kao šta ... počinju život“ nije pravilno pitanje za ponuđeni odgovor.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-easy-032",
+    "file": "quivro_web/src/data/questions/mcq/biology/easy.ts",
+    "line": 476,
+    "field": "pitanje",
+    "original": "Čime se hrane većina odraslih leptira?",
+    "proposal": "Čime se hrani većina odraslih leptira?",
+    "reason": "Glagol se slaže s imenicom „većina“ u jednini.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-easy-060",
+    "file": "quivro_web/src/data/questions/mcq/biology/easy.ts",
+    "line": 896,
+    "field": "pitanje",
+    "original": "Koji dio ljudskog tijela pomaže razgradnji hrane žvakanjem?",
+    "proposal": "Koji dijelovi ljudskog tijela pomažu razgradnji hrane žvakanjem?",
+    "reason": "Odgovor „zubi“ je u množini, a pitanje traži jedan dio.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-easy-062",
+    "file": "quivro_web/src/data/questions/mcq/biology/easy.ts",
+    "line": 926,
+    "field": "pitanje",
+    "original": "Koji veliki okeansko-morski grabežljivac ima karakterističnu leđnu peraju koja viri iz vode?",
+    "proposal": "Koji veliki morski grabežljivac ima karakterističnu leđnu peraju koja viri iz vode?",
+    "reason": "„Okeansko-morski“ je nepravilno i suvišno udvajanje.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-easy-064",
+    "file": "quivro_web/src/data/questions/mcq/biology/easy.ts",
+    "line": 956,
+    "field": "pitanje",
+    "original": "Koja muška životinja svake godine raste i gubi rogove?",
+    "proposal": "Mužjak koje životinje svake godine odbacuje stare rogove i dobija nove?",
+    "reason": "U izvorniku raste životinja umjesto rogova.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-easy-083",
+    "file": "quivro_web/src/data/questions/mcq/biology/easy.ts",
+    "line": 1241,
+    "field": "pitanje",
+    "original": "Koja visoka barska ptica ima jarko ružičaste perje?",
+    "proposal": "Koja visoka barska ptica ima jarko ružičasto perje?",
+    "reason": "Pridjev se mora slagati s imenicom „perje“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-easy-089",
+    "file": "quivro_web/src/data/questions/mcq/biology/easy.ts",
+    "line": 1331,
+    "field": "pitanje",
+    "original": "Koji crno-bijeli okeansko-morski grabežljivac je najveći član porodice delfina?",
+    "proposal": "Koji crno-bijeli morski grabežljivac je najveći član porodice delfina?",
+    "reason": "„Okeansko-morski“ je nepravilno i suvišno udvajanje.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-easy-098",
+    "file": "quivro_web/src/data/questions/mcq/biology/easy.ts",
+    "line": 1466,
+    "field": "pitanje",
+    "original": "Koji insekt koji ubada ima žuto-crno prugasto tijelo?",
+    "proposal": "Koji insekt ima žuto-crno prugasto tijelo i može ubosti?",
+    "reason": "Ponavljanje „koji insekt koji“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-easy-100",
+    "file": "quivro_web/src/data/questions/mcq/biology/easy.ts",
+    "line": 1496,
+    "field": "pitanje",
+    "original": "Koji sporo pokretni sisar visi naopačke na tropskim stablima i spava veći dio dana?",
+    "proposal": "Koji sisar se sporo kreće, visi naopačke na tropskim stablima i spava veći dio dana?",
+    "reason": "„Sporo pokretni“ je nezgrapna konstrukcija.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-hard-011",
+    "file": "quivro_web/src/data/questions/mcq/biology/hard.ts",
+    "line": 166,
+    "field": "pitanje",
+    "original": "Po čemu su paunski škampi-bogomoljke poznati kao neobično složeni među životinjama?",
+    "proposal": "Koja je osobina paunskih škampa-bogomoljki neobično složena u životinjskom svijetu?",
+    "reason": "Izvornik pogrešno pripisuje „složenost“ cijeloj životinji umjesto njenoj osobini.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-hard-024",
+    "file": "quivro_web/src/data/questions/mcq/biology/hard.ts",
+    "line": 364,
+    "field": "pitanje",
+    "original": "Koja australska ptica je poznata po izvanrednoj sposobnosti oponašanja motornih pila, okidača fotoaparata i drugih vrsta?",
+    "proposal": "Koja australska ptica je poznata po izvanrednoj sposobnosti oponašanja zvukova motornih pila, okidača fotoaparata i glasanja drugih životinja?",
+    "reason": "Izvorni „i drugih vrsta“ nema jasnu vezu s oponašanim zvukovima.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-hard-031",
+    "file": "quivro_web/src/data/questions/mcq/biology/hard.ts",
+    "line": 462,
+    "field": "pitanje",
+    "original": "Koja riba \"živi fosil\", za koju se smatralo da je izumrla prije miliona godina, ponovo je otkrivena 1938.?",
+    "proposal": "Koja je riba, poznata kao „živi fosil“, ponovo otkrivena 1938. nakon što se smatralo da je izumrla prije miliona godina?",
+    "reason": "Nepravilno umetnuta apozicija „živi fosil“ i odnosna rečenica.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-hard-032",
+    "file": "quivro_web/src/data/questions/mcq/biology/hard.ts",
+    "line": 480,
+    "field": "odgovor 3",
+    "original": "Oplođuju jajašca vanjski u otvorenim vodama",
+    "proposal": "Oplođuju jajašca izvana u otvorenim vodama",
+    "reason": "Prilog „vanjski“ ne može opisivati glagol „oplođuju“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-hard-037",
+    "file": "quivro_web/src/data/questions/mcq/biology/hard.ts",
+    "line": 546,
+    "field": "pitanje",
+    "original": "Koja tjelesna struktura je zapravo modificirani kljov narvala?",
+    "proposal": "Šta je, u anatomskom smislu, narvalova kljova?",
+    "reason": "„Modificirani kljov“ ima pogrešan rod i nejasan odnos prema odgovoru „očnjak“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-hard-042",
+    "file": "quivro_web/src/data/questions/mcq/biology/hard.ts",
+    "line": 621,
+    "field": "odgovor 1",
+    "original": "Škljocanjem kliješta koje stvara kavitacijske mjehuriće",
+    "proposal": "Škljocanjem kliješta koja stvaraju kavitacijske mjehuriće",
+    "reason": "Odnosna zamjenica mora se slagati s množinom „kliješta“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-hard-062",
+    "file": "quivro_web/src/data/questions/mcq/biology/hard.ts",
+    "line": 904,
+    "field": "odgovor 1",
+    "original": "Nema hemoglobin",
+    "proposal": "Nema hemoglobina",
+    "reason": "Uz „nema“ ide genitiv.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-hard-073",
+    "file": "quivro_web/src/data/questions/mcq/biology/hard.ts",
+    "line": 1058,
+    "field": "odgovor 1",
+    "original": "Voljno mlijeko",
+    "proposal": "Mlijeko iz voljke",
+    "reason": "„Voljno mlijeko“ pogrešno prevodi naziv sekreta iz ptičje voljke.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-hard-091",
+    "file": "quivro_web/src/data/questions/mcq/biology/hard.ts",
+    "line": 1320,
+    "field": "pitanje",
+    "original": "Koja izuzetno kamuflairana grebenska riba se smatra jednom od najotrovnijih riba na svijetu?",
+    "proposal": "Koja izuzetno kamuflirana grebenska riba se smatra jednom od najotrovnijih riba na svijetu?",
+    "reason": "Tipfeler u riječi „kamuflirana“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-hard-096",
+    "file": "quivro_web/src/data/questions/mcq/biology/hard.ts",
+    "line": 1393,
+    "field": "pitanje",
+    "original": "Koja plosnata riba može dati snažne električne udarce za omamljivanje plijena, za razliku od žilca koji koriste otrovne bodlje?",
+    "proposal": "Koja plosnata riba može dati snažne električne udarce za omamljivanje plijena, za razliku od raža koje koriste otrovne bodlje?",
+    "reason": "„Žilca koji“ ne odgovara značenju ni broju u poređenju s ražama.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-hard-100",
+    "file": "quivro_web/src/data/questions/mcq/biology/hard.ts",
+    "line": 1449,
+    "field": "pitanje",
+    "original": "Po kojoj anatomskoj osobini su divovske i kolosalne lignje poznate kao nosioci najvećih poznatih primjera u životinjskom carstvu?",
+    "proposal": "Koji dijelovi tijela divovskih i kolosalnih lignji spadaju među najveće zabilježene u životinjskom carstvu?",
+    "reason": "„Nosioci najvećih poznatih primjera“ je nejasan doslovni prevod.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-med-013",
+    "file": "quivro_web/src/data/questions/mcq/biology/medium.ts",
+    "line": 190,
+    "field": "pitanje",
+    "original": "Koji organ filtrira otpadne produkte iz krvi da proizvede mokraču?",
+    "proposal": "Koji organ filtrira otpadne produkte iz krvi da proizvede mokraću?",
+    "reason": "Pravilno je „mokraću“, a ne „mokraču“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-med-036",
+    "file": "quivro_web/src/data/questions/mcq/biology/medium.ts",
+    "line": 537,
+    "field": "pitanje",
+    "original": "Koji organ je odgovoran za razmjenu gasova između kiseonika i ugljen-dioksida kod ljudi?",
+    "proposal": "Koji organ je odgovoran za razmjenu kiseonika i ugljen-dioksida kod ljudi?",
+    "reason": "Razmjenjuju se gasovi, ne „razmjena gasova između“ njih.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-med-044",
+    "file": "quivro_web/src/data/questions/mcq/biology/medium.ts",
+    "line": 662,
+    "field": "odgovor 4",
+    "original": "Bezelijski organizmi",
+    "proposal": "Organizmi bez ćelija",
+    "reason": "„Bezelijski“ nije pravilno napisana riječ.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-med-072",
+    "file": "quivro_web/src/data/questions/mcq/biology/medium.ts",
+    "line": 1083,
+    "field": "odgovor 1",
+    "original": "Jedan linearni lanac ko koga jede",
+    "proposal": "Jedan linearni lanac koji prikazuje ko koga jede",
+    "reason": "Nedostaje veza između „lanac“ i zavisne rečenice.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-med-085",
+    "file": "quivro_web/src/data/questions/mcq/biology/medium.ts",
+    "line": 1267,
+    "field": "odgovor 1",
+    "original": "Željezо",
+    "proposal": "Željezo",
+    "reason": "Završno slovo u izvorniku je ćirilično „о“ umjesto latiničnog „o“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-med-089",
+    "file": "quivro_web/src/data/questions/mcq/biology/medium.ts",
+    "line": 1325,
+    "field": "pitanje",
+    "original": "Koji je termin za sjeme koje počinje klijati i rasti u novu biljku?",
+    "proposal": "Kako se naziva proces u kojem sjeme počinje klijati i rasti u novu biljku?",
+    "reason": "Odgovor „klijanje“ imenuje proces, a izvornik pita za sjeme.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-med-105",
+    "file": "quivro_web/src/data/questions/mcq/biology/medium.ts",
+    "line": 1569,
+    "field": "pitanje",
+    "original": "Koji par životinja se oba klasifikuju kao beskičmenjaci?",
+    "proposal": "Koji par čine dva beskičmenjaka?",
+    "reason": "„Koji par životinja se oba klasifikuju“ pogrešno veže „oba“ uz „par“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-med-106",
+    "file": "quivro_web/src/data/questions/mcq/biology/medium.ts",
+    "line": 1587,
+    "field": "odgovor 2",
+    "original": "Podkožna masnoća",
+    "proposal": "Potkožna masnoća",
+    "reason": "Pravilno je „potkožna“, s glasovnom promjenom d → t.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "bio-med-110",
+    "file": "quivro_web/src/data/questions/mcq/biology/medium.ts",
+    "line": 1648,
+    "field": "odgovor 1",
+    "original": "Da odbace i ponovo izrastaju perje",
+    "proposal": "Da odbace staro perje i da im izraste novo",
+    "reason": "Pticama izrasta perje; ptice ne „izrastaju perje“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "cartoon-easy-002",
+    "file": "quivro_web/src/data/questions/mcq/cartoons/easy.ts",
+    "line": 28,
+    "field": "pitanje",
+    "original": "Elsa je glavni lik u kojem Disney filmu?",
+    "proposal": "U kojem je Disneyjevom filmu Elsa glavni lik?",
+    "reason": "Prisvojni pridjev „Disneyjevom“ slaže se s „filmu“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "cartoon-easy-035",
+    "file": "quivro_web/src/data/questions/mcq/cartoons/easy.ts",
+    "line": 589,
+    "field": "pitanje",
+    "original": "Kakva životinja odgaja Tarzana?",
+    "proposal": "Koje životinje odgajaju Tarzana?",
+    "reason": "Odgovor „gorile“ je u množini, a pitanje ima jedninu.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "cartoon-easy-050",
+    "file": "quivro_web/src/data/questions/mcq/cartoons/easy.ts",
+    "line": 844,
+    "field": "pitanje",
+    "original": "Po čemu je Donald Duck poznat što nosi?",
+    "proposal": "Koji odjevni predmet Donald Duck često nosi i po njemu je prepoznatljiv?",
+    "reason": "Konstrukcija „Po čemu je ... poznat što nosi?“ nije gramatički pravilna.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "cartoon-easy-081",
+    "file": "quivro_web/src/data/questions/mcq/cartoons/easy.ts",
+    "line": 1371,
+    "field": "pitanje",
+    "original": "Koji je Pocahontasin prijatelj razigrani rakun?",
+    "proposal": "Kako se zove razigrani rakun, Pocahontasin prijatelj?",
+    "reason": "Izvorni red riječi nejasno povezuje „prijatelj“ i „rakun“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "cartoon-hard-032",
+    "file": "quivro_web/src/data/questions/mcq/cartoons/hard.ts",
+    "line": 538,
+    "field": "pitanje",
+    "original": "Jednooki lasica Buck postaje važan lik počevši od kojeg filma Ledenog doba?",
+    "proposal": "Jednooka lasica Buck postaje važan lik počevši od kojeg filma Ledenog doba?",
+    "reason": "Pridjev se mora slagati s imenicom ženskog roda „lasica“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "cartoon-med-005",
+    "file": "quivro_web/src/data/questions/mcq/cartoons/medium.ts",
+    "line": 79,
+    "field": "pitanje",
+    "original": "Kako se zovu novine u kojim radi Peter Parker?",
+    "proposal": "Kako se zovu novine u kojima radi Peter Parker?",
+    "reason": "Uz „novine“ ide odnosna zamjenica „kojima“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "cartoon-med-015",
+    "file": "quivro_web/src/data/questions/mcq/cartoons/medium.ts",
+    "line": 252,
+    "field": "odgovor 1",
+    "original": "Da je odleti do Južne Amerike",
+    "proposal": "Da njome odleti do Južne Amerike",
+    "reason": "„Da je odleti“ nepravilan je spoj zamjenice i glagola.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "cartoon-med-022",
+    "file": "quivro_web/src/data/questions/mcq/cartoons/medium.ts",
+    "line": 368,
+    "field": "pitanje",
+    "original": "Ko je originalno glasovao Woodya u Priči o igračkama?",
+    "proposal": "Ko je izvorno posudio glas Woodyju u Priči o igračkama?",
+    "reason": "„Glasovao“ znači glasao na izborima, a ne posudio glas liku.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "cartoon-med-025",
+    "file": "quivro_web/src/data/questions/mcq/cartoons/medium.ts",
+    "line": 419,
+    "field": "pitanje",
+    "original": "Šta Fiona odlučuje ostati na kraju Shreka?",
+    "proposal": "U kojem obliku Fiona odlučuje ostati na kraju Shreka?",
+    "reason": "„Šta odlučuje ostati“ je neprirodna konstrukcija za pitanje o Fioninom obliku.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "cartoon-med-034",
+    "file": "quivro_web/src/data/questions/mcq/cartoons/medium.ts",
+    "line": 572,
+    "field": "pitanje",
+    "original": "U South Parku, šta se poznato dešava Kennyju u skoro svakoj epizodi?",
+    "proposal": "Šta se Kennyju često dešava u gotovo svakoj epizodi South Parka?",
+    "reason": "„Šta se poznato dešava“ nije gramatički prirodna konstrukcija.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-easy-001",
+    "file": "quivro_web/src/data/questions/mcq/famous/easy.ts",
+    "line": 10,
+    "field": "pitanje",
+    "original": "J.K. Rowling je autor koje poznatog serijala knjiga?",
+    "proposal": "Koji je poznati serijal knjiga napisala J. K. Rowling?",
+    "reason": "Pogrešan padež „koje poznatog“ i muški oblik „autor“ za ženu.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-easy-005",
+    "file": "quivro_web/src/data/questions/mcq/famous/easy.ts",
+    "line": 70,
+    "field": "pitanje",
+    "original": "Kakve knjige je Stephen King poznat po pisanju?",
+    "proposal": "Po pisanju kakvih knjiga je poznat Stephen King?",
+    "reason": "Izvorni red riječi pogrešno spaja „kakve knjige“ s „po pisanju“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-easy-011",
+    "file": "quivro_web/src/data/questions/mcq/famous/easy.ts",
+    "line": 162,
+    "field": "pitanje",
+    "original": "Koji par kompanija Elon Musk je poznat po vođenju?",
+    "proposal": "Koje dvije kompanije je Elon Musk poznat po tome što ih vodi?",
+    "reason": "„Koji par kompanija ... po vođenju“ je nejasan red riječi.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-easy-027",
+    "file": "quivro_web/src/data/questions/mcq/famous/easy.ts",
+    "line": 410,
+    "field": "pitanje",
+    "original": "Kao šta je Pablo Picasso bio svjetski poznat?",
+    "proposal": "Po kojem je zanimanju Pablo Picasso bio svjetski poznat?",
+    "reason": "„Kao šta“ nije prirodna upitna konstrukcija za zanimanje.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-easy-041",
+    "file": "quivro_web/src/data/questions/mcq/famous/easy.ts",
+    "line": 626,
+    "field": "odgovor 3",
+    "original": "Skijaskog skakanja",
+    "proposal": "Skijaškog skakanja",
+    "reason": "Nedostaje slovo „š“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-easy-046",
+    "file": "quivro_web/src/data/questions/mcq/famous/easy.ts",
+    "line": 697,
+    "field": "pitanje",
+    "original": "Kao šta se William Shakespeare slavi?",
+    "proposal": "Po kojem je zanimanju slavan William Shakespeare?",
+    "reason": "„Kao šta se ... slavi?“ nije pravilna upitna konstrukcija.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-easy-051",
+    "file": "quivro_web/src/data/questions/mcq/famous/easy.ts",
+    "line": 780,
+    "field": "pitanje",
+    "original": "Kao šta je Vincent van Gogh bio poznat?",
+    "proposal": "Po kojem je zanimanju Vincent van Gogh bio poznat?",
+    "reason": "„Kao šta“ nije prirodna upitna konstrukcija za zanimanje.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-easy-055",
+    "file": "quivro_web/src/data/questions/mcq/famous/easy.ts",
+    "line": 844,
+    "field": "pitanje",
+    "original": "Plafona koje poznate građevine je oslikao Michelangelo?",
+    "proposal": "Plafon koje je poznate građevine oslikao Michelangelo?",
+    "reason": "Direktni objekt glagola „oslikao“ treba biti u akuzativu: „plafon“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-easy-056",
+    "file": "quivro_web/src/data/questions/mcq/famous/easy.ts",
+    "line": 859,
+    "field": "pitanje",
+    "original": "Kao šta je Aristotel bio poznat u drevnoj Grčkoj?",
+    "proposal": "Po kojoj je ulozi Aristotel bio poznat u drevnoj Grčkoj?",
+    "reason": "„Kao šta“ nije prirodna upitna konstrukcija za ponuđene uloge.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-easy-059",
+    "file": "quivro_web/src/data/questions/mcq/famous/easy.ts",
+    "line": 906,
+    "field": "pitanje",
+    "original": "Kao šta je Wolfgang Amadeus Mozart bio poznat?",
+    "proposal": "Po kojem je zanimanju Wolfgang Amadeus Mozart bio poznat?",
+    "reason": "„Kao šta“ nije prirodna upitna konstrukcija za zanimanje.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-easy-066",
+    "file": "quivro_web/src/data/questions/mcq/famous/easy.ts",
+    "line": 1017,
+    "field": "pitanje",
+    "original": "Kao šta se pamti Marco Polo?",
+    "proposal": "Po kojoj se ulozi pamti Marco Polo?",
+    "reason": "„Kao šta se pamti“ nije prirodna upitna konstrukcija za ponuđene uloge.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-easy-100",
+    "file": "quivro_web/src/data/questions/mcq/famous/easy.ts",
+    "line": 1559,
+    "field": "pitanje",
+    "original": "Charlie Chaplin je bio legendarna zvijezda kojeg tipa filma?",
+    "proposal": "Charlie Chaplin je bio legendarna zvijezda kojih filmova?",
+    "reason": "Pitanje u jednini „kojeg tipa filma“ ne odgovara odgovorima u genitivu množine.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-hard-001",
+    "file": "quivro_web/src/data/questions/mcq/famous/hard.ts",
+    "line": 11,
+    "field": "pitanje",
+    "original": "Koju naučnu tabelu je Dmitri Mendelejev najpoznatiji po stvaranju?",
+    "proposal": "Koju je naučnu tabelu Dmitri Mendelejev stvorio i po njoj postao poznat?",
+    "reason": "„Koju ... najpoznatiji po stvaranju“ miješa objekt pitanja i prijedložnu konstrukciju.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-hard-005",
+    "file": "quivro_web/src/data/questions/mcq/famous/hard.ts",
+    "line": 79,
+    "field": "pitanje",
+    "original": "I.M. Pei je dizajnirao staklenu piramidalnu ulaznicu na kojem muzeju?",
+    "proposal": "U kojem muzeju je I. M. Pei dizajnirao staklenu ulaznu piramidu?",
+    "reason": "„Ulaznica“ znači karta za ulaz, ne arhitektonski ulaz.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-hard-006",
+    "file": "quivro_web/src/data/questions/mcq/famous/hard.ts",
+    "line": 96,
+    "field": "pitanje",
+    "original": "Ko je prvi popeo svih 14 planina viših od 8.000 metara?",
+    "proposal": "Ko se prvi popeo na svih 14 planina viših od 8.000 metara?",
+    "reason": "Uz „popeti se“ potreban je povratni oblik i prijedlog „na“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-hard-007",
+    "file": "quivro_web/src/data/questions/mcq/famous/hard.ts",
+    "line": 113,
+    "field": "pitanje",
+    "original": "Ko je prvi popeo Mount Everest bez dodatnog kisika?",
+    "proposal": "Ko se prvi popeo na Mount Everest bez dodatnog kisika?",
+    "reason": "Uz „popeti se“ potreban je povratni oblik i prijedlog „na“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-hard-009",
+    "file": "quivro_web/src/data/questions/mcq/famous/hard.ts",
+    "line": 147,
+    "field": "pitanje",
+    "original": "Nelson Mandela je decenijama se suprotstavljao kojem sistemu rasne segregacije?",
+    "proposal": "Kojem sistemu rasne segregacije se Nelson Mandela suprotstavljao decenijama?",
+    "reason": "Izvorni red „je decenijama se“ razdvaja povratnu zamjenicu od glagola.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-hard-010",
+    "file": "quivro_web/src/data/questions/mcq/famous/hard.ts",
+    "line": 164,
+    "field": "pitanje",
+    "original": "Po čemu je Johnny Knoxville najpoznatiji kao tvorac?",
+    "proposal": "Koji je serijal proslavio Johnnyja Knoxvillea kao tvorca?",
+    "reason": "„Po čemu ... najpoznatiji kao tvorac“ nije pravilna upitna konstrukcija.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-hard-028",
+    "file": "quivro_web/src/data/questions/mcq/famous/hard.ts",
+    "line": 473,
+    "field": "odgovor 1",
+    "original": "X-ray skenera",
+    "proposal": "Rendgenskog skenera",
+    "reason": "Engleski izraz „X-ray“ ostao je nepreveden.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-hard-047",
+    "file": "quivro_web/src/data/questions/mcq/famous/hard.ts",
+    "line": 793,
+    "field": "pitanje",
+    "original": "Koji poznati naučnik je imao gavrana po imenu Grip?",
+    "proposal": "Koji poznati pisac je imao gavrana po imenu Grip?",
+    "reason": "Tačan odgovor Charles Dickens bio je pisac, ne naučnik.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-hard-072",
+    "file": "quivro_web/src/data/questions/mcq/famous/hard.ts",
+    "line": 1224,
+    "field": "odgovor 4",
+    "original": "Rosetta kamen",
+    "proposal": "Rozetski kamen",
+    "reason": "Naziv artefakta „Rosetta Stone“ pogrešno je preveden kao „Rosetta kamen“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-hard-082",
+    "file": "quivro_web/src/data/questions/mcq/famous/hard.ts",
+    "line": 1388,
+    "field": "pitanje",
+    "original": "Euklidovi Elements su sistematizovali dokaze u kojoj grani matematike?",
+    "proposal": "Euklidovi Elementi su sistematizovali dokaze u kojoj grani matematike?",
+    "reason": "Naslov djela je djelimično ostao na engleskom.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-hard-097",
+    "file": "quivro_web/src/data/questions/mcq/famous/hard.ts",
+    "line": 1649,
+    "field": "odgovor 4",
+    "original": "Najlon vlakana",
+    "proposal": "Najlonskih vlakana",
+    "reason": "Pridjev izveden od „najlon“ treba biti u genitivu množine.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-hard-099",
+    "file": "quivro_web/src/data/questions/mcq/famous/hard.ts",
+    "line": 1680,
+    "field": "odgovor 1",
+    "original": "Panama kanal",
+    "proposal": "Panamski kanal",
+    "reason": "Naziv vodnog puta na bosanskom glasi „Panamski kanal“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-med-002",
+    "file": "quivro_web/src/data/questions/mcq/famous/medium.ts",
+    "line": 28,
+    "field": "pitanje",
+    "original": "Ko je bio prvi čovjek koji je popeo El Capitan u Yosemiteu bez užadi i zaštitne opreme?",
+    "proposal": "Ko je bio prvi čovjek koji se popeo na El Capitan u Yosemiteu bez užadi i zaštitne opreme?",
+    "reason": "Uz „popeti se“ potreban je povratni oblik i prijedlog „na“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-med-020",
+    "file": "quivro_web/src/data/questions/mcq/famous/medium.ts",
+    "line": 334,
+    "field": "pitanje",
+    "original": "Koja se drevni ep se pripisuje Homeru?",
+    "proposal": "Koji se drevni ep pripisuje Homeru?",
+    "reason": "Zamjenica i pridjev moraju se slagati s imenicom muškog roda „ep“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-med-064",
+    "file": "quivro_web/src/data/questions/mcq/famous/medium.ts",
+    "line": 1082,
+    "field": "pitanje",
+    "original": "Za koji Formula 1 tim je Lewis Hamilton vozio kada je osvojio svoju prvu titulu?",
+    "proposal": "Za koji tim Formule 1 je Lewis Hamilton vozio kada je osvojio svoju prvu titulu?",
+    "reason": "Naziv takmičenja traži genitiv: „tim Formule 1“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "fam-med-070",
+    "file": "quivro_web/src/data/questions/mcq/famous/medium.ts",
+    "line": 1184,
+    "field": "pitanje",
+    "original": "Po čemu je Mary Anning postala poznata zbog svojih otkrića?",
+    "proposal": "Otkrićima kojih fosila je Mary Anning postala poznata?",
+    "reason": "„Po čemu ... zbog svojih otkrića“ nepotrebno udvaja uzrok i čini pitanje nejasnim.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-easy-007",
+    "file": "quivro_web/src/data/questions/mcq/food/easy.ts",
+    "line": 113,
+    "field": "pitanje",
+    "original": "Koji napitak od kafe je mali, jak shot kafe?",
+    "proposal": "Kako se zove kratka, jaka kafa?",
+    "reason": "Engleski „shot“ nije uklopljen u bosansku rečenicu.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-easy-012",
+    "file": "quivro_web/src/data/questions/mcq/food/easy.ts",
+    "line": 198,
+    "field": "pitanje",
+    "original": "Koja francusko pecivo je lisnato i u obliku polumjeseca?",
+    "proposal": "Koje francusko pecivo je lisnato i u obliku polumjeseca?",
+    "reason": "Pogrešan rod upitne zamjenice uz „pecivo“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-easy-016",
+    "file": "quivro_web/src/data/questions/mcq/food/easy.ts",
+    "line": 266,
+    "field": "pitanje",
+    "original": "Koji doručak se peče u oblikovanom željeznom kalupu i često se služi sa sirupom?",
+    "proposal": "Koje se jelo za doručak peče u željeznom kalupu s karakterističnim uzorkom i često služi sa sirupom?",
+    "reason": "„Koji doručak“ je neprirodna konstrukcija, a kalup treba opisati jasnije.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-easy-034",
+    "file": "quivro_web/src/data/questions/mcq/food/easy.ts",
+    "line": 572,
+    "field": "pitanje",
+    "original": "Koje veliko voće je uglavnom voda i često se jede u ljetnim kriškama?",
+    "proposal": "Koje veliko voće sadrži mnogo vode i ljeti se često jede narezano na kriške?",
+    "reason": "„Voće je uglavnom voda“ i „ljetne kriške“ su nepravilne formulacije.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-easy-043",
+    "file": "quivro_web/src/data/questions/mcq/food/easy.ts",
+    "line": 725,
+    "field": "pitanje",
+    "original": "Koji hladni napitak miješa sladoled ili mlijeko s aromama dok ne postane gladak?",
+    "proposal": "Koji se hladni napitak priprema miješanjem sladoleda ili mlijeka s aromama dok ne postane kremast?",
+    "reason": "Napitak se ne „miješa“ sam; doslovni prevod „gladak“ nije prikladan.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-easy-056",
+    "file": "quivro_web/src/data/questions/mcq/food/easy.ts",
+    "line": 946,
+    "field": "pitanje",
+    "original": "Koje japansko jelo je morska hrana ili povrće u laganom tijestu i duboko prženo?",
+    "proposal": "Koje se japansko jelo priprema od morskih plodova ili povrća obloženih laganim tijestom i prženih u dubokom ulju?",
+    "reason": "„Duboko prženo“ je doslovni prevod; rečenici nedostaje jasna glagolska veza.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-easy-065",
+    "file": "quivro_web/src/data/questions/mcq/food/easy.ts",
+    "line": 1099,
+    "field": "pitanje",
+    "original": "Koji namaz nastaje miješanjem vrhnja dok ne postane čvrsto?",
+    "proposal": "Koji namaz nastaje mućenjem vrhnja dok ne postane čvrsto?",
+    "reason": "Maslac nastaje mućenjem vrhnja, ne običnim „miješanjem“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-easy-076",
+    "file": "quivro_web/src/data/questions/mcq/food/easy.ts",
+    "line": 1286,
+    "field": "pitanje",
+    "original": "S kojom se kuhinjom najviše povezuju kroasane, bageti i crème brûlée?",
+    "proposal": "S kojom se kuhinjom najviše povezuju kroasani, bageti i crème brûlée?",
+    "reason": "Subjekt zahtijeva nominativ množine „kroasani“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-easy-078",
+    "file": "quivro_web/src/data/questions/mcq/food/easy.ts",
+    "line": 1320,
+    "field": "pitanje",
+    "original": "Koji pecivo u obliku prstena se često kuha prije pečenja?",
+    "proposal": "Koje se pecivo u obliku prstena često kuha prije pečenja?",
+    "reason": "Pogrešan rod upitne zamjenice uz „pecivo“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-easy-081",
+    "file": "quivro_web/src/data/questions/mcq/food/easy.ts",
+    "line": 1371,
+    "field": "pitanje",
+    "original": "Koji Burger King sendvič je poznat po flame-grilled pljeskavici?",
+    "proposal": "Koji Burger King sendvič je poznat po pljeskavici pečenoj na plamenu?",
+    "reason": "Engleski izraz „flame-grilled“ ostao je nepreveden.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-easy-082",
+    "file": "quivro_web/src/data/questions/mcq/food/easy.ts",
+    "line": 1388,
+    "field": "pitanje",
+    "original": "Koji lanac brze hrane je najpoznatiji po submarine sendvičima po narudžbi?",
+    "proposal": "Koji lanac brze hrane je najpoznatiji po sendvičima u dugačkom pecivu koji se pripremaju po narudžbi?",
+    "reason": "Engleski „submarine“ nije uklopljen u bosansku rečenicu.",
+    "certainty": "sigurno"
+  }
+]

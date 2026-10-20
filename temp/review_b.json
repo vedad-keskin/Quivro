@@ -1,0 +1,482 @@
+[
+  {
+    "id": "food-hard-001",
+    "file": "quivro_web/src/data/questions/mcq/food/hard.ts",
+    "line": 5,
+    "field": "pitanje",
+    "original": "Koji začin je nekada korišten kao simbol bogatstva i trgovao se drevnim putevima začina?",
+    "proposal": "Koji je začin nekada korišten kao simbol bogatstva i kojim se trgovalo duž drevnih puteva začina?",
+    "reason": "Začin nije vršilac radnje; pravilna je konstrukcija „kojim se trgovalo“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-hard-004",
+    "file": "quivro_web/src/data/questions/mcq/food/hard.ts",
+    "line": 56,
+    "field": "pitanje",
+    "original": "Koji poznati francuski plavi sir sazrijeva u pećinama i razvija uz pomoć kultura plijesni Penicillium?",
+    "proposal": "Koji poznati francuski plavi sir sazrijeva u pećinama i razvija se uz pomoć kultura plijesni Penicillium?",
+    "reason": "Nedostaje povratna zamjenica „se“ uz glagol „razvija“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-hard-052",
+    "file": "quivro_web/src/data/questions/mcq/food/hard.ts",
+    "line": 872,
+    "field": "pitanje",
+    "original": "Koliko crvenih tučkova tipično daje jedan cvijet šafranove šafranike?",
+    "proposal": "Koliko crvenih žigova tučka obično ima jedan cvijet šafrana?",
+    "reason": "Šafranika je druga biljka; cvijet šafrana ima jedan tučak s tri crvena žiga.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-hard-058",
+    "file": "quivro_web/src/data/questions/mcq/food/hard.ts",
+    "line": 974,
+    "field": "pitanje",
+    "original": "Koje japansko jelo se sastoji od zakiseljene riže obično upareno sa sirovom ribom?",
+    "proposal": "Koje se japansko jelo sastoji od zakiseljene riže, obično uparene sa sirovom ribom?",
+    "reason": "Pridjev mora biti u ženskom rodu i padežu uz „riže“; potrebna je i pauza ispred umetnutog izraza.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-hard-059",
+    "file": "quivro_web/src/data/questions/mcq/food/hard.ts",
+    "line": 991,
+    "field": "pitanje",
+    "original": "Koja biljka sadrži gorak spoj tujon koji se, često pretjerano krivio za navodno ludilo od absinta?",
+    "proposal": "Koja biljka sadrži gorak spoj tujon koji se često pretjerano okrivljavao za navodno ludilo povezano s absintom?",
+    "reason": "Zarez prekida glagolsku konstrukciju „se okrivljavao“, a „krivio se za“ ovdje mijenja smisao.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-hard-065",
+    "file": "quivro_web/src/data/questions/mcq/food/hard.ts",
+    "line": 1093,
+    "field": "pitanje",
+    "original": "Koje korjenasto povrće, narandžaste boje, je dobar izvor beta-karotena i vitamina A?",
+    "proposal": "Koje je korjenasto povrće narandžaste boje dobar izvor beta-karotena i vitamina A?",
+    "reason": "Enklitika „je“ ne stoji iza umetnutog dijela odvojenog zarezima.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-hard-066",
+    "file": "quivro_web/src/data/questions/mcq/food/hard.ts",
+    "line": 1110,
+    "field": "pitanje",
+    "original": "Koja mast za kuhanje, čvrsta na sobnoj temperaturi, se pravi mućkanjem vrhnja?",
+    "proposal": "Koja se masnoća za kuhanje, čvrsta na sobnoj temperaturi, pravi mućkanjem vrhnja?",
+    "reason": "Enklitika „se“ ne stoji iza umetnutog dijela odvojenog zarezima.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-hard-067",
+    "file": "quivro_web/src/data/questions/mcq/food/hard.ts",
+    "line": 1127,
+    "field": "pitanje",
+    "original": "Koja pacifička školjka je poznata po vrlo dugom sifonu i cijenjen je sushi sastojak?",
+    "proposal": "Koja je pacifička školjka poznata po vrlo dugom sifonu i cijenjena kao sastojak sušija?",
+    "reason": "Predikat mora biti u ženskom rodu uz „školjka“; „suši“ je domaći zapis naziva jela.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-hard-072",
+    "file": "quivro_web/src/data/questions/mcq/food/hard.ts",
+    "line": 1212,
+    "field": "pitanje",
+    "original": "Koje jelo iz New Orleansa je ljuti gulaš na bazi tamnog prženog brašna, servira se preko riže, često s kobasicom i morskim plodovima?",
+    "proposal": "Koje se jelo iz New Orleansa pravi s tamnom zaprškom i često poslužuje s rižom, kobasicom i morskim plodovima?",
+    "reason": "Izvorno pitanje spaja dvije nezavisne rečenice zarezom; „preko riže“ doslovan je prevod.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-hard-075",
+    "file": "quivro_web/src/data/questions/mcq/food/hard.ts",
+    "line": 1263,
+    "field": "pitanje",
+    "original": "Koji je primarni šećer u mlijeku koji mnogi odrasli gube sposobnost probavljati?",
+    "proposal": "Koji je glavni šećer u mlijeku koji mnogi odrasli više ne mogu probaviti?",
+    "reason": "Uz „gube sposobnost“ nedostaje imenica „probavljanja“ ili zavisna konstrukcija; prijedlog je gramatički potpun.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-hard-094",
+    "file": "quivro_web/src/data/questions/mcq/food/hard.ts",
+    "line": 1586,
+    "field": "pitanje",
+    "original": "Ko se najčešće smatra osobom koja je döner kebab pretvorila u prijenosni sendvič u tortilji, popularizujući ga u Berlinu ranih 1970-ih?",
+    "proposal": "Ko se najčešće smatra osobom koja je döner kebab pretvorila u prijenosni sendvič u lepinji, popularizujući ga u Berlinu ranih 1970-ih?",
+    "reason": "Engleski izvornik kaže „flatbread“ (lepinja/pljosnati hljeb), a ne tortilja.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-hard-095",
+    "file": "quivro_web/src/data/questions/mcq/food/hard.ts",
+    "line": 1603,
+    "field": "pitanje",
+    "original": "Koja klasična turska varijanta kebaba, iz grada Burse, se servira na pogačici s jogurtom, umakom od paradajza i zapečenim maslacem?",
+    "proposal": "Koja se klasična turska varijanta kebaba iz Burse servira na pogačici s jogurtom, umakom od paradajza i zapečenim maslacem?",
+    "reason": "Enklitika „se“ ne stoji iza umetnutog dijela odvojenog zarezima.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-med-018",
+    "file": "quivro_web/src/data/questions/mcq/food/medium.ts",
+    "line": 294,
+    "field": "pitanje",
+    "original": "Koje korejsko jelo su fermentirano povrće, obično kupus?",
+    "proposal": "Koje je korejsko jelo fermentirano povrće, obično kupus?",
+    "reason": "Uz jedninu „jelo“ ide „je“, a ne „su“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-med-029",
+    "file": "quivro_web/src/data/questions/mcq/food/medium.ts",
+    "line": 481,
+    "field": "pitanje",
+    "original": "Koji Kiparski sir se često peče na roštilju i škripi pri zagrizu?",
+    "proposal": "Koji se kiparski sir često peče na roštilju i škripi pri zagrizu?",
+    "reason": "Prisvojni pridjev izveden od imena zemlje piše se malim slovom.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-med-047",
+    "file": "quivro_web/src/data/questions/mcq/food/medium.ts",
+    "line": 787,
+    "field": "pitanje",
+    "original": "Koja latinoamerička peciva je nadjevena pita od tijesta, često pečena ili pržena?",
+    "proposal": "Koja je latinoamerička punjena pita često pečena ili pržena?",
+    "reason": "„Peciva“ je množina, a „je“ i „nadjevena pita“ jednina.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-med-049",
+    "file": "quivro_web/src/data/questions/mcq/food/medium.ts",
+    "line": 821,
+    "field": "pitanje",
+    "original": "Koja sicilijanska peciva je pržena cjevčica punjena slatkom ricotta kremom?",
+    "proposal": "Koje je sicilijansko pecivo pržena cjevčica punjena slatkom kremom od ricotte?",
+    "reason": "„Peciva“ je množina; pitanje traži jedan naziv jela.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-med-056",
+    "file": "quivro_web/src/data/questions/mcq/food/medium.ts",
+    "line": 940,
+    "field": "pitanje",
+    "original": "Koje jelo od mljevenog mesa pečeno na roštilju, oblikovano u male valjke, je osnova balkanske kuhinje?",
+    "proposal": "Koje je balkansko jelo od mljevenog mesa oblikovano u male valjke i pečeno na roštilju?",
+    "reason": "Enklitika „je“ ne stoji iza dugog umetnutog opisa odvojenog zarezima.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-med-058",
+    "file": "quivro_web/src/data/questions/mcq/food/medium.ts",
+    "line": 974,
+    "field": "pitanje",
+    "original": "Koja jaka, nezaslađena crna kafa, kuhana u maloj bakrenoj džezvi, je centralna u balkanskom gostoprimstvu?",
+    "proposal": "Koja je jaka, nezaslađena crna kafa, kuhana u maloj bakrenoj džezvi, važan dio balkanskog gostoprimstva?",
+    "reason": "Enklitika „je“ ne stoji iza umetnutog dijela odvojenog zarezima.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-med-059",
+    "file": "quivro_web/src/data/questions/mcq/food/medium.ts",
+    "line": 991,
+    "field": "pitanje",
+    "original": "Koja dalmatinska suhomesnata šunka, je specijalitet hrvatske obale?",
+    "proposal": "Koja je dalmatinska sušena šunka specijalitet hrvatske obale?",
+    "reason": "Zarez ne smije razdvajati subjekt i predikat.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-med-061",
+    "file": "quivro_web/src/data/questions/mcq/food/medium.ts",
+    "line": 1025,
+    "field": "pitanje",
+    "original": "Koji začinjeni čaj s mlijekom, povezan s Južnom Azijom, se obično kuha s kardamomom i đumbirom?",
+    "proposal": "Koji se začinjeni čaj s mlijekom, povezan s Južnom Azijom, obično kuha s kardamomom i đumbirom?",
+    "reason": "Enklitika „se“ ne stoji iza umetnutog dijela odvojenog zarezima.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-med-071",
+    "file": "quivro_web/src/data/questions/mcq/food/medium.ts",
+    "line": 1195,
+    "field": "odgovor 2",
+    "original": "Manga",
+    "proposal": "Mango",
+    "reason": "Naziv voća u nominativu je „mango“; „manga“ je ovdje pogrešan oblik.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-med-072",
+    "file": "quivro_web/src/data/questions/mcq/food/medium.ts",
+    "line": 1212,
+    "field": "pitanje",
+    "original": "Koje veliko tropsko voće ima vlaknastu žutu unutrašnjost koje se često koristi kao zamjena za meso?",
+    "proposal": "Koje veliko tropsko voće ima vlaknastu žutu unutrašnjost koja se često koristi kao zamjena za meso?",
+    "reason": "Odnosna zamjenica se odnosi na „unutrašnjost“ (ženski rod), pa treba „koja“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-med-085",
+    "file": "quivro_web/src/data/questions/mcq/food/medium.ts",
+    "line": 1433,
+    "field": "pitanje",
+    "original": "Koja sjevernoafrička tjestenina od ljute paprike se pravi s bijelim lukom, uljem i ljutim paprikama?",
+    "proposal": "Koja se sjevernoafrička pasta od ljutih paprika pravi s bijelim lukom i uljem?",
+    "reason": "Engleski „chili paste“ znači pastu od paprike, a ne tjesteninu.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-med-096",
+    "file": "quivro_web/src/data/questions/mcq/food/medium.ts",
+    "line": 1620,
+    "field": "pitanje",
+    "original": "Koja fermentisana korejska tjestenina od ljute paprike je gusta, slatko-ljuta i koristi se u mnogim varivima?",
+    "proposal": "Koja je fermentisana korejska pasta od ljutih paprika gusta, slatko-ljuta i koristi se u mnogim varivima?",
+    "reason": "Engleski „chili paste“ znači pastu od paprike, a ne tjesteninu.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "food-med-100",
+    "file": "quivro_web/src/data/questions/mcq/food/medium.ts",
+    "line": 1688,
+    "field": "pitanje",
+    "original": "Koja zemlja drži uobičajno rekord po najvećoj godišnjoj potrošnji čokolade po glavi stanovnika?",
+    "proposal": "Koja zemlja obično ima najveću godišnju potrošnju čokolade po glavi stanovnika?",
+    "reason": "„Uobičajno“ je pogrešno napisano; rečenica se prirodnije veže glagolom „ima“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "geo-easy-065",
+    "file": "quivro_web/src/data/questions/mcq/geography/easy.ts",
+    "line": 909,
+    "field": "odgovor 3",
+    "original": "Moai statue",
+    "proposal": "Kipovi moai",
+    "reason": "Riječ „statue“ ostala je na engleskom.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "geo-hard-066",
+    "file": "quivro_web/src/data/questions/mcq/geography/hard.ts",
+    "line": 922,
+    "field": "pitanje",
+    "original": "Pored Lihtenštajna, koja je druga zemlja dvostruko bezizlazna?",
+    "proposal": "Pored Lihtenštajna, koja je još zemlja okružena isključivo zemljama bez izlaza na more?",
+    "reason": "Izraz „dvostruko bezizlazna“ doslovan je i nejasan prevod izraza „doubly landlocked“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "geo-med-068",
+    "file": "quivro_web/src/data/questions/mcq/geography/medium.ts",
+    "line": 965,
+    "field": "pitanje",
+    "original": "Table Mountain gleda na koji južnoafrički grad?",
+    "proposal": "Iznad kojeg se južnoafričkog grada uzdiže Stolna planina (Table Mountain)?",
+    "reason": "„Gleda na“ doslovan je prevod engleskog „overlooks“ i ne odgovara odnosu planine i grada.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "geo-med-071",
+    "file": "quivro_web/src/data/questions/mcq/geography/medium.ts",
+    "line": 1008,
+    "field": "pitanje",
+    "original": "Koja zemlja je dvostruko bezizlazna (okružena samo zemljama bez izlaza na more)?",
+    "proposal": "Koja je zemlja okružena isključivo zemljama bez izlaza na more?",
+    "reason": "Izraz „dvostruko bezizlazna“ doslovan je i nejasan prevod; objašnjenje u zagradi već sadrži značenje.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "geo-med-079",
+    "file": "quivro_web/src/data/questions/mcq/geography/medium.ts",
+    "line": 1126,
+    "field": "pitanje",
+    "original": "Kavkaske planine leže između koja dva mora?",
+    "proposal": "Koja dva mora omeđuju Kavkaske planine?",
+    "reason": "Uz prijedlog „između“ traži se genitiv („kojih dvaju mora“); prijedlog uklanja padežnu grešku.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "hist-easy-063",
+    "file": "quivro_web/src/data/questions/mcq/history/easy.ts",
+    "line": 961,
+    "field": "odgovor 3",
+    "original": "Afriku",
+    "proposal": "Africi",
+    "reason": "Odgovor je u padežu koji ne odgovara pitanju „u kojoj regiji“ ni ostalim opcijama.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "hist-easy-085",
+    "file": "quivro_web/src/data/questions/mcq/history/easy.ts",
+    "line": 1297,
+    "field": "odgovor 1",
+    "original": "Martin Lutherovih 95 teza",
+    "proposal": "Objavljivanje 95 teza Martina Luthera",
+    "reason": "Pitanje traži događaj; izvorni odgovor je nepravilan genitivni izraz bez imenice za događaj.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "hist-hard-014",
+    "file": "quivro_web/src/data/questions/mcq/history/hard.ts",
+    "line": 210,
+    "field": "odgovor 3",
+    "original": "Trijanski mir",
+    "proposal": "Trianonski mir",
+    "reason": "Naziv mirovnog ugovora iz 1920. izveden je od Trianona; „Trijanski“ je pogrešan naziv.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "hist-hard-058",
+    "file": "quivro_web/src/data/questions/mcq/history/hard.ts",
+    "line": 914,
+    "field": "pitanje",
+    "original": "Koji rat od 1853 do 1856. godine vođen je između Rusije i saveza Britanije, Francuske i Osmanskog carstva?",
+    "proposal": "Koji je rat od 1853. do 1856. godine vođen između Rusije i saveza Britanije, Francuske i Osmanskog carstva?",
+    "reason": "Iza godine 1853. nedostaje tačka; prilagođen je i položaj enklitike.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "hist-hard-077",
+    "file": "quivro_web/src/data/questions/mcq/history/hard.ts",
+    "line": 1227,
+    "field": "pitanje",
+    "original": "Koja civilizacija je izradila poznate Moai statue na Uskršnjem ostrvu?",
+    "proposal": "Koja je civilizacija izradila poznate kipove moai na Uskršnjem ostrvu?",
+    "reason": "Riječ „statue“ ostala je na engleskom.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "hist-med-014",
+    "file": "quivro_web/src/data/questions/mcq/history/medium.ts",
+    "line": 208,
+    "field": "pitanje",
+    "original": "Kamenu iz Rosette pomogao je naučnicima da odgonetnu koji sistem pisanja?",
+    "proposal": "Kamen iz Rosette pomogao je naučnicima da odgonetnu koji sistem pisanja?",
+    "reason": "„Kamenu“ je dativ, a kao subjekt rečenice treba nominativ „Kamen“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "hist-med-034",
+    "file": "quivro_web/src/data/questions/mcq/history/medium.ts",
+    "line": 532,
+    "field": "odgovor 1",
+    "original": "Astecke imperije",
+    "proposal": "Astečke imperije",
+    "reason": "Nedostaje kvačica na „č“.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "hist-med-046",
+    "file": "quivro_web/src/data/questions/mcq/history/medium.ts",
+    "line": 724,
+    "field": "odgovor 4",
+    "original": "Theodore Roosevelt za parkove",
+    "proposal": "Theodore Roosevelt",
+    "reason": "U opciju je zalutao dodatak „za parkove“ koji nije dio imena.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "hist-med-048",
+    "file": "quivro_web/src/data/questions/mcq/history/medium.ts",
+    "line": 754,
+    "field": "odgovor 2",
+    "original": "Atina za demokratiju",
+    "proposal": "Atina",
+    "reason": "Dodatak „za demokratiju“ nije dio naziva polisa.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "hist-med-048",
+    "file": "quivro_web/src/data/questions/mcq/history/medium.ts",
+    "line": 754,
+    "field": "odgovor 3",
+    "original": "Troja u mitu",
+    "proposal": "Troja",
+    "reason": "Dodatak „u mitu“ nije dio naziva polisa.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "hist-med-048",
+    "file": "quivro_web/src/data/questions/mcq/history/medium.ts",
+    "line": 754,
+    "field": "odgovor 4",
+    "original": "Korint za trgovinu",
+    "proposal": "Korint",
+    "reason": "Dodatak „za trgovinu“ nije dio naziva polisa.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "hist-med-072",
+    "file": "quivro_web/src/data/questions/mcq/history/medium.ts",
+    "line": 1134,
+    "field": "pitanje",
+    "original": "Koja francuska kraljica pogubljena je tokom Francuske revolucije?",
+    "proposal": "Koja je francuska kraljica pogubljena tokom Francuske revolucije?",
+    "reason": "Enklitika „je“ stoji iza participa umjesto iza upitne cjeline.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "hist-med-079",
+    "file": "quivro_web/src/data/questions/mcq/history/medium.ts",
+    "line": 1245,
+    "field": "pitanje",
+    "original": "Koja ruska carska porodica pogubljena je 1918. nakon revolucije?",
+    "proposal": "Koja je ruska carska porodica pogubljena 1918. nakon revolucije?",
+    "reason": "Enklitika „je“ stoji iza participa umjesto iza upitne cjeline.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "islam-easy-042",
+    "file": "quivro_web/src/data/questions/mcq/islam/easy.ts",
+    "line": 599,
+    "field": "pitanje",
+    "original": "Prema poznatom hadisu, koje je dvije stvari Poslanik ostavio kojih, ako se držimo, nećemo zalutati?",
+    "proposal": "Prema poznatom hadisu, koje nam je dvije stvari Poslanik ostavio da ne bismo zalutali ako ih se budemo držali?",
+    "reason": "Dvije odnosne konstrukcije „koje ... kojih“ prekidaju rečenicu i daju pogrešan padežni odnos.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "islam-easy-120",
+    "file": "quivro_web/src/data/questions/mcq/islam/easy.ts",
+    "line": 1802,
+    "field": "pitanje",
+    "original": "Kojeg ashaba je Poslanik ﷺ oženio kćerkom Rukajjom, pa nakon njene smrti i drugom kćerkom Ummu Kulsum?",
+    "proposal": "Za kojeg je ashaba Poslanik ﷺ udao kćerku Rukajju, a nakon njene smrti i kćerku Ummu Kulsum?",
+    "reason": "Glagol „oženiti“ u izvornom pitanju pogrešno usmjerava radnju; kćerka se udaje za ashaba.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "islam-hard-015",
+    "file": "quivro_web/src/data/questions/mcq/islam/hard.ts",
+    "line": 226,
+    "field": "pitanje",
+    "original": "Koliko boraca je imala savezničko neprijateljska vojska tokom Bitke na Hendeku?",
+    "proposal": "Koliko je boraca imala vojska neprijateljskih saveznika tokom Bitke na Hendeku?",
+    "reason": "„Savezničko neprijateljska“ nije pravilno sročen pridjevski spoj.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "islam-hard-016",
+    "file": "quivro_web/src/data/questions/mcq/islam/hard.ts",
+    "line": 243,
+    "field": "odgovor 3",
+    "original": "Napustiti Medinu",
+    "proposal": "Napuštanje Medine",
+    "reason": "Tri ostale opcije su imeničke oznake strategija; ovdje je zalutao infinitiv.",
+    "certainty": "sigurno"
+  },
+  {
+    "id": "islam-hard-124",
+    "file": "quivro_web/src/data/questions/mcq/islam/hard.ts",
+    "line": 2043,
+    "field": "pitanje",
+    "original": "Poslaniku ﷺ je bilo drago što je bio dio saveza Hilful-fudul, da je kazao da ne bi mijenjao učešće u njemu ni za…",
+    "proposal": "Za šta Poslanik ﷺ, prema vlastitim riječima, ne bi mijenjao svoje učešće u savezu Hilful-fudul?",
+    "reason": "Uz „da je kazao“ nedostaje korelativ „toliko“; izvorni završetak s trotačkom ostavlja pitanje nedovršenim.",
+    "certainty": "sigurno"
+  }
+]

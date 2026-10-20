@@ -127,7 +127,7 @@ export const cartoonsHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'In Spirited Away, what name does Yubaba give Chihiro at the bathhouse?',
-      bs: 'U Spirited Away, koje ime Yubaba daje Chihiro u kupatilu?'
+      bs: 'U filmu Avanture male Chihiro, koje ime Yubaba daje Chihiro u kupatilu?'
     },
     options: [
       { en: 'Sen', bs: 'Sen' },
@@ -436,10 +436,10 @@ export const cartoonsHard: Question[] = [
       bs: 'Kako se zove Planktonov rivalski restoran u Spužva Bobu?'
     },
     options: [
-      { en: 'Chum Bucket', bs: 'Chum Bucket' },
-      { en: 'Krusty Krab', bs: 'Krusty Krab' },
-      { en: 'Salty Spitoon', bs: 'Salty Spitoon' },
-      { en: 'Weenie Hut Jr.', bs: 'Weenie Hut Jr.' },
+      { en: 'Chum Bucket', bs: 'Prijateljska kantica' },
+      { en: 'Krusty Krab', bs: 'Rakova poslastica' },
+{ en: 'Salty Spitoon', bs: 'Slani pljuvaonik' },
+{ en: 'Weenie Hut Jr.', bs: 'Mala kućica za slabiće' },
     ],
     correctIndex: 0,
   },
@@ -552,7 +552,7 @@ export const cartoonsHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which studio produced Despicable Me and Minions?',
-      bs: 'Koji studio je napravio Despicable Me i Minione?'
+      bs: 'Koji studio je napravio Grozni Ja i Minione?'
     },
     options: [
       { en: 'Illumination', bs: 'Illumination' },
@@ -654,7 +654,7 @@ export const cartoonsHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'What kind of animal is Maximus in Tangled?',
-      bs: 'Koja je životinja Maximus u filmu Tangled?',
+      bs: 'Koja je životinja Maximus u filmu Vrlo zapetljana priča?',
     },
     options: [
       { en: 'Horse', bs: 'Konj' },
@@ -688,7 +688,7 @@ export const cartoonsHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'In which city does Turning Red take place?',
-      bs: 'U kojem se gradu odvija radnja filma Turning Red?',
+      bs: 'U kojem se gradu odvija radnja filma Crvena panda?',
     },
     options: [
       { en: 'Vancouver', bs: 'Vancouver' },
@@ -705,7 +705,7 @@ export const cartoonsHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'What is the name of Merida\'s horse in Brave?',
-      bs: 'Kako se zove Meridin konj u filmu Brave?',
+      bs: 'Kako se zove Meridin konj u filmu Hrabra Merida?',
     },
     options: [
       { en: 'Angus', bs: 'Angus' },
@@ -722,7 +722,7 @@ export const cartoonsHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Who does Flik mistakenly recruit to defend the ant colony in A Bug\'s Life?',
-      bs: 'Koga Flik greškom dovodi da brani koloniju mrava u filmu A Bug\'s Life?',
+      bs: 'Koga Flik greškom dovodi da brani koloniju mrava u filmu Život buba?',
     },
     options: [
       { en: 'Warrior beetles', bs: 'Bube ratnike' },
@@ -772,8 +772,8 @@ export const cartoonsHard: Question[] = [
     category: 'cartoons',
     difficulty: 'hard',
     prompt: {
-      en: 'What is the name of Giulia\'s fisherman father in Luca?',
-      bs: 'Kako se zove Giulijin otac u filmu Luca?',
+      en: 'What is the name of Giulia\'s fisherman father in animated movie Luca?',
+      bs: 'Kako se zove Giulijin otac u animiranom filmu Luka?',
     },
     options: [
       { en: 'Ercole', bs: 'Ercole' },
@@ -790,7 +790,7 @@ export const cartoonsHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which zoo are Alex and his friends from in Madagascar?',
-      bs: 'Iz kojeg zoološkog vrta dolaze Alex i njegovi prijatelji u filmu Madagascar?',
+      bs: 'Iz kojeg zoološkog vrta dolaze Alex i njegovi prijatelji u filmu Madagaskar?',
     },
     options: [
       { en: 'Bronx Zoo', bs: 'Zoološki vrt Bronx' },
@@ -841,7 +841,7 @@ export const cartoonsHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Who rules the spirit bathhouse in Spirited Away?',
-      bs: 'Ko upravlja kupalištem duhova u filmu Spirited Away?',
+      bs: 'Ko upravlja kupalištem duhova u filmu Avanture male Chihiro?',
     },
     options: [
       { en: 'Zeniba', bs: 'Zeniba' },
@@ -875,7 +875,7 @@ export const cartoonsHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which team did Twisting Tiger play for before joining Supa Strikas?',
-      bs: 'Za koju je ekipu Twisting Tiger igrao prije dolaska u Supa Strikase?',
+      bs: 'Za koju je ekipu Twisting Tiger igrao prije dolaska u Supa Strikase u istoimenoj seriji?',
     },
     options: [
       { en: 'FC Nakama', bs: 'FC Nakama' },
