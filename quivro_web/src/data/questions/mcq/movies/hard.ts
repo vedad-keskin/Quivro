@@ -602,14 +602,14 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'Who played Hannibal Lecter in The Silence of the Lambs?',
-      bs: 'Ko je glumio Hannibala Lectera u filmu Kad jaganjci utihnu?'
+      en: 'What is the name of the fictional drug that drives the plot of the TV series Breaking Bad?',
+      bs: 'Kako se zove izmišljena droga oko koje se vrti radnja serije Breaking Bad?'
     },
     options: [
-      { en: 'Anthony Hopkins', bs: 'Anthony Hopkins' },
-      { en: 'Mads Mikkelsen', bs: 'Mads Mikkelsen' },
-      { en: 'Brian Cox', bs: 'Brian Cox' },
-      { en: 'Javier Bardem', bs: 'Javier Bardem' },
+      { en: 'Blue Sky', bs: 'Blue Sky' },
+      { en: 'Blue Magic', bs: 'Blue Magic' },
+      { en: 'Crystal Blue', bs: 'Crystal Blue' },
+      { en: 'Blue Ice', bs: 'Blue Ice' },
     ],
     correctIndex: 0,
   },

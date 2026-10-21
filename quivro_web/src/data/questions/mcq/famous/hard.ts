@@ -1235,10 +1235,10 @@ export const famousHard: Question[] = [
       bs: 'Koji je glumac osvojio Oscara za ulogu Hannibala Lectera?'
     },
     options: [
-      { en: 'Anthony Hopkins as Hannibal Lecter', bs: 'Anthony Hopkins kao Hannibal Lecter' },
-      { en: 'Al Pacino as Michael Corleone', bs: 'Al Pacino kao Michael Corleone' },
-      { en: 'Jack Nicholson as Joker', bs: 'Jack Nicholson kao Joker' },
-      { en: 'Tom Hanks as Forrest Gump', bs: 'Tom Hanks kao Forrest Gump' },
+      { en: 'Anthony Hopkins', bs: 'Anthony Hopkins' },
+      { en: 'Al Pacino', bs: 'Al Pacino' },
+      { en: 'Jack Nicholson', bs: 'Jack Nicholson' },
+      { en: 'Tom Hanks', bs: 'Tom Hanks' },
     ],
     correctIndex: 0,
   },
