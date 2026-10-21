@@ -756,7 +756,7 @@ correctIndex: 0,
     type: 'mcq',
     category: 'biology',
     difficulty: 'hard',
-    prompt: { en: 'What are hagfish famous for producing in large quantities as a defense mechanism?', bs: 'Po proizvodnji čega u velikim količinama su sljepulje poznate kao odbrambeni mehanizam?' },
+    prompt: { en: 'What are hagfish famous for producing in large quantities as a defense mechanism?', bs: 'Koju supstancu sljepulje proizvode u velikim količinama kao odbrambeni mehanizam?' },
     options: [
       { en: 'Slime', bs: 'Sluz' },
       { en: 'Ink', bs: 'Tinta' },

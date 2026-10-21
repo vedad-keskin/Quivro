@@ -127,7 +127,7 @@ export const famousHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which anime film directed by Makoto Shinkai became one of Japan’s highest-grossing movies?',
-      bs: 'Koji anime film u režiji Makota Shinkaija postao je jedan od najuspješnijih japanskih filmova?'
+      bs: 'Koji je anime film u režiji Makota Shinkaija postao jedan od najuspješnijih japanskih filmova?'
     },
     options: [
       { en: 'Your Name', bs: 'Your Name' },
@@ -1231,8 +1231,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: { 
-      en: 'Which actor became the first person to win two Oscars for playing the same character?',
-      bs: 'Koji glumac je postao prvi koji je osvojio dva Oscara za igranje istog lika?'
+      en: 'Which actor won an Oscar for portraying Hannibal Lecter?',
+      bs: 'Koji je glumac osvojio Oscara za ulogu Hannibala Lectera?'
     },
     options: [
       { en: 'Anthony Hopkins as Hannibal Lecter', bs: 'Anthony Hopkins kao Hannibal Lecter' },

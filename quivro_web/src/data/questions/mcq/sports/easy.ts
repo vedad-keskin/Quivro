@@ -562,7 +562,7 @@ export const sportsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which Formula 1 driver was nicknamed "The Iceman"?',
-      bs: 'Koji vozač Formule 1 bio je poznat po nadimku "The Iceman"?',
+      bs: 'Koji je vozač Formule 1 bio poznat po nadimku "The Iceman"?',
     },
     options: [
       { en: 'Kimi Räikkönen', bs: 'Kimi Räikkönen' },
@@ -656,7 +656,7 @@ export const sportsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which Formula 1 driver was known as "The Professor"?',
-      bs: 'Koji vozač Formule 1 bio je poznat kao "Profesor"?',
+      bs: 'Koji je vozač Formule 1 bio poznat kao "Profesor"?',
     },
     options: [
       { en: 'Alain Prost', bs: 'Alain Prost' },

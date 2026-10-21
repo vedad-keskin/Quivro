@@ -1007,7 +1007,7 @@ export const sportsHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which bodybuilder is often called the "Austrian Oak"?',
-      bs: 'Koji bodybuilder je poznat pod nadimkom "Austrian Oak"?'
+      bs: 'Koji je bodibilder poznat pod nadimkom „Austrian Oak“?'
     },
     options: [
       { en: 'Arnold Schwarzenegger', bs: 'Arnold Schwarzenegger' },

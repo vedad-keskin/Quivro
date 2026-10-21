@@ -348,7 +348,7 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which dessert, featuring a crisp meringue shell topped with whipped cream and fruit, was named after ballerina?',
-      bs: 'Koji desert, sa hrskavom korom od meringe prelivenom šlagom i voćem, dobio je ime po balerini?'
+      bs: 'Koji je desert s hrskavom korom od meringe, prelivenom šlagom i voćem, dobio ime po balerini?'
     },
     options: [
       { en: 'Pavlova', bs: 'Pavlova' },

@@ -613,7 +613,7 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { en: 'Which Chinese explorer led huge treasure fleets in the early 1400s?',
-              bs: 'Koji kineski istraživač vodio je ogromne flote blaga početkom 1400-ih?' },
+              bs: 'Koji je kineski istraživač vodio ogromne flote blaga početkom 1400-ih?' },
     options: [
       { en: 'Zheng He', bs: 'Zheng He' },
       { en: 'Marco Polo', bs: 'Marco Polo' },
@@ -643,7 +643,7 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { en: 'Which African kingdom was famous for its wealth under Mansa Musa?',
-              bs: 'Koje afričko kraljevstvo bilo je poznato po bogatstvu pod Mansom Musom?' },
+              bs: 'Koje je afričko kraljevstvo bilo poznato po bogatstvu pod Mansom Musom?' },
     options: [
       { en: 'Mali', bs: 'Mali' },
       { en: 'Japan', bs: 'Japan' },
@@ -756,7 +756,7 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { en: 'Which Greek city-state was known for its military training and warrior culture?',
-              bs: 'Koji grčki polis bio je poznat po vojnoj obuci i ratničkoj kulturi?' },
+              bs: 'Koji je grčki polis bio poznat po vojnoj obuci i ratničkoj kulturi?' },
     options: [
       { en: 'Sparta', bs: 'Sparta' },
       { en: 'Athens for democracy', bs: 'Atina' },
@@ -901,7 +901,7 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { en: 'Which English charter from 1215 became an important symbol of limiting royal power?',
-              bs: 'Koja engleska povelja iz 1215. godine postala je simbol ograničavanja kraljevske moći?' },
+              bs: 'Koja je engleska povelja iz 1215. godine postala simbol ograničavanja kraljevske moći?' },
     options: [
       { en: 'Magna Carta', bs: 'Magna Carta' },
       { en: 'The Petition of Right', bs: 'Peticija prava' },
@@ -946,7 +946,7 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { en: 'Which leader of the Soviet Union introduced glasnost and perestroika?',
-              bs: 'Koji vođa Sovjetskog Saveza uveo je glasnost i perestrojku?' },
+              bs: 'Koji je vođa Sovjetskog Saveza uveo glasnost i perestrojku?' },
     options: [
       { en: 'Mikhail Gorbachev', bs: 'Mihail Gorbačov' },
       { en: 'Joseph Stalin', bs: 'Josif Staljin' },
@@ -976,7 +976,7 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { en: 'Which European country colonized Brazil?',
-              bs: 'Koja evropska zemlja kolonizovala je Brazil?' },
+              bs: 'Koja je evropska zemlja kolonizovala Brazil?' },
     options: [
       { en: 'Portugal', bs: 'Portugal' },
       { en: 'Britain', bs: 'Britanija' },
@@ -991,7 +991,7 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { en: 'Which European country colonized most of Central and South America?',
-              bs: 'Koja evropska zemlja kolonizovala je veći dio Srednje i Južne Amerike?' },
+              bs: 'Koja je evropska zemlja kolonizovala veći dio Srednje i Južne Amerike?' },
     options: [
       { en: 'Spain', bs: 'Španija' },
       { en: 'Russia', bs: 'Rusija' },
@@ -1022,7 +1022,7 @@ export const historyMedium: Question[] = [
     difficulty: 'medium',
     prompt: { 
       en: 'Which Southeast Asian conflict involved major U.S. military involvement during the 1960s and 1970s?',
-      bs: 'Koji sukob u jugoistočnoj Aziji uključivao je veliko vojno učešće Sjedinjenih Američkih Država tokom 1960-ih i 1970-ih?'
+      bs: 'Koji je sukob u jugoistočnoj Aziji uključivao veliko vojno učešće Sjedinjenih Američkih Država tokom 1960-ih i 1970-ih?'
     },
     options: [
       { en: 'The Vietnam War', bs: 'Vijetnamski rat' },
@@ -1053,7 +1053,7 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { en: 'Which British monarch was on the throne at the start of World War I?',
-              bs: 'Koji britanski monarh bio je na prijestolju na početku Prvog svjetskog rata?' },
+              bs: 'Koji je britanski monarh bio na prijestolju na početku Prvog svjetskog rata?' },
     options: [
       { en: 'George V', bs: 'George V' },
       { en: 'Elizabeth II', bs: 'Elizabeta II' },
@@ -1069,7 +1069,7 @@ export const historyMedium: Question[] = [
     difficulty: 'medium',
     prompt: { 
       en: 'Which event in 1975 marked the end of the Vietnam War?',
-      bs: 'Koji događaj 1975. godine označio je kraj Vijetnamskog rata?'
+      bs: 'Koji je događaj 1975. godine označio kraj Vijetnamskog rata?'
     },
     options: [
       { en: 'The Fall of Saigon', bs: 'Pad Sajgona' },
@@ -1279,7 +1279,7 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { en: 'Which U.S. territory was purchased from Russia in 1867?',
-              bs: 'Koja američka teritorija kupljena je od Rusije 1867.?' },
+              bs: 'Koja je američka teritorija kupljena od Rusije 1867.?' },
     options: [
       { en: 'Alaska', bs: 'Aljaska' },
       { en: 'Hawaii', bs: 'Havaji' },
@@ -1312,7 +1312,7 @@ export const historyMedium: Question[] = [
     difficulty: 'medium',
     prompt: { 
       en: 'Which medieval trade network controlled much of the trade in the Baltic and North Seas?',
-      bs: 'Koja srednjovjekovna trgovačka mreža kontrolisala je veliki dio trgovine na Baltiku i Sjevernom moru?'
+      bs: 'Koja je srednjovjekovna trgovačka mreža kontrolisala veliki dio trgovine na Baltiku i Sjevernom moru?'
     },
     options: [
       { en: 'The Hanseatic League', bs: 'Hanzeatska liga' },
@@ -1343,7 +1343,7 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { en: 'Which leader of Parliament ruled England as Lord Protector after the Civil War?',
-              bs: 'Koji vođa parlamenta vladao je Engleskom kao Lord Protector nakon građanskog rata?' },
+              bs: 'Koji je vođa parlamenta vladao Engleskom kao Lord Protector nakon građanskog rata?' },
     options: [
       { en: 'Oliver Cromwell', bs: 'Oliver Cromwell' },
       { en: 'Winston Churchill', bs: 'Winston Churchill' },
@@ -1390,7 +1390,7 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { en: 'Which ancient Indian religion was founded by Siddhartha Gautama?',
-              bs: 'Koju drevnu indijsku religiju osnovao je Sidarta Gautama?' },
+              bs: 'Koju je drevnu indijsku religiju osnovao Sidarta Gautama?' },
     options: [
       { en: 'Buddhism', bs: 'Budizam' },
       { en: 'Christianity', bs: 'Hrišćanstvo' },
@@ -1421,12 +1421,12 @@ export const historyMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which city in the Mali Empire became famous for its Islamic scholarship and libraries?',
-      bs: 'Koji grad u Malijskom carstvu postao je poznat po islamskoj učenosti i bibliotekama?'
+      bs: 'Koji je grad u Malijskom carstvu postao poznat po islamskoj učenosti i bibliotekama?'
     },
     options: [
       { en: 'Timbuktu', bs: 'Timbuktu' },
       { en: 'Djenné', bs: 'Džene' },
-      { en: ' Gao', bs: 'Gao' },
+      { en: 'Gao', bs: 'Gao' },
       { en: 'Niani', bs: 'Niani' },
     ],
     correctIndex: 0,
@@ -1469,7 +1469,7 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { en: 'Which Axis power invaded China in the 1930s before World War II widened?',
-              bs: 'Koja sila Osovine napala je Kinu 1930-ih prije širenja Drugog svjetskog rata?' },
+              bs: 'Koja je sila Osovine napala Kinu 1930-ih prije širenja Drugog svjetskog rata?' },
     options: [
       { en: 'Japan', bs: 'Japan' },
       { en: 'Canada', bs: 'Kanada' },
@@ -1484,7 +1484,7 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { en: 'Which conference in 1945 divided postwar Germany among the Allies?',
-              bs: 'Koja konferencija 1945. podijelila je poslijeratnu Njemačku među saveznicima?' },
+              bs: 'Koja je konferencija 1945. podijelila poslijeratnu Njemačku među saveznicima?' },
     options: [
       { en: 'The Potsdam Conference', bs: 'Potsdamska konferencija' },
       { en: 'The Congress of Vienna', bs: 'Bečki kongres' },
@@ -1499,7 +1499,7 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { en: 'Which U.S. aid program helped rebuild Western Europe after World War II?',
-              bs: 'Koji američki program pomoći pomogao je obnovi Zapadne Evrope nakon Drugog svjetskog rata?' },
+              bs: 'Koji je američki program pomoći pomogao obnovi Zapadne Evrope nakon Drugog svjetskog rata?' },
     options: [
       { en: 'The Marshall Plan', bs: 'Marshallov plan' },
       { en: 'The Truman Doctrine', bs: 'Trumanova doktrina' },
@@ -1548,7 +1548,7 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { en: 'Which Polynesian people settled New Zealand centuries before European contact?',
-              bs: 'Koji polinezijski narod naselio je Novi Zeland stoljećima prije evropskog kontakta?' },
+              bs: 'Koji je polinezijski narod naselio Novi Zeland stoljećima prije evropskog kontakta?' },
     options: [
       { en: 'The Māori', bs: 'Maori' },
       { en: 'The Vikings', bs: 'Vikinzi' },

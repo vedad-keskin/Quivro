@@ -1057,7 +1057,7 @@ export const islamEasy: Question[] = [
       { en: 'Drinking alcohol', bs: 'Pijenje alkohola' },
       { en: 'Eating camel meat', bs: 'Jedenje devinog mesa' },
       { en: 'Wasting food', bs: 'Rasipanje hrane' },
-      { en: 'Touching a saliva of a dog', bs: 'Dodir sline psa' },
+      { en: 'Touching a dog’s saliva', bs: 'Dodir sline psa' },
     ],
     correctIndex: 0,
   },

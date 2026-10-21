@@ -1156,7 +1156,7 @@ export const technologyEasy: Question[] = [
     category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'What power-up lets Pac-Man eat ghosts temporarily?',
-              bs: 'Koji power-up Pac-Manu privremeno omogućava da jede duhove?' },
+              bs: 'Koji predmet Pac-Manu privremeno omogućava da jede duhove?' },
     options: [
       { en: 'Super Star', bs: 'Super Star' },
       { en: 'Fire Flower', bs: 'Fire Flower' },
@@ -1186,7 +1186,7 @@ export const technologyEasy: Question[] = [
     category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'In Mario Kart, what does a mushroom power-up mainly do?',
-              bs: 'U Mario Kartu, šta mushroom power-up uglavnom radi?' },
+              bs: 'U igri Mario Kart, šta gljiva uglavnom radi?' },
     options: [
       { en: 'Makes you fly upward', bs: 'Čini da letiš naviše' },
       { en: 'Makes you turn invisible', bs: 'Čini te nevidljivim' },

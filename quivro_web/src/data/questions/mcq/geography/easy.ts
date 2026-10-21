@@ -1484,8 +1484,8 @@ export const geographyEasy: Question[] = [
     type: 'mcq',
     category: 'geography',
     difficulty: 'easy',
-    prompt: { en: 'What is the deepest point in the world’s oceans called?',
-      bs: 'Kako se zove najdublja tačka u svjetskim okeanima?' },
+    prompt: { en: 'Which ocean trench contains the deepest known point in the world’s oceans?',
+      bs: 'U kojem se okeanskom rovu nalazi najdublja poznata tačka svjetskih okeana?' },
     options: [
       { en: 'Mariana Trench', bs: 'Marijanski rov' },
       { en: 'Tonga Trench', bs: 'Tonga rov' },

@@ -1507,7 +1507,7 @@ export const technologyHard: Question[] = [
     category: 'technology',
     difficulty: 'hard',
     prompt: { en: 'Olofmeister’s famous “Olofboost” play took place on which map?', 
-              bs: 'Olofmeisterov poznati “Olofboost” play dogodio se na kojoj mapi?' },
+              bs: 'Na kojoj se mapi dogodio Olofmeisterov poznati potez „Olofboost“?' },
     options: [
       { en: 'Inferno', bs: 'Inferno' },
       { en: 'Mirage', bs: 'Mirage' },

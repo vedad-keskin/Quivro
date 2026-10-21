@@ -834,7 +834,7 @@ export const biologyMedium: Question[] = [
     category: 'biology',
     difficulty: 'medium',
     prompt: { en: 'Which endocrine gland is often called the "master gland" because it controls other glands?',
-              bs: 'Koja endokrina žlijezda se često naziva „glavnom žlijezdom" jer kontroliše druge žlijezde?' },
+              bs: 'Koja endokrina žlijezda se često naziva „glavnom žlijezdom“ jer kontroliše druge žlijezde?' },
     options: [
       { en: 'Thyroid', bs: 'Štitna žlijezda' },
       { en: 'Pituitary', bs: 'Hipofiza' },
@@ -849,7 +849,7 @@ export const biologyMedium: Question[] = [
     category: 'biology',
     difficulty: 'medium',
     prompt: { en: 'Which hormone triggers the "fight or flight" response in stressful situations?',
-              bs: 'Koji hormon pokreće reakciju „bori se ili bježi" u stresnim situacijama?' },
+              bs: 'Koji hormon pokreće reakciju „bori se ili bježi“ u stresnim situacijama?' },
     options: [
       { en: 'Insulin', bs: 'Insulin' },
       { en: 'Adrenaline', bs: 'Adrenalin' },
@@ -864,7 +864,7 @@ export const biologyMedium: Question[] = [
     category: 'biology',
     difficulty: 'medium',
     prompt: { en: 'Where in the body are most blood cells produced?',
-              bs: 'Gdje u tijelu se proizvodi većina krvnih ćelija?' },
+              bs: 'Gdje se u tijelu proizvodi većina krvnih ćelija?' },
     options: [
       { en: 'Liver', bs: 'Jetra' },
       { en: 'Bone marrow', bs: 'Koštana srž' },

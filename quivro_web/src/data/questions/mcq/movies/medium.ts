@@ -739,7 +739,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Better Call Saul is a prequel to which series?',
-      bs: 'Better Call Saul je prequel kojoj seriji?'
+      bs: 'Kojoj seriji prethodi radnja serije Better Call Saul?'
     },
     options: [
       { en: 'The Wire', bs: 'The Wire' },
@@ -790,7 +790,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which series is House of the Dragon a prequel to?',
-      bs: 'Kojoj seriji je House of the Dragon prequel?'
+      bs: 'Kojoj seriji prethodi radnja serije House of the Dragon?'
     },
     options: [
       { en: 'The Witcher', bs: 'The Witcher' },
@@ -1011,7 +1011,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which 1973 horror film became famous for rumors of a "cursed" production?',
-      bs: 'Koji horor film iz 1973. godine postao je poznat po pričama o "ukletom" snimanju?'
+      bs: 'Koji je horor film iz 1973. godine postao poznat po pričama o "ukletom" snimanju?'
     },
     options: [
       { en: 'The Exorcist', bs: 'Egzorcist' },

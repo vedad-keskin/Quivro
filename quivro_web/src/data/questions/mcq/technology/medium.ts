@@ -206,7 +206,7 @@ export const technologyMedium: Question[] = [
     options: [
       { en: 'A network interface on a device', bs: 'Mrežni interfejs na uređaju' },
       { en: 'A website domain name', bs: 'Ime web domena' },
-      { en: 'A user email password', bs: 'Korisničku email lozinku' },
+      { en: 'A user’s email password', bs: 'Lozinku korisničkog računa e-pošte' },
       { en: 'A cloud storage folder', bs: 'Folder u cloud pohrani' },
     ],
     correctIndex: 0,
@@ -1672,7 +1672,7 @@ export const technologyMedium: Question[] = [
       { en: 'Helps dissipate heat from components', bs: 'Pomaže odvođenju toplote s komponenti' },
       { en: 'Stores backup copies of documents', bs: 'Čuva rezervne kopije dokumenata' },
       { en: 'Encrypts wireless network traffic', bs: 'Šifrira bežični mrežni saobraćaj' },
-      { en: 'Boosts download speeds automatically', bs: 'Automatski povećava brzinu downloada' },
+      { en: 'Boosts download speeds automatically', bs: 'Automatski povećava brzinu preuzimanja' },
     ],
     correctIndex: 0,
   },
@@ -1916,7 +1916,7 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Which Sony home console first shipped with a built-in DVD player?',
-              bs: 'Koja Sony kućna konzola je prva imala ugrađen DVD player?' },
+              bs: 'Koja je Sonyjeva kućna konzola prva imala ugrađen DVD čitač?' },
     options: [
       { en: 'PlayStation 1', bs: 'PlayStation 1' },
       { en: 'PlayStation 2', bs: 'PlayStation 2' },

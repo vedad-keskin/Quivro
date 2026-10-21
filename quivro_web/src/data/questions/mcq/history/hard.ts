@@ -84,7 +84,7 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { en: 'Which English king was forced to seal the Magna Carta?',
-              bs: 'Koji engleski kralj bio je prisiljen pečatirati Magna Cartu?' },
+              bs: 'Koji je engleski kralj bio prisiljen pečatirati Magna Cartu?' },
     options: [
       { en: 'King John', bs: 'Kralj John' },
       { en: 'Henry VIII', bs: 'Henrik VIII' },
@@ -257,7 +257,7 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { en: 'Which battle in 1815 marked Napoleon’s final defeat?',
-              bs: 'Koja bitka 1815. označila je Napoleonov konačni poraz?' },
+              bs: 'Koja je bitka 1815. označila Napoleonov konačni poraz?' },
     options: [
       { en: 'The Battle of Waterloo', bs: 'Bitka kod Waterlooa' },
       { en: 'The Battle of Austerlitz', bs: 'Bitka kod Austerlitza' },
@@ -304,7 +304,7 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { en: 'Which English king won the Battle of Agincourt in 1415?',
-              bs: 'Koji engleski kralj pobijedio je u bitci kod Agincourta 1415.?' },
+              bs: 'Koji je engleski kralj pobijedio u bitci kod Agincourta 1415.?' },
     options: [
       { en: 'Henry V', bs: 'Henrik V' },
       { en: 'Henry VIII', bs: 'Henrik VIII' },
@@ -351,7 +351,7 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { en: 'Which Carthaginian general crossed the Alps to invade Italy in the Second Punic War?',
-              bs: 'Koji kartaginski general prešao je Alpe da napadne Italiju u Drugom punskom ratu?' },
+              bs: 'Koji je kartaginski general prešao Alpe da napadne Italiju u Drugom punskom ratu?' },
     options: [
       { en: 'Hannibal Barca', bs: 'Hanibal Barka' },
       { en: 'Scipio Africanus', bs: 'Scipion Afrički' },
@@ -366,7 +366,7 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { en: 'Which Roman emperor made Christianity legal with the Edict of Milan?',
-              bs: 'Koji rimski car legalizovao je hrišćanstvo Milanskim ediktom?' },
+              bs: 'Koji je rimski car legalizovao hrišćanstvo Milanskim ediktom?' },
     options: [
       { en: 'Constantine I', bs: 'Konstantin I' },
       { en: 'Nero', bs: 'Neron' },
@@ -396,7 +396,7 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { en: 'Which Frankish king was crowned Holy Roman Emperor by Pope Leo III in 800?',
-              bs: 'Koji franački kralj okrunjen je za svetog rimskog cara od pape Lava III 800.?' },
+              bs: 'Koji je franački kralj okrunjen za svetog rimskog cara od pape Lava III 800.?' },
     options: [
       { en: 'Charlemagne', bs: 'Karlo Veliki' },
       { en: 'Clovis I', bs: 'Klodvig I' },
@@ -411,8 +411,8 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: {
-      en: 'At which railway station did World War I officially end with the Armistice in 1918?',
-      bs: 'Na kojoj željezničkoj stanici je primirjem 1918. zvanično okončan Prvi svjetski rat?',
+      en: 'Near which French town was the 1918 Armistice signed?',
+      bs: 'U blizini kojeg je francuskog grada potpisano primirje 1918. godine?',
     },
     options: [
       { en: 'Compiègne', bs: 'Compiègne' },
@@ -462,7 +462,7 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { en: 'Which Russian tsar founded St. Petersburg as a “window to Europe”?',
-              bs: 'Koji ruski car osnovao je Sankt Peterburg kao „prozor u Evropu“?' },
+              bs: 'Koji je ruski car osnovao Sankt Peterburg kao „prozor u Evropu“?' },
     options: [
       { en: 'Peter the Great', bs: 'Petar Veliki' },
       { en: 'Ivan IV', bs: 'Ivan IV' },
@@ -556,7 +556,7 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { en: 'Which siege in 1683 marked a turning point against Ottoman expansion into Central Europe?',
-              bs: 'Koja opsada 1683. označila je prekretnicu protiv osmanskog širenja u Srednju Evropu?' },
+              bs: 'Koja je opsada 1683. označila prekretnicu protiv osmanskog širenja u Srednju Evropu?' },
     options: [
       { en: 'The Siege of Vienna', bs: 'Opsada Beča' },
       { en: 'The Siege of Troy', bs: 'Opsada Troje' },
@@ -603,7 +603,7 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { en: 'Which Japanese shogunate ruled from Edo from 1603 to 1868?',
-              bs: 'Koji japanski šogunat vladao je iz Eda od 1603. do 1868.?' },
+              bs: 'Koji je japanski šogunat vladao iz Eda od 1603. do 1868.?' },
     options: [
       { en: 'Tokugawa', bs: 'Tokugawa' },
       { en: 'Ashikaga', bs: 'Ashikaga' },
@@ -618,7 +618,7 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { en: 'Which Korean kingdom invented the Hangul alphabet under King Sejong?',
-              bs: 'Koje korejsko kraljevstvo izumilo je pismo hangul pod kraljem Sejongom?' },
+              bs: 'Koje je korejsko kraljevstvo izumilo pismo hangul pod kraljem Sejongom?' },
     options: [
       { en: 'Joseon', bs: 'Joseon' },
       { en: 'Goguryeo', bs: 'Goguryeo' },
@@ -835,7 +835,7 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { en: 'Which French finance minister under Louis XIV promoted mercantilism?',
-              bs: 'Koji francuski ministar finansija pod Louisom XIV promovirao je merkantilizam?' },
+              bs: 'Koji je francuski ministar finansija pod Louisom XIV promovirao merkantilizam?' },
     options: [
       { en: 'Jean-Baptiste Colbert', bs: 'Jean-Baptiste Colbert' },
       { en: 'Robespierre', bs: 'Robespierre' },
@@ -850,7 +850,7 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { en: 'Which palace became the main residence of Louis XIV?',
-              bs: 'Koji dvorac postao je glavna rezidencija Louisa XIV?' },
+              bs: 'Koji je dvorac postao glavna rezidencija Louisa XIV?' },
     options: [
       { en: 'Versailles', bs: 'Versaj' },
       { en: 'The Louvre', bs: 'Louvre' },
@@ -933,7 +933,7 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { en: 'Which nurse became famous for reforming military hospitals during the Crimean War?',
-              bs: 'Koja medicinska sestra postala je poznata po reformi vojnih bolnica tokom Krimskog rata?' },
+              bs: 'Koja je medicinska sestra postala poznata po reformi vojnih bolnica tokom Krimskog rata?' },
     options: [
       { en: 'Florence Nightingale', bs: 'Florence Nightingale' },
       { en: 'Clara Barton', bs: 'Clara Barton' },
@@ -965,7 +965,7 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { en: 'Which secret Serbian nationalist group was linked to the assassination in Sarajevo?',
-              bs: 'Koja tajna srpska nacionalistička grupa povezana je s atentatom u Sarajevu?' },
+              bs: 'Koja je tajna srpska nacionalistička grupa povezana s atentatom u Sarajevu?' },
     options: [
       { en: 'The Black Hand', bs: 'Crna ruka' },
       { en: 'The Carbonari', bs: 'Karbonari' },
@@ -980,7 +980,7 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { en: 'Which 1916 World War I battle became a symbol of attrition warfare due to massive casualties on the Western Front?',
-              bs: 'Koja bitka iz Prvog svjetskog rata 1916. godine postala je simbol rovovskog rata iscrpljivanja zbog ogromnih gubitaka na Zapadnom frontu?' },
+              bs: 'Koja je bitka iz Prvog svjetskog rata 1916. godine postala simbol rovovskog rata iscrpljivanja zbog ogromnih gubitaka na Zapadnom frontu?' },
     options: [
       { en: 'The Battle of the Somme', bs: 'Bitka na Sommi' },
       { en: 'The Battle of Midway', bs: 'Bitka kod Midwaya' },
@@ -1080,7 +1080,7 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { en: 'Which 19th-century Ottoman reform program modernized law, administration, and the military along European lines?',
-              bs: 'Koji osmanski reformski program 19. vijeka modernizovao je pravo, upravu i vojsku po evropskom uzoru?' },
+              bs: 'Koji je osmanski reformski program 19. vijeka modernizovao pravo, upravu i vojsku po evropskom uzoru?' },
     options: [
       { en: 'The Tanzimat', bs: 'Tanzimat' },
       { en: 'The Islahat reforms', bs: 'Islahatske reforme' },
@@ -1096,7 +1096,7 @@ export const historyHard: Question[] = [
     difficulty: 'hard',
     prompt: { 
       en: 'Which 1908 revolution in the Ottoman Empire forced Sultan Abdulhamid II to restore the suspended constitution?',
-      bs: 'Koja revolucija 1908. godine u Osmanskom Carstvu prisilila je sultana Abdulhamida II da obnovi suspendovani ustav?'
+      bs: 'Koja je revolucija 1908. godine u Osmanskom Carstvu prisilila sultana Abdulhamida II da obnovi suspendovani ustav?'
     },
     options: [
       { en: 'The Young Turk Revolution', bs: 'Revolucija Mladih Turaka' },
@@ -1112,7 +1112,7 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { en: 'Which 1938 agreement allowed Nazi Germany to annex the Sudetenland?',
-              bs: 'Koji sporazum 1938. omogućio je nacističkoj Njemačkoj aneksiju Sudeta?' },
+              bs: 'Koji je sporazum 1938. omogućio nacističkoj Njemačkoj aneksiju Sudeta?' },
     options: [
       { en: 'The Munich Agreement', bs: 'Minhenski sporazum' },
       { en: 'The Molotov–Ribbentrop Pact', bs: 'Molotov–Ribbentrop pakt' },
@@ -1162,7 +1162,7 @@ export const historyHard: Question[] = [
     difficulty: 'hard',
     prompt: { 
       en: 'Which Pacific battle in 1942 halted Japanese expansion toward Australia during World War II?',
-      bs: 'Koja pacifička bitka 1942. godine zaustavila je japansko širenje prema Australiji tokom Drugog svjetskog rata?'
+      bs: 'Koja je pacifička bitka 1942. godine zaustavila japansko širenje prema Australiji tokom Drugog svjetskog rata?'
     },
     options: [
       { en: 'The Battle of Midway', bs: 'Bitka kod Midwaya' },
@@ -1196,7 +1196,7 @@ export const historyHard: Question[] = [
     difficulty: 'hard',
     prompt: { 
       en: 'Which 1945 conference helped determine much of the postwar order in Europe after World War II?',
-      bs: 'Koja konferencija 1945. godine pomogla je odrediti veliki dio poslijeratnog poretka u Evropi nakon Drugog svjetskog rata?'
+      bs: 'Koja je konferencija 1945. godine pomogla odrediti veliki dio poslijeratnog poretka u Evropi nakon Drugog svjetskog rata?'
     },
     options: [
       { en: 'The Yalta Conference', bs: 'Jaltska konferencija' },
@@ -1213,7 +1213,7 @@ export const historyHard: Question[] = [
     difficulty: 'hard',
     prompt: { 
       en: 'Which U.S. doctrine announced in 1947 pledged aid to countries resisting communism?',
-      bs: 'Koja američka doktrina iz 1947. godine obećala je pomoć zemljama koje se odupiru komunizmu?'
+      bs: 'Koja je američka doktrina iz 1947. godine obećala pomoć zemljama koje se odupiru komunizmu?'
     },
     options: [
       { en: 'The Truman Doctrine', bs: 'Trumanova doktrina' },
@@ -1400,7 +1400,7 @@ export const historyHard: Question[] = [
     difficulty: 'hard',
     prompt: { 
       en: 'Which North African country gained independence from France after an eight-year war that ended in 1962?',
-      bs: 'Koja sjevernoafrička zemlja stekla je nezavisnost od Francuske nakon osmogodišnjeg rata koji je završen 1962. godine?'
+      bs: 'Koja je sjevernoafrička zemlja stekla nezavisnost od Francuske nakon osmogodišnjeg rata koji je završen 1962. godine?'
     },
     options: [
       { en: 'Algeria', bs: 'Alžir' },
@@ -1582,7 +1582,7 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { en: 'Which Mongol khan founded the Yuan dynasty in China?',
-              bs: 'Koji mongolski kan osnovao je dinastiju Yuan u Kini?' },
+              bs: 'Koji je mongolski kan osnovao dinastiju Yuan u Kini?' },
     options: [
       { en: 'Kublai Khan', bs: 'Kublaj-kan' },
       { en: 'Genghis Khan', bs: 'Džingis-kan' },
@@ -1615,7 +1615,7 @@ export const historyHard: Question[] = [
     difficulty: 'hard',
     prompt: { 
       en: 'Which historical leader was known for keeping a pet monkey named Pogo?',
-      bs: 'Koja historijska ličnost bila je poznata po tome što je imala majmuna ljubimca po imenu Pogo?'
+      bs: 'Koja je historijska ličnost bila poznata po tome što je imala majmuna ljubimca po imenu Pogo?'
     },
     options: [
       { en: 'Josephine Bonaparte', bs: 'Joséphine Bonaparte' },
@@ -1649,7 +1649,7 @@ export const historyHard: Question[] = [
     difficulty: 'hard',
     prompt: { 
       en: 'Which battle in 1297 made William Wallace famous after a surprising Scottish victory?',
-      bs: 'Koja bitka 1297. godine proslavila je Williama Wallacea nakon iznenađujuće škotske pobjede?'
+      bs: 'Koja je bitka 1297. godine proslavila Williama Wallacea nakon iznenađujuće škotske pobjede?'
     },
     options: [
       { en: 'Battle of Stirling Bridge', bs: 'Bitka kod Stirling Bridgea' },

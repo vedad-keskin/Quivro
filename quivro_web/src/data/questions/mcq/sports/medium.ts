@@ -224,7 +224,7 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In basketball, how many personal fouls usually foul a player out of an NBA game?',
+    prompt: { en: 'In the NBA, how many personal fouls cause a player to foul out?',
               bs: 'U košarci, koliko ličnih faulova obično isključuje igrača iz NBA utakmice?' },
     options: [
       { en: '4', bs: '4' },
@@ -1476,7 +1476,7 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: { en: 'In Formula 1, what is a “safety car” used for?',
-              bs: 'U Formuli 1, čemu služi „safety car“?' },
+              bs: 'U Formuli 1, čemu služi sigurnosno vozilo?' },
     options: [
       { en: 'Mid-race refueling', bs: 'Točenje goriva usred trke' },
       { en: 'Slowing the field when unsafe', bs: 'Usporavanje trke u opasnim uslovima' },

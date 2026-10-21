@@ -187,7 +187,7 @@ export const biologyEasy: Question[] = [
     category: 'biology',
     difficulty: 'easy',
     prompt: {
-      en: 'How many pulmonary lobes does a healthy human usually have?',
+      en: 'How many lungs does a healthy human usually have?',
       bs: 'Koliko plućnih krila obično ima zdrav čovjek?',
     },
     options: [
@@ -324,7 +324,7 @@ export const biologyEasy: Question[] = [
     category: 'biology',
     difficulty: 'easy',
     prompt: { en: 'Which animal is often called the "king of the jungle"?',
-              bs: 'Koja životinja se često naziva „kraljem džungle"?' },
+              bs: 'Koja životinja se često naziva „kraljem džungle“?' },
     options: [
       { en: 'Tiger', bs: 'Tigar' },
       { en: 'Lion', bs: 'Lav' },
@@ -1103,7 +1103,7 @@ export const biologyEasy: Question[] = [
     category: 'biology',
     difficulty: 'easy',
     prompt: { en: 'Which small mammal has a dark "mask" around its eyes and a striped tail?',
-              bs: 'Koji mali sisar ima tamnu „masku" oko očiju i prugasti rep?' },
+              bs: 'Koji mali sisar ima tamnu „masku“ oko očiju i prugasti rep?' },
     options: [
       { en: 'Raccoon', bs: 'Rakun' },
       { en: 'Badger', bs: 'Jazavac' },

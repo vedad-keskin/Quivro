@@ -1400,7 +1400,7 @@ export const famousEasy: Question[] = [
     category: 'famous',
     difficulty: 'easy',
     prompt: { en: 'Besides being a Founding Father, what else was Benjamin Franklin known as?', 
-              bs: 'Osim što je bio jedan od osnivača SAD-a, kao šta je još bio poznat Benjamin Franklin?' },
+              bs: 'Po kojem je još zanimanju bio poznat Benjamin Franklin, jedan od osnivača SAD-a?' },
     options: [
       { en: 'Inventor', bs: 'Izumitelj' },
       { en: 'Military commander', bs: 'Vojni zapovjednik' },
