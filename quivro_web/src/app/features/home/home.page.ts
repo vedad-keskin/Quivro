@@ -229,6 +229,12 @@ interface Layer {
     }
     .logo {
       width: min(440px, 84vw);
+      animation: logo-arrive 900ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+    @keyframes logo-arrive {
+      0% { opacity: 0; transform: translateY(24px) scale(0.8) rotate(-5deg); }
+      70% { opacity: 1; transform: translateY(-2px) scale(1.015); }
+      100% { opacity: 1; transform: none; }
     }
     .tagline {
       position: absolute;
@@ -624,6 +630,9 @@ interface Layer {
       }
     }
     @media (prefers-reduced-motion: reduce) {
+      .logo {
+        animation: none;
+      }
       .step-card,
       .step-card:nth-child(even),
       .deck,

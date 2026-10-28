@@ -128,6 +128,8 @@ flutter:
     - assets/branding/logo_only.png
     - assets/branding/logo_only_icon.png
     - assets/branding/logo_big.png
+    - assets/branding/brand_full.png
+    - assets/branding/brand_q.png
     - assets/branding/nightfall-wordmark.png
     - assets/branding/intro.png
     - assets/flags/en.png
