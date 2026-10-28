@@ -80,10 +80,24 @@ flutter_native_splash:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: assets/branding/logo_mobile.png
-  adaptive_icon_background: "#0A0E27"
-  adaptive_icon_foreground: assets/branding/logo_mobile.png
+  image_path: assets/branding/launcher_icon.png
+  image_path_android: assets/branding/launcher_android.png
+  adaptive_icon_background: assets/branding/launcher_background.png
+  adaptive_icon_foreground: assets/branding/launcher_foreground.png
+  adaptive_icon_foreground_inset: 16
   remove_alpha_ios: true
+  web:
+    generate: true
+    image_path: assets/branding/launcher_q.png
+    background_color: "#0A0E27"
+    theme_color: "#0A0E27"
+  windows:
+    generate: true
+    image_path: assets/branding/launcher_icon.png
+    icon_size: 256
+  macos:
+    generate: true
+    image_path: assets/branding/launcher_icon.png
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -113,7 +127,6 @@ flutter:
     - assets/branding/logo.png
     - assets/branding/logo_only.png
     - assets/branding/logo_only_icon.png
-    - assets/branding/logo_mobile.png
     - assets/branding/logo_big.png
     - assets/branding/nightfall-wordmark.png
     - assets/branding/intro.png
