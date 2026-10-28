@@ -129,16 +129,22 @@ class _QuivroAppState extends State<QuivroApp> {
   }
 }
 
+/// The first page after the splash gets a longer transition so the brand
+/// logo's Hero flight into its header has room to breathe.
+var _afterSplash = true;
+
 /// Fade-through transition used when leaving the splash screen (and between
 /// top-level routes) so screen changes feel seamless.
 CustomTransitionPage<void> _fadeThroughPage({
   required LocalKey key,
   required Widget child,
 }) {
+  final duration = Duration(milliseconds: _afterSplash ? 700 : 450);
+  _afterSplash = false;
   return CustomTransitionPage<void>(
     key: key,
     child: child,
-    transitionDuration: const Duration(milliseconds: 450),
+    transitionDuration: duration,
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       final fade = CurvedAnimation(
         parent: animation,

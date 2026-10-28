@@ -1,18 +1,25 @@
-import 'dart:math';
+import 'dart:async';
+import 'dart:math' as math;
+import 'dart:ui' show lerpDouble;
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../core/avatars.dart';
 import '../core/strings.dart';
 import '../core/theme.dart';
+import 'brand_fx.dart';
 import 'studio_mark.dart';
+import 'wordmark.dart';
 
-const _bgColor = Color(0xFF0A0E27);
+const _pink = Color(0xFFEC4899);
 
-/// Team credits. Starfield scroller on the splash navy, opened by a
-/// two-second hold on the home Nightfall mark.
-class CreditsDialog extends StatelessWidget {
+/// Team credits as a full-screen stage in the intro's visual language:
+/// the brand logo bursts in, then sticker cards slam in one by one. Tapping
+/// the logo replays the burst with the intro hit. Opened by a two-second
+/// hold on the home Nightfall mark.
+class CreditsDialog extends StatefulWidget {
   const CreditsDialog({super.key});
 
   static Future<void> show(BuildContext context) {
@@ -20,369 +27,311 @@ class CreditsDialog extends StatelessWidget {
       context: context,
       barrierDismissible: true,
       barrierLabel: 'Team Credits',
-      barrierColor: Colors.black87,
-      transitionDuration: const Duration(milliseconds: 400),
+      barrierColor: Colors.black54,
+      transitionDuration: const Duration(milliseconds: 350),
       pageBuilder: (context, anim1, anim2) => const CreditsDialog(),
       transitionBuilder: (context, anim1, anim2, child) {
-        return ScaleTransition(
-          scale: CurvedAnimation(parent: anim1, curve: Curves.easeOutBack),
-          child: FadeTransition(opacity: anim1, child: child),
+        return FadeTransition(
+          opacity: anim1,
+          child: ScaleTransition(
+            scale: Tween<double>(begin: 0.94, end: 1).animate(
+              CurvedAnimation(parent: anim1, curve: Curves.easeOutCubic),
+            ),
+            child: child,
+          ),
         );
       },
     );
+  }
+
+  @override
+  State<CreditsDialog> createState() => _CreditsDialogState();
+}
+
+class _CreditsDialogState extends State<CreditsDialog>
+    with TickerProviderStateMixin {
+  static const _cue = 250.0;
+  static const _stageMs = 1600;
+  static const _burstMs = 900;
+  static const _cardsAt = 600.0;
+  static const _cardGap = 180.0;
+  static const _logoWidth = 210.0;
+  static const _logoTop = 36.0;
+
+  /// Where the hit sits inside `into_splash.mp3` (the splash starts it 800ms
+  /// before its cue).
+  static const _soundHit = Duration(milliseconds: 800);
+
+  late final AnimationController _ambient = AnimationController(
+    vsync: this,
+    duration: const Duration(seconds: 10),
+  )..repeat();
+
+  /// One-shot entrance: background, title, cards, footer.
+  late final AnimationController _stage = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: _stageMs),
+  )..addListener(_onStageTick);
+
+  /// Logo pop + burst; separate so tapping the logo can replay just this.
+  late final AnimationController _burst = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: _burstMs),
+  );
+
+  final AudioPlayer _hit = AudioPlayer();
+  bool _burstFired = false;
+  int _cardsLanded = 0;
+
+  double get _ms => _stage.value * _stageMs;
+  double get _burstT => _burst.value * _burstMs;
+
+  double _seg(double t, double from, double to, [Curve c = Curves.linear]) =>
+      c.transform(((t - from) / (to - from)).clamp(0.0, 1.0));
+
+  @override
+  void initState() {
+    super.initState();
+    _stage.forward();
+  }
+
+  void _onStageTick() {
+    if (!_burstFired && _ms >= _cue) {
+      _burstFired = true;
+      _fireBurst();
+    }
+    final landed = ((_ms - _cardsAt) / _cardGap).floor() + 1;
+    if (landed > _cardsLanded && landed <= 2) {
+      _cardsLanded = landed;
+      HapticFeedback.selectionClick();
+    }
+  }
+
+  void _fireBurst() {
+    HapticFeedback.heavyImpact();
+    _burst.forward(from: 0);
+  }
+
+  Future<void> _replay() async {
+    _fireBurst();
+    try {
+      await _hit.stop();
+      await _hit.setSource(AssetSource('sounds/into_splash.mp3'));
+      await _hit.seek(_soundHit);
+      await _hit.resume();
+    } catch (_) {
+      // Easter egg audio is optional.
+    }
+  }
+
+  @override
+  void dispose() {
+    _ambient.dispose();
+    _stage.dispose();
+    _burst.dispose();
+    unawaited(_hit.dispose());
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final strings = context.strings;
-    final maxHeight = MediaQuery.sizeOf(context).height * 0.85;
+    final padding = MediaQuery.paddingOf(context);
+    final width = MediaQuery.sizeOf(context).width;
+    const logoH = _logoWidth / QuivroWordmarkHero.aspect;
+    final focus = Offset(width / 2, padding.top + _logoTop + logoH / 2);
+    final cards = [
+      (strings.creditsLeadDev, 'Vedad Keskin', brandCyan),
+      (strings.creditsQuestionCurator, strings.creditsMom, _pink),
+    ];
+    final night = Theme.of(context).brightness == Brightness.dark;
+    final fxTint = night ? Colors.white : QuivroColors.purple;
 
-    const radius = 20.0;
-    final ink = showInk(context);
-    return Dialog(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      insetPadding: const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
-      child: ConstrainedBox(
-        constraints: BoxConstraints(maxHeight: maxHeight),
-        child: Container(
-          decoration: showPanel(ink: ink, fill: _bgColor, radius: radius),
-          padding: const EdgeInsets.all(3),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(radius - 6),
-            child: ColoredBox(
-              color: _bgColor,
-              child: Stack(
+    return Material(
+      color: Theme.of(context).scaffoldBackgroundColor,
+      child: AnimatedBuilder(
+        animation: Listenable.merge([_ambient, _stage, _burst]),
+        builder: (context, _) => Stack(
+          fit: StackFit.expand,
+          children: [
+            // Tapping the empty stage closes, like the old barrier did.
+            GestureDetector(
+              onTap: () => Navigator.of(context).pop(),
+              child: Opacity(
+                opacity: _seg(_ms, 0, _cue),
+                child: CustomPaint(
+                  painter: BrandAmbientPainter(
+                    t: _ambient.value,
+                    focus: focus,
+                    pull: 0,
+                    sunburst: _seg(_ms, _cue + 100, _cue + 700, Curves.easeOut),
+                    tint: fxTint,
+                  ),
+                ),
+              ),
+            ),
+            if (_burstFired)
+              IgnorePointer(
+                child: CustomPaint(
+                  painter: BrandBurstPainter(
+                    ms: _burstT,
+                    cue: 0,
+                    focus: focus,
+                    logoWidth: _logoWidth,
+                    tint: fxTint,
+                  ),
+                ),
+              ),
+            Padding(
+              padding: padding + const EdgeInsets.symmetric(horizontal: 28),
+              child: Column(
                 children: [
-                  const Positioned.fill(
-                    child: RepaintBoundary(child: _CreditsStarfield()),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 24,
-                      vertical: 32,
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        RepaintBoundary(
-                          child: Column(
-                            children: [
-                              const StudioMark(forceInvert: true, height: 28),
-                              const SizedBox(height: 12),
-                              Container(
-                                height: 3,
-                                width: 64,
-                                decoration: BoxDecoration(
-                                  gradient: const LinearGradient(
-                                    colors: [
-                                      QuivroColors.blue,
-                                      QuivroColors.purple,
-                                    ],
-                                  ),
-                                  borderRadius: BorderRadius.circular(99),
-                                ),
-                              ),
-                            ],
+                  const SizedBox(height: _logoTop),
+                  _buildLogo(logoH),
+                  const SizedBox(height: 18),
+                  _rise(
+                    _seg(_ms, 450, 800, Curves.easeOutCubic),
+                    Text(
+                      strings.creditsTitle.toUpperCase(),
+                      style: showDisplay(
+                        context,
+                        fontSize: 24,
+                        letterSpacing: 2,
+                        color: night ? Colors.white : showInkDay,
+                        shadows: [
+                          Shadow(
+                            color: night ? showInkNight : showBulb,
+                            offset: const Offset(3, 3),
                           ),
-                        ),
-                        const SizedBox(height: 24),
-                        SizedBox(
-                          height: 240,
-                          child: _CreditsScroller(
-                            entries: [
-                              _CreditEntry(
-                                label: strings.creditsLeadDev.toUpperCase(),
-                                name: 'Vedad Keskin',
-                                labelColor: const Color(0xFF22D3EE),
-                              ),
-                              _CreditEntry(
-                                label: strings.creditsQuestionCurator
-                                    .toUpperCase(),
-                                name: strings.creditsMom,
-                                labelColor: const Color(0xFFEC4899),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        GestureDetector(
-                          onTap: () => Navigator.of(context).pop(),
-                          child: Container(
-                            height: 48,
-                            padding: const EdgeInsets.symmetric(horizontal: 28),
-                            alignment: Alignment.center,
-                            decoration: showPanel(
-                              ink: ink,
-                              fill: showBulb,
-                              radius: 14,
-                              shadow: const Offset(0, 4),
-                            ),
-                            child: Text(
-                              strings.close.toUpperCase(),
-                              style: showDisplay(
-                                context,
-                                fontSize: 20,
-                                color: showInkDay,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                    right: 14,
-                    bottom: 10,
-                    child: Text(
-                      'v1.4.4',
-                      style: GoogleFonts.nunito(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w700,
-                        color: const Color(0xFF64748B).withValues(alpha: 0.75),
-                        letterSpacing: 1,
+                        ],
                       ),
                     ),
                   ),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        for (var i = 0; i < cards.length; i++) ...[
+                          if (i > 0) const SizedBox(height: 22),
+                          _slam(
+                            i,
+                            width,
+                            _CreditCard(
+                              role: cards[i].$1,
+                              name: cards[i].$2,
+                              color: cards[i].$3,
+                            ),
+                          ),
+                        ],
+                      ],
+                    ),
+                  ),
+                  _rise(
+                    _seg(_ms, 1100, 1450, Curves.easeOutCubic),
+                    _buildFooter(context),
+                  ),
+                  const SizedBox(height: 24),
                 ],
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildLogo(double logoH) {
+    final pop = _seg(_burstT, 0, 700, Curves.elasticOut);
+    return GestureDetector(
+      onTap: _replay,
+      child: Opacity(
+        opacity: _burstFired ? 1 : 0,
+        child: Transform.scale(
+          scale: 0.7 + 0.3 * pop,
+          child: Image.asset(
+            QuivroWordmarkHero.asset,
+            width: _logoWidth,
+            height: logoH,
+            filterQuality: FilterQuality.high,
+            semanticLabel: 'Quivro',
           ),
         ),
       ),
     );
   }
-}
 
-class _CreditEntry {
-  const _CreditEntry({
-    required this.label,
-    required this.name,
-    required this.labelColor,
-  });
-
-  final String label;
-  final String name;
-  final Color labelColor;
-}
-
-class _CreditsScroller extends StatefulWidget {
-  const _CreditsScroller({required this.entries});
-
-  final List<_CreditEntry> entries;
-
-  @override
-  State<_CreditsScroller> createState() => _CreditsScrollerState();
-}
-
-class _CreditsScrollerState extends State<_CreditsScroller>
-    with SingleTickerProviderStateMixin {
-  late Ticker _ticker;
-  Duration _lastElapsed = Duration.zero;
-
-  double _scrollOffset = 0;
-  double _currentSpeed = _defaultSpeed;
-  static const double _defaultSpeed = 35.0;
-  double _targetSpeed = _defaultSpeed;
-  bool _isDragging = false;
-  bool _isPaused = false;
-  bool _initialDelay = true;
-
-
-  static const double _entryHeight = 72.0;
-  static const double _entrySpacing = 20.0;
-  static const double _entryTotalHeight = _entryHeight + _entrySpacing;
-
-  // Repeat the short credit list so the loop still feels full.
-  static const int _loopCopies = 4;
-
-  List<_CreditEntry> get _credits {
-    final out = <_CreditEntry>[];
-    for (var i = 0; i < _loopCopies; i++) {
-      out.addAll(widget.entries);
-    }
-    return out;
-  }
-
-  double get _totalContentHeight => _credits.length * _entryTotalHeight;
-
-  @override
-  void initState() {
-    super.initState();
-    _ticker = createTicker(_onTick)..start();
-    Future.delayed(const Duration(milliseconds: 800), () {
-      if (mounted) setState(() => _initialDelay = false);
-    });
-  }
-
-  @override
-  void dispose() {
-    _ticker.dispose();
-    super.dispose();
-  }
-
-  void _onTick(Duration elapsed) {
-    final dt = (elapsed - _lastElapsed).inMicroseconds / 1000000.0;
-    _lastElapsed = elapsed;
-
-    if (dt > 0.1 || dt <= 0) return;
-    if (_isDragging || _isPaused || _initialDelay) return;
-
-    final lerpFactor = (dt * 3.0).clamp(0.0, 1.0);
-    _currentSpeed += (_targetSpeed - _currentSpeed) * lerpFactor;
-
-    setState(() {
-      _scrollOffset += _currentSpeed * dt;
-      _wrapOffset();
-    });
-  }
-
-  void _wrapOffset() {
-    final total = _totalContentHeight;
-    while (_scrollOffset >= total) {
-      _scrollOffset -= total;
-    }
-    while (_scrollOffset < 0) {
-      _scrollOffset += total;
-    }
-  }
-
-  void _onTap() {
-    setState(() {
-      if (_isPaused) {
-        _isPaused = false;
-        _targetSpeed = _defaultSpeed;
-        _currentSpeed = _defaultSpeed * 0.3;
-      } else {
-        _isPaused = true;
-        _currentSpeed = 0;
-        _targetSpeed = 0;
-      }
-    });
-  }
-
-  void _onDragStart(DragStartDetails details) {
-    _isDragging = true;
-    _isPaused = false;
-  }
-
-  void _onDragUpdate(DragUpdateDetails details) {
-    setState(() {
-      _scrollOffset -= details.delta.dy;
-      _wrapOffset();
-    });
-  }
-
-  void _onDragEnd(DragEndDetails details) {
-    _isDragging = false;
-    final vy = -details.velocity.pixelsPerSecond.dy;
-    if (vy.abs() > 50) {
-      _currentSpeed = vy.clamp(-300.0, 300.0);
-    } else {
-      _currentSpeed = _defaultSpeed;
-    }
-    _targetSpeed = _defaultSpeed;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final viewportHeight = constraints.maxHeight;
-
-        return RepaintBoundary(
-          child: GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: _onTap,
-            onVerticalDragStart: _onDragStart,
-            onVerticalDragUpdate: _onDragUpdate,
-            onVerticalDragEnd: _onDragEnd,
-            child: SizedBox(
-              height: viewportHeight,
-              width: double.infinity,
-              child: ClipRect(
-                child: Stack(
-                  clipBehavior: Clip.hardEdge,
-                  children: [
-                    ..._buildCreditWidgets(viewportHeight),
-                    Positioned.fill(
-                      child: IgnorePointer(
-                        child: CustomPaint(painter: _ScanlinePainter()),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        );
-      },
+  /// Fade + small upward slide driven by [p].
+  Widget _rise(double p, Widget child) {
+    return Opacity(
+      opacity: p,
+      child: Transform.translate(offset: Offset(0, 14 * (1 - p)), child: child),
     );
   }
 
-  List<Widget> _buildCreditWidgets(double viewportHeight) {
-    final widgets = <Widget>[];
-    final centerY = viewportHeight / 2;
-    final credits = _credits;
-    final total = _totalContentHeight;
-
-    for (var i = 0; i < credits.length; i++) {
-      var basePos = (i * _entryTotalHeight - _scrollOffset) % total;
-      if (basePos < 0) basePos += total;
-
-      for (final wrapOffset in [0.0, -total]) {
-        final pos = basePos + wrapOffset;
-
-        if (pos > viewportHeight + _entryHeight ||
-            pos + _entryHeight < -_entryHeight) {
-          continue;
-        }
-
-        final entryCenterY = pos + _entryHeight / 2;
-        final distFromCenter = (entryCenterY - centerY).abs();
-        final maxDist = viewportHeight / 2 + _entryHeight;
-        final normalizedDist = (distFromCenter / maxDist).clamp(0.0, 1.0);
-        final opacity = (1.0 - normalizedDist * 0.6).clamp(0.0, 1.0);
-
-        widgets.add(
-          Positioned(
-            top: pos,
-            left: 0,
-            right: 0,
-            height: _entryHeight,
-            child: Opacity(
-              opacity: opacity,
-              child: _buildCreditEntry(credits[i]),
-            ),
-          ),
-        );
-      }
-    }
-
-    return widgets;
+  /// Card [i] flies in from alternating sides and lands on a slight tilt.
+  Widget _slam(int i, double width, Widget card) {
+    final start = _cardsAt + i * _cardGap;
+    final p = _seg(_ms, start, start + 650, Curves.elasticOut);
+    final side = i.isEven ? -1.0 : 1.0;
+    const tilt = 2.5 * math.pi / 180;
+    return Opacity(
+      opacity: _seg(_ms, start, start + 120),
+      child: Transform.translate(
+        offset: Offset(side * width * (1 - p), 0),
+        child: Transform.rotate(
+          angle: lerpDouble(side * 0.3, -side * tilt, p)!,
+          child: card,
+        ),
+      ),
+    );
   }
 
-  Widget _buildCreditEntry(_CreditEntry credit) {
+  Widget _buildFooter(BuildContext context) {
+    final strings = context.strings;
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          credit.label,
-          style: GoogleFonts.nunito(
-            color: credit.labelColor,
-            fontSize: 11,
-            fontWeight: FontWeight.w800,
-            letterSpacing: 1.4,
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              strings.madeBy,
+              style: GoogleFonts.nunito(
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+                color: context.palette.muted,
+              ),
+            ),
+            const SizedBox(width: 8),
+            const StudioMark(),
+            const SizedBox(width: 10),
+            Text(
+              'v1.4.4',
+              style: GoogleFonts.nunito(
+                fontSize: 11,
+                fontWeight: FontWeight.w700,
+                color: context.palette.muted,
+                letterSpacing: 1,
+              ),
+            ),
+          ],
         ),
-        const SizedBox(height: 8),
-        Text(
-          credit.name,
-          style: showDisplay(
-            context,
-            fontSize: 22,
-            letterSpacing: 0.4,
-            color: Colors.white,
+        const SizedBox(height: 18),
+        GestureDetector(
+          onTap: () => Navigator.of(context).pop(),
+          child: Container(
+            height: 52,
+            width: double.infinity,
+            alignment: Alignment.center,
+            decoration: showPanel(
+              ink: showInk(context),
+              fill: showBulb,
+              radius: 16,
+              shadow: const Offset(0, 5),
+            ),
+            child: Text(
+              strings.close.toUpperCase(),
+              style: showDisplay(context, fontSize: 22, color: showInkDay),
+            ),
           ),
         ),
       ],
@@ -390,124 +339,77 @@ class _CreditsScrollerState extends State<_CreditsScroller>
   }
 }
 
-class _ScanlinePainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()..color = Colors.black.withValues(alpha: 0.06);
+/// Sticker-style credit card: role chip, big name, spark accent.
+class _CreditCard extends StatelessWidget {
+  const _CreditCard({
+    required this.role,
+    required this.name,
+    required this.color,
+  });
 
-    for (double y = 0; y < size.height; y += 4) {
-      canvas.drawRect(Rect.fromLTWH(0, y, size.width, 1), paint);
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
-}
-
-/// Soft drifting starfield behind the credits — Quivro navy with blue/purple
-/// tinted stars.
-class _CreditsStarfield extends StatefulWidget {
-  const _CreditsStarfield();
-
-  @override
-  State<_CreditsStarfield> createState() => _CreditsStarfieldState();
-}
-
-class _CreditsStarfieldState extends State<_CreditsStarfield>
-    with SingleTickerProviderStateMixin {
-  late Ticker _ticker;
-  double _elapsed = 0;
-  final List<_Star> _stars = [];
-  final Random _random = Random();
-
-  @override
-  void initState() {
-    super.initState();
-
-    const tints = [Color(0xFF22D3EE), showBulb, Color(0xFFEC4899)];
-    for (var i = 0; i < 50; i++) {
-      _stars.add(
-        _Star(
-          x: _random.nextDouble(),
-          y: _random.nextDouble(),
-          size: _random.nextBool() ? 2 : 3,
-          speed: 0.02 + _random.nextDouble() * 0.05,
-          tint: tints[_random.nextInt(tints.length)],
-        ),
-      );
-    }
-
-    _ticker = createTicker((elapsed) {
-      setState(() {
-        _elapsed = elapsed.inMilliseconds / 1000.0;
-      });
-    })..start();
-  }
-
-  @override
-  void dispose() {
-    _ticker.dispose();
-    super.dispose();
-  }
+  final String role;
+  final String name;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: _StarPainter(_stars, _elapsed),
-      size: Size.infinite,
+    final ink = showInk(context);
+    final night = Theme.of(context).brightness == Brightness.dark;
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(20, 18, 20, 20),
+      decoration: showPanel(
+        ink: ink,
+        fill: context.palette.card,
+        radius: 22,
+        shadow: Offset(5, 5),
+      ),
+      child: Stack(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 5,
+                ),
+                decoration: showPanel(
+                  ink: ink,
+                  fill: color,
+                  radius: 99,
+                  shadow: const Offset(0, 3),
+                ),
+                child: Text(
+                  role.toUpperCase(),
+                  style: GoogleFonts.nunito(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w900,
+                    letterSpacing: 1.4,
+                    color: showInkDay,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+              Text(
+                name,
+                style: showDisplay(
+                  context,
+                  fontSize: 30,
+                  letterSpacing: 0.4,
+                  color: context.palette.text,
+                  shadows: night
+                      ? const [
+                          Shadow(color: showInkNight, offset: Offset(2, 2)),
+                        ]
+                      : null,
+                ),
+              ),
+            ],
+          ),
+          const Positioned(top: 0, right: 0, child: BrandSparks(scale: 1.3)),
+        ],
+      ),
     );
   }
-}
-
-class _Star {
-  const _Star({
-    required this.x,
-    required this.y,
-    required this.size,
-    required this.speed,
-    required this.tint,
-  });
-
-  final double x;
-  final double y;
-  final double size;
-  final double speed;
-  final Color tint;
-}
-
-class _StarPainter extends CustomPainter {
-  _StarPainter(this.stars, this.elapsed);
-
-  final List<_Star> stars;
-  final double elapsed;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final bgPaint = Paint()
-      ..shader = const LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [_bgColor, Color(0xFF000000)],
-      ).createShader(Rect.fromLTWH(0, 0, size.width, size.height));
-
-    canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), bgPaint);
-
-    for (final star in stars) {
-      final currentY = (star.y + elapsed * star.speed) % 1.0;
-      final paint = Paint()..color = star.tint.withValues(alpha: 0.35);
-      canvas.drawRect(
-        Rect.fromLTWH(
-          star.x * size.width,
-          currentY * size.height,
-          star.size,
-          star.size,
-        ),
-        paint,
-      );
-    }
-  }
-
-  @override
-  bool shouldRepaint(_StarPainter oldDelegate) =>
-      oldDelegate.elapsed != elapsed;
 }

@@ -1,25 +1,28 @@
 import 'dart:async';
 import 'dart:math' as math;
+import 'dart:ui' show lerpDouble;
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../core/avatars.dart';
 import '../core/bootstrap.dart';
 import '../core/strings.dart';
 import '../core/theme.dart';
+import '../widgets/brand_fx.dart';
 import '../widgets/studio_mark.dart';
 import '../widgets/wordmark.dart';
 
-/// Branded animated loading screen.
+/// Branded animated intro ("charge and burst").
 ///
-/// Plays a choreographed intro (aurora background, elastic logo entrance,
-/// letter-by-letter wordmark, shimmer progress bar with rotating taglines)
-/// while [AppBootstrapper] initializes Firebase, the local profile and any
-/// active room session. Navigates to the right screen when both the boot
-/// work and a minimum splash duration have elapsed.
+/// Opens on the same Q the native splash shows, charges it up, and on the
+/// audio cue bursts into the full brand logo (flash, shockwave, three spark
+/// slashes, letter-by-letter reveal). Meanwhile [AppBootstrapper] initializes
+/// Firebase, the local profile and any active room session; once both are
+/// done the logo flies via Hero into the next screen's header.
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
 
@@ -29,39 +32,63 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   static const _minSplash = Duration(milliseconds: 3000);
-  /// Brief pause before intro SFX so it sits closer to the wordmark reveal.
-  static const _introSoundDelay = Duration(milliseconds: 200);
-  static const _bg = Color(0xFF0A0E27);
-  static const _logoAsset = 'assets/branding/logo_big.png';
 
-  /// Slow ambient loop driving the aurora blobs, particles and shimmer bar.
+  /// Brief pause before intro SFX so its hit lands on [_cue].
+  static const _introSoundDelay = Duration(milliseconds: 200);
+
+  /// Intro time (ms) where the hit in `into_splash.mp3` lands. Everything in
+  /// the burst is keyed off this; nudge it if the sound file changes.
+  static const _cue = 1000.0;
+  static const _introMs = 2200;
+  static const _letterGap = 80.0;
+
+  /// Reveal edge (fraction of brand_full width, at mid-height) after each
+  /// step: Q + sparks, u, i, v, r, o. The last overshoots 1 so the slanted
+  /// edge clears the "o" completely.
+  static const _letterStops = [0.375, 0.488, 0.558, 0.695, 0.785, 1.05];
+
+  static const _bg = Color(0xFF0A0E27);
+  static const _qAsset = 'assets/branding/brand_q.png';
+
+  /// Matches the native splash icon (500px source rendered at 4x).
+  static const _qHeight = 125.0;
+
+  /// Slow ambient loop driving the aurora, particles, sunburst and shimmer.
   late final AnimationController _ambient = AnimationController(
     vsync: this,
     duration: const Duration(seconds: 10),
   )..repeat();
 
-  /// Gentle breathing pulse for the logo once it has landed.
-  late final AnimationController _breath = AnimationController(
+  /// One-shot timeline for the whole intro choreography.
+  late final AnimationController _intro = AnimationController(
     vsync: this,
-    duration: const Duration(milliseconds: 2200),
-  );
+    duration: const Duration(milliseconds: _introMs),
+  )..addListener(_onIntroTick);
 
   Timer? _taglineTimer;
   int _taglineIndex = 0;
+  int _hapticStep = -1;
+  bool _bootDone = false;
   bool _bootFailed = false;
   bool _offlineNote = false;
   final AudioPlayer _introSound = AudioPlayer();
 
-  /// The intro choreography only starts once the logo bitmap is decoded, so
-  /// the entrance never animates a half-loaded image.
+  /// The intro only starts once both logo bitmaps are decoded, so neither
+  /// the opening Q nor the burst ever draws a half-loaded image.
   bool _introReady = false;
   bool _precacheStarted = false;
   final _introStarted = Completer<void>();
   final _introStopwatch = Stopwatch();
 
-  /// Set for a short "exit beat": the progress area and taglines fade out
-  /// right before navigating, while the wordmark morphs via Hero.
+  /// Set for a short "exit beat": everything but the logo fades out right
+  /// before navigating, while the logo flies via Hero.
   bool _exiting = false;
+
+  double get _ms => _intro.value * _introMs;
+
+  /// Progress (0..1) of the intro between [from] and [to] ms.
+  double _seg(double from, double to, [Curve curve = Curves.linear]) =>
+      curve.transform(((_ms - from) / (to - from)).clamp(0.0, 1.0));
 
   @override
   void initState() {
@@ -74,34 +101,37 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     super.didChangeDependencies();
     if (_precacheStarted) return;
     _precacheStarted = true;
-    precacheImage(const AssetImage(_logoAsset), context).whenComplete(() {
+    Future.wait([
+      precacheImage(const AssetImage(_qAsset), context),
+      precacheImage(const AssetImage(QuivroWordmarkHero.asset), context),
+    ]).whenComplete(() {
       if (mounted) _startIntro();
     });
   }
 
-  /// Kicks off every timed piece of the choreography, measured from the
-  /// moment the logo is actually ready to draw.
   void _startIntro() {
     setState(() => _introReady = true);
     _introStopwatch.start();
     _introStarted.complete();
+    _intro.forward();
     unawaited(_playIntroSound());
 
-    // Haptic tick when the elastic logo entrance "lands".
-    Future.delayed(const Duration(milliseconds: 900), () {
-      if (mounted) HapticFeedback.mediumImpact();
-    });
-
-    // Breathing starts after the entrance settles.
-    Future.delayed(const Duration(milliseconds: 1200), () {
-      if (mounted) _breath.repeat(reverse: true);
-    });
-
-    // Rotating playful taglines.
     _taglineTimer = Timer.periodic(const Duration(milliseconds: 1700), (_) {
       if (!mounted || _bootFailed) return;
       setState(() => _taglineIndex = _taglineIndex + 1);
     });
+  }
+
+  /// Heavy thump on the cue, then a light tick per revealed letter.
+  void _onIntroTick() {
+    if (_ms < _cue) return;
+    final step = ((_ms - _cue) / _letterGap).floor().clamp(
+      0,
+      _letterStops.length - 1,
+    );
+    if (step <= _hapticStep) return;
+    _hapticStep = step;
+    step == 0 ? HapticFeedback.heavyImpact() : HapticFeedback.selectionClick();
   }
 
   Future<void> _playIntroSound() async {
@@ -119,7 +149,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   @override
   void dispose() {
     _ambient.dispose();
-    _breath.dispose();
+    _intro.dispose();
     _taglineTimer?.cancel();
     unawaited(_introSound.dispose());
     super.dispose();
@@ -129,6 +159,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     if (_bootFailed) setState(() => _bootFailed = false);
 
     final result = await AppBootstrapper().run();
+    if (mounted) setState(() => _bootDone = true);
 
     // Let the intro play out even on fast devices — measured from when the
     // intro actually started, not from boot kickoff.
@@ -175,6 +206,11 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
+    final focus = size.center(Offset.zero);
+    final logoW = math.min(size.width * 0.8, 340.0);
+    final logoH = logoW / QuivroWordmarkHero.aspect;
+
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.light.copyWith(
         statusBarColor: Colors.transparent,
@@ -182,94 +218,89 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       ),
       child: Scaffold(
         backgroundColor: _bg,
-        body: Stack(
-          fit: StackFit.expand,
-          children: [
-            // Ambient aurora blobs + floating particles.
-            AnimatedBuilder(
-              animation: _ambient,
-              builder: (context, _) =>
-                  CustomPaint(painter: _AmbientPainter(_ambient.value)),
-            ),
-            // Content appears only once the logo bitmap is decoded, so the
-            // whole choreography starts from a clean, fully-loaded frame.
-            if (_introReady)
-              SafeArea(
-                child: Column(
-                  children: [
-                    const Spacer(flex: 5),
-                    _fadeOnExit(_buildLogo()),
-                    const SizedBox(height: 28),
-                    QuivroWordmarkHero(child: _buildWordmark()),
-                    const SizedBox(height: 10),
-                    _fadeOnExit(
-                      Text(
-                            context.strings.tagline,
-                            style: GoogleFonts.nunito(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white.withValues(alpha: 0.72),
-                              letterSpacing: 0.3,
-                            ),
-                          )
-                          .animate(delay: 1550.ms)
-                          .fadeIn(duration: 500.ms)
-                          .slideY(
-                            begin: 0.4,
-                            end: 0,
-                            curve: Curves.easeOutCubic,
-                          ),
+        // No SafeArea around the logo: it must sit at the exact screen
+        // centre, where the native splash drew the Q.
+        body: AnimatedBuilder(
+          animation: Listenable.merge([_ambient, _intro]),
+          builder: (context, _) => Stack(
+            fit: StackFit.expand,
+            children: [
+              // Fades in from the bare native-splash colour.
+              _fadeOnExit(
+                Opacity(
+                  opacity: _seg(0, 500),
+                  child: CustomPaint(
+                    painter: BrandAmbientPainter(
+                      t: _ambient.value,
+                      focus: focus,
+                      pull:
+                          _seg(0, _cue, Curves.easeIn) *
+                          (1 - _seg(_cue, _cue + 400, Curves.easeOut)),
+                      sunburst: _seg(_cue + 150, _cue + 900, Curves.easeOut),
                     ),
-                    const SizedBox(height: 14),
-                    _fadeOnExit(
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            context.strings.madeBy,
-                            style: GoogleFonts.nunito(
-                              fontSize: 13,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white.withValues(alpha: 0.45),
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          const StudioMark(forceInvert: true),
-                        ],
-                      )
-                          .animate(delay: 1750.ms)
-                          .fadeIn(duration: 500.ms)
-                          .slideY(
-                            begin: 0.4,
-                            end: 0,
-                            curve: Curves.easeOutCubic,
-                          ),
-                    ),
-                    const Spacer(flex: 4),
-                    _fadeOnExit(
-                      SizedBox(
-                        height: 132,
-                        child: AnimatedSwitcher(
-                          duration: const Duration(milliseconds: 350),
-                          switchInCurve: Curves.easeOutCubic,
-                          child: _bootFailed
-                              ? _BootErrorCard(onRetry: _boot)
-                              : _buildProgress(),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                  ],
+                  ),
                 ),
               ),
-          ],
+              if (_introReady) ...[
+                _fadeOnExit(
+                  CustomPaint(
+                    painter: BrandBurstPainter(
+                      ms: _ms,
+                      cue: _cue,
+                      focus: focus,
+                      logoWidth: logoW,
+                    ),
+                  ),
+                ),
+                Center(child: _buildLogo(logoH)),
+                // Flash sits above the logo so it hides the Q -> logo swap.
+                IgnorePointer(
+                  child: ColoredBox(
+                    color: Colors.white.withValues(
+                      alpha: _ms < _cue
+                          ? 0
+                          : 0.85 * (1 - _seg(_cue, _cue + 260, Curves.easeOut)),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  top: focus.dy + logoH / 2 + 22,
+                  child: _fadeOnExit(_buildCredits()),
+                ),
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: MediaQuery.paddingOf(context).bottom + 24,
+                  height: 132,
+                  child: _fadeOnExit(
+                    Opacity(
+                      opacity: _seg(_cue + 700, _cue + 1100),
+                      child: AnimatedSwitcher(
+                        duration: const Duration(milliseconds: 350),
+                        switchInCurve: Curves.easeOutCubic,
+                        child: _bootFailed
+                            ? _BootErrorCard(onRetry: _boot)
+                            : AnimatedOpacity(
+                                opacity: !_bootDone || _offlineNote ? 1 : 0,
+                                duration: const Duration(milliseconds: 300),
+                                child: _buildProgress(),
+                              ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ],
+          ),
         ),
       ),
     );
   }
 
-  /// Fades [child] out during the exit beat (the wordmark is excluded — it
-  /// stays visible and morphs into the next screen's header via Hero).
+  /// Fades [child] out during the exit beat (the logo is excluded — it stays
+  /// visible and flies into the next screen's header via Hero).
   Widget _fadeOnExit(Widget child) {
     return AnimatedOpacity(
       opacity: _exiting ? 0 : 1,
@@ -279,77 +310,118 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     );
   }
 
-  Widget _buildLogo() {
-    return SizedBox(
-      width: 230,
-      height: 230,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          // Logo with elastic entrance, then breathing.
-          AnimatedBuilder(
-            animation: _breath,
-            builder: (context, child) {
-              final t = Curves.easeInOut.transform(_breath.value);
-              return Transform.scale(scale: 1.0 + 0.035 * t, child: child);
-            },
-            child:
-                Image.asset(
-                      _logoAsset,
-                      width: 148,
-                      height: 148,
-                      filterQuality: FilterQuality.high,
-                    )
-                    .animate()
-                    .fadeIn(duration: 420.ms, curve: Curves.easeOut)
-                    .scale(
-                      begin: const Offset(0.35, 0.35),
-                      end: const Offset(1, 1),
-                      duration: 1100.ms,
-                      curve: Curves.elasticOut,
-                    ),
+  /// The charging Q until the cue, then the full logo revealed letter by
+  /// letter with an elastic pop.
+  Widget _buildLogo(double logoH) {
+    final charge = _seg(0, _cue, Curves.easeIn);
+    final hit = _ms < _cue ? 0.0 : _seg(_cue, _cue + 120);
+    final pop = _seg(_cue, _cue + 700, Curves.elasticOut);
+    // Wobble speeds up as the charge builds.
+    final wobble = math.sin(_ms * _ms / 60000);
+
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        if (hit < 1)
+          Opacity(
+            opacity: 1 - hit,
+            child: Transform.rotate(
+              angle: 0.05 * charge * wobble,
+              child: Transform.scale(
+                scale: 1 - 0.08 * charge + 0.5 * hit,
+                child: Image.asset(
+                  _qAsset,
+                  height: _qHeight,
+                  filterQuality: FilterQuality.high,
+                ),
+              ),
+            ),
           ),
-        ],
-      ),
+        Transform.scale(
+          scale: 0.82 + 0.18 * pop,
+          child: QuivroWordmarkHero(
+            height: logoH,
+            child: ClipPath(
+              clipper: _RevealClipper(_revealFraction()),
+              child: Image.asset(
+                QuivroWordmarkHero.asset,
+                fit: BoxFit.contain,
+                filterQuality: FilterQuality.high,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
-  Widget _buildWordmark() {
-    const word = 'Quivro';
-    return Row(
-      mainAxisSize: MainAxisSize.min,
+  double _revealFraction() {
+    var f = 0.0;
+    for (var i = 0; i < _letterStops.length; i++) {
+      final start = _cue + i * _letterGap;
+      if (_ms < start) break;
+      f = lerpDouble(
+        i == 0 ? 0 : _letterStops[i - 1],
+        _letterStops[i],
+        _seg(start, start + 120, Curves.easeOutBack),
+      )!;
+    }
+    return f;
+  }
+
+  Widget _buildCredits() {
+    final p = _seg(_cue + 450, _cue + 950, Curves.easeOutCubic);
+    final p2 = _seg(_cue + 600, _cue + 1100, Curves.easeOutCubic);
+    return Column(
       children: [
-        for (var i = 0; i < word.length; i++)
-          Text(
-                word[i],
-                style: showDisplay(
-                  context,
-                  fontSize: 44,
-                  letterSpacing: 0,
-                  color: showBulb,
-                  shadows: const [
-                    Shadow(color: showInkNight, offset: Offset(3, 3)),
-                  ],
-                ),
-              )
-              .animate(delay: (1000 + i * 80).ms)
-              .fadeIn(duration: 350.ms)
-              .slideY(
-                begin: 0.6,
-                end: 0,
-                duration: 450.ms,
-                curve: Curves.easeOutCubic,
+        Opacity(
+          opacity: p,
+          child: Transform.translate(
+            offset: Offset(0, 10 * (1 - p)),
+            child: Text(
+              context.strings.tagline,
+              style: GoogleFonts.nunito(
+                fontSize: 15,
+                fontWeight: FontWeight.w700,
+                color: Colors.white.withValues(alpha: 0.72),
+                letterSpacing: 0.3,
               ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 14),
+        Opacity(
+          opacity: p2,
+          child: Transform.translate(
+            offset: Offset(0, 10 * (1 - p2)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  context.strings.madeBy,
+                  style: GoogleFonts.nunito(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white.withValues(alpha: 0.45),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                const StudioMark(forceInvert: true),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }
 
   Widget _buildProgress() {
+    // ~1.4s sweep derived from the 10s ambient loop.
+    final sweep = (_ambient.value * 7) % 1.0;
     return Column(
       key: const ValueKey('progress'),
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        // Shimmer progress bar.
         Container(
           width: 168,
           height: 12,
@@ -361,27 +433,20 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(99),
-            child: Stack(
-              children: [
-                AnimatedBuilder(
-                  animation: _ambient,
-                  builder: (context, _) {
-                    // ~1.4s sweep derived from the 10s ambient loop.
-                    final t = (_ambient.value * 7) % 1.0;
-                    return Align(
-                      alignment: Alignment(-1.6 + 3.2 * t, 0),
-                      child: Container(
-                        width: 72,
-                        height: 12,
-                        color: showBulb,
-                      ),
-                    );
-                  },
+            child: Align(
+              alignment: Alignment(-1.6 + 3.2 * sweep, 0),
+              child: Container(
+                width: 72,
+                height: 12,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [QuivroColors.blue, QuivroColors.purple],
+                  ),
                 ),
-              ],
+              ),
             ),
           ),
-        ).animate(delay: 1300.ms).fadeIn(duration: 400.ms),
+        ),
         const SizedBox(height: 16),
         // Rotating tagline / offline note.
         SizedBox(
@@ -413,10 +478,35 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
               ),
             ),
           ),
-        ).animate(delay: 1300.ms).fadeIn(duration: 400.ms),
+        ),
       ],
     );
   }
+}
+
+/// Reveals the logo up to [fraction] of its width with an edge slanted like
+/// the italic wordmark, so each step uncovers exactly one letter.
+class _RevealClipper extends CustomClipper<Path> {
+  _RevealClipper(this.fraction);
+
+  final double fraction;
+
+  @override
+  Path getClip(Size size) {
+    if (fraction <= 0) return Path();
+    final slant = size.height * 0.06;
+    final x = size.width * fraction;
+    return Path()
+      ..moveTo(0, 0)
+      ..lineTo(x + slant, 0)
+      ..lineTo(x - slant, size.height)
+      ..lineTo(0, size.height)
+      ..close();
+  }
+
+  @override
+  bool shouldReclip(_RevealClipper oldClipper) =>
+      oldClipper.fraction != fraction;
 }
 
 /// Friendly fatal-error state with a retry button. Shown only when core
@@ -467,92 +557,13 @@ class _BootErrorCard extends StatelessWidget {
                 const SizedBox(width: 8),
                 Text(
                   context.strings.tryAgain,
-                  style: showDisplay(
-                    context,
-                    fontSize: 18,
-                    color: showInkDay,
-                  ),
+                  style: showDisplay(context, fontSize: 18, color: showInkDay),
                 ),
               ],
             ),
           ),
         ),
       ],
-    ).animate().fadeIn(duration: 350.ms).slideY(begin: 0.2, end: 0);
-  }
-}
-
-/// Paints the slow-drifting aurora blobs and twinkling particles behind the
-/// splash content. Driven by a single 0..1 looping value — cheap to repaint.
-class _AmbientPainter extends CustomPainter {
-  _AmbientPainter(this.t);
-
-  final double t;
-
-  static const _purple = Color(0xFF7B3FF2);
-  static const _pink = Color(0xFFEC4899);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final angle = t * 2 * math.pi;
-
-    _blob(
-      canvas,
-      Offset(
-        size.width * (0.22 + 0.08 * math.sin(angle)),
-        size.height * (0.20 + 0.05 * math.cos(angle * 0.8)),
-      ),
-      size.width * 0.62,
-      showBulb.withValues(alpha: 0.16),
     );
-    _blob(
-      canvas,
-      Offset(
-        size.width * (0.85 + 0.07 * math.cos(angle * 1.2)),
-        size.height * (0.42 + 0.06 * math.sin(angle)),
-      ),
-      size.width * 0.55,
-      _purple.withValues(alpha: 0.17),
-    );
-    _blob(
-      canvas,
-      Offset(
-        size.width * (0.45 + 0.10 * math.sin(angle * 0.7)),
-        size.height * (0.92 + 0.04 * math.cos(angle)),
-      ),
-      size.width * 0.60,
-      _pink.withValues(alpha: 0.08),
-    );
-
-    _particles(canvas, size);
   }
-
-  void _blob(Canvas canvas, Offset center, double radius, Color color) {
-    final paint = Paint()
-      ..shader = RadialGradient(
-        colors: [color, color.withValues(alpha: 0)],
-      ).createShader(Rect.fromCircle(center: center, radius: radius));
-    canvas.drawCircle(center, radius, paint);
-  }
-
-  void _particles(Canvas canvas, Size size) {
-    final paint = Paint();
-    for (var i = 0; i < 18; i++) {
-      // Deterministic pseudo-random layout per particle index.
-      final seed = i * 37.0;
-      final x = size.width * _frac(seed * 0.731 + 0.13);
-      final speed = 0.05 + 0.06 * _frac(seed * 0.517);
-      final y =
-          size.height * (1.15 - _frac(_frac(seed * 0.911) + t * speed) * 1.3);
-      final radius = 1.2 + 2.0 * _frac(seed * 0.293);
-      final twinkle = 0.5 + 0.5 * math.sin(t * 2 * math.pi * 3 + i * 2.1);
-      paint.color = Colors.white.withValues(alpha: 0.05 + 0.14 * twinkle);
-      canvas.drawCircle(Offset(x, y), radius, paint);
-    }
-  }
-
-  double _frac(double v) => v - v.floorToDouble();
-
-  @override
-  bool shouldRepaint(_AmbientPainter oldDelegate) => oldDelegate.t != t;
 }

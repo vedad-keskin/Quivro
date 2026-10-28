@@ -60,7 +60,7 @@ dev_dependencies:
 
 flutter_native_splash:
   color: "#0A0E27"
-  # 500px derivative of logo_big.png; the generator treats this as a
+  # 500px derivative of brand_q.png; the generator treats this as a
   # 4x-density asset, so 500px renders at ~125dp on screen.
   image: assets/branding/logo_splash_src.png
   # Android 12+ uses a completely different splash mechanism: it renders
@@ -127,7 +127,6 @@ flutter:
     - assets/branding/logo.png
     - assets/branding/logo_only.png
     - assets/branding/logo_only_icon.png
-    - assets/branding/logo_big.png
     - assets/branding/brand_full.png
     - assets/branding/brand_q.png
     - assets/branding/nightfall-wordmark.png

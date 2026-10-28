@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../core/avatars.dart';
 import '../core/profile_store.dart';
 import '../core/room_repository.dart';
 import '../core/strings.dart';
@@ -111,15 +110,10 @@ class _SetupPageState extends State<SetupPage> {
             children: [
               Row(
                 children: [
-                  Expanded(
+                  const Expanded(
                     child: Align(
                       alignment: Alignment.centerLeft,
-                      child: QuivroWordmarkHero(
-                        child: Text(
-                          'Quivro',
-                          style: showTitle(context, fontSize: 40),
-                        ),
-                      ),
+                      child: QuivroWordmarkHero(height: 60),
                     ),
                   ),
                   if (fromRoom)
@@ -151,17 +145,7 @@ class _SetupPageState extends State<SetupPage> {
                     ),
                 ],
               ),
-              Container(
-                margin: const EdgeInsets.only(top: 6, bottom: 28),
-                height: 4,
-                width: 72,
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [QuivroColors.blue, QuivroColors.purple],
-                  ),
-                  borderRadius: BorderRadius.circular(99),
-                ),
-              ),
+              const SizedBox(height: 24),
               Text(
                 strings.chooseNicknameAvatar.toUpperCase(),
                 style: showDisplay(context, fontSize: 18, color: palette.muted),

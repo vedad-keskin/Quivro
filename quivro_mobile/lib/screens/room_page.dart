@@ -676,28 +676,10 @@ class _LobbyView extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        QuivroWordmarkHero(
-                          child: Text(
-                            'Quivro',
-                            style: showTitle(context, fontSize: 36),
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.only(top: 6),
-                          height: 4,
-                          width: 64,
-                          decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [QuivroColors.blue, QuivroColors.purple],
-                            ),
-                            borderRadius: BorderRadius.circular(99),
-                          ),
-                        ),
-                      ],
+                  const Expanded(
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: QuivroWordmarkHero(height: 56),
                     ),
                   ),
                   GestureDetector(
@@ -718,7 +700,12 @@ class _LobbyView extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 10),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: BrandSparkRule(),
+              ),
+              const SizedBox(height: 8),
               Text(
                 strings.playingAs(profile.nickname),
                 style: GoogleFonts.nunito(
