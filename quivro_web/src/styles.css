@@ -466,11 +466,6 @@ html[data-theme='dark'] .q-show .show-title {
   color: var(--bulb);
   text-shadow: 3px 3px 0 var(--ink);
 }
-html[data-theme='dark'] .q-show .wordmark {
-  /* Dark wordmark in the asset — invert + hue restore keeps the Q gradient readable. */
-  filter: invert(1) hue-rotate(180deg) brightness(1.08) saturate(1.05);
-}
-
 .q-show .spotlight {
   background:
     radial-gradient(ellipse 60% 70% at 50% 45%, color-mix(in srgb, var(--bulb) 26%, var(--q-card)), transparent 70%),

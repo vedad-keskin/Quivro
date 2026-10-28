@@ -52,7 +52,7 @@ interface Layer {
           <span class="spark s1" aria-hidden="true"></span>
           <span class="spark s2" aria-hidden="true"></span>
           <span class="spark s3" aria-hidden="true"></span>
-          <img class="logo wordmark" src="/logo/logo.png" alt="Quivro" />
+          <img class="logo wordmark" src="/logo/logo.png?v=2" alt="Quivro" />
           <p class="tagline">{{ lang.t().tagline }}</p>
           <button
             #weekTrigger
@@ -228,7 +228,7 @@ interface Layer {
       padding: 3rem 1.5rem 3.6rem;
     }
     .logo {
-      width: min(400px, 78vw);
+      width: min(440px, 84vw);
     }
     .tagline {
       position: absolute;

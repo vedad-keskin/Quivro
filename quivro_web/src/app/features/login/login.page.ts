@@ -26,7 +26,7 @@ import { UpgradeDialogService } from '../../shared/upgrade-dialog.service';
             <span class="spark s1" aria-hidden="true"></span>
             <span class="spark s2" aria-hidden="true"></span>
             <span class="spark s3" aria-hidden="true"></span>
-            <img class="logo wordmark" src="/logo/logo.png" alt="Quivro" />
+            <img class="logo wordmark" src="/logo/logo.png?v=2" alt="Quivro" />
           </div>
           <h1 class="show-title">{{ claiming ? lang.t().claimTitle : lang.t().loginTitle }}</h1>
           <p class="copy">{{ claiming ? lang.t().claimBody : lang.t().loginSubtitle }}</p>
@@ -93,7 +93,7 @@ import { UpgradeDialogService } from '../../shared/upgrade-dialog.service';
       margin-bottom: 0.6rem;
     }
     .logo {
-      width: min(280px, 68vw);
+      width: min(310px, 74vw);
       display: block;
     }
     h1 {
