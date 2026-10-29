@@ -42,6 +42,21 @@ class NewsDrop {
 /// Newest first. A new announcement is one object at the top, with a new id.
 const newsDrops = <NewsDrop>[
   NewsDrop(
+    id: 'cartoons-category',
+    cards: [
+      NewsCard(
+        image: 'assets/cartoons.png',
+        accent: Color(0xFF14B8A6),
+        titleEn: 'Cartoons are here',
+        titleBs: 'Crtani su stigli',
+        bodyEn:
+            'Enjoy the new Cartoons category. Explore fun questions from the world of animation and relive your childhood.',
+        bodyBs:
+            'Uživajte uz novu kategoriju Crtanih filmova. Upoznajte se sa zanimljivim pitanjima animiranog svijeta i prisjetite se vašeg djetinjstva.',
+      ),
+    ],
+  ),
+  NewsDrop(
     id: 'double-it',
     cards: [
       NewsCard(

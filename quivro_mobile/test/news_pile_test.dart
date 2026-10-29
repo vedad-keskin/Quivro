@@ -8,6 +8,33 @@ import 'package:quivro_mobile/widgets/news_pile.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
+  testWidgets('previously seen news still shows the new Cartoons card', (
+    tester,
+  ) async {
+    SharedPreferences.setMockInitialValues({
+      'quivro.news.seen': jsonEncode([
+        'double-it',
+        'lock-up',
+        'second-chance',
+        'fifty-fifty',
+      ]),
+    });
+    await tester.pumpWidget(
+      Settings(
+        controller: SettingsController(),
+        child: MaterialApp(
+          theme: buildQuivroTheme(),
+          home: const Scaffold(body: NewsPile()),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Cartoons are here').hitTestable(), findsOneWidget);
+    expect(find.text('Double it is here'), findsNothing);
+    expect(find.text('GOT IT').hitTestable(), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
   for (final reduce in [false, true]) {
     testWidgets('news reuses cards and navigates (reduced motion: $reduce)', (
       tester,
@@ -32,6 +59,7 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
+      expect(find.text('Cartoons are here').hitTestable(), findsOneWidget);
 
       Future<void> step(String label) async {
         await tester.tap(find.text(label).hitTestable());
@@ -51,6 +79,8 @@ void main() {
         await tester.pumpAndSettle();
       }
 
+      await step('NEXT');
+      expect(find.text('Double it is here').hitTestable(), findsOneWidget);
       await step('NEXT');
       expect(find.text('Lock Up is here').hitTestable(), findsOneWidget);
       await step('PREVIOUS');
@@ -93,7 +123,7 @@ void main() {
       );
       key.currentState!.openAll();
       await tester.pumpAndSettle();
-      expect(find.text('Double it is here').hitTestable(), findsOneWidget);
+      expect(find.text('Cartoons are here').hitTestable(), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
   }
