@@ -47,6 +47,7 @@ class _QuivroAppState extends State<QuivroApp> {
           Widget page;
           if (extra is Map) {
             page = SetupPage(
+              showCoachMarks: extra['showCoachMarks'] == true,
               existing: extra['existing'] is PlayerProfile
                   ? extra['existing'] as PlayerProfile
                   : null,
@@ -66,13 +67,20 @@ class _QuivroAppState extends State<QuivroApp> {
       GoRoute(
         path: '/',
         pageBuilder: (context, state) {
-          final profile = state.extra is PlayerProfile
-              ? state.extra as PlayerProfile
+          final extra = state.extra;
+          final profile = extra is PlayerProfile
+              ? extra
+              : extra is Map && extra['profile'] is PlayerProfile
+              ? extra['profile'] as PlayerProfile
               : null;
           return _fadeThroughPage(
             key: state.pageKey,
             child: profile != null
-                ? HomePage(profile: profile)
+                ? HomePage(
+                    profile: profile,
+                    showCoachMarks:
+                        extra is Map && extra['showCoachMarks'] == true,
+                  )
                 : const _StoredProfileGate(),
           );
         },
@@ -112,6 +120,7 @@ class _QuivroAppState extends State<QuivroApp> {
           theme: buildQuivroTheme(),
           darkTheme: buildQuivroDarkTheme(),
           themeMode: widget.settings.themeMode,
+          builder: buildQuivroSystemBars,
           // Soft cross-fade when toggling day/night.
           themeAnimationDuration: const Duration(milliseconds: 300),
           themeAnimationCurve: Curves.easeInOut,

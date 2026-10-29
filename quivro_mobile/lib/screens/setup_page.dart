@@ -16,9 +16,11 @@ class SetupPage extends StatefulWidget {
     this.existing,
     this.returnTo,
     this.returnPlayerId,
+    this.showCoachMarks = false,
   });
 
   final PlayerProfile? existing;
+  final bool showCoachMarks;
 
   /// When set (e.g. `/room/ABC123`), navigate here after save instead of home.
   final String? returnTo;
@@ -93,7 +95,10 @@ class _SetupPageState extends State<SetupPage> {
       return;
     }
 
-    context.go('/', extra: profile);
+    context.go(
+      '/',
+      extra: {'profile': profile, 'showCoachMarks': widget.showCoachMarks},
+    );
   }
 
   @override

@@ -136,7 +136,10 @@ List<_Slide> _visible({required bool all, required List<String> seen}) {
 
 /// Yellow megaphone in the bottom right. Opens the same pile as the web.
 class NewsPile extends StatefulWidget {
-  const NewsPile({super.key});
+  const NewsPile({super.key, this.onVisibilityChanged, this.onReady});
+
+  final ValueChanged<bool>? onVisibilityChanged;
+  final VoidCallback? onReady;
 
   @override
   State<NewsPile> createState() => NewsPileState();
@@ -149,6 +152,7 @@ class NewsPileState extends State<NewsPile>
   var _all = false;
   var _busy = false;
   var _snapping = false;
+  var _closing = false;
   var _dir = 0;
   var _index = 0;
   final _drag = ValueNotifier(0.0);
@@ -182,15 +186,15 @@ class NewsPileState extends State<NewsPile>
   }
 
   Future<void> _load() async {
-    final prefs = await SharedPreferences.getInstance();
-    final raw = prefs.getString(_seenKey);
     var seen = <String>[];
-    if (raw != null) {
-      try {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final raw = prefs.getString(_seenKey);
+      if (raw != null) {
         final parsed = jsonDecode(raw);
         if (parsed is List) seen = parsed.whereType<String>().toList();
-      } catch (_) {}
-    }
+      }
+    } catch (_) {}
     if (!mounted) return;
     final unread = _visible(all: false, seen: seen);
     setState(() {
@@ -200,6 +204,8 @@ class NewsPileState extends State<NewsPile>
       _all = false;
       _index = 0;
     });
+    widget.onVisibilityChanged?.call(_open);
+    widget.onReady?.call();
   }
 
   List<_Slide> get _slides => _visible(all: _all, seen: _seen);
@@ -207,21 +213,30 @@ class NewsPileState extends State<NewsPile>
   bool get _reduce => MediaQuery.disableAnimationsOf(context);
 
   void openAll() {
-    if (!_ready || _open || newsDrops.isEmpty) return;
+    if (!_ready || _open || _closing || newsDrops.isEmpty) return;
     setState(() {
       _all = true;
       _index = 0;
       _drag.value = 0;
       _open = _slides.isNotEmpty;
     });
+    if (_open) widget.onVisibilityChanged?.call(true);
   }
 
+  Future<void> dismiss() => _close();
+
   Future<void> _close() async {
+    if (!_open || _closing) return;
+    _closing = true;
     _commit.stop();
     final ids = {..._seen, ..._slides.map((slide) => slide.dropId)}.toList();
     if (mounted) setState(() => _open = false);
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_seenKey, jsonEncode(ids));
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString(_seenKey, jsonEncode(ids));
+    } catch (_) {
+      // Keep dismissal usable even if local storage is unavailable.
+    }
     if (!mounted) return;
     setState(() {
       _seen = ids;
@@ -231,8 +246,10 @@ class NewsPileState extends State<NewsPile>
       _dir = 0;
       _busy = false;
       _snapping = false;
+      _closing = false;
     });
     _commit.value = 0;
+    widget.onVisibilityChanged?.call(false);
   }
 
   void _onCommitDone() {
@@ -734,6 +751,10 @@ class NewsStamp extends StatelessWidget {
       child: GestureDetector(
         onTap: onTap,
         child: Container(
+          constraints: key == null
+              ? null
+              : const BoxConstraints(minWidth: 48, minHeight: 48),
+          alignment: key == null ? null : Alignment.center,
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           decoration: showPanel(
             ink: showInk(context),

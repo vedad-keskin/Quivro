@@ -32,6 +32,23 @@ class ProfileStore {
   static const _avatarKey = 'quivro.avatar';
   static const _activeCodeKey = 'quivro.activeCode';
   static const _activePlayerIdKey = 'quivro.activePlayerId';
+  static const _firstOpenKey = 'quivro.firstOpenConsumed';
+
+  /// Claim this launch before Setup saves a new profile. Persist immediately so
+  /// an interrupted first visit cannot replay coaching on the next launch.
+  Future<bool> claimFirstOpenCoachMarks() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      if (prefs.getBool(_firstOpenKey) ?? false) return false;
+      final returning =
+          prefs.containsKey(_nickKey) || prefs.containsKey('quivro.news.seen');
+      final saved = await prefs.setBool(_firstOpenKey, true);
+      return saved && !returning;
+    } catch (_) {
+      // Optional coaching must not block startup or replay after storage errors.
+      return false;
+    }
+  }
 
   Future<PlayerProfile?> load() async {
     final prefs = await SharedPreferences.getInstance();

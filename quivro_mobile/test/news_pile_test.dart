@@ -165,4 +165,71 @@ void main() {
     expect(next.dx, greaterThan(prev.dx));
     expect(tester.takeException(), isNull);
   });
+
+  for (final alreadySeen in [false, true]) {
+    testWidgets(
+      'news lifecycle is ready once and closes after saving ($alreadySeen)',
+      (tester) async {
+        final ids = newsDrops.map((drop) => drop.id).toList();
+        SharedPreferences.setMockInitialValues({
+          if (alreadySeen) 'quivro.news.seen': jsonEncode(ids),
+        });
+        final prefs = await SharedPreferences.getInstance();
+        final key = GlobalKey<NewsPileState>();
+        final events = <String>[];
+        await tester.pumpWidget(
+          Settings(
+            controller: SettingsController(),
+            child: MaterialApp(
+              theme: buildQuivroTheme(),
+              home: Scaffold(
+                body: NewsPile(
+                  key: key,
+                  onVisibilityChanged: (open) {
+                    if (!open) {
+                      expect(
+                        jsonDecode(prefs.getString('quivro.news.seen')!),
+                        ids,
+                      );
+                    }
+                    events.add('open:$open');
+                  },
+                  onReady: () => events.add('ready'),
+                ),
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        expect(events, ['open:${!alreadySeen}', 'ready']);
+        if (alreadySeen) {
+          key.currentState!.openAll();
+          await tester.pumpAndSettle();
+          expect(events.last, 'open:true');
+        }
+
+        await Future.wait([
+          key.currentState!.dismiss(),
+          key.currentState!.dismiss(),
+        ]);
+        await tester.pumpAndSettle();
+        expect(events.where((event) => event == 'ready'), hasLength(1));
+        expect(events.last, 'open:false');
+        expect(
+          events.where((event) => event == 'open:false'),
+          hasLength(alreadySeen ? 2 : 1),
+        );
+        expect(find.text('Cartoons are here'), findsNothing);
+
+        key.currentState!.openAll();
+        await tester.pumpAndSettle();
+        expect(events.last, 'open:true');
+        await tester.tap(find.text('×').hitTestable());
+        await tester.pumpAndSettle();
+        expect(events.last, 'open:false');
+        expect(events.where((event) => event == 'ready'), hasLength(1));
+        expect(tester.takeException(), isNull);
+      },
+    );
+  }
 }

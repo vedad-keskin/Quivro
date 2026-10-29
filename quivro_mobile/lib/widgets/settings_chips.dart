@@ -7,24 +7,67 @@ import '../core/theme.dart';
 /// Compact language + day/night selectors, shown side by side on Home and
 /// Setup. Language opens a bottom sheet; theme toggles in place.
 class SettingsChips extends StatelessWidget {
-  const SettingsChips({super.key});
+  const SettingsChips({
+    super.key,
+    this.languageKey,
+    this.themeKey,
+    this.onLanguageSheetChanged,
+    this.languageEnabled = true,
+    this.themeEnabled = true,
+  });
+
+  final GlobalKey? languageKey;
+  final GlobalKey? themeKey;
+  final ValueChanged<bool>? onLanguageSheetChanged;
+  final bool languageEnabled;
+  final bool themeEnabled;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: const [_LanguageChip(), SizedBox(width: 10), _ThemeChip()],
+    return Wrap(
+      spacing: 10,
+      runSpacing: 10,
+      alignment: WrapAlignment.center,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      children: [
+        ExcludeSemantics(
+          excluding: !languageEnabled,
+          child: ExcludeFocus(
+            excluding: !languageEnabled,
+            child: IgnorePointer(
+              ignoring: !languageEnabled,
+              child: _LanguageChip(
+                key: languageKey,
+                onSheetChanged: onLanguageSheetChanged,
+              ),
+            ),
+          ),
+        ),
+        ExcludeSemantics(
+          excluding: !themeEnabled,
+          child: ExcludeFocus(
+            excluding: !themeEnabled,
+            child: IgnorePointer(
+              ignoring: !themeEnabled,
+              child: _ThemeChip(key: themeKey),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
 
 class _LanguageChip extends StatelessWidget {
-  const _LanguageChip();
+  const _LanguageChip({super.key, this.onSheetChanged});
+
+  final ValueChanged<bool>? onSheetChanged;
 
   @override
   Widget build(BuildContext context) {
     final language = context.settings.language;
     return _Chip(
+      largeTapTarget: key != null,
       onTap: () => _showLanguageSheet(context),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -50,48 +93,53 @@ class _LanguageChip extends StatelessWidget {
     );
   }
 
-  void _showLanguageSheet(BuildContext context) {
+  Future<void> _showLanguageSheet(BuildContext context) async {
     HapticFeedback.selectionClick();
-    showModalBottomSheet<void>(
-      context: context,
-      backgroundColor: context.palette.card,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
-      ),
-      builder: (sheetContext) => SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 12, 20, 20),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Center(
-                child: Container(
-                  width: 40,
-                  height: 4,
-                  decoration: BoxDecoration(
-                    color: showInk(sheetContext),
-                    borderRadius: BorderRadius.circular(99),
+    onSheetChanged?.call(true);
+    try {
+      await showModalBottomSheet<void>(
+        context: context,
+        backgroundColor: context.palette.card,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+        ),
+        builder: (sheetContext) => SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20, 12, 20, 20),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Center(
+                  child: Container(
+                    width: 40,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: showInk(sheetContext),
+                      borderRadius: BorderRadius.circular(99),
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 18),
-              Text(
-                sheetContext.strings.chooseLanguage,
-                textAlign: TextAlign.center,
-                style: showTitle(sheetContext, fontSize: 26),
-              ),
-              const SizedBox(height: 16),
-              for (final option in AppLanguage.values) ...[
-                _LanguageOption(option: option),
-                if (option != AppLanguage.values.last)
-                  const SizedBox(height: 10),
+                const SizedBox(height: 18),
+                Text(
+                  sheetContext.strings.chooseLanguage,
+                  textAlign: TextAlign.center,
+                  style: showTitle(sheetContext, fontSize: 26),
+                ),
+                const SizedBox(height: 16),
+                for (final option in AppLanguage.values) ...[
+                  _LanguageOption(option: option),
+                  if (option != AppLanguage.values.last)
+                    const SizedBox(height: 10),
+                ],
               ],
-            ],
+            ),
           ),
         ),
-      ),
-    );
+      );
+    } finally {
+      onSheetChanged?.call(false);
+    }
   }
 }
 
@@ -160,7 +208,7 @@ class _LanguageOption extends StatelessWidget {
 }
 
 class _ThemeChip extends StatelessWidget {
-  const _ThemeChip();
+  const _ThemeChip({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -168,6 +216,7 @@ class _ThemeChip extends StatelessWidget {
     final night = settings.isNight;
     final strings = context.strings;
     return _Chip(
+      largeTapTarget: key != null,
       onTap: () {
         HapticFeedback.lightImpact();
         settings.toggleTheme();
@@ -204,10 +253,15 @@ class _ThemeChip extends StatelessWidget {
 }
 
 class _Chip extends StatefulWidget {
-  const _Chip({required this.onTap, required this.child});
+  const _Chip({
+    required this.onTap,
+    required this.child,
+    this.largeTapTarget = false,
+  });
 
   final VoidCallback onTap;
   final Widget child;
+  final bool largeTapTarget;
 
   @override
   State<_Chip> createState() => _ChipState();
@@ -219,24 +273,31 @@ class _ChipState extends State<_Chip> {
   @override
   Widget build(BuildContext context) {
     final pressed = _down;
-    return GestureDetector(
-      onTapDown: (_) => setState(() => _down = true),
-      onTapUp: (_) {
-        setState(() => _down = false);
-        widget.onTap();
-      },
-      onTapCancel: () => setState(() => _down = false),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 80),
-        transform: Matrix4.translationValues(0, pressed ? 4 : 0, 0),
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        decoration: showPanel(
-          ink: showInk(context),
-          fill: context.palette.card,
-          radius: 12,
-          shadow: Offset(0, pressed ? 0 : 4),
+    return Semantics(
+      button: true,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTapDown: (_) => setState(() => _down = true),
+        onTapUp: (_) {
+          setState(() => _down = false);
+          widget.onTap();
+        },
+        onTapCancel: () => setState(() => _down = false),
+        child: AnimatedContainer(
+          constraints: widget.largeTapTarget
+              ? const BoxConstraints(minWidth: 48, minHeight: 48)
+              : null,
+          duration: const Duration(milliseconds: 80),
+          transform: Matrix4.translationValues(0, pressed ? 4 : 0, 0),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          decoration: showPanel(
+            ink: showInk(context),
+            fill: context.palette.card,
+            radius: 12,
+            shadow: Offset(0, pressed ? 0 : 4),
+          ),
+          child: widget.child,
         ),
-        child: widget.child,
       ),
     );
   }

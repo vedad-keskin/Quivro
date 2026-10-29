@@ -16,12 +16,14 @@ class BootResult {
     this.profile,
     this.session,
     this.isOffline = false,
+    this.showCoachMarks = false,
     this.fatalError,
   });
 
   final PlayerProfile? profile;
   final ActiveRoomSession? session;
   final bool isOffline;
+  final bool showCoachMarks;
   final Object? fatalError;
 
   bool get isFatal => fatalError != null;
@@ -91,7 +93,12 @@ class AppBootstrapper {
       }
     }
 
-    return BootResult(profile: profile, session: session, isOffline: offline);
+    return BootResult(
+      profile: profile,
+      session: session,
+      isOffline: offline,
+      showCoachMarks: await store.claimFirstOpenCoachMarks(),
+    );
   }
 
   Future<bool> _hasNetwork() async {

@@ -198,9 +198,15 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
         },
       );
     } else if (location == '/') {
-      context.go('/', extra: result.profile);
+      context.go(
+        '/',
+        extra: {
+          'profile': result.profile,
+          'showCoachMarks': result.showCoachMarks,
+        },
+      );
     } else {
-      context.go('/setup');
+      context.go('/setup', extra: {'showCoachMarks': result.showCoachMarks});
     }
   }
 

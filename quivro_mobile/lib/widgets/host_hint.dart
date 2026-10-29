@@ -27,6 +27,10 @@ class HostTvChip extends StatelessWidget {
       child: GestureDetector(
         onTap: onTap,
         child: Container(
+          constraints: key == null
+              ? null
+              : const BoxConstraints(minWidth: 48, minHeight: 48),
+          alignment: key == null ? null : Alignment.center,
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           decoration: showPanel(
             ink: showInk(context),
@@ -78,6 +82,8 @@ class HostHintState extends State<HostHint>
   }
 
   void expand() => _expand();
+
+  Future<void> collapse() => _collapse();
 
   Rect? _anchorRect() {
     final target =
@@ -241,16 +247,23 @@ class HostHintState extends State<HostHint>
                   borderRadius: BorderRadius.circular(12),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 4),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'quivro.org',
-                          style: showDisplay(context, fontSize: 26),
-                        ),
-                        const SizedBox(width: 8),
-                        Icon(Icons.copy_rounded, color: ink, size: 22),
-                      ],
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            'quivro.org',
+                            style: showDisplay(context, fontSize: 26),
+                          ),
+                          const SizedBox(width: 8),
+                          Icon(
+                            Icons.copy_rounded,
+                            color: palette.text,
+                            size: 22,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

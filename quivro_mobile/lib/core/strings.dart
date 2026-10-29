@@ -87,6 +87,10 @@ class AppStrings {
     required this.newsPrev,
     required this.newsNext,
     required this.newsGotIt,
+    required this.coachTitles,
+    required this.coachBodies,
+    required this.coachSkip,
+    required this._coachStep,
   });
 
   // Splash.
@@ -187,6 +191,14 @@ class AppStrings {
   final String newsNext;
   final String newsGotIt;
 
+  // First-open home tour.
+  final List<String> coachTitles;
+  final List<String> coachBodies;
+  final String coachSkip;
+  final String _coachStep;
+
+  String coachStep(int step) => _coachStep.replaceAll('{n}', '$step');
+
   String playingAs(String name) => _playingAs.replaceAll('{name}', name);
 
   String connectionError(Object error) =>
@@ -284,13 +296,29 @@ class AppStrings {
     creditsMom: 'Mom',
     close: 'Close',
     hostHintTitle: 'Host on the big screen',
-    hostHintBody: 'Open this website on a laptop or TV to create a room.',
+    hostHintBody: 'Open this website on your PC or laptop to create a room. For the best experience, display the game on the largest screen available.',
     hostHintGotIt: 'Got it',
     hostHintCopied: 'Link copied',
     newsWhatsNew: "What's new?",
     newsPrev: 'Previous',
     newsNext: 'Next',
     newsGotIt: 'Got it',
+    coachTitles: [
+      'Catch up anytime',
+      'Make it day or night',
+      'Choose your language',
+      'Create a room on the big screen',
+      "Enter the host's room code",
+    ],
+    coachBodies: [
+      "Tap here to revisit news and discover what's new in Quivro.",
+      'Tap here to switch between day and night themes.',
+      "Tap here to change Quivro's language.",
+      'Tap here to see how to create a room on a laptop or TV.',
+      'After the host creates a room on quivro.org, type the code shown on their screen here. Then tap Join.',
+    ],
+    coachSkip: 'Skip',
+    coachStep: 'Step {n} of 5',
   );
 
   static const bosnian = AppStrings(
@@ -375,15 +403,31 @@ class AppStrings {
     creditsQuestionCurator: 'Kustos pitanja',
     creditsMom: 'Mama',
     close: 'Zatvori',
-    hostHintTitle: 'Domaćin na velikom ekranu',
+    hostHintTitle: 'Igraj na velikom ekranu',
     hostHintBody:
-        'Otvori ovu web stranicu na laptopu ili TV-u da napraviš sobu.',
+        'Otvori ovu web stranicu na računaru ili laptopu i napravi sobu. Za najbolji doživljaj prikaži igru na što većem ekranu.',
     hostHintGotIt: 'Razumijem',
     hostHintCopied: 'Link je kopiran',
     newsWhatsNew: 'Šta je novo?',
     newsPrev: 'Prethodno',
     newsNext: 'Sljedeće',
     newsGotIt: 'U redu',
+    coachTitles: [
+      'Novosti su uvijek tu',
+      'Odaberi dan ili noć',
+      'Odaberi svoj jezik',
+      'Napravi sobu na velikom ekranu',
+      'Unesi kod sobe',
+    ],
+    coachBodies: [
+      'Dodirni ovdje da ponovo pogledaš novosti i otkriješ šta je novo u Quivru.',
+      'Dodirni ovdje da promijeniš dnevnu ili noćnu temu.',
+      'Dodirni ovdje da promijeniš jezik Quivra.',
+      'Dodirni ovdje da vidiš kako napraviti sobu na laptopu ili TV-u.',
+      'Kada se napravi soba na quivro.org, ovdje unesi kod prikazan na ekranu. Zatim dodirni Pridruži se.',
+    ],
+    coachSkip: 'Preskoči',
+    coachStep: 'Korak {n} od 5',
   );
 }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'avatars.dart';
 
@@ -189,6 +190,26 @@ ThemeData buildQuivroDarkTheme() => _buildTheme(
   palette: QuivroPalette.dark,
   scaffold: const Color(0xFF0E1430),
 );
+
+Widget buildQuivroSystemBars(BuildContext context, Widget? child) {
+  final theme = Theme.of(context);
+  final icons = theme.brightness == Brightness.dark
+      ? Brightness.light
+      : Brightness.dark;
+  return AnnotatedRegion<SystemUiOverlayStyle>(
+    value: SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: icons,
+      statusBarBrightness: theme.brightness,
+      // Android 15+ draws the scaffold behind the bar; older versions use this color.
+      systemNavigationBarColor: theme.scaffoldBackgroundColor,
+      systemNavigationBarDividerColor: Colors.transparent,
+      systemNavigationBarIconBrightness: icons,
+      systemNavigationBarContrastEnforced: false,
+    ),
+    child: child ?? const SizedBox.shrink(),
+  );
+}
 
 ThemeData _buildTheme({
   required Brightness brightness,

@@ -305,7 +305,7 @@ class _CreditsDialogState extends State<CreditsDialog>
             const StudioMark(),
             const SizedBox(width: 10),
             Text(
-              'v1.4.4',
+              'v1.5.0',
               style: GoogleFonts.nunito(
                 fontSize: 11,
                 fontWeight: FontWeight.w700,
