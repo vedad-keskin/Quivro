@@ -15,7 +15,7 @@ WEB = ROOT / "quivro_web/public"
 FLUTTER_WEB = ROOT / "quivro_mobile/web"
 background = Image.open(SOURCE / "launcher_background.png").convert("RGB")
 q = Image.open(SOURCE / "launcher_q.png").convert("RGBA")
-assert background.size == q.size == (1024, 1024)
+assert background.width == background.height and q.size == (1024, 1024)
 assert q.getchannel("A").getextrema() == (0, 255)
 
 
@@ -43,7 +43,7 @@ for directory in (WEB, FLUTTER_WEB):
 for size in (192, 512):
     resized(size).save(FLUTTER_WEB / f"icons/Icon-{size}.png")
     maskable = background.resize((size, size), Image.Resampling.LANCZOS).convert("RGBA")
-    side = round(size * 0.72)
+    side = round(size * 0.65)
     layer = resized(side)
     maskable.alpha_composite(layer, ((size - side) // 2, (size - side) // 2))
     maskable.convert("RGB").save(FLUTTER_WEB / f"icons/Icon-maskable-{size}.png")
