@@ -77,6 +77,7 @@ void main() {
       await tester.tap(find.text('Target'));
       await tester.tapAt(tester.getCenter(find.text('Outside')));
       await tester.tap(find.byKey(const ValueKey('home-coach-next')));
+      await tester.pumpAndSettle();
       await tester.tap(find.byKey(const ValueKey('home-coach-skip')));
       expect(targetTaps, 1);
       expect(outsideTaps, 0);
@@ -113,6 +114,145 @@ void main() {
       semantics.dispose();
     },
   );
+
+  testWidgets('Next fades between steps and ignores repeated taps', (
+    tester,
+  ) async {
+    SharedPreferences.setMockInitialValues({});
+    final targets = [GlobalKey(), GlobalKey()];
+    var step = 0;
+    var nextTaps = 0;
+    await tester.pumpWidget(
+      Settings(
+        controller: SettingsController(),
+        child: MaterialApp(
+          theme: buildQuivroDarkTheme(),
+          home: StatefulBuilder(
+            builder: (context, setState) => Scaffold(
+              body: Stack(
+                children: [
+                  Positioned(
+                    top: 40,
+                    left: 30,
+                    child: SizedBox(key: targets[0], width: 64, height: 48),
+                  ),
+                  Positioned(
+                    bottom: 40,
+                    right: 30,
+                    child: SizedBox(key: targets[1], width: 64, height: 48),
+                  ),
+                  Positioned.fill(
+                    child: HomeCoachMarks(
+                      step: step,
+                      targetKey: targets[step == 0 ? 0 : 1],
+                      onNext: () => setState(() {
+                        nextTaps++;
+                        step++;
+                      }),
+                      onSkip: () {},
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final transition = find.byKey(const ValueKey('home-coach-transition'));
+    final next = find.byKey(const ValueKey('home-coach-next'));
+    final card = find.byKey(const ValueKey('home-coach-card'));
+    double opacity() => tester.widget<FadeTransition>(transition).opacity.value;
+    final originalTop = tester.getTopLeft(card).dy;
+    await tester.tap(next);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 80));
+    expect(nextTaps, 0);
+    expect(opacity(), allOf(greaterThan(0), lessThan(1)));
+    expect(tester.getTopLeft(card).dy, lessThan(originalTop));
+    expect(find.text(AppStrings.english.coachTitles[0]), findsOneWidget);
+    expect(find.byKey(const ValueKey('home-coach-scrim')), findsOneWidget);
+    await tester.tap(next);
+    await tester.pump(const Duration(milliseconds: 100));
+    await tester.pump();
+    expect(nextTaps, 1);
+    expect(find.text(AppStrings.english.coachTitles[1]), findsOneWidget);
+    expect(opacity(), 0);
+    final painter = tester
+        .widget<CustomPaint>(find.byKey(const ValueKey('home-coach-scrim')))
+        .painter!;
+    expect(painter.hitTest(tester.getCenter(find.byKey(targets[1]))), isFalse);
+    await tester.pump(const Duration(milliseconds: 80));
+    expect(opacity(), allOf(greaterThan(0), lessThan(1)));
+    await tester.tap(next);
+    expect(nextTaps, 1);
+    await tester.pumpAndSettle();
+    expect(opacity(), 1);
+    await tester.tap(next);
+    await tester.pumpAndSettle();
+    expect(nextTaps, 2);
+    expect(tester.takeException(), isNull);
+  });
+
+  for (final skip in [true, false]) {
+    testWidgets('pending Next is cancelled by ${skip ? 'Skip' : 'disposal'}', (
+      tester,
+    ) async {
+      SharedPreferences.setMockInitialValues({});
+      final target = GlobalKey();
+      var visible = true;
+      var nextTaps = 0;
+      var skipTaps = 0;
+      await tester.pumpWidget(
+        Settings(
+          controller: SettingsController(),
+          child: MaterialApp(
+            theme: buildQuivroTheme(),
+            home: StatefulBuilder(
+              builder: (context, setState) => Scaffold(
+                body: Stack(
+                  children: [
+                    Positioned(
+                      bottom: 40,
+                      right: 30,
+                      child: SizedBox(key: target, width: 64, height: 48),
+                    ),
+                    if (visible)
+                      Positioned.fill(
+                        child: HomeCoachMarks(
+                          step: 0,
+                          targetKey: target,
+                          onNext: () => nextTaps++,
+                          onSkip: () => setState(() {
+                            skipTaps++;
+                            visible = false;
+                          }),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const ValueKey('home-coach-next')));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 80));
+      if (skip) {
+        await tester.tap(find.byKey(const ValueKey('home-coach-skip')));
+      } else {
+        await tester.pumpWidget(const SizedBox.shrink());
+      }
+      await tester.pumpAndSettle();
+      expect(nextTaps, 0);
+      expect(skipTaps, skip ? 1 : 0);
+      expect(find.byType(HomeCoachMarks), findsNothing);
+      expect(tester.takeException(), isNull);
+    });
+  }
 
   for (final dark in [false, true]) {
     testWidgets('narrow large-text code step remains usable (dark: $dark)', (

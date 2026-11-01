@@ -16,7 +16,10 @@ import 'package:quivro_mobile/core/strings.dart';
 import 'package:quivro_mobile/core/theme.dart';
 import 'package:quivro_mobile/screens/home_page.dart';
 import 'package:quivro_mobile/widgets/home_coach_marks.dart';
+import 'package:quivro_mobile/widgets/host_hint.dart';
 import 'package:quivro_mobile/widgets/news_pile.dart';
+import 'package:quivro_mobile/widgets/settings_chips.dart';
+import 'package:quivro_mobile/widgets/studio_mark.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -66,6 +69,7 @@ void main() {
     WidgetTester tester, {
     bool eligible = true,
     bool unreadNews = true,
+    bool reduceMotion = false,
   }) async {
     SharedPreferences.setMockInitialValues({
       if (!unreadNews)
@@ -87,6 +91,12 @@ void main() {
             theme: buildQuivroTheme(),
             darkTheme: buildQuivroDarkTheme(),
             themeMode: settings.themeMode,
+            builder: (context, child) => MediaQuery(
+              data: MediaQuery.of(
+                context,
+              ).copyWith(disableAnimations: reduceMotion),
+              child: child!,
+            ),
             home: HomePage(
               profile: const PlayerProfile(nickname: 'Vedo', avatar: 1),
               showCoachMarks: eligible,
@@ -168,16 +178,52 @@ void main() {
 
     await next(tester);
     expect(find.text(AppStrings.bosnian.coachTitles[3]), findsOneWidget);
-    await tester.tap(find.byIcon(Icons.tv).hitTestable());
-    await tester.pumpAndSettle();
-    expect(find.byType(HomeCoachMarks), findsNothing);
     expect(
-      find.text(AppStrings.bosnian.hostHintTitle.toUpperCase()),
-      findsOneWidget,
+      tester
+          .widget<HomeCoachMarks>(find.byType(HomeCoachMarks))
+          .targetKey
+          .currentWidget,
+      isA<HostHomeBanner>(),
     );
-    await binding.handlePopRoute();
+    await tester.tap(find.byType(HostHomeBanner), warnIfMissed: false);
     await tester.pumpAndSettle();
     expect(find.text(AppStrings.bosnian.coachTitles[3]), findsOneWidget);
+    expect(find.byIcon(Icons.copy_rounded), findsNothing);
+    expect(find.byIcon(Icons.tv), findsNothing);
+
+    expect(
+      AppStrings.english.coachBodies[3],
+      AppStrings.english.hostBannerDescription,
+    );
+    expect(
+      AppStrings.bosnian.coachBodies[3],
+      AppStrings.bosnian.hostBannerDescription,
+    );
+    await tester.tap(find.byTooltip(AppStrings.bosnian.close));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 150));
+    expect(find.byType(HostHomeBanner), findsOneWidget);
+    await tester.pumpAndSettle();
+    expect(find.byType(HostHomeBanner), findsNothing);
+    expect(find.byType(HostTvChip), findsOneWidget);
+    expect(
+      tester
+          .widget<HomeCoachMarks>(find.byType(HomeCoachMarks))
+          .targetKey
+          .currentWidget,
+      isA<HostTvChip>(),
+    );
+    await tester.tap(find.byType(HostTvChip));
+    await tester.pumpAndSettle();
+    expect(find.byType(HostHomeBanner), findsOneWidget);
+    expect(find.byType(HostTvChip), findsNothing);
+    expect(
+      tester
+          .widget<HomeCoachMarks>(find.byType(HomeCoachMarks))
+          .targetKey
+          .currentWidget,
+      isA<HostHomeBanner>(),
+    );
 
     await next(tester);
     expect(find.text(AppStrings.bosnian.coachTitles[4]), findsOneWidget);
@@ -235,5 +281,165 @@ void main() {
     expect(find.byType(HomeCoachMarks), findsNothing);
     expect(tester.takeException(), isNull);
     await tester.pumpWidget(const SizedBox.shrink());
+  });
+
+  testWidgets(
+    'join controls center on the screen independently of the footer',
+    (tester) async {
+      for (final size in const [
+        Size(360, 844),
+        Size(390, 844),
+        Size(430, 932),
+      ]) {
+        await pumpHome(tester, eligible: false, unreadNews: false);
+        tester.view.physicalSize = size;
+        await finishEntrance(tester);
+        final top = tester
+            .getTopLeft(find.text(AppStrings.english.joinARoom.toUpperCase()))
+            .dy;
+        final bottom = tester.getBottomLeft(find.byType(StudioMark)).dy;
+        expect(
+          (top + bottom) / 2,
+          closeTo(size.height / 2, 1),
+          reason: '$size top=$top bottom=$bottom',
+        );
+        expect(
+          bottom,
+          lessThan(tester.getTopLeft(find.byType(HostHomeBanner)).dy),
+        );
+        expect(tester.takeException(), isNull);
+        await tester.pumpWidget(const SizedBox.shrink());
+      }
+    },
+  );
+
+  testWidgets(
+    'banner above the navbar stays informational and preserves joining',
+    (tester) async {
+      await pumpHome(tester, eligible: false, unreadNews: false);
+      tester.view.physicalSize = const Size(320, 568);
+      await finishEntrance(tester);
+      final banner = find.byType(HostHomeBanner);
+      await tester.ensureVisible(banner);
+      expect(tester.getSize(find.byType(NewsStamp)).width, 48);
+      expect(
+        tester.getRect(banner).bottom,
+        lessThan(tester.getRect(find.byType(SettingsChips)).top),
+      );
+      await tester.tap(banner, warnIfMissed: false);
+      await tester.pumpAndSettle();
+      expect(find.byIcon(Icons.copy_rounded), findsNothing);
+      expect(find.byIcon(Icons.tv), findsNothing);
+      expect(find.byType(HomeCoachMarks), findsNothing);
+
+      final code = find.byType(TextField);
+      await tester.ensureVisible(code);
+      await tester.tap(code);
+      tester.view.viewInsets = const FakeViewPadding(bottom: 220);
+      addTearDown(tester.view.resetViewInsets);
+      await tester.pumpAndSettle();
+      await tester.enterText(code, 'abc123');
+      expect(tester.widget<TextField>(code).controller!.text, 'ABC123');
+      expect(databaseReads, 0);
+      expect(tester.takeException(), isNull);
+      await tester.pumpWidget(const SizedBox.shrink());
+    },
+  );
+
+  testWidgets('banner collapses and reopens with reduced motion supported', (
+    tester,
+  ) async {
+    for (final size in const [Size(320, 568), Size(390, 844)]) {
+      for (final reduceMotion in [false, true]) {
+        await pumpHome(
+          tester,
+          eligible: false,
+          unreadNews: false,
+          reduceMotion: reduceMotion,
+        );
+        tester.view.physicalSize = size;
+        await finishEntrance(tester);
+        await tester.ensureVisible(find.byType(HostHomeBanner));
+        await tester.ensureVisible(find.byType(SettingsChips));
+        final footerPositions = [
+          tester.getRect(find.text('EN')),
+          tester.getRect(find.text('Day')),
+          tester.getRect(find.byType(NewsStamp)),
+        ];
+        await tester.tap(find.byTooltip(AppStrings.english.close));
+        await tester.pump();
+        if (reduceMotion) {
+          expect(find.byType(HostHomeBanner), findsNothing);
+        } else {
+          await tester.pump(const Duration(milliseconds: 150));
+          expect(find.byType(HostHomeBanner), findsOneWidget);
+        }
+        await tester.pumpAndSettle();
+        expect(
+          tester.takeException(),
+          isNull,
+          reason: 'collapse, reduced=$reduceMotion',
+        );
+        expect(find.byType(HostHomeBanner), findsNothing);
+        final chip = find.byType(HostTvChip);
+        expect(chip, findsOneWidget);
+        expect(
+          [
+            tester.getRect(find.text('EN')),
+            tester.getRect(find.text('Day')),
+            tester.getRect(find.byType(NewsStamp)),
+          ],
+          footerPositions,
+          reason: 'Banner toggling must not move footer controls.',
+        );
+        expect(tester.getRect(chip).left, closeTo(28, 1));
+        expect(
+          tester.getRect(chip).bottom,
+          closeTo(tester.getRect(find.byType(NewsStamp)).bottom, 1),
+        );
+        final chipBox = tester.renderObject<RenderBox>(chip);
+        final shadowPoint = chipBox.localToGlobal(
+          Offset(chipBox.size.width / 2, chipBox.size.height + 2),
+        );
+        for (
+          RenderObject child = chipBox;
+          child.parent is RenderObject;
+          child = child.parent!
+        ) {
+          final parent = child.parent!;
+          final clip = parent.describeApproximatePaintClip(child);
+          if (clip != null && parent is RenderBox) {
+            expect(
+              clip.contains(parent.globalToLocal(shadowPoint)),
+              isTrue,
+              reason: 'The TV button bottom shadow must remain visible.',
+            );
+          }
+        }
+        await tester.tap(chip);
+        await tester.pumpAndSettle();
+        expect(
+          tester.takeException(),
+          isNull,
+          reason: 'expand, reduced=$reduceMotion',
+        );
+        expect(find.byType(HostHomeBanner), findsOneWidget);
+        expect(chip, findsNothing);
+        expect([
+          tester.getRect(find.text('EN')),
+          tester.getRect(find.text('Day')),
+          tester.getRect(find.byType(NewsStamp)),
+        ], footerPositions);
+        expect(find.byIcon(Icons.copy_rounded), findsNothing);
+        expect(find.byType(HomeCoachMarks), findsNothing);
+
+        // Navigating away during collapse must cancel pending animation work.
+        await tester.tap(find.byTooltip(AppStrings.english.close));
+        await tester.pump(const Duration(milliseconds: 100));
+        await tester.pumpWidget(const SizedBox.shrink());
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull);
+      }
+    }
   });
 }

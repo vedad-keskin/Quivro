@@ -79,10 +79,8 @@ class AppStrings {
     required this.creditsQuestionCurator,
     required this.creditsMom,
     required this.close,
-    required this.hostHintTitle,
-    required this.hostHintBody,
-    required this.hostHintGotIt,
-    required this.hostHintCopied,
+    required this.hostBannerTitle,
+    required this.hostBannerDescription,
     required this.newsWhatsNew,
     required this.newsPrev,
     required this.newsNext,
@@ -181,11 +179,9 @@ class AppStrings {
   final String creditsMom;
   final String close;
 
-  // Host hint on the home screen.
-  final String hostHintTitle;
-  final String hostHintBody;
-  final String hostHintGotIt;
-  final String hostHintCopied;
+  // Hosting banner on the home screen.
+  final String hostBannerTitle;
+  final String hostBannerDescription;
   final String newsWhatsNew;
   final String newsPrev;
   final String newsNext;
@@ -295,10 +291,9 @@ class AppStrings {
     creditsQuestionCurator: 'Question editor',
     creditsMom: 'Mom',
     close: 'Close',
-    hostHintTitle: 'Host on the big screen',
-    hostHintBody: 'Open this website on your PC or laptop to create a room. For the best experience, display the game on the largest screen available.',
-    hostHintGotIt: 'Got it',
-    hostHintCopied: 'Link copied',
+    hostBannerTitle: 'Host rooms on',
+    hostBannerDescription:
+        'Open this website on your PC or laptop to create a room. For the best experience, display the game on the largest screen available.',
     newsWhatsNew: "What's new?",
     newsPrev: 'Previous',
     newsNext: 'Next',
@@ -314,8 +309,8 @@ class AppStrings {
       "Tap here to revisit news and discover what's new in Quivro.",
       'Tap here to switch between day and night themes.',
       "Tap here to change Quivro's language.",
-      'Tap here to see how to create a room on a laptop or TV.',
-      'After the host creates a room on quivro.org, type the code shown on their screen here. Then tap Join.',
+      'Open this website on your PC or laptop to create a room. For the best experience, display the game on the largest screen available.',
+      'After the host creates a room, type the code shown on their screen here. Then tap Join.',
     ],
     coachSkip: 'Skip',
     coachStep: 'Step {n} of 5',
@@ -403,11 +398,9 @@ class AppStrings {
     creditsQuestionCurator: 'Kustos pitanja',
     creditsMom: 'Mama',
     close: 'Zatvori',
-    hostHintTitle: 'Igraj na velikom ekranu',
-    hostHintBody:
+    hostBannerTitle: 'Kreiraj sobu na',
+    hostBannerDescription:
         'Otvori ovu web stranicu na računaru ili laptopu i napravi sobu. Za najbolji doživljaj prikaži igru na što većem ekranu.',
-    hostHintGotIt: 'Razumijem',
-    hostHintCopied: 'Link je kopiran',
     newsWhatsNew: 'Šta je novo?',
     newsPrev: 'Prethodno',
     newsNext: 'Sljedeće',
@@ -423,8 +416,8 @@ class AppStrings {
       'Dodirni ovdje da ponovo pogledaš novosti i otkriješ šta je novo u Quivru.',
       'Dodirni ovdje da promijeniš dnevnu ili noćnu temu.',
       'Dodirni ovdje da promijeniš jezik Quivra.',
-      'Dodirni ovdje da vidiš kako napraviti sobu na laptopu ili TV-u.',
-      'Kada se napravi soba na quivro.org, ovdje unesi kod prikazan na ekranu. Zatim dodirni Pridruži se.',
+      'Otvori ovu web stranicu na računaru ili laptopu i napravi sobu. Za najbolji doživljaj prikaži igru na što većem ekranu.',
+      'Kada se napravi soba, ovdje unesi kod prikazan na ekranu. Zatim dodirni Pridruži se.',
     ],
     coachSkip: 'Preskoči',
     coachStep: 'Korak {n} od 5',

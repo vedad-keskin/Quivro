@@ -5,8 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../core/strings.dart';
 import '../core/theme.dart';
+import 'host_hint.dart';
 
-/// The five home hints use the real control underneath the spotlight.
+/// The five home hints spotlight the corresponding home element.
 class HomeCoachMarks extends StatefulWidget {
   const HomeCoachMarks({
     super.key,
@@ -26,10 +27,25 @@ class HomeCoachMarks extends StatefulWidget {
 }
 
 class _HomeCoachMarksState extends State<HomeCoachMarks>
-    with WidgetsBindingObserver {
+    with SingleTickerProviderStateMixin, WidgetsBindingObserver {
   Rect? _target;
+  double _targetRadius = 12;
   ScrollPosition? _scroll;
   bool _measurePending = false;
+  bool _advancing = false;
+  bool _exiting = false;
+  int _transitionId = 0;
+  late final AnimationController _transition = AnimationController(
+    vsync: this,
+    value: 1,
+    duration: const Duration(milliseconds: 200),
+    reverseDuration: const Duration(milliseconds: 160),
+  );
+  late final CurvedAnimation _cardOpacity = CurvedAnimation(
+    parent: _transition,
+    curve: Curves.easeOutCubic,
+    reverseCurve: Curves.easeInCubic,
+  );
 
   @override
   void initState() {
@@ -40,7 +56,7 @@ class _HomeCoachMarksState extends State<HomeCoachMarks>
   @override
   void didUpdateWidget(covariant HomeCoachMarks oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (widget.targetKey != oldWidget.targetKey) _target = null;
+    if (widget.targetKey != oldWidget.targetKey && !_advancing) _target = null;
   }
 
   @override
@@ -50,7 +66,48 @@ class _HomeCoachMarksState extends State<HomeCoachMarks>
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     _scroll?.removeListener(_scheduleMeasure);
+    _cardOpacity.dispose();
+    _transition.dispose();
     super.dispose();
+  }
+
+  Future<void> _next() async {
+    if (_advancing) return;
+    if (MediaQuery.disableAnimationsOf(context)) {
+      widget.onNext();
+      return;
+    }
+    final transitionId = ++_transitionId;
+    setState(() {
+      _advancing = true;
+      _exiting = true;
+    });
+    try {
+      await _transition.reverse().orCancel;
+      if (!mounted || transitionId != _transitionId) return;
+      widget.onNext();
+      // Keep the scrim in place while the next target is laid out and measured.
+      _scheduleMeasure();
+      await WidgetsBinding.instance.endOfFrame;
+      if (!mounted || transitionId != _transitionId) return;
+      setState(() => _exiting = false);
+      await _transition.forward().orCancel;
+      if (!mounted || transitionId != _transitionId) return;
+      setState(() => _advancing = false);
+    } on TickerCanceled {
+      // Skip, Back, or opening a target can remove the tour mid-transition.
+    }
+  }
+
+  void _skip() {
+    ++_transitionId;
+    _transition.stop();
+    _transition.value = 1;
+    setState(() {
+      _advancing = false;
+      _exiting = false;
+    });
+    widget.onSkip();
   }
 
   void _scheduleMeasure() {
@@ -79,7 +136,25 @@ class _HomeCoachMarksState extends State<HomeCoachMarks>
         target.getTransformTo(overlay),
         Offset.zero & target.size,
       );
-      if (rect != _target) setState(() => _target = rect);
+      final targetWidget = targetContext.widget;
+      final hostBanner = widget.step == 3 && targetWidget is HostHomeBanner
+          ? targetWidget
+          : null;
+      final spotlight = hostBanner != null
+          ? Rect.fromLTRB(
+              rect.left - 12,
+              rect.top - (hostBanner.onClose == null ? 12 : 0),
+              rect.right,
+              rect.bottom,
+            )
+          : rect;
+      final radius = widget.step == 4 || hostBanner != null ? 18.0 : 12.0;
+      if (spotlight != _target || radius != _targetRadius) {
+        setState(() {
+          _target = spotlight;
+          _targetRadius = radius;
+        });
+      }
     });
   }
 
@@ -92,7 +167,7 @@ class _HomeCoachMarksState extends State<HomeCoachMarks>
     }
     final targetShape = RRect.fromRectAndRadius(
       target,
-      Radius.circular(widget.step == 4 ? 18 : 12),
+      Radius.circular(_targetRadius),
     );
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -138,12 +213,26 @@ class _HomeCoachMarksState extends State<HomeCoachMarks>
                   width: width,
                   maxHeight: above ? aboveSpace : belowSpace,
                 ),
-                child: _CoachCard(
-                  step: widget.step,
-                  above: above,
-                  pointerX: pointerX,
-                  onNext: widget.onNext,
-                  onSkip: widget.onSkip,
+                child: FadeTransition(
+                  key: const ValueKey('home-coach-transition'),
+                  opacity: _cardOpacity,
+                  child: AnimatedBuilder(
+                    animation: _cardOpacity,
+                    builder: (context, child) => Transform.translate(
+                      offset: Offset(
+                        0,
+                        (_exiting ? -8 : 8) * (1 - _cardOpacity.value),
+                      ),
+                      child: child,
+                    ),
+                    child: _CoachCard(
+                      step: widget.step,
+                      above: above,
+                      pointerX: pointerX,
+                      onNext: _next,
+                      onSkip: _skip,
+                    ),
+                  ),
                 ),
               ),
             ),

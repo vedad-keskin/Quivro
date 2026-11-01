@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
@@ -34,19 +35,23 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   final _code = TextEditingController();
   final _codeFocus = FocusNode();
-  final _hostHintKey = GlobalKey<HostHintState>();
   final _newsKey = GlobalKey<NewsPileState>();
+  final _hostBannerKey = GlobalKey();
   final _hostChipKey = GlobalKey();
   final _newsChipKey = GlobalKey();
   final _themeChipKey = GlobalKey();
   final _languageChipKey = GlobalKey();
   final _codeKey = GlobalKey();
-  final _hostProgress = ValueNotifier<double>(1);
   final _repo = RoomRepository();
   final _store = ProfileStore();
+  late final AnimationController _hostAnimation;
+  bool _hostExpanded = true;
+  bool _hostAnimating = false;
+  int _hostTransition = 0;
   late PlayerProfile _profile;
   bool _joining = false;
   bool _joinDown = false;
@@ -54,7 +59,6 @@ class _HomePageState extends State<HomePage> {
   bool _homeReady = false;
   bool _newsReady = false;
   bool _newsOpen = true;
-  bool _hostOpen = false;
   bool _languageOpen = false;
   bool _coachFinished = false;
   bool _coachStartScheduled = false;
@@ -65,7 +69,11 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _profile = widget.profile;
-    _hostProgress.addListener(_onHostProgress);
+    _hostAnimation = AnimationController(
+      vsync: this,
+      value: 1,
+      duration: const Duration(milliseconds: 400),
+    );
     _codeFocus.addListener(() {
       if (mounted) setState(() {});
     });
@@ -90,7 +98,8 @@ class _HomePageState extends State<HomePage> {
   @override
   void dispose() {
     _easterEggTimer?.cancel();
-    _hostProgress.dispose();
+    _hostTransition++;
+    _hostAnimation.dispose();
     _codeFocus.dispose();
     _code.dispose();
     super.dispose();
@@ -99,13 +108,13 @@ class _HomePageState extends State<HomePage> {
   bool get _tourPending => widget.showCoachMarks && !_coachFinished;
 
   bool get _coachVisible =>
-      _coachStep != null && !_newsOpen && !_hostOpen && !_languageOpen;
+      _coachStep != null && !_newsOpen && !_languageOpen && !_hostAnimating;
 
   GlobalKey get _coachTarget => [
     _newsChipKey,
     _themeChipKey,
     _languageChipKey,
-    _hostChipKey,
+    _hostExpanded ? _hostBannerKey : _hostChipKey,
     _codeKey,
   ][_coachStep!];
 
@@ -121,8 +130,8 @@ class _HomePageState extends State<HomePage> {
         !_homeReady ||
         !_newsReady ||
         _newsOpen ||
-        _hostOpen ||
         _languageOpen ||
+        _hostAnimating ||
         _coachStartScheduled) {
       return;
     }
@@ -132,8 +141,8 @@ class _HomePageState extends State<HomePage> {
       if (!mounted ||
           !_tourPending ||
           _newsOpen ||
-          _hostOpen ||
-          _languageOpen) {
+          _languageOpen ||
+          _hostAnimating) {
         return;
       }
       setState(() => _coachStep = 0);
@@ -148,6 +157,10 @@ class _HomePageState extends State<HomePage> {
       if (targetContext != null) {
         Scrollable.ensureVisible(
           targetContext,
+          duration: MediaQuery.disableAnimationsOf(context)
+              ? Duration.zero
+              : const Duration(milliseconds: 280),
+          curve: Curves.easeInOutCubic,
           alignmentPolicy: ScrollPositionAlignmentPolicy.keepVisibleAtEnd,
         );
       }
@@ -161,21 +174,59 @@ class _HomePageState extends State<HomePage> {
     if (!open) _revealCoachTarget();
   }
 
-  void _onHostProgress() {
-    final open = _hostProgress.value < 1;
-    if (!mounted || open == _hostOpen) return;
-    setState(() => _hostOpen = open);
-    _maybeStartCoach();
-    if (!open) _revealCoachTarget();
-  }
-
   void _nextCoach() {
     if (_coachStep == 4) {
       _finishCoach();
       return;
     }
     setState(() => _coachStep = _coachStep! + 1);
+    if (_coachStep == 3 && !_hostExpanded) _setHostExpanded(true);
     _revealCoachTarget();
+  }
+
+  void _setHostExpanded(bool expanded) {
+    if (_hostExpanded == expanded && !_hostAnimating) return;
+    final transition = ++_hostTransition;
+    final reduce = MediaQuery.disableAnimationsOf(context);
+    setState(() {
+      _hostExpanded = expanded;
+      _hostAnimating = !reduce;
+    });
+    final destination = expanded ? 1.0 : 0.0;
+    if (reduce) {
+      _hostAnimation.value = destination;
+      _maybeStartCoach();
+      _revealCoachTarget();
+      _revealHostFooter();
+      return;
+    }
+    _hostAnimation
+        .animateTo(destination, curve: Curves.easeInOutCubic)
+        .whenCompleteOrCancel(() {
+          if (!mounted || transition != _hostTransition) return;
+          _finishHostMotion();
+        });
+  }
+
+  void _finishHostMotion() {
+    if (!_hostAnimating) return;
+    setState(() => _hostAnimating = false);
+    _maybeStartCoach();
+    _revealCoachTarget();
+    _revealHostFooter();
+  }
+
+  void _revealHostFooter() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || !_hostExpanded) return;
+      final footer = _newsChipKey.currentContext;
+      if (footer != null) {
+        Scrollable.ensureVisible(
+          footer,
+          alignmentPolicy: ScrollPositionAlignmentPolicy.keepVisibleAtEnd,
+        );
+      }
+    });
   }
 
   void _finishCoach() {
@@ -188,8 +239,6 @@ class _HomePageState extends State<HomePage> {
   Future<void> _onTourBack() async {
     if (_newsOpen) {
       await _newsKey.currentState?.dismiss();
-    } else if (_hostOpen) {
-      await _hostHintKey.currentState?.collapse();
     } else {
       _finishCoach();
     }
@@ -204,63 +253,64 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _footer() {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final host = _tourControl(
-          step: 3,
-          child: ValueListenableBuilder<double>(
-            valueListenable: _hostProgress,
-            builder: (context, progress, _) => Opacity(
-              opacity: progress >= 1 ? 1 : 0,
-              child: IgnorePointer(
-                ignoring: progress < 1,
-                child: HostTvChip(
-                  key: _hostChipKey,
-                  onTap: () => _hostHintKey.currentState?.expand(),
-                ),
-              ),
+    final chip = 1 - _hostAnimation.value;
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        SizedBox(
+          width: 48,
+          height: 48,
+          child: chip > 0
+              ? _tourControl(
+                  step: 3,
+                  child: IgnorePointer(
+                    ignoring: _hostAnimating,
+                    child: ExcludeFocus(
+                      excluding: _hostAnimating,
+                      child: ExcludeSemantics(
+                        excluding: _hostAnimating,
+                        child: Opacity(
+                          opacity: chip,
+                          child: Transform.translate(
+                            offset: Offset(0, -12 * (1 - chip)),
+                            child: HostTvChip(
+                              key: _hostChipKey,
+                              onTap: () => _setHostExpanded(true),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              : null,
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: SettingsChips(
+            languageKey: _languageChipKey,
+            themeKey: _themeChipKey,
+            languageEnabled: _coachStep == null || _coachStep == 2,
+            themeEnabled: _coachStep == null || _coachStep == 1,
+            onLanguageSheetChanged: (open) {
+              if (!mounted) return;
+              setState(() => _languageOpen = open);
+              if (!open) _revealCoachTarget();
+            },
+          ),
+        ),
+        const SizedBox(width: 12),
+        _tourControl(
+          step: 0,
+          child: SizedBox(
+            width: 48,
+            child: NewsStamp(
+              key: _newsChipKey,
+              onTap: () => _newsKey.currentState?.openAll(),
             ),
           ),
-        );
-        final settings = SettingsChips(
-          languageKey: _languageChipKey,
-          themeKey: _themeChipKey,
-          languageEnabled: _coachStep == null || _coachStep == 2,
-          themeEnabled: _coachStep == null || _coachStep == 1,
-          onLanguageSheetChanged: (open) {
-            if (!mounted) return;
-            setState(() => _languageOpen = open);
-            if (!open) _revealCoachTarget();
-          },
-        );
-        final news = _tourControl(
-          step: 0,
-          child: NewsStamp(
-            key: _newsChipKey,
-            onTap: () => _newsKey.currentState?.openAll(),
-          ),
-        );
-        if (constraints.maxWidth < 300) {
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Center(child: settings),
-              const SizedBox(height: 12),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [host, news],
-              ),
-            ],
-          );
-        }
-        return Row(
-          children: [
-            host,
-            Expanded(child: Center(child: settings)),
-            news,
-          ],
-        );
-      },
+        ),
+      ],
     );
   }
 
@@ -355,9 +405,7 @@ class _HomePageState extends State<HomePage> {
                         constraints: BoxConstraints(
                           minHeight: constraints.maxHeight,
                         ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        child: _CenteredHomeColumn(
                           children: [
                             _tourControl(
                               child: Column(
@@ -607,7 +655,63 @@ class _HomePageState extends State<HomePage> {
                                   begin: 0.06,
                                   curve: Curves.easeOutCubic,
                                 ),
-                            _footer()
+                            AnimatedBuilder(
+                                  animation: _hostAnimation,
+                                  child: _tourControl(
+                                    step: 3,
+                                    child: HostHomeBanner(
+                                      key: _hostBannerKey,
+                                      onClose: () => _setHostExpanded(false),
+                                    ),
+                                  ),
+                                  builder: (context, banner) {
+                                    final progress = _hostAnimation.value;
+                                    if (_hostAnimating && _hostExpanded) {
+                                      _revealHostFooter();
+                                    }
+                                    return Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.stretch,
+                                      children: [
+                                        if (progress > 0)
+                                          IgnorePointer(
+                                            ignoring: _hostAnimating,
+                                            child: ExcludeFocus(
+                                              excluding: _hostAnimating,
+                                              child: ExcludeSemantics(
+                                                excluding: _hostAnimating,
+                                                child: Align(
+                                                  alignment:
+                                                      Alignment.bottomLeft,
+                                                  heightFactor: progress,
+                                                  child: Opacity(
+                                                    opacity: progress,
+                                                    child: Transform.translate(
+                                                      offset: Offset(
+                                                        -24 * (1 - progress),
+                                                        24 * (1 - progress),
+                                                      ),
+                                                      child: Transform.scale(
+                                                        alignment: Alignment
+                                                            .bottomLeft,
+                                                        scale:
+                                                            0.4 +
+                                                            0.6 * progress,
+                                                        child: banner,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        SizedBox(height: 16 * progress),
+                                        _footer(),
+                                      ],
+                                    );
+                                  },
+                                )
                                 .animate(
                                   delay: 550.ms,
                                   onComplete: (_) => _markHomeReady(),
@@ -625,13 +729,6 @@ class _HomePageState extends State<HomePage> {
                 child: Padding(
                   padding: const EdgeInsets.only(top: 6, right: 16),
                   child: OfflineBanner(onReconnected: _onReconnected),
-                ),
-              ),
-              Positioned.fill(
-                child: HostHint(
-                  key: _hostHintKey,
-                  progress: _hostProgress,
-                  anchorKey: _hostChipKey,
                 ),
               ),
               Positioned.fill(
@@ -658,6 +755,46 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+}
+
+class _CenteredHomeColumn extends Column {
+  const _CenteredHomeColumn({required super.children})
+    : super(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      );
+
+  @override
+  RenderFlex createRenderObject(BuildContext context) =>
+      _CenteredHomeRenderFlex(textDirection: Directionality.of(context));
+}
+
+class _CenteredHomeRenderFlex extends RenderFlex {
+  _CenteredHomeRenderFlex({required super.textDirection})
+    : super(
+        direction: Axis.vertical,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      );
+
+  @override
+  void performLayout() {
+    super.performLayout();
+    final header = firstChild!;
+    final join = childAfter(header)!;
+    final footer = childAfter(join)!;
+    final joinData = join.parentData! as FlexParentData;
+    final footerData = footer.parentData! as FlexParentData;
+    // Center against the viewport, then keep clear of the header and footer.
+    final top = ((size.height - join.size.height) / 2).clamp(
+      header.size.height,
+      (footerData.offset.dy - join.size.height).clamp(
+        header.size.height,
+        double.infinity,
+      ),
+    );
+    joinData.offset = Offset(joinData.offset.dx, top);
   }
 }
 

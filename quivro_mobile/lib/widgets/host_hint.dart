@@ -1,18 +1,202 @@
-import 'dart:math' as math;
-import 'dart:ui' show lerpDouble;
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../core/strings.dart';
 import '../core/theme.dart';
-import 'quivro_snackbar.dart';
 
-const _seenKey = 'quivro.hostHintSeen';
-const _hostUrl = 'https://quivro.org';
+const _hostWebsite = 'quivro.org';
 
-/// TV chip, same padding and border as the language and theme chips.
+class HostHomeBanner extends StatelessWidget {
+  const HostHomeBanner({super.key, this.onClose});
+
+  final VoidCallback? onClose;
+
+  @override
+  Widget build(BuildContext context) {
+    final strings = context.strings;
+    final ink = showInk(context);
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final compact = constraints.maxWidth < 280;
+        final imageWidth = compact ? 160.0 : 180.0;
+        final titleStyle = showDisplay(
+          context,
+          fontSize: compact ? 16 : 18,
+          letterSpacing: 0.2,
+          color: Colors.white,
+        );
+        return Semantics(
+          container: true,
+          explicitChildNodes: true,
+          label:
+              '${strings.hostBannerTitle} $_hostWebsite. '
+              '${strings.hostBannerDescription}',
+          child: Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(top: onClose == null ? 0 : 16),
+                child: ExcludeSemantics(
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      Container(
+                        constraints: BoxConstraints(
+                          minHeight: compact ? 78 : 82,
+                        ),
+                        decoration: showPanel(
+                          ink: ink,
+                          fill: showBulb,
+                          shadow: const Offset(0, 4),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(24, 7, 0, 7),
+                          child: Row(
+                            children: [
+                              SizedBox(width: compact ? 80 : 104),
+                              const SizedBox(width: 10),
+                              Expanded(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Stack(
+                                      alignment: Alignment.center,
+                                      children: [
+                                        Text(
+                                          strings.hostBannerTitle,
+                                          textAlign: TextAlign.center,
+                                          style: titleStyle.copyWith(
+                                            foreground: Paint()
+                                              ..color = ink
+                                              ..style = PaintingStyle.stroke
+                                              ..strokeWidth = 3,
+                                          ),
+                                        ),
+                                        Text(
+                                          strings.hostBannerTitle,
+                                          textAlign: TextAlign.center,
+                                          style: titleStyle,
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Container(
+                                      constraints: const BoxConstraints(
+                                        minHeight: 32,
+                                      ),
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 8,
+                                        vertical: 6,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: showInkDay,
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Flexible(
+                                            child: Text(
+                                              _hostWebsite,
+                                              textAlign: TextAlign.center,
+                                              style: showDisplay(
+                                                context,
+                                                fontSize: compact ? 15 : 16,
+                                                letterSpacing: 0.2,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ),
+                                          const SizedBox(width: 6),
+                                          const Icon(
+                                            Icons.north_east,
+                                            color: Colors.white,
+                                            size: 16,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        left: compact ? -24 : -15,
+                        top: -12,
+                        bottom: 3,
+                        width: imageWidth,
+                        child: IgnorePointer(
+                          child: ClipRect(
+                            child: OverflowBox(
+                              alignment: Alignment.bottomLeft,
+                              minWidth: imageWidth,
+                              maxWidth: imageWidth,
+                              minHeight: imageWidth * 2 / 3,
+                              maxHeight: imageWidth * 2 / 3,
+                              child: Transform.translate(
+                                offset: Offset(0, compact ? 10 : 15),
+                                child: Image.asset(
+                                  'assets/branding/host_monitor.webp',
+                                  width: imageWidth,
+                                  height: imageWidth * 2 / 3,
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              if (onClose != null)
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  width: 48,
+                  height: 48,
+                  child: IconButton(
+                    onPressed: onClose,
+                    tooltip: strings.close,
+                    padding: EdgeInsets.zero,
+                    icon: Transform.translate(
+                      offset: const Offset(0, -10),
+                      child: Container(
+                        key: const ValueKey('host-banner-close-face'),
+                        width: 28,
+                        height: 28,
+                        alignment: Alignment.center,
+                        decoration: showPanel(
+                          ink: ink,
+                          fill: context.palette.card,
+                          radius: 8,
+                          shadow: const Offset(0, 3),
+                        ),
+                        child: ExcludeSemantics(
+                          child: Text(
+                            '\u00d7',
+                            textScaler: TextScaler.noScaling,
+                            style: showDisplay(
+                              context,
+                              fontSize: 20,
+                              color: context.palette.text,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
+
 class HostTvChip extends StatelessWidget {
   const HostTvChip({super.key, required this.onTap});
 
@@ -21,279 +205,36 @@ class HostTvChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final night = Theme.of(context).brightness == Brightness.dark;
+    final label = context.strings.coachTitles[3];
     return Semantics(
       button: true,
-      label: context.strings.hostHintTitle,
-      child: GestureDetector(
-        onTap: onTap,
+      label: label,
+      child: Tooltip(
+        message: label,
+        excludeFromSemantics: true,
         child: Container(
-          constraints: key == null
-              ? null
-              : const BoxConstraints(minWidth: 48, minHeight: 48),
-          alignment: key == null ? null : Alignment.center,
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          width: 48,
+          height: 48,
           decoration: showPanel(
             ink: showInk(context),
             fill: night ? context.palette.card : Colors.white,
             radius: 12,
             shadow: const Offset(0, 4),
           ),
-          child: Icon(
-            Icons.tv,
-            size: 16,
-            color: night ? Colors.white : showInkDay,
+          child: Material(
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(12),
+            child: InkWell(
+              onTap: onTap,
+              borderRadius: BorderRadius.circular(12),
+              child: Icon(
+                Icons.tv,
+                size: 16,
+                color: night ? Colors.white : showInkDay,
+              ),
+            ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-/// First visit shows where to create a room. Closing fades the poster and
-/// slides the TV chip onto the row with the language and theme chips.
-class HostHint extends StatefulWidget {
-  const HostHint({super.key, required this.progress, required this.anchorKey});
-
-  final ValueNotifier<double> progress;
-  final GlobalKey anchorKey;
-
-  @override
-  State<HostHint> createState() => HostHintState();
-}
-
-class HostHintState extends State<HostHint>
-    with SingleTickerProviderStateMixin {
-  late final AnimationController _controller;
-  var _closing = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller =
-        AnimationController(
-          vsync: this,
-          duration: const Duration(milliseconds: 400),
-        )..addListener(() {
-          widget.progress.value = _controller.value;
-          setState(() {});
-        });
-    _controller.value = 1;
-    widget.progress.value = 1;
-  }
-
-  void expand() => _expand();
-
-  Future<void> collapse() => _collapse();
-
-  Rect? _anchorRect() {
-    final target =
-        widget.anchorKey.currentContext?.findRenderObject() as RenderBox?;
-    final overlay = context.findRenderObject() as RenderBox?;
-    if (target == null ||
-        overlay == null ||
-        !target.attached ||
-        !target.hasSize ||
-        !overlay.attached) {
-      return null;
-    }
-    final topLeft = overlay.globalToLocal(target.localToGlobal(Offset.zero));
-    return topLeft & target.size;
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  Future<void> _collapse() async {
-    if (_closing || _controller.value >= 1) return;
-    _closing = true;
-    await _controller.animateTo(1, curve: Curves.easeInCubic);
-    _closing = false;
-    if (!mounted) return;
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(_seenKey, true);
-  }
-
-  void _expand() {
-    if (_controller.value == 0) return;
-    _controller.animateTo(0, curve: Curves.easeOutCubic);
-  }
-
-  Future<void> _copy() async {
-    await Clipboard.setData(const ClipboardData(text: _hostUrl));
-    if (!mounted) return;
-    showQuivroSnack(context, context.strings.hostHintCopied);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final t = _controller.value;
-    final collapsed = t > 0.85;
-    final strings = context.strings;
-    final palette = context.palette;
-    final anchor = _anchorRect();
-    final chipWidth = anchor?.width ?? 44;
-    final chipHeight = anchor?.height ?? 36;
-
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        const rowInset = 20.0;
-        var cardW = math.min(constraints.maxWidth - 40, 340.0);
-        var cardH = cardW * 1.5;
-        final maxCardH = constraints.maxHeight - 24;
-        if (cardH > maxCardH) {
-          cardH = maxCardH;
-          cardW = cardH / 1.5;
-        }
-        final cardLeft = (constraints.maxWidth - cardW) / 2;
-        final cardTop = (constraints.maxHeight - cardH) / 2;
-        // Sit inside the photo, clear of the 3px stroke.
-        const chipInset = 18.0;
-        final iconLeft = lerpDouble(
-          cardLeft + cardW - chipInset - chipWidth,
-          anchor?.left ?? rowInset,
-          t,
-        )!;
-        final iconTop = lerpDouble(
-          cardTop + chipInset,
-          anchor?.top ?? constraints.maxHeight - rowInset - chipHeight,
-          t,
-        )!;
-
-        return Stack(
-          children: [
-            if (t < 1)
-              Positioned.fill(
-                child: GestureDetector(
-                  onTap: _collapse,
-                  behavior: HitTestBehavior.opaque,
-                  child: ColoredBox(
-                    color: Colors.black.withValues(alpha: 0.55 * (1 - t)),
-                  ),
-                ),
-              ),
-            Positioned(
-              left: cardLeft,
-              top: cardTop,
-              width: cardW,
-              height: cardH,
-              child: IgnorePointer(
-                ignoring: t > 0.5,
-                child: Opacity(
-                  opacity: (1 - t).clamp(0.0, 1.0),
-                  child: _card(strings, palette),
-                ),
-              ),
-            ),
-            if (t < 1)
-              Positioned(
-                left: iconLeft,
-                top: iconTop,
-                child: HostTvChip(onTap: collapsed ? _expand : _collapse),
-              ),
-          ],
-        );
-      },
-    );
-  }
-
-  Widget _card(AppStrings strings, QuivroPalette palette) {
-    final ink = showInk(context);
-    return Container(
-      decoration: showPanel(ink: ink, fill: palette.card, radius: 22),
-      padding: const EdgeInsets.all(3),
-      child: Column(
-        children: [
-          Expanded(
-            child: ClipRRect(
-              borderRadius: const BorderRadius.vertical(
-                top: Radius.circular(16),
-              ),
-              child: Image.asset(
-                'assets/branding/intro.png',
-                fit: BoxFit.cover,
-                width: double.infinity,
-                height: double.infinity,
-                alignment: Alignment.center,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(17, 16, 17, 13),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  strings.hostHintTitle.toUpperCase(),
-                  textAlign: TextAlign.center,
-                  style: showDisplay(context, fontSize: 22),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  strings.hostHintBody,
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.nunito(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
-                    height: 1.35,
-                    color: palette.muted,
-                  ),
-                ),
-                const SizedBox(height: 12),
-                InkWell(
-                  onTap: _copy,
-                  borderRadius: BorderRadius.circular(12),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4),
-                    child: FittedBox(
-                      fit: BoxFit.scaleDown,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            'quivro.org',
-                            style: showDisplay(context, fontSize: 26),
-                          ),
-                          const SizedBox(width: 8),
-                          Icon(
-                            Icons.copy_rounded,
-                            color: palette.text,
-                            size: 22,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 12),
-                GestureDetector(
-                  onTap: _collapse,
-                  child: Container(
-                    width: double.infinity,
-                    height: 56,
-                    alignment: Alignment.center,
-                    decoration: showPanel(
-                      ink: ink,
-                      fill: showBulb,
-                      radius: 14,
-                      shadow: const Offset(0, 4),
-                    ),
-                    child: Text(
-                      strings.hostHintGotIt.toUpperCase(),
-                      style: showDisplay(
-                        context,
-                        fontSize: 22,
-                        color: showInkDay,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
       ),
     );
   }
