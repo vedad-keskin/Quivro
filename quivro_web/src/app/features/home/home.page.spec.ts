@@ -2,6 +2,7 @@ import { NO_ERRORS_SCHEMA, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, RouterLink } from '@angular/router';
 import { afterEach, describe, expect, it } from 'vitest';
+import { bs } from '../../../i18n/bs';
 import { en } from '../../../i18n/en';
 import { EntitlementService } from '../../core/entitlement.service';
 import { PRO_CATEGORIES, nextRotationAt, rotatingFreeCategory, rotatingFreePowerUp } from '../../core/entitlements';
@@ -9,8 +10,56 @@ import { LanguageService } from '../../core/language.service';
 import { POWER_UP_CATALOG } from '../../core/room.models';
 import { HomePage } from './home.page';
 
-describe('HomePage weekly free dialog', () => {
+describe('HomePage', () => {
   afterEach(() => localStorage.clear());
+
+  it('offers the Play download after the steps and updates it with the language', () => {
+    const lang = signal<'en' | 'bs'>('en');
+    TestBed.configureTestingModule({
+      imports: [HomePage],
+      providers: [
+        provideRouter([]),
+        { provide: LanguageService, useValue: { lang, t: () => lang() === 'bs' ? bs : en } },
+        {
+          provide: EntitlementService,
+          useValue: {
+            rotationEndsAt: () => 0,
+            freeThisWeek: () => 'technology',
+            freePowerUpThisWeek: () => 'fifty_fifty',
+          },
+        },
+      ],
+    });
+    TestBed.overrideComponent(HomePage, {
+      set: { imports: [RouterLink], schemas: [NO_ERRORS_SCHEMA] },
+    });
+
+    const fixture = TestBed.createComponent(HomePage);
+    fixture.detectChanges();
+    const page: HTMLElement = fixture.nativeElement;
+    const banner = page.querySelector('section.app-download');
+    expect(banner).not.toBeNull();
+    expect(page.querySelector('.steps')?.nextElementSibling).toBe(banner);
+    expect(banner?.getAttribute('aria-labelledby')).toBe('download-title');
+    const badge = banner?.querySelector('a.download-badge');
+    const qr = banner?.querySelector('a.download-qr');
+    for (const link of [badge, qr]) {
+      expect(link?.getAttribute('href')).toBe('https://play.google.com/store/apps/details?id=com.quivro.app');
+    }
+
+    for (const locale of ['en', 'bs'] as const) {
+      lang.set(locale);
+      fixture.detectChanges();
+      const strings = locale === 'bs' ? bs : en;
+      expect(banner?.querySelector('#download-title')?.textContent?.trim()).toBe(strings.downloadAppTitle);
+      expect(banner?.textContent).toContain(strings.downloadAppScan);
+      expect(badge?.getAttribute('aria-label')).toBe(strings.downloadAppLinkLabel);
+      expect(badge?.querySelector('img')?.getAttribute('src')).toBe(`/brand/google-play-badge-${locale}.png`);
+      expect(qr?.querySelector('img')?.getAttribute('alt')).toBe(strings.downloadAppQrAlt);
+      expect(qr?.querySelector('img')?.getAttribute('src')).toBe('/brand/google-play-qr.svg');
+    }
+    fixture.destroy();
+  });
 
   it('follows unread News, stays dismissed this week, and returns next week', () => {
     localStorage.clear();

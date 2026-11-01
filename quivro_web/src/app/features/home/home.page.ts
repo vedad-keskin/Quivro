@@ -108,6 +108,34 @@ interface Layer {
               </li>
             }
           </ol>
+          <section class="app-download" aria-labelledby="download-title">
+            <img
+              class="download-phone"
+              src="/brand/quivro-phone.webp"
+              width="480"
+              height="720"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="download-copy">
+              <h3 id="download-title">{{ lang.t().downloadAppTitle }}</h3>
+              <div class="download-store">
+                <a class="download-badge" [href]="playStoreUrl" [attr.aria-label]="lang.t().downloadAppLinkLabel">
+                  <img
+                    [src]="'/brand/google-play-badge-' + lang.lang() + '.png'"
+                    width="478"
+                    height="142"
+                    alt=""
+                  />
+                </a>
+                <p class="download-scan">{{ lang.t().downloadAppScan }}</p>
+              </div>
+            </div>
+            <a class="download-qr" [href]="playStoreUrl">
+              <img src="/brand/google-play-qr.svg" width="123" height="123" [alt]="lang.t().downloadAppQrAlt" />
+            </a>
+          </section>
         </section>
       </section>
 
@@ -368,6 +396,79 @@ interface Layer {
       line-height: 1.35;
       color: var(--q-muted);
     }
+    .app-download {
+      display: grid;
+      grid-template-columns: 132px minmax(0, 1fr) auto 141px;
+      align-items: center;
+      gap: 0.85rem;
+      margin-top: 1rem;
+      padding: 0.625rem 1rem;
+      border: 3px solid var(--ink);
+      border-radius: 18px;
+      background: var(--bulb);
+      box-shadow: var(--hit);
+      color: #1a1530;
+    }
+    .download-phone {
+      width: 180px;
+      height: 270px;
+      max-width: none;
+      align-self: end;
+      margin: -66px -24px -90px;
+      clip-path: inset(0 0 80px);
+      pointer-events: none;
+    }
+    .download-copy {
+      display: contents;
+    }
+    #download-title {
+      min-width: 0;
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(1.25rem, 2.9vw, 2rem);
+      font-weight: 400;
+      line-height: 1.08;
+      color: #fff;
+      -webkit-text-stroke: 5px var(--ink);
+      paint-order: stroke fill;
+      text-shadow: 2px 4px 0 var(--ink);
+      white-space: pre-line;
+      overflow-wrap: anywhere;
+    }
+    .download-store {
+      display: grid;
+      min-width: 0;
+      justify-items: center;
+      gap: 0.15rem;
+    }
+    .download-badge {
+      display: block;
+      max-width: 100%;
+      padding: 14px;
+    }
+    .download-badge img {
+      width: clamp(154px, 18vw, 172px);
+      height: auto;
+    }
+    .download-scan {
+      margin: 0;
+      font-size: 0.85rem;
+      font-weight: 900;
+    }
+    .download-qr {
+      display: block;
+      padding-left: 16px;
+      border-left: 2px solid #1a1530;
+    }
+    .download-qr img {
+      border-radius: 8px;
+    }
+    .download-badge:focus-visible,
+    .download-qr:focus-visible {
+      outline: 3px solid #1a1530;
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
     .pile {
       position: relative;
       width: min(420px, calc(100vw - 4.5rem));
@@ -616,6 +717,66 @@ interface Layer {
       box-shadow: 0 5px 0 #050916;
       font-size: 1.25rem;
     }
+    @media (max-width: 840px) {
+      .app-download {
+        grid-template-columns: 140px minmax(0, max-content);
+        min-height: 160px;
+        justify-content: center;
+        gap: 4px 12px;
+        padding: 10px 14px;
+      }
+      .download-phone {
+        grid-column: 1;
+        width: 164px;
+        height: 246px;
+        margin: -64px -12px -80px;
+        clip-path: inset(0 0 70px);
+      }
+      .download-copy {
+        display: grid;
+        min-width: 0;
+        align-self: center;
+        gap: 8px;
+        padding-top: 9px;
+      }
+      #download-title {
+        font-size: clamp(1.125rem, 5.5vw, 2rem);
+        -webkit-text-stroke-width: 3px;
+        text-shadow: 1px 2px 0 var(--ink);
+      }
+      .download-badge {
+        padding: 9px;
+      }
+      .download-badge img {
+        width: 190px;
+      }
+      .download-scan,
+      .download-qr {
+        display: none;
+      }
+    }
+    @media (max-width: 380px) {
+      .app-download {
+        grid-template-columns: 112px minmax(0, max-content);
+      }
+      .download-phone {
+        width: 136px;
+        height: 204px;
+        margin-bottom: -66px;
+        clip-path: inset(0 0 56px);
+      }
+    }
+    @media (max-width: 340px) {
+      .app-download {
+        grid-template-columns: 92px minmax(0, max-content);
+      }
+      .download-phone {
+        width: 116px;
+        height: 174px;
+        margin-bottom: -50px;
+        clip-path: inset(0 0 40px);
+      }
+    }
     @media (max-width: 720px) {
       .steps {
         grid-template-columns: 1fr;
@@ -654,6 +815,7 @@ interface Layer {
 })
 export class HomePage {
   readonly lang = inject(LanguageService);
+  readonly playStoreUrl = 'https://play.google.com/store/apps/details?id=com.quivro.app';
   readonly ent = inject(EntitlementService);
   readonly categoryAccent = CATEGORY_ACCENT;
   readonly powerAccent = WEEKLY_POWER_ACCENT;

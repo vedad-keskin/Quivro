@@ -1,0 +1,10 @@
+Use case: product-mockup.
+Asset type: transparent decorative phone cutout for Quivro's homepage Google Play download banner.
+Input image 1 is a layout/style reference only: use ONLY the phone illustration from the middle OPTION 2 yellow banner as visual inspiration. Do not reproduce the banner, text, cards, badge, or QR code.
+Input image 2 is the authoritative current Quivro Google Play app icon. Preserve its central Q lightning logo faithfully, including cyan-to-purple Q, yellow lightning bolt, heavy black outline, and thin white outer edge.
+Create ONE full, isolated generic Android smartphone illustration, tall portrait phone, tilted about 12 degrees counterclockwise, seen almost straight on with just a little depth. Rounded corners, dark charcoal frame, subtle silver edge highlights, small centered hole-punch front camera; no Apple notch or Apple branding. The phone screen is navy with restrained darker blue radial rays, displaying the large centered Quivro Q lightning emblem from image 2. The emblem should be crisp and occupy about half of screen width, with generous navy breathing room.
+Style: polished playful comic game illustration matching Quivro; bold clean black outlines, restrained glossy edge highlights, clear silhouette. It must read well at 130 to 180 CSS pixels tall against a bright golden yellow banner.
+Composition: entire phone including all four corners visible; centered with a compact transparent margin. Tall portrait canvas around 1024x1536. No other objects. No external drop shadow baked into the transparency.
+Background: genuinely transparent alpha everywhere outside the phone.
+Text: none.
+Avoid: hands, people, cables, floating confetti, yellow banner, text, wordmark, store badges, QR codes, watermark, fake app interface, invented buttons, extra logos.
