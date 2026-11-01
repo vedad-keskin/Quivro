@@ -15,7 +15,7 @@ enum AppLanguage {
   final String flagAsset;
 }
 
-/// App-wide user preferences: UI language and day/night theme.
+/// App-wide user preferences: language, theme, and hosting banner visibility.
 ///
 /// Loaded once at startup (fast, SharedPreferences only) and kept alive for
 /// the whole app run. Widgets read it through the [Settings] inherited
@@ -23,13 +23,17 @@ enum AppLanguage {
 class SettingsController extends ChangeNotifier {
   static const _langKey = 'quivro.lang';
   static const _themeKey = 'quivro.theme';
+  static const _hostBannerKey = 'quivro.hostBannerExpanded';
 
   AppLanguage _language = AppLanguage.en;
   ThemeMode _themeMode = ThemeMode.system;
+  bool _hostBannerExpanded = true;
+  bool _hostBannerChosen = false;
   bool _loaded = false;
 
   AppLanguage get language => _language;
   ThemeMode get themeMode => _themeMode;
+  bool get hostBannerExpanded => _hostBannerExpanded;
 
   /// Night when the user picked it, or when they haven't picked and the
   /// phone is in dark mode.
@@ -62,6 +66,9 @@ class SettingsController extends ChangeNotifier {
       'light' => ThemeMode.light,
       _ => ThemeMode.system,
     };
+    if (!_hostBannerChosen) {
+      _hostBannerExpanded = prefs.getBool(_hostBannerKey) ?? true;
+    }
     notifyListeners();
   }
 
@@ -83,6 +90,17 @@ class SettingsController extends ChangeNotifier {
 
   Future<void> toggleTheme() =>
       setThemeMode(isNight ? ThemeMode.light : ThemeMode.dark);
+
+  Future<void> setHostBannerExpanded(bool expanded) async {
+    // A user choice wins over a restore that is still awaiting preferences.
+    _hostBannerChosen = true;
+    if (_hostBannerExpanded != expanded) {
+      _hostBannerExpanded = expanded;
+      notifyListeners();
+    }
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_hostBannerKey, expanded);
+  }
 }
 
 /// Exposes the [SettingsController] to the widget tree. Dependents rebuild

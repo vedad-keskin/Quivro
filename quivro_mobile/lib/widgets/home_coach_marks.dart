@@ -29,6 +29,7 @@ class HomeCoachMarks extends StatefulWidget {
 class _HomeCoachMarksState extends State<HomeCoachMarks>
     with SingleTickerProviderStateMixin, WidgetsBindingObserver {
   Rect? _target;
+  Rect? _bannerBounds;
   double _targetRadius = 12;
   ScrollPosition? _scroll;
   bool _measurePending = false;
@@ -149,10 +150,14 @@ class _HomeCoachMarksState extends State<HomeCoachMarks>
             )
           : rect;
       final radius = widget.step == 4 || hostBanner != null ? 18.0 : 12.0;
-      if (spotlight != _target || radius != _targetRadius) {
+      final bannerBounds = hostBanner == null ? null : rect;
+      if (spotlight != _target ||
+          radius != _targetRadius ||
+          bannerBounds != _bannerBounds) {
         setState(() {
           _target = spotlight;
           _targetRadius = radius;
+          _bannerBounds = bannerBounds;
         });
       }
     });
@@ -169,6 +174,11 @@ class _HomeCoachMarksState extends State<HomeCoachMarks>
       target,
       Radius.circular(_targetRadius),
     );
+    final targetWidget = widget.targetKey.currentWidget;
+    final banner = widget.step == 3 && targetWidget is HostHomeBanner
+        ? targetWidget
+        : null;
+    final bannerBounds = _bannerBounds;
     return LayoutBuilder(
       builder: (context, constraints) {
         const margin = 16.0;
@@ -199,12 +209,26 @@ class _HomeCoachMarksState extends State<HomeCoachMarks>
                           ? const Offset(4, 4)
                           : const Offset(0, 4),
                       color: showInkNight.withValues(alpha: 0.68),
+                      revealTarget: bannerBounds == null,
                     ),
                     child: const SizedBox.expand(),
                   ),
                 ),
               ),
             ),
+            // Repaint the banner itself so transparent artwork cannot reveal
+            // a rectangular patch of undimmed page background.
+            if (banner != null && bannerBounds != null)
+              Positioned.fromRect(
+                rect: bannerBounds,
+                child: IgnorePointer(
+                  child: ExcludeFocus(
+                    child: ExcludeSemantics(
+                      child: HostHomeBanner(onClose: banner.onClose),
+                    ),
+                  ),
+                ),
+              ),
             Positioned.fill(
               child: CustomSingleChildLayout(
                 delegate: _CoachLayout(
@@ -248,14 +272,20 @@ class _SpotlightPainter extends CustomPainter {
     required this.target,
     required this.shadow,
     required this.color,
+    required this.revealTarget,
   });
 
   final RRect target;
   final Offset shadow;
   final Color color;
+  final bool revealTarget;
 
   @override
   void paint(Canvas canvas, Size size) {
+    if (!revealTarget) {
+      canvas.drawRect(Offset.zero & size, Paint()..color = color);
+      return;
+    }
     final spotlight = Path.combine(
       PathOperation.union,
       Path()..addRRect(target),
@@ -279,7 +309,8 @@ class _SpotlightPainter extends CustomPainter {
   bool shouldRepaint(_SpotlightPainter oldDelegate) =>
       target != oldDelegate.target ||
       shadow != oldDelegate.shadow ||
-      color != oldDelegate.color;
+      color != oldDelegate.color ||
+      revealTarget != oldDelegate.revealTarget;
 }
 
 class _CoachLayout extends SingleChildLayoutDelegate {

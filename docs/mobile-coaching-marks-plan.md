@@ -27,7 +27,7 @@ Next uses a 160ms fade/slide out, measures the new target, then a 200ms fade/sli
    - Body: “Tap here to change Quivro's language.”
    - Allow the actual language sheet to open. Hide coaching while it is open, then return to this step in the selected language. Dismissing the sheet without choosing also returns here. Next advances to hosting.
 4. **Hosting — “Create a room on the big screen”**
-   - Target: the Host rooms banner above the navbar, including its TV artwork and X, or the bottom-left TV button after collapse. Entering this step expands a previously collapsed banner.
+   - Target: the Host rooms banner above the navbar, including its TV artwork and X, or the bottom-left TV button after collapse. Entering this step respects the saved expanded/collapsed preference.
    - Body, restored from the old dialog: “Open this website on your PC or laptop to create a room. For the best experience, display the game on the largest screen available.”
    - The banner body is informational and opens nothing. Its top-right X collapses it into the footer TV button; tapping that button expands it again. Pause coaching during the motion, then remeasure and resume this same step on the visible target. Next advances to the code field.
 5. **Code — “Enter the host's room code”**
@@ -58,7 +58,7 @@ Paths below are relative to `quivro_mobile/`.
 - `lib/core/bootstrap.dart`, `lib/core/profile_store.dart`: first-open claim using the existing preferences dependency and pre-setup profile/news evidence; expose eligibility on `BootResult`.
 - `lib/screens/splash_page.dart`, `lib/main.dart`, `lib/screens/setup_page.dart`: forward optional eligibility through initial navigation, defaulting to false for ordinary routes and profile editing. Preserve current profile/session extras.
 - `lib/screens/home_page.dart`: own the current step, consume the incoming eligibility once, attach target keys, coordinate panels and banner collapse/expansion, and place the overlay around the existing controls. Leave joining/session behavior intact.
-- `lib/widgets/home_coach_marks.dart`: focused native Flutter overlay containing the scrim/cutout, positioned card/pointer, dots, buttons, and cancellable Next transition. Measure the expanded banner's artwork/close bounds or the exact collapsed chip bounds. No general onboarding framework or new package.
+- `lib/widgets/home_coach_marks.dart`: focused native Flutter overlay containing the scrim/cutout, positioned card/pointer, dots, buttons, and cancellable Next transition. The expanded banner is repainted above a full scrim so its transparent areas cannot reveal a blue/light rectangular background. That decorative copy ignores input, focus, and semantics; measured bounds still route interaction to the original banner. The collapsed chip and other controls retain their normal cutouts. No general onboarding framework or new package.
 - `lib/widgets/news_pile.dart`: small ready/visibility callbacks covering automatic display and manual reopening, plus a dismissal hook so Home can close news on Back during the tour. Start the tour from actual lifecycle events, not a timer or the news-history preference alone.
 - `lib/widgets/settings_chips.dart`: optional target keys and language-sheet lifecycle hooks for Home. Preserve its existing use on Setup.
 - `lib/widgets/host_hint.dart`: informational `HostHomeBanner` with optional `onClose`, plus a 48dp `HostTvChip` that expands it. Home owns the two target keys and animation state; neither control opens a dialog.
@@ -79,7 +79,7 @@ Use the existing Flutter test setup; keep coverage focused on the lifecycle and 
 
 Run `flutter analyze`, the focused coaching/news/settings tests, then the existing mobile test suite. No new test framework is needed.
 
-The current iteration passes 28 focused tests and static analysis. Coverage includes collapse/expansion, reduced motion, disposal during animation, and coaching transitions. Native Flutter renders of the updated hosting coach and expanded/intermediate/collapsed banner are in `outputs/mobile-host-banner/`.
+The current iteration passes 38 focused tests and static analysis. Coverage includes the single-row footer at narrow widths, saved collapse/expansion choices across app/Home recreation and profile editing, reduced motion, disposal during animation, and coaching transitions. Native Flutter renders of the updated hosting coach and expanded/intermediate/collapsed banner are in `outputs/mobile-host-banner/`.
 
 Original implementation checks, before the hosting-banner update: static analysis and the Android debug APK build passed. The full mobile suite had 53 passing tests and two existing failures: the missing-current-question session assertion and the avatar index 19 assertion. Both failures were reproduced independently on unchanged HEAD `20d38fa`.
 

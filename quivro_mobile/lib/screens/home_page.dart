@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../core/profile_store.dart';
 import '../core/room_repository.dart';
+import '../core/settings.dart';
 import '../core/strings.dart';
 import '../core/theme.dart';
 import '../widgets/avatar_widgets.dart';
@@ -85,6 +86,18 @@ class _HomePageState extends State<HomePage>
     super.didUpdateWidget(oldWidget);
     if (oldWidget.profile != widget.profile) {
       _profile = widget.profile;
+    }
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final expanded = context.settings.hostBannerExpanded;
+    if (_hostExpanded != expanded) {
+      _hostTransition++;
+      _hostExpanded = expanded;
+      _hostAnimating = false;
+      _hostAnimation.value = expanded ? 1 : 0;
     }
   }
 
@@ -180,7 +193,6 @@ class _HomePageState extends State<HomePage>
       return;
     }
     setState(() => _coachStep = _coachStep! + 1);
-    if (_coachStep == 3 && !_hostExpanded) _setHostExpanded(true);
     _revealCoachTarget();
   }
 
@@ -192,6 +204,7 @@ class _HomePageState extends State<HomePage>
       _hostExpanded = expanded;
       _hostAnimating = !reduce;
     });
+    unawaited(context.settings.setHostBannerExpanded(expanded));
     final destination = expanded ? 1.0 : 0.0;
     if (reduce) {
       _hostAnimation.value = destination;
@@ -285,9 +298,10 @@ class _HomePageState extends State<HomePage>
                 )
               : null,
         ),
-        const SizedBox(width: 12),
+        const SizedBox(width: 8),
         Expanded(
           child: SettingsChips(
+            singleRow: true,
             languageKey: _languageChipKey,
             themeKey: _themeChipKey,
             languageEnabled: _coachStep == null || _coachStep == 2,
@@ -299,7 +313,7 @@ class _HomePageState extends State<HomePage>
             },
           ),
         ),
-        const SizedBox(width: 12),
+        const SizedBox(width: 8),
         _tourControl(
           step: 0,
           child: SizedBox(
@@ -379,6 +393,7 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     final strings = context.strings;
     final palette = context.palette;
+    final safePadding = MediaQuery.paddingOf(context);
     return PopScope(
       canPop: !_tourPending,
       onPopInvokedWithResult: (didPop, _) {
@@ -406,6 +421,8 @@ class _HomePageState extends State<HomePage>
                           minHeight: constraints.maxHeight,
                         ),
                         child: _CenteredHomeColumn(
+                          centerOffset:
+                              (safePadding.bottom - safePadding.top) / 2,
                           children: [
                             _tourControl(
                               child: Column(
@@ -543,7 +560,17 @@ class _HomePageState extends State<HomePage>
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(height: 20),
+                                    const SizedBox(height: 10),
+                                  ],
+                                )
+                                .animate(delay: 350.ms)
+                                .fadeIn(duration: 400.ms)
+                                .moveY(begin: 16, curve: Curves.easeOutCubic),
+                            Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    const SizedBox(height: 10),
                                     _tourControl(
                                       child: GestureDetector(
                                         onTapDown: _joining
@@ -558,6 +585,9 @@ class _HomePageState extends State<HomePage>
                                         onTapCancel: () =>
                                             setState(() => _joinDown = false),
                                         child: AnimatedContainer(
+                                          key: const ValueKey(
+                                            'home-join-button',
+                                          ),
                                           duration: const Duration(
                                             milliseconds: 80,
                                           ),
@@ -651,10 +681,7 @@ class _HomePageState extends State<HomePage>
                                 )
                                 .animate(delay: 350.ms)
                                 .fadeIn(duration: 400.ms)
-                                .slideY(
-                                  begin: 0.06,
-                                  curve: Curves.easeOutCubic,
-                                ),
+                                .moveY(begin: 16, curve: Curves.easeOutCubic),
                             AnimatedBuilder(
                                   animation: _hostAnimation,
                                   child: _tourControl(
@@ -759,42 +786,74 @@ class _HomePageState extends State<HomePage>
 }
 
 class _CenteredHomeColumn extends Column {
-  const _CenteredHomeColumn({required super.children})
-    : super(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      );
+  const _CenteredHomeColumn({
+    required super.children,
+    required this.centerOffset,
+  }) : super(
+         crossAxisAlignment: CrossAxisAlignment.stretch,
+         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+       );
+
+  final double centerOffset;
 
   @override
   RenderFlex createRenderObject(BuildContext context) =>
-      _CenteredHomeRenderFlex(textDirection: Directionality.of(context));
+      _CenteredHomeRenderFlex(
+        centerOffset,
+        textDirection: Directionality.of(context),
+      );
+
+  @override
+  void updateRenderObject(
+    BuildContext context,
+    covariant _CenteredHomeRenderFlex renderObject,
+  ) {
+    super.updateRenderObject(context, renderObject);
+    renderObject.centerOffset = centerOffset;
+  }
 }
 
 class _CenteredHomeRenderFlex extends RenderFlex {
-  _CenteredHomeRenderFlex({required super.textDirection})
+  _CenteredHomeRenderFlex(this._centerOffset, {required super.textDirection})
     : super(
         direction: Axis.vertical,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
       );
 
+  double _centerOffset;
+
+  set centerOffset(double value) {
+    if (_centerOffset == value) return;
+    _centerOffset = value;
+    markNeedsLayout();
+  }
+
   @override
   void performLayout() {
     super.performLayout();
     final header = firstChild!;
-    final join = childAfter(header)!;
-    final footer = childAfter(join)!;
-    final joinData = join.parentData! as FlexParentData;
+    final codeGroup = childAfter(header)!;
+    final joinGroup = childAfter(codeGroup)!;
+    final footer = childAfter(joinGroup)!;
+    final codeData = codeGroup.parentData! as FlexParentData;
+    final joinData = joinGroup.parentData! as FlexParentData;
     final footerData = footer.parentData! as FlexParentData;
-    // Center against the viewport, then keep clear of the header and footer.
-    final top = ((size.height - join.size.height) / 2).clamp(
-      header.size.height,
-      (footerData.offset.dy - join.size.height).clamp(
-        header.size.height,
-        double.infinity,
-      ),
-    );
-    joinData.offset = Offset(joinData.offset.dx, top);
+    final formHeight = codeGroup.size.height + joinGroup.size.height;
+    // Both groups include half the gap, so their boundary is its midpoint.
+    // The minimum height is the viewport, even when the content must scroll.
+    // Account for unequal system insets to center on the actual screen.
+    final top =
+        (constraints.minHeight / 2 + _centerOffset - codeGroup.size.height)
+            .clamp(
+              header.size.height,
+              (footerData.offset.dy - formHeight).clamp(
+                header.size.height,
+                double.infinity,
+              ),
+            );
+    codeData.offset = Offset(codeData.offset.dx, top);
+    joinData.offset = Offset(joinData.offset.dx, top + codeGroup.size.height);
   }
 }
 

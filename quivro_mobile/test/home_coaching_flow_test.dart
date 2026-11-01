@@ -10,11 +10,13 @@ import 'package:firebase_database_platform_interface/src/pigeon/messages.pigeon.
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:quivro_mobile/core/profile_store.dart';
 import 'package:quivro_mobile/core/settings.dart';
 import 'package:quivro_mobile/core/strings.dart';
 import 'package:quivro_mobile/core/theme.dart';
 import 'package:quivro_mobile/screens/home_page.dart';
+import 'package:quivro_mobile/screens/setup_page.dart';
 import 'package:quivro_mobile/widgets/home_coach_marks.dart';
 import 'package:quivro_mobile/widgets/host_hint.dart';
 import 'package:quivro_mobile/widgets/news_pile.dart';
@@ -70,18 +72,22 @@ void main() {
     bool eligible = true,
     bool unreadNews = true,
     bool reduceMotion = false,
+    bool resetPreferences = true,
   }) async {
-    SharedPreferences.setMockInitialValues({
-      if (!unreadNews)
-        'quivro.news.seen': jsonEncode(
-          newsDrops.map((drop) => drop.id).toList(),
-        ),
-    });
+    if (resetPreferences) {
+      SharedPreferences.setMockInitialValues({
+        if (!unreadNews)
+          'quivro.news.seen': jsonEncode(
+            newsDrops.map((drop) => drop.id).toList(),
+          ),
+      });
+    }
     tester.view.physicalSize = const Size(390, 844);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
     final settings = SettingsController();
+    await settings.load();
     await tester.pumpWidget(
       AnimatedBuilder(
         animation: settings,
@@ -178,6 +184,9 @@ void main() {
 
     await next(tester);
     expect(find.text(AppStrings.bosnian.coachTitles[3]), findsOneWidget);
+    final hostBanner = find.byKey(
+      tester.widget<HomeCoachMarks>(find.byType(HomeCoachMarks)).targetKey,
+    );
     expect(
       tester
           .widget<HomeCoachMarks>(find.byType(HomeCoachMarks))
@@ -185,7 +194,7 @@ void main() {
           .currentWidget,
       isA<HostHomeBanner>(),
     );
-    await tester.tap(find.byType(HostHomeBanner), warnIfMissed: false);
+    await tester.tap(hostBanner, warnIfMissed: false);
     await tester.pumpAndSettle();
     expect(find.text(AppStrings.bosnian.coachTitles[3]), findsOneWidget);
     expect(find.byIcon(Icons.copy_rounded), findsNothing);
@@ -199,12 +208,12 @@ void main() {
       AppStrings.bosnian.coachBodies[3],
       AppStrings.bosnian.hostBannerDescription,
     );
-    await tester.tap(find.byTooltip(AppStrings.bosnian.close));
+    await tester.tap(find.byTooltip(AppStrings.bosnian.close).hitTestable());
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 150));
-    expect(find.byType(HostHomeBanner), findsOneWidget);
+    expect(hostBanner, findsOneWidget);
     await tester.pumpAndSettle();
-    expect(find.byType(HostHomeBanner), findsNothing);
+    expect(hostBanner, findsNothing);
     expect(find.byType(HostTvChip), findsOneWidget);
     expect(
       tester
@@ -215,7 +224,7 @@ void main() {
     );
     await tester.tap(find.byType(HostTvChip));
     await tester.pumpAndSettle();
-    expect(find.byType(HostHomeBanner), findsOneWidget);
+    expect(hostBanner, findsOneWidget);
     expect(find.byType(HostTvChip), findsNothing);
     expect(
       tester
@@ -283,35 +292,57 @@ void main() {
     await tester.pumpWidget(const SizedBox.shrink());
   });
 
-  testWidgets(
-    'join controls center on the screen independently of the footer',
-    (tester) async {
-      for (final size in const [
-        Size(360, 844),
-        Size(390, 844),
-        Size(430, 932),
+  testWidgets('gap between code and Join centers independently of the footer', (
+    tester,
+  ) async {
+    for (final size in const [Size(360, 844), Size(390, 844), Size(430, 932)]) {
+      for (final padding in const [
+        FakeViewPadding(),
+        FakeViewPadding(top: 24, bottom: 48),
+        FakeViewPadding(top: 40, bottom: 16),
       ]) {
         await pumpHome(tester, eligible: false, unreadNews: false);
         tester.view.physicalSize = size;
+        tester.view.padding = padding;
+        tester.view.viewPadding = padding;
+        addTearDown(tester.view.resetPadding);
+        addTearDown(tester.view.resetViewPadding);
         await finishEntrance(tester);
-        final top = tester
-            .getTopLeft(find.text(AppStrings.english.joinARoom.toUpperCase()))
+        final codePanel = find
+            .ancestor(
+              of: find.byType(TextField),
+              matching: find.byType(Container),
+            )
+            .first;
+        final inputBottom = tester.getBottomLeft(codePanel).dy;
+        final joinTop = tester
+            .getTopLeft(find.byKey(const ValueKey('home-join-button')))
             .dy;
         final bottom = tester.getBottomLeft(find.byType(StudioMark)).dy;
+        final midpoint = (inputBottom + joinTop) / 2;
+        final bannerTop = tester.getTopLeft(find.byType(HostHomeBanner)).dy;
+        if (bottom < bannerTop - 1) {
+          expect(midpoint, closeTo(size.height / 2, 1));
+        } else {
+          expect(bottom, closeTo(bannerTop, 1));
+          expect(midpoint, lessThanOrEqualTo(size.height / 2));
+        }
+        expect(bottom, lessThanOrEqualTo(bannerTop));
+        await tester.tap(find.byTooltip(AppStrings.english.close));
+        await tester.pumpAndSettle();
         expect(
-          (top + bottom) / 2,
-          closeTo(size.height / 2, 1),
-          reason: '$size top=$top bottom=$bottom',
+          tester.getBottomLeft(codePanel).dy,
+          closeTo(inputBottom + size.height / 2 - midpoint, 1),
         );
         expect(
-          bottom,
-          lessThan(tester.getTopLeft(find.byType(HostHomeBanner)).dy),
+          tester.getBottomLeft(find.byType(StudioMark)).dy,
+          closeTo(bottom + size.height / 2 - midpoint, 1),
         );
         expect(tester.takeException(), isNull);
         await tester.pumpWidget(const SizedBox.shrink());
       }
-    },
-  );
+    }
+  });
 
   testWidgets(
     'banner above the navbar stays informational and preserves joining',
@@ -346,6 +377,122 @@ void main() {
     },
   );
 
+  testWidgets('banner choice survives recreating home and settings', (
+    tester,
+  ) async {
+    await pumpHome(tester, eligible: false, unreadNews: false);
+    await finishEntrance(tester);
+    await tester.tap(find.byTooltip(AppStrings.english.close));
+    await tester.pump(const Duration(milliseconds: 100));
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pumpAndSettle();
+    final restored = await pumpHome(
+      tester,
+      eligible: false,
+      resetPreferences: false,
+    );
+    expect(restored.hostBannerExpanded, isFalse);
+    expect(find.byType(HostHomeBanner), findsNothing);
+    expect(find.byType(HostTvChip), findsOneWidget);
+    await finishEntrance(tester);
+    await tester.tap(find.byType(HostTvChip));
+    await tester.pumpAndSettle();
+    await tester.pumpWidget(const SizedBox.shrink());
+    final expanded = await pumpHome(
+      tester,
+      eligible: false,
+      resetPreferences: false,
+    );
+    expect(expanded.hostBannerExpanded, isTrue);
+    expect(find.byType(HostHomeBanner), findsOneWidget);
+    expect(find.byType(HostTvChip), findsNothing);
+    await finishEntrance(tester);
+    expect(tester.takeException(), isNull);
+    await tester.pumpWidget(const SizedBox.shrink());
+  });
+
+  testWidgets('editing and returning preserves both banner choices', (
+    tester,
+  ) async {
+    final settings = await pumpHome(tester, eligible: false, unreadNews: false);
+    await finishEntrance(tester);
+    await tester.tap(find.byTooltip(AppStrings.english.close));
+    await tester.pumpAndSettle();
+    await tester.pumpWidget(const SizedBox.shrink());
+    const profile = PlayerProfile(nickname: 'Vedo', avatar: 1);
+    final router = GoRouter(
+      routes: [
+        GoRoute(
+          path: '/',
+          builder: (_, _) => const HomePage(profile: profile),
+        ),
+        GoRoute(
+          path: '/setup',
+          builder: (_, _) => const SetupPage(existing: profile),
+        ),
+      ],
+    );
+    addTearDown(router.dispose);
+    await tester.pumpWidget(
+      Settings(
+        controller: settings,
+        child: MaterialApp.router(
+          theme: buildQuivroTheme(),
+          routerConfig: router,
+        ),
+      ),
+    );
+    await finishEntrance(tester);
+    for (final expanded in [false, true]) {
+      await tester.tap(find.text(AppStrings.english.editNicknameAvatar));
+      await tester.pumpAndSettle();
+      expect(find.byType(SetupPage), findsOneWidget);
+      await tester.tap(
+        find.text(AppStrings.english.continueLabel.toUpperCase()),
+      );
+      await finishEntrance(tester);
+      expect(settings.hostBannerExpanded, expanded);
+      expect(
+        find.byType(HostHomeBanner),
+        expanded ? findsOneWidget : findsNothing,
+      );
+      expect(find.byType(HostTvChip), expanded ? findsNothing : findsOneWidget);
+      if (!expanded) {
+        await tester.tap(find.byType(HostTvChip));
+        await tester.pumpAndSettle();
+      }
+    }
+    expect(tester.takeException(), isNull);
+    await tester.pumpWidget(const SizedBox.shrink());
+  });
+
+  testWidgets('hosting coach respects a saved collapsed banner', (
+    tester,
+  ) async {
+    SharedPreferences.setMockInitialValues({
+      'quivro.hostBannerExpanded': false,
+      'quivro.news.seen': jsonEncode(newsDrops.map((drop) => drop.id).toList()),
+    });
+    final settings = await pumpHome(tester, resetPreferences: false);
+    await finishEntrance(tester);
+    for (var i = 0; i < 3; i++) {
+      await next(tester);
+    }
+    expect(settings.hostBannerExpanded, isFalse);
+    expect(find.byType(HostHomeBanner), findsNothing);
+    expect(
+      tester
+          .widget<HomeCoachMarks>(find.byType(HomeCoachMarks))
+          .targetKey
+          .currentWidget,
+      isA<HostTvChip>(),
+    );
+    await tester.tap(find.byKey(const ValueKey('home-coach-skip')));
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
+    await tester.pumpWidget(const SizedBox.shrink());
+  });
+
   testWidgets('banner collapses and reopens with reduced motion supported', (
     tester,
   ) async {
@@ -366,6 +513,13 @@ void main() {
           tester.getRect(find.text('Day')),
           tester.getRect(find.byType(NewsStamp)),
         ];
+        for (final bounds in footerPositions) {
+          expect(
+            bounds.center.dy,
+            closeTo(footerPositions.last.center.dy, 1),
+            reason: 'All footer controls must stay in one row at $size.',
+          );
+        }
         await tester.tap(find.byTooltip(AppStrings.english.close));
         await tester.pump();
         if (reduceMotion) {
