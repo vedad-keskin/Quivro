@@ -12,3 +12,8 @@ serviceAccountKey.json
 *-firebase-adminsdk-*.json
 .env
 .env.local
+
+# Local planning, generated outputs, and scratch files
+/docs/
+/outputs/
+/temp/
