@@ -562,23 +562,23 @@ correctIndex: 1,
     ],
     correctIndex: 1,
   },
-  {
-    id: 'cartoon-med-034',
-    type: 'mcq',
-    category: 'cartoons',
-    difficulty: 'medium',
-    prompt: {
-      en: 'In South Park, what famously happens to Kenny in almost every episode?',
-      bs: 'Šta se Kennyju često dešava u gotovo svakoj epizodi South Parka?'
-    },
-    options: [
-      { en: 'He dies', bs: 'Umire' },
-      { en: 'He wins the trophy', bs: 'Osvoji trofej' },
-      { en: 'He loses his voice', bs: 'Izgubi glas' },
-      { en: 'He moves away', bs: 'Preseli se u drugi grad' },
-    ],
-    correctIndex: 0,
+{
+  id: 'cartoon-med-034',
+  type: 'mcq',
+  category: 'cartoons',
+  difficulty: 'medium',
+  prompt: {
+    en: 'Which South Park character famously dies in many episodes?',
+    bs: 'Koji lik iz South Parka često umire u epizodama?'
   },
+  options: [
+    { en: 'Kenny', bs: 'Kenny' },
+    { en: 'Stan', bs: 'Stan' },
+    { en: 'Kyle', bs: 'Kyle' },
+    { en: 'Eric', bs: 'Eric' },
+  ],
+  correctIndex: 0,
+},
   {
     id: 'cartoon-med-035',
     type: 'mcq',
