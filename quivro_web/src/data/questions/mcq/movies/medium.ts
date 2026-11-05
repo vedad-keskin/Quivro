@@ -8,13 +8,13 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'In which city is Breaking Bad mainly set?',
-      bs: 'U kojem gradu se uglavnom dešava Breaking Bad?'
+      bs: 'U kojem se gradu uglavnom odvija radnja serije Breaking Bad?'
     },
     options: [
       { en: 'Los Angeles', bs: 'Los Angelesu' },
       { en: 'Albuquerque', bs: 'Albuquerqueu' },
       { en: 'Chicago', bs: 'Chicagu' },
-      { en: 'Miami', bs: 'Miamiu' },
+      { en: 'Miami', bs: 'Miamiju' },
     ],
     correctIndex: 1,
   },
@@ -212,7 +212,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'What is Wanda Maximoff’s superhero alias in the Marvel Cinematic Universe?',
-      bs: 'Koji je nadimak superjunaka Wande Maximoff u Marvel Cinematic Universe-u?'
+      bs: 'Pod kojim je superherojskim imenom poznata Wanda Maximoff u Marvelovom filmskom univerzumu?'
     },
     options: [
       { en: 'Scarlet Witch', bs: 'Scarlet Witch' },
@@ -228,8 +228,8 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Which actor plays Spider-Man in the Marvel Cinematic Universe?',
-      bs: 'Koji glumac glumi Spider-Mana u Marvel Cinematic Universe-u?'
+      en: 'Which actor first appears as Peter Parker in Captain America: Civil War (2016)?',
+      bs: 'Koji se glumac prvi put pojavljuje kao Peter Parker u filmu Captain America: Civil War iz 2016. godine?'
     },
     options: [
       { en: 'Andrew Garfield', bs: 'Andrew Garfield' },
@@ -245,8 +245,8 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Who plays Captain America in the Marvel Cinematic Universe?',
-      bs: 'Ko glumi Captain Americu u Marvel Cinematic Universe-u?'
+      en: 'Who plays Steve Rogers, the original Captain America, in the Marvel Cinematic Universe?',
+      bs: 'Ko u Marvelovom filmskom univerzumu glumi Stevea Rogersa, poznatog kao Kapetan Amerika?'
     },
     options: [
       { en: 'Chris Evans', bs: 'Chris Evans' },
@@ -262,8 +262,8 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Who leads the Guardians of the Galaxy?',
-      bs: 'Ko vodi Čuvare galaksije?'
+      en: 'Who leads the Guardians in the first Guardians of the Galaxy film from 2014?',
+      bs: 'Ko vodi Čuvare u prvom filmu Čuvari galaksije iz 2014. godine?'
     },
     options: [
       { en: 'Drax', bs: 'Drax' },
@@ -279,14 +279,14 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Doctor Strange holds the title of Sorcerer Supreme of which planet?',
-      bs: 'Doctor Strange nosi titulu Vrhovnog čarobnjaka koje planete?'
+      en: 'Which planet does Doctor Strange protect as a Master of the Mystic Arts?',
+      bs: 'Koju planetu Doctor Strange štiti kao majstor mističnih vještina?'
     },
     options: [
-      { en: 'Asgard', bs: 'Asgarda' },
-      { en: 'Earth', bs: 'Zemlje' },
-      { en: 'Wakanda', bs: 'Wakande' },
-      { en: 'Knowhere', bs: 'Knowhere-a' },
+      { en: 'Asgard', bs: 'Asgard' },
+      { en: 'Earth', bs: 'Zemlju' },
+      { en: 'Wakanda', bs: 'Wakandu' },
+      { en: 'Knowhere', bs: 'Knowhere' },
     ],
     correctIndex: 1,
   },
@@ -331,7 +331,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which Hogwarts house is Harry Potter sorted into?',
-      bs: 'U koji Hogwarts dom je sortiran Harry Potter?'
+      bs: 'U koji je dom u Hogwartsu raspoređen Harry Potter?'
     },
     options: [
       { en: 'Slytherin', bs: 'Slytherin' },
@@ -365,7 +365,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'What is the name of Harry Potter’s pet owl?',
-      bs: 'Kako se zove Harry Potterov ljubimac sova?'
+      bs: 'Kako se zove sova Harryja Pottera?'
     },
     options: [
       { en: 'Errol', bs: 'Errol' },
@@ -466,8 +466,8 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'What creature is Buckbeak?',
-      bs: 'Koje je stvorenje Buckbeak?'
+      en: 'What kind of creature is Buckbeak in Harry Potter?',
+      bs: 'Kojoj vrsti stvorenja pripada Buckbeak u serijalu Harry Potter?'
     },
     options: [
       { en: 'Hippogriff', bs: 'Hipogrif' },
@@ -484,7 +484,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which Hogwarts house was Luna Lovegood sorted into?',
-      bs: 'U koju Hogwarts kuću je svrstana Luna Lovegood?'
+      bs: 'U koji je dom u Hogwartsu raspoređena Luna Lovegood?'
     },
     options: [
       { en: 'Ravenclaw', bs: 'Ravenclaw' },
@@ -654,7 +654,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Rocky famously runs up the steps of a museum in which city?',
-      bs: 'Rocky poznato trči stepenicama muzeja u kojem gradu?'
+      bs: 'U kojem se gradu nalaze muzejske stepenice kojima Rocky trči u poznatoj sceni?'
     },
     options: [
       { en: 'Boston', bs: 'Bostonu' },
@@ -721,8 +721,8 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'How does Andy escape from prison in The Shawshank Redemption?',
-      bs: 'Kako Andy pobjegne iz zatvora u filmu Iskupljenje u Shawshanku?'
+      en: 'After tunneling through his cell wall, what pipe does Andy crawl through to escape in The Shawshank Redemption?',
+      bs: 'Kojom se cijevi Andy provlači nakon što prokopa zid ćelije u filmu Iskupljenje u Shawshanku?'
     },
     options: [
       { en: 'A hidden tunnel', bs: 'Skrivenim tunelom' },
@@ -755,13 +755,13 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'What is The Last of Us originally based on?',
-      bs: 'Na čemu je originalno zasnovan The Last of Us?'
+      en: 'What is The Last of Us television series based on?',
+      bs: 'Na čemu je zasnovana televizijska serija The Last of Us?'
     },
     options: [
       { en: 'Comic book', bs: 'Stripu' },
       { en: 'Video game', bs: 'Videoigri' },
-      { en: 'Novel from the 1950s', bs: 'Romanu iz 1950-ih' },
+      { en: 'Novel', bs: 'Romanu' },
       { en: 'Stage play', bs: 'Pozorišnoj predstavi' },
     ],
     correctIndex: 1,
@@ -773,7 +773,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'In Wednesday, Wednesday Addams attends which academy?',
-      bs: 'U Wednesday, Wednesday Addams pohađa koju akademiju?'
+      bs: 'Koju akademiju Wednesday Addams pohađa u seriji Wednesday?'
     },
     options: [
       { en: 'Hogwarts', bs: 'Hogwarts' },
@@ -823,8 +823,8 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'In BBC version of Sherlock, who plays Sherlock Holmes?',
-      bs: 'U BBC verziji Sherlocka, ko glumi Sherlocka Holmesa?'
+      en: 'Who plays Sherlock Holmes in the BBC series Sherlock?',
+      bs: 'Ko glumi Sherlocka Holmesa u BBC-jevoj seriji Sherlock?'
     },
     options: [
       { en: 'Martin Freeman', bs: 'Martin Freeman' },
@@ -841,7 +841,7 @@ export const moviesMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Peaky Blinders is set mainly in which English city?',
-      bs: 'Peaky Blinders se uglavnom dešava u kojem engleskom gradu?'
+      bs: 'U kojem se engleskom gradu uglavnom odvija radnja serije Peaky Blinders?'
     },
     options: [
       { en: 'London', bs: 'Londonu' },
@@ -874,14 +874,14 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'What inspired the iconic mask worn by the killer in Scream?',
-      bs: 'Šta je inspirisalo kultnu masku koju nosi ubica u filmu Scream?'
+      en: 'What does the killer’s mask in Scream resemble?',
+      bs: 'Na šta liči maska ubice u filmu Scream?'
     },
     options: [
-      { en: 'A clown', bs: 'Klovn' },
-      { en: 'A ghostly face', bs: 'Lice duha' },
-      { en: 'A wolf', bs: 'Vuk' },
-      { en: 'A robot', bs: 'Robot' },
+      { en: 'A clown', bs: 'Klovna' },
+      { en: 'A ghost', bs: 'Duha' },
+      { en: 'A wolf', bs: 'Vuka' },
+      { en: 'A robot', bs: 'Robota' },
     ],
     correctIndex: 1,
   },
@@ -942,8 +942,8 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Where does Freddy Krueger haunt his victims?',
-      bs: 'Gdje Freddy Krueger napada svoje žrtve?'
+      en: 'In the A Nightmare on Elm Street films, where does Freddy Krueger attack his victims?',
+      bs: 'Gdje Freddy Krueger napada svoje žrtve u filmovima Strava u Ulici brijestova?'
     },
     options: [
       { en: 'Dreams', bs: 'U snovima' },
@@ -976,8 +976,8 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'What is the real name of the killer in Saw?',
-      bs: 'Kako glasi pravo ime ubice iz filmskog serijala Slagalica strave?'
+      en: 'What is the real name of the original Jigsaw mastermind in the Saw films?',
+      bs: 'Kako se zove izvorni idejni tvorac zamki poznat kao Jigsaw u filmovima Slagalica strave?'
     },
     options: [
       { en: 'John Kramer', bs: 'John Kramer' },
@@ -1078,16 +1078,16 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Which famous movie prop was accidentally destroyed during filming of a scene?',
-      bs: 'Koji poznati filmski rekvizit je slučajno uništen tokom snimanja?'
+      en: 'Who plays Louise Banks, the lead character in Arrival (2016)?',
+      bs: 'Ko glumi Louise Banks, glavnu junakinju filma Dolazak (Arrival) iz 2016. godine?'
     },
     options: [
-      { en: 'The Millennium Falcon model', bs: 'Model Millennium Falcona' },
-      { en: 'The Titanic set', bs: 'Titanic set' },
-      { en: 'The DeLorean', bs: 'DeLorean' },
-      { en: 'The Batmobile', bs: 'Batmobil' },
+      { en: 'Jessica Chastain', bs: 'Jessica Chastain' },
+      { en: 'Emily Blunt', bs: 'Emily Blunt' },
+      { en: 'Amy Adams', bs: 'Amy Adams' },
+      { en: 'Natalie Portman', bs: 'Natalie Portman' },
     ],
-    correctIndex: 0,
+    correctIndex: 2,
   },
   {
     id: 'movie-med-065',
@@ -1146,8 +1146,8 @@ export const moviesMedium: Question[] = [
     category: 'movies',
     difficulty: 'medium',
     prompt: {
-      en: 'Which filmmaker is widely credited with revolutionizing modern 3D cinema?',
-      bs: 'Koji se filmski režiser smatra zaslužnim za revoluciju modernog 3D filma?'
+      en: 'Who directed the 2009 3D film Avatar, which is credited with revolutionizing modern 3D cinema??',
+      bs: 'Ko je režirao 3D film Avatar iz 2009. godine, koji se smatra zaslužnim za revoluciju modernog 3D filma?'
     },
     options: [
       { en: 'James Cameron', bs: 'James Cameron' },

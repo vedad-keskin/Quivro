@@ -41,14 +41,14 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'The dinosaur roars in Jurassic Park were partly created using sounds from which real animals?',
-      bs: 'Urlici dinosaurusa u Jurassic Parku su djelimično napravljeni koristeći zvukove kojih stvarnih životinja?'
+      en: 'The call of which baby animal was a key component of the T. rex roar in Jurassic Park (1993)?',
+      bs: 'Glas kojeg mladunčeta je bio važan dio rike T. rexa u filmu Jurassic Park iz 1993. godine?'
     },
     options: [
-      { en: 'Tortoises and baby elephants', bs: 'Kornjača i slonova' },
-      { en: 'Lions and tigers', bs: 'Lavova i tigrova' },
-      { en: 'Whales and dolphins', bs: 'Kitova i delfina' },
-      { en: 'Horses and cows', bs: 'Konja i krava' },
+      { en: 'A baby elephant', bs: 'Mladunčeta slona' },
+      { en: 'A lion cub', bs: 'Lavljeg mladunčeta' },
+      { en: 'A whale calf', bs: 'Mladunčeta kita' },
+      { en: 'A foal', bs: 'Ždrijebeta' },
     ],
     correctIndex: 0,
   },
@@ -58,8 +58,8 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'Before Avengers: Endgame overtook it, which film held the all-time box office record for over a decade?',
-      bs: 'Prije nego što ga je pretekao Avengers: Endgame, koji film je preko decenije držao rekord po zaradi svih vremena?'
+      en: 'Which film did Avengers: Endgame overtake in 2019 as the highest-grossing film worldwide, without adjusting for inflation?',
+      bs: 'Koji film je Avengers: Endgame 2019. godine pretekao po ukupnoj zaradi u svjetskim kinima, bez prilagođavanja inflaciji?'
     },
     options: [
       { en: 'Avatar', bs: 'Avatar' },
@@ -109,8 +109,8 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'What candy brand became famous after being used in E.T. the Extra-Terrestrial, after M&M’s turned down the offer?',
-      bs: 'Koji brend bombona je postao poznat nakon što je korišten u E.T. the Extra-Terrestrial, nakon što je M&M’s odbio ponudu?'
+      en: 'Which candy brand is prominently featured in E.T. the Extra-Terrestrial (1982)?',
+      bs: 'Koji brend slatkiša je posebno istaknut u filmu E.T. the Extra-Terrestrial iz 1982. godine?'
     },
     options: [
       { en: 'Reese’s Pieces', bs: 'Reese’s Pieces' },
@@ -143,8 +143,8 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'Which classic horror film was temporarily banned from home video release in the UK for several years?',
-      bs: 'Koji klasični horor film je privremeno bio zabranjen za izdavanje na videu u Velikoj Britaniji nekoliko godina?'
+      en: 'Which 1973 horror film was unavailable on UK home video from 1988 until it received a video certificate in 1999?',
+      bs: 'Koji horor film iz 1973. godine nije bio dostupan u videoizdanju u Ujedinjenom Kraljevstvu od 1988. do dobijanja odobrenja za distribuciju 1999. godine?'
     },
     options: [
       { en: 'The Exorcist', bs: 'Egzorcist' },
@@ -365,7 +365,7 @@ export const moviesHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which actor kept journals written as the Joker while preparing for The Dark Knight?',
-      bs: 'Koji glumac je vodio dnevnik iz perspektive Jokera dok se pripremao za istoimenu ulogu?'
+      bs: 'Koji je glumac vodio dnevnik iz Jokerove perspektive pripremajući se za film The Dark Knight iz 2008. godine?'
     },
     options: [
       { en: 'Heath Ledger', bs: 'Heath Ledger' },
@@ -381,8 +381,8 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'Which actor actually had his nose broken while filming a fight scene in The Lord of the Rings?',
-      bs: 'Koji glumac je stvarno slomio nos tokom snimanja borbene scene u Gospodaru prstenova?'
+      en: 'Which actor had a tooth knocked out while filming The Lord of the Rings?',
+      bs: 'Koji je glumac ostao bez zuba tokom snimanja Gospodara prstenova?'
     },
     options: [
       { en: 'Viggo Mortensen', bs: 'Viggo Mortensen' },
@@ -398,8 +398,8 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'What was Quentin Tarantino’s first feature film?',
-      bs: 'Koji je bio prvi dugometražni film Quentina Tarantina?'
+      en: 'Which film was Quentin Tarantino’s theatrical feature debut as a director?',
+      bs: 'Koji dugometražni film je bio rediteljski debi Quentina Tarantina u kinima?'
     },
     options: [
       { en: 'Reservoir Dogs', bs: 'Reservoir Dogs' },
@@ -449,8 +449,8 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'Which movie became the first non-English language film to win Best Picture?',
-      bs: 'Koji film je postao prvi film na stranom jeziku koji je osvojio Oskara za najbolji film?'
+      en: 'Which film became the first film primarily in a language other than English to win the Academy Award for Best Picture?',
+      bs: 'Koji je film postao prvi dobitnik Oscara za najbolji film s dijalogom pretežno na jeziku koji nije engleski?'
     },
     options: [
       { en: 'Parasite', bs: 'Parazit' },
@@ -517,8 +517,8 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'Who directed Dune Movies?',
-      bs: 'Ko je režirao Dune filmove?'
+      en: 'Who directed Dune (2021) and Dune: Part Two (2024)?',
+      bs: 'Ko je režirao filmove Dune iz 2021. i Dune: Part Two iz 2024. godine?'
     },
     options: [
       { en: 'Denis Villeneuve', bs: 'Denis Villeneuve' },
@@ -568,14 +568,14 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'Which Lord of the Rings film won 11 Academy Awards?',
-      bs: 'Koji film iz Gospodara prstenova je osvojio 11 Oscara?'
+      en: 'Which of these Middle-earth films won 11 Academy Awards?',
+      bs: 'Koji je od ovih filmova smještenih u Međuzemlju osvojio 11 Oscara?'
     },
     options: [
       { en: 'The Fellowship of the Ring', bs: 'The Fellowship of the Ring' },
       { en: 'The Two Towers', bs: 'The Two Towers' },
       { en: 'The Return of the King', bs: 'The Return of the King' },
-      { en: 'The Hobbit', bs: 'The Hobbit' },
+      { en: 'The Hobbit: An Unexpected Journey', bs: 'Hobit: An Unexpected Journey' },
     ],
     correctIndex: 2,
   },
@@ -602,8 +602,8 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'What is the name of the fictional drug that drives the plot of the TV series Breaking Bad?',
-      bs: 'Kako se zove izmišljena droga oko koje se vrti radnja serije Breaking Bad?'
+      en: 'What street name is used for Walter and Jesse’s distinctive blue methamphetamine in Breaking Bad?',
+      bs: 'Koji se ulični naziv koristi za prepoznatljivi plavi metamfetamin Waltera i Jesseja u seriji Breaking Bad?'
     },
     options: [
       { en: 'Blue Sky', bs: 'Blue Sky' },
@@ -636,8 +636,8 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'Which actor won an Oscar for playing a Nazi hunter in Inglourious Basterds?',
-      bs: 'Koji glumac je osvojio Oscara za ulogu nacističkog lovca u Nemilosrdnim gadovima?'
+      en: 'Which actor won an Oscar for playing SS officer Hans Landa in Inglourious Basterds?',
+      bs: 'Koji glumac je osvojio Oscara za ulogu SS oficira Hansa Lande u filmu Nemilosrdni gadovi?'
     },
     options: [
       { en: 'Christoph Waltz', bs: 'Christoph Waltz' },
@@ -670,8 +670,8 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'Which actor finally won his first Oscar for Once Upon a Time in Hollywood?',
-      bs: 'Koji glumac je konačno osvojio prvog Oscara za Bilo jednom u Hollywoodu?'
+      en: 'Which actor won his first acting Oscar for Once Upon a Time in Hollywood?',
+      bs: 'Koji glumac je za film Bilo jednom u Hollywoodu osvojio svog prvog Oscara za glumu?'
     },
     options: [
       { en: 'Brad Pitt', bs: 'Brad Pitt' },
@@ -704,8 +704,8 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'Which Marvel movie became the first to win an Oscar?',
-      bs: 'Koji Marvel film je prvi osvojio Oscara?'
+      en: 'Which Marvel Studios film was the first in the Marvel Cinematic Universe to win an Academy Award?',
+      bs: 'Koji film studija Marvel je prvi u Marvelovom filmskom univerzumu osvojio Oscara?'
     },
     options: [
       { en: 'Black Panther', bs: 'Black Panther' },
@@ -823,8 +823,8 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'What was the real name of Hodor before his condition in Game of Thrones?',
-      bs: 'Kako se Hodor zapravo zvao prije nego što je postao Hodor u serijalu Game of Thrones?'
+      en: 'What was Hodor’s birth name in the Game of Thrones television series?',
+      bs: 'Koje je bilo Hodorovo ime pri rođenju u televizijskoj seriji Igra prijestolja?'
     },
     options: [
       { en: 'Wylis', bs: 'Wylis' },
@@ -840,8 +840,8 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'Which actor played both a Game of Thrones character and a Star Wars character?',
-      bs: 'Koji glumac je imao ulogu u serijalima Igra prijestolja i Ratovi zvijezda?'
+      en: 'Which Game of Thrones actress played Captain Phasma in Star Wars?',
+      bs: 'Koja glumica iz Igre prijestolja je tumačila kapetanicu Phasmu u Ratovima zvijezda?'
     },
     options: [
       { en: 'Gwendoline Christie', bs: 'Gwendoline Christie' },
@@ -874,8 +874,8 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'What was the name of the giant prisoner in The Green Mile?',
-      bs: 'Kako se zvao ogromni zatvorenik u filmu Zelena milja?'
+      en: 'What is the name of the exceptionally tall prisoner in The Green Mile?',
+      bs: 'Kako se zove izuzetno visoki zatvorenik u filmu Zelena milja?'
     },
     options: [
       { en: 'John Coffey', bs: 'John Coffey' },
@@ -908,7 +908,7 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'Who directed film The Shining?',
+      en: 'Who directed the film The Shining?',
       bs: 'Ko je režirao film The Shining?'
     },
     options: [
@@ -976,8 +976,8 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'What was the name of Paul Edgecomb’s mouse in The Green Mile?',
-      bs: 'Kako se zvao miš Paula Edgecomba u filmu Zelena milja?'
+      en: 'What is the name of the mouse befriended by the prisoners in The Green Mile?',
+      bs: 'Kako se zove miš s kojim se zatvorenici sprijatelje u filmu Zelena milja?'
     },
     options: [
       { en: 'Mr. Jingles', bs: 'Gospodin Jingles' },
@@ -993,11 +993,11 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'What was Jim Carrey’s first major Hollywood comedy hit?',
-      bs: 'Koji je bio prvi veliki holivudski komični hit Jima Carreyja?'
+      en: 'Which 1994 comedy stars Jim Carrey as a detective and is often considered his first major hit??',
+      bs: 'U kojoj komediji iz 1994. godine Jim Carrey glumi detektiva, koji je često smatra njegovim prvim velikim hitom?'
     },
     options: [
-      { en: 'Ace Ventura: Pet Detective', bs: 'Ace Ventura: Pet Detective' },
+      { en: 'Ace Ventura', bs: 'Ace Ventura' },
       { en: 'The Mask', bs: 'Maska' },
       { en: 'Dumb and Dumber', bs: 'Glup i gluplji' },
       { en: 'Liar Liar', bs: 'Lažljivac' },
@@ -1112,8 +1112,8 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'Which actress has not played Mary Jane Watson in a Spider-Man movie?',
-      bs: 'Koja glumica nije glumila Mary Jane Watson u Spider-Man filmu?'
+      en: 'Which actress has not played MJ in a Spider-Man movie?',
+      bs: 'Koja glumica nije glumila MJ u Spider-Man filmovima?'
     },
     options: [
       { en: 'Kirsten Dunst', bs: 'Kirsten Dunst' },
@@ -1248,8 +1248,8 @@ export const moviesHard: Question[] = [
     category: 'movies',
     difficulty: 'hard',
     prompt: {
-      en: 'Which film became the first feature film shot entirely with IMAX film cameras?',
-      bs: 'Koji film je postao prvi dugometražni film u potpunosti snimljen IMAX filmskim kamerama?'
+      en: 'Which 2026 narrative feature was shot entirely with IMAX film cameras?',
+      bs: 'Koji dugometražni igrani film iz 2026. godine je u cijelosti snimljen IMAX filmskim kamerama?'
     },
     options: [
       { en: 'The Odyssey', bs: 'The Odyssey' },

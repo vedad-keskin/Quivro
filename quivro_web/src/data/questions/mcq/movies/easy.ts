@@ -58,8 +58,8 @@ export const moviesEasy: Question[] = [
     category: 'movies',
     difficulty: 'easy',
     prompt: {
-      en: 'In The Avengers, who can control the thunder?',
-      bs: 'U Avengersima, ko može upravljati gromom?'
+      en: 'Which Avenger is known for summoning lightning?',
+      bs: 'Koji Osvetnik je poznat po upravljanju munja?'
     },
     options: [
       { en: 'Loki', bs: 'Loki' },
@@ -109,8 +109,8 @@ export const moviesEasy: Question[] = [
     category: 'movies',
     difficulty: 'easy',
     prompt: {
-      en: 'In Jumanji, what object brings the jungle dangers to life?',
-      bs: 'U Jumanjiju, koji predmet oživljava opasnosti iz džungle?'
+      en: 'In Jumanji (1995), what object brings jungle dangers to life?',
+      bs: 'Koji predmet oživljava opasnosti iz džungle u filmu Jumanji iz 1995. godine?'
     },
     options: [
       { en: 'A board game', bs: 'Društvena igra' },
@@ -126,8 +126,8 @@ export const moviesEasy: Question[] = [
     category: 'movies',
     difficulty: 'easy',
     prompt: {
-      en: 'In The Office, who is the boss at the start?',
-      bs: 'U The Officeu, ko je šef na početku?'
+      en: 'Who manages the Scranton branch at the beginning of the US version of The Office?',
+      bs: 'Ko vodi podružnicu u Scrantonu na početku američke verzije serije The Office?'
     },
     options: [
       { en: 'Jim Halpert', bs: 'Jim Halpert' },
@@ -195,7 +195,7 @@ export const moviesEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'In which country is Slumdog Millionaire mainly set?',
-      bs: 'U kojoj zemlji se uglavnom dešava Slumdog Millionaire?'
+      bs: 'U kojoj se zemlji uglavnom odvija radnja filma Slumdog Millionaire?'
     },
     options: [
       { en: 'India', bs: 'Indiji' },
@@ -212,7 +212,7 @@ export const moviesEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'What does Tom Hanks’s character name his volleyball companion in Cast Away?',
-      bs: 'Kako lik kojeg glumi Tom Hanks u filmu Cast Away zove svoju loptu?'
+      bs: 'Kako lik kojeg glumi Tom Hanks u filmu Cast Away naziva svoju odbojkašku loptu?'
     },
     options: [
       { en: 'Wilson', bs: 'Wilson' },
@@ -262,8 +262,8 @@ export const moviesEasy: Question[] = [
     category: 'movies',
     difficulty: 'easy',
     prompt: {
-      en: 'What does Captain America carry into battle?',
-      bs: 'Šta Captain America nosi u bitku?'
+      en: 'What is Captain America’s signature defensive weapon?',
+      bs: 'Koje je prepoznatljivo odbrambeno oružje Kapetana Amerike?'
     },
     options: [
       { en: 'Shield', bs: 'Štit' },
@@ -330,8 +330,8 @@ export const moviesEasy: Question[] = [
     category: 'movies',
     difficulty: 'easy',
     prompt: {
-      en: 'What planet do the Na\'vi live on in Avatar?',
-      bs: 'Na kojoj planeti žive Na\'vi u Avataru?'
+      en: 'Where do the Na’vi live in Avatar?',
+      bs: 'Gdje žive Na’vi u filmu Avatar?'
     },
     options: [
       { en: 'Earth', bs: 'Zemlja' },
@@ -501,7 +501,7 @@ export const moviesEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Who is the villain with green hair and a purple suit in Batman stories?',
-      bs: 'Ko je negativac sa zelenom kosom i ljubičastim odijelom u Batman pričama?'
+      bs: 'Kako se zove negativac sa zelenom kosom i ljubičastim odijelom u Batmanovim pričama?'
     },
     options: [
       { en: 'Joker', bs: 'Joker' },
@@ -535,13 +535,13 @@ export const moviesEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'What type of competitions do players face in Squid Game?',
-      bs: 'U kakvim takmičenjima se igrači suočavaju u Igri lignje?'
+      bs: 'Kakve igre igraju takmičari u seriji Igra lignje?'
     },
     options: [
       { en: 'Deadly children\'s games', bs: 'Smrtonosne dječije igre' },
       { en: 'Cooking contests', bs: 'Kulinarska takmičenja' },
       { en: 'Singing shows', bs: 'Pjevačke emisije' },
-      { en: 'Car races', bs: 'Auto trke' },
+      { en: 'Car races', bs: 'Automobilske trke' },
     ],
     correctIndex: 0,
   },
@@ -551,8 +551,8 @@ export const moviesEasy: Question[] = [
     category: 'movies',
     difficulty: 'easy',
     prompt: {
-      en: 'How do the children enter the magical world in The Chronicles of Narnia?',
-      bs: 'Kako djeca ulaze u čarobni svijet u Hronikama Narnije?'
+      en: 'How do the children enter Narnia in 2005 movie?',
+      bs: 'Kako djeca ulaze u Narniju u filmu iz 2005. godine?'
     },
     options: [
       { en: 'Through a wardrobe', bs: 'Kroz ormar' },
@@ -637,7 +637,7 @@ export const moviesEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'In Ace Ventura: Pet Detective, who plays the title character?',
-      bs: 'U Ace Ventura: Pet Detective, ko glumi naslovnog lika?'
+      bs: 'Ko glumi naslovnog lika u filmu Ace Ventura: Pet Detective?'
     },
     options: [
       { en: 'Jim Carrey', bs: 'Jim Carrey' },
@@ -687,14 +687,14 @@ export const moviesEasy: Question[] = [
     category: 'movies',
     difficulty: 'easy',
     prompt: {
-      en: 'Which metal is connected to Wolverine’s skeleton in X-Men?',
-      bs: 'Koji metal je povezan sa Wolverineovim kosturom u X-Men-u?'
+      en: 'Which metal is bonded to Wolverine’s skeleton in the X-Men films?',
+      bs: 'Kojim je metalom obložen Wolverineov kostur u filmovima X-Men?'
     },
     options: [
-      { en: 'Adamantium', bs: 'Adamantij' },
-      { en: 'Vibranium', bs: 'Vibranij' },
-      { en: 'Iron', bs: 'Željezo' },
-      { en: 'Titanium', bs: 'Titanij' },
+      { en: 'Adamantium', bs: 'Adamantijem' },
+      { en: 'Vibranium', bs: 'Vibranijem' },
+      { en: 'Iron', bs: 'Željezom' },
+      { en: 'Titanium', bs: 'Titanijem' },
     ],
     correctIndex: 0,
   },
@@ -823,8 +823,8 @@ export const moviesEasy: Question[] = [
     category: 'movies',
     difficulty: 'easy',
     prompt: {
-      en: 'In Ocean\'s Eleven, what does Danny Ocean\'s crew plan to rob?',
-      bs: 'U filmu Ocean\'s Eleven, šta ekipa Dannyja Oceana planira opljačkati?',
+      en: 'In Ocean’s Eleven (2001), what does Danny Ocean’s crew plan to rob?',
+      bs: 'Šta ekipa Dannyja Oceana planira opljačkati u filmu Ocean’s Eleven iz 2001. godine?',
     },
     options: [
       { en: 'Three Las Vegas casinos', bs: 'Tri kazina u Las Vegasu' },
@@ -1254,7 +1254,7 @@ export const moviesEasy: Question[] = [
     options: [
       { en: 'Birdwatching', bs: 'Posmatranje ptica' },
       { en: 'Cooking contests', bs: 'Kulinarska takmičenja' },
-      { en: 'True crime', bs: 'Stvarni zločini' },
+      { en: 'True crime', bs: 'Priče o stvarnim zločinima' },
       { en: 'Collecting antiques', bs: 'Skupljanje antikviteta' },
     ],
     correctIndex: 2,
