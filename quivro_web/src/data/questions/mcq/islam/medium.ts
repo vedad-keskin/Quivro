@@ -34,11 +34,11 @@ export const islamMedium: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'medium',
-    prompt: { en: 'Who left as deputy in Medina when the Muslims marched to Badr?', bs: 'Koga je Poslanik ﷺ ostavio kao namjesnika u Medini pri odlasku na Bedr?' },
+    prompt: { en: 'Whom did the Prophet ﷺ leave as deputy in Medina when departing for Badr?', bs: 'Koga je Poslanik ﷺ ostavio kao namjesnika u Medini pri odlasku na Bedr?' },
     options: [
-      { en: 'Ali ibn Abi Talib', bs: 'Alija b. Ebi Talib' },
-      { en: 'Uthman ibn Affan', bs: 'Osmana b. Affan' },
-      { en: 'Abdullah ibn Umm Maktum', bs: 'Abdullaha b. Umm Mektum' },
+      { en: 'Ali ibn Abi Talib', bs: 'Aliju b. Ebi Taliba' },
+      { en: 'Uthman ibn Affan', bs: 'Osmana b. Affana' },
+      { en: 'Abdullah ibn Umm Maktum', bs: 'Abdullaha b. Umm Mektuma' },
       { en: 'Sa\'d ibn Mu\'adh', bs: 'Sa\'da b. Muaza' },
     ],
     correctIndex: 2,
@@ -117,12 +117,12 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { en: 'What stirred Hamza to confront Abu Jahl before he accepted Islam?', 
-              bs: 'Šta je pobudilo Hamzu da se suoči s Ebu Džehlom prije nego što je prihvatio islam?' },
+              bs: 'Šta je potaklo Hamzu da se suoči s Ebu Džehlom prije nego što je prihvatio islam?' },
     options: [
       { en: 'A written invitation from the Negus of Abyssinia', bs: 'Pismeni poziv od Nedžašije iz Abesinije' },
       { en: 'The Prophet\'s direct command at Mount Safa', bs: 'Poslanikov izravan nalog na brdu Safa' },
       { en: 'News that Quraysh had agreed to end the boycott', bs: 'Vijest da su Kurejšije pristale okončati bojkot' },
-      { en: 'Women of Banu Hashim lamenting that no one defended Muhammad', bs: 'Žene iz Banu Hašima koje su žalile što niko ne brani Muhammeda' },
+      { en: 'News that Abu Jahl had insulted and mistreated Muhammad ﷺ', bs: 'Vijest da je Ebu Džehl vrijeđao i zlostavljao Muhammeda ﷺ' },
     ],
     correctIndex: 3,
   },
@@ -276,7 +276,7 @@ export const islamMedium: Question[] = [
       bs: 'Koji je bio jedan od znakova koji su se pojavili prije nego što je Poslanik Muhammed ﷺ primio Objavu?',
     },
     options: [
-      { en: 'He began seeing true dreams that came true the next day', bs: 'Počeo je sanjati istinite snove koji bi se ostvarili narednog dana' },
+      { en: 'He began seeing truthful dreams that came true', bs: 'Počeo je sanjati istinite snove koji su se ostvarivali' },
       { en: 'He began receiving messages from rulers of neighboring lands', bs: 'Počeo je primati poruke od vladara susjednih zemalja' },
       { en: 'He was taught the Qur’an by people of Makkah', bs: 'Stanovnici Meke su ga podučavali Kur’anu' },
       { en: 'He was given leadership over Quraysh', bs: 'Dobio je vodstvo nad Kurejšijama' },
@@ -305,8 +305,8 @@ export const islamMedium: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'medium',
-    prompt: { en: 'According to the Qur\'an, who built the Kaaba?',
-              bs: 'Prema Kur\'anu, ko je sagradio Kabu?' },
+    prompt: { en: 'According to Qur’an, who raised the foundations of the Kaaba?',
+              bs: 'Prema Kur’anu, ko je podizao temelje Kabe?' },
     options: [
       { en: 'Nuh and Lut', bs: 'Nuh i Lut' },
       { en: 'Dawud and Sulayman', bs: 'Davud i Sulejman' },
@@ -355,8 +355,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'Who was the first person to accept Islam among the first Muslims?',
-      bs: 'Ko je bila prva osoba koja je prihvatila islam među prvim muslimanima?',
+      en: 'Who was the first person to accept Prophet Muhammad’s ﷺ message?',
+      bs: 'Ko je prvi prihvatio poruku poslanika Muhammeda ﷺ?',
     },
     options: [
       { en: 'Khadijah bint Khuwaylid, may Allah be pleased with her', bs: 'Hatidža bint Huvejlid, radijallahu anha' },
@@ -372,8 +372,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'Which surahs did Prophet Muhammad ﷺ mention as causing his hair to turn gray due to their weight and meaning?',
-      bs: 'Koje sure je Poslanik Muhammed ﷺ spomenuo kao razlog pojave sijedih vlasi zbog njihove težine i značenja?',
+      en: 'Which of these groups contains surahs named in the report about the Prophet’s ﷺ hair turning gray?',
+      bs: 'Koja od ovih grupa sadrži sure spomenute u predaji o pojavi sijedih vlasi Poslanika ﷺ?',
     },
     options: [
       { en: 'Al-Fatihah, Al-Ikhlas, and Al-Kawthar', bs: 'El-Fatiha, El-Ihlas i El-Kevser' },
@@ -389,8 +389,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'After which surah did Prophet Muhammad ﷺ begin the secret call to Islam?',
-      bs: 'Nakon koje sure je Poslanik Muhammed ﷺ započeo tajno pozivanje u islam?',
+      en: 'Which surah contains the early command to the Prophet ﷺ to arise and warn, beginning the secret call to Islam?',
+      bs: 'Koja sura sadrži ranu naredbu Poslaniku ﷺ da ustane i opominje, tako pokrenuvši tajno pozivanje u Islam?',
     },
     options: [
       { en: 'Al-Muddaththir', bs: 'El-Mudessir' },
@@ -540,14 +540,14 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'Whom did Waraqah ibn Nawfal say had brought the same revelation that came to Prophet Muhammad ﷺ?',
-      bs: 'Za koga je Vereka b. Nevfel rekao da je donio istu objavu koja je došla Poslaniku Muhammedu ﷺ?'
+      en: 'Waraqah ibn Nawfal said the angel who came to Muhammad ﷺ was the same one Allah had sent to which prophet?',
+      bs: 'Prema riječima Vereke b. Nevfela, kojem poslaniku je Allah ranije poslao meleka koji je došao Muhammedu ﷺ?'
     },
     options: [
-      { en: 'Musa (Moses)', bs: 'Musa, alejhis-selam' },
-      { en: 'Isa (Jesus)', bs: 'Isa, alejhis-selam' },
-      { en: 'Nuh (Noah)', bs: 'Nuh, alejhis-selam' },
-      { en: 'Ibrahim (Abraham)', bs: 'Ibrahim, alejhis-selam' },
+      { en: 'Musa (Moses)', bs: 'Musau, alejhis-selam' },
+      { en: 'Isa (Jesus)', bs: 'Isi, alejhis-selam' },
+      { en: 'Nuh (Noah)', bs: 'Nuhu, alejhis-selam' },
+      { en: 'Ibrahim (Abraham)', bs: 'Ibrahimu, alejhis-selam' },
     ],
     correctIndex: 0,
   },
@@ -575,13 +575,13 @@ export const islamMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'When was the qibla changed from Jerusalem to the Kaaba?',
-      bs: 'Kada je kibla promijenjena sa Jerusalema prema Kabi?',
+      bs: 'Kada je kibla preusmjerena s Jerusalema prema Kabi?',
     },
     options: [
       { en: 'Before the migration to Madinah', bs: 'Prije hidžre u Medinu' },
       { en: '2 AH during the Medinan period', bs: '2. h.g. u medinskom periodu' },
       { en: 'After the conquest of Makkah', bs: 'Nakon oslobođenja Meke' },
-      { en: 'During the farewell pilgrimage', bs: 'Tokom Oprosnog hadža' },
+      { en: 'During the farewell pilgrimage', bs: 'Tokom Oproštajnog hadža' },
     ],
     correctIndex: 1,
   },
@@ -592,7 +592,7 @@ export const islamMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Who was the first person to call the adhan in Islam?',
-      bs: 'Ko je bio prva osoba koja je učila ezan u islamu?',
+      bs: 'Ko je prvi učio ezan u islamu?',
     },
     options: [
       { en: 'Bilal ibn Rabah', bs: 'Bilal b. Rabah' },
@@ -639,8 +639,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'Which city is Imam al-Shafi\'i buried in and most strongly associated with?',
-      bs: 'U kojem gradu je pokopan imam Šafi’i i s kojim je najviše povezan?',
+      en: 'In which city is Imam al-Shafi‘i buried?',
+      bs: 'U kojem je gradu ukopan imam Šafii?',
     },
     options: [
       { en: 'Cairo', bs: 'Kairo' },
@@ -823,7 +823,7 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'Which companion was known as "The Translator of the Quran"?',
+      en: 'Which companion was known as an interpreter of the Qur’an?',
       bs: 'Koji ashab je bio poznat kao "Tumač Kur\'ana"?'
     },
     options: [
@@ -841,13 +841,13 @@ export const islamMedium: Question[] = [
     difficulty: 'medium',
     prompt: { 
       en: 'What is Mikail, one of the greatest angels, associated with by Allah’s command?',
-      bs: 'S čim se povezuje Mikail, jedan od velikih meleka, Allahovom dozvolom?'
+      bs: 'S kojim zadacima se povezuje melek Mikail, koji djeluje po Allahovoj naredbi?'
     },
     options: [
       { en: 'Recording people’s deeds', bs: 'Zapisivanjem ljudskih djela' },
-      { en: 'Taking souls at death', bs: 'Uzimanje duša prilikom smrti' },
+      { en: 'Taking souls at death', bs: 'Uzimanjem duša prilikom smrti' },
       { en: 'Delivering revelation to prophets', bs: 'Donošenjem objave poslanicima' },
-      { en: 'Provision and rain', bs: 'Opskrbom i kišom' },
+      { en: 'Provision and rain', bs: 'Opskrba i kiša' },
     ],
     correctIndex: 3,
   },
@@ -908,8 +908,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'Which angel is known as the guardian of Paradise?',
-      bs: 'Koji melek je poznat kao čuvar Dženneta?'
+      en: 'In Islamic tradition, what name is commonly given to the guardian of Paradise?',
+      bs: 'Koje se ime u islamskim predajama uobičajeno navodi za čuvara Dženneta?'
     },
     options: [
       { en: 'Ridwan', bs: 'Ridvan' },
@@ -925,7 +925,7 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'Which angels are mentioned in the Quran as being tested with a trial in Babylon?',
+      en: 'Which two angels are mentioned in the Qur’an in connection with a trial in Babylon?',
       bs: 'Koji meleci se spominju u Kur’anu u vezi s iskušenjem u Babilonu?'
     },
     options: [
@@ -1208,7 +1208,7 @@ export const islamMedium: Question[] = [
     type: 'mcq',
     category: 'islam',
     difficulty: 'medium',
-    prompt: { en: 'The three surahs commonly recited for protection (Mu\'awwidhat) begin with:', bs: 'Tri sure koje se često proučavaju za zaštitu (Mu\'avvizat) počinju sa:' },
+    prompt: { en: 'Which three surahs are commonly recited together for protection?', bs: 'Koje se tri sure često uče zajedno radi zaštite?' },
     options: [
       { en: 'Al-Baqara, Al-Imran, An-Nisa', bs: 'El-Bekara, Ali Imran, En-Nisa' },
       { en: 'An-Nas, Al-Falaq, and Al-Ikhlas', bs: 'En-Nas, El-Felek i El-Ihlas' },
@@ -1393,8 +1393,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: { 
-      en: 'What reward did Quraysh offer for capturing Prophet Muhammad ﷺ and Abu Bakr?',
-      bs: 'Kakvu nagradu su Kurejšije ponudile za hvatanje Poslanika Muhammeda ﷺ i Ebu Bekra?'
+      en: 'What reward did Quraysh offer for the capture of either Prophet Muhammad ﷺ or Abu Bakr during the Hijrah?',
+      bs: 'Kakvu nagradu su Kurejšije tokom Hidžre ponudile za hvatanje Poslanika Muhammeda ﷺ ili Ebu Bekra, za svakog od njih zasebno?'
     },
     options: [
       { en: 'Fifty camels', bs: 'Pedeset deva' },
@@ -1414,10 +1414,10 @@ export const islamMedium: Question[] = [
       bs: 'Za koga se udala Fatima, kćerka Poslanika Muhammeda ﷺ?'
     },
     options: [
-      { en: 'Umar ibn al-Khattab', bs: 'Omera b. Hattab' },
-      { en: 'Ali ibn Abi Talib', bs: 'Alija b. Ebi Talib' },
-      { en: 'Uthman ibn Affan', bs: 'Osmana b. Affan' },
-      { en: 'Zayd ibn Harithah', bs: 'Zeida b. Harise' },
+      { en: 'Umar ibn al-Khattab', bs: 'Omera b. Hattaba' },
+      { en: 'Ali ibn Abi Talib', bs: 'Aliju b. Ebi Taliba' },
+      { en: 'Uthman ibn Affan', bs: 'Osmana b. Affana' },
+      { en: 'Zayd ibn Harithah', bs: 'Zejda b. Harise' },
     ],
     correctIndex: 1,
   },
@@ -1665,8 +1665,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'How many statements does Ayat al-Kursi contain according to its explanation?',
-      bs: 'Koliko rečenica sadrži Ajetul-kursija prema njegovom tefsiru?',
+      en: 'According to Tafsir Ibn Kathir, how many complete Arabic sentences does Ayat al-Kursi (Qur’an 2:255) contain?',
+      bs: 'Prema tefsiru Ibn Kesira, koliko potpunih arapskih rečenica sadrži Ajetul-kursija (El-Bekare, 255)?',
     },
     options: [
       { en: 'Five', bs: 'Pet' },
@@ -1700,10 +1700,10 @@ export const islamMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'What does the word "Duha" refer to?',
-      bs: 'Na šta se odnosi riječ "Duha"?',
+      bs: 'Na šta se odnosi riječ „Duha“?',
     },
     options: [
-      { en: 'The morning period after sunrise until before noon', bs: 'Jutarnji period od izlaska sunca do prijepodneva' },
+      { en: 'The morning period after sunrise until before noon', bs: 'Prijepodnevni period nakon izlaska sunca' },
       { en: 'The darkness of the night', bs: 'Tminu noći' },
       { en: 'The time of sunset', bs: 'Vrijeme zalaska sunca' },
       { en: 'The middle of the night', bs: 'Sredinu noći' },
@@ -1716,8 +1716,8 @@ export const islamMedium: Question[] = [
     category: 'islam',
     difficulty: 'medium',
     prompt: {
-      en: 'Who led the army that marched toward Makkah to destroy the Kaaba according to Surah Al-Fil?',
-      bs: 'Ko je predvodio vojsku koja je, prema suri El-Fil, krenula prema Meki da uništi Kabu?',
+      en: 'In traditional tafsir and seerah accounts, who led the Army of the Elephant associated with Surah Al-Fil?',
+      bs: 'Prema tradicionalnom tefsiru i siri, ko je predvodio vojsku slona povezanu sa surom El-Fil?',
     },
     options: [
       { en: 'Abraha, the ruler of Yemen', bs: 'Ebreha, vladar Jemena' },

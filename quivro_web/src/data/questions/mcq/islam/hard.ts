@@ -398,8 +398,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: { 
-      en: 'How long was the truce between Muslims and Quraysh according to the Treaty of Hudaybiyyah?',
-      bs: 'Koliko je trajalo primirje između muslimana i Kurejšija prema Sporazumu na Hudejbiji?'
+      en: 'What duration of truce was agreed in the Treaty of Hudaybiyyah?',
+      bs: 'Na koliko je godina ugovoreno primirje Sporazumom na Hudejbiji?'
     },
     options: [
       { en: 'Five years', bs: 'Pet godina' },
@@ -438,7 +438,7 @@ export const islamHard: Question[] = [
     options: [
       { en: '700 Muslims', bs: '700 muslimana' },
       { en: '1,000 Muslims', bs: '1.000 muslimana' },
-      { en: '1,400 Muslims', bs: '1.400 muslimana' },
+      { en: '2,000 Muslims', bs: '2.000 muslimana' },
       { en: '1,600 Muslims', bs: '1.600 muslimana' },
     ],
     correctIndex: 3,
@@ -454,7 +454,7 @@ export const islamHard: Question[] = [
     },
     options: [
       { en: 'Umar ibn al-Khattab', bs: 'Omeru b. Hattabu' },
-      { en: 'Ali ibn Abi Talib', bs: 'Aliju b. Ebu Talibu' },
+      { en: 'Ali ibn Abi Talib', bs: 'Aliji b. Ebi Talibu' },
       { en: 'Abu Bakr', bs: 'Ebu Bekru' },
       { en: 'Khalid ibn al-Walid', bs: 'Halidu b. Velidu' },
     ],
@@ -471,7 +471,7 @@ export const islamHard: Question[] = [
     },
     options: [
       { en: 'He was injured in battle', bs: 'Bio je povrijeđen u bici' },
-      { en: 'He had pain in his eyes', bs: 'Boljela su ga oči' },
+      { en: 'He had pain in his eyes', bs: 'Boljele su ga oči' },
       { en: 'He was unable to walk', bs: 'Nije mogao hodati' },
       { en: 'He had lost his weapon', bs: 'Izgubio je oružje' },
     ],
@@ -568,8 +568,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Who was the last wife of the Prophet Muhammad ﷺ?',
-      bs: 'Koja je bila posljednja supruga Poslanika Muhammeda ﷺ?',
+      en: 'Who was the last woman Prophet Muhammad ﷺ married?',
+      bs: 'Kako se zove posljednja žena kojom se poslanik Muhammed ﷺ oženio?',
     },
     options: [
       { en: 'Aisha bint Abi Bakr', bs: 'Aiša bint Ebu Bekr' },
@@ -753,8 +753,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which Quranic verse was revealed regarding the Battle of Hunayn?',
-      bs: 'Koji ajet je objavljen povodom Bitke na Hunejnu?'
+      en: 'Which Qur’anic verses mention the Battle of Hunayn?',
+      bs: 'Koji kur’anski ajeti spominju Bitku na Hunejnu?'
     },
     options: [
       { en: 'Surah At-Tawbah, verses 25-26', bs: 'Sura Et-Tevba, ajeti 25-26' },
@@ -876,7 +876,7 @@ export const islamHard: Question[] = [
       bs: 'Šta se dogodilo kada su muslimani stigli na Tebuk?'
     },
     options: [
-      { en: 'The Byzantine army withdrew and no battle took place', bs: 'Bizantijska vojska se povukla i nije došlo do bitke' },
+      { en: 'They did not encounter a Byzantine army, and no battle took place', bs: 'Nisu susreli bizantijsku vojsku i nije došlo do bitke' },
       { en: 'The Muslims were immediately defeated', bs: 'Muslimani su odmah poraženi' },
       { en: 'The Muslims returned before reaching Tabuk', bs: 'Muslimani su se vratili prije dolaska na Tebuk' },
       { en: 'The Muslims made peace before preparing the army', bs: 'Muslimani su sklopili mir prije pripreme vojske' }
@@ -923,7 +923,7 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which companion was given a funeral prayer in absentia after his death as ruler of Abyssinia?',
+      en: 'For which ruler did the Prophet ﷺ perform a funeral prayer in absentia?',
       bs: 'Kojem vladaru je klanjana dženaza u odsustvu nakon njegove smrti?'
     },
     options: [
@@ -1097,8 +1097,8 @@ export const islamHard: Question[] = [
       bs: 'Šta je bilo među posljednjim stvarima koje je Poslanik ﷺ koristio na ovom svijetu?'
     },
     options: [
-      { en: 'The miswak of Aisha, radijallahu anha', bs: 'Misvak Aiše, radijallahu anha' },
-      { en: 'A sword from a Battle of Badr', bs: 'Mač bitke sa Bedra' },
+      { en: 'A miswak brought by Abd al-Rahman and softened by Aisha', bs: 'Misvak koji je donio Abdurrahman, a Aiša omekšala' },
+      { en: 'A sword from a Battle of Badr', bs: 'Mač iz bitke na Bedru' },
       { en: 'A gift from a delegation', bs: 'Poklon jedne delegacije' },
       { en: 'A piece of cloth from the Ka‘bah', bs: 'Komad platna od Kabe' }
     ],
@@ -1127,8 +1127,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'How long was the Prophet’s ﷺ hair approximately?',
-      bs: 'Dokle je otprilike dosezala kosa Poslanika ﷺ?'
+      en: 'According to one description by al-Bara ibn Azib, how far did the Prophet’s ﷺ hair reach?',
+      bs: 'Prema jednom opisu Beraa b. Aziba, dokle je dosezala kosa Poslanika ﷺ?'
     },
     options: [
       { en: 'To his shoulders', bs: 'Do njegovih ramena' },
@@ -1217,7 +1217,7 @@ export const islamHard: Question[] = [
     },
     options: [
       { en: 'A pigeon egg', bs: 'Golubijim jajetom' },
-      { en: 'A date fruit', bs: 'Hurminom košpicom' },
+      { en: 'A date fruit', bs: 'Hurminim plodom' },
       { en: 'A coin', bs: 'Novčićem' },
       { en: 'A pearl', bs: 'Biserom' }
     ],
@@ -1263,8 +1263,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which color of clothing did the Prophet ﷺ commonly wear?',
-      bs: 'Koju boju odjeće je Poslanik ﷺ često nosio?'
+      en: 'Which color of clothing did the Prophet ﷺ recommend in the report narrated by Ibn Abbas?',
+      bs: 'Koju odjeću je Poslanik ﷺ preporučio u predaji Ibn Abbasa?'
     },
     options: [
       { en: 'White clothing', bs: 'Bijelu odjeću' },
@@ -1314,8 +1314,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which miracle occurred when the companions needed water?',
-      bs: 'Koja mudžiza se dogodila kada su ashabi trebali vodu?'
+      en: 'In the reported miracle involving a vessel with a small amount of water, what happened when the Prophet ﷺ placed his hand in it?',
+      bs: 'Šta se, prema predaji o mudžizi s posudom u kojoj je bilo malo vode, dogodilo kada je Poslanik ﷺ stavio ruku u nju?'
     },
     options: [
       { en: 'Water flowed between the Prophet’s fingers', bs: 'Voda je potekla između Poslanikovih prstiju' },
@@ -1382,14 +1382,14 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Where was the stone of the Prophet’s ﷺ ring from?',
-      bs: 'Odakle je bio kamenčić na prstenu Poslanika ﷺ?'
+      en: 'How does the narration of Anas describe the stone in the Prophet’s ﷺ silver ring?',
+      bs: 'Kako se u Enesovoj predaji opisuje kamen na srebrenom prstenu Poslanika ﷺ?'
     },
     options: [
-      { en: 'Abyssinia', bs: 'Abesinija' },
-      { en: 'Yemen', bs: 'Jemen' },
-      { en: 'Persia', bs: 'Perzija' },
-      { en: 'Syria', bs: 'Šam' }
+      { en: 'Abyssinian', bs: 'Abesinski' },
+      { en: 'Yemeni', bs: 'Jemenski' },
+      { en: 'Persian', bs: 'Perzijski' },
+      { en: 'Syrian', bs: 'Šamski' }
     ],
     correctIndex: 0
   },
@@ -1535,8 +1535,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'How many times did the Prophet ﷺ usually pause while drinking?',
-      bs: 'Koliko puta je Poslanik ﷺ pravio predah prilikom pijenja?'
+      en: 'According to Anas’s report, in how many portions did the Prophet ﷺ drink, taking pauses outside the vessel?',
+      bs: 'Prema Enesovoj predaji, u koliko navrata je Poslanik ﷺ pio iz posude, odmičući je od usta kako bi predahnuo?'
     },
     options: [
       { en: 'Three times', bs: 'Tri puta' },
@@ -1608,8 +1608,8 @@ export const islamHard: Question[] = [
     },
     options: [
       { en: 'Under his right cheek', bs: 'Ispod desnog obraza' },
-      { en: 'Under his head', bs: 'Ispod glave' },
-      { en: 'On his chest', bs: 'Na prsa' },
+      { en: 'On his abdomen', bs: 'Na stomaku' },
+      { en: 'On his chest', bs: 'Na prsima' },
       { en: 'Under his left shoulder', bs: 'Ispod lijevog ramena' }
     ],
     correctIndex: 0
@@ -1705,8 +1705,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'According to a narration from Aisha, how many rakahs did the Prophet usually pray at night?',
-      bs: 'Prema predaji Aiše, koliko je rekata Poslanik, sallallahu alejhi ve sellem, obično klanjao tokom noći?'
+      en: 'In Aisha’s report in Sahih al-Bukhari, what number of rakahs did the Prophet ﷺ not exceed in night prayer, in Ramadan or other months?',
+      bs: 'Prema Aišinoj predaji u Sahihu Buharije, koji broj rekata Poslanik ﷺ nije premašivao u noćnom namazu, ni u ramazanu ni izvan njega?'
     },
     options: [
       { en: 'Eleven rakahs', bs: 'Jedanaest rekata' },
@@ -1977,8 +1977,8 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'Which of the Prophet’s ﷺ ancestors built and founded Dar al-Nadwa, the first council where the elder members of the tribe gathered to discuss matters of social importance?',
-      bs: 'Koji je od Poslanikovih ﷺ predaka sagradio i osnovao Daru-Nedve, prvi parlament gdje su stariji članovi plemena dolazili da rasprave stvari od društvenog značaja?',
+      en: 'Which ancestor of the Prophet ﷺ founded Dar al-Nadwa, the Quraysh council house in Mecca?',
+      bs: 'Koji je predak Poslanika ﷺ osnovao Daru-Nedvu, mjesto vijećanja Kurejšija u Meki?',
     },
     options: [
       { en: 'Hashim', bs: 'Hašim' },
@@ -2028,23 +2028,6 @@ export const islamHard: Question[] = [
     category: 'islam',
     difficulty: 'hard',
     prompt: {
-      en: 'According to a hadith in Sahih al-Bukhari and Sahih Muslim, for whom was the sun held back as a miracle when he was traveling toward Bayt al-Maqdis?',
-      bs: 'Prema hadisu u Sahihu Buharije i Muslima, kome je sunce bilo zadržano kao mudžiza kada je išao prema Bejtul-Makdisu?'
-    },
-    options: [
-      { en: 'Yunus ibn Matta', bs: 'Junus ibn Metta' },
-      { en: 'Yusha‘ ibn Nun', bs: 'Juša‘ ibn Nun' },
-      { en: 'Uways al-Qarni', bs: 'Uvejs el-Karni' },
-      { en: 'Abdullah ibn Mas‘ud', bs: 'Abdullah ibn Mesud' },
-    ],
-    correctIndex: 1,
-  },
-  {
-    id: 'islam-hard-124',
-    type: 'mcq',
-    category: 'islam',
-    difficulty: 'hard',
-    prompt: {
       en: 'The Prophet ﷺ was so pleased to have been part of the Hilf al-Fudul alliance that he said he would not exchange his participation in it even for…',
       bs: 'Za šta Poslanik ﷺ, prema vlastitim riječima, ne bi mijenjao svoje učešće u savezu Hilful-fudul?',
     },
@@ -2057,7 +2040,7 @@ export const islamHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'islam-hard-125',
+    id: 'islam-hard-124',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
@@ -2074,7 +2057,7 @@ export const islamHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'islam-hard-126',
+    id: 'islam-hard-125',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',
@@ -2091,7 +2074,7 @@ export const islamHard: Question[] = [
     correctIndex: 0,
   },
   {
-    id: 'islam-hard-127',
+    id: 'islam-hard-126',
     type: 'mcq',
     category: 'islam',
     difficulty: 'hard',

@@ -1563,8 +1563,8 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: {
-      en: 'Which famous army disappeared after invading Russia in 1812?',
-      bs: 'Koja poznata vojska je gotovo uništena nakon invazije na Rusiju 1812. godine?',
+      en: 'Which army suffered catastrophic losses during its invasion of Russia in 1812?',
+      bs: 'Koja vojska je pretrpjela katastrofalne gubitke tokom invazije na Rusiju 1812. godine?',
     },
     options: [
       { en: 'Napoleon’s Army', bs: 'Napoleonova armija' },
