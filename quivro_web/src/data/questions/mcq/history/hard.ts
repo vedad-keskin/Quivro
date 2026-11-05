@@ -53,8 +53,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which empire built Machu Picchu?',
-              bs: 'Koje carstvo je sagradilo Machu Picchu?' },
+    prompt: { en: 'Which people built Machu Picchu?',
+              bs: 'Koji narod je izgradio Machu Picchu?' },
     options: [
       { en: 'Aztec', bs: 'Asteci' },
       { en: 'Maya', bs: 'Maje' },
@@ -146,8 +146,8 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { 
-      en: 'Which prehistoric site in Turkey is older than Stonehenge and the Egyptian pyramids?',
-      bs: 'Koje prahistorijsko nalazište u Turskoj je starije od Stonehengea i egipatskih piramida?'
+      en: 'Which prehistoric site in Turkey is known for monumental enclosures with T-shaped stone pillars that predates Stonehenge and the Egyptian pyramids?',
+      bs: 'Koje je prahistorijsko nalazište u Turskoj poznato po monumentalnim strukturama s kamenim stubovima u obliku slova T, koje su starije od Stonehengea i egipatskih piramida??'
     },
     options: [
       { en: 'Göbekli Tepe', bs: 'Göbekli Tepe' },
@@ -188,23 +188,6 @@ export const historyHard: Question[] = [
       { en: 'Kublai Khan', bs: 'Kublaj-kan' },
     ],
     correctIndex: 1,
-  },
-  {
-    id: 'hist-hard-013',
-    type: 'mcq',
-    category: 'history',
-    difficulty: 'hard',
-    prompt: {
-      en: 'In which hall was the German Empire proclaimed in 1871?',
-      bs: 'U kojoj dvorani je proglašeno Njemačko Carstvo 1871. godine?',
-    },
-    options: [
-      { en: 'Hall of Mirrors', bs: 'Dvorana ogledala' },
-      { en: 'Westminster Hall', bs: 'Westminsterska dvorana' },
-      { en: 'Independence Hall', bs: 'Dvorana nezavisnosti' },
-      { en: 'Great Hall of the People', bs: 'Velika narodna dvorana' },
-    ],
-    correctIndex: 0,
   },
   {
     id: 'hist-hard-014',
@@ -282,23 +265,6 @@ export const historyHard: Question[] = [
     correctIndex: 1,
   },
   {
-    id: 'hist-hard-019',
-    type: 'mcq',
-    category: 'history',
-    difficulty: 'hard',
-    prompt: {
-      en: 'In which hall was the German Empire proclaimed in 1871?',
-      bs: 'U kojoj dvorani je proglašeno Njemačko Carstvo 1871. godine?',
-    },
-    options: [
-      { en: 'Hall of Mirrors', bs: 'Dvorana ogledala' },
-      { en: 'Westminster Hall', bs: 'Westminsterska dvorana' },
-      { en: 'Independence Hall', bs: 'Dvorana nezavisnosti' },
-      { en: 'Great Hall of the People', bs: 'Velika narodna dvorana' },
-    ],
-    correctIndex: 0,
-  },
-  {
     id: 'hist-hard-020',
     type: 'mcq',
     category: 'history',
@@ -365,8 +331,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Roman emperor made Christianity legal with the Edict of Milan?',
-              bs: 'Koji je rimski car legalizovao hrišćanstvo Milanskim ediktom?' },
+    prompt: { en: 'Which emperor, together with Licinius, issued the Edict of Milan in 313 CE, which made Christianity legal?',
+              bs: 'Koji je car, zajedno s Licinijem, izdao Milanski edikt 313. godine n. e., koji je legalizovao kršćanstvo?' },
     options: [
       { en: 'Constantine I', bs: 'Konstantin I' },
       { en: 'Nero', bs: 'Neron' },
@@ -445,8 +411,8 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: {
-      en: 'At which bridge was Archduke Franz Ferdinand assassinated in 1914?',
-      bs: 'Na kojem je mostu izvršen atentat na nadvojvodu Franza Ferdinanda 1914. godine?',
+      en: 'Near which Sarajevo bridge was Archduke Franz Ferdinand assassinated in 1914?',
+      bs: 'U blizini kojeg sarajevskog mosta je 1914. godine izvršen atentat na nadvojvodu Franca Ferdinanda?',
     },
     options: [
       { en: 'Latin Bridge', bs: 'Latinska ćuprija' },
@@ -587,8 +553,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which Ming emperor sponsored the early 15th-century treasure voyages?',
-              bs: 'Koji car dinastije Ming je sponzorisao putovanja flota blaga početkom 15. vijeka?' },
+    prompt: { en: 'Which Ming emperor sponsored Zheng He’s first treasure voyage in 1405?',
+              bs: 'Koji car dinastije Ming je finansirao prvo pomorsko putovanje Zheng Hea 1405. godine?' },
     options: [
       { en: 'The Yongle Emperor', bs: 'Car Yongle' },
       { en: 'The Hongwu Emperor', bs: 'Car Hongwu' },
@@ -801,8 +767,8 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: {
-      en: 'Which medieval university is older than the Aztec Empire?',
-      bs: 'Koji srednjovjekovni univerzitet je stariji od Astečkog carstva?'
+      en: 'At which university is teaching documented as early as 1096?',
+      bs: 'Na kojem je univerzitetu nastava zabilježena već 1096. godine?'
     },
     options: [
       { en: 'University of Oxford', bs: 'Univerzitet u Oxfordu' },
@@ -818,8 +784,8 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: {
-      en: 'Which Roman emperor was born in the Balkans and later became one of Rome’s greatest rulers?',
-      bs: 'Koji rimski car je rođen na Balkanu i kasnije postao jedan od najvećih rimskih vladara?'
+      en: 'Which Roman emperor built the palace that forms the historic core of Split?',
+      bs: 'Koji rimski car izgradio je palaču koja čini historijsku jezgru Splita?'
     },
     options: [
       { en: 'Diocletian', bs: 'Dioklecijan' },
@@ -948,14 +914,14 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: {
-      en: 'Which ancient people created the first known vending machine?',
-      bs: 'Koji drevni narod je napravio prvi poznati automat za prodaju?'
+      en: 'Which ancient engineer described a coin-operated dispenser for holy water?',
+      bs: 'Koji antički inženjer je opisao aparat koji je nakon ubacivanja novčića izdavao svetu vodu?'
     },
     options: [
-      { en: 'Ancient Greeks', bs: 'Stari Grci' },
-      { en: 'Romans', bs: 'Rimljani' },
-      { en: 'Egyptians', bs: 'Egipćani' },
-      { en: 'Persians', bs: 'Perzijanci' },
+      { en: 'Hero of Alexandria', bs: 'Heron Aleksandrijski' },
+      { en: 'Archimedes', bs: 'Arhimed' },
+      { en: 'Vitruvius', bs: 'Vitruvije' },
+      { en: 'Ptolemy', bs: 'Ptolemej' },
     ],
     correctIndex: 0,
   },
@@ -999,10 +965,10 @@ export const historyHard: Question[] = [
       bs: 'Koja životinja je bila sveta u drevnom Egiptu?'
     },
     options: [
-      { en: 'Cats', bs: 'Mačke' },
-      { en: 'Dogs', bs: 'Psi' },
-      { en: 'Horses', bs: 'Konji' },
-      { en: 'Elephants', bs: 'Slonovi' },
+      { en: 'Cats', bs: 'Mačka' },
+      { en: 'Fish', bs: 'Riba' },
+      { en: 'Horses', bs: 'Konj' },
+      { en: 'Elephants', bs: 'Slon' },
     ],
     correctIndex: 0,
   },
@@ -1046,14 +1012,14 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: {
-      en: 'Which ancient civilization built underground cities in Cappadocia?',
-      bs: 'Koja drevna civilizacija je izgradila podzemne gradove u Kapadokiji?'
+      en: 'In which region of Turkey is the underground city of Derinkuyu?',
+      bs: 'U kojoj se regiji Turske nalazi podzemni grad Derinkuyu?'
     },
     options: [
-      { en: 'Phrygians', bs: 'Frigijci' },
-      { en: 'Romans', bs: 'Rimljani' },
-      { en: 'Vikings', bs: 'Vikinzi' },
-      { en: 'Maya', bs: 'Maje' },
+      { en: 'Cappadocia', bs: 'Kapadokija' },
+      { en: 'Thrace', bs: 'Trakija' },
+      { en: 'Lycia', bs: 'Likija' },
+      { en: 'Bithynia', bs: 'Bitinija' },
     ],
     correctIndex: 0,
   },
@@ -1063,8 +1029,8 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: {
-      en: 'Which ancient civilization used a zero symbol in mathematics before many others?',
-      bs: 'Koja drevna civilizacija je koristila broj nula u matematici prije mnogih drugih?'
+      en: 'Which civilization developed the decimal place-value numeral system that uses zero as a number?',
+      bs: 'Koja civilizacija je razvila decimalni pozicioni brojevni sistem u kojem se nula koristi kao broj?'
     },
     options: [
       { en: 'Indians', bs: 'Indijci' },
@@ -1079,8 +1045,8 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which 19th-century Ottoman reform program modernized law, administration, and the military along European lines?',
-              bs: 'Koji je osmanski reformski program 19. vijeka modernizovao pravo, upravu i vojsku po evropskom uzoru?' },
+    prompt: { en: 'What is the name of the Ottoman reform period that began with the Gülhane Edict in 1839?',
+              bs: 'Kako se naziva osmansko reformsko razdoblje koje je započelo Hat-i šerifom od Gülhane 1839. godine?' },
     options: [
       { en: 'The Tanzimat', bs: 'Tanzimat' },
       { en: 'The Islahat reforms', bs: 'Islahatske reforme' },
@@ -1161,11 +1127,11 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { 
-      en: 'Which Pacific battle in 1942 halted Japanese expansion toward Australia during World War II?',
-      bs: 'Koja je pacifička bitka 1942. godine zaustavila japansko širenje prema Australiji tokom Drugog svjetskog rata?'
+      en: 'Which battle in May 1942 prevented the Japanese capture of Port Moresby?',
+      bs: 'Koja bitka u maju 1942. godine je spriječila japansko zauzimanje Port Moresbyja?'
     },
     options: [
-      { en: 'The Battle of Midway', bs: 'Bitka kod Midwaya' },
+      { en: 'The Battle of the Coral Sea', bs: 'Bitka u Koralnom moru' },
       { en: 'The Battle of Stalingrad', bs: 'Bitka za Staljingrad' },
       { en: 'The Battle of El Alamein', bs: 'Bitka kod El Alameina' },
       { en: 'The Battle of Kursk', bs: 'Bitka kod Kurska' },
@@ -1178,8 +1144,8 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: {
-      en: 'Which historical figure had a personal library of thousands of books and wrote extensively about philosophy?',
-      bs: 'Koja historijska ličnost je imala ogromnu ličnu biblioteku i pisala o filozofiji?'
+      en: 'Which Roman emperor wrote the philosophical reflections known as Meditations?',
+      bs: 'Koji rimski car je napisao filozofske zapise poznate kao Meditacije?'
     },
     options: [
       { en: 'Marcus Aurelius', bs: 'Marko Aurelije' },
@@ -1432,10 +1398,10 @@ export const historyHard: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'hard',
-    prompt: { en: 'Which ancient civilization created the first known written legal code?',
-              bs: 'Koja drevna civilizacija je stvorila prvi poznati pisani zakonik?' },
+    prompt: { en: 'Which civilization produced the Code of Ur-Nammu, the oldest known surviving law code?',
+              bs: 'Koja civilizacija je stvorila Ur-Nammuov zakonik, najstariji poznati sačuvani zakonik?' },
     options: [
-      { en: 'Babylonians', bs: 'Babilonci' },
+      { en: 'Sumerians', bs: 'Sumerani' },
       { en: 'Romans', bs: 'Rimljani' },
       { en: 'Egyptians', bs: 'Egipćani' },
       { en: 'Greeks', bs: 'Grci' },
@@ -1480,8 +1446,8 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: {
-      en: 'Which famous artist could write with one hand while drawing with the other?',
-      bs: 'Koji poznati umjetnik je navodno mogao pisati jednom rukom dok crta drugom?'
+      en: 'Which Renaissance artist often used mirror writing in his notebooks?',
+      bs: 'Koji je renesansni umjetnik često koristio zrcalno pisanje u svojim bilježnicama?'
     },
     options: [
       { en: 'Leonardo da Vinci', bs: 'Leonardo da Vinci' },
@@ -1497,8 +1463,8 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { 
-      en: 'Which country has the oldest continuously operating parliament in the world?',
-      bs: 'Koja država ima najstariji parlament na svijetu koji neprekidno zasjeda?'
+      en: 'Which country’s parliament, the Althing, was founded in 930 and still operates today, despite a short break from 1800 to 1845?',
+      bs: 'Parlament koje države, Althing, osnovan je 930. godine djeluje i danas, uprkos kratkom prekidu od 1800. do 1845. godine?'
     },
     options: [
       { en: 'Iceland', bs: 'Island' },
@@ -1514,8 +1480,8 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: {
-      en: 'Which ruler had a palace with more than 2,000 rooms at Versailles?',
-      bs: 'Koji vladar je imao palatu s više od 2.000 prostorija u Versaju?'
+      en: 'Which French king established his court at Versailles in 1682?',
+      bs: 'Koji francuski kralj je preselio svoj dvor u Versaj 1682. godine?'
     },
     options: [
       { en: 'Louis XIV', bs: 'Luj XIV' },
@@ -1565,8 +1531,8 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { 
-      en: 'Which Roman emperor was said to have a statue of himself that servants moved every night to make it appear he was always watching?',
-      bs: 'Za kojeg rimskog cara se pričalo da je imao statuu sebe koju su sluge svake noći premještale kako bi izgledalo da uvijek posmatra?'
+      en: 'Which Roman emperor had a colossal bronze statue of himself erected near his Golden House?',
+      bs: 'Koji je rimski car dao postaviti ogromnu bronzanu statuu sebe u blizini svoje Zlatne kuće?'
     },
     options: [
       { en: 'Nero', bs: 'Neron' },
@@ -1614,14 +1580,14 @@ export const historyHard: Question[] = [
     category: 'history',
     difficulty: 'hard',
     prompt: { 
-      en: 'Which historical leader was known for keeping a pet monkey named Pogo?',
-      bs: 'Koja je historijska ličnost bila poznata po tome što je imala majmuna ljubimca po imenu Pogo?'
+      en: 'Which French empress kept a collection of exotic animals, including kangaroos and black swans, at her Malmaison estate?',
+      bs: 'Koja je francuska carica na svom imanju Malmaison držala zbirku egzotičnih životinja, uključujući kengure i crne labudove?'
     },
     options: [
-      { en: 'Josephine Bonaparte', bs: 'Joséphine Bonaparte' },
-      { en: 'Napoleon Bonaparte', bs: 'Napoleon Bonaparte' },
-      { en: 'Winston Churchill', bs: 'Winston Churchill' },
-      { en: 'King Louis XIV', bs: 'Kralj Luj XIV' },
+      { en: 'Joséphine Bonaparte', bs: 'Joséphine Bonaparte' },
+      { en: 'Marie Antoinette', bs: 'Marija Antoaneta' },
+      { en: 'Catherine the Great', bs: 'Katarina Velika' },
+      { en: 'Queen Victoria', bs: 'Kraljica Viktorija' },
     ],
     correctIndex: 0,
   },

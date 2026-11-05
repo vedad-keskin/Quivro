@@ -25,7 +25,7 @@ export const famousHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which number did Michael Jordan famously wear during most of his NBA career with the Chicago Bulls?',
-      bs: 'Koji broj je Michael Jordan najpoznatije nosio tokom većine svoje NBA karijere u Chicago Bullsima?',
+      bs: 'Koji broj je Michael Jordan nosio tokom većeg dijela NBA karijere u Chicago Bullsima?',
     },
     options: [
       { en: '23', bs: '23' },
@@ -41,8 +41,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Alan Turing laid foundations for which modern field?',
-      bs: 'Alan Turing je postavio temelje kojem modernom polju?',
+      en: 'Alan Turing’s theoretical machine introduced in 1936 laid foundations for which field?',
+      bs: 'Kojoj oblasti je Turingova teorijska mašina iz 1936. godine postavila temelje?',
     },
     options: [
       { en: 'Cryptography', bs: 'Kriptografiji' },
@@ -58,14 +58,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Who was the first person to spend a year in space?',
-      bs: 'Ko je bio prvi čovjek koji je proveo godinu dana u svemiru?'
+      en: 'Who were the first people to spend more than a year in space on a single mission?',
+      bs: 'Ko su bili prvi ljudi koji su proveli više od godinu dana u svemiru u jednoj misiji?'
     },
     options: [
-      { en: 'Valeri Polyakov', bs: 'Valeri Poljakov' },
-      { en: 'Yuri Gagarin', bs: 'Jurij Gagarin' },
-      { en: 'Neil Armstrong', bs: 'Neil Armstrong' },
-      { en: 'Chris Hadfield', bs: 'Chris Hadfield' },
+      { en: 'Vladimir Titov and Musa Manarov', bs: 'Vladimir Titov i Musa Manarov' },
+      { en: 'Yuri Gagarin and Valentina Tereshkova', bs: 'Jurij Gagarin i Valentina Tereškova' },
+      { en: 'Neil Armstrong and Buzz Aldrin', bs: 'Neil Armstrong i Buzz Aldrin' },
+      { en: 'Valeri Polyakov and Chris Hadfield', bs: 'Valeri Poljakov i Chris Hadfield' },
     ],
     correctIndex: 0,
   },
@@ -92,8 +92,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Who was the first person to climb all 14 mountains above 8,000 meters?',
-      bs: 'Ko se prvi popeo na svih 14 planina viših od 8.000 metara?'
+      en: 'Who was first credited, in 1986, with climbing all 14 mountains higher than 8,000 metres?',
+      bs: 'Ko je 1986. godine priznat kao prvi alpinista koji je osvojio svih 14 vrhova viših od 8.000 metara?'
     },
     options: [
       { en: 'Reinhold Messner', bs: 'Reinhold Messner' },
@@ -194,8 +194,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Which actor was once a professional boxer before becoming famous?',
-      bs: 'Koji glumac je nekada bio profesionalni bokser prije slave?'
+      en: 'Which established actor began a professional boxing career in 1991?',
+      bs: 'Koji je već afirmirani glumac započeo profesionalnu boksersku karijeru 1991. godine?'
     },
     options: [
       { en: 'Mickey Rourke', bs: 'Mickey Rourke' },
@@ -245,8 +245,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Who was the first person to run a marathon on all seven continents?',
-      bs: 'Ko je prvi istrčao maraton na svih sedam kontinenata?'
+      en: 'Who founded the World Marathon Challenge, where participants run a marathon on each of the seven continents in seven days?',
+      bs: 'Ko je osnovao World Marathon Challenge, u kojem učesnici trče maraton na svakom od sedam kontinenata za sedam dana?'
     },
     options: [
       { en: 'Richard Donovan', bs: 'Richard Donovan' },
@@ -279,8 +279,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'As of 2026, who became the youngest Formula 1 World Champion?',
-      bs: 'Do 2026. godine, ko je najmlađi prvak Formule 1?'
+      en: 'Who became Formula 1’s youngest world champion at the time by winning the 2010 title at age 23?',
+      bs: 'Ko je osvajanjem titule 2010. godine, u dobi od 23 godine, postao tada najmlađi svjetski prvak Formule 1?'
     },
     options: [
       { en: 'Sebastian Vettel', bs: 'Sebastian Vettel' },
@@ -347,8 +347,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Which director is famous for using IMAX cameras in films?',
-      bs: 'Koji režiser je poznat po korištenju IMAX kamera u filmovima?'
+      en: 'Who directed The Dark Knight, the 2008 film with sequences shot using IMAX cameras?',
+      bs: 'Ko je režirao Viteza tame, film iz 2008. godine s dijelovima snimljenim IMAX kamerama?'
     },
     options: [
       { en: 'Christopher Nolan', bs: 'Christopher Nolan' },
@@ -364,8 +364,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Tony Hawk became famous for successfully landing which legendary skateboarding trick?',
-      bs: 'Tony Hawk je postao poznat po uspješnom izvođenju kojeg legendarnog skateboarding trika?',
+      en: 'Which trick did Tony Hawk famously land at the 1999 X Games?',
+      bs: 'Koji je trik Tony Hawk uspješno izveo na X Gamesu 1999. godine?',
     },
     options: [
       { en: '900-degree aerial spin', bs: 'Rotacija od 900 stepeni u zraku' },
@@ -487,10 +487,10 @@ export const famousHard: Question[] = [
       bs: 'Koja dva elementa je otkrila Marie Curie?'
     },
     options: [
-      { en: 'Radium and Polonium', bs: 'Radij i Polonij' },
-      { en: 'Gold and Silver', bs: 'Zlato i Srebro' },
-      { en: 'Hydrogen and Oxygen', bs: 'Vodik i Kiseonik' },
-      { en: 'Iron and Copper', bs: 'Željezo i Bakar' },
+      { en: 'Radium and polonium', bs: 'Radij i polonij' },
+      { en: 'Gold and silver', bs: 'Zlato i srebro' },
+      { en: 'Hydrogen and oxygen', bs: 'Vodik i kisik' },
+      { en: 'Iron and copper', bs: 'Željezo i bakar' },
     ],
     correctIndex: 0,
   },
@@ -602,8 +602,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: { 
-      en: 'Who is the only Nobel Prize winner born in Bosnia and Herzegovina?',
-      bs: 'Ko je jedini dobitnik Nobelove nagrade rođen u Bosni i Hercegovini?'
+      en: 'Which writer born in Bosnia and Herzegovina won the Nobel Prize in Literature in 1961?',
+      bs: 'Koji književnik rođen u Bosni i Hercegovini je dobio Nobelovu nagradu za književnost 1961. godine?'
     },
     options: [
       { en: 'Ivo Andrić', bs: 'Ivo Andrić' },
@@ -670,14 +670,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: { 
-      en: 'Which famous author wrote books while using a typewriter with only one finger?',
-      bs: 'Koji poznati pisac je pisao knjige koristeći pisaću mašinu samo jednim prstom?'
+      en: 'What was Agatha Christie’s first published novel?',
+      bs: 'Kako se zove prvi objavljeni roman Agathe Christie?'
     },
     options: [
-      { en: 'Agatha Christie', bs: 'Agatha Christie' },
-      { en: 'J.R.R. Tolkien', bs: 'J.R.R. Tolkien' },
-      { en: 'Stephen King', bs: 'Stephen King' },
-      { en: 'George Orwell', bs: 'George Orwell' },
+      { en: 'The Mysterious Affair at Styles', bs: 'Tajanstveni događaj u Stajlsu' },
+      { en: 'Murder on the Orient Express', bs: 'Ubistvo u Orijent ekspresu' },
+      { en: 'The Murder of Roger Ackroyd', bs: 'Ubistvo Rodžera Akrojda' },
+      { en: 'Death on the Nile', bs: 'Smrt na Nilu' },
     ],
     correctIndex: 0,
   },
@@ -688,11 +688,11 @@ export const famousHard: Question[] = [
     difficulty: 'hard',
     prompt: { 
       en: 'Which inventor reportedly slept only a few hours a day and took short naps?',
-      bs: 'Koji izumitelj je poznat po tome što je spavao samo nekoliko sati dnevno i kratko odmarao?'
+      bs: 'Koji izumitelj je navodno spavao samo nekoliko sati dnevno i kratko drijemao?'
     },
     options: [
       { en: 'Nikola Tesla', bs: 'Nikola Tesla' },
-      { en: 'Thomas Edison', bs: 'Thomas Edison' },
+      { en: 'James Watt', bs: 'James Watt' },
       { en: 'Alexander Graham Bell', bs: 'Alexander Graham Bell' },
       { en: 'Leonardo da Vinci', bs: 'Leonardo da Vinci' },
     ],
@@ -721,8 +721,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: { 
-      en: 'Which famous scientist had a unit of measurement named after him?',
-      bs: 'Po kojem poznatom naučniku je nazvana jedinica mjere?'
+      en: 'Which scientist is the SI unit of force named after?',
+      bs: 'Po kojem je naučniku nazvana SI jedinica sile?'
     },
     options: [
       { en: 'Isaac Newton', bs: 'Isaac Newton' },
@@ -738,8 +738,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Bayard Rustin was a key strategist and organizer in which movement?',
-      bs: 'Bayard Rustin je bio važan strateg i organizator kojeg pokreta?',
+      en: 'Bayard Rustin helped organize the 1963 March on Washington, a landmark event in which movement?',
+      bs: 'Bayard Rustin pomogao je organizirati Marš na Washington 1963. godine. U historiji kojeg pokreta je taj događaj posebno važan?',
     },
     options: [
       { en: 'The American Civil Rights Movement', bs: 'Američkog pokreta za građanska prava' },
@@ -789,14 +789,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: { 
-      en: 'Which famous scientist had a pet crow named Grip?',
-      bs: 'Koji poznati pisac je imao gavrana po imenu Grip?'
+      en: 'Which famous writer had a pet raven named Grip?',
+      bs: 'Koji je poznati pisac imao gavrana ljubimca po imenu Grip?'
     },
     options: [
       { en: 'Charles Dickens', bs: 'Charles Dickens' },
-      { en: 'Isaac Newton', bs: 'Isaac Newton' },
-      { en: 'Albert Einstein', bs: 'Albert Einstein' },
-      { en: 'Leonardo da Vinci', bs: 'Leonardo da Vinci' },
+      { en: 'Mark Twain', bs: 'Mark Twain' },
+      { en: 'Victor Hugo', bs: 'Victor Hugo' },
+      { en: 'Leo Tolstoy', bs: 'Lav Tolstoj' },
     ],
     correctIndex: 0,
   },
@@ -823,8 +823,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'R. L. Stine is best known as the author of which book series for young readers?',
-      bs: 'R. L. Stine je najpoznatiji kao autor kojeg serijala knjiga za mlađe čitaoce?',
+      en: 'Which of these horror book series for teenagers was written by R. L. Stine?',
+      bs: 'Koji je od ovih serijala horor knjiga za tinejdžere napisao R. L. Stine?',
     },
     options: [
       { en: 'Fear Street', bs: 'Ulica straha' },
@@ -857,8 +857,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: { 
-      en: 'Which famous filmmaker was a student of physics before making movies?',
-      bs: 'Koji poznati režiser je studirao fiziku prije nego što je počeo praviti filmove?'
+      en: 'Which filmmaker studied English literature at University College London?',
+      bs: 'Koji je režiser studirao englesku književnost na UCL-u u Londonu?'
     },
     options: [
       { en: 'Christopher Nolan', bs: 'Christopher Nolan' },
@@ -874,8 +874,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: { 
-      en: 'As of 2026, who holds the Guinness World Record for the most YouTube subscribers?',
-      bs: 'Do 2026. godine, ko drži Guinnessov rekord po broju YouTube pretplatnika?'
+      en: 'Which YouTube channel held the Guinness record for most subscribers on 31 October 2025?',
+      bs: 'Koji YouTube kanal je 31. oktobra 2025. godine držao Guinnessov rekord po broju pretplatnika?'
     },
     options: [
       { en: 'MrBeast', bs: 'MrBeast' },
@@ -942,8 +942,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: { 
-      en: 'Jeanne Calment holds the record for the longest verified human lifespan. How old was she when she died?',
-      bs: 'Jeanne Calment drži rekord za najduži potvrđeni ljudski životni vijek. Koliko je imala godina kada je umrla?'
+      en: 'How old was Jeanne Calment when she died in 1997?',
+      bs: 'Koliko je godina Jeanne Calment imala kada je umrla 1997. godine?'
     },
     options: [
       { en: '122 years', bs: '122 godine' },
@@ -976,8 +976,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: { 
-      en: 'Who was the main designer behind the original PlayStation console?',
-      bs: 'Ko je bio glavni dizajner originalne PlayStation konzole?'
+      en: 'Who led Sony’s development of the original PlayStation console?',
+      bs: 'Ko je predvodio Sonyjev razvoj originalne PlayStation konzole?'
     },
     options: [
       { en: 'Ken Kutaragi', bs: 'Ken Kutaragi' },
@@ -1010,8 +1010,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: { 
-      en: 'Who was the creator of the Game Boy?',
-      bs: 'Ko je bio kreator Game Boy konzole?'
+      en: 'Which Nintendo engineer headed the development department associated with Game & Watch and Game Boy?',
+      bs: 'Koji je Nintendov inženjer vodio razvojni odjel povezan s konzolama Game & Watch i Game Boy?'
     },
     options: [
       { en: 'Gunpei Yokoi', bs: 'Gunpei Yokoi' },
@@ -1095,8 +1095,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: { 
-      en: 'As of 2026, which actor holds the record for the most Academy Award nominations for acting?',
-      bs: 'Do 2026. godine, koji glumac drži rekord po broju nominacija za glumačkog Oscara?'
+      en: 'Which performer received her 21st acting Oscar nomination for The Post in 2018?',
+      bs: 'Koja je glumica 2018. godine dobila svoju 21. nominaciju za glumačkog Oscara, za film The Post?'
     },
     options: [
       { en: 'Meryl Streep', bs: 'Meryl Streep' },
@@ -1146,14 +1146,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Which animated character was voiced by Jackie Chan in the Kung Fu Panda films?',
-      bs: 'Kojem animiranom liku je Jackie Chan posudio glas u filmovima Kung Fu Panda?',
+      en: 'Which character did Jackie Chan voice in the English-language Kung Fu Panda films?',
+      bs: 'Kojem je liku Jackie Chan posudio glas u engleskoj verziji filmova Kung Fu Panda?',
     },
     options: [
-      { en: 'Monkey', bs: 'Majmun' },
-      { en: 'Tigress', bs: 'Tigrica' },
-      { en: 'Crane', bs: 'Ždral' },
-      { en: 'Mantis', bs: 'Bogomoljka' },
+      { en: 'Monkey', bs: 'Majmunu' },
+      { en: 'Tigress', bs: 'Tigrici' },
+      { en: 'Crane', bs: 'Ždralu' },
+      { en: 'Mantis', bs: 'Bogomoljci' },
     ],
     correctIndex: 0,
   },
@@ -1163,8 +1163,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: { 
-      en: 'Which actor became the youngest person to win an acting Oscar?',
-      bs: 'Koja glumica je postala najmlađa dobitnica Oscara za glumu?'
+      en: 'Who became the youngest winner of a competitive acting Oscar for Paper Moon in 1974?',
+      bs: 'Koja glumica je 1974. godine za film Paper Moon postala najmlađa dobitnica Oscara u takmičarskoj glumačkoj kategoriji?'
     },
     options: [
       { en: 'Tatum O’Neal', bs: 'Tatum O’Neal' },
@@ -1197,13 +1197,13 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Giovanni Battista Belzoni transported colossal statues from which site?',
-      bs: 'Giovanni Battista Belzoni je prenio kolosalne statue s koje lokacije?',
+      en: 'From which temple did Giovanni Battista Belzoni remove the colossal bust of Ramesses II known as the Younger Memnon?',
+      bs: 'Iz kojeg je hrama Giovanni Battista Belzoni prenio kolosalnu bistu Ramzesa II poznatu kao Mlađi Memnon?',
     },
     options: [
       { en: 'Angkor Wat', bs: 'Angkor Wata' },
       { en: 'Machu Picchu', bs: 'Machu Picchua' },
-      { en: 'Abu Simbel', bs: 'Abu Simbela' },
+      { en: 'The Ramesseum', bs: 'Ramesseuma' },
       { en: 'Palmyra', bs: 'Palmyre' },
     ],
     correctIndex: 2,
@@ -1265,8 +1265,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: { 
-      en: 'Which actor played Wolverine for nearly 20 years?',
-      bs: 'Koji glumac je igrao Wolverinea skoro 20 godina?'
+      en: 'Who played Wolverine in both X-Men in 2000 and Deadpool & Wolverine in 2024?',
+      bs: 'Ko je glumio Wolverinea u filmovima X-Men iz 2000. i Deadpool & Wolverine iz 2024. godine?'
     },
     options: [
       { en: 'Hugh Jackman', bs: 'Hugh Jackman' },
@@ -1299,7 +1299,7 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: { 
-      en: 'Which US president was the first person to serve as president of the United States?',
+      en: 'Who was the first president of the United States?',
       bs: 'Ko je bio prvi predsjednik Sjedinjenih Američkih Država?'
     },
     options: [
@@ -1316,8 +1316,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: { 
-      en: 'Which king is famous for ordering the construction of the Taj Mahal?',
-      bs: 'Koji kralj je poznat po naredbi za izgradnju Taj Mahala?'
+      en: 'Which Mughal emperor commissioned the Taj Mahal?',
+      bs: 'Koji mogulski car je naručio izgradnju Tadž Mahala?'
     },
     options: [
       { en: 'Shah Jahan', bs: 'Šah Džahan' },
@@ -1351,13 +1351,13 @@ export const famousHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Pierre-Simon Laplace advanced mathematical models of which subject?',
-      bs: 'Pierre-Simon Laplace je unaprijedio matematičke modele kojeg predmeta?',
+      bs: 'Matematičke modele koje oblasti je unaprijedio Pierre-Simon Laplace?',
     },
     options: [
       { en: 'Fluid turbulence', bs: 'Turbulencije fluida' },
       { en: 'Optical refraction', bs: 'Optičke refrakcije' },
       { en: 'Crystal lattice defects', bs: 'Defekata kristalne rešetke' },
-      { en: 'Celestial mechanics', bs: 'Nebeške mehanike' },
+      { en: 'Celestial mechanics', bs: 'Nebeske mehanike' },
     ],
     correctIndex: 3,
   },
@@ -1384,14 +1384,14 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Euclid\'s Elements systematized proofs in which branch of mathematics?',
-      bs: 'Euklidovi Elementi su sistematizovali dokaze u kojoj grani matematike?',
+      en: 'The first six books of Euclid’s Elements mainly concern which branch of mathematics?',
+      bs: 'Kojom granom matematike se uglavnom bavi prvih šest knjiga Euklidovih Elemenata?',
     },
     options: [
-      { en: 'Arithmetic', bs: 'Aritmetici' },
-      { en: 'Geometry', bs: 'Geometriji' },
-      { en: 'Algebra', bs: 'Algebri' },
-      { en: 'Trigonometry', bs: 'Trigonometriji' },
+      { en: 'Arithmetic', bs: 'Aritmetikom' },
+      { en: 'Geometry', bs: 'Geometrijom' },
+      { en: 'Algebra', bs: 'Algebrom' },
+      { en: 'Trigonometry', bs: 'Trigonometrijom' },
     ],
     correctIndex: 1,
   },
@@ -1503,8 +1503,8 @@ export const famousHard: Question[] = [
     category: 'famous',
     difficulty: 'hard',
     prompt: {
-      en: 'Who was the first person to be awarded the FIFA Ballon d’Or?',
-      bs: 'Ko je bio prvi dobitnik FIFA Zlatne lopte?'
+      en: 'Who won the first Ballon d’Or awarded by France Football in 1956?',
+      bs: 'Ko je osvojio prvu Zlatnu loptu koju je France Football dodijelio 1956. godine?'
     },
     options: [
       { en: 'Stanley Matthews', bs: 'Stanley Matthews' },
@@ -1657,13 +1657,13 @@ export const famousHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Nadia Comăneci scored the first perfect ten in which Olympic sport?',
-      bs: 'Nadia Comăneci je postigla prvu savršenu desetku u kojem olimpijskom sportu?',
+      bs: 'U kojem olimpijskom sportu je Nadia Comăneci ostvarila prvu savršenu desetku?',
     },
     options: [
       { en: 'Swimming', bs: 'Plivanju' },
       { en: 'Gymnastics', bs: 'Gimnastici' },
       { en: 'Fencing', bs: 'Mačevanju' },
-      { en: 'Archery', bs: 'Streljaštvu' },
+      { en: 'Archery', bs: 'Streličarstvu' },
     ],
     correctIndex: 1,
   },

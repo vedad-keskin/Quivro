@@ -34,7 +34,7 @@ export const geographyEasy: Question[] = [
     type: 'mcq',
     category: 'geography',
     difficulty: 'easy',
-    prompt: { en: 'Which continent is Egypt in?', bs: 'Na kojem kontinentu je Egipat?' },
+    prompt: { en: 'On which continent is most of Egypt\'s territory located?', bs: 'Na kojem se kontinentu nalazi veći dio teritorije Egipta?' },
     options: [
       { en: 'Asia', bs: 'Azija' },
       { en: 'Africa', bs: 'Afrika' },
@@ -164,7 +164,7 @@ export const geographyEasy: Question[] = [
     type: 'mcq',
     category: 'geography',
     difficulty: 'easy',
-    prompt: { en: 'How many continents are there on Earth?', bs: 'Koliko kontinenata ima na Zemlji?' },
+    prompt: { en: 'In the model that treats Europe and Asia as separate continents and North and South America as separate continents, how many continents are there?', bs: 'Koliko kontinenata ima prema modelu koji Evropu i Aziju te Sjevernu i Južnu Ameriku smatra odvojenim kontinentima?' },
     options: [
       { en: '5', bs: '5' },
       { en: '7', bs: '7' },
@@ -276,7 +276,7 @@ export const geographyEasy: Question[] = [
     type: 'mcq',
     category: 'geography',
     difficulty: 'easy',
-    prompt: { en: 'What is the tallest mountain in the world?', bs: 'Koja je najviša planina na svijetu?' },
+    prompt: { en: 'Which mountain has the highest summit above sea level?', bs: 'Koja planina ima vrh na najvećoj nadmorskoj visini?' },
     options: [
       { en: 'K2', bs: 'K2' },
       { en: 'Mount Everest', bs: 'Mount Everest' },
@@ -655,8 +655,8 @@ export const geographyEasy: Question[] = [
     type: 'mcq',
     category: 'geography',
     difficulty: 'easy',
-    prompt: { en: 'Which island country lies east of China in the Pacific Ocean?', 
-              bs: 'Koja ostrvska zemlja leži istočno od Kine u Tihom okeanu?' },
+    prompt: { en: 'Which country includes the islands of Honshu, Hokkaido, Kyushu and Shikoku?',
+              bs: 'Kojoj zemlji pripadaju ostrva Honshu, Hokkaido, Kyushu i Shikoku?' },
     options: [
       { en: 'Philippines', bs: 'Filipini' },
       { en: 'Japan', bs: 'Japan' },
@@ -882,7 +882,7 @@ export const geographyEasy: Question[] = [
     type: 'mcq',
     category: 'geography',
     difficulty: 'easy',
-    prompt: { en: 'Which country has the most people?', bs: 'Koja zemlja ima najviše stanovnika?' },
+    prompt: { en: 'Which country overtook China as the world\'s most populous country according to UN estimates in 2023?', bs: 'Koja zemlja je prema procjenama UN-a 2023. godine pretekla Kinu po broju stanovnika?' },
     options: [
       { en: 'India', bs: 'Indija' },
       { en: 'United States', bs: 'Sjedinjene Američke Države' },
@@ -896,7 +896,7 @@ export const geographyEasy: Question[] = [
     type: 'mcq',
     category: 'geography',
     difficulty: 'easy',
-    prompt: { en: 'What is the capital of Switzerland?', bs: 'Koji je glavni grad Švicarske?' },
+    prompt: { en: 'Which city is Switzerland\'s federal city and seat of the federal government?', bs: 'Koji grad je sjedište Švicarske savezne vlade?' },
     options: [
       { en: 'Zurich', bs: 'Cirih' },
       { en: 'Geneva', bs: 'Ženeva' },
@@ -938,7 +938,7 @@ export const geographyEasy: Question[] = [
     type: 'mcq',
     category: 'geography',
     difficulty: 'easy',
-    prompt: { en: 'Which sea is the saltiest large body of water on Earth?', bs: 'Koje more je najslanije veliko vodeno tijelo na Zemlji?' },
+    prompt: { en: 'Which of these bodies of water is a hypersaline lake bordered by Jordan to the east?', bs: 'Koje od ovih vodenih tijela je izrazito slano jezero uz čiju se istočnu obalu nalazi Jordan?' },
     options: [
       { en: 'Red Sea', bs: 'Crveno more' },
       { en: 'Dead Sea', bs: 'Mrtvo more' },
@@ -1324,7 +1324,7 @@ export const geographyEasy: Question[] = [
     type: 'mcq',
     category: 'geography',
     difficulty: 'easy',
-    prompt: { en: 'What is the capital of Indonesia?', bs: 'Koji je glavni grad Indonezije?' },
+    prompt: { en: 'Which city was Indonesia\'s capital when the government announced its relocation plan in 2019?', bs: 'Koji grad je bio glavni grad Indonezije kada je vlada 2019. godine najavila plan preseljenja?' },
     options: [
       { en: 'Jakarta', bs: 'Jakarta' },
       { en: 'Yogyakarta', bs: 'Yogyakarta' },
@@ -1424,8 +1424,8 @@ export const geographyEasy: Question[] = [
     type: 'mcq',
     category: 'geography',
     difficulty: 'easy',
-    prompt: { en: 'Which country has a flag that is not rectangular?',
-      bs: 'Koja država ima zastavu koja nije pravougaonog oblika?' },
+    prompt: { en: 'Which country\'s national flag is neither rectangular nor square?',
+      bs: 'Koja država ima državnu zastavu koja nije ni pravougaonog ni kvadratnog oblika?' },
     options: [
       { en: 'Nepal', bs: 'Nepal' },
       { en: 'Bhutan', bs: 'Butan' },
@@ -1454,8 +1454,8 @@ export const geographyEasy: Question[] = [
     type: 'mcq',
     category: 'geography',
     difficulty: 'easy',
-    prompt: { en: 'Which wonder was built by Emperor Shah Jahan as a mausoleum for his wife Mumtaz?',
-      bs: 'Koje svjetsko čudo je izgradio car Šah Džahan kao mauzolej za svoju suprugu Mumtaz?' },
+    prompt: { en: 'Which mausoleum did Emperor Shah Jahan commission in memory of his wife Mumtaz?',
+      bs: 'Koji mauzolej je car Šah Džahan dao izgraditi u spomen na suprugu Mumtaz?' },
     options: [
       { en: 'Taj Mahal', bs: 'Tadž Mahal' },
       { en: 'Petra', bs: 'Petra' },
@@ -1469,8 +1469,8 @@ export const geographyEasy: Question[] = [
     type: 'mcq',
     category: 'geography',
     difficulty: 'easy',
-    prompt: { en: 'Which wonder is an ancient city carved directly into rock?',
-      bs: 'Koje svjetsko čudo je drevni grad isklesan direktno u stijeni?' },
+    prompt: { en: 'Which ancient city is famous for monumental facades carved into sandstone cliffs?',
+      bs: 'Koji je drevni grad poznat po monumentalnim pročeljima isklesanim u stijenama pješčenjaka?' },
     options: [
       { en: 'Petra', bs: 'Petra' },
       { en: 'Angkor Wat', bs: 'Angkor Wat' },

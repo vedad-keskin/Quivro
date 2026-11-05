@@ -24,8 +24,8 @@ export const cartoonsMedium: Question[] = [
     category: 'cartoons',
     difficulty: 'medium',
     prompt: {
-      en: 'What is the name of the boy who owns Buzz Lightyear and Woody in Toy Story?',
-      bs: 'Kako se zove dječak koji posjeduje Buzza Svjetlosnog i Woodyja u Priči o igračkama?'
+      en: 'What is the name of the boy who owns Buzz Lightyear and Woody in the original Toy Story film from 1995?',
+      bs: 'Kako se zove dječak kojem pripadaju Buzz Svjetlosni i Woody u prvom filmu Priča o igračkama iz 1995. godine?'
     },
     options: [
       { en: 'Andy', bs: 'Andy' },
@@ -41,8 +41,8 @@ export const cartoonsMedium: Question[] = [
     category: 'cartoons',
     difficulty: 'medium',
     prompt: {
-      en: 'What is the name of the first cartoon character to win an Academy Award?',
-      bs: 'Kako se zove prvi crtani lik koji je osvojio Oscara?'
+      en: 'For creating which character did Walt Disney receive a special Academy Award in 1932?',
+      bs: 'Za stvaranje kojeg lika je Walt Disney 1932. godine dobio posebnog Oscara?'
     },
     options: [
       { en: 'Mickey Mouse', bs: 'Mickey Mouse' },
@@ -109,8 +109,8 @@ export const cartoonsMedium: Question[] = [
     category: 'cartoons',
     difficulty: 'medium',
     prompt: {
-      en: 'Which weapon does Michelangelo usually use?',
-      bs: 'Koje oružje Michelangelo najčešće koristi?'
+      en: 'Which weapon does Michelangelo usually use in Teenage Mutant Ninja Turtles?',
+      bs: 'Koje oružje Michelangelo najčešće koristi u serijalu Nindža kornjače?'
     },
     options: [
       { en: 'Nunchaku', bs: 'Nunčake' },
@@ -211,8 +211,8 @@ export const cartoonsMedium: Question[] = [
     category: 'cartoons',
     difficulty: 'medium',
     prompt: {
-      en: 'What is the name of Megamind’s superhero rival?',
-      bs: 'Kako se zove Megaumov glavni superherojski protivnik?'
+      en: 'Who is Megamind’s superhero rival at the beginning of the 2010 animated film?',
+      bs: 'Ko je Megaumov superherojski protivnik na početku animiranog filma iz 2010. godine?'
     },
     options: [
       { en: 'Metro Man', bs: 'Metro Man' },
@@ -313,8 +313,8 @@ export const cartoonsMedium: Question[] = [
     category: 'cartoons',
     difficulty: 'medium',
     prompt: {
-      en: 'In Bee Movie, what does the Barry sue humans for?',
-      bs: 'U Pčelinom filmu, zbog čega Barry tuži ljude?'
+      en: 'Why does Barry sue humans in Bee Movie?',
+      bs: 'Zbog čega Barry tuži ljude u Pčelinom filmu?'
     },
     options: [
       { en: 'Stealing honey from bees', bs: 'Krađe meda od pčela' },
@@ -364,8 +364,8 @@ export const cartoonsMedium: Question[] = [
     category: 'cartoons',
     difficulty: 'medium',
     prompt: {
-      en: 'Who originally voiced Woody in Toy Story?',
-      bs: 'Ko je izvorno posudio glas Woodyju u Priči o igračkama?'
+      en: 'Who voices Woody in the original English-language version of Toy Story from 1995?',
+      bs: 'Ko posuđuje glas Woodyju u originalnoj engleskoj verziji filma Priča o igračkama iz 1995. godine?'
     },
     options: [
       { en: 'Tim Allen', bs: 'Tim Allen' },
@@ -415,8 +415,8 @@ export const cartoonsMedium: Question[] = [
     category: 'cartoons',
     difficulty: 'medium',
     prompt: {
-      en: 'What does Fiona choose to remain at the end of Shrek?',
-      bs: 'U kojem obliku Fiona odlučuje ostati na kraju filma Shrek?'
+      en: 'What form does Fiona have at the end of the first Shrek film?',
+      bs: 'U kojem je obliku Fiona na kraju prvog filma Shrek?'
     },
     options: [
       { en: 'Ogre', bs: 'Ogrica' },
@@ -483,8 +483,8 @@ export const cartoonsMedium: Question[] = [
     category: 'cartoons',
     difficulty: 'medium',
     prompt: {
-      en: 'In The Simpsons, who owns the Springfield Nuclear Power Plant?',
-      bs: 'U Simpsonima, ko posjeduje Nuklearnu elektranu u Springfieldu?'
+      en: 'Who owns the Springfield Nuclear Power Plant in the Simpsons?',
+      bs: 'Ko posjeduje nuklearnu elektranu u Springfieldu u seriji Simpsoni?'
     },
     options: [
       { en: 'Homer Simpson', bs: 'Homer Simpson' },

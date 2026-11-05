@@ -24,12 +24,12 @@ export const cartoonsEasy: Question[] = [
     category: 'cartoons',
     difficulty: 'easy',
     prompt: {
-      en: 'Elsa is a main character in which Disney film?',
-      bs: 'U kojem je Disneyjevom filmu Elsa glavni lik?'
+      en: 'Elsa is a one of the main characters in which Disney film?',
+      bs: 'U kojem je Disneyjevom filmu Elsa jedan od glavnih likova?'
     },
     options: [
       { en: 'Moana', bs: 'Vajana' },
-      { en: 'Tangled', bs: 'Tangled' },
+      { en: 'Tangled', bs: 'Vrlo zapetljana priča' },
       { en: 'Frozen', bs: 'Frozen' },
       { en: 'Encanto', bs: 'Encanto' },
     ],
@@ -110,7 +110,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'What kind of dog is Scooby-Doo?',
-      bs: 'Koja je pasmina Scooby-Doo?'
+      bs: 'Kojoj pasmini pripada Scooby-Doo?'
     },
     options: [
       { en: 'Great Dane', bs: 'Njemačka doga' },
@@ -178,7 +178,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Who is the snowman in Frozen?',
-      bs: 'Kako se zove snjegović u Frozen-u?'
+      bs: 'Kako se zove snjegović u filmu Frozen?'
     },
     options: [
       { en: 'Olaf', bs: 'Olaf' },
@@ -267,9 +267,9 @@ export const cartoonsEasy: Question[] = [
     },
     options: [
       { en: 'Bananas', bs: 'Banane' },
-      { en: 'Broccoli', bs: 'Brokulu' },
-      { en: 'Pizza', bs: 'Pizzu' },
-      { en: 'Ice cream', bs: 'Sladoled' },
+      { en: 'Apples', bs: 'Jabuke' },
+      { en: 'Oranges', bs: 'Narandže' },
+      { en: 'Grapes', bs: 'Grožđe' },
     ],
     correctIndex: 0,
   },
@@ -432,11 +432,11 @@ export const cartoonsEasy: Question[] = [
     category: 'cartoons',
     difficulty: 'easy',
     prompt: {
-      en: 'What element can Aang control in the Avatar series?',
-      bs: 'Kojim elementom Aang može upravljati u serijalu Avatar?'
+      en: 'Which element did Aang learn to control first in Avatar: The Last Airbender?',
+      bs: 'Kojim je elementom Aang prvo naučio upravljati u serijalu Avatar: The Last Airbender?'
     },
     options: [
-      { en: 'All four elements', bs: 'Sva četiri elementa' },
+      { en: 'Air', bs: 'Zrakom' },
       { en: 'Fire', bs: 'Vatrom' },
       { en: 'Water', bs: 'Vodom' },
       { en: 'Earth', bs: 'Zemljom' },
@@ -484,12 +484,12 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'What is the name of the Disney princess in Beauty and the Beast?',
-      bs: 'Kako se zove Disney princeza u filmu Ljepotica i Zvijer?'
+      bs: 'Kako se zove Disneyjeva princeza u filmu Ljepotica i zvijer?'
     },
     options: [
       { en: 'Belle', bs: 'Belle' },
       { en: 'Ariel', bs: 'Ariel' },
-      { en: 'Jasmine', bs: 'Jasmine' },
+      { en: 'Jasmine', bs: 'Jasmina' },
       { en: 'Cinderella', bs: 'Pepeljuga' },
     ],
     correctIndex: 0,
@@ -585,8 +585,8 @@ export const cartoonsEasy: Question[] = [
     category: 'cartoons',
     difficulty: 'easy',
     prompt: {
-      en: 'In Tarzan, what kind of animal is Tarzan raised by?',
-      bs: 'Koje životinje odgajaju Tarzana?'
+      en: 'What kind of animals raise Tarzan in Disney’s 1999 animated film?',
+      bs: 'Koje životinje odgajaju Tarzana u Disneyjevom animiranom filmu iz 1999. godine?'
     },
     options: [
       { en: 'Gorillas', bs: 'Gorile' },
@@ -688,7 +688,7 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'What is the name of the inflatable healthcare robot in Big Hero 6?',
-      bs: 'Kako se zove naduvavajući medicinski robot u filmu Big Hero 6?'
+      bs: 'Kako se zove medicinski robot na napuhavanje u filmu Big Hero 6?'
     },
     options: [
       { en: 'Baymax', bs: 'Baymax' },
@@ -722,11 +722,11 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'What animal is Pumbaa in The Lion King?',
-      bs: 'Kakva je životinja Pumbaa u Kralju lavova?'
+      bs: 'Koja životinja je Pumbaa iz filma Kralj lavova?'
     },
     options: [
-      { en: 'Meerkat', bs: 'Mungos' },
-      { en: 'Warthog', bs: 'Svinja' },
+      { en: 'Meerkat', bs: 'Merkat' },
+      { en: 'Warthog', bs: 'Bradavičasta svinja' },
       { en: 'Lion', bs: 'Lav' },
       { en: 'Elephant', bs: 'Slon' },
     ],
@@ -942,14 +942,14 @@ export const cartoonsEasy: Question[] = [
     category: 'cartoons',
     difficulty: 'easy',
     prompt: {
-      en: 'In Avatar: The Legend of Korra, what element does Korra need to still learn to master at the start?',
-      bs: 'U Legendi o Korri, koji element Korra tek treba savladati na početku?'
+      en: 'Which element has Korra not yet learned to master at the start of The Legend of Korra?',
+      bs: 'Kojim elementom Korra još nije ovladala na početku serije Legenda o Korri?'
     },
     options: [
-      { en: 'Airbending', bs: 'Vazduh' },
-      { en: 'Waterbending', bs: 'Voda' },
-      { en: 'Earthbending', bs: 'Zemlja' },
-      { en: 'Firebending', bs: 'Vatra' },
+      { en: 'Air', bs: 'Zrak' },
+      { en: 'Water', bs: 'Voda' },
+      { en: 'Earth', bs: 'Zemlja' },
+      { en: 'Fire', bs: 'Vatra' },
     ],
     correctIndex: 0,
   },
@@ -994,10 +994,10 @@ export const cartoonsEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'What animal is Timon in The Lion King?',
-      bs: 'Kakva je životinja Timon u Kralju lavova?'
+      bs: 'Koja životinja je Timon iz filma Kralj lavova?'
     },
     options: [
-      { en: 'Warthog', bs: 'Svinja' },
+      { en: 'Warthog', bs: 'Bradavičasta svinja' },
       { en: 'Meerkat', bs: 'Merkat' },
       { en: 'Lion', bs: 'Lav' },
       { en: 'Hyena', bs: 'Hijena' },
@@ -1316,14 +1316,14 @@ export const cartoonsEasy: Question[] = [
     category: 'cartoons',
     difficulty: 'easy',
     prompt: {
-      en: 'Which forest is home to the people Robin Hood helps in Disney\'s film?',
-      bs: 'U kojoj šumi žive ljudi kojima Robin Hood pomaže u Disneyjevom filmu?',
+      en: 'Which forest is Robin Hood’s hideout in Disney’s animated film?',
+      bs: 'U kojoj se šumi nalazi Robin Hoodovo skrovište u Disneyjevom animiranom filmu?',
     },
     options: [
       { en: 'Hundred Acre Wood', bs: 'Šuma od stotinu jutara' },
       { en: 'Fangorn Forest', bs: 'Šuma Fangorn' },
       { en: 'Sherwood Forest', bs: 'Šuma Sherwood' },
-      { en: 'Black Forest', bs: 'Crna Šuma' },
+      { en: 'Black Forest', bs: 'Crna šuma' },
     ],
     correctIndex: 2,
   },

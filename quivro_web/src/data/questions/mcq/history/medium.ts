@@ -353,14 +353,14 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: {
-      en: 'Which empire built the Hagia Sophia originally as a cathedral?',
-      bs: 'Koje carstvo je izgradilo Aja Sofiju prvobitno kao katedralu?',
+      en: 'Which empire built the surviving Hagia Sophia church under Justinian I in the 6th century?',
+      bs: 'Koje carstvo je za vladavine Justinijana I u 6. stoljeću izgradilo današnju Aja Sofiju kao crkvu?',
     },
     options: [
-      { en: 'Byzantine Empire', bs: 'Bizantsko Carstvo' },
-      { en: 'Roman Empire', bs: 'Rimsko Carstvo' },
-      { en: 'Ottoman Empire', bs: 'Osmansko Carstvo' },
-      { en: 'Persian Empire', bs: 'Perzijsko Carstvo' },
+      { en: 'Eastern Roman Empire', bs: 'Istočno rimsko carstvo' },
+      { en: 'Western Roman Empire', bs: 'Zapadno rimsko carstvo' },
+      { en: 'Ottoman Empire', bs: 'Osmansko carstvo' },
+      { en: 'Persian Empire', bs: 'Perzijsko carstvo' },
     ],
     correctIndex: 0,
   },
@@ -483,8 +483,8 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { 
-      en: 'Under which sultan did the Ottoman Empire reach its greatest territorial and political power?',
-      bs: 'Pod kojim sultanom je Osmansko Carstvo dostiglo najveću teritorijalnu i političku moć?'
+      en: 'Which Ottoman sultan reigned from 1520 to 1566?',
+      bs: 'Koji je osmanski sultan vladao od 1520. do 1566. godine?'
     },
     options: [
       { en: 'Suleiman the Magnificent', bs: 'Sulejman Veličanstveni' },
@@ -517,8 +517,8 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { 
-      en: 'Which Portuguese explorer was the first to reach India by sea in 1498?',
-      bs: 'Koji portugalski istraživač je prvi stigao morskim putem do Indije 1498. godine?'
+      en: 'Which Portuguese explorer first reached India by sea from Europe via the Cape of Good Hope in 1498?',
+      bs: 'Koji portugalski istraživač 1498. godine je prvi stigao iz Evrope u Indiju morskim putem oko Rta dobre nade?'
     },
     options: [
       { en: 'Vasco da Gama', bs: 'Vasco da Gama' },
@@ -731,7 +731,7 @@ export const historyMedium: Question[] = [
       { en: 'Franklin D. Roosevelt', bs: 'Franklin D. Roosevelt' },
       { en: 'Abraham Lincoln', bs: 'Abraham Lincoln' },
       { en: 'George Washington', bs: 'George Washington' },
-      { en: 'Theodore Roosevelt for parks', bs: 'Theodore Roosevelt' },
+      { en: 'Theodore Roosevelt', bs: 'Theodore Roosevelt' },
     ],
     correctIndex: 0,
   },
@@ -756,12 +756,12 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { en: 'Which Greek city-state was known for its military training and warrior culture?',
-              bs: 'Koji je grčki polis bio poznat po vojnoj obuci i ratničkoj kulturi?' },
+              bs: 'Koji grčki polis je bio poznat po vojnoj obuci i ratničkoj kulturi?' },
     options: [
       { en: 'Sparta', bs: 'Sparta' },
-      { en: 'Athens for democracy', bs: 'Atina' },
-      { en: 'Troy in myth', bs: 'Troja' },
-      { en: 'Corinth for trade', bs: 'Korint' },
+      { en: 'Athens', bs: 'Atina' },
+      { en: 'Troy', bs: 'Troja' },
+      { en: 'Corinth', bs: 'Korint' },
     ],
     correctIndex: 0,
   },
@@ -786,14 +786,14 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { 
-      en: 'What is the oldest known form of art created by humans?',
-      bs: 'Koji je najstariji poznati oblik umjetnosti koji su stvorili ljudi?'
+      en: 'What type of prehistoric art is Lascaux Cave famous for?',
+      bs: 'Po kojim oblicima prahistorijske umjetnosti je poznata pećina Lascaux?'
     },
     options: [
-      { en: 'Cave paintings and engravings', bs: 'Pećinske slike i gravure' },
-      { en: 'Stone statues', bs: 'Kamene statue' },
-      { en: 'Written texts', bs: 'Pisani tekstovi' },
-      { en: 'Metal sculptures', bs: 'Metalne skulpture' },
+      { en: 'Cave paintings and engravings', bs: 'Pećinskim slikama i gravurama' },
+      { en: 'Stone statues', bs: 'Kamenim statuama' },
+      { en: 'Written texts', bs: 'Pisanim tekstovima' },
+      { en: 'Metal sculptures', bs: 'Metalnim skulpturama' },
     ],
     correctIndex: 0,
   },
@@ -915,8 +915,8 @@ export const historyMedium: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'medium',
-    prompt: { en: 'Which explorer claimed Australia for Britain in the 1700s?',
-              bs: 'Koji istraživač je u 1700-ima prisvojio Australiju za Britaniju?' },
+    prompt: { en: 'Which explorer claimed the eastern coast of Australia for Britain in 1770?',
+              bs: 'Koji istraživač 1770. godine je proglasio istočnu obalu Australije britanskim posjedom?' },
     options: [
       { en: 'James Cook', bs: 'James Cook' },
       { en: 'Christopher Columbus', bs: 'Kristofor Kolumbo' },
@@ -1037,8 +1037,8 @@ export const historyMedium: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'medium',
-    prompt: { en: 'Which international organization was created in 1919 to maintain peace after World War I?',
-              bs: 'Koja međunarodna organizacija je osnovana 1919. godine s ciljem očuvanja mira nakon Prvog svjetskog rata?' },
+    prompt: { en: 'Which international organization officially came into existence on 10 January 1920 to maintain peace after World War I?',
+              bs: 'Koja je međunarodna organizacija službeno osnovana 10. januara 1920. godine radi očuvanja mira nakon Prvog svjetskog rata?' },
     options: [
       { en: 'The League of Nations', bs: 'Liga naroda' },
       { en: 'The United Nations', bs: 'Ujedinjene nacije' },
@@ -1102,8 +1102,8 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { 
-      en: 'Which scientist proposed the heliocentric model, stating that Earth orbits the Sun?',
-      bs: 'Koji naučnik je predložio heliocentrični model prema kojem Zemlja kruži oko Sunca?'
+      en: 'Which scientist published On the Revolutions of the Heavenly Spheres, presenting a heliocentric model, in 1543?',
+      bs: 'Koji naučnik 1543. godine je objavio djelo o obrtanjima nebeskih sfera, u kojem je predstavio heliocentrični model?'
     },
     options: [
       { en: 'Nicolaus Copernicus', bs: 'Nikola Kopernik' },
@@ -1119,8 +1119,8 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: { 
-      en: 'Which Enlightenment thinker developed the idea of separation of powers in government?',
-      bs: 'Koji prosvjetiteljski mislilac je razvio ideju podjele vlasti u državi?'
+      en: 'Which Enlightenment thinker described the separation of legislative, executive and judicial powers in The Spirit of the Laws?',
+      bs: 'Koji prosvjetiteljski mislilac je u djelu o duhu zakona opisao podjelu vlasti na zakonodavnu, izvršnu i sudsku?'
     },
     options: [
       { en: 'Montesquieu', bs: 'Montesquieu' },
@@ -1167,8 +1167,8 @@ export const historyMedium: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'medium',
-    prompt: { en: 'Which African country was never formally colonized and defeated Italy at Adwa in 1896?',
-              bs: 'Koja afrička zemlja nikad nije formalno kolonizovana i porazila je Italiju kod Adve 1896.?' },
+    prompt: { en: 'Which African country defeated Italy at the Battle of Adwa in 1896?',
+              bs: 'Koja je afrička zemlja porazila Italiju u bici kod Adve 1896. godine?' },
     options: [
       { en: 'Ethiopia', bs: 'Etiopija' },
       { en: 'Egypt', bs: 'Egipat' },
@@ -1214,13 +1214,13 @@ export const historyMedium: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'medium',
-    prompt: { en: 'After a Soviet blockade in 1948, Western allies used aircraft to supply which divided German city?',
-              bs: 'Nakon sovjetske blokade 1948., zapadni saveznici su zrakom snabdijevali koji podijeljeni njemački grad?' },
+    prompt: { en: 'Which divided German city had its western sectors supplied by the Berlin Airlift after the Soviet blockade began in 1948?',
+              bs: 'U kojem podijeljenom njemačkom gradu su nakon početka sovjetske blokade 1948. godine zapadni sektori snabdijevani zračnim mostom?' },
     options: [
       { en: 'Hamburg', bs: 'Hamburg' },
       { en: 'Munich', bs: 'Minhen' },
       { en: 'Frankfurt', bs: 'Frankfurt' },
-      { en: 'West Berlin', bs: 'Zapadni Berlin' },
+      { en: 'Berlin', bs: 'Berlin' },
     ],
     correctIndex: 3,
   },
@@ -1294,8 +1294,8 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
       prompt: { 
-        en: 'Which famous cave contains prehistoric paintings over 17,000 years old?',
-        bs: 'Koja poznata pećina sadrži prahistorijske slike stare preko 17.000 godina?'
+        en: 'Which French cave famous for prehistoric paintings was discovered in 1940?',
+        bs: 'Koja je francuska pećina poznata po prahistorijskim slikama otkrivena 1940. godine?'
       },
       options: [
         { en: 'Lascaux Cave', bs: 'Pećina Lascaux' },
@@ -1420,8 +1420,8 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: {
-      en: 'Which city in the Mali Empire became famous for its Islamic scholarship and libraries?',
-      bs: 'Koji je grad u Malijskom carstvu postao poznat po islamskoj učenosti i bibliotekama?'
+      en: 'Which city in the Mali Empire became a center of Islamic scholarship associated with Sankore Mosque?',
+      bs: 'Koji grad u Malijskom carstvu je postao važno središte islamskog obrazovanja povezano s džamijom Sankore?'
     },
     options: [
       { en: 'Timbuktu', bs: 'Timbuktu' },
@@ -1483,8 +1483,8 @@ export const historyMedium: Question[] = [
     type: 'mcq',
     category: 'history',
     difficulty: 'medium',
-    prompt: { en: 'Which conference in 1945 divided postwar Germany among the Allies?',
-              bs: 'Koja je konferencija 1945. podijelila poslijeratnu Njemačku među saveznicima?' },
+    prompt: { en: 'Which Allied conference was held near Berlin from 17 July to 2 August 1945 to discuss postwar arrangements?',
+              bs: 'Koja saveznička konferencija je održana u blizini Berlina od 17. jula do 2. augusta 1945. godine radi dogovora o poslijeratnom uređenju?' },
     options: [
       { en: 'The Potsdam Conference', bs: 'Potsdamska konferencija' },
       { en: 'The Congress of Vienna', bs: 'Bečki kongres' },
@@ -1514,8 +1514,8 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: {
-      en: 'Which civilization is associated with the legendary lost city of Atlantis?',
-      bs: 'Koja civilizacija se povezuje s legendarnim izgubljenim gradom Atlantidom?',
+      en: 'Plato, who described the legendary island of Atlantis, belonged to which ancient civilization?',
+      bs: 'Kojoj drevnoj civilizaciji je pripadao Platon, koji je opisao legendarno ostrvo Atlantidu?',
     },
     options: [
       { en: 'Greece', bs: 'Grčka' },
@@ -1531,14 +1531,14 @@ export const historyMedium: Question[] = [
     category: 'history',
     difficulty: 'medium',
     prompt: {
-      en: 'Which ancient city was discovered by Heinrich Schliemann in the 19th century?',
-      bs: 'Koji drevni grad je otkrio Heinrich Schliemann u 19. stoljeću?',
+      en: 'Which ancient city did Heinrich Schliemann excavate at Hisarlık in the 1870s?',
+      bs: 'Koji drevni grad je Heinrich Schliemann iskopavao na lokalitetu Hisarlık 1870-ih godina?',
     },
     options: [
-      { en: 'Troy', bs: 'Troja' },
-      { en: 'Pompeii', bs: 'Pompeji' },
+      { en: 'Troy', bs: 'Troju' },
+      { en: 'Pompeii', bs: 'Pompeje' },
       { en: 'Babylon', bs: 'Babilon' },
-      { en: 'Sparta', bs: 'Sparta' },
+      { en: 'Sparta', bs: 'Spartu' },
     ],
     correctIndex: 0,
   },

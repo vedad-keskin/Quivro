@@ -59,7 +59,7 @@ export const cartoonsHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which song from Frozen won the Academy Award for Best Original Song?',
-      bs: 'Koja pjesma iz Frozen je osvojila Oscara za najbolju originalnu pjesmu?'
+      bs: 'Koja je pjesma iz filma Frozen osvojila Oscara za najbolju originalnu pjesmu?'
     },
     options: [
       { en: 'Let It Go', bs: 'Let It Go' },
@@ -127,7 +127,7 @@ export const cartoonsHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'In Spirited Away, what name does Yubaba give Chihiro at the bathhouse?',
-      bs: 'U filmu Avanture male Chihiro, koje ime Yubaba daje Chihiro u kupatilu?'
+      bs: 'Koje ime Yubaba daje Chihiro u kupalištu u filmu Avanture male Chihiro?'
     },
     options: [
       { en: 'Sen', bs: 'Sen' },
@@ -246,13 +246,13 @@ export const cartoonsHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which realm is Miguel transported to in Coco?',
-      bs: 'U koje carstvo je Miguel prenesen u filmu Coco?'
+      bs: 'U koji svijet Miguel dospijeva u filmu Coco?'
     },
     options: [
-      { en: 'Dead', bs: 'mrtvih' },
-      { en: 'Dreams', bs: 'snova' },
-      { en: 'Lost', bs: 'izgubljenih' },
-      { en: 'Giants', bs: 'divova' },
+      { en: 'Land of the Dead', bs: 'Svijet mrtvih' },
+      { en: 'Realm of Dreams', bs: 'Svijet snova' },
+      { en: 'Realm of the Lost', bs: 'Svijet izgubljenih' },
+      { en: 'Realm of Giants', bs: 'Svijet divova' },
     ],
     correctIndex: 0,
   },
@@ -364,8 +364,8 @@ export const cartoonsHard: Question[] = [
     category: 'cartoons',
     difficulty: 'hard',
     prompt: {
-      en: 'Who created Princess Mononoke?',
-      bs: 'Ko je napravio film Princeza Mononoke?'
+      en: 'Who directed Princess Mononoke?',
+      bs: 'Ko je režirao film Princeza Mononoke?'
     },
     options: [
       { en: 'Hayao Miyazaki', bs: 'Hayao Miyazaki' },
@@ -402,7 +402,7 @@ export const cartoonsHard: Question[] = [
       bs: 'U filmu Ratatouille, kako se zove restoran u kojem Remy pomaže Linguiniju?'
     },
     options: [
-      { en: 'Gusteau’s', bs: 'Kod Gusteau-a' },
+      { en: 'Gusteau’s', bs: 'Gusteauov restoran' },
       { en: 'La Ratatouille', bs: 'La Ratatouille' },
       { en: 'Chez Paris', bs: 'Chez Paris' },
       { en: 'Le Gourmet', bs: 'Le Gourmet' },
@@ -432,8 +432,8 @@ export const cartoonsHard: Question[] = [
     category: 'cartoons',
     difficulty: 'hard',
     prompt: {
-      en: 'What is the name of Plankton’s rival restaurant in SpongeBob SquarePants?',
-      bs: 'Kako se zove Planktonov rivalski restoran u Spužva Bobu?'
+      en: 'Which restaurant does Plankton own in SpongeBob SquarePants?',
+      bs: 'Koji restoran posjeduje Plankton u seriji Spužva Bob?'
     },
     options: [
       { en: 'Chum Bucket', bs: 'Prijateljska kantica' },
@@ -449,8 +449,8 @@ export const cartoonsHard: Question[] = [
     category: 'cartoons',
     difficulty: 'hard',
     prompt: {
-      en: 'Which animation studio produced the Ice Age films?',
-      bs: 'Koji animacijski studio je producirao filmove Ledeno doba?'
+      en: 'Which animation studio produced the original Ice Age film released in 2002?',
+      bs: 'Koji animacijski studio je producirao prvi film Ledeno doba iz 2002. godine?'
     },
     options: [
       { en: 'Pixar', bs: 'Pixar' },
@@ -518,13 +518,13 @@ export const cartoonsHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'In the first Ice Age film, Ray Romano voices which main character?',
-      bs: 'Kojeg glavnog lika glumi Ray Romano u prvom filmu Ledeno doba?'
+      bs: 'Kojem glavnom liku Ray Romano posuđuje glas u originalnoj engleskoj verziji prvog filma Ledeno doba?'
     },
     options: [
-      { en: 'Manny the mammoth', bs: 'Mannyja, mamuta' },
-      { en: 'Sid the sloth', bs: 'Sida, ljenjivca' },
-      { en: 'Diego the saber-tooth', bs: 'Diega, sabljozubog tigra' },
-      { en: 'Scrat the squirrel', bs: 'Scrat-a, vjeverice' },
+      { en: 'Manny the mammoth', bs: 'Mannyju, mamutu' },
+      { en: 'Sid the sloth', bs: 'Sidu, ljenjivcu' },
+      { en: 'Diego the saber-tooth', bs: 'Diegu, sabljozubom tigru' },
+      { en: 'Scrat the squirrel', bs: 'Scratu, vjeverici' },
     ],
     correctIndex: 0,
   },
@@ -772,8 +772,8 @@ export const cartoonsHard: Question[] = [
     category: 'cartoons',
     difficulty: 'hard',
     prompt: {
-      en: 'What is the name of Giulia\'s fisherman father in animated movie Luca?',
-      bs: 'Kako se zove Giulijin otac u animiranom filmu Luka?',
+      en: 'What is the name of Giulia’s fisherman father in the animated film Luca?',
+      bs: 'Kako se zove ribar koji je Giulijin otac u animiranom filmu Luka?',
     },
     options: [
       { en: 'Ercole', bs: 'Ercole' },
@@ -925,8 +925,8 @@ export const cartoonsHard: Question[] = [
     category: 'cartoons',
     difficulty: 'hard',
     prompt: {
-      en: 'Which princess joins Sinbad\'s adventure in Sinbad: Legend of the Seven Seas?',
-      bs: 'Koja se princeza pridružuje Sinbadovoj pustolovini u filmu Sinbad: Legenda sedam mora?',
+      en: 'Which woman joins Sinbad’s voyage in Sinbad: Legend of the Seven Seas?',
+      bs: 'Koja se žena pridružuje Sinbadovom putovanju u filmu Sinbad: Legenda sedam mora?',
     },
     options: [
       { en: 'Fiona', bs: 'Fiona' },

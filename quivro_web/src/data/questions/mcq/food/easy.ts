@@ -7,14 +7,14 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'Which country is sushi originally from?',
-      bs: 'Iz koje države potiče sushi?',
+      en: 'Sushi is a traditional dish of which country\'s cuisine?',
+      bs: 'Sushi je tradicionalno jelo kuhinje koje zemlje?',
     },
     options: [
-      { en: 'China', bs: 'Kina' },
-      { en: 'Korea', bs: 'Koreja' },
-      { en: 'Thailand', bs: 'Tajland' },
-      { en: 'Japan', bs: 'Japan' },
+      { en: 'China', bs: 'Kine' },
+      { en: 'Korea', bs: 'Koreje' },
+      { en: 'Thailand', bs: 'Tajlanda' },
+      { en: 'Japan', bs: 'Japana' },
     ],
     correctIndex: 3,
   },
@@ -41,8 +41,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'What is Nutella mainly made from?',
-      bs: 'Od čega se uglavnom pravi Nutella?',
+      en: 'Which pair of ingredients gives Nutella its characteristic flavour?',
+      bs: 'Od kojih sastojaka Nutella dobija svoj prepoznatljiv okus?',
     },
     options: [
       { en: 'Peanuts and caramel', bs: 'Kikirikija i karamele' },
@@ -93,12 +93,12 @@ export const foodEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which Mexican dish is a folded tortilla usually filled with meat, vegetables, or other toppings?',
-      bs: 'Koje meksičko jelo je presavijena tortilja obično napunjena mesom, povrćem ili drugim dodacima?',
+      bs: 'Koje meksičko jelo se pravi od presavijene tortilje punjene mesom, povrćem ili drugim dodacima?',
     },
     options: [
       { en: 'Burrito', bs: 'Burrito' },
       { en: 'Nachos', bs: 'Nachos' },
-      { en: 'Quesadilla', bs: 'Quesadilla' },
+      { en: 'Pozole', bs: 'Pozole' },
       { en: 'Taco', bs: 'Taco' },
     ],
     correctIndex: 3,
@@ -130,7 +130,7 @@ export const foodEasy: Question[] = [
       bs: 'Koje voće je poznato po zelenoj unutrašnjosti i velikoj koštici?'
         },
     options: [
-      { en: 'Mango', bs: 'Manga' },
+      { en: 'Mango', bs: 'Mango' },
       { en: 'Avocado', bs: 'Avokado' },
       { en: 'Kiwi', bs: 'Kivi' },
       { en: 'Papaya', bs: 'Papaja' },
@@ -143,8 +143,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'Which cheese is traditionally used on pizza?',
-      bs: 'Koji sir se tradicionalno koristi na pizzi?',
+      en: 'Which cheese is traditionally used on a pizza Margherita?',
+      bs: 'Koji sir se tradicionalno koristi na pizzi Margherita?',
     },
     options: [
       { en: 'Feta', bs: 'Feta' },
@@ -177,8 +177,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'What is the main ingredient in chocolate?',
-      bs: 'Šta je glavni sastojak čokolade?',
+      en: 'Which ingredient gives dark chocolate its characteristic chocolate flavour?',
+      bs: 'Koji sastojak daje tamnoj čokoladi prepoznatljiv čokoladni okus?',
     },
     options: [
       { en: 'Coffee beans', bs: 'Zrna kafe' },
@@ -228,8 +228,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'Which drink is a green tea powder popular in Japan?',
-      bs: 'Koji napitak je zeleni čaj u prahu popularan u Japanu?',
+      en: 'What is Japanese powdered green tea called?',
+      bs: 'Kako se naziva japanski zeleni čaj u prahu?',
     },
     options: [
       { en: 'Matcha', bs: 'Matcha' },
@@ -267,7 +267,7 @@ export const foodEasy: Question[] = [
     },
     options: [
       { en: 'Pancake', bs: 'Palačinka' },
-      { en: 'Waffle', bs: 'Waffle' },
+      { en: 'Waffle', bs: 'Vafl' },
       { en: 'Donut', bs: 'Krofna' },
       { en: 'Crêpe', bs: 'Crêpe' },
     ],
@@ -296,8 +296,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'Which Italian pasta dish is often served with tomato sauce and meatballs?',
-      bs: 'Koje italijansko jelo od tjestenine se često služi sa umakom od paradajza i ćuftama?',
+      en: 'Which pasta shape is commonly served with tomato sauce and meatballs in Italian American cooking?',
+      bs: 'Koja vrsta tjestenine se u italijansko-američkoj kuhinji često služi s umakom od paradajza i ćuftama?',
     },
     options: [
       { en: 'Spaghetti', bs: 'Spaghetti' },
@@ -483,8 +483,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'Which drink is made by adding steamed milk foam to espresso?',
-      bs: 'Koji napitak nastaje dodavanjem pjene od mlijeka u espresso?'
+      en: 'Which coffee drink traditionally combines espresso, steamed milk, and a thick layer of milk foam?',
+      bs: 'Koji napitak od kafe tradicionalno sadrži espresso, mlijeko zagrijano parom i debeo sloj mliječne pjene?'
     },
     options: [
       { en: 'Latte', bs: 'Latte' },
@@ -500,8 +500,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'Which German-origin baked snack is known for its twisted shape and salty crust?',
-      bs: 'Koja grickalica njemačkog porijekla je poznata po uvijenom obliku i slanoj kori?'
+      en: 'Which baked snack is known for its twisted shape and salty crust?',
+      bs: 'Koja pečena grickalica je poznata po uvijenom obliku i slanoj kori?'
     },
     options: [
       { en: 'Pretzel', bs: 'Perec' },
@@ -568,8 +568,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'Which large fruit is mostly water and often eaten in summer slices?',
-      bs: 'Koje veliko voće sadrži mnogo vode i ljeti se često jede narezano na kriške?',
+      en: 'Which large fruit typically has a green rind and red flesh and is often eaten in summer slices?',
+      bs: 'Koje veliko voće obično ima zelenu koru i crvenu unutrašnjost te se ljeti često jede u kriškama?',
     },
     options: [
       { en: 'Melon', bs: 'Dinja' },
@@ -670,8 +670,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'Which vegetable is the main ingredient in traditional hummus?',
-      bs: 'Koje povrće je glavni sastojak tradicionalnog humusa?',
+      en: 'Which legume is the main ingredient in traditional hummus?',
+      bs: 'Koja mahunarka je glavni sastojak tradicionalnog humusa?',
     },
     options: [
       { en: 'Lentils', bs: 'Leća' },
@@ -704,8 +704,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'Which country is generally credited as the origin of the croissant?',
-      bs: 'Koja zemlja se generalno smatra zemljom porijekla kroasana?',
+      en: 'The kipferl, a precursor of the modern croissant, is associated with which country?',
+      bs: 'S kojom se zemljom povezuje kipferl, preteča savremenog kroasana?',
     },
     options: [
       { en: 'France', bs: 'Francuska' },
@@ -721,14 +721,14 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'Which cold drink blends ice cream or milk with flavorings until smooth?',
-      bs: 'Koji se hladni napitak priprema miješanjem sladoleda ili mlijeka s aromama dok ne postane kremast?',
+      en: 'Which drink is traditionally made by blending milk and ice cream?',
+      bs: 'Koji se napitak tradicionalno pravi miješanjem mlijeka i sladoleda?',
     },
     options: [
       { en: 'Milkshake', bs: 'Milkshake' },
       { en: 'Smoothie', bs: 'Smoothie' },
       { en: 'Frappé', bs: 'Frape' },
-      { en: 'Iced latte', bs: 'Ledena latte' },
+      { en: 'Iced latte', bs: 'Ledeni latte' },
     ],
     correctIndex: 0,
   },
@@ -738,8 +738,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'In traditional Neapolitan pizza rules, what type of tomatoes must be used?',
-      bs: 'Po tradicionalnim pravilima napuljske pice, koja vrsta paradajza mora biti korištena?',
+      en: 'Which tomato variety is especially associated with Neapolitan pizza?',
+      bs: 'Koja sorta paradajza se posebno povezuje s napuljskom pizzom?',
     },
     options: [
       { en: 'Roma tomatoes', bs: 'Roma paradajz' },
@@ -913,7 +913,7 @@ export const foodEasy: Question[] = [
     },
     options: [
       { en: 'Arancini', bs: 'Arancini' },
-      { en: 'Risi e bisi', bs: 'Risi e bisi' },
+      { en: 'Tiramisu', bs: 'Tiramisu' },
       { en: 'Risotto', bs: 'Risotto' },
       { en: 'Rice pudding', bs: 'Rižin puding' },
     ],
@@ -1044,8 +1044,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'Which orange cheese is popular in sandwiches and burgers?',
-      bs: 'Koji narandžasti sir je popularan u sendvičima i burgerima?',
+      en: 'Which cheese is named after a village in Somerset, England?',
+      bs: 'Koji sir je dobio ime po selu u engleskoj grofoviji Somerset?',
     },
     options: [
       { en: 'Gouda', bs: 'Gauda' },
@@ -1163,8 +1163,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'Which pungent root is often pickled and served alongside sushi?',
-      bs: 'Koji ljuti korijen se često kiseli i poslužuje uz sushi?',
+      en: 'Which pungent rhizome is often pickled and served alongside sushi?',
+      bs: 'Koji ljuti rizom se često kiseli i poslužuje uz sushi?',
     },
     options: [
       { en: 'Wasabi', bs: 'Wasabi' },
@@ -1215,7 +1215,7 @@ export const foodEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which cuisine is tacos, burritos, and salsa most associated with?',
-      bs: 'S kojom se kuhinjom najviše povezuju taco, burrito i salsa?',
+      bs: 'Koja kuhinja se najviše povezuje s jelima taco i burrito te salsom?',
     },
     options: [
       { en: 'Italian', bs: 'Italijanska' },
@@ -1232,7 +1232,7 @@ export const foodEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which cuisine is pasta, pizza, and risotto most associated with?',
-      bs: 'S kojom se kuhinjom najviše povezuju tjestenina, pizza i risotto?',
+      bs: 'Koja kuhinja se najviše povezuje s tjesteninom, pizzom i rižotom?',
     },
     options: [
       { en: 'Chinese', bs: 'Kineska' },
@@ -1249,7 +1249,7 @@ export const foodEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which cuisine is curry, naan, and samosas most associated with?',
-      bs: 'S kojom se kuhinjom najviše povezuju curry, naan i samose?',
+      bs: 'Koja kuhinja se najviše povezuje s curryjem, naanom i samosama?',
     },
     options: [
       { en: 'Japanese', bs: 'Japanska' },
@@ -1266,7 +1266,7 @@ export const foodEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which cuisine is dumplings, fried rice, and sweet-and-sour dishes often linked to?',
-      bs: 'S kojom se kuhinjom često povezuju knedle, pržena riža i slatko-kisela jela?',
+      bs: 'Koja kuhinja se često povezuje s punjenim tijestom, prženom rižom i slatko-kiselim jelima?',
     },
     options: [
       { en: 'Chinese', bs: 'Kineska' },
@@ -1283,7 +1283,7 @@ export const foodEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'Which cuisine is croissants, baguettes, and crème brûlée most associated with?',
-      bs: 'S kojom se kuhinjom najviše povezuju kroasani, bageti i crème brûlée?',
+      bs: 'Koja kuhinja se najviše povezuje s kroasanima, bagetima i desertom crème brûlée?',
     },
     options: [
       { en: 'German', bs: 'Njemačka' },
@@ -1299,13 +1299,13 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'Which flat, round breakfast cake is cooked on a griddle and often stacked?',
-      bs: 'Koji pljosnati okrugli kolač za doručak se peče na tavi i često slaže u hrpu?',
+      en: 'EN: Which American breakfast food is made from thick, fluffy batter that is usually stacked?',
+      bs: 'Koje američko jelo za doručak se peče od gustog tijesta u obliku debelih, mekanih krugova koji se obično slažu jedan na drugi?',
     },
     options: [
       { en: 'Waffle', bs: 'Vafl' },
       { en: 'Crepe', bs: 'Krep' },
-      { en: 'Pancake', bs: 'Palačinka' },
+      { en: 'Pancake', bs: 'Palačinke' },
       { en: 'Blini', bs: 'Blini' },
     ],
     correctIndex: 2,
@@ -1333,8 +1333,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'What ingredient helps give traditional Belgian waffles their characteristic deep pockets?',
-      bs: 'Koji sastojak tradicionalnim belgijskim vaflima daje njihove karakteristične duboke rupice?'
+      en: 'Which ingredient ferments the batter in traditional Brussels waffle recipes?',
+      bs: 'Koji sastojak omogućava fermentaciju tijesta u tradicionalnim receptima za briselske vafle?'
     },
     options: [
       { en: 'Yeast', bs: 'Kvasac' },
@@ -1401,8 +1401,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'Which country produces the most vanilla in the world?',
-      bs: 'Koja zemlja proizvodi najviše vanilije na svijetu?',
+      en: 'According to Fairtrade\'s 2024 vanilla report, which country was the world\'s largest vanilla producer?',
+      bs: 'Prema Fairtradeovom izvještaju o vaniliji iz 2024. godine, koja je zemlja bila najveći svjetski proizvođač vanilije?',
     },
     options: [
       { en: 'Mexico', bs: 'Meksiko' },
@@ -1418,8 +1418,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'What is the primary reason lemon juice is added when making guacamole?',
-      bs: 'Koji je glavni razlog dodavanja limunovog soka u guakamole?',
+      en: 'What is the reason lemon juice is added when making guacamole, besides taste?',
+      bs: 'Koji je razlog dodavanja limunovog soka u guakamole, pored ukusa?',
     },
     options: [
       { en: 'To add sweetness', bs: 'Da doda slatkoću' },
@@ -1486,8 +1486,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'What is the primary reason honey never spoils if stored properly?',
-      bs: 'Koji je glavni razlog da med, ako se pravilno čuva, nikad ne pokvari?',
+      en: 'Why can honey resist microbial spoilage for a long time when sealed and stored dry?',
+      bs: 'Zašto med može dugo odolijevati mikrobiološkom kvarenju ako je dobro zatvoren i čuva se na suhom?',
     },
     options: [
       { en: 'Its high acidity kills all bacteria', bs: 'Visoka kiselost ubija sve bakterije' },
@@ -1673,8 +1673,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'Which green soft drink brand, owned by Coca-Cola, is famous for its lemon-lime flavor?',
-      bs: 'Koji zeleni brend gaziranog pića, u vlasništvu Coca-Cole, poznat je po okusu limuna i limete?',
+      en: 'Which lemon lime soft drink was introduced by Coca Cola in 1961?',
+      bs: 'Koje gazirano piće s okusom limuna i limete je Coca-Cola predstavila 1961. godine?',
     },
     options: [
       { en: '7UP', bs: '7UP' },
@@ -1690,8 +1690,8 @@ export const foodEasy: Question[] = [
     category: 'food',
     difficulty: 'easy',
     prompt: {
-      en: 'Which grain must be thoroughly rinsed before cooking to remove its natural bitter coating, saponin?',
-      bs: 'Koje žito mora biti temeljno isprano prije kuhanja kako bi se uklonio prirodni gorki premaz, saponin?',
+      en: 'Which pseudocereal can have a bitter saponin coating that is removed by washing?',
+      bs: 'Koja pseudožitarica može imati gorak sloj saponina koji se uklanja ispiranjem?',
     },
     options: [
       { en: 'Rice', bs: 'Riža' },

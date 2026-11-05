@@ -24,8 +24,8 @@ export const famousMedium: Question[] = [
     category: 'famous',
     difficulty: 'medium',
     prompt: {
-      en: 'Who was the first person to climb El Capitan in Yosemite without ropes or safety equipment?',
-      bs: 'Ko je bio prvi čovjek koji se popeo na El Capitan u Yosemiteu bez užadi i zaštitne opreme?'
+      en: 'Who made the first free solo ascent of the Freerider route on El Capitan in Yosemite in 2017?',
+      bs: 'Ko je 2017. godine prvi bez užeta i zaštitne opreme ispenjao smjer Freerider na El Capitanu u Yosemiteu?'
     },
     options: [
       { en: 'Alex Honnold', bs: 'Alex Honnold' },
@@ -80,9 +80,9 @@ export const famousMedium: Question[] = [
     },
     options: [
       { en: 'Radioactivity', bs: 'Radioaktivnosti' },
-      { en: 'Electromagnetism', bs: 'Elektromagnetizmu' },
-      { en: 'Thermodynamics', bs: 'Termodinamici' },
-      { en: 'Optics', bs: 'Optici' },
+      { en: 'Electromagnetism', bs: 'Elektromagnetizma' },
+      { en: 'Thermodynamics', bs: 'Termodinamike' },
+      { en: 'Optics', bs: 'Optike' },
     ],
     correctIndex: 0,
   },
@@ -160,8 +160,8 @@ export const famousMedium: Question[] = [
     category: 'famous',
     difficulty: 'medium',
     prompt: {
-      en: 'Rosalind Franklin’s research was crucial to understanding which biological structure?',
-      bs: 'Istraživanje Rosalind Franklin bilo je ključno za razumijevanje koje biološke strukture?',
+      en: 'Rosalind Franklin’s X-ray diffraction work, including Photograph 51, was crucial to understanding which structure?',
+      bs: 'Za razumijevanje čega su bila ključna istraživanja Rosalind Franklin pomoću rendgenske difrakcije, uključujući Fotografiju 51?',
     },
     options: [
       { en: 'Cell membranes', bs: 'Ćelijskih membrana' },
@@ -228,8 +228,8 @@ export const famousMedium: Question[] = [
     category: 'famous',
     difficulty: 'medium',
     prompt: {
-      en: 'In which country was Albert Einstein working when he developed his theory of relativity?',
-      bs: 'U kojoj je zemlji Albert Einstein radio kada je razvio teoriju relativiteta?',
+      en: 'In which country was Albert Einstein working when he published his special theory of relativity in 1905?',
+      bs: 'U kojoj je zemlji Albert Einstein radio kada je 1905. godine objavio specijalnu teoriju relativiteta?',
     },
     options: [
       { en: 'Switzerland', bs: 'Švicarskoj' },
@@ -296,8 +296,8 @@ export const famousMedium: Question[] = [
     category: 'famous',
     difficulty: 'medium',
     prompt: {
-      en: 'In which country did Ernest Hemingway live for many years while writing some of his most famous works?',
-      bs: 'U kojoj je zemlji Ernest Hemingway živio dugi niz godina dok je pisao neka od svojih najpoznatijih djela?'
+      en: 'In which country was Hemingway living at Finca Vigía when he wrote The Old Man and the Sea?',
+      bs: 'U kojoj je zemlji Hemingway živio na imanju Finca Vigía kada je napisao roman Starac i more?'
     },
     options: [
       { en: 'Cuba', bs: 'Kubi' },
@@ -484,13 +484,13 @@ export const famousMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'P.T. Barnum built a famous entertainment empire in which field?',
-      bs: 'P.T. Barnum je izgradio poznato zabavno carstvo u kojem polju?',
+      bs: 'U kojoj oblasti zabave je P. T. Barnum izgradio svoje poznato carstvo?',
     },
     options: [
-      { en: 'Circus', bs: 'Cirkusa' },
-      { en: 'Opera', bs: 'Opere' },
-      { en: 'Ballet', bs: 'Baleta' },
-      { en: 'Symphony orchestra', bs: 'Simfonijskog orkestra' },
+      { en: 'Circus', bs: 'Cirkusu' },
+      { en: 'Opera', bs: 'Operi' },
+      { en: 'Ballet', bs: 'Baletu' },
+      { en: 'Symphony orchestra', bs: 'Simfonijskom orkestru' },
     ],
     correctIndex: 0,
   },
@@ -602,8 +602,8 @@ export const famousMedium: Question[] = [
     category: 'famous',
     difficulty: 'medium',
     prompt: {
-      en: 'Genghis Khan founded power across which empire?',
-      bs: 'Džingis-kan je uspostavio moć kroz koje carstvo?',
+      en: 'Which empire did Genghis Khan found?',
+      bs: 'Koje je carstvo osnovao Džingis-kan?',
     },
     options: [
       { en: 'Persian Empire', bs: 'Perzijsko carstvo' },
@@ -642,7 +642,7 @@ export const famousMedium: Question[] = [
     options: [
       { en: 'Hercule Poirot', bs: 'Hercule Poirot' },
       { en: 'Sherlock Holmes', bs: 'Sherlock Holmes' },
-      { en: 'Miss Marple', bs: 'Nancy Drew' },
+      { en: 'Nancy Drew', bs: 'Nancy Drew' },
       { en: 'Philip Marlowe', bs: 'Philip Marlowe' },
     ],
     correctIndex: 0,
@@ -755,14 +755,14 @@ export const famousMedium: Question[] = [
     category: 'famous',
     difficulty: 'medium',
     prompt: {
-      en: 'Who was the first person to reach the summit of Mount Everest?',
-      bs: 'Ko je prvi osvojio vrh Mount Everesta?'
+      en: 'Who reached the summit of Mount Everest with Edmund Hillary on 29 May 1953, in the first confirmed ascent?',
+      bs: 'Ko je s Edmundom Hillaryjem stigao na vrh Mount Everesta 29. maja 1953. godine, tokom prvog potvrđenog uspona?'
     },
     options: [
-      { en: 'Edmund Hillary', bs: 'Edmund Hillary' },
-      { en: 'Reinhold Messner', bs: 'Reinhold Messner' },
       { en: 'Tenzing Norgay', bs: 'Tenzing Norgay' },
+      { en: 'Reinhold Messner', bs: 'Reinhold Messner' },
       { en: 'George Mallory', bs: 'George Mallory' },
+      { en: 'Junko Tabei', bs: 'Junko Tabei' },
     ],
     correctIndex: 0,
   },
@@ -1032,7 +1032,7 @@ export const famousMedium: Question[] = [
     },
     options: [
       { en: 'England', bs: 'Engleske' },
-      { en: 'Brazil', bs: 'Brazil' },
+      { en: 'Brazil', bs: 'Brazila' },
       { en: 'Germany', bs: 'Njemačke' },
       { en: 'Italy', bs: 'Italije' },
     ],
@@ -1062,7 +1062,7 @@ export const famousMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'What number did Wayne Gretzky famously wear during his hockey career?',
-      bs: 'Koji broj je Wayne Gretzky poznato nosio tokom svoje hokejaške karijere?'
+      bs: 'Koji broj je Wayne Gretzky nosio tokom svoje hokejaške karijere?'
     },
     options: [
       { en: '99', bs: '99' },
@@ -1163,8 +1163,8 @@ export const famousMedium: Question[] = [
     category: 'famous',
     difficulty: 'medium',
     prompt: {
-      en: 'Ibn Battuta is remembered as a traveler from which region?',
-      bs: 'Ibn Battuta se pamti kao putnik iz koje regije?',
+      en: 'Which country was the traveler Ibn Battuta from?',
+      bs: 'Iz koje je zemlje bio putopisac Ibn Battuta?',
     },
     options: [
       { en: 'Morocco', bs: 'Maroka' },
@@ -1249,10 +1249,10 @@ export const famousMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Al Capone became a notorious gangster most linked to which city?',
-      bs: 'Al Capone je postao zloglasni gangster najviše povezan s kojim gradom?',
+      bs: 'S kojim gradom se najčešće povezuje zloglasni gangster Al Capone?',
     },
     options: [
-      { en: 'Chicago', bs: 'Chicagoom' },
+      { en: 'Chicago', bs: 'Chicagom' },
       { en: 'Miami', bs: 'Miamijem' },
       { en: 'Boston', bs: 'Bostonom' },
       { en: 'New York', bs: 'New Yorkom' },
@@ -1265,8 +1265,8 @@ export const famousMedium: Question[] = [
     category: 'famous',
     difficulty: 'medium',
     prompt: {
-      en: 'Legend places King Arthur’s castle at which location?',
-      bs: 'Legenda smješta kraljevski dvorac Artura na koju lokaciju?',
+      en: 'What is the legendary name of King Arthur’s court, associated with the Knights of the Round Table?',
+      bs: 'Kako se naziva legendarni dvor kralja Artura povezan s vitezovima Okruglog stola?',
     },
     options: [
       { en: 'Camelot', bs: 'Camelot' },
@@ -1367,8 +1367,8 @@ export const famousMedium: Question[] = [
     category: 'famous',
     difficulty: 'medium',
     prompt: {
-      en: 'As of 2026, who holds the record for the most Olympic gold medals?',
-      bs: 'Do 2026. godine, ko drži rekord po broju osvojenih olimpijskih zlatnih medalja?'
+      en: 'Which athlete won 23 Olympic gold medals between 2004 and 2016?',
+      bs: 'Koji je sportista osvojio 23 olimpijske zlatne medalje između 2004. i 2016. godine?'
     },
     options: [
       { en: 'Michael Phelps', bs: 'Michael Phelps' },
@@ -1424,7 +1424,7 @@ export const famousMedium: Question[] = [
     options: [
       { en: 'The Tell-Tale Heart', bs: 'Priča srca koje govori' },
       { en: 'The Raven', bs: 'Gavran' },
-      { en: 'The Fall of the House of Usher', bs: 'Pad kuće Usher' },
+      { en: 'The Black Cat', bs: 'Crni mačak.' },
       { en: 'The Murders in the Rue Morgue', bs: 'Ubistva u ulici Morgue' },
     ],
     correctIndex: 0,
@@ -1504,13 +1504,13 @@ export const famousMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Tutankhamun is the ancient Egyptian pharaoh famous for which golden artifact?',
-      bs: 'Tutankhamon je drevni egipatski faraon poznat po kojem zlatnom artefaktu?',
+      bs: 'Po kojem zlatnom artefaktu je poznat drevni egipatski faraon Tutankhamon?',
     },
     options: [
       { en: 'Burial mask', bs: 'Pogrebnoj masci' },
       { en: 'Chariot wheel', bs: 'Kotaču kočije' },
       { en: 'Ceremonial dagger', bs: 'Ceremonijalnom bodežu' },
-      { en: 'Throne chair', bs: 'Prestolju' },
+      { en: 'Golden bracelet', bs: 'Zlatnoj narukvici' },
     ],
     correctIndex: 0,
   },
@@ -1554,8 +1554,8 @@ export const famousMedium: Question[] = [
     category: 'famous',
     difficulty: 'medium',
     prompt: {
-      en: 'As of 2026, who holds the record for the most Formula 1 World Championships?',
-      bs: 'Do 2026. godine, ko drži rekord po broju titula prvaka Formule 1?'
+      en: 'Who equalled Michael Schumacher’s seven Formula 1 world titles by winning the 2020 championship?',
+      bs: 'Ko je osvajanjem prvenstva 2020. godine izjednačio rekord Michaela Schumachera od sedam svjetskih titula Formule 1?'
     },
     options: [
       { en: 'Lewis Hamilton', bs: 'Lewis Hamilton' },
@@ -1571,14 +1571,14 @@ export const famousMedium: Question[] = [
     category: 'famous',
     difficulty: 'medium',
     prompt: {
-      en: 'Bonnie and Clyde became infamous as an outlaw couple during which period?',
-      bs: 'Bonnie i Clyde su postali zloglasni kao par odmetnika tokom kojeg perioda?',
+      en: 'Bonnie and Clyde’s 1930s crime spree took place during which major economic crisis?',
+      bs: 'Tokom koje se velike ekonomske krize odvijao zločinački pohod Bonnie i Clydea 1930-ih godina?',
     },
     options: [
       { en: 'Great Depression', bs: 'Velike depresije' },
       { en: 'Roaring Twenties', bs: 'Razigranih dvadesetih' },
       { en: 'Prohibition era', bs: 'Ere prohibicije' },
-      { en: 'World War I years', bs: 'Godina Prvog svjetskog rata' },
+      { en: 'World War I years', bs: 'Godine Prvog svjetskog rata' },
     ],
     correctIndex: 0,
   },
@@ -1588,8 +1588,8 @@ export const famousMedium: Question[] = [
     category: 'famous',
     difficulty: 'medium',
     prompt: {
-      en: 'Who was the first person to reach Challenger Deep, the deepest known point in the ocean?',
-      bs: 'Ko je prvi stigao do Challenger Deep-a, najdublje poznate tačke u okeanu?'
+      en: 'Which pair made the first crewed descent to Challenger Deep in 1960?',
+      bs: 'Koji dvojac je 1960. godine prvi podmornicom zaronio do Challenger Deepa?'
     },
     options: [
       { en: 'Jacques Piccard and Don Walsh', bs: 'Jacques Piccard i Don Walsh' },
@@ -1605,8 +1605,8 @@ export const famousMedium: Question[] = [
     category: 'famous',
     difficulty: 'medium',
     prompt: {
-      en: 'Who was the first person to dive alone to the Mariana Trench?',
-      bs: 'Ko je prvi sam zaronio do Marijanske brazde?'
+      en: 'Who made the first solo crewed descent to Challenger Deep in 2012?',
+      bs: 'Ko je 2012. godine prvi samostalno zaronio podmornicom do Challenger Deepa?'
     },
     options: [
       { en: 'James Cameron', bs: 'James Cameron' },
@@ -1656,8 +1656,8 @@ export const famousMedium: Question[] = [
     category: 'famous',
     difficulty: 'medium',
     prompt: {
-      en: 'Who created the first computer algorithm and is considered the first programmer?',
-      bs: 'Ko je napravio prvi računarski algoritam i smatra se prvim programerom?'
+      en: 'Who published an algorithm for Babbage’s Analytical Engine in 1843 and is often regarded as the first computer programmer?',
+      bs: 'Ko je 1843. godine objavio algoritam za Babbageovu analitičku mašinu i često se smatra prvim računarskim programerom?'
     },
     options: [
       { en: 'Ada Lovelace', bs: 'Ada Lovelace' },
@@ -1690,8 +1690,8 @@ export const famousMedium: Question[] = [
     category: 'famous',
     difficulty: 'medium',
     prompt: {
-      en: 'Who was the first human to receive a heart transplant?',
-      bs: 'Ko je bio prvi čovjek kojem je presađeno srce?'
+      en: 'Who received the first human-to-human heart transplant in December 1967?',
+      bs: 'Kome je u decembru 1967. godine prvi put presađeno srce drugog čovjeka?'
     },
     options: [
       { en: 'Louis Washkansky', bs: 'Louis Washkansky' },

@@ -24,8 +24,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which spice gives curry its yellow color?',
-      bs: 'Koji začin daje žutu boju curryju?',
+      en: 'Which spice commonly gives yellow curry powder its colour?',
+      bs: 'Koji začin često daje žutu boju mješavini curry začina?',
     },
     options: [
       { en: 'Paprika', bs: 'Paprika' },
@@ -75,7 +75,7 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which country is paella originally from, a famous rice dish?',
+      en: 'In which country did the rice dish paella originate?',
       bs: 'U kojoj zemlji je nastala paella, poznato jelo od riže?'
     },
     options: [
@@ -127,7 +127,7 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which classic French dessert is known for its creamy custard base topped with a layer of caramelized sugar?',
-      bs: 'Koji klasični francuski desert je poznat po kremastoj bazi od kreme prekrivenoj slojem karameliziranog šećera?'
+      bs: 'Koji klasični francuski desert ima kremastu podlogu i tanak sloj karameliziranog šećera na vrhu?'
     },
     options: [
       { en: 'Crème brûlée', bs: 'Crème brûlée' },
@@ -161,7 +161,7 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which Japanese term describes the fifth basic taste, associated with the savory flavor found in foods like meat, mushrooms, and soy sauce?',
-      bs: 'Koji japanski izraz opisuje peti osnovni ukus, povezan sa slanim okusom hrane poput mesa, gljiva i soja sosa?'
+      bs: 'Koji japanski izraz označava peti osnovni okus, karakterističan za meso, gljive i sojin umak?'
     },
     options: [
       { en: 'Umami', bs: 'Umami' },
@@ -466,8 +466,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which Austrian chocolate cake is named after a famous hotel in Vienna?',
-      bs: 'Koja austrijska čokoladna torta nosi ime po poznatom hotelu u Beču?',
+      en: 'Which Austrian chocolate cake was created in 1832?',
+      bs: 'Koja austrijska čokoladna torta je nastala 1832. godine?',
     },
     options: [
       { en: 'Black Forest cake', bs: 'Schwarzwald torta' },
@@ -687,8 +687,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which country is traditionally credited with inventing tempura-style deep frying, later refined in Japan?',
-      bs: 'Koja zemlja se tradicionalno smatra izvorom tempura načina prženja, koji je kasnije usavršen u Japanu?',
+      en: 'Missionaries from which country introduced battered fried foods that influenced Japanese tempura in the sixteenth century?',
+      bs: 'Iz koje zemlje su misionari u 16. stoljeću u Japan donijeli jela pržena u tijestu koja su uticala na razvoj tempure?',
     },
     options: [
       { en: 'China', bs: 'Kina' },
@@ -807,7 +807,7 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which Italian dessert is a cooked cream set with gelatin and often topped with fruit sauce?',
-      bs: 'Koji italijanski desert je kuvana krema stegnuta želatinom i često prelivena voćnim umakom?',
+      bs: 'Koji italijanski desert se pravi od kuhanog vrhnja sa želatinom i često poslužuje s voćnim umakom?',
     },
     options: [
       { en: 'Cannoli', bs: 'Cannoli' },
@@ -909,7 +909,7 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which Spanish sheep\'s-milk cheese is often sold in wedges with a distinctive herringbone rind pattern?',
-      bs: 'Koji španski ovčji sir se često prodaje u klinovima s prepoznatljivim uzorkom kore?',
+      bs: 'Koji se španski sir od ovčijeg mlijeka često prodaje u kriškama i ima koru s prepoznatljivim uzorkom riblje kosti?',
     },
     options: [
       { en: 'Idiazabal', bs: 'Idiazabal' },
@@ -976,8 +976,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which strong, unsweetened black coffee, brewed in a small copper pot, is central to Balkan hospitality?',
-      bs: 'Koja je jaka, nezaslađena crna kafa, kuhana u maloj bakrenoj džezvi, važan dio balkanskog gostoprimstva?',
+      en: 'Which coffee style is made by heating finely ground coffee in a small pot called džezva, a stape in Balkan hospitality?',
+      bs: 'Koja vrsta kafe se priprema zagrijavanjem fino mljevenih zrna u džezvi i tradicionalno poslužuje kao znak gostoprimstva na Balkanu?',
     },
     options: [
       { en: 'Espresso', bs: 'Espresso' },
@@ -993,7 +993,7 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which Dalmatian dry-cured ham, is a specialty of the Croatian coast?',
+      en: 'Which Dalmatian dry cured ham is a specialty of the Croatian coast?',
       bs: 'Koja je dalmatinska sušena šunka specijalitet hrvatske obale?',
     },
     options: [
@@ -1010,8 +1010,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which Croatian stew, made with octopus or meat, is slow-cooked under a metal dome covered in embers?',
-      bs: 'Koje hrvatsko jelo, od hobotnice ili mesa, sporo se kuha ispod metalnog zvona prekrivenog žarom?',
+      en: 'Which Croatian term refers to cooking meat or octopus under a metal dome covered with embers?',
+      bs: 'Koji hrvatski naziv označava pripremu mesa ili hobotnice ispod metalnog zvona prekrivenog žarom?',
     },
     options: [
       { en: 'Peka', bs: 'Peka' },
@@ -1045,10 +1045,10 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which aromatic seed spice from the ginger family is often used in Indian sweets and coffee?',
-      bs: 'Koji aromatični začin od sjemenki iz porodice đumbira se često koristi u indijskim slasticama i kafi?',
+      bs: 'Koji aromatični začin potiče od sjemenki biljke iz porodice đumbira i često se koristi u indijskim slasticama i kafi?',
     },
     options: [
-      { en: 'Cumin', bs: 'Kim' },
+      { en: 'Cumin', bs: 'Kumin' },
       { en: 'Fennel', bs: 'Komorač' },
       { en: 'Mustard seed', bs: 'Sjemenka senfa' },
       { en: 'Cardamom', bs: 'Kardamom' },
@@ -1062,10 +1062,10 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which warm, earthy spice from ground seeds is a staple in chili powder and taco seasoning?',
-      bs: 'Koji topao, zemljani začin od mljevenih sjemenki je osnovni sastojak chili praha i začina za taco?',
+      bs: 'Koji začin od mljevenih sjemenki ima topao, zemljast okus i čest je sastojak mješavina začina za čili i taco?',
     },
     options: [
-      { en: 'Cumin', bs: 'Kim' },
+      { en: 'Cumin', bs: 'Kumin' },
       { en: 'Nutmeg', bs: 'Muškatni oraščić' },
       { en: 'Clove', bs: 'Karanfilić' },
       { en: 'Allspice', bs: 'Piment' },
@@ -1112,8 +1112,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which dried spice pod is a key flavor in Chinese five-spice blend and many Vietnamese broths?',
-      bs: 'Koja sušena začinska mahuna je ključni okus u kineskoj five-spice mješavini i mnogim vijetnamskim bujonima?',
+      en: 'Which star shaped dried spice is used in Chinese five spice powder and many Vietnamese broths?',
+      bs: 'Koji se sušeni začin zvjezdastog oblika koristi u kineskoj mješavini pet začina i mnogim vijetnamskim bujonima?',
     },
     options: [
       { en: 'Clove', bs: 'Karanfilić' },
@@ -1164,12 +1164,12 @@ export const foodMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which seafood is often cut into rings, coated in batter, and deep-fried as a starter?',
-      bs: 'Koja morska hrana se često reže na kolutove, umata u tijesto i duboko prži kao predjelo?',
+      bs: 'Koji morski plodovi se često režu na kolutove, umaču u tijesto i prže u dubokom ulju kao predjelo?',
     },
     options: [
       { en: 'Scallops', bs: 'Jakobove kapice' },
       { en: 'Mussels', bs: 'Dagnje' },
-      { en: 'Calamari', bs: 'Calamari' },
+      { en: 'Calamari', bs: 'Lignje' },
       { en: 'Prawns', bs: 'Kozice' },
     ],
     correctIndex: 2,
@@ -1214,8 +1214,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which large tropical fruit has fibrous yellow flesh that is often used as a meat substitute?',
-      bs: 'Koje veliko tropsko voće ima vlaknastu žutu unutrašnjost koja se često koristi kao zamjena za meso?',
+      en: 'Which large tropical fruit is often used unripe as a fibrous meat substitute?',
+      bs: 'Koje veliko tropsko voće se često koristi nezrelo kao vlaknasta zamjena za meso?',
     },
     options: [
       { en: 'Durian', bs: 'Durian' },
@@ -1231,8 +1231,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which thistle-like vegetable is eaten by pulling off petals and scraping the tender base?',
-      bs: 'Koje povrće slično čičku se jede skidanjem latica i struganjem nježne baze?',
+      en: 'Which thistle like vegetable is eaten by removing the outer bracts and scraping off their tender bases?',
+      bs: 'Koje povrće nalik čičku se jede tako što se uklanjaju vanjski pricvjetni listovi i s njih struže mekani donji dio?',
     },
     options: [
       { en: 'Asparagus', bs: 'Šparoga' },
@@ -1265,8 +1265,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which creamy custard-filled pastry, layered with puff pastry and topped with powdered sugar, originates from Samobor?',
-      bs: 'Koja kremasta pita punjena vanilin kremom, slojevita s lisnatim tijestom i posuta šećerom u prahu, potiče iz Samobora?',
+      en: 'Which cream cake with puff pastry and a dusting of powdered sugar is a well known specialty of Samobor?',
+      bs: 'Koji kolač s kremom, lisnatim tijestom i šećerom u prahu je poznati specijalitet Samobora?',
     },
     options: [
       { en: 'Kremšnita', bs: 'Kremšnita' },
@@ -1367,8 +1367,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which frozen Italian dessert is denser and typically lower in fat than American ice cream?',
-      bs: 'Koji smrznuti italijanski desert je gušći i tipično ima manje masti od američkog sladoleda?',
+      en: 'Which milk based Italian frozen dessert is typically denser and lower in fat than American style ice cream?',
+      bs: 'Koji italijanski smrznuti desert na bazi mlijeka je obično gušći i ima manje masti od sladoleda američkog tipa?',
     },
     options: [
       { en: 'Sorbet', bs: 'Sorbet' },
@@ -1384,8 +1384,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which cured salmon is thinly sliced and commonly served cold on bagels with cream cheese?',
-      bs: 'Koji sušeni losos se tanko reže i često služi hladan na bagelu sa krem sirom?',
+      en: 'What is the salt cured salmon traditionally associated with bagels and cream cheese in Jewish American cuisine called?',
+      bs: 'Kako se naziva usoljeni losos koji se u jevrejsko-američkoj kuhinji tradicionalno poslužuje uz bagel i krem sir?',
     },
     options: [
       { en: 'Gravlax', bs: 'Gravlax' },
@@ -1452,8 +1452,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which Indian flatbread is leavened with yogurt or yeast and traditionally baked in a tandoor?',
-      bs: 'Koji indijski pljosnati hljeb se diže jogurtom ili kvascem i tradicionalno peče u tanduru?',
+      en: 'Which leavened Indian flatbread is often made with yogurt and traditionally baked in a tandoor?',
+      bs: 'Koji dizani indijski pljosnati hljeb se često pravi s jogurtom i tradicionalno peče u tanduru?',
     },
     options: [
       { en: 'Chapati', bs: 'Chapati' },
@@ -1520,8 +1520,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which Swiss dish scrapes melted cheese onto boiled potatoes and pickles?',
-      bs: 'Koje švicarsko jelo struže otopljeni sir na kuvani krompir i kisele krastavce?',
+      en: 'Which Swiss dish is prepared by scraping melted cheese onto boiled potatoes and serving it with pickles?',
+      bs: 'Koje se švicarsko jelo priprema struganjem otopljenog sira na kuhani krompir i poslužuje s kiselim krastavcima?',
     },
     options: [
       { en: 'Fondue', bs: 'Fondue' },
@@ -1605,8 +1605,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which country consumes the most cheese per capita in the world?',
-      bs: 'Koja zemlja troši najviše sira po glavi stanovnika na svijetu?',
+      en: 'Havarti cheese is traditionally associated with which country?',
+      bs: 'S kojom se zemljom tradicionalno povezuje sir Havarti?',
     },
     options: [
       { en: 'France', bs: 'Francuska' },
@@ -1639,8 +1639,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which fruit holds the record for being the heaviest cultivated berry-like fruit in the world?',
-      bs: 'Koje voće drži rekord kao najteže uzgojeno voće nalik bobici na svijetu?',
+      en: 'Which fruit is commonly described as the largest fruit that grows on a tree?',
+      bs: 'Koje se voće najčešće opisuje kao najveći plod koji raste na drvetu?',
     },
     options: [
       { en: 'Watermelon', bs: 'Lubenica' },
@@ -1690,8 +1690,8 @@ export const foodMedium: Question[] = [
     category: 'food',
     difficulty: 'medium',
     prompt: {
-      en: 'Which country usually holds the record for the highest annual consumption of chocolate per capita?',
-      bs: 'Koja zemlja obično ima najveću godišnju potrošnju čokolade po glavi stanovnika?',
+      en: 'In which country was Toblerone chocolate created in 1908?',
+      bs: 'U kojoj zemlji je čokolada Toblerone nastala 1908. godine?',
     },
     options: [
       { en: 'Belgium', bs: 'Belgija' },

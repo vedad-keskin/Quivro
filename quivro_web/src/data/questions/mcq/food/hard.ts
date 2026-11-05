@@ -8,11 +8,11 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which spice was once used as a symbol of wealth and traded along ancient spice routes?',
-      bs: 'Koji je začin nekada korišten kao simbol bogatstva i kojim se trgovalo duž drevnih puteva začina?'
+      bs: 'Koji začin je nekada bio simbol bogatstva i predmet trgovine duž drevnih puteva začina?'
     },
     options: [
       { en: 'Cinnamon', bs: 'Cimet' },
-      { en: 'Salt', bs: 'So' },
+      { en: 'Dried parsley', bs: 'Sušeni peršun' },
       { en: 'Basil', bs: 'Bosiljak' },
       { en: 'Oregano', bs: 'Origano' },
     ],
@@ -41,8 +41,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which common fruit can float in water because its flesh contains tiny air pockets?',
-      bs: 'Koje uobičajeno voće može plutati na vodi jer njegova unutrašnjost sadrži male zračne džepove?'
+      en: 'Which fruit is traditionally floated in a tub of water in a Halloween bobbing game?',
+      bs: 'Koje voće se za Noć vještica tradicionalno hvata zubima iz posude s vodom?'
     },
     options: [
       { en: 'Orange', bs: 'Narandža' },
@@ -92,13 +92,13 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which food was the first ever eaten in space by astronauts?',
-      bs: 'Koja hrana je prva pojedena u svemiru?',
+      en: 'Which food did John Glenn eat from a tube in 1962 when he became the first American to eat in space?',
+      bs: 'Koju hranu je John Glenn jeo iz tube 1962. godine, kada je postao prvi Amerikanac koji je jeo u svemiru?',
     },
     options: [
       { en: 'Apple sauce', bs: 'Pire od jabuke' },
-      { en: 'Pizza', bs: 'Pizza' },
-      { en: 'Chocolate', bs: 'Čokolada' },
+      { en: 'Pizza', bs: 'Pizzu' },
+      { en: 'Chocolate', bs: 'Čokoladu' },
       { en: 'Sandwich', bs: 'Sendvič' },
     ],
     correctIndex: 0,
@@ -198,7 +198,7 @@ export const foodHard: Question[] = [
       bs: 'Zašto svježe prerezana jabuka često posmeđi kada je izložena zraku?'
     },
     options: [
-      { en: 'An enzyme reacts with oxygen', bs: 'Enzim reaguje s kisikom' },
+      { en: 'Enzymes catalyze the oxidation of phenolic compounds', bs: 'Enzimi kataliziraju oksidaciju fenolnih spojeva' },
       { en: 'The apple absorbs brown pigments from the air', bs: 'Jabuka upija smeđe pigmente iz zraka' },
       { en: 'Sugar crystallizes on the surface', bs: 'Šećer kristalizira na površini' },
       { en: 'The fruit loses all of its water instantly', bs: 'Voće odmah izgubi svu vodu' },
@@ -228,8 +228,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'What are fish eggs known as when prepared as a luxury food?',
-      bs: 'Kako se zovu riblja jaja kada se pripremaju kao luksuzna hrana?',
+      en: 'What is salted sturgeon roe sold as a luxury food called?',
+      bs: 'Kako se naziva usoljena ikra jesetre koja se prodaje kao luksuzna hrana?',
     },
     options: [
       { en: 'Foie gras', bs: 'Foie gras' },
@@ -262,11 +262,11 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which famous Japanese beef variety comes from Tajima cattle raised in Hyogo Prefecture and is known for its exceptional marbling?',
-      bs: 'Koja poznata japanska vrsta govedine dolazi od Tajima goveda uzgajanih u prefekturi Hyogo i poznata je po izuzetnoj mramoriranosti?'
+      en: 'What is the specific name of certified Wagyu beef from Tajima cattle in Hyogo Prefecture that meets strict grading standards?',
+      bs: 'Kako se naziva certificirana Wagyu govedina od goveda Tajima iz prefekture Hyogo koja ispunjava stroge kriterije kvaliteta?'
     },
     options: [
-      { en: 'Wagyu', bs: 'Wagyu' },
+      { en: 'Sango', bs: 'Sango' },
       { en: 'Kobe', bs: 'Kobe' },
       { en: 'Angus', bs: 'Angus' },
       { en: 'Hereford', bs: 'Hereford' },
@@ -347,8 +347,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which dessert, featuring a crisp meringue shell topped with whipped cream and fruit, was named after ballerina?',
-      bs: 'Koji je desert s hrskavom korom od meringe, prelivenom šlagom i voćem, dobio ime po balerini?'
+      en: 'Which dessert, made with a crisp meringue shell, whipped cream, and fruit, was named after the ballerina?',
+      bs: 'Koji desert od hrskave kore od bjelanaca, šlaga i voća je dobio ime po balerini?'
     },
     options: [
       { en: 'Pavlova', bs: 'Pavlova' },
@@ -364,8 +364,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which fermented tea drink is lightly fizzy and often sold as a health beverage?',
-      bs: 'Koji fermentirani čajni napitak je blago gaziran i često se prodaje kao zdravstveno piće?',
+      en: 'Which fermented tea drink is lightly fizzy?',
+      bs: 'Koji fermentirani napitak od čaja je blago gaziran?',
     },
     options: [
       { en: 'Matcha', bs: 'Matcha' },
@@ -500,12 +500,12 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which Dutch cheese, named after a city in the Netherlands, is one of the most popular cheeses in the world?',
-      bs: 'Koji nizozemski sir, nazvan po gradu u Nizozemskoj, jedan je od najpopularnijih sireva na svijetu?',
+      en: 'Which Dutch cheese named after a city is one of the most popular cheeses in the world?',
+      bs: 'Koji nizozemski sir nazvan po gradu je jedan od najpopularnijih sireva na svijetu?',
     },
     options: [
       { en: 'Gouda', bs: 'Gouda' },
-      { en: 'Edam', bs: 'Edam' },
+      { en: 'Gruyère', bs: 'Gruyère' },
       { en: 'Brie', bs: 'Brie' },
       { en: 'Parmesan', bs: 'Parmezan' },
     ],
@@ -551,8 +551,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which fast-food chain made the Guinness World Record\'s largest pizza ever, spanning nearly 14,000 square feet?',
-      bs: 'Koji lanac brze hrane je napravio najveću picu na svijetu prema Guinnessovom rekordu, površine skoro 14.000 kvadratnih stopa?',
+      en: 'Which pizza chain made the 1,296.72 square metre pizza recognized by Guinness World Records in Los Angeles in January 2023?',
+      bs: 'Koji lanac pizzerija je u januaru 2023. godine u Los Angelesu napravio pizzu površine 1.296,72 kvadratna metra koja je ušla u Guinnessovu knjigu rekorda?',
     },
     options: [
       { en: "Domino's", bs: "Domino's" },
@@ -585,8 +585,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which country holds the Guinness World Record for the longest pizza ever made, at over 1.5 kilometers long?',
-      bs: 'Koja zemlja drži Guinnessov svjetski rekord za najdužu picu ikada napravljenu, dužu od 1,5 kilometara?',
+      en: 'In which country was the 1,930.39 metre pizza recognized by Guinness World Records made on 10 June 2017?',
+      bs: 'U kojoj je zemlji 10. juna 2017. godine postavljen Guinnessov rekord pizzom dugom 1.930,39 metara?',
     },
     options: [
       { en: 'Spain', bs: 'Španija' },
@@ -594,7 +594,7 @@ export const foodHard: Question[] = [
       { en: 'France', bs: 'Francuska' },
       { en: 'United States', bs: 'Sjedinjene Države' },
     ],
-    correctIndex: 1,
+    correctIndex: 3,
   },
   {
     id: 'food-hard-036',
@@ -602,8 +602,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which country is home to "The Golden Boy," the world\'s most expensive single-portion hamburger, wrapped in gold leaf?',
-      bs: 'U kojoj zemlji se nalazi "The Golden Boy," najskuplji hamburger na svijetu, umotan u zlatne listiće?',
+      en: 'In which country was the Golden Boy hamburger sold for 5,000 euros on 28 June 2021?',
+      bs: 'U kojoj zemlji je hamburger Golden Boy prodat za 5.000 eura 28. juna 2021. godine?',
     },
     options: [
       { en: 'United States', bs: 'Sjedinjene Države' },
@@ -619,8 +619,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Roughly how many hamburgers eaten in one minute set the Guinness World Record for fastest hamburger eating?',
-      bs: 'Otprilike koliko pojedenih hamburgera u jednoj minuti je postavilo Guinnessov rekord za najbrže jedenje hamburgera?',
+      en: 'How many small hamburgers did Ricardo Francisco eat in one minute in his Guinness recognized performance on 27 August 2016?',
+      bs: 'Koliko malih hamburgera je Ricardo Francisco pojeo za jednu minutu 27. augusta 2016. godine, prema Guinnessovoj knjizi rekorda?',
     },
     options: [
       { en: '2', bs: '2' },
@@ -636,14 +636,14 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which fruit is the most cultivated in the world by total production volume?',
-      bs: 'Koje voće se najviše uzgaja na svijetu po ukupnoj količini proizvodnje?',
+      en: 'Which crop did FAO identify as the most produced vegetable worldwide by weight in 2023?',
+      bs: 'Koja povrtna kultura je prema podacima FAO-a imala najveću svjetsku proizvodnju po masi 2023. godine?',
     },
     options: [
-      { en: 'Banana', bs: 'Banana' },
+      { en: 'Onion', bs: 'Luk' },
       { en: 'Tomato', bs: 'Paradajz' },
-      { en: 'Watermelon', bs: 'Lubenica' },
-      { en: 'Apple', bs: 'Jabuka' },
+      { en: 'Cabbage', bs: 'Kupus' },
+      { en: 'Corn', bs: 'Kukuruz' },
     ],
     correctIndex: 1,
   },
@@ -738,8 +738,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which Icelandic dish is fermented shark buried and dried for months before eating?',
-      bs: 'Koje islandsko jelo je fermentisana ajkula koja se mjesecima zakopava i suši prije jela?',
+      en: 'Which Icelandic dish is made from fermented and air dried shark?',
+      bs: 'Koje se islandsko jelo pravi od fermentirane ajkule koja se potom suši na zraku?',
     },
     options: [
       { en: 'Lutefisk', bs: 'Lutefisk' },
@@ -789,8 +789,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'What is most commercial "wasabi" paste outside Japan actually made from?',
-      bs: 'Od čega se zapravo pravi većina komercijalne "wasabi" paste izvan Japana?',
+      en: 'Which combination is commonly used to make imitation wasabi paste?',
+      bs: 'Kombinacija kojih sastojaka se često koristi za pripremu paste koja oponaša wasabi?',
     },
     options: [
       { en: 'Horseradish, mustard, and green coloring', bs: 'Hrena, senfa i zelenog bojila' },
@@ -823,13 +823,13 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Why must vanilla orchids on commercial farms usually be pollinated by hand?',
-      bs: 'Zašto se vanilija orhideje na komercijalnim farmama obično moraju oprašivati ručno?',
+      en: 'Why is commercial vanilla often pollinated by hand in places such as Madagascar?',
+      bs: 'Zašto se uzgojena vanilija na mjestima poput Madagaskara često oprašuje ručno?',
     },
     options: [
       { en: 'The flowers never open', bs: 'Cvjetovi se nikad ne otvaraju' },
       { en: 'Bees refuse all orchid pollen', bs: 'Pčele odbijaju sav polen orhideja' },
-      { en: 'Their natural pollinator is largely absent outside Mexico', bs: 'Njihov prirodni oprašivač uglavnom nedostaje izvan Meksika' },
+      { en: 'Effective natural pollinators are absent or scarce there', bs: 'Djelotvorni prirodni oprašivači tamo ne postoje ili su rijetki' },
       { en: 'Vanilla plants produce no flowers', bs: 'Biljke vanilije ne daju cvjetove' },
     ],
     correctIndex: 2,
@@ -1010,8 +1010,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which grape variety is most widely planted in the world?',
-      bs: 'Koja sorta grožđa je najviše zasađena na svijetu?',
+      en: 'According to the OIV 2017 report, which wine grape variety was the most widely planted worldwide?',
+      bs: 'Prema OIV-ovom izvještaju iz 2017. godine, koja je vinska sorta grožđa bila najrasprostranjenija na svijetu?',
     },
     options: [
       { en: 'Cabernet Sauvignon', bs: 'Cabernet Sauvignon' },
@@ -1027,8 +1027,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which mineral gives dark chocolate its characteristic bitter compound, also found in coffee and tea?',
-      bs: 'Koje jedinjenje daje tamnoj čokoladi karakterističan gorak ukus, a nalazi se i u kafi i čaju?',
+      en: 'Which alkaloid is the most abundant in cocoa?',
+      bs: 'Koji je alkaloid najzastupljeniji u kakau?',
     },
     options: [
       { en: 'Caffeine', bs: 'Kofein' },
@@ -1044,8 +1044,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which vegetable was originally purple before modern orange varieties became common?',
-      bs: 'Koje povrće je prvobitno bilo ljubičasto prije nego što su narandžaste sorte postale uobičajene?',
+      en: 'Which vegetable had early cultivated purple and yellow varieties before orange varieties became widespread?',
+      bs: 'Koje povrće se uzgajalo u ljubičastim i žutim sortama prije nego što su narandžaste postale široko rasprostranjene?',
     },
     options: [
       { en: 'Carrot', bs: 'Mrkva' },
@@ -1061,8 +1061,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which fruit was named after a bird because of its appearance?',
-      bs: 'Koje voće je dobilo ime po ptici zbog svog izgleda?',
+      en: 'Which fruit was renamed after New Zealand\'s native flightless kiwi bird?',
+      bs: 'Koje voće je preimenovano po novozelandskoj ptici kivi koja ne može letjeti?',
     },
     options: [
       { en: 'Kiwi', bs: 'Kivi' },
@@ -1079,13 +1079,13 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Tabasco sauce peppers are traditionally aged for years in which kind of barrels?',
-      bs: 'Paprike za Tabasco umak tradicionalno odležavaju godinama u kakvim bačvama?',
+      bs: 'U kakvim bačvama paprike za Tabasco umak tradicionalno odležavaju godinama?',
     },
     options: [
-      { en: 'White oak barrels', bs: 'Bačve od bijelog hrasta' },
-      { en: 'French limousin oak barrels', bs: 'Bačve od francuskog limousin hrasta' },
-      { en: 'Charred bourbon barrels', bs: 'Ugljenisane bačve od burbona' },
-      { en: 'Chestnut wood barrels', bs: 'Bačve od kestenovog drveta' },
+      { en: 'White oak barrels', bs: 'Bačvama od bijelog hrasta' },
+      { en: 'French limousin oak barrels', bs: 'Bačvama od francuskog hrasta iz Limousina' },
+      { en: 'Acacia wood barrels', bs: 'Bačvama od bagremovog drveta' },
+      { en: 'Chestnut wood barrels', bs: 'Bačvama od kestenovog drveta' },
     ],
     correctIndex: 0,
   },
@@ -1095,8 +1095,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which root vegetable, orange in color, is a good source of beta-carotene and vitamin A?',
-      bs: 'Koje je korjenasto povrće narandžaste boje dobar izvor beta-karotena i vitamina A?',
+      en: 'Which orange root vegetable is rich in beta carotene, which the body can convert to vitamin A?',
+      bs: 'Koje narandžasto korjenasto povrće je bogato beta-karotenom koji tijelo može pretvoriti u vitamin A?',
     },
     options: [
       { en: 'Carrot', bs: 'Šargarepa' },
@@ -1163,8 +1163,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which vitamin is uniquely abundant in chili peppers among common spices and can degrade with long cooking?',
-      bs: 'Koji vitamin je među uobičajenim začinima posebno obilan u ljutim paprikama i može se razgraditi dugim kuhanjem?',
+      en: 'Which heat sensitive vitamin is abundant in fresh chili peppers?',
+      bs: 'Koji vitamin osjetljiv na toplotu je posebno zastupljen u svježim čili papričicama?',
     },
     options: [
       { en: 'Vitamin D', bs: 'Vitamin D' },
@@ -1180,13 +1180,13 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which shellfish is typically bright red only after cooking, being greenish-brown when alive?',
-      bs: 'Koji morski plod je jarko crvene boje tek nakon kuhanja, dok je zeleno-smeđ dok je živ?',
+      en: 'Which shellfish has a long muscular tail and typically turns bright red when cooked?',
+      bs: 'Koji morski plod ima dug mišićav rep i obično postaje jarkocrven kada se skuha?',
     },
     options: [
       { en: 'Lobster', bs: 'Jastog' },
-      { en: 'Shrimp', bs: 'Škampi' },
-      { en: 'Crab', bs: 'Rakovica' },
+      { en: 'Mussel', bs: 'Dagnja' },
+      { en: 'Scallop', bs: 'Jakobova kapica' },
       { en: 'Oyster', bs: 'Kamenica' },
     ],
     correctIndex: 0,
@@ -1197,8 +1197,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which Japanese fermented soybean product is made into sticky, stringy blocks with a strong aroma?',
-      bs: 'Koji japanski fermentisani proizvod od soje se pravi u ljepljive, žilave blokove jakog mirisa?',
+      en: 'Which Japanese fermented soybean food has sticky strings and a strong aroma?',
+      bs: 'Koji japanski proizvod od fermentirane soje ima ljepljive niti i jak miris?',
     },
     options: [
       { en: 'Natto', bs: 'Natto' },
@@ -1231,8 +1231,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which Hawaiian-influenced dish consists of cubed raw fish marinated in soy sauce, sesame oil, and seaweed?',
-      bs: 'Koje jelo pod uticajem havajske kuhinje se sastoji od kockica sirove ribe marinirane u sojinom umaku, sezamovom ulju i algama?',
+      en: 'Which Hawaiian dish commonly consists of cubed raw fish seasoned with ingredients such as soy sauce, sesame oil, and seaweed?',
+      bs: 'Koje havajsko jelo se obično sastoji od kockica sirove ribe začinjene sastojcima poput sojinog umaka, sezamovog ulja i algi?',
     },
     options: [
       { en: 'Poke', bs: 'Poke' },
@@ -1249,7 +1249,7 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which soft drink brand was invented in Nazi Germany during WWII, after trade embargoes cut off Coca-Cola syrup imports?',
-      bs: 'Koji gazirani napitak je izmišljen u nacističkoj Njemačkoj tokom Drugog svjetskog rata, nakon što je prekinut trgovinski embargo?',
+      bs: 'Koji gazirani napitak je nastao u Njemačkoj tokom Drugog svjetskog rata, kada je prekinut uvoz sirupa za Coca-Colu?',
     },
     options: [
       { en: 'Fanta', bs: 'Fanta' },
@@ -1286,9 +1286,9 @@ export const foodHard: Question[] = [
       bs: 'Koji komad govedine potiče iz trbušnih mišića krave i popularan je u meksičkim jelima poput fajitasa?',
     },
     options: [
-      { en: 'Flank steak', bs: 'Flank steak' },
+      { en: 'Flank steak', bs: 'Flank odrezak' },
       { en: 'Ribeye', bs: 'Ribeye' },
-      { en: 'Sirloin', bs: 'Biftek' },
+      { en: 'Sirloin', bs: 'Slabinski odrezak' },
       { en: 'Brisket', bs: 'Brisket' },
     ],
     correctIndex: 0,
@@ -1299,14 +1299,14 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which internal temperature is generally recommended for a medium-rare beef steak?',
-      bs: 'Koja unutrašnja temperatura se obično preporučuje za srednje pečen (medium-rare) govedi biftek?',
+      en: 'In ThermoWorks\' culinary doneness guide, which internal temperature range corresponds to a medium rare beef steak?',
+      bs: 'Prema ThermoWorksovom vodiču, koji raspon unutrašnje temperature odgovara stepenu pečenosti medium rare za goveđi odrezak?',
     },
     options: [
-      { en: '48–50°C', bs: '48–50°C' },
-      { en: '57–60°C', bs: '57–60°C' },
-      { en: '71–74°C', bs: '71–74°C' },
-      { en: '82–85°C', bs: '82–85°C' },
+      { en: '48–50°C', bs: '48–50 °C' },
+      { en: '54–57°C', bs: '54–57 °C' },
+      { en: '71–74°C', bs: '71–74 °C' },
+      { en: '82–85°C', bs: '82–85 °C' },
     ],
     correctIndex: 1,
   },
@@ -1351,7 +1351,7 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which Korean jelly-like confection is traditionally made with red bean paste set in agar?',
-      bs: 'Koji korejski žele-slatkiš se tradicionalno pravi s pastom od crvenog graška stegnutom agarom?',
+      bs: 'Koji korejski slatkiš nalik želeu se tradicionalno pravi od paste od crvenog graha, agara i šećera?',
     },
     options: [
       { en: 'Hotteok', bs: 'Hotteok' },
@@ -1367,8 +1367,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which popular vegetable is actually a flower that we eat before it fully blooms?',
-      bs: 'Koje popularno povrće je zapravo cvijet koji jedemo prije nego što potpuno procvjeta?',
+      en: 'Which vegetable is eaten as clusters of immature flower buds and their stems?',
+      bs: 'Koje povrće se jede kao skup nerazvijenih cvjetnih pupoljaka sa stabljikama?',
     },
     options: [
       { en: 'Broccoli', bs: 'Brokula' },
@@ -1384,8 +1384,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which American chef is credited with accidentally inventing the potato chip in 1853, after a customer complained his fries were too thick?',
-      bs: 'Koji američki kuhar se smatra tvorcem čipsa, izmišljenog 1853. sasvim slučajno, nakon što se mušterija žalila da su njegovi pomfriti predebeli?',
+      en: 'According to a popular Saratoga Springs legend, which cook made very thin fried potato slices for a dissatisfied customer in 1853, creating the precursor to potato chips?',
+      bs: 'Prema popularnoj legendi iz Saratoga Springsa, koji kuhar je 1853. godine nezadovoljnoj mušteriji pripremio tanke pržene kriške krompira, preteču današnjeg čipsa?',
     },
     options: [
       { en: 'George Crum', bs: 'George Crum' },
@@ -1401,8 +1401,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'What were potato chips originally called for nearly 75 years after their invention?',
-      bs: 'Kako se čips originalno zvao skoro 75 godina nakon svog izuma?',
+      en: 'Which historical name for potato chips refers to the New York resort where they became famous?',
+      bs: 'Koji historijski naziv za čips upućuje na njujorško ljetovalište u kojem je postao poznat?',
     },
     options: [
       { en: 'Saratoga chips', bs: 'Saratoga čips' },
@@ -1452,14 +1452,14 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'In which Serbian town was Smoki originally introduced before spreading across Yugoslavia and the Balkans?',
-      bs: 'U kojem srpskom gradu je Smoki originalno lansiran prije nego što se proširio po Jugoslaviji i Balkanu?',
+      en: 'Which confectionery company introduced Smoki in 1972?',
+      bs: 'Koja konditorska kompanija je predstavila Smoki 1972. godine?',
     },
     options: [
-      { en: 'Zemun', bs: 'Zemun' },
-      { en: 'Novi Sad', bs: 'Novi Sad' },
-      { en: 'Niš', bs: 'Niš' },
-      { en: 'Kragujevac', bs: 'Kragujevac' },
+      { en: 'Štark', bs: 'Štark' },
+      { en: 'Kraš', bs: 'Kraš' },
+      { en: 'Podravka', bs: 'Podravka' },
+      { en: 'Jaffa', bs: 'Jaffa' },
     ],
     correctIndex: 0,
   },
@@ -1469,8 +1469,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'According to Štark, which ingredient in Smoki is roasted immediately before production, rather than pre-roasted and stored?',
-      bs: 'Prema Štarku, koji sastojak Smokija se prži neposredno prije proizvodnje, umjesto da se unaprijed prži i skladišti?',
+      en: 'Which ingredient gives classic Smoki its characteristic nut flavour?',
+      bs: 'Koji sastojak klasičnom Smokiju daje prepoznatljiv orašasti okus?',
     },
     options: [
       { en: 'Peanuts', bs: 'Kikiriki' },
@@ -1486,8 +1486,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'The ice cream cone became widely popular after being improvised at which event in 1904?',
-      bs: 'Kornet za sladoled je postao široko popularan nakon što je improvizovan na kojem događaju 1904. godine?',
+      en: 'At which 1904 event did the ice cream cone become especially popular?',
+      bs: 'Na kojem je događaju 1904. godine kornet za sladoled postao naročito popularan?',
     },
     options: [
       { en: "World's Fair in St. Louis", bs: 'Svjetska izložba u St. Louisu' },
@@ -1503,8 +1503,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which country consumes the most ice cream per capita in the world, at roughly 28 liters per person yearly?',
-      bs: 'Koja zemlja troši najviše sladoleda po glavi stanovnika na svijetu, oko 28 litara po osobi godišnje?',
+      en: 'Hokey pokey ice cream, with crunchy honeycomb pieces, is a classic associated with which country?',
+      bs: 'S kojom zemljom se povezuje klasični sladoled hokey pokey s hrskavim komadićima medene karamele?',
     },
     options: [
       { en: 'United States', bs: 'Sjedinjene Države' },
@@ -1537,8 +1537,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which explorer is often credited with bringing an early form of ice cream to Europe after his travels in China?',
-      bs: 'Koji istraživač se često smatra osobom koja je donijela raniju verziju sladoleda u Evropu nakon svojih putovanja u Kinu?',
+      en: 'Which explorer features in the legend that ice cream was brought to Europe from China?',
+      bs: 'Koji istraživač se pojavljuje u legendi da je sladoled donesen iz Kine u Evropu?',
     },
     options: [
       { en: 'Marco Polo', bs: 'Marko Polo' },
@@ -1554,11 +1554,11 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'What is the most popular ice cream flavor in the world, according to most surveys?',
-      bs: 'Koji je najpopularniji ukus sladoleda na svijetu, prema većini anketa?',
+      en: 'In the 2024 IDFA and Morning Consult survey of US adults, which ice cream flavour ranked first overall?',
+      bs: 'Koji okus sladoleda je bio prvi u anketi IDFA-e i Morning Consulta među odraslima u SAD-u iz 2024. godine?',
     },
     options: [
-      { en: 'Vanilla', bs: 'Vanila' },
+      { en: 'Vanilla', bs: 'Vanilija' },
       { en: 'Chocolate', bs: 'Čokolada' },
       { en: 'Strawberry', bs: 'Jagoda' },
       { en: 'Mint chocolate chip', bs: 'Nana s komadićima čokolade' },
@@ -1571,8 +1571,8 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Who invented the first soft-serve ice cream machine in 1934, reportedly after his ice cream truck broke down?',
-      bs: 'Ko je izumio prvu mašinu za sladoled mekane teksture 1934. godine, navodno nakon što mu se pokvario kamion za sladoled?',
+      en: 'Whose truck got a flat tire in 1934, leading him to sell softened ice cream?',
+      bs: 'Ko je 1934. godine počeo prodavati omekšani sladoled nakon što mu se na kamionu probušila guma?',
     },
     options: [
       { en: 'Tom Carvel', bs: 'Tom Carvel' },
@@ -1622,16 +1622,16 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'According to a survey, roughly how many döner kebabs are sold per week in Berlin alone?',
-      bs: 'Prema istraživanju, otprilike koliko dönera se prodaje sedmično samo u Berlinu?',
+      en: 'What does the Turkish word döner mean?',
+      bs: 'Šta znači turska riječ döner?',
     },
     options: [
-      { en: '200,000', bs: '200.000' },
-      { en: '2 million', bs: '2 miliona' },
-      { en: '10 million', bs: '10 miliona' },
-      { en: '50,000', bs: '50.000' },
+      { en: 'Rotating', bs: 'Okretanje' },
+      { en: 'Roasted', bs: 'Pečeno' },
+      { en: 'Spiced', bs: 'Začinjeno' },
+      { en: 'Stuffed', bs: 'Punjеno' },
     ],
-    correctIndex: 1,
+    correctIndex: 0,
   },
   {
     id: 'food-hard-097',
@@ -1657,7 +1657,7 @@ export const foodHard: Question[] = [
     difficulty: 'hard',
     prompt: {
       en: 'Which French mother sauce is a white sauce made from milk and a white roux?',
-      bs: 'Koji francuski osnovni umak je bijeli umak od mlijeka i bijelog zaprška?',
+      bs: 'Koji francuski osnovni umak je bijeli umak od mlijeka i bijele zaprške?',
     },
     options: [
       { en: 'Espagnole', bs: 'Espagnole' },
@@ -1690,13 +1690,13 @@ export const foodHard: Question[] = [
     category: 'food',
     difficulty: 'hard',
     prompt: {
-      en: 'Which shellfish are all born male, but can change gender at least once during their lifetime?',
-      bs: 'Koji morski plod se rađa isključivo kao mužjak, ali barem jednom tokom života promijeni pol?',
+      en: 'Which shellfish commonly changes biological sex, with Pacific species often reproducing first as males and later as females?',
+      bs: 'Koje školjke često mijenjaju biološki spol, pri čemu se pacifičke vrste obično prvo razmnožavaju kao mužjaci, a kasnije kao ženke?',
     },
     options: [
       { en: 'Oysters', bs: 'Kamenice' },
       { en: 'Mussels', bs: 'Dagnje' },
-      { en: 'Clams', bs: 'Školjke' },
+      { en: 'Squid', bs: 'Lignje' },
       { en: 'Crabs', bs: 'Rakovi' },
     ],
     correctIndex: 0,
