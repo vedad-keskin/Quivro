@@ -6,8 +6,8 @@ export const sportsEasy: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'easy',
-    prompt: { en: 'How many players does each football (soccer) team have on the field?',
-              bs: 'Koliko igrača ima svaki fudbalski tim na terenu?' },
+    prompt: { en: 'How many players does a full football team start a standard association football match with?',
+              bs: 'S koliko igrača kompletna ekipa započinje standardnu fudbalsku utakmicu?' },
     options: [
       { en: '9', bs: '9' },
       { en: '10', bs: '10' },
@@ -126,8 +126,8 @@ export const sportsEasy: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'easy',
-    prompt: { en: 'How long is a standard football (soccer) match, not counting extra time?',
-              bs: 'Koliko traje standardna fudbalska utakmica, ne računajući produžetke?' },
+    prompt: { en: 'How many minutes of regulation playing time are there in a standard adult football match, excluding stoppage time and extra time?',
+              bs: 'Koliko minuta traje regularno vrijeme igre u standardnoj fudbalskoj utakmici za odrasle, bez sudijske nadoknade i produžetaka?' },
     options: [
       { en: '60 minutes', bs: '60 minuta' },
       { en: '80 minutes', bs: '80 minuta' },
@@ -141,8 +141,8 @@ export const sportsEasy: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'easy',
-    prompt: { en: 'Which country has won the most FIFA World Cups before 2026?',
-              bs: 'Koja zemlja je osvojila najviše FIFA Svjetskih prvenstava do 2026. godine?' },
+    prompt: { en: 'After the 2022 tournament, which country had won the most men’s FIFA World Cup titles?',
+              bs: 'Nakon turnira 2022. godine, koja država je imala najviše titula prvaka svijeta u muškom fudbalu?' },
     options: [
       { en: 'Germany', bs: 'Njemačka' },
       { en: 'Italy', bs: 'Italija' },
@@ -156,8 +156,8 @@ export const sportsEasy: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'easy',
-    prompt: { en: 'What is the name of the football competition between England’s top clubs?',
-              bs: 'Kako se zove fudbalsko takmičenje engleskih najjačih klubova?' },
+    prompt: { en: 'What is the top division of men’s league football in England called?',
+              bs: 'Kako se zove najviši rang muškog ligaškog fudbala u Engleskoj?' },
     options: [
       { en: 'La Liga', bs: 'La Liga' },
       { en: 'Serie A', bs: 'Serie A' },
@@ -311,14 +311,14 @@ export const sportsEasy: Question[] = [
     category: 'sports',
     difficulty: 'easy',
       prompt: {
-        en: 'What is the name of the final stage contestants must climb to achieve Total Victory in SASUKE Ninja Warriors?',
-        bs: 'Kako se zove završna prepreka koju takmičari moraju savladati za Total Victory u SASUKE Nindža Ratnicima?',
+        en: 'Which Japanese obstacle-course competition is internationally known as Ninja Warrior?',
+        bs: 'Koje je japansko takmičenje u savladavanju prepreka međunarodno poznato pod nazivom Ninja Warrior?',
       },
       options: [
-        { en: 'Mt. Midoriyama', bs: 'Mt. Midoriyama' },
-        { en: 'Mount Fuji', bs: 'Mount Fuji' },
-        { en: 'Dragon Tower', bs: 'Dragon Tower' },
-        { en: 'Final Summit', bs: 'Final Summit' },
+        { en: 'SASUKE', bs: 'SASUKE' },
+        { en: 'Takeshi’s Castle', bs: 'Takeshi’s Castle' },
+        { en: 'Ultimate Beastmaster', bs: 'Ultimate Beastmaster' },
+        { en: 'Wipeout', bs: 'Wipeout' },
       ],
       correctIndex: 0,
   },
@@ -513,13 +513,13 @@ export const sportsEasy: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'easy',
-    prompt: { en: 'In swimming, which stroke is usually the fastest?',
-              bs: 'U plivanju, koji stil je obično najbrži?' },
+    prompt: { en: 'Which stroke is usually the fastest in swimming?',
+              bs: 'Koji stil u plivanju je obično najbrži?' },
     options: [
       { en: 'Breaststroke', bs: 'Prsno' },
       { en: 'Backstroke', bs: 'Leđno' },
       { en: 'Butterfly', bs: 'Leptir' },
-      { en: 'Freestyle', bs: 'Slobodni' },
+      { en: 'Front crawl', bs: 'Kraul' },
     ],
     correctIndex: 3,
   },
@@ -593,8 +593,8 @@ export const sportsEasy: Question[] = [
     category: 'sports',
     difficulty: 'easy',
     prompt: {
-      en: 'Which driver has won the most Formula 1 World Championships before 2026?',
-      bs: 'Koji vozač ima najviše osvojenih titula prvaka Formule 1 do 2026. godine?',
+      en: 'Which driver won his seventh Formula 1 world title at the 2020 Turkish Grand Prix?',
+      bs: 'Koji je vozač osvojio svoju sedmu svjetsku titulu Formule 1 na Velikoj nagradi Turske 2020. godine?',
     },
     options: [
       { en: 'Lewis Hamilton', bs: 'Lewis Hamilton' },
@@ -639,8 +639,8 @@ export const sportsEasy: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'easy',
-    prompt: { en: 'In volleyball, a team can usually touch the ball how many times before sending it over the net?',
-              bs: 'U odbojci, koliko puta tim obično smije dodirnuti loptu prije nego je pošalje preko mreže?' },
+    prompt: { en: 'In indoor volleyball, excluding a block contact, how many team hits are allowed before returning the ball over the net?',
+              bs: 'U dvoranskoj odbojci, ne računajući dodir bloka, koliko dodira ekipa smije napraviti prije vraćanja lopte preko mreže?' },
     options: [
       { en: '2', bs: '2' },
       { en: '3', bs: '3' },
@@ -795,8 +795,8 @@ export const sportsEasy: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'easy',
-    prompt: { en: 'In baseball, how many strikes make an out?',
-              bs: 'U bejzbolu, koliko strike-ova čini out?' },
+    prompt: { en: 'How many strikes normally result in a strikeout for a baseball batter?',
+              bs: 'Koliko strikeova obično dovodi do izbacivanja udarača u bejzbolu?' },
     options: [
       { en: '2', bs: '2' },
       { en: '3', bs: '3' },
@@ -811,8 +811,8 @@ export const sportsEasy: Question[] = [
     category: 'sports',
     difficulty: 'easy',
     prompt: {
-      en: 'Who was the only driver to win the Formula 1 World Championship posthumously?',
-      bs: 'Koji vozač je jedini osvojio titulu prvaka Formule 1 nakon smrti?',
+      en: 'Which driver was awarded the 1970 Formula 1 world championship posthumously?',
+      bs: 'Kojem vozaču je posthumno dodijeljena svjetska titula Formule 1 za 1970. godinu?',
     },
     options: [
       { en: 'Jochen Rindt', bs: 'Jochen Rindt' },
@@ -877,8 +877,8 @@ export const sportsEasy: Question[] = [
     category: 'sports',
     difficulty: 'easy',
     prompt: {
-      en: 'Which driver was known as "The Rat" because of his aggressive style and personality?',
-      bs: 'Koji vozač je bio poznat kao "Pacov" zbog agresivnog stila vožnje?',
+      en: 'Which Formula 1 driver nicknamed “The Rat” won the world title in 1975, 1977 and 1984?',
+      bs: 'Koji vozač Formule 1 s nadimkom „Pacov“ je osvojio svjetske titule 1975, 1977. i 1984. godine?',
     },
     options: [
       { en: 'Niki Lauda', bs: 'Niki Lauda' },
@@ -911,8 +911,8 @@ export const sportsEasy: Question[] = [
     category: 'sports',
     difficulty: 'easy',
     prompt: {
-      en: 'Who was the youngest Formula 1 World Champion before Max Verstappen?',
-      bs: 'Ko je bio najmlađi prvak Formule 1 prije Maxa Verstappena?',
+      en: 'Who became the youngest Formula 1 world champion at the time by winning the 2010 title?',
+      bs: 'Ko je osvajanjem titule 2010. godine postao tada najmlađi svjetski prvak Formule 1?',
     },
     options: [
       { en: 'Sebastian Vettel', bs: 'Sebastian Vettel' },
@@ -943,8 +943,8 @@ export const sportsEasy: Question[] = [
     category: 'sports',
     difficulty: 'easy',
     prompt: {
-      en: 'Which Formula 1 driver survived a crash where his car broke in half at the 1976 German Grand Prix?',
-      bs: 'Koji vozač je preživio nesreću u kojoj mu se bolid prepolovio na Velikoj nagradi Njemačke 1976?',
+      en: 'Which driver survived a fiery crash at the 1976 German Grand Prix?',
+      bs: 'Koji je vozač preživio nesreću i požar bolida na Velikoj nagradi Njemačke 1976. godine?',
     },
     options: [
       { en: 'Niki Lauda', bs: 'Niki Lauda' },
@@ -1039,8 +1039,8 @@ export const sportsEasy: Question[] = [
     category: 'sports',
     difficulty: 'easy',
     prompt: {
-      en: 'Which player has won the most Ballon d’Or awards before 2026?',
-      bs: 'Koji igrač je osvojio najviše Zlatnih lopti do 2026. godine?',
+      en: 'Which footballer won his eighth Ballon d’Or in 2023?',
+      bs: 'Koji fudbaler je osvojio svoju osmu Zlatnu loptu 2023. godine?',
     },
     options: [
       { en: 'Lionel Messi', bs: 'Lionel Messi' },
@@ -1120,14 +1120,14 @@ export const sportsEasy: Question[] = [
     category: 'sports',
     difficulty: 'easy',
     prompt: {
-      en: 'Which club won the UEFA Champions League after winning only one group stage match?',
-      bs: 'Koji klub je osvojio Ligu prvaka nakon samo jedne pobjede u grupnoj fazi?',
+      en: 'Which club won the 2004–05 UEFA Champions League after trailing 3–0 at half-time in the final?',
+      bs: 'Koji klub je osvojio UEFA Ligu prvaka u sezoni 2004/05. nakon što je u finalu na poluvremenu gubio 0:3?',
     },
     options: [
-      { en: 'Liverpool (2004–05)', bs: 'Liverpool (2004/05)' },
-      { en: 'Real Madrid (1999–00)', bs: 'Real Madrid (1999/00)' },
-      { en: 'Chelsea (2011–12)', bs: 'Chelsea (2011/12)' },
-      { en: 'Porto (2003–04)', bs: 'Porto (2003/04)' },
+      { en: 'Liverpool', bs: 'Liverpool' },
+      { en: 'Real Madrid', bs: 'Real Madrid' },
+      { en: 'Chelsea', bs: 'Chelsea' },
+      { en: 'Porto', bs: 'Porto' },
     ],
     correctIndex: 0,
   },
@@ -1152,14 +1152,14 @@ export const sportsEasy: Question[] = [
     category: 'sports',
     difficulty: 'easy',
     prompt: {
-      en: 'Which goalkeeper is the first one to win the Ballon d’Or?',
-      bs: 'Ko je prvi golman koji je osvojio Zlatnu loptu?',
+      en: 'Which goalkeeper won the Ballon d’Or in 1963, being the first goalkeeper to do it?',
+      bs: 'Koji golman je osvojio Zlatnu loptu 1963. godine, postavši prvi golman kojem je to uspjelo za rukom?',
     },
     options: [
       { en: 'Lev Yashin', bs: 'Lev Jašin' },
       { en: 'Gianluigi Buffon', bs: 'Gianluigi Buffon' },
-      { en: 'Manuel Neuer', bs: 'Manuel Neuer' },
-      { en: 'Iker Casillas', bs: 'Iker Casillas' },
+      { en: 'Sepp Maier', bs: 'Sepp Maier' },
+      { en: 'Oliver Kahn', bs: 'Oliver Kahn' },
     ],
     correctIndex: 0,
   },
@@ -1168,8 +1168,8 @@ export const sportsEasy: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'easy',
-    prompt: { en: 'How many pins are set up at the start of a bowling frame?',
-              bs: 'Koliko čunjeva se postavi na početku frejma u kuglanju?' },
+    prompt: { en: 'How many pins are usually set up at the start of a frame in bowling?',
+              bs: 'Koliko se čunjeva obično postavlja na početku frejma u kuglanju?' },
     options: [
       { en: '8', bs: '8' },
       { en: '9', bs: '9' },
@@ -1199,8 +1199,8 @@ export const sportsEasy: Question[] = [
     category: 'sports',
     difficulty: 'easy',
     prompt: {
-      en: 'Who is the only player to win the World Cup, Champions League and Ballon d’Or before 2026?',
-      bs: 'Ko je jedini igrač koji je osvojio Svjetsko prvenstvo, Ligu prvaka i Zlatnu loptu do 2026. godine?',
+      en: 'Which Brazilian won the 2002 World Cup, the 2007 UEFA Champions League and the 2007 Ballon d’Or?',
+      bs: 'Koji Brazilac je osvojio Svjetsko prvenstvo 2002. godine, UEFA Ligu prvaka 2007. i Zlatnu loptu 2007. godine?',
     },
     options: [
       { en: 'Kaká', bs: 'Kaká' },
@@ -1331,11 +1331,11 @@ export const sportsEasy: Question[] = [
     category: 'sports',
     difficulty: 'easy',
     prompt: {
-      en: 'Which club is known as "The Nerazzurri"?',
-      bs: 'Koji klub je poznat kao "Nerazzurri"?',
+      en: 'Which Milan-based football club is known as the Nerazzurri?',
+      bs: 'Koji je fudbalski klub iz Milana poznat kao Nerazzurri?',
     },
     options: [
-      { en: 'Inter Milan', bs: 'Inter Milan' },
+      { en: 'Inter', bs: 'Inter' },
       { en: 'Atalanta', bs: 'Atalanta' },
       { en: 'Juventus', bs: 'Juventus' },
       { en: 'Lazio', bs: 'Lazio' },
@@ -1382,8 +1382,8 @@ export const sportsEasy: Question[] = [
     category: 'sports',
     difficulty: 'easy',
     prompt: {
-      en: 'Which team won the first NBA Championship in history?',
-      bs: 'Koji tim je osvojio prvo NBA prvenstvo u historiji?',
+      en: 'Which team won the inaugural BAA championship in 1947, now recognized as first in NBA history?',
+      bs: 'Koji je tim osvojio prvo prvenstvo BAA lige 1947. godine, koje se danas računa kao prvo u historiji NBA lige?',
     },
     options: [
       { en: 'Philadelphia Warriors', bs: 'Philadelphia Warriors' },
@@ -1496,8 +1496,8 @@ export const sportsEasy: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'easy',
-    prompt: { en: 'In basketball, walking while holding the ball without dribbling is called what?',
-              bs: 'U košarci, hodanje s loptom bez driblinga se naziva kako?' },
+    prompt: { en: 'In basketball, what is illegally taking too many steps while holding the ball called?',
+              bs: 'Kako se u košarci naziva nedozvoljeno pravljenje previše koraka s loptom u rukama?' },
     options: [
       { en: 'Traveling', bs: 'Koraci' },
       { en: 'Foul', bs: 'Faul' },

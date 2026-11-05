@@ -40,8 +40,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which nation is the only one to have played in every FIFA World Cup finals tournament before 2026?',
-              bs: 'Koja je jedina nacija koja je igrala na svakom FIFA Svjetskom prvenstvu do 2026. godine?' },
+    prompt: { en: 'Which country appeared in every men’s FIFA World Cup tournament from 1930 through 2022?',
+              bs: 'Koja je zemlja nastupila na svakom muškom FIFA Svjetskom prvenstvu od 1930. do 2022. godine?' },
     options: [
       { en: 'Germany', bs: 'Njemačka' },
       { en: 'Brazil', bs: 'Brazil' },
@@ -55,8 +55,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who was the FIFA World Cup all-time top scorer before the 2026 World Cup?',
-              bs: 'Ko je bio najbolji strijelac svih vremena na FIFA Svjetskim prvenstvima prije Svjetskog prvenstva 2026.?' },
+    prompt: { en: 'At the end of the 2022 tournament, who held the men’s FIFA World Cup finals scoring record with 16 goals?',
+              bs: 'Ko je nakon turnira 2022. godine držao rekord po broju golova na završnim turnirima FIFA Svjetskog prvenstva za muškarce, s ukupno 16 pogodaka?' },
     options: [
       { en: 'Pelé', bs: 'Pelé' },
       { en: 'Miroslav Klose', bs: 'Miroslav Klose' },
@@ -71,7 +71,7 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: { en: 'Which club did Johan Cruyff famously star for in the Netherlands before moving to Barcelona?',
-              bs: 'Za koji holandski klub je Johan Cruyff poznato igrao prije prelaska u Barselonu?' },
+              bs: 'Za koji je nizozemski klub Johan Cruyff igrao prije prelaska u Barcelonu?' },
     options: [
       { en: 'Feyenoord', bs: 'Feyenoord' },
       { en: 'Ajax', bs: 'Ajax' },
@@ -100,8 +100,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Brazilian scored the iconic diving header opening goal in the 1970 World Cup final?',
-              bs: 'Koji Brazilac je dao ikonični gol glavom na startu finala Svjetskog prvenstva 1970.?' },
+    prompt: { en: 'Which Brazilian scored the opening goal with a header in the 1970 World Cup final?',
+              bs: 'Koji je Brazilac glavom postigao prvi gol u finalu Svjetskog prvenstva 1970. godine?' },
     options: [
       { en: 'Jairzinho', bs: 'Jairzinho' },
       { en: 'Pelé', bs: 'Pelé' },
@@ -235,10 +235,10 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who holds the record for most career NBA points scored?',
-              bs: 'Ko drži rekord za najviše poena u NBA karijeri?' },
+    prompt: { en: 'Who broke Kareem Abdul-Jabbar’s NBA regular-season career scoring record on 7 February 2023?',
+              bs: 'Ko je 7. februara 2023. godine oborio rekord Kareema Abdul-Jabbara po ukupnom broju poena u regularnim sezonama NBA lige?' },
     options: [
-      { en: 'Kareem Abdul-Jabbar', bs: 'Kareem Abdul-Jabbar' },
+      { en: 'James Harden', bs: 'James Harden' },
       { en: 'LeBron James', bs: 'LeBron James' },
       { en: 'Karl Malone', bs: 'Karl Malone' },
       { en: 'Kobe Bryant', bs: 'Kobe Bryant' },
@@ -285,11 +285,11 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: {
-      en: 'Who was the first motorcycle Grand Prix World Champion?',
-      bs: 'Ko je bio prvi svjetski prvak u motociklističkom Grand Prix prvenstvu?'
+      en: 'Who won the first 500cc motorcycle Grand Prix world championship in 1949?',
+      bs: 'Ko je osvojio prvo svjetsko prvenstvo u motociklističkoj Grand Prix klasi do 500 cm³ 1949. godine?'
     },
     options: [
-      { en: 'Harold Daniell', bs: 'Harold Daniell' },
+      { en: 'Leslie Graham', bs: 'Leslie Graham' },
       { en: 'Giacomo Agostini', bs: 'Giacomo Agostini' },
       { en: 'Valentino Rossi', bs: 'Valentino Rossi' },
       { en: 'Mike Hailwood', bs: 'Mike Hailwood' },
@@ -331,8 +331,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who was the last man to win a Calendar Grand Slam in singles in 1969?',
-              bs: 'Ko je bio posljednji muškarac koji je osvojio Calendar Grand Slam u singlu 1969. godine?' },
+    prompt: { en: 'Who won all four men’s singles Grand Slam tournaments in 1969?',
+              bs: 'Ko je osvojio sva četiri Grand Slam turnira u muškom singlu 1969. godine?' },
     options: [
       { en: 'Rod Laver', bs: 'Rod Laver' },
       { en: 'Björn Borg', bs: 'Björn Borg' },
@@ -347,8 +347,8 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: {
-      en: 'Which race is considered the oldest active endurance race in the world?',
-      bs: 'Koja trka se smatra najstarijom aktivnom utrkom izdržljivosti na svijetu?'
+      en: 'Which of these is the oldest active endurance race for cars, first held in 1923?',
+      bs: 'Koja automobilska utrka izdržljivosti je prvi put održana 1923. godine i važi za najstariju još aktivnu?'
     },
     options: [
       { en: '24 Hours of Le Mans', bs: '24 sata Le Mansa' },
@@ -380,8 +380,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which tennis player holds the Open Era record with 23 Grand Slam women’s singles titles before 2026?',
-              bs: 'Koja teniserka drži rekord Open ere sa 23 osvojene Grand Slam titule u ženskom singlu do 2026. godine?' },
+    prompt: { en: 'Which player won her 23rd women’s singles Grand Slam title at the 2017 Australian Open?',
+              bs: 'Koja je teniserka osvojila svoju 23. Grand Slam titulu u ženskom singlu na Australian Openu 2017. godine?' },
     options: [
       { en: 'Serena Williams', bs: 'Serena Williams' },
       { en: 'Venus Williams', bs: 'Venus Williams' },
@@ -639,7 +639,7 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: { en: 'Which All Blacks captain lifted the Rugby World Cup in 2011 and 2015?',
-              bs: 'Koji kapiten All Blacksa je podigao Svjetsko prvenstvo u ragbiju 2011. i 2015.?' },
+              bs: 'Koji kapiten All Blacksa je podigao trofej svjetskog prvaka u ragbiju 2011. i 2015. godine?' },
     options: [
       { en: 'Dan Carter', bs: 'Dan Carter' },
       { en: 'Richie McCaw', bs: 'Richie McCaw' },
@@ -653,8 +653,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which NHL player is nicknamed “The Great One” and holds the career points record?',
-              bs: 'Koji NHL igrač ima nadimak „The Great One“ i drži rekord karijere u poenima?' },
+    prompt: { en: 'Which NHL player is nicknamed “The Great One”?',
+              bs: 'Koji je NHL igrač poznat pod nadimkom „The Great One“?' },
     options: [
       { en: 'Mario Lemieux', bs: 'Mario Lemieux' },
       { en: 'Wayne Gretzky', bs: 'Wayne Gretzky' },
@@ -703,8 +703,8 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: {
-      en: 'Which manufacturer has the most overall wins at the 24 Hours of Le Mans?',
-      bs: 'Koji proizvođač ima najviše ukupnih pobjeda na utrci 24 sata Le Mansa?'
+      en: 'Which manufacturer achieved its 19th overall victory at the 24 Hours of Le Mans in 2017?',
+      bs: 'Koji je proizvođač ostvario svoju 19. ukupnu pobjedu na utrci 24 sata Le Mansa 2017. godine?'
     },
     options: [
       { en: 'Porsche', bs: 'Porsche' },
@@ -799,8 +799,8 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: {
-      en: 'Which Formula 1 driver inspired the character Francesco Bernoulli in Cars 2?',
-      bs: 'Koji vozač Formule 1 je inspirisao lik Francesca Bernoullija u animiranom filmu Cars 2?'
+      en: 'Which Formula 1 driver voiced a character named after himself in the original English version of Cars 2?',
+      bs: 'Koji je vozač Formule 1 posudio glas liku nazvanom po njemu u originalnoj engleskoj verziji filma Cars 2?'
     },
     options: [
       { en: 'Michael Schumacher', bs: 'Michael Schumacher' },
@@ -851,7 +851,7 @@ export const sportsHard: Question[] = [
               bs: 'Koji italijanski odbrambeni sistem 1960-ih je poznat kao „catenaccio“?' },
     options: [
       { en: 'Total football attack', bs: 'Totalni napadački fudbal' },
-      { en: 'Sweeper-based lock-down defense', bs: 'Odbrana sa liberoom i zatvaranjem' },
+      { en: 'Sweeper-based lock-down defense', bs: 'Odbrana s liberom i zatvaranjem prostora' },
       { en: 'High midfield press', bs: 'Visok pressing u veznom redu' },
       { en: 'Set-piece focus', bs: 'Fokus na prekidima' },
     ],
@@ -907,8 +907,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which French footballer scored a famous volley in the 1998 World Cup final?',
-              bs: 'Koji francuski fudbaler je dao poznati volej u finalu SP 1998.?' },
+    prompt: { en: 'Which French player scored two headers in the 1998 World Cup final?',
+              bs: 'Koji je francuski igrač glavom postigao dva gola u finalu Svjetskog prvenstva 1998. godine?' },
     options: [
       { en: 'Thierry Henry', bs: 'Thierry Henry' },
       { en: 'Zinedine Zidane', bs: 'Zinedine Zidane' },
@@ -1055,8 +1055,8 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: {
-      en: 'Who is considered one of the greatest ski jumpers of all time with four Olympic gold medals?',
-      bs: 'Ko se smatra jednim od najvećih skijaških skakača svih vremena sa četiri olimpijska zlata?'
+      en: 'Which Finnish ski jumper won four Olympic gold medals across the 1984 and 1988 Winter Games?',
+      bs: 'Koji je finski skijaški skakač osvojio četiri olimpijske zlatne medalje na Zimskim igrama 1984. i 1988. godine?'
     },
     options: [
       { en: 'Matti Nykänen', bs: 'Matti Nykänen' },
@@ -1087,8 +1087,8 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: {
-      en: 'Which Polish ski jumper became a national hero in the early 2000s?',
-      bs: 'Koji poljski skijaški skakač je postao nacionalni heroj početkom 2000-ih?'
+      en: 'Which Polish ski jumper won the overall World Cup title in 2001, 2002, 2003 and 2007?',
+      bs: 'Koji poljski skijaški skakač je osvojio Svjetski kup u ukupnom poretku 2001, 2002, 2003. i 2007. godine?'
     },
     options: [
       { en: 'Adam Małysz', bs: 'Adam Małysz' },
@@ -1134,8 +1134,8 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: {
-      en: 'Which competition is one of the most prestigious events in ski jumping?',
-      bs: 'Koje takmičenje je jedno od najprestižnijih u skijaškim skokovima?'
+      en: 'Which ski jumping tournament takes place in Oberstdorf, Garmisch-Partenkirchen, Innsbruck and Bischofshofen?',
+      bs: 'Koje se takmičenje u skijaškim skokovima održava u Oberstdorfu, Garmisch-Partenkirchenu, Innsbrucku i Bischofshofenu?'
     },
     options: [
       { en: 'Four Hills Tournament', bs: 'Turneja četiri skakaonice' },
@@ -1183,8 +1183,8 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: {
-      en: 'Which Japanese ski jumper became famous for competing at the highest level for over three decades?',
-      bs: 'Koji japanski skijaški skakač je poznat po takmičenju na vrhunskom nivou više od tri decenije?'
+      en: 'Which Japanese ski jumper made his eighth Winter Olympic appearance at PyeongChang 2018?',
+      bs: 'Koji japanski skijaški skakač je osmi put nastupio na Zimskim olimpijskim igrama u PyeongChangu 2018. godine?'
     },
     options: [
       { en: 'Noriaki Kasai', bs: 'Noriaki Kasai' },
@@ -1232,8 +1232,8 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: {
-      en: 'Who became the youngest undisputed World Chess Champion in history in 1985?',
-      bs: 'Ko je 1985. godine postao najmlađi neprikosnoveni svjetski prvak u šahu?'
+      en: 'Who became the youngest world chess champion at the time by defeating Anatoly Karpov in 1985?',
+      bs: 'Ko je pobjedom nad Anatolijem Karpovom 1985. godine postao tada najmlađi svjetski prvak u šahu?'
     },
     options: [
       { en: 'Garry Kasparov', bs: 'Garry Kasparov' },
@@ -1343,8 +1343,8 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: {
-      en: 'In which country did the earliest form of chess originate?',
-      bs: 'U kojoj zemlji je nastao najraniji oblik šaha?'
+      en: 'In which country is chaturanga, widely regarded as an ancestor of modern chess, believed to have originated?',
+      bs: 'U kojoj je zemlji, prema najčešće prihvaćenom tumačenju, nastala čaturanga, preteča modernog šaha?'
     },
     options: [
       { en: 'India', bs: 'Indija' },
@@ -1364,7 +1364,7 @@ export const sportsHard: Question[] = [
       bs: 'Koja varijanta pokera se igra na WSOP Main Eventu?'
     },
     options: [
-      { en: 'Texas Hold’em', bs: 'Texas Hold’em' },
+      { en: 'No-limit Texas Hold’em', bs: 'No-limit Texas Hold’em' },
       { en: 'Omaha', bs: 'Omaha' },
       { en: 'Seven Card Stud', bs: 'Seven Card Stud' },
       { en: 'Razz', bs: 'Razz' },
@@ -1394,8 +1394,8 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: {
-      en: 'How many players from one team are in the pool during a water polo match?',
-      bs: 'Koliko igrača jedne ekipe se nalazi u bazenu tokom vaterpolo utakmice?'
+      en: 'How many players, including the goalkeeper, make up a full-strength standard water polo team in the pool?',
+      bs: 'Koliko igrača, uključujući golmana, čini kompletnu ekipu u bazenu u standardnoj vaterpolo utakmici?'
     },
     options: [
       { en: '7', bs: '7' },
@@ -1410,8 +1410,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which horse won the English Triple Crown in 1970, the last to do so for decades?',
-              bs: 'Koji konj je osvojio englesku Triple Crown 1970., posljednji koji je to uradio decenijama?' },
+    prompt: { en: 'Which horse won the English Triple Crown in 1970?',
+              bs: 'Koji je konj osvojio englesku trostruku krunu 1970. godine?' },
     options: [
       { en: 'Shergar', bs: 'Shergar' },
       { en: 'Nijinsky', bs: 'Nijinsky' },
@@ -1441,8 +1441,8 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: {
-      en: 'Which country has won the most men’s FINA Water Polo World Championship titles up to 2026?',
-      bs: 'Koja država ima najviše titula svjetskog prvaka u muškom vaterpolu do 2026. godine?'
+      en: 'Which country won the men’s water polo world title in Fukuoka in 2023?',
+      bs: 'Koja je zemlja osvojila svjetsku titulu u muškom vaterpolu u Fukuoki 2023. godine?'
     },
     options: [
       { en: 'Italy', bs: 'Italija' },
@@ -1458,11 +1458,11 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: {
-      en: 'What part of a player’s body must remain in contact with the floor when playing the ball in sitting volleyball?',
-      bs: 'Koji dio tijela igrača mora ostati u kontaktu s podom prilikom igranja lopte u sjedećoj odbojci?'
+      en: 'In sitting volleyball, which body region normally must remain in contact with the floor when a player contacts the ball, subject to the lifting exceptions?',
+      bs: 'Koji dio tijela u sjedećoj odbojci obično mora ostati u kontaktu s podom pri dodiru lopte, uz izuzetke predviđene pravilima o podizanju?'
     },
     options: [
-      { en: 'Buttocks', bs: 'Stražnjica' },
+      { en: 'Part of the torso between the buttocks and shoulders', bs: 'Dio trupa između stražnjice i ramena' },
       { en: 'Feet', bs: 'Stopala' },
       { en: 'Hands', bs: 'Ruke' },
       { en: 'Shoulders', bs: 'Ramena' },
@@ -1552,8 +1552,8 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: {
-      en: 'Who became the first Bosnian player selected in the NBA Draft lottery?',
-      bs: 'Ko je postao prvi bosanski igrač izabran na NBA draftu?'
+      en: 'Which Bosnia and Herzegovina international was selected 16th overall in the 2014 NBA Draft?',
+      bs: 'Koji reprezentativac Bosne i Hercegovine je izabran 16. po redu na NBA draftu 2014. godine?'
     },
     options: [
       { en: 'Jusuf Nurkić', bs: 'Jusuf Nurkić' },
@@ -1583,8 +1583,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Which Brazilian stadium hosted the 1950 World Cup final, famous for Uruguay’s upset of Brazil?',
-              bs: 'Koji brazilski stadion je bio domaćin finala SP 1950., poznatog po Urugvajevom iznenađenju protiv Brazila?' },
+    prompt: { en: 'Which stadium hosted the decisive Brazil–Uruguay match in the final round of the 1950 World Cup?',
+              bs: 'Na kojem je stadionu odigrana odlučujuća utakmica Brazila i Urugvaja u završnoj grupi Svjetskog prvenstva 1950. godine?' },
     options: [
       { en: 'Morumbi', bs: 'Morumbi' },
       { en: 'Maracanã', bs: 'Maracana' },
@@ -1689,8 +1689,8 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: {
-      en: 'Who was the first Bosnian basketball player to play in the NBA?',
-      bs: 'Ko je bio prvi bosanski košarkaš koji je zaigrao u NBA ligi?'
+      en: 'Which Bosnia and Herzegovina international joined the Brooklyn Nets in 2012?',
+      bs: 'Koji reprezentativac Bosne i Hercegovine je prešao u Brooklyn Netse 2012. godine?'
     },
     options: [
       { en: 'Mirza Teletović', bs: 'Mirza Teletović' },
@@ -1812,8 +1812,8 @@ export const sportsHard: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'hard',
-    prompt: { en: 'Who scored the first golden goal in senior international football to win the UEFA Euro 1996 final?',
-              bs: 'Ko je postigao prvi zlatni gol u seniorskom međunarodnom fudbalu za pobjedu u finalu UEFA Eura 1996.?' },
+    prompt: { en: 'Who scored Germany’s golden goal in the UEFA Euro 1996 final?',
+              bs: 'Ko je postigao zlatni gol Njemačke u finalu UEFA Eura 1996. godine?' },
     options: [
       { en: 'Oliver Bierhoff', bs: 'Oliver Bierhoff' },
       { en: 'Jürgen Klinsmann', bs: 'Jürgen Klinsmann' },
@@ -1905,8 +1905,8 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: {
-      en: 'Which company produces official Formula 1 trading cards?',
-      bs: 'Koja kompanija proizvodi službene Formula 1 kolekcionarske kartice?'
+      en: 'Which company became Formula 1’s official global sticker and trading-card licensee in 2020?',
+      bs: 'Koja je kompanija 2020. godine postala službeni globalni nosilac licence za naljepnice i kolekcionarske kartice Formule 1?'
     },
     options: [
       { en: 'Topps', bs: 'Topps' },
@@ -1937,8 +1937,8 @@ export const sportsHard: Question[] = [
     category: 'sports',
     difficulty: 'hard',
     prompt: {
-      en: 'Who scored the fastest goal in UEFA Champions League history with an assist from Hasan Salihamidžić in the 10th second?',
-      bs: 'Ko je, uz asistenciju Hasana Salihamidžića, postigao najbrži gol u historiji Lige prvaka, u 10. sekundi?'
+      en: 'Who scored for Bayern Munich after 10.12 seconds against Real Madrid in the Champions League on 7 March 2007?',
+      bs: 'Ko je za Bayern Minhen postigao gol nakon 10,12 sekundi protiv Real Madrida u Ligi prvaka 7. marta 2007. godine?'
     },
     options: [
       { en: 'Roy Makaay', bs: 'Roy Makaay' },

@@ -21,8 +21,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which club has won the most UEFA Champions League titles before 2026?',
-              bs: 'Koji klub je osvojio najviše titula UEFA Lige šampiona do 2026. godine?' },
+    prompt: { en: 'Which club won its 15th European Cup or UEFA Champions League title in 2024?',
+              bs: 'Koji je klub 2024. godine osvojio svoju 15. titulu Kupa evropskih prvaka odnosno UEFA Lige prvaka?' },
     options: [
       { en: 'Barcelona', bs: 'Barselona' },
       { en: 'AC Milan', bs: 'AC Milan' },
@@ -194,8 +194,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which Dutch club is famous for its orange-tinged history and plays in Amsterdam?',
-              bs: 'Koji holandski klub je poznat po historiji povezanoj s narandžastom bojom i igra u Amsterdamu?' },
+    prompt: { en: 'Which Amsterdam football club plays at the Johan Cruyff Arena?',
+              bs: 'Koji fudbalski klub iz Amsterdama igra na Johan Cruyff Areni?' },
     options: [
       { en: 'PSV Eindhoven', bs: 'PSV Eindhoven' },
       { en: 'Feyenoord', bs: 'Feyenoord' },
@@ -255,8 +255,8 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: {
-      en: 'Which Looney Tunes character is the captain of the Tune Squad?',
-      bs: 'Koji Looney Tunes lik je kapiten ekipe Tune Squad?'
+      en: 'Which Looney Tunes character is the captain of the Tune Squad in Space Jam movies?',
+      bs: 'Koji Looney Tunes lik je kapiten ekipe Tune Squad u Space Jam filmovima?'
     },
     options: [
       { en: 'Bugs Bunny', bs: 'Bugs Bunny' },
@@ -438,8 +438,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which surface is the US Open mainly played on today?',
-              bs: 'Na kojoj se podlozi danas uglavnom igra US Open?' },
+    prompt: { en: 'On which surface has the US Open tennis tournament been played since 1978?',
+              bs: 'Na kojoj se podlozi teniski US Open igra od 1978. godine?' },
     options: [
       { en: 'Grass', bs: 'Trava' },
       { en: 'Clay', bs: 'Šljaka' },
@@ -454,12 +454,12 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: { en: 'The Davis Cup is an international team competition in which sport?',
-              bs: 'Davis Cup je međunarodno ekipno takmičenje u kojem sportu?' },
+              bs: 'U kojem sportu se održava Davis Cup, međunarodno ekipno takmičenje?' },
     options: [
       { en: 'Golf', bs: 'Golfu' },
       { en: 'Tennis', bs: 'Tenisu' },
       { en: 'Cricket', bs: 'Kriketu' },
-      { en: 'Table tennis', bs: 'Stoni tenisu' },
+      { en: 'Table tennis', bs: 'Stonom tenisu' },
     ],
     correctIndex: 1,
   },
@@ -484,8 +484,8 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: {
-      en: 'Which quarterback is known as "The GOAT" and won seven Super Bowls?',
-      bs: 'Koji quarterback je poznat kao "GOAT" i osvojio je sedam Super Bowlova?',
+      en: 'Which quarterback won seven Super Bowl titles during his playing career?',
+      bs: 'Koji je quarterback tokom igračke karijere osvojio sedam Super Bowl titula?',
     },
     options: [
       { en: 'Tom Brady', bs: 'Tom Brady' },
@@ -517,8 +517,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'How many points does a Formula 1 race winner usually receive under the modern scoring system?',
-              bs: 'Koliko bodova obično dobija pobjednik trke Formule 1 po modernom sistemu bodovanja?' },
+    prompt: { en: 'Under the 2025 Formula 1 points system, how many points did the winner of a full-distance Grand Prix receive?',
+              bs: 'Koliko bodova je prema sistemu bodovanja Formule 1 za sezonu 2025. dobivao pobjednik Velike nagrade odvožene u punoj dužini?' },
     options: [
       { en: '10', bs: '10' },
       { en: '15', bs: '15' },
@@ -684,8 +684,8 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: {
-      en: 'Which fighter famously defeated Fedor Emelianenko with a flying knee in PRIDE?',
-      bs: 'Koji borac je slavno pobijedio Fedora Emelianenka letećim koljenom u PRIDE-u?',
+      en: 'Who defeated Fedor Emelianenko by submission at Strikeforce in June 2010?',
+      bs: 'Ko je u junu 2010. godine na Strikeforceovoj priredbi pobijedio Fedora Emelianenka prisilivši ga na predaju?',
     },
     options: [
       { en: 'Mark Hunt', bs: 'Mark Hunt' },
@@ -693,7 +693,7 @@ export const sportsMedium: Question[] = [
       { en: 'Fabricio Werdum', bs: 'Fabricio Werdum' },
       { en: 'Mirko Cro Cop', bs: 'Mirko Cro Cop' },
     ],
-    correctIndex: 0,
+    correctIndex: 2,
   },
   {
     id: 'sport-med-045',
@@ -702,7 +702,7 @@ export const sportsMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which fighter defeated Conor McGregor at UFC 229 by submission?',
-      bs: 'Koji borac je pobijedio Conora McGregora na UFC 229 gušenjem?',
+      bs: 'Koji je borac pobijedio Conora McGregora na UFC-u 229 prisilivši ga na predaju?',
     },
     options: [
       { en: 'Khabib Nurmagomedov', bs: 'Khabib Nurmagomedov' },
@@ -732,8 +732,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'How many periods are there in a standard NHL ice hockey game?',
-              bs: 'Koliko perioda ima standardna NHL utakmica hokeja na ledu?' },
+    prompt: { en: 'How many periods are there in regulation play in an NHL game?',
+              bs: 'Koliko perioda ima regularni dio NHL utakmice?' },
     options: [
       { en: '2', bs: '2' },
       { en: '3', bs: '3' },
@@ -747,8 +747,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In ice hockey, how many players per team (including the goalie) are usually on the ice during even strength?',
-              bs: 'U hokeju na ledu, koliko je igrača jednog tima, uključujući golmana, obično na ledu kada nema isključenja?' },
+    prompt: { en: 'In regulation NHL play at even strength, how many players per team, including the goalkeeper, are normally on the ice?',
+              bs: 'Koliko je igrača jedne ekipe, uključujući golmana, obično na ledu u regularnom dijelu NHL utakmice pri jednakom broju igrača?' },
     options: [
       { en: '5', bs: '5' },
       { en: '6', bs: '6' },
@@ -1005,8 +1005,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'In fencing, which weapon allows hits with the tip only and has a rectangular piste target area limited to the torso?',
-              bs: 'U mačevanju, koje oružje dozvoljava pogotke samo vrhom i ima metu ograničenu na torzo?' },
+    prompt: { en: 'In fencing, which weapon scores valid hits with the tip only and has a target area mainly limited to the torso?',
+              bs: 'Koje mačevalačko oružje se koristi u disciplini u kojoj se priznaju samo pogoci vrhom, a ciljna površina je uglavnom trup?' },
     options: [
       { en: 'Sabre', bs: 'Sablja' },
       { en: 'Foil', bs: 'Floreta' },
@@ -1053,8 +1053,8 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: {
-      en: 'Which boxer defeated Mike Tyson and became one of the biggest underdogs in sports history?',
-      bs: 'Koji bokser je pobijedio Mikea Tysona i postao jedan od najvećih autsajdera u historiji sporta?',
+      en: 'Which boxer defeated Mike Tyson in 1990 despite being a major pre-fight underdog?',
+      bs: 'Koji je bokser pobijedio Mikea Tysona 1990. godine iako je prije meča bio veliki autsajder?',
     },
     options: [
       { en: 'Buster Douglas', bs: 'Buster Douglas' },
@@ -1069,8 +1069,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which African tournament is the continental championship for national football teams?',
-              bs: 'Koje afričko takmičenje je prvenstvo za nacionalne fudbalske timove?' },
+    prompt: { en: 'Which CAF competition for senior men’s national teams was first held in 1957?',
+              bs: 'Koje je CAF-ovo takmičenje za seniorske muške reprezentacije prvi put održano 1957. godine?' },
               options: [
                 { en: 'Africa Cup of Nations', bs: 'Afrički kup nacija' },
                 { en: 'African Nations Championship', bs: 'Afričko prvenstvo nacija' },
@@ -1099,13 +1099,13 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which footballer won the Ballon d’Or seven times while mostly at Barcelona?',
-              bs: 'Koji fudbaler je osvojio Zlatnu loptu sedam puta uglavnom dok je bio u Barseloni?' },
+    prompt: { en: 'Which country won the inaugural UEFA Nations League in 2019?',
+              bs: 'Koja je država osvojila prvo izdanje UEFA Lige nacija 2019. godine?' },
     options: [
-      { en: 'Cristiano Ronaldo', bs: 'Cristiano Ronaldo' },
-      { en: 'Lionel Messi', bs: 'Lionel Messi' },
-      { en: 'Zinedine Zidane', bs: 'Zinedine Zidane' },
-      { en: 'Ronaldinho', bs: 'Ronaldinho' },
+      { en: 'France', bs: 'Francuska' },
+      { en: 'Portugal', bs: 'Portugal' },
+      { en: 'Netherlands', bs: 'Nizozemska' },
+      { en: 'Spain', bs: 'Španija' },
     ],
     correctIndex: 1,
   },
@@ -1160,8 +1160,8 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: {
-      en: 'Which boxer had a professional record of 49 wins and 0 losses before retiring?',
-      bs: 'Koji bokser je imao omjer 49 pobjeda i 0 poraza prije penzionisanja?',
+      en: 'Which heavyweight boxer retired in 1956 with an undefeated professional record of 49 wins and no losses?',
+      bs: 'Koji bokser teške kategorije se povukao 1956. godine s profesionalnim omjerom od 49 pobjeda i nijednog poraza?',
     },
     options: [
       { en: 'Rocky Marciano', bs: 'Rocky Marciano' },
@@ -1210,7 +1210,7 @@ export const sportsMedium: Question[] = [
     difficulty: 'medium',
     prompt: {
       en: 'Which boxer was famous for the "Phantom Punch" controversy against Sonny Liston?',
-      bs: 'Koji bokser je poznat po kontroverznom "Fantomskom udaracu" u meču protiv Sonny Listona?',
+      bs: 'Koji je bokser poznat po kontroverznom „fantomskom udarcu“ u meču protiv Sonnyja Listona?',
     },
     options: [
       { en: 'Muhammad Ali', bs: 'Muhammad Ali' },
@@ -1241,8 +1241,8 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: {
-      en: 'Who holds the record for the fastest knockout in UFC history before 2026?',
-      bs: 'Ko drži rekord za najbrži nokaut u UFC historiji do 2026. godine?',
+      en: 'Who set a UFC knockout record by stopping Ben Askren in five seconds at UFC 239 in 2019?',
+      bs: 'Ko je 2019. godine na UFC-u 239 postavio rekord za najbrži nokaut, zaustavivši Bena Askrena za pet sekundi?',
     },
     options: [
       { en: 'Jorge Masvidal', bs: 'Jorge Masvidal' },
@@ -1275,8 +1275,8 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: {
-      en: 'Who delivered the famous head kick knockout against Leon Edwards at UFC 278?',
-      bs: 'Ko je doživio čuveni nokaut udarcem nogom u glavu protiv Leona Edwardsa na UFC 278?',
+      en: 'Who was knocked out by Leon Edwards’s head kick at UFC 278?',
+      bs: 'Ko je nokautiran udarcem Leona Edwardsa nogom u glavu na UFC-u 278?',
     },
     options: [
       { en: 'Kamaru Usman', bs: 'Kamaru Usman' },
@@ -1385,8 +1385,8 @@ export const sportsMedium: Question[] = [
     type: 'mcq',
     category: 'sports',
     difficulty: 'medium',
-    prompt: { en: 'Which football competition is contested by European national teams every four years?',
-              bs: 'Koje fudbalsko takmičenje igraju evropske nacionalne selekcije svake četiri godine?' },
+    prompt: { en: 'Which continental championship for European national football teams is normally held every four years?',
+              bs: 'Koje kontinentalno prvenstvo evropskih fudbalskih reprezentacija se uobičajeno organizira svake četiri godine?' },
     options: [
       { en: 'FIFA World Cup', bs: 'FIFA Svjetsko prvenstvo' },
       { en: 'UEFA European Championship', bs: 'UEFA Evropsko prvenstvo' },
@@ -1461,7 +1461,7 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: { en: 'Which football stadium is home to Chelsea?',
-              bs: 'Koji fudbalski stadion je dom Chelsea?' },
+              bs: 'Na kojem stadionu Chelsea igra domaće utakmice?' },
     options: [
       { en: 'Emirates Stadium', bs: 'Emirates Stadium' },
       { en: 'Tottenham Hotspur Stadium', bs: 'Tottenham Hotspur Stadium' },
@@ -1491,8 +1491,8 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: {
-      en: 'Who holds the record for the most World Snooker Championship titles in the modern era?',
-      bs: 'Ko drži rekord za najviše titula Svjetskog prvenstva u snookeru u modernoj eri?',
+      en: 'Which snooker player won his seventh world championship title in 1999?',
+      bs: 'Koji je igrač snukera osvojio svoju sedmu svjetsku titulu 1999. godine?',
     },
     options: [
       { en: 'Stephen Hendry', bs: 'Stephen Hendry' },
@@ -1508,8 +1508,8 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: {
-      en: 'Who made the fastest maximum 147 break in snooker history?',
-      bs: 'Ko je napravio najbrži maksimalni break od 147 poena u historiji snookera?',
+      en: 'Who made a maximum 147 break in five minutes and eight seconds at the 1997 World Snooker Championship?',
+      bs: 'Ko je na Svjetskom prvenstvu u snukeru 1997. godine napravio maksimalni break od 147 poena za pet minuta i osam sekundi?',
     },
     options: [
       { en: 'Ronnie O’Sullivan', bs: 'Ronnie O’Sullivan' },
@@ -1542,9 +1542,9 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: { en: 'In basketball, the painted area near the basket is commonly called what?',
-              bs: 'U košarci, obojeno područje blizu koša se obično naziva kako?' },
+              bs: 'Kako se u košarci naziva obojeno područje blizu koša?' },
     options: [
-      { en: 'The crease', bs: 'Mrlja' },
+      { en: 'The crease', bs: 'Golmanski prostor' },
       { en: 'The paint', bs: 'Reket' },
       { en: 'The box', bs: 'Kutija' },
       { en: 'The alley', bs: 'Aleja' },
@@ -1587,8 +1587,8 @@ export const sportsMedium: Question[] = [
     category: 'sports',
     difficulty: 'medium',
     prompt: {
-      en: 'Whose silhouette inspired the famous NBA logo design?',
-      bs: 'Čija silueta je inspirisala poznati dizajn NBA logotipa?',
+      en: 'According to designer Alan Siegel, whose photograph inspired the silhouette in the NBA logo?',
+      bs: 'Prema dizajneru Alanu Siegelu, čija je fotografija poslužila kao inspiracija za siluetu na NBA logotipu?',
     },
     options: [
       { en: 'Jerry West', bs: 'Jerry West' },
