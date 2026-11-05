@@ -1156,7 +1156,7 @@ export const biologyMedium: Question[] = [
   difficulty: 'medium',
   prompt: {
     en: 'Which of these animals is the largest living lizard?',
-    bs: 'Koja je od ovih životinja najveći živi gušter?',
+    bs: 'Koja od ovih životinja je najveći živi gušter?',
   },
   options: [
     { en: 'Green iguana', bs: 'Zelena iguana' },
