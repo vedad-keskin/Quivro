@@ -190,6 +190,23 @@ export const historyHard: Question[] = [
     correctIndex: 1,
   },
   {
+    id: 'hist-hard-013',
+    type: 'mcq',
+    category: 'history',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which treaty of 1494 established a boundary between Spanish and Portuguese spheres of overseas expansion?',
+      bs: 'Koji sporazum iz 1494. godine je razgraničio područja španskog i portugalskog prekomorskog širenja?',
+    },
+    options: [
+      { en: 'Treaty of Alcáçovas', bs: 'Sporazum iz Alcáçovasa' },
+      { en: 'Treaty of Zaragoza', bs: 'Sporazum iz Zaragoze' },
+      { en: 'Treaty of Tordesillas', bs: 'Sporazum iz Tordesillasa' },
+      { en: 'Treaty of Utrecht', bs: 'Utrechtski mir' },
+    ],
+    correctIndex: 2,
+  },
+  {
     id: 'hist-hard-014',
     type: 'mcq',
     category: 'history',
@@ -261,6 +278,23 @@ export const historyHard: Question[] = [
       { en: 'William the Conqueror', bs: 'Vilijam Osvajač' },
       { en: 'Richard I', bs: 'Ričard I' },
       { en: 'King John', bs: 'Kralj John' },
+    ],
+    correctIndex: 1,
+  },
+  {
+    id: 'hist-hard-019',
+    type: 'mcq',
+    category: 'history',
+    difficulty: 'hard',
+    prompt: {
+      en: 'Which ancient language was written in Linear B, the script deciphered by Michael Ventris in 1952?',
+      bs: 'Koji drevni jezik je zapisivan linearnim pismom B, koje je Michael Ventris dešifrovao 1952. godine?',
+    },
+    options: [
+      { en: 'Hittite', bs: 'Hetitski' },
+      { en: 'Mycenaean Greek', bs: 'Mikenski grčki' },
+      { en: 'Phoenician', bs: 'Fenički' },
+      { en: 'Etruscan', bs: 'Etruščanski' },
     ],
     correctIndex: 1,
   },
