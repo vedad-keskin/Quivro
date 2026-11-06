@@ -21,8 +21,8 @@ export const technologyMedium: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'medium',
-    prompt: { en: 'In League of Legends, how many players are on each team?',
-              bs: 'U League of Legendsu, koliko igrača ima u svakom timu?' },
+    prompt: { en: 'How many players are on each team in a standard League of Legends match on Summoner\'s Rift?',
+              bs: 'Koliko igrača ima svaki tim u standardnom meču igre League of Legends na mapi Summoner\'s Rift?' },
     options: [
       { en: '3', bs: '3' },
       { en: '4', bs: '4' },
@@ -157,10 +157,10 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'What best describes open-source software?',
-              bs: 'Šta najbolje opisuje open-source softver?' },
+              bs: 'Šta najbolje opisuje softver otvorenog koda?' },
     options: [
-      { en: 'Source code that can be viewed and modified', bs: 'Izvorni kod koji se može pregledati i mijenjati' },
-      { en: 'Software that never needs updates', bs: 'Softver koji nikada ne treba ažuriranja' },
+      { en: 'Software licensed to allow use, study, modification and redistribution of its source code', bs: 'Softver čija licenca dopušta korištenje, proučavanje, izmjenu i redistribuciju izvornog koda' },
+      { en: 'Software that never needs updates', bs: 'Softver koji nikada ne treba ažurirati' },
       { en: 'Apps that require no internet connection', bs: 'Aplikacije koje ne trebaju internet vezu' },
       { en: 'Programs locked to one brand of hardware', bs: 'Programi vezani za jedan brend hardvera' },
     ],
@@ -217,8 +217,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'What was the first commercially successful graphical web browser?',
-      bs: 'Koji je bio prvi komercijalno uspješan grafički web preglednik?'
+      en: 'Which web browser released in 1994 is often considered the first commercially successful graphical web browser??',
+      bs: 'Koji web preglednik objaviljen 1994. godine se često smatra prvim komercijalno uspješnim grafičkim web preglednikom?'
     },
     options: [
       { en: 'Netscape Navigator', bs: 'Netscape Navigator' },
@@ -279,8 +279,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'What was the name of the first commercially available mobile phone?',
-      bs: 'Kako se zvao prvi komercijalno dostupan mobilni telefon?'
+      en: 'What was the first commercially available handheld cellular phone?',
+      bs: 'Kako se zvao prvi komercijalno dostupan ručni mobilni telefon?'
     },
     options: [
       { en: 'Motorola DynaTAC 8000X', bs: 'Motorola DynaTAC 8000X' },
@@ -343,8 +343,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'Which game became the first to reach 1 billion views on YouTube trailers?',
-      bs: 'Koja je igra prva dostigla milijardu pregleda svojih najava na YouTubeu?'
+      en: 'Which game\'s content reached one trillion YouTube views, celebrated by YouTube in December 2021?',
+      bs: 'Sadržaj o kojoj je igri dostigao bilion pregleda na YouTubeu, što je YouTube obilježio u decembru 2021. godine?'
     },
     options: [
       { en: 'Minecraft', bs: 'Minecraft' },
@@ -435,7 +435,7 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: { en: 'Aloy is the hero of which series?',
-              bs: 'Aloy je heroj kojeg serijala?' },
+              bs: 'U kojem serijalu je Aloy glavna junakinja?' },
     options: [
       { en: 'Tomb Raider', bs: 'Tomb Raider' },
       { en: 'Metroid', bs: 'Metroid' },
@@ -470,7 +470,7 @@ export const technologyMedium: Question[] = [
               bs: 'Koji studio je razvio The Elder Scrolls V: Skyrim?' },
     options: [
       { en: 'BioWare', bs: 'BioWare' },
-      { en: 'Bethesda', bs: 'Bethesda' },
+      { en: 'Bethesda Game Studios', bs: 'Bethesda Game Studios' },
       { en: 'Obsidian Entertainment', bs: 'Obsidian Entertainment' },
       { en: 'CD Projekt Red', bs: 'CD Projekt Red' },
     ],
@@ -529,8 +529,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'Which electric car company was founded by Elon Musk and Martin Eberhard?',
-      bs: 'Koju kompaniju za električne automobile su osnovali Elon Musk i Martin Eberhard?'
+      en: 'Which electric car company was founded in 2003 by Martin Eberhard and Marc Tarpenning?',
+      bs: 'Koju su kompaniju za električne automobile 2003. godine osnovali Martin Eberhard i Marc Tarpenning?'
     },
     options: [
       { en: 'Tesla', bs: 'Tesla' },
@@ -561,8 +561,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'Which car was the first production vehicle to use carbon fiber extensively?',
-      bs: 'Koji je automobil bio među prvim serijskim vozilima koja su u velikoj mjeri koristila karbonska vlakna?'
+      en: 'Which of these cars has a carbon-fibre monocoque and a central driver\'s seat?',
+      bs: 'Koji od ovih automobila ima karbonski monokok i vozačko sjedište u sredini?'
     },
     options: [
       { en: 'BMW i3', bs: 'BMW i3' },
@@ -873,8 +873,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'Which car was the first mass-produced vehicle with a fully digital instrument cluster?',
-      bs: 'Koji automobil je bio među prvim masovno proizvedenim vozilima s potpuno digitalnom instrument tablom?'
+      en: 'Which 1986 car featured a touchscreen called the Graphic Control Center?',
+      bs: 'Koji je automobil iz 1986. godine imao ekran na dodir nazvan Graphic Control Center?'
     },
     options: [
       { en: 'Buick Riviera', bs: 'Buick Riviera' },
@@ -1002,7 +1002,7 @@ export const technologyMedium: Question[] = [
       { en: 'A second password stored in plain text', bs: 'Drugu lozinku pohranjenu kao običan tekst' },
       { en: 'A backup email without verification', bs: 'Rezervni email bez verifikacije' },
       { en: 'A longer username requirement', bs: 'Zahtjev za duže korisničko ime' },
-      { en: 'An extra verification step after a password', bs: 'Dodatni korak verifikacije nakon lozinke' },
+      { en: 'Verification using a different factor', bs: 'Provjeru pomoću druge vrste faktora' },
     ],
     correctIndex: 3,
   },
@@ -1026,8 +1026,8 @@ export const technologyMedium: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'medium',
-    prompt: { en: 'Which studio developed the modern DOOM reboot?',
-              bs: 'Koji studio je razvio moderni DOOM reboot?' },
+    prompt: { en: 'Which studio developed DOOM (2016)?',
+              bs: 'Koji je studio razvio igru DOOM iz 2016. godine?' },
     options: [
       { en: 'Blizzard', bs: 'Blizzard' },
       { en: 'id Software', bs: 'id Software' },
@@ -1136,8 +1136,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'Which game is famous for the "Wrong Warp" glitch used in speedruns?',
-      bs: 'Koja igra je poznata po "Wrong Warp" glitchu koji se koristi u speedrunovima?'
+      en: 'Which 1998 Nintendo 64 game is known for wrong-warp speedrunning techniques?',
+      bs: 'Koja je igra za Nintendo 64 iz 1998. godine poznata po tehnikama speedrunninga koje koriste grešku wrong warp?'
     },
     options: [
       { en: 'The Legend of Zelda: Ocarina of Time', bs: 'The Legend of Zelda: Ocarina of Time' },
@@ -1156,7 +1156,7 @@ export const technologyMedium: Question[] = [
               bs: 'Koji studio je razvio Fallout 3 i Fallout 4?' },
     options: [
       { en: 'BioWare', bs: 'BioWare' },
-      { en: 'Bethesda', bs: 'Bethesda' },
+      { en: 'Bethesda Game Studios', bs: 'Bethesda Game Studios' },
       { en: 'Obsidian Entertainment', bs: 'Obsidian Entertainment' },
       { en: 'CD Projekt Red', bs: 'CD Projekt Red' },
     ],
@@ -1168,11 +1168,11 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'What is the name of the famous speedrunning charity event held twice a year?',
-      bs: 'Kako se zove poznati speedrunning humanitarni događaj koji se održava dva puta godišnje?'
+      en: 'Which organization runs Awesome Games Done Quick and Summer Games Done Quick?',
+      bs: 'Koja organizacija održava maratone Awesome Games Done Quick i Summer Games Done Quick?'
     },
     options: [
-      { en: 'Games Done Quick', bs: 'Games Done Quick' },
+      { en: 'GDQ', bs: 'GDQ' },
       { en: 'SpeedFest', bs: 'SpeedFest' },
       { en: 'Run Masters', bs: 'Run Masters' },
       { en: 'Quick Gaming League', bs: 'Quick Gaming League' },
@@ -1232,8 +1232,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'As of 2026, which game has the most registered speedruns on Speedrun.com?',
-      bs: 'Prema podacima iz 2026. godine, koja igra ima najviše registrovanih speedrunova na Speedrun.com?'
+      en: 'According to Guinness World Records, which videogame held the record for the most speedruns on Speedrun.com as of 12 June 2025?',
+      bs: 'Prema Guinnessovoj knjizi rekorda, koja je videoigra 12. juna 2025. držala rekord po broju speedrunova na stranici Speedrun.com?'
     },
     options: [
       { en: 'Super Mario 64', bs: 'Super Mario 64' },
@@ -1343,14 +1343,14 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'Which game was the first to sell over 100 million copies?',
-      bs: 'Koja igra je prva prodana u više od 100 miliona primjeraka?'
+      en: 'Which puzzle game did EA report had reached 100 million paid mobile downloads in January 2010?',
+      bs: 'Prema objavi kompanije EA iz januara 2010. godine, koja slagalica je dostigla 100 miliona plaćenih preuzimanja na mobilnim uređajima?'
     },
     options: [
-      { en: 'Minecraft', bs: 'Minecraft' },
+      { en: 'Bejeweled', bs: 'Bejeweled' },
       { en: 'Tetris', bs: 'Tetris' },
-      { en: 'Grand Theft Auto V', bs: 'Grand Theft Auto V' },
-      { en: 'The Sims', bs: 'The Sims' },
+      { en: 'SCRABBLE', bs: 'SCRABBLE' },
+      { en: 'MONOPOLY', bs: 'MONOPOLY' },
     ],
     correctIndex: 1,
   },
@@ -1407,8 +1407,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'Which game was created by a single developer named Toby Fox?',
-      bs: 'Koju igru je napravio jedan developer po imenu Toby Fox?'
+      en: 'Which game was primarily developed by Toby Fox?',
+      bs: 'Koju je igru prvenstveno razvio Toby Fox?'
     },
     options: [
       { en: 'Undertale', bs: 'Undertale' },
@@ -1439,8 +1439,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'Which game was famously delayed for almost 10 years before release?',
-      bs: 'Koja igra je bila poznata po kašnjenju od skoro 10 godina prije izlaska?'
+      en: 'Which game was announced in 1997 and finally released in 2011 after about 14 years in development?',
+      bs: 'Koja je igra najavljena 1997. godine, a objavljena tek 2011. nakon približno 14 godina razvoja?'
     },
     options: [
       { en: 'Duke Nukem Forever', bs: 'Duke Nukem Forever' },
@@ -1490,8 +1490,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'Which game contains the famous hidden character MissingNo.?',
-      bs: 'Koja igra sadrži poznatog skrivenog lika MissingNo.?'
+      en: 'Which games contain the famous glitch Pokémon MissingNo.?',
+      bs: 'Koje igre sadrže poznatog Pokémona MissingNo. nastalog zbog programske greške?'
     },
     options: [
       { en: 'Pokémon Red and Blue', bs: 'Pokémon Red i Blue' },
@@ -1507,8 +1507,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'Which game of the following has the largest open world map?',
-      bs: 'Koja Rockstar igra od navedenih ima najveću otvorenu mapu?'
+      en: 'Which Rockstar game features Arthur Morgan and the Van der Linde gang in 1899?',
+      bs: 'Koja Rockstarova igra prati Arthura Morgana i bandu Van der Linde 1899. godine?'
     },
     options: [
       { en: 'Red Dead Redemption 2', bs: 'Red Dead Redemption 2' },
@@ -1650,8 +1650,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'Which game popularized the "Battle Pass" monetization model?',
-      bs: 'Koja igra je popularizovala model monetizacije "Battle Pass"?'
+      en: 'Which game introduced The International Compendium in 2013, a precursor to battle passes?',
+      bs: 'Koja igra je 2013. godine uvela The International Compendium, prethodnika propusnica tipa battle pass?'
     },
     options: [
       { en: 'Dota 2', bs: 'Dota 2' },
@@ -1682,8 +1682,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'According to sales data from 2026, which game is the best-selling video game of all time?',
-      bs: 'Prema podacima o prodaji iz 2026. godine, koja igra je najprodavanija videoigra svih vremena?'
+      en: 'Which game did Mojang announce had sold more than 300 million copies in 2023?',
+      bs: 'Za koju je igru Mojang 2023. godine objavio da je prodana u više od 300 miliona primjeraka?'
     },
     options: [
       { en: 'Minecraft', bs: 'Minecraft' },
@@ -1698,8 +1698,8 @@ export const technologyMedium: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'medium',
-    prompt: { en: 'On which map is League of Legends ARAM mode played?',
-              bs: 'Na kojoj mapi se igra ARAM mod u League of Legendsu?' },
+    prompt: { en: 'Which classic ARAM map is set on an icy bridge in the Freljord?',
+              bs: 'Koja se klasična ARAM mapa nalazi na zaleđenom mostu u Freljordu?' },
     options: [
       { en: 'Summoner\'s Rift', bs: 'Summoner\'s Rift' },
       { en: 'Howling Abyss', bs: 'Howling Abyss' },
@@ -1778,7 +1778,7 @@ export const technologyMedium: Question[] = [
     prompt: { en: 'What does a compiler primarily do?',
               bs: 'Šta kompajler primarno radi?' },
     options: [
-      { en: 'Translates source code into machine code', bs: 'Pretvara izvorni kod u mašinski kod' },
+      { en: 'Translates source code into a target language', bs: 'Prevodi izvorni kod u ciljni jezik' },
       { en: 'Cleans dust from computer fans', bs: 'Čisti prašinu iz računarskih ventilatora' },
       { en: 'Increases Wi-Fi signal strength', bs: 'Povećava snagu Wi-Fi signala' },
       { en: 'Charges devices over USB-C', bs: 'Puni uređaje putem USB-C-a' },
@@ -1820,8 +1820,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'According to lifetime sales, which game sold more copies?',
-      bs: 'Prema ukupnoj prodaji, koja igra je prodala više primjeraka?'
+      en: 'Which of these games had surpassed 300 million copies sold according to Mojang in 2023?',
+      bs: 'Koja je od ovih igara prema objavi Mojanga iz 2023. godine premašila 300 miliona prodanih primjeraka?'
     },
     options: [
       { en: 'Minecraft', bs: 'Minecraft' },
@@ -1852,8 +1852,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'According to sales data from 2026, which game is the best-selling PlayStation exclusive?',
-      bs: 'Prema podacima iz 2026. godine, koja igra je najprodavanija PlayStation ekskluziva?'
+      en: 'Which 2018 game was developed by Insomniac Games for PlayStation 4?',
+      bs: 'Koju je igru Insomniac Games razvio za PlayStation 4 2018. godine?'
     },
     options: [
       { en: 'Marvel’s Spider-Man', bs: 'Marvel’s Spider-Man' },
@@ -1869,8 +1869,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'Which game helped Nintendo Wii become one of the best-selling consoles ever?',
-      bs: 'Koja igra je pomogla Nintendo Wii konzoli da postane jedna od najprodavanijih konzola ikada?'
+      en: 'Which game was bundled with the Wii at its 2006 North American launch?',
+      bs: 'Koja je igra bila priložena uz Wii pri izlasku konzole u Sjevernoj Americi 2006. godine?'
     },
     options: [
       { en: 'Wii Sports', bs: 'Wii Sports' },
@@ -1931,14 +1931,14 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'According to sales data from 2026, which game is the best-selling game on the PlayStation 2?',
-      bs: 'Prema podacima iz 2026. godine, koja igra je najprodavanija igra na PlayStation 2 konzoli?'
+      en: 'Which 2004 Grand Theft Auto game follows Carl CJ Johnson?',
+      bs: 'Koja igra Grand Theft Auto iz 2004. godine prati Carla CJ-a Johnsona?'
     },
     options: [
       { en: 'Grand Theft Auto: San Andreas', bs: 'Grand Theft Auto: San Andreas' },
-      { en: 'Gran Turismo 3', bs: 'Gran Turismo 3' },
-      { en: 'Final Fantasy X', bs: 'Final Fantasy X' },
-      { en: 'God of War II', bs: 'God of War II' },
+      { en: 'Grand Theft Auto III', bs: 'Grand Theft Auto III' },
+      { en: 'Grand Theft Auto IV', bs: 'Grand Theft Auto IV' },
+      { en: 'Grand Theft Auto V', bs: 'Grand Theft Auto V' },
     ],
     correctIndex: 0,
   },
@@ -1962,8 +1962,8 @@ export const technologyMedium: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'medium',
-    prompt: { en: 'What is Europe\'s top League of Legends league called?',
-              bs: 'Kako se zove glavna League of Legends liga u Evropi?' },
+    prompt: { en: 'What name did Riot use for its top Europe League of Legends league in 2023?',
+              bs: 'Koji naziv je Riot 2023. godine koristio za svoju glavnu profesionalnu League of Legends ligu za regiju Evrope?' },
     options: [
       { en: 'LCK', bs: 'LCK' },
       { en: 'LEC', bs: 'LEC' },
@@ -1993,8 +1993,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'Which esport is Nikola "NiKo" Kovač, one of the greatest players in the world from Bosnia and Herzegovina, famous for?',
-      bs: 'U kojem esportu je poznat Nikola „NiKo“ Kovač, jedan od najboljih igrača svijeta iz Bosne i Hercegovine?'
+      en: 'In which esport is Bosnian player Nikola NiKo Kovač known?',
+      bs: 'U kojem je esportu poznat bosanskohercegovački igrač Nikola NiKo Kovač?'
     },
     options: [
       { en: 'Counter-Strike', bs: 'Counter-Strike' },
@@ -2110,8 +2110,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'Which arcade game was originally famous for being a Popeye game?',
-      bs: 'Koja arkadna igra je popularno prvobitno trebala biti Popeye igra prije nego što je promijenjena?'
+      en: 'Which arcade game was developed after Nintendo abandoned plans to use Popeye characters?',
+      bs: 'Koja je arkadna igra razvijena nakon što je Nintendo odustao od planova da koristi likove iz Popeyea?'
     },
     options: [
       { en: 'Donkey Kong', bs: 'Donkey Kong' },
@@ -2127,8 +2127,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'Which game character was created by Shigeru Miyamoto before Mario became famous?',
-      bs: 'Koji lik je Shigeru Miyamoto napravio prije nego što je Mario postao poznat?'
+      en: 'Which ape character created by Shigeru Miyamoto debuted alongside Mario in 1981?',
+      bs: 'Koji lik majmuna je debitovao zajedno s Mariom 1981. godine, a kreirao ga je Shigeru Miyamoto?'
     },
     options: [
       { en: 'Donkey Kong', bs: 'Donkey Kong' },
@@ -2219,14 +2219,14 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'Which game is famous for hiding a secret message saying "Genesis does what Nintendon’t"?',
-      bs: 'Koja igra je poznata po skrivenoj poruci "Genesis does what Nintendon’t"?'
+      en: 'Which company used the advertising slogan "Genesis does what Nintendon\'t"?',
+      bs: 'Koja je kompanija koristila reklamni slogan "Genesis does what Nintendon\'t"?'
     },
     options: [
-      { en: 'Earthworm Jim', bs: 'Earthworm Jim' },
-      { en: 'Sonic the Hedgehog', bs: 'Sonic the Hedgehog' },
-      { en: 'Mortal Kombat', bs: 'Mortal Kombat' },
-      { en: 'Streets of Rage', bs: 'Streets of Rage' },
+      { en: 'Sega', bs: 'Sega' },
+      { en: 'Atari', bs: 'Atari' },
+      { en: 'Sony', bs: 'Sony' },
+      { en: 'NEC', bs: 'NEC' },
     ],
     correctIndex: 0,
   },
@@ -2270,8 +2270,8 @@ export const technologyMedium: Question[] = [
     category: 'technology',
     difficulty: 'medium',
     prompt: {
-      en: 'Which voice actor won Best Performance at The Game Awards for portraying Kratos?',
-      bs: 'Koji je glasovni glumac osvojio nagradu za najbolju izvedbu na The Game Awardsu za ulogu Kratosa?',
+      en: 'Who won Best Performance at The Game Awards 2022 for portraying Kratos in God of War Ragnarök?',
+      bs: 'Ko je osvojio nagradu za najbolju izvedbu na dodjeli The Game Awards 2022. godine za ulogu Kratosa u igri God of War Ragnarök?',
     },
     options: [
       { en: 'Christopher Judge', bs: 'Christopher Judge' },

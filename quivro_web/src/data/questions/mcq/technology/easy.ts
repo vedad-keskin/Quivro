@@ -128,8 +128,8 @@ export const technologyEasy: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'easy',
-    prompt: { en: 'In a famous mobile catapult puzzle game, who hides behind structures?',
-              bs: 'U popularnoj mobilnoj katapult-slagalici, ko se krije iza građevina?' },
+    prompt: { en: 'In a famous mobile catapult puzzle game, which animals hide behind the structures?',
+              bs: 'U popularnoj mobilnoj katapult-slagalici, koje se životinje kriju iza građevina?' },
     options: [
       { en: 'Knights', bs: 'Vitezovi' },
       { en: 'Pigs', bs: 'Svinje' },
@@ -148,7 +148,7 @@ export const technologyEasy: Question[] = [
     options: [
       { en: 'Playing cards', bs: 'Karte za igranje' },
       { en: 'Falling blocks', bs: 'Padajuće blokove' },
-      { en: 'Puzzle pieces', bs: 'Dijelove slagalice' },
+      { en: 'Domino tiles', bs: 'Domine' },
       { en: 'Colored beads', bs: 'Obojene perle' },
     ],
     correctIndex: 1,
@@ -158,8 +158,8 @@ export const technologyEasy: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'easy',
-    prompt: { en: 'In Among Us, what type of vehicle is the main setting?',
-              bs: 'U igri Among Us, koje vozilo je glavno mjesto radnje?' },
+    prompt: { en: 'What type of vehicle is The Skeld, the original Among Us map?',
+              bs: 'Koje vozilo služi kao mjesto radnje na originalnoj mapi The Skeld u igri Among Us?' },
     options: [
       { en: 'Spaceship', bs: 'Svemirski brod' },
       { en: 'Submarine', bs: 'Podmornica' },
@@ -248,13 +248,13 @@ export const technologyEasy: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'easy',
-    prompt: { en: 'What item gives Mario an extra life in most games?',
-              bs: 'Koji predmet Mariu daje dodatni život u većini igara?' },
+    prompt: { en: 'Which mushroom grants Mario an extra life?',
+              bs: 'Koja gljiva Mariu daje dodatni život?' },
     options: [
       { en: '1-Up Mushroom', bs: '1-Up gljiva' },
-      { en: 'Coin', bs: 'Novčić' },
-      { en: 'Key', bs: 'Ključ' },
-      { en: 'Fire Flower', bs: 'Vatreni cvijet' },
+      { en: 'Super Mushroom', bs: 'Super gljiva' },
+      { en: 'Mini Mushroom', bs: 'Mini gljiva' },
+      { en: 'Poison Mushroom', bs: 'Otrovna gljiva' },
     ],
     correctIndex: 0,
   },
@@ -544,8 +544,8 @@ export const technologyEasy: Question[] = [
     category: 'technology',
     difficulty: 'easy',
     prompt: {
-      en: 'Which football player appeared on the cover of EA Sports FC 24?',
-      bs: 'Koji fudbaler se pojavio na naslovnici EA Sports FC 24?'
+      en: 'Who appears on the cover of the Standard Edition of EA SPORTS FC 24?',
+      bs: 'Ko je na naslovnici standardnog izdanja igre EA SPORTS FC 24?'
     },
     options: [
       { en: 'Erling Haaland', bs: 'Erling Haaland' },
@@ -560,8 +560,8 @@ export const technologyEasy: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'easy',
-    prompt: { en: 'In Rocket League, what do the cars hit to score?',
-              bs: 'U Rocket Leagueu, u šta automobili udaraju da bi postigli gol?' },
+    prompt: { en: 'In standard Soccar mode in Rocket League, what do the cars hit to score?',
+              bs: 'Šta automobili udaraju da bi postigli gol u standardnom načinu igre Soccar u Rocket Leagueu?' },
     options: [
       { en: 'A small cube', bs: 'Malu kocku' },
       { en: 'A hockey puck', bs: 'Hokejski pak' },
@@ -740,11 +740,11 @@ export const technologyEasy: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'easy',
-    prompt: { en: 'What does Pac-Man eat while moving through mazes?',
-              bs: 'Šta Pac-Man jede dok se kreće kroz lavirinte?' },
+    prompt: { en: 'What small items line the maze paths in the original Pac-Man?',
+              bs: 'Koji mali predmeti prekrivaju staze lavirinta u originalnoj igri Pac-Man?' },
     options: [
       { en: 'Fruits', bs: 'Voće' },
-      { en: 'Coins', bs: 'Novčiće' },
+      { en: 'Coins', bs: 'Novčići' },
       { en: 'Dots', bs: 'Tačke' },
       { en: 'Stars', bs: 'Zvijezde' },
     ],
@@ -800,8 +800,8 @@ export const technologyEasy: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'easy',
-    prompt: { en: 'In Counter-Strike, what are Counter-Terrorists trying to prevent in most rounds?',
-              bs: 'U Counter-Strikeu, šta Counter-Teroristi pokušavaju spriječiti u većini rundi?' },
+    prompt: { en: 'In Counter-Strike, what are Counter-Terrorists trying to prevent?',
+              bs: 'Šta pripadnici protuterorističkog tima pokušavaju spriječiti u Counter-Strikeu?' },
     options: [
       { en: 'A goal being scored', bs: 'Postizanje gola' },
       { en: 'A flag being captured', bs: 'Osvajanje zastave' },
@@ -861,8 +861,8 @@ export const technologyEasy: Question[] = [
     category: 'technology',
     difficulty: 'easy',
     prompt: {
-      en: 'Which technology powers realistic player animations in EA Sports FC 24?',
-      bs: 'Koja tehnologija omogućava realistične animacije igrača u EA Sports FC 24?'
+      en: 'Which animation technology is used in EA SPORTS FC 24 on PS5, Xbox Series X|S and PC?',
+      bs: 'Koja se tehnologija animacije koristi u igri EA SPORTS FC 24 na platformama PS5, Xbox Series X|S i PC?'
     },
     options: [
       { en: 'HyperMotionV', bs: 'HyperMotionV' },
@@ -925,8 +925,8 @@ export const technologyEasy: Question[] = [
     category: 'technology',
     difficulty: 'easy',
     prompt: {
-      en: 'What car does Razor drive in Need for Speed Most Wanted?',
-      bs: 'Koji automobil vozi Razor u naslovu Need for Speed Most Wanted?'
+      en: 'Which car does Razor drive in the final Blacklist challenge in Need for Speed: Most Wanted (2005)?',
+      bs: 'Koji automobil Razor vozi u završnom izazovu liste Blacklist u igri Need for Speed: Most Wanted iz 2005. godine?'
     },
     options: [
       { en: 'BMW M3 GTR', bs: 'BMW M3 GTR' },
@@ -1050,10 +1050,10 @@ export const technologyEasy: Question[] = [
     difficulty: 'easy',
     prompt: {
       en: 'What is the name of the protagonist in GTA: San Andreas?',
-      bs: 'Kako se zove glavni junak serijala GTA: San Andreas?'
+      bs: 'Kako se zove glavni junak igre Grand Theft Auto: San Andreas?'
     },
     options: [
-      { en: 'Carl "CJ" Johnson', bs: 'Carl "CJ" Johnson' },
+      { en: 'Carl Johnson', bs: 'Carl Johnson' },
       { en: 'Niko Bellic', bs: 'Niko Bellic' },
       { en: 'Tommy Vercetti', bs: 'Tommy Vercetti' },
       { en: 'Claude', bs: 'Claude' },
@@ -1095,13 +1095,13 @@ export const technologyEasy: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'easy',
-    prompt: { en: "What color is Mario's trademark cap usually?",
-              bs: 'Koje boje je Mariov prepoznatljivi šešir obično?' },
+    prompt: { en: 'What color is Mario\'s trademark cap?',
+              bs: 'Koje je boje Mariova prepoznatljiva kapa?' },
     options: [
-      { en: 'Red', bs: 'Crven' },
-      { en: 'Blue', bs: 'Plav' },
-      { en: 'Green', bs: 'Zelen' },
-      { en: 'Yellow', bs: 'Žut' },
+      { en: 'Red', bs: 'Crvena' },
+      { en: 'Blue', bs: 'Plava' },
+      { en: 'Green', bs: 'Zelena' },
+      { en: 'Yellow', bs: 'Žuta' },
     ],
     correctIndex: 0,
   },
@@ -1110,8 +1110,8 @@ export const technologyEasy: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'easy',
-    prompt: { en: 'Which item makes Mario grow bigger in many games?',
-              bs: 'Koji predmet Marija učini većim u mnogim igrama?' },
+    prompt: { en: 'Which power-up transforms Small Mario into Super Mario in Super Mario 3D World?',
+              bs: 'Koji predmet pretvara Malog Maria u Super Maria u igri Super Mario 3D World?' },
     options: [
       { en: 'Fire Flower', bs: 'Vatreni cvijet' },
       { en: 'Cape', bs: 'Plašt' },
@@ -1291,7 +1291,7 @@ export const technologyEasy: Question[] = [
     category: 'technology',
     difficulty: 'easy',
     prompt: { en: "What does Sonic's Spin Dash let him do?",
-              bs: 'Šta Sonicov Spin Dash njemu omogućava?' },
+              bs: 'Šta Sonic može učiniti pomoću poteza Spin Dash?' },
     options: [
       { en: 'Fly upward', bs: 'Letjeti naviše' },
       { en: 'Become invisible', bs: 'Postati nevidljiv' },
@@ -1383,8 +1383,8 @@ export const technologyEasy: Question[] = [
     category: 'technology',
     difficulty: 'easy',
     prompt: { 
-      en: 'Which company developed Pokémon GO together with Nintendo and The Pokémon Company?',
-      bs: 'Koja kompanija je razvila Pokémon GO zajedno s Nintendom i The Pokémon kompanijom?'
+      en: 'Which company originally developed Pokémon GO in collaboration with The Pokémon Company and Nintendo?',
+      bs: 'Koja je kompanija prvobitno razvila Pokémon GO u saradnji s kompanijama The Pokémon Company i Nintendom?'
     },
     options: [
       { en: 'Niantic', bs: 'Niantic' },
@@ -1444,13 +1444,13 @@ export const technologyEasy: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'easy',
-    prompt: { en: 'What is Mega Man known for copying from defeated enemies?',
-              bs: 'Šta Mega Man poznato kopira od poraženih neprijatelja?' },
+    prompt: { en: 'What does Mega Man copy from defeated bosses?',
+              bs: 'Šta Mega Man preuzima od poraženih glavnih protivnika?' },
     options: [
       { en: 'Outfits', bs: 'Odore' },
       { en: 'Voices', bs: 'Glasove' },
       { en: 'Maps', bs: 'Mape' },
-      { en: 'Weapons', bs: 'Oružja' },
+      { en: 'Weapons', bs: 'Oružje' },
     ],
     correctIndex: 3,
   },
@@ -1459,13 +1459,13 @@ export const technologyEasy: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'easy',
-    prompt: { en: 'What is a strong password most likely to include?',
-              bs: 'Šta jaka lozinka najčešće uključuje?' },
+    prompt: { en: 'Which is the best password practice?',
+              bs: 'Koja je najbolja praksa pri odabiru lozinke?' },
     options: [
-      { en: 'Letters, numbers, and symbols', bs: 'Slova, brojeve i simbole' },
-      { en: 'Your first name', bs: 'Tvoje ime' },
-      { en: 'A short common word', bs: 'Kratku čestu riječ' },
-      { en: 'Your birth year', bs: 'Godinu rođenja' },
+      { en: 'Use a long, unique password for each account', bs: 'Koristiti dugu i jedinstvenu lozinku za svaki račun' },
+      { en: 'Use your first name as your password', bs: 'Koristiti svoje ime kao lozinku' },
+      { en: 'Use a short common word as your password', bs: 'Koristiti kratku čestu riječ kao lozinku' },
+      { en: 'Use your birth year as your password', bs: 'Koristiti godinu rođenja kao lozinku' },
     ],
     correctIndex: 0,
   },
@@ -1504,8 +1504,8 @@ export const technologyEasy: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'easy',
-    prompt: { en: 'Which villainous group repeatedly tries to steal Pokémon in the anime?',
-              bs: 'Koja grupa pokušava ukrasti Pokémone?' },
+    prompt: { en: 'Which villainous team includes Jessie, James and Meowth in the Pokémon anime?',
+              bs: 'Kojoj zlikovačkoj grupi pripadaju Jessie, James i Meowth u Pokémon animeu?' },
     options: [
       { en: 'Team Rocket', bs: 'Tim Raketa' },
       { en: 'Team Aqua', bs: 'Tim Aqua' },
@@ -1519,8 +1519,8 @@ export const technologyEasy: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'easy',
-    prompt: { en: 'Which character is known for saying “Wah!” in Mario games?',
-              bs: 'Koji lik je poznat po uzviku „Wah!“ u Mario igrama?' },
+    prompt: { en: 'Which Mario character wears a yellow cap with a W and purple overalls?',
+              bs: 'Koji lik iz Mario igara nosi žutu kapu sa slovom W i ljubičasti kombinezon?' },
     options: [
       { en: 'Wario', bs: 'Wario' },
       { en: 'Toad', bs: 'Toad' },
@@ -1579,13 +1579,13 @@ export const technologyEasy: Question[] = [
     type: 'mcq',
     category: 'technology',
     difficulty: 'easy',
-    prompt: { en: 'Where were Pac-Man and Space Invaders first played mainly?',
-              bs: 'Gdje su se Pac-Man i Space Invaders prvi put uglavnom igrali?' },
+    prompt: { en: 'Where were Pac-Man and Space Invaders originally played?',
+              bs: 'Gdje su se prvobitno igrale igre Pac-Man i Space Invaders?' },
     options: [
-      { en: 'Home PCs', bs: 'Kućnim računarima' },
-      { en: 'Arcades', bs: 'Arkadama' },
-      { en: 'Smartphones', bs: 'Pametnim telefonima' },
-      { en: 'Game consoles', bs: 'Igraćim konzolama' },
+      { en: 'Home PCs', bs: 'Na kućnim računarima' },
+      { en: 'Arcades', bs: 'U igraonicama s arkadnim automatima' },
+      { en: 'Smartphones', bs: 'Na pametnim telefonima' },
+      { en: 'Game consoles', bs: 'Na igraćim konzolama' },
     ],
     correctIndex: 1,
   },
@@ -1612,7 +1612,7 @@ export const technologyEasy: Question[] = [
     category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'For which console was Kinect motion tracking introduced?',
-              bs: 'Za koju konzolu je predstavljen Kinect motion tracking?' },
+              bs: 'Za koju je konzolu predstavljen Kinect, uređaj za praćenje pokreta?' },
     options: [
       { en: 'Wii', bs: 'Wii' },
       { en: 'PlayStation 2', bs: 'PlayStation 2' },
@@ -1657,7 +1657,7 @@ export const technologyEasy: Question[] = [
     category: 'technology',
     difficulty: 'easy',
     prompt: { en: 'In esports, what does a LAN event mean?',
-              bs: 'U esportsu, šta znači LAN event?' },
+              bs: 'Šta u esportu znači LAN turnir?' },
     options: [
       { en: 'Players compete at a venue on a local network', bs: 'Igrači se takmiče na lokaciji preko lokalne mreže' },
       { en: 'Players compete against computer opponents', bs: 'Igrači se takmiče protiv računarskih protivnika' },
@@ -1751,14 +1751,14 @@ export const technologyEasy: Question[] = [
     category: 'technology',
     difficulty: 'easy',
     prompt: { 
-      en: 'Which type of storage is usually the fastest?',
-      bs: 'Koja vrsta pohrane je obično najbrža?'
+      en: 'Which of these storage devices typically offers the highest data transfer speeds?',
+      bs: 'Koji od ovih uređaja za pohranu obično omogućava najveće brzine prijenosa podataka?'
     },
     options: [
-      { en: 'NVMe', bs: 'NVMe' },
+      { en: 'NVMe SSD', bs: 'NVMe SSD' },
       { en: 'HDD', bs: 'HDD' },
-      { en: 'SSD', bs: 'SSD' },
-      { en: 'Floppy Disk', bs: 'Floppy disketa' },
+      { en: 'SATA SSD', bs: 'SATA SSD' },
+      { en: 'Floppy disk', bs: 'Disketa' },
     ],
     correctIndex: 0,
   },
