@@ -670,7 +670,7 @@ class _LobbyView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(28),
+          padding: const EdgeInsets.fromLTRB(28, 20, 28, 28),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
